@@ -309,10 +309,11 @@ fun ChapterReaderOverlay(
     var customAiQuestion by remember { mutableStateOf("") }
     var activeAiExplanation by remember(chapter.id) {
         mutableStateOf(
-            "In Fig. 2.2 (J.J. Thomson's Cathode Ray Tube), electrons emitted from the Cathode accelerate through the Anode slit. " +
-                "• Electric field alone pulls negative electrons upward toward the (+) plate (Point A).\n" +
-                "• Magnetic field alone deflects electrons downward via the Lorentz force F = -e(v × B) (Point C).\n" +
-                "• When eE = evB, the net transverse force is zero, so electrons travel undeflected to Point B with speed v = E / B."
+            if (chapter.keyConceptsSummary.isNotBlank()) {
+                "Key Concepts • ${chapter.title}:\n\n${chapter.keyConceptsSummary}"
+            } else {
+                "Key Relations • ${chapter.title}:\n\n${chapter.formulaHighlight}"
+            }
         )
     }
 
@@ -494,119 +495,39 @@ fun ChapterReaderOverlay(
                             .fillMaxWidth()
                             .padding(horizontal = 22.dp)
                     ) {
-                        // Top Bullet Takeaway + Dotted Horizontal Divider
-                        Text(
-                            text = "• Since electrons are negatively charged, the charge on electron is designated as –e.",
-                            fontFamily = InterFontFamily,
-                            fontWeight = FontWeight.Normal,
-                            fontSize = 13.5.sp,
-                            lineHeight = 19.5.sp,
-                            color = Color(0xFF374151),
-                            modifier = Modifier.padding(horizontal = 6.dp)
-                        )
-                        if (keyConceptBullets.isNotEmpty()) {
-                            Spacer(modifier = Modifier.height(4.dp))
+                        // Top Bullet Takeaways from Chapter Key Concepts
+                        keyConceptBullets.take(2).forEach { bullet ->
                             Text(
-                                text = "• ${keyConceptBullets.first()}",
+                                text = "• $bullet",
                                 fontFamily = InterFontFamily,
                                 fontWeight = FontWeight.Normal,
-                                fontSize = 13.sp,
-                                lineHeight = 19.sp,
-                                color = Color(0xFF4B5563),
-                                modifier = Modifier.padding(horizontal = 6.dp)
+                                fontSize = 13.5.sp,
+                                lineHeight = 19.5.sp,
+                                color = Color(0xFF374151),
+                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
                             )
                         }
 
-                        Spacer(modifier = Modifier.height(14.dp))
+                        if (keyConceptBullets.isNotEmpty()) {
+                            Spacer(modifier = Modifier.height(14.dp))
 
-                        // Subtle Dotted Divider Line
-                        Canvas(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(2.dp)
-                        ) {
-                            drawLine(
-                                color = Color(0xFFD5D9E0),
-                                start = Offset(0f, 0f),
-                                end = Offset(size.width, 0f),
-                                strokeWidth = 1.2.dp.toPx(),
-                                pathEffect = PathEffect.dashPathEffect(floatArrayOf(5f, 6f), 0f)
-                            )
+                            // Subtle Dotted Divider Line
+                            Canvas(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(2.dp)
+                            ) {
+                                drawLine(
+                                    color = Color(0xFFD5D9E0),
+                                    start = Offset(0f, 0f),
+                                    end = Offset(size.width, 0f),
+                                    strokeWidth = 1.2.dp.toPx(),
+                                    pathEffect = PathEffect.dashPathEffect(floatArrayOf(5f, 6f), 0f)
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.height(18.dp))
                         }
-
-                        Spacer(modifier = Modifier.height(18.dp))
-
-                        // Bold Figure & Apparatus Heading
-                        Text(
-                            text = "Fig. 2.2 — Apparatus Description",
-                            fontFamily = InterFontFamily,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 16.5.sp,
-                            letterSpacing = (-0.2).sp,
-                            color = Color(0xFF111827)
-                        )
-
-                        Spacer(modifier = Modifier.height(10.dp))
-
-                        // Textbook Body Paragraph
-                        Text(
-                            text = "The apparatus to determine the charge to mass ratio of electron consists of a cathode ray tube with cathode and anode, connected to a high voltage source. A magnet is placed around the tube. When only electric field is applied, electrons deviate to point A. When only magnetic field is applied, electrons hit point C. By balancing both fields, electrons travel straight to point B — the undeflected path.",
-                            fontFamily = InterFontFamily,
-                            fontWeight = FontWeight.Normal,
-                            fontSize = 14.5.sp,
-                            lineHeight = 23.sp,
-                            color = Color(0xFF374151)
-                        )
-
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        // Crisp White Textbook Scientific Illustration Card (Fig. 2.2 Cathode Ray Tube)
-                        TextbookCathodeRayApparatusDiagramCard()
-
-                        Spacer(modifier = Modifier.height(8.dp))
-
-                        // Centered Muted Gray Caption Underneath the White Diagram Card
-                        Text(
-                            text = "Fig. 2.2 The apparatus to determine the charge to mass ratio of electron",
-                            fontFamily = InterFontFamily,
-                            fontWeight = FontWeight.Normal,
-                            fontSize = 12.sp,
-                            lineHeight = 16.5.sp,
-                            color = Color(0xFF6B7280),
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 12.dp)
-                        )
-
-                        Spacer(modifier = Modifier.height(24.dp))
-
-                        // Numbered Textbook Subsection Heading
-                        Text(
-                            text = "2.1.2 Charge to Mass Ratio of Electron",
-                            fontFamily = InterFontFamily,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 16.5.sp,
-                            letterSpacing = (-0.2).sp,
-                            color = Color(0xFF111827)
-                        )
-
-                        Spacer(modifier = Modifier.height(10.dp))
-
-                        Text(
-                            text = "In 1897, British physicist J.J. Thomson measured the ratio of electrical charge (e) to the mass of electron (mₑ) by using cathode ray tube and applying electrical and magnetic field perpendicular to each other as well as to the path of electrons (Fig. 2.2). Thomson argued that the amount of deviation of the particles from their path in the presence of electrical or magnetic field depends upon:\n\n" +
-                                "(i) the magnitude of the negative charge on the particle — greater the magnitude of the charge on the particle, greater is the interaction with the electric or magnetic field and thus greater is the deflection.\n" +
-                                "(ii) the mass of the particle — lighter the particle, greater the deflection.\n" +
-                                "(iii) the strength of the electrical or magnetic field — the deflection of electrons from its original path increases with the increase in the voltage across the electrodes, or the strength of the magnetic field.\n\n" +
-                                "By carrying out accurate measurements on the amount of deflections observed by the electrons on the electric field strength or magnetic field strength, Thomson was able to determine the value of e / mₑ = 1.758820 × 10¹¹ C kg⁻¹.",
-                            fontFamily = InterFontFamily,
-                            fontWeight = FontWeight.Normal,
-                            fontSize = 14.5.sp,
-                            lineHeight = 23.sp,
-                            color = Color(0xFF374151)
-                        )
-
-                        Spacer(modifier = Modifier.height(24.dp))
 
                         // Chapter-Specific Textbook Sections & Derivations
                         parsedNoteSections.forEachIndexed { idx, (sectionHeading, sectionLines) ->
