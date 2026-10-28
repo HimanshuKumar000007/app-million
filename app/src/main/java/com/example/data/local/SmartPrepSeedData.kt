@@ -552,24 +552,104 @@ object SmartPrepSeedData {
             subtitle = "Dimensional Analysis, Significant Figures & Error Propagation",
             totalLessons = 4,
             completedLessons = 4,
-            studyNotesCount = 6,
+            studyNotesCount = 7,
             practiceQuestionCount = 18,
             durationMinutes = 35,
             formulaHighlight = "ΔZ / Z = a(ΔA / A) + b(ΔB / B) + c(ΔC / C)",
             keyConceptsSummary = "SI base and derived units, principle of homogeneity of dimensions, Vernier calipers and screw gauge least count, relative and percentage error propagation.",
             detailedStudyNotes = """
-                1. Dimensional Analysis & Principle of Homogeneity
-                • Only physical quantities with identical dimensions can be added, subtracted, or equated.
-                • Arguments of transcendental functions (sin θ, eˣ, ln x) are always dimensionless.
+                1. The International System of Units (SI)
 
-                2. Error Propagation
-                • Sum/Difference (Z = A ± B): Maximum absolute error ΔZ = ΔA + ΔB.
-                • Power Product (Z = Aᵃ Bᵇ / Cᶜ): Fractional error ΔZ/Z = |a|(ΔA/A) + |b|(ΔB/B) + |c|(ΔC/C).
+                • A physical quantity is expressed as Q = n × u (number × unit). If the unit becomes smaller, the number becomes larger: n₁u₁ = n₂u₂.
 
-                3. Measuring Instruments
-                • Vernier Calipers Least Count: LC = 1 MSD − 1 VSD.
-                • Screw Gauge Least Count: LC = Pitch / Number of Circular Scale Divisions.
-            """.trimIndent(),
+                • The 7 SI base quantities are: Length (metre, m), Mass (kilogram, kg), Time (second, s), Electric Current (ampere, A), Temperature (kelvin, K), Amount of Substance (mole, mol), Luminous Intensity (candela, cd).
+
+                • Plane angle (radian, rad) and solid angle (steradian, sr) are dimensionless supplementary quantities.
+
+                • Common derived units: Force — newton (N) = kg m s⁻²; Energy — joule (J) = kg m² s⁻²; Power — watt (W) = kg m² s⁻³; Pressure — pascal (Pa) = kg m⁻¹ s⁻²; Charge — coulomb (C) = A s.
+
+                • Prefixes: pico 10⁻¹², nano 10⁻⁹, micro 10⁻⁶, milli 10⁻³, centi 10⁻², kilo 10³, mega 10⁶, giga 10⁹, tera 10¹².
+
+                • Modern SI units are defined through fixed constants of nature — the metre from the speed of light c, the second from the caesium atom frequency, and the kilogram from the Planck constant h.
+
+
+                2. Significant Figures
+
+                • Significant figures are all reliably known digits plus one uncertain digit. They show the precision of a measurement.
+
+                • All non-zero digits are significant; zeros between non-zero digits are significant (2007 has 4 SF).
+
+                • Leading zeros are NOT significant (0.0042 has 2 SF); trailing zeros after a decimal point ARE significant (3.500 has 4 SF; 0.00120 has 4 SF).
+
+                • Rounding off: digit to be dropped < 5 → keep previous digit; > 5 → increase previous digit by 1; exactly 5 → keep even, raise odd (3.25 → 3.2; 3.35 → 3.4).
+
+                • Addition/Subtraction: round the result to the smallest number of DECIMAL PLACES. 12.587 + 3.2 = 15.8.
+
+                • Multiplication/Division: round the result to the smallest number of SIGNIFICANT FIGURES. 4.327 × 2.1 = 9.1.
+
+                • Never round at intermediate steps — calculate fully and round only the final answer.
+
+
+                3. Measuring Instruments, Least Count & Errors
+
+                • Least count (LC) is the smallest value an instrument can measure. Smaller LC means higher precision.
+
+                • Vernier Calipers [Fig. 1.1]: LC = 1 MSD − 1 VSD. If 10 VSD = 9 MSD and 1 MSD = 1 mm, LC = 0.1 mm = 0.01 cm. Lower jaws measure external size, upper jaws internal size, and the depth rod measures depth.
+
+                • Screw Gauge [Fig. 1.2]: LC = Pitch ÷ Number of Circular Scale Divisions. Pitch 1 mm with 100 divisions gives LC = 0.01 mm. Use the ratchet to avoid excess pressure.
+
+                • Reading = Main scale reading + (Coinciding division × LC) − Zero error (with sign). Zero error is found by closing the jaws fully.
+
+                • Absolute error = |measured − true| value. Relative error = mean absolute error ÷ mean value. Percentage error = relative error × 100.
+
+                • Error propagation — Sum/Difference (Z = A ± B): ΔZ = ΔA + ΔB. Product/Power (Z = Aᵃ Bᵇ / Cᶜ): ΔZ/Z = |a|(ΔA/A) + |b|(ΔB/B) + |c|(ΔC/C). Errors always add — never subtract.
+
+
+                4. Dimensions and Dimensional Formulae
+
+                • Dimensions show how a quantity is built from [M], [L], [T], [A], [K], [mol], [cd]. The dimensional equation equates the quantity with its formula, e.g. [Force] = [M L T⁻²].
+
+                • Velocity [L T⁻¹] • Acceleration [L T⁻²] • Force [M L T⁻²] • Work/Energy/Torque [M L² T⁻²] • Power [M L² T⁻³]
+
+                • Pressure/Stress [M L⁻¹ T⁻²] • Momentum/Impulse [M L T⁻¹] • Density [M L⁻³] • Frequency [T⁻¹] • Angular Momentum [M L² T⁻¹]
+
+                • Moment of Inertia [M L²] • Surface Tension [M T⁻²] • Viscosity [M L⁻¹ T⁻¹] • Gravitational Constant G [M⁻¹ L³ T⁻²] • Planck Constant h [M L² T⁻¹]
+
+                • Charge [A T] • Resistance [M L² T⁻³ A⁻²] • Specific Heat [L² T⁻² K⁻¹] • Gas Constant R [M L² T⁻² K⁻¹ mol⁻¹]
+
+                • Same dimensions do NOT mean the same quantity: work and torque share [M L² T⁻²]; momentum and impulse share [M L T⁻¹].
+
+                • Angle, strain, refractive index and relative density are dimensionless — but angle still has a unit (radian).
+
+
+                5. Dimensional Analysis — Principle of Homogeneity
+
+                • In a correct equation, every term on both sides must have the same dimensions. Only quantities of identical dimensions can be added, subtracted or equated.
+
+                • Arguments of sin, cos, eˣ and ln x are always dimensionless, and the functions themselves are dimensionless.
+
+
+                6. Applications of Dimensional Analysis
+
+                • Checking an equation: for s = ut + ½at², [ut] = [L] and [at²] = [L], matching [s] = [L]. Dimensionally correct — but the constant ½ cannot be verified this way, so a dimensionally correct equation may still be wrong.
+
+                • Deriving a relation: assuming the pendulum period T ∝ lᵃ gᵇ mᶜ and comparing powers of M, L, T gives c = 0, b = −½, a = ½, so T ∝ √(l/g). The mass drops out and the constant 2π is not obtained.
+
+                • Converting units: n₂ = n₁ [M₁/M₂]ᵃ [L₁/L₂]ᵇ [T₁/T₂]ᶜ. Example: 1 N = 1 × (kg/g)(m/cm)(s/s)⁻² = 10⁵ dyne.
+
+                • Limitations: (1) dimensionless constants like 2π, ½, e cannot be found; (2) fails for equations containing sin, log or exponential terms; (3) cannot distinguish quantities with identical dimensions; (4) fails when a quantity depends on more than 3 parameters.
+
+
+                7. Apparatus in Focus — Charge-to-Mass Ratio of Electron [Fig. 1.3]
+
+                • Since electrons are negatively charged, the charge on an electron is designated as −e.
+
+                • The apparatus consists of a cathode ray tube with cathode and anode, connected to a high voltage source, with a magnet placed around the tube.
+
+                • When only electric field is applied, electrons deviate to point A. When only magnetic field is applied, electrons hit point C. By balancing both fields, electrons travel straight to point B — the undeflected path.
+
+                • Balance condition: eE = evB, so v = E/B. Combined with eV = ½mv², this gives e/m = E² / (2VB²) ≈ 1.76 × 10¹¹ C/kg.
+                """.trimIndent(),
             videoTitle = "Dimensional Homogeneity & Precision Instruments in IAT",
             videoDurationLabel = "26:40",
             videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
@@ -592,14 +672,96 @@ object SmartPrepSeedData {
             formulaHighlight = "a = v (dv / dx)  •  s_nth = u + a(2n − 1) / 2",
             keyConceptsSummary = "Instantaneous velocity and acceleration, non-uniform acceleration via integration, v-t and a-x graphs, stopping distance, and 1D relative velocity.",
             detailedStudyNotes = """
-                1. Differential & Integral Relations
-                • v = dx/dt, a = dv/dt = d²x/dt² = v(dv/dx).
-                • Area under v-t curve gives displacement ∫ v dt; area under a-x curve gives ½(v² − u²).
+                1. Position, Path Length and Displacement
 
-                2. Uniform Acceleration Equations
-                • v = u + at  |  s = ut + ½at²  |  v² = u² + 2as.
-                • Displacement in nth second: sₙ = u + (a/2)(2n − 1).
-            """.trimIndent(),
+                • Motion is described relative to a frame of reference — an origin, axes and a clock. In one dimension, position is a single coordinate x.
+
+                • Path length (distance) is the total length of the actual path: a scalar, always positive, and it never decreases.
+
+                • Displacement Δx = x₂ − x₁ is a vector: it depends only on the start and end points, not on the path taken.
+
+                • |Displacement| ≤ path length always; they are equal only when motion is in one direction without turning back.
+
+                • Example: one full round of a 400 m track — path length = 400 m, displacement = 0.
+
+
+                2. Average and Instantaneous Velocity and Speed
+
+                • Average velocity v̄ = Δx/Δt = (x₂ − x₁)/(t₂ − t₁). It gives the net rate of change of position, not the details in between.
+
+                • Average speed = total path length ÷ total time. In general, average speed ≥ |average velocity|.
+
+                • Instantaneous velocity v = dx/dt — the velocity at one instant, found as the slope of the tangent to the x–t graph at that point.
+
+                • Instantaneous speed = |v|. Speed is a scalar — a speedometer shows instantaneous speed, never velocity.
+
+                • A body returning to its starting point has zero average velocity for the trip, even though its average speed is not zero.
+
+
+                3. Acceleration
+
+                • Average acceleration ā = Δv/Δt = (v₂ − v₁)/(t₂ − t₁). Instantaneous acceleration a = dv/dt — the slope of the v–t graph. Unit m/s², dimensions [L T⁻²].
+
+                • Useful forms: a = dv/dt = d²x/dt² = v(dv/dx). The last form is used when acceleration depends on position.
+
+                • Acceleration is a vector. In 1D, a body speeds up when v and a have the same sign and slows down when they have opposite signs — negative acceleration alone does not mean slowing down.
+
+                • Velocity can be zero at an instant while acceleration is not: at the top of a vertical throw, v = 0 but a = −g throughout the flight.
+
+                • If velocity is constant, acceleration is zero. If acceleration is constant, velocity changes equally in equal times.
+
+
+                4. Graphs of Motion [Fig. 2.1]
+
+                • x–t graph: slope at any point = instantaneous velocity. A straight line means constant velocity; a curve getting steeper means speeding up.
+
+                • v–t graph: slope = acceleration; area under the curve = displacement (area below the time axis counts negative).
+
+                • a–t graph: area under the curve = change in velocity Δv.
+
+                • For uniformly accelerated motion: the x–t graph is a parabola, the v–t graph is a straight line, and the a–t graph is a horizontal line.
+
+
+                5. Kinematic Equations for Uniformly Accelerated Motion
+
+                • v = u + at
+
+                • s = ut + ½at²
+
+                • v² = u² + 2as
+
+                • Average velocity form (constant a only): s = ((u + v)/2) × t
+
+                • Displacement in the nth second: sₙ = u + (a/2)(2n − 1)
+
+                • Quick check: with u = 0 and a = 2 m/s², s₅ = (2/2)(2×5 − 1) = 9 m — matching s(5 s) − s(4 s) = 25 − 16 = 9 m.
+
+                • These equations apply ONLY when acceleration is constant. Fix one direction as positive at the start and use the same sign convention for u, v, a and s throughout.
+
+                • If acceleration changes with time, do not use these equations — use v = ∫a dt and x = ∫v dt instead.
+
+
+                6. Motion Under Gravity (Free Fall)
+
+                • A freely falling body has constant acceleration g ≈ 9.8 m/s² directed downwards (use 10 m/s² only if the question says so). Apply the same kinematic equations with a = −g (upward positive).
+
+                • Dropped from rest from height h: time to fall t = √(2h/g); speed at the ground v = √(2gh).
+
+                • Thrown vertically up with speed u: maximum height H = u²/(2g); time to reach the top t = u/g; total time of flight back to the launch point = 2u/g.
+
+                • The motion is symmetric: speed at any height is the same while going up and coming down.
+
+                • Example: a stone dropped from a 45 m tower (g = 10 m/s²) takes t = √(2×45/10) = 3 s and hits the ground at v = √(2×10×45) = 30 m/s.
+
+
+                7. Relative Velocity in One Dimension and Worked Examples
+
+                • Velocity of A relative to B: v_AB = v_A − v_B, with all velocities measured in the ground frame using the same sign convention. Bodies approaching each other have relative speed equal to the sum of their speeds.
+
+                • Braking example: a car at 20 m/s brakes with retardation 5 m/s². Stopping distance: 0 = 20² + 2(−5)s, so s = 40 m; stopping time: 0 = 20 − 5t, so t = 4 s.
+
+                • Calculus example: for x = t² − 4t + 3, v = dx/dt = 2t − 4, so the particle is instantaneously at rest at t = 2 s; its displacement in the first 2 s is x(2) − x(0) = −4 m.
+                """.trimIndent(),
             videoTitle = "Variable Acceleration & v(dv/dx) Problems for IISER IAT",
             videoDurationLabel = "29:15",
             videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
