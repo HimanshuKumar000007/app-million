@@ -14,6 +14,7 @@ import com.example.data.local.SmartPrepDatabase
 import com.example.data.local.StudyPlanTaskEntity
 import com.example.data.local.UserProfileEntity
 import com.example.data.repository.SmartPrepRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -96,7 +97,7 @@ class SmartPrepViewModel(
     val notesFocusedSubject: StateFlow<String> = _notesFocusedSubject.asStateFlow()
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try {
                 repository.ensureSeeded()
             } catch (e: Exception) {

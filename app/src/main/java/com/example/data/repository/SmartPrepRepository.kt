@@ -9,7 +9,9 @@ import com.example.data.local.SmartPrepSeedData
 import com.example.data.local.StudyPlanTaskEntity
 import com.example.data.local.UserProfileEntity
 import com.example.data.remote.GeminiSnapSolveClient
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withContext
 
 class SmartPrepRepository(private val dao: SmartPrepDao) {
 
@@ -19,7 +21,7 @@ class SmartPrepRepository(private val dao: SmartPrepDao) {
     val allMockTests: Flow<List<MockTestEntity>> = dao.observeAllMockTests()
     val studyPlanTasks: Flow<List<StudyPlanTaskEntity>> = dao.observeStudyPlanTasks()
 
-    suspend fun ensureSeeded() {
+    suspend fun ensureSeeded() = withContext(Dispatchers.IO) {
         if (dao.getUserProfileOnce() == null) {
             dao.upsertUserProfile(SmartPrepSeedData.initialProfile)
         }
@@ -28,8 +30,14 @@ class SmartPrepRepository(private val dao: SmartPrepDao) {
             dao.insertQuestions(SmartPrepSeedData.initialQuestions)
             dao.insertMockTests(SmartPrepSeedData.initialMockTests)
             dao.insertStudyPlanTasks(SmartPrepSeedData.initialStudyPlanTasks)
-        } else if (dao.getMockTestCount() < SmartPrepSeedData.initialMockTests.size) {
-            dao.insertMockTests(SmartPrepSeedData.initialMockTests)
+        } else {
+            // Fast upsert for updated Chapter 1 without blocking the database
+            SmartPrepSeedData.initialChapters.find { it.id == "phys_ch_1" }?.let { ch1 ->
+                dao.insertChapters(listOf(ch1))
+            }
+            if (dao.getMockTestCount() < SmartPrepSeedData.initialMockTests.size) {
+                dao.insertMockTests(SmartPrepSeedData.initialMockTests)
+            }
         }
     }
 

@@ -20,6 +20,9 @@
 
 ## ▸ The Seven SI Base Units — the 2019 Definitions
 
+![Fig 1.5 — The Seven SI Base Units & Fundamental Constants](https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175518/physics-ch01-fig-1-5-si-constants.png)
+*Figure 1.5: The 2019 redefinition of the SI system anchored to 7 fundamental constants of nature ($c, h, e, k_B, N_A, \Delta\nu_{Cs}, K_{cd}$).*
+
 • Length — metre (m): defined through the speed of light in vacuum, c = 299,792,458 m/s exactly. One metre is the distance light travels in 1/299,792,458 of a second.
 
 • Mass — kilogram (kg): defined through the Planck constant h = 6.62607015 × 10⁻³⁴ J s exactly, together with the metre and the second. The old platinum-iridium cylinder in Paris is retired.
@@ -98,6 +101,12 @@
 
 ## ▸ Vernier Calipers — Least Count, Reading and Zero Error [Fig. 1.1, Fig. 1.4]
 
+![Fig 1.1 — Vernier Calipers Diagram & Measurement Scales](https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175529/physics-ch01-fig-1-1-vernier-calipers.png)
+*Figure 1.1: Schematic diagram of Vernier Calipers showing external jaws, internal jaws, depth probe, main scale, and sliding vernier scale.*
+
+![Fig 1.4 — Positive and Negative Zero Errors](https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175533/physics-ch01-fig-1-4-zero-errors.png)
+*Figure 1.4: Understanding zero error alignment: No Zero Error vs Positive Zero Error (vernier zero to the right) vs Negative Zero Error (vernier zero to the left).*
+
 • The object sits between the lower (external) jaws; the upper jaws measure internal diameters, and the thin depth rod at the back measures the depth of a vessel.
 
 ✔ KEY FORMULA — LC = 1 MSD − 1 VSD (one main scale division minus one vernier scale division). If 10 vernier divisions coincide with 9 main scale divisions and 1 MSD = 1 mm, then LC = 1 mm − 0.9 mm = 0.1 mm = 0.01 cm.
@@ -113,6 +122,9 @@
 • Variant pattern: if (N + 1) vernier divisions coincide with N main divisions, LC = 1 MSD ÷ (N + 1) — read the coincidence statement carefully before reaching for the standard formula.
 
 ## ▸ Screw Gauge — Least Count, Reading and Zero Error [Fig. 1.2, Fig. 1.4]
+
+![Fig 1.2 — Micrometer Screw Gauge Anatomy](https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175530/physics-ch01-fig-1-2-screw-gauge.png)
+*Figure 1.2: Micrometer Screw Gauge structure showing U-frame, anvil, spindle, main sleeve (linear scale), circular thimble, and safety ratchet.*
 
 • A screw gauge (micrometer) measures the diameter of a wire or thickness of a sheet to about 10⁻⁵ m. One full rotation of the cap advances the spindle by a fixed distance called the pitch.
 
@@ -285,6 +297,9 @@
 • Limit 3: it cannot distinguish quantities that share dimensions (work vs torque). Limit 4: with only three equations (M, L, T) it fails when a quantity depends on more than three parameters. Limit 5: it says nothing about scalar versus vector nature.
 
 ## Apparatus in Focus — Thomson's e/m Experiment [Fig. 1.3]
+
+![Fig 1.3 — J.J. Thomson Cathode Ray Tube e/m Apparatus](https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175532/physics-ch01-fig-1-3-em-apparatus.png)
+*Figure 1.3: Thomson's Cathode Ray experiment demonstrating crossed electric and magnetic fields acting as a velocity selector to measure $e/m_e \approx 1.76 \times 10^{11}\text{ C/kg}$.*
 
 • Electrons are negatively charged, so an electron's charge is written −e and its mass mₑ. Neither could be measured separately for decades — but their ratio e/m could, and J. J. Thomson measured it in 1897 with the cathode ray tube of the apparatus figure.
 
