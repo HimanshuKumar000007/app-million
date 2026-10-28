@@ -1,13 +1,8 @@
-# Physics Ch 01 — Units and Measurements (RICH VERSION, written from scratch 2026-10-28)
-# For: ChapterEntity id = "phys_ch_1", field detailedStudyNotes in SmartPrepSeedData.kt
-# Syllabus: The international system of units; Significant figures; Dimensions of physical quantities; Dimensional formulae and dimensional equations; Dimensional analysis and its applications.
-# Images for this chapter (PNG, delivered separately — add to app assets):
-#   fig-1.1-vernier-calipers.png  (Section 3)
-#   fig-1.2-screw-gauge.png       (Section 3)
-#   fig-1.3-em-apparatus.png      (Section 11)
-# ---- BEGIN detailedStudyNotes text (paste between the triple quotes) ----
+# Physics • Ch 01 — Units and Measurements
 
-1. Physical Quantities and the International System of Units (SI)
+**Syllabus:** The international system of units; Significant figures; Dimensions of physical quantities; Dimensional formulae and dimensional equations; Dimensional analysis and its applications.
+
+## 1. Physical Quantities and the International System of Units (SI)
 
 • Physics is a quantitative science: every law is stated through measurable physical quantities — length, mass, time, force, energy, charge and so on. A measurement is incomplete until it is written as a number multiplied by a unit: Q = n × u.
 
@@ -19,16 +14,15 @@
 
 • Mass — kilogram (kg): defined through the Planck constant h = 6.62607015 × 10⁻³⁴ J s exactly, together with the metre and the second.
 
-• Time — second (s): the duration of 9,192,631,770 periods of the radiation from the caesium-133 atom transition. This atomic definition is why atomic clocks are accurate to about one second in millions of years.
+• Time — second (s): the duration of 9,192,631,770 periods of the radiation from the caesium-133 atom transition; the caesium frequency Δν_Cs = 9,192,631,770 Hz exactly. This atomic definition is why atomic clocks are accurate to about one second in millions of years.
 
-• Electric current — ampere (A): defined through the elementary charge e = 1.602176634 × 10⁻¹⁹ C exactly. Temperature — kelvin (K): defined through the Boltzmann constant k = 1.380649 × 10⁻²³ J/K exactly.
+• Electric current — ampere (A): defined through the elementary charge e = 1.602176634 × 10⁻¹⁹ C exactly. Temperature — kelvin (K): defined through the Boltzmann constant k_B = 1.380649 × 10⁻²³ J/K exactly. Luminous intensity — candela (cd): defined through the luminous efficacy K_cd = 683 lm/W for light of frequency 540 × 10¹² Hz.
 
 • Amount of substance — mole (mol): exactly 6.02214076 × 10²³ elementary entities (the Avogadro number). Luminous intensity — candela (cd): light intensity measured against a standard source of frequency 540 × 10¹² Hz.
 
 • Because the SI units are now tied to constants of nature, they can never drift, wear out or be destroyed — any laboratory in the universe can reproduce them exactly. This replaced the old system of physical standard objects, such as the platinum-iridium kilogram cylinder kept in Paris.
 
-
-2. Derived Units, Prefixes and the Rules for Writing Units
+## 2. Derived Units, Prefixes and the Rules for Writing Units
 
 • Force — newton (N) = kg m s⁻² • Work and energy — joule (J) = kg m² s⁻² • Power — watt (W) = kg m² s⁻³ • Pressure — pascal (Pa) = kg m⁻¹ s⁻² • Frequency — hertz (Hz) = s⁻¹
 
@@ -38,12 +32,15 @@
 
 • Prefixes multiply a unit by a power of ten: pico (p) 10⁻¹² • nano (n) 10⁻⁹ • micro (μ) 10⁻⁶ • milli (m) 10⁻³ • centi (c) 10⁻² • deci (d) 10⁻¹ • kilo (k) 10³ • mega (M) 10⁶ • giga (G) 10⁹ • tera (T) 10¹².
 
-• Useful non-SI units still in daily use: 1 Å = 10⁻¹⁰ m (atoms) • 1 nm = 10⁻⁹ m • 1 μm = 10⁻⁶ m • 1 light year = 9.46 × 10¹⁵ m • 1 AU = 1.496 × 10¹¹ m • 1 parsec = 3.08 × 10¹⁶ m • 1 amu (u) = 1.66 × 10⁻²⁷ kg • 1 eV = 1.602 × 10⁻¹⁹ J.
+• Useful non-SI units still in daily use: 1 fm = 10⁻¹⁵ m (nuclei) • 1 Å = 10⁻¹⁰ m (atoms) • 1 nm = 10⁻⁹ m • 1 μm = 10⁻⁶ m • 1 light year = 9.46 × 10¹⁵ m • 1 AU = 1.496 × 10¹¹ m • 1 parsec = 3.08 × 10¹⁶ m (the largest of these length units) • 1 amu (u) = 1.66 × 10⁻²⁷ kg • 1 eV = 1.602 × 10⁻¹⁹ J.
 
 • Writing rules that examiners love to test: symbols are never followed by a full stop (write 5 kg, not 5 kg.); symbols never take a plural (write 10 N, not 10 Ns); leave a space between the number and the unit; and a unit named after a scientist begins with a capital symbol (N, J, W, Pa, Hz) but a small letter in full (newton, joule, watt).
 
+## 3. Measurement — Least Count, Vernier Calipers and Screw Gauge [Fig. 1.1 and Fig. 1.2]
 
-3. Measurement — Least Count, Vernier Calipers and Screw Gauge [Fig. 1.1 and Fig. 1.2]
+![Fig. 1.1 Vernier calipers](images/fig-1.1-vernier-calipers.png)
+
+![Fig. 1.2 Screw gauge](images/fig-1.2-screw-gauge.png)
 
 • No instrument measures a quantity perfectly. The least count (LC) of an instrument is the smallest change it can detect, and it fixes the precision of every reading taken with it: a metre scale (LC 1 mm) can never honestly report 12.34 cm.
 
@@ -63,8 +60,7 @@
 
 • Zero error: close the jaws gently. If the zeros do not coincide, the instrument carries a zero error, and every reading must be corrected: Corrected value = Observed reading − Zero error (with its sign). A zero that sits below the reference line gives a positive zero error, which is subtracted.
 
-
-4. Errors in Measurement — Types, Accuracy and Precision
+## 4. Errors in Measurement — Types, Accuracy and Precision
 
 • The difference between a measured value and the true value is its error. Repeated measurements of the same quantity rarely agree exactly, so results are reported as a mean value together with an uncertainty: a = a_mean ± Δa.
 
@@ -82,8 +78,7 @@
 
 • Every final result must be written so that its last digit is the first uncertain digit — this is exactly the idea of significant figures, developed in Section 6.
 
-
-5. Propagation of Errors — With Worked Examples
+## 5. Propagation of Errors — With Worked Examples
 
 • Errors never cancel by luck; in the worst-case estimate used at this level, errors always add. The rules below follow from that one principle.
 
@@ -101,8 +96,9 @@
 
 • Practical rule for experiments: identify the quantity measured with the largest power and the largest relative error first — improving that single measurement improves the whole result the most.
 
+• Maximum permissible error vs most probable error: the rules above give the maximum permissible (worst-case) error, where every error is assumed to push the result the same way — this is what school and entrance-exam problems ask for. In research laboratories, independent random errors partly cancel, and the most probable error is combined in quadrature (root-sum-of-squares): ΔZ/Z = √[(p·ΔA/A)² + (q·ΔB/B)² + (r·ΔC/C)²]. The most probable error is always smaller than the maximum permissible error for the same data.
 
-6. Significant Figures — Rules, Rounding and Arithmetic
+## 6. Significant Figures — Rules, Rounding and Arithmetic
 
 • The significant figures of a measurement are all the digits that are known reliably, plus the first uncertain digit. 23.023 cm has 5 significant figures; a result claimed as 23.0230 cm from a millimetre scale would be dishonest — the last digits are invented.
 
@@ -114,7 +110,9 @@
 
 • Rule 4: Trailing zeros in a number containing a decimal point are significant. 3.500 has 4, 0.00120 has 4 and 12.000 has 5 significant figures.
 
-• Rule 5: In a whole number without a decimal point, trailing zeros are doubtful. Write such numbers in scientific notation to remove the doubt: 2500 may mean 2.5 × 10³ (2 significant figures) or 2.500 × 10³ (4 significant figures). Powers of ten themselves never count as significant figures.
+• Rule 5: In a whole number without a decimal point, trailing zeros are doubtful. Write such numbers in scientific notation to remove the doubt: 2500 may mean 2.5 × 10³ (2 significant figures) or 2.500 × 10³ (4 significant figures).
+
+• Rule 6: Powers of ten never count as significant figures, and numbers obtained by counting or by definition (12 eggs in a dozen, 2πr with exact counts, defined constants such as c in m/s) are exact — they have infinitely many significant figures and never limit a calculation.
 
 • Rounding off: digit to be dropped less than 5 — leave the last retained digit unchanged (3.24 → 3.2). More than 5 — raise it by one (3.27 → 3.3). Exactly 5 — leave an even last digit unchanged and raise an odd one (3.25 → 3.2, but 3.35 → 3.4). This even-odd rule stops rounding from biasing long calculations upward.
 
@@ -124,8 +122,7 @@
 
 • Order of magnitude: a quantity's order of magnitude is the power of ten closest to its value when written in scientific form — the diameter of a hydrogen atom is about 10⁻¹⁰ m, of order −10. Orders of magnitude let you sanity-check any numerical answer in seconds.
 
-
-7. Dimensions of Physical Quantities — the Master List
+## 7. Dimensions of Physical Quantities — the Master List
 
 • The dimensions of a quantity state which base quantities it is made of and to what powers: mass [M], length [L], time [T], current [A], temperature [K], amount of substance [mol] and luminous intensity [cd]. Velocity has dimension [L T⁻¹] because it is length divided by time.
 
@@ -139,12 +136,13 @@
 
 • Electricity and magnetism: charge [A T] • electric field [M L T⁻³ A⁻¹] • potential and EMF [M L² T⁻³ A⁻¹] • resistance [M L² T⁻³ A⁻²] • capacitance [M⁻¹ L⁻² T⁴ A²] • inductance [M L² T⁻² A⁻²] • magnetic field B [M T⁻² A⁻¹] • permittivity ε₀ [M⁻¹ L⁻³ T⁴ A²] • permeability μ₀ [M L T⁻² A⁻²] • Planck constant h [M L² T⁻¹]
 
-• Quantities with NO dimensions: plane angle, solid angle, strain, refractive index, relative density (specific gravity), coefficient of restitution, efficiency, and all pure numbers. They arise as ratios of two quantities of the same kind.
+• Modern physics additions: Rydberg constant R_H [L⁻¹] (about 1.097 × 10⁷ m⁻¹ — a pure inverse length, because it appears in 1/λ) • work function Φ [M L² T⁻²] (an energy) • magnetic flux Φ_B [M L² T⁻² A⁻¹] • molar heat capacity C_v [M L² T⁻² K⁻¹ mol⁻¹].
+
+• Quantities with NO dimensions: plane angle, solid angle, strain, refractive index, relative density (specific gravity), coefficient of restitution, efficiency, Reynolds number Re = ρvL/η (a ratio of inertial to viscous effects — check: [M L⁻³][L T⁻¹][L] ÷ [M L⁻¹ T⁻¹] = 1), and all pure numbers. They arise as ratios of two quantities of the same kind.
 
 • Memorise these pairs with identical dimensions — favourite exam traps: work and torque; momentum and impulse; pressure, stress and Young's modulus; frequency, angular velocity and velocity gradient; Planck constant and angular momentum; surface tension and spring constant.
 
-
-8. Dimensional Equations and the Principle of Homogeneity
+## 8. Dimensional Equations and the Principle of Homogeneity
 
 • Principle of homogeneity: a physical equation can be true only if every term on both sides has identical dimensions. You may equate, add or subtract only quantities of the same dimensions — adding a length to a time is meaningless, in physics exactly as in arithmetic.
 
@@ -156,8 +154,7 @@
 
 • A warning in both directions: a dimensionally WRONG equation is certainly wrong, but a dimensionally correct equation may still be false — the method cannot see dimensionless constants. s = ut + 2at² passes every dimensional test yet is physically wrong; the true constant is ½.
 
-
-9. Dimensional Analysis — Deriving Relations
+## 9. Dimensional Analysis — Deriving Relations
 
 • Method: guess that the quantity depends on the relevant parameters raised to unknown powers, write the dimensional equation, equate the powers of M, L and T on both sides, and solve the three equations.
 
@@ -167,10 +164,11 @@
 
 • Derivation 3 — Centripetal force: suppose F depends on mass m, speed v and radius r: F = k mᵃ vᵇ rᶜ. Powers of M: a = 1. Powers of T: −b = −2, so b = 2. Powers of L: b + c = 1, so c = −1. Result: F = k mv²/r, with k = 1 found from theory or experiment.
 
-• The same method correctly predicts the speed of sound up to a constant (v ∝ √(elastic modulus/density)), the frequency of a stretched string (ν ∝ (1/l)√(T/μ)) and the radius of an orbit's dependence in Kepler's third law (T² ∝ r³).
+• Derivation 4 — Speed of sound in a fluid: suppose v depends on the bulk modulus B and density ρ of the medium: v = k Bᵃ ρᵇ. From [v] = [L T⁻¹], [B] = [M L⁻¹ T⁻²], [ρ] = [M L⁻³]: powers of M give a + b = 0; powers of T give −2a = −1, so a = ½ and b = −½; powers of L check: −a − 3b = −½ + 3/2 = 1 ✓. Result: v = k√(B/ρ) — the Newton–Laplace formula v = √(γP/ρ) has exactly this form, with the dimensionless γ hidden inside the constant k, beyond the reach of the method.
 
+• The same method correctly predicts the frequency of a stretched string (ν ∝ (1/l)√(T/μ)) and the radius dependence in Kepler's third law (T² ∝ r³).
 
-10. Dimensional Analysis — Unit Conversion and Limitations
+## 10. Dimensional Analysis — Unit Conversion and Limitations
 
 • Converting the units of a derived quantity: if a quantity has dimensional formula [Mᵃ Lᵇ Tᶜ] and value n₁ in one system, its value n₂ in a second system is n₂ = n₁ × (M₁/M₂)ᵃ × (L₁/L₂)ᵇ × (T₁/T₂)ᶜ, where M₁, L₁, T₁ and M₂, L₂, T₂ are the base units of the two systems.
 
@@ -186,8 +184,9 @@
 
 • Limitation 3: it cannot distinguish quantities sharing dimensions — it will happily "derive" torque where energy belongs. Limitation 4: with only three equations (M, L, T) it fails when a quantity depends on more than three parameters. Limitation 5: it says nothing about whether a quantity is a scalar or a vector.
 
+## 11. Apparatus in Focus — Charge-to-Mass Ratio of the Electron [Fig. 1.3]
 
-11. Apparatus in Focus — Charge-to-Mass Ratio of the Electron [Fig. 1.3]
+![Fig. 1.3 Thomson e/m apparatus](images/fig-1.3-em-apparatus.png)
 
 • Since electrons are negatively charged, the charge on an electron is designated as −e, and its mass is written mₑ. For decades neither e nor mₑ could be measured separately — but their ratio e/m could, and J. J. Thomson measured it in 1897 with the apparatus of Fig. 2.2.
 
@@ -199,8 +198,7 @@
 
 • Step 3 — Combine: substituting v = E/B into eV = ½mₑv² gives e/mₑ = E²/(2VB²). Every quantity on the right is directly measurable, and the result is e/mₑ ≈ 1.76 × 10¹¹ C/kg — enormously larger than the same ratio for a hydrogen ion (about 1836 times, in fact), which first revealed that the electron is far lighter than any atom.
 
-
-12. Solved Numericals and Rapid Revision
+## 12. Solved Numericals and Rapid Revision
 
 • Numerical 1 (Significant figures): the sides of a cuboid are 1.20 cm, 2.5 cm and 4.00 cm. Volume = 1.20 × 2.5 × 4.00 = 12.0 cm³ — reported to 2 significant figures as 12 cm³, because 2.5 (2 significant figures) limits the result, not the multiplication itself.
 
@@ -211,5 +209,3 @@
 • Numerical 4 (Checking): is the equation v² = u² + 2as dimensionally sound? [v²] = [L² T⁻²]; [u²] = [L² T⁻²]; [as] = [L T⁻² × L] = [L² T⁻²]. All three terms match — sound.
 
 • Rapid revision — the whole chapter on one screen: Q = n × u with n₁u₁ = n₂u₂ • 7 SI base units, defined by constants of nature • LC (Vernier) = 1 MSD − 1 VSD • LC (Screw gauge) = Pitch ÷ circular divisions • Errors always add • ΔZ/Z = Σ |power| × (Δquantity/quantity) • Significant figures: decimal places for + and −, significant figures for × and ÷ • [F] = [MLT⁻²], [E] = [ML²T⁻²], [P] = [ML²T⁻³], [G] = [M⁻¹L³T⁻²], [h] = [ML²T⁻¹] • Homogeneity: terms can be equated only if dimensions match • Dimensional analysis derives forms and converts units, but never finds constants like 2π • e/mₑ = E²/(2VB²) ≈ 1.76 × 10¹¹ C/kg.
-
-# ---- END detailedStudyNotes text ----

@@ -549,14 +549,14 @@ object SmartPrepSeedData {
             examTag = "IISER IAT",
             chapterNumber = 1,
             title = "Units and Measurements",
-            subtitle = "Dimensional Analysis, Significant Figures & Error Propagation",
+            subtitle = "The 2019 SI System, Precision Instruments, Error Analysis & Dimensional Methods",
             totalLessons = 4,
             completedLessons = 4,
             studyNotesCount = 12,
-            practiceQuestionCount = 18,
-            durationMinutes = 35,
-            formulaHighlight = "ΔZ / Z = a(ΔA / A) + b(ΔB / B) + c(ΔC / C)",
-            keyConceptsSummary = "SI base and derived units, principle of homogeneity of dimensions, Vernier calipers and screw gauge least count, relative and percentage error propagation.",
+            practiceQuestionCount = 10,
+            durationMinutes = 45,
+            formulaHighlight = "ΔZ/Z = p(ΔA/A) + q(ΔB/B) + r(ΔC/C)  •  e/m = E² / (2VB²)  •  LC = Pitch / Circular Divisions",
+            keyConceptsSummary = "Modern SI definitions from the fundamental constants c, h, e, k_B, N_A, Δν_Cs and K_cd; Vernier calipers and screw gauge least count with positive/negative zero-error correction; systematic vs random errors and maximum error propagation for powers and fractions; the 6 rules of significant figures and the even-odd rounding rule; the master list of dimensional formulae across mechanics, thermodynamics, electromagnetism and modern physics; homogeneity of transcendental arguments; deriving relations (pendulum, Stokes law, speed of sound) and converting units between systems; Thomson e/m velocity-selector derivation.",
             detailedStudyNotes = """
                 1. Physical Quantities and the International System of Units (SI)
 
@@ -570,9 +570,9 @@ object SmartPrepSeedData {
 
                 • Mass — kilogram (kg): defined through the Planck constant h = 6.62607015 × 10⁻³⁴ J s exactly, together with the metre and the second.
 
-                • Time — second (s): the duration of 9,192,631,770 periods of the radiation from the caesium-133 atom transition. This atomic definition is why atomic clocks are accurate to about one second in millions of years.
+                • Time — second (s): the duration of 9,192,631,770 periods of the radiation from the caesium-133 atom transition; the caesium frequency Δν_Cs = 9,192,631,770 Hz exactly. This atomic definition is why atomic clocks are accurate to about one second in millions of years.
 
-                • Electric current — ampere (A): defined through the elementary charge e = 1.602176634 × 10⁻¹⁹ C exactly. Temperature — kelvin (K): defined through the Boltzmann constant k = 1.380649 × 10⁻²³ J/K exactly.
+                • Electric current — ampere (A): defined through the elementary charge e = 1.602176634 × 10⁻¹⁹ C exactly. Temperature — kelvin (K): defined through the Boltzmann constant k_B = 1.380649 × 10⁻²³ J/K exactly. Luminous intensity — candela (cd): defined through the luminous efficacy K_cd = 683 lm/W for light of frequency 540 × 10¹² Hz.
 
                 • Amount of substance — mole (mol): exactly 6.02214076 × 10²³ elementary entities (the Avogadro number). Luminous intensity — candela (cd): light intensity measured against a standard source of frequency 540 × 10¹² Hz.
 
@@ -589,7 +589,7 @@ object SmartPrepSeedData {
 
                 • Prefixes multiply a unit by a power of ten: pico (p) 10⁻¹² • nano (n) 10⁻⁹ • micro (μ) 10⁻⁶ • milli (m) 10⁻³ • centi (c) 10⁻² • deci (d) 10⁻¹ • kilo (k) 10³ • mega (M) 10⁶ • giga (G) 10⁹ • tera (T) 10¹².
 
-                • Useful non-SI units still in daily use: 1 Å = 10⁻¹⁰ m (atoms) • 1 nm = 10⁻⁹ m • 1 μm = 10⁻⁶ m • 1 light year = 9.46 × 10¹⁵ m • 1 AU = 1.496 × 10¹¹ m • 1 parsec = 3.08 × 10¹⁶ m • 1 amu (u) = 1.66 × 10⁻²⁷ kg • 1 eV = 1.602 × 10⁻¹⁹ J.
+                • Useful non-SI units still in daily use: 1 fm = 10⁻¹⁵ m (nuclei) • 1 Å = 10⁻¹⁰ m (atoms) • 1 nm = 10⁻⁹ m • 1 μm = 10⁻⁶ m • 1 light year = 9.46 × 10¹⁵ m • 1 AU = 1.496 × 10¹¹ m • 1 parsec = 3.08 × 10¹⁶ m (the largest of these length units) • 1 amu (u) = 1.66 × 10⁻²⁷ kg • 1 eV = 1.602 × 10⁻¹⁹ J.
 
                 • Writing rules that examiners love to test: symbols are never followed by a full stop (write 5 kg, not 5 kg.); symbols never take a plural (write 10 N, not 10 Ns); leave a space between the number and the unit; and a unit named after a scientist begins with a capital symbol (N, J, W, Pa, Hz) but a small letter in full (newton, joule, watt).
 
@@ -652,6 +652,8 @@ object SmartPrepSeedData {
 
                 • Practical rule for experiments: identify the quantity measured with the largest power and the largest relative error first — improving that single measurement improves the whole result the most.
 
+                • Maximum permissible error vs most probable error: the rules above give the maximum permissible (worst-case) error, where every error is assumed to push the result the same way — this is what school and entrance-exam problems ask for. In research laboratories, independent random errors partly cancel, and the most probable error is combined in quadrature (root-sum-of-squares): ΔZ/Z = √[(p·ΔA/A)² + (q·ΔB/B)² + (r·ΔC/C)²]. The most probable error is always smaller than the maximum permissible error for the same data.
+
 
                 6. Significant Figures — Rules, Rounding and Arithmetic
 
@@ -665,7 +667,9 @@ object SmartPrepSeedData {
 
                 • Rule 4: Trailing zeros in a number containing a decimal point are significant. 3.500 has 4, 0.00120 has 4 and 12.000 has 5 significant figures.
 
-                • Rule 5: In a whole number without a decimal point, trailing zeros are doubtful. Write such numbers in scientific notation to remove the doubt: 2500 may mean 2.5 × 10³ (2 significant figures) or 2.500 × 10³ (4 significant figures). Powers of ten themselves never count as significant figures.
+                • Rule 5: In a whole number without a decimal point, trailing zeros are doubtful. Write such numbers in scientific notation to remove the doubt: 2500 may mean 2.5 × 10³ (2 significant figures) or 2.500 × 10³ (4 significant figures).
+
+                • Rule 6: Powers of ten never count as significant figures, and numbers obtained by counting or by definition (12 eggs in a dozen, 2πr with exact counts, defined constants such as c in m/s) are exact — they have infinitely many significant figures and never limit a calculation.
 
                 • Rounding off: digit to be dropped less than 5 — leave the last retained digit unchanged (3.24 → 3.2). More than 5 — raise it by one (3.27 → 3.3). Exactly 5 — leave an even last digit unchanged and raise an odd one (3.25 → 3.2, but 3.35 → 3.4). This even-odd rule stops rounding from biasing long calculations upward.
 
@@ -690,7 +694,9 @@ object SmartPrepSeedData {
 
                 • Electricity and magnetism: charge [A T] • electric field [M L T⁻³ A⁻¹] • potential and EMF [M L² T⁻³ A⁻¹] • resistance [M L² T⁻³ A⁻²] • capacitance [M⁻¹ L⁻² T⁴ A²] • inductance [M L² T⁻² A⁻²] • magnetic field B [M T⁻² A⁻¹] • permittivity ε₀ [M⁻¹ L⁻³ T⁴ A²] • permeability μ₀ [M L T⁻² A⁻²] • Planck constant h [M L² T⁻¹]
 
-                • Quantities with NO dimensions: plane angle, solid angle, strain, refractive index, relative density (specific gravity), coefficient of restitution, efficiency, and all pure numbers. They arise as ratios of two quantities of the same kind.
+                • Modern physics additions: Rydberg constant R_H [L⁻¹] (about 1.097 × 10⁷ m⁻¹ — a pure inverse length, because it appears in 1/λ) • work function Φ [M L² T⁻²] (an energy) • magnetic flux Φ_B [M L² T⁻² A⁻¹] • molar heat capacity C_v [M L² T⁻² K⁻¹ mol⁻¹].
+
+                • Quantities with NO dimensions: plane angle, solid angle, strain, refractive index, relative density (specific gravity), coefficient of restitution, efficiency, Reynolds number Re = ρvL/η (a ratio of inertial to viscous effects — check: [M L⁻³][L T⁻¹][L] ÷ [M L⁻¹ T⁻¹] = 1), and all pure numbers. They arise as ratios of two quantities of the same kind.
 
                 • Memorise these pairs with identical dimensions — favourite exam traps: work and torque; momentum and impulse; pressure, stress and Young's modulus; frequency, angular velocity and velocity gradient; Planck constant and angular momentum; surface tension and spring constant.
 
@@ -718,7 +724,9 @@ object SmartPrepSeedData {
 
                 • Derivation 3 — Centripetal force: suppose F depends on mass m, speed v and radius r: F = k mᵃ vᵇ rᶜ. Powers of M: a = 1. Powers of T: −b = −2, so b = 2. Powers of L: b + c = 1, so c = −1. Result: F = k mv²/r, with k = 1 found from theory or experiment.
 
-                • The same method correctly predicts the speed of sound up to a constant (v ∝ √(elastic modulus/density)), the frequency of a stretched string (ν ∝ (1/l)√(T/μ)) and the radius of an orbit's dependence in Kepler's third law (T² ∝ r³).
+                • Derivation 4 — Speed of sound in a fluid: suppose v depends on the bulk modulus B and density ρ of the medium: v = k Bᵃ ρᵇ. From [v] = [L T⁻¹], [B] = [M L⁻¹ T⁻²], [ρ] = [M L⁻³]: powers of M give a + b = 0; powers of T give −2a = −1, so a = ½ and b = −½; powers of L check: −a − 3b = −½ + 3/2 = 1 ✓. Result: v = k√(B/ρ) — the Newton–Laplace formula v = √(γP/ρ) has exactly this form, with the dimensionless γ hidden inside the constant k, beyond the reach of the method.
+
+                • The same method correctly predicts the frequency of a stretched string (ν ∝ (1/l)√(T/μ)) and the radius dependence in Kepler's third law (T² ∝ r³).
 
 
                 10. Dimensional Analysis — Unit Conversion and Limitations
@@ -763,10 +771,10 @@ object SmartPrepSeedData {
 
                 • Rapid revision — the whole chapter on one screen: Q = n × u with n₁u₁ = n₂u₂ • 7 SI base units, defined by constants of nature • LC (Vernier) = 1 MSD − 1 VSD • LC (Screw gauge) = Pitch ÷ circular divisions • Errors always add • ΔZ/Z = Σ |power| × (Δquantity/quantity) • Significant figures: decimal places for + and −, significant figures for × and ÷ • [F] = [MLT⁻²], [E] = [ML²T⁻²], [P] = [ML²T⁻³], [G] = [M⁻¹L³T⁻²], [h] = [ML²T⁻¹] • Homogeneity: terms can be equated only if dimensions match • Dimensional analysis derives forms and converts units, but never finds constants like 2π • e/mₑ = E²/(2VB²) ≈ 1.76 × 10¹¹ C/kg.
                 """.trimIndent(),
-            videoTitle = "Dimensional Homogeneity & Precision Instruments in IAT",
+            videoTitle = "SI Constants, Precision Instruments & Dimensional Analysis Masterclass",
             videoDurationLabel = "26:40",
             videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
-            videoKeyTakeaways = "Deriving Planck-scale units • Zero error corrections • Percentage error shortcuts",
+            videoKeyTakeaways = "Zero-error corrected Vernier & screw-gauge readings • Maximum vs most probable error • Planck-scale dimensions from c, G, h • Homogeneity tests for exponential and trigonometric arguments",
             isVideoCompleted = true,
             lastAccessedTimestamp = System.currentTimeMillis() - 9_200_000L
         ),
@@ -2880,6 +2888,143 @@ object SmartPrepSeedData {
         ).copy(correctOptionIndex = 0),
 
         // ==================== PHYSICS QUESTIONS ====================
+        QuestionEntity(
+            id = "q_phys_5",
+            chapterId = "phys_ch_1",
+            subject = "Physics",
+            topic = "Screw Gauge & Zero Error",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 120,
+            prompt = "A screw gauge has pitch 0.5 mm and 50 divisions on its circular scale. When the anvil and spindle are brought into contact, the instrument reads +0.05 mm (the 5th circular division coincides with the reference line — a positive zero error). A wire is then measured: the main scale reading is 4 mm and the 38th circular division coincides with the reference line. The correct diameter of the wire is:",
+            optionA = "4.38 mm",
+            optionB = "4.43 mm",
+            optionC = "4.33 mm",
+            optionD = "4.28 mm",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Least count of the screw gauge:
+                LC = Pitch / Number of circular divisions = 0.5 mm / 50 = 0.01 mm.
+                Step 2: The observed reading of the wire:
+                Observed = Main scale reading + (Coinciding division × LC) = 4 + 38 × 0.01 = 4.38 mm.
+                Step 3: The instrument already reads +0.05 mm with the jaws closed, so every observed reading is 0.05 mm too large. Zero error = +5 × LC = +0.05 mm.
+                Step 4: Corrected diameter = Observed reading − Zero error = 4.38 − 0.05 = 4.33 mm.
+                Trap: adding the zero error instead of subtracting it gives 4.43 mm (option B); ignoring it gives 4.38 mm (option A).
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_phys_6",
+            chapterId = "phys_ch_1",
+            subject = "Physics",
+            topic = "Propagation of Errors",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 120,
+            prompt = "A physical quantity Z is calculated from measured quantities A, B, C and D by the relation Z = A² B^(1/3) / (C D³). The percentage errors in the measurements of A, B, C and D are 1%, 3%, 2% and 4% respectively. The maximum percentage error in the value of Z is:",
+            optionA = "17%",
+            optionB = "12%",
+            optionC = "10%",
+            optionD = "27%",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: For Z = A^p B^q / (C^r D^s), the maximum fractional error is:
+                ΔZ/Z = p(ΔA/A) + q(ΔB/B) + r(ΔC/C) + s(ΔD/D) — powers multiply the percentage errors, and errors in the denominator add too, never subtract.
+                Step 2: Here p = 2, q = 1/3, r = 1 and s = 3.
+                Contribution of A: 2 × 1% = 2%.
+                Contribution of B: (1/3) × 3% = 1%.
+                Contribution of C: 1 × 2% = 2%.
+                Contribution of D: 3 × 4% = 12%.
+                Step 3: Total maximum percentage error = 2 + 1 + 2 + 12 = 17%.
+                Note how D dominates: a quantity raised to the third power with a 4% error alone contributes 12%. In the laboratory, improving D's measurement improves Z the most.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_phys_7",
+            chapterId = "phys_ch_1",
+            subject = "Physics",
+            topic = "Dimensional Analysis — Fundamental Constants",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Research-Level",
+            estimatedSeconds = 180,
+            prompt = "A new system of units takes the speed of light c, the gravitational constant G and the Planck constant h as fundamental quantities. In this system the dimension of length is written as [L] = G^a h^b c^d. The values of (a, b, d) are:",
+            optionA = "(1/2, −3/2, 1/2)",
+            optionB = "(1/2, 1/2, −3/2)",
+            optionC = "(−1/2, 1/2, 3/2)",
+            optionD = "(3/2, 1/2, −1/2)",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Write the dimensions of the three constants:
+                [G] = [M⁻¹ L³ T⁻²], [h] = [M L² T⁻¹], [c] = [L T⁻¹].
+                Step 2: Set up the dimensional equation:
+                [L] = [M⁻¹ L³ T⁻²]^a × [M L² T⁻¹]^b × [L T⁻¹]^d.
+                Step 3: Equate powers.
+                Mass: −a + b = 0, so b = a.
+                Time: −2a − b − d = 0, so d = −2a − b = −3a.
+                Length: 3a + 2b + d = 1. Substituting b = a and d = −3a: 3a + 2a − 3a = 2a = 1, so a = 1/2.
+                Step 4: Therefore b = 1/2 and d = −3/2, giving L ∝ √(Gh/c³).
+                Research insight: this combination is the Planck length (about 1.6 × 10⁻³⁵ m when h is replaced by the reduced constant ħ = h/2π — the two differ only by the dimensionless factor √(2π), which dimensional analysis itself can never supply).
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_phys_8",
+            chapterId = "phys_ch_1",
+            subject = "Physics",
+            topic = "Principle of Homogeneity",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Conceptual",
+            estimatedSeconds = 90,
+            prompt = "In the relation P = P₀ e^(−αt²), P denotes pressure and t denotes time. The dimensional formula of the constant α is:",
+            optionA = "Dimensionless",
+            optionB = "[T⁻¹]",
+            optionC = "[T⁻²]",
+            optionD = "[M L⁻¹ T⁻²]",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: By the principle of homogeneity, the argument of every transcendental function — exponential e^x, sin x, cos x, ln x — must be a pure number, i.e. dimensionless. Otherwise the series expansion 1 + x + x²/2! + ... would add quantities of different dimensions, which is meaningless.
+                Step 2: Therefore [αt²] = [M⁰ L⁰ T⁰] = 1.
+                Step 3: [α] = 1 / [t²] = [T⁻²].
+                Step 4: The pressure P₀ carries all the dimensions of P; the exponential factor only scales it.
+                Companion result: in y = A sin(ωt − kx), the same argument gives [ω] = [T⁻¹] and [k] = [L⁻¹]. Whenever you meet e, sin, cos or ln in an equation, first demand that its argument be dimensionless — it is the fastest way to find the dimensions of unknown constants.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_phys_9",
+            chapterId = "phys_ch_1",
+            subject = "Physics",
+            topic = "Percentage Error in Kinetic Energy",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Conceptual",
+            estimatedSeconds = 90,
+            prompt = "The momentum of a body is measured with a maximum percentage error of 3%, while its mass is known exactly. The maximum percentage error in the kinetic energy of the body is:",
+            optionA = "3%",
+            optionB = "1.5%",
+            optionC = "9%",
+            optionD = "6%",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Express kinetic energy in terms of momentum:
+                KE = p² / (2m).
+                Step 2: Apply the power rule of error propagation. For a quantity raised to the power n, the percentage error is multiplied by |n|. Here p appears with power 2, and m is exact (zero error), so:
+                Percentage error in KE = 2 × (percentage error in p) + 0 = 2 × 3% = 6%.
+                Step 3: Hence the maximum percentage error in KE is 6%.
+                Trap: using KE = ½mv² directly tempts many students to first convert the momentum error into a velocity error. Both routes agree — v = p/m carries the same 3% error, and KE ∝ v² again doubles it to 6%. Powers amplify errors: this is why squared and cubed quantities must be measured most carefully.
+            """.trimIndent()
+        ),
         QuestionEntity(
             id = "q_phys_1",
             chapterId = "phys_ch_15",
