@@ -31,9 +31,10 @@ class SmartPrepRepository(private val dao: SmartPrepDao) {
             dao.insertMockTests(SmartPrepSeedData.initialMockTests)
             dao.insertStudyPlanTasks(SmartPrepSeedData.initialStudyPlanTasks)
         } else {
-            // Fast upsert for updated Chapter 1 without blocking the database
-            SmartPrepSeedData.initialChapters.find { it.id == "phys_ch_1" }?.let { ch1 ->
-                dao.insertChapters(listOf(ch1))
+            // Fast upsert for updated chapters without blocking the database
+            val keySeedChapters = SmartPrepSeedData.initialChapters.filter { it.id in listOf("phys_ch_1", "bio_ch_1", "math_ch_1", "chem_ch_1") }
+            if (keySeedChapters.isNotEmpty()) {
+                dao.insertChapters(keySeedChapters)
             }
             if (dao.getMockTestCount() < SmartPrepSeedData.initialMockTests.size) {
                 dao.insertMockTests(SmartPrepSeedData.initialMockTests)
