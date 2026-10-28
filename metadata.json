@@ -1,0 +1,6 @@
+{
+  "name": "IISER SmartPrep",
+  "description": "Premium Android learning platform for IISER Aptitude Test (IAT) science entrance examination preparation with interactive lessons, practice banks, PYQs, mock tests, and AI Snap & Solve.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

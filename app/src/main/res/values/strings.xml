@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">IISER SmartPrep</string>
+    <string name="hero_headline">Prepare Smarter for IISER</string>
+    <string name="hero_subtitle">Learn concepts, practise questions, and build exam readiness through a structured preparation experience.</string>
+    <string name="cta_continue_learning">Continue Learning</string>
+    <string name="cta_start_preparing">Start Preparing</string>
+    <string name="cta_practice_questions">Practice Questions</string>
+    <string name="cta_snap_solve">ASK &amp; SOLVE AI</string>
+    <string name="smart_library_title">Smart Learning Library</string>
+    <string name="smart_library_subtitle">Read, watch, practise, and master every concept.</string>
+    <string name="section_continue_learning">Continue Learning</string>
+    <string name="section_important_questions">Important Questions</string>
+    <string name="section_pyqs">Previous-Year Questions</string>
+    <string name="section_video_lessons">Video Lessons</string>
+    <string name="section_practice_modes">Practice Modes</string>
+    <string name="section_mock_tests">Mock Tests</string>
+    <string name="section_daily_plan">Daily Study Plan</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_learn">Learn</string>
+    <string name="nav_practice">Practice</string>
+    <string name="nav_pyqs">PYQs</string>
+    <string name="nav_profile">Profile</string>
+    <string name="offline_banner_text">Offline mode active — Your progress and question banks are saved locally on this device.</string>
+    <string name="security_warning_prototype">Security Notice: API keys configured via BuildConfig are intended for prototype evaluation. Do not distribute raw APKs publicly.</string>
+</resources>
