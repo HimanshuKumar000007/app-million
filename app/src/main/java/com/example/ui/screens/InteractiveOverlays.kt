@@ -110,6 +110,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.example.data.local.ChapterEntity
 import com.example.data.local.MockTestEntity
 import com.example.data.local.QuestionEntity
@@ -243,23 +244,36 @@ private fun NoteBodyLine(line: String) {
     }
 }
 
-/** An embedded chapter figure (see ChapterFigureData) inside a white card. */
+/** A chapter figure inside a white card: Cloudinary URL first (Coil, cached),
+ *  embedded copy from ChapterFigureData as fallback when offline or on error. */
 @Composable
 private fun ChapterFigure(figKey: String) {
+    val remoteUrl = ChapterFigureData.urls[figKey]
+    var remoteFailed by remember(figKey) { mutableStateOf(false) }
     val bitmap = remember(figKey) { ChapterFigureData.decode(figKey) }
-    if (bitmap != null) {
+    if ((remoteUrl != null && !remoteFailed) || bitmap != null) {
         Surface(
             shape = RoundedCornerShape(12.dp),
             color = Color.White,
             border = BorderStroke(1.dp, Color(0xFFE5E7EB)),
             modifier = Modifier.fillMaxWidth().padding(vertical = 6.dp)
         ) {
-            Image(
-                bitmap = bitmap.asImageBitmap(),
-                contentDescription = null,
-                contentScale = ContentScale.FillWidth,
-                modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp))
-            )
+            if (remoteUrl != null && !remoteFailed) {
+                AsyncImage(
+                    model = remoteUrl,
+                    contentDescription = null,
+                    contentScale = ContentScale.FillWidth,
+                    onError = { remoteFailed = true },
+                    modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp))
+                )
+            } else if (bitmap != null) {
+                Image(
+                    bitmap = bitmap.asImageBitmap(),
+                    contentDescription = null,
+                    contentScale = ContentScale.FillWidth,
+                    modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp))
+                )
+            }
         }
     }
 }
