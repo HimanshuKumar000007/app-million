@@ -137,6 +137,12 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.KeyboardArrowUp
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -1454,6 +1460,13 @@ fun ChapterReaderOverlay(
         }
     }
 
+    // Floating Back to Top (^) visibility
+    val showBackToTop by remember {
+        derivedStateOf {
+            listState.firstVisibleItemIndex > 0 || listState.firstVisibleItemScrollOffset > 200
+        }
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -2229,13 +2242,46 @@ fun ChapterReaderOverlay(
             }
         }
 
-        // ==================== COMPACT UNOBTRUSIVE FLOATING "ASK AI" PILL ====================
-        Box(
+        // ==================== FLOATING ACTIONS: "BACK TO TOP" (^) + "ASK AI" ====================
+        Row(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(end = 18.dp, bottom = 22.dp)
-                .imePadding()
+                .imePadding(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
+            // Floating "Back to Top" (^) Arrow Button
+            AnimatedVisibility(
+                visible = showBackToTop && selectedTab == "Read",
+                enter = fadeIn() + scaleIn(),
+                exit = fadeOut() + scaleOut()
+            ) {
+                Surface(
+                    onClick = {
+                        coroutineScope.launch {
+                            listState.animateScrollToItem(0)
+                        }
+                    },
+                    shape = CircleShape,
+                    color = Color.White,
+                    shadowElevation = 6.dp,
+                    border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                    modifier = Modifier
+                        .size(44.dp)
+                        .testTag("reader_back_to_top_button")
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(
+                            imageVector = Icons.Default.KeyboardArrowUp,
+                            contentDescription = "Back to top",
+                            tint = Color(0xFF0F172A),
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
+                }
+            }
+
             Surface(
                 onClick = {
                     aiPromptMode = "explain"
