@@ -131,20 +131,63 @@ import com.example.ui.theme.SuccessGreen
 import com.example.ui.theme.WarningCoral
 import kotlinx.coroutines.delay
 import kotlin.math.sin
+import android.widget.Toast
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.ContentCopy
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
+import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.filled.ZoomIn
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.zIndex
+import kotlinx.coroutines.launch
 
 
-// ==================== RICH NOTE RENDERING (headings, highlights, figures) ====================
+// ==================== 1. CHAPTER READER & TEXTBOOK CONCEPT VIEWER OVERLAY ====================
 
 /** Figure keys to display inside a parsed note section, by chapter + section index. */
 private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<String> =
     when (chapterId) {
         "phys_ch_1" -> when (sectionIndex) {
-            1 -> listOf("fig_1_5_si_constants")
-            7 -> listOf("fig_1_1_vernier", "fig_1_4_zero_errors")
-            8 -> listOf("fig_1_2_screw_gauge")
+            1 -> listOf("fig_1_5_si_constants") // Section 1: The Seven SI Base Units
+            7 -> listOf("fig_1_1_vernier", "fig_1_4_zero_errors") // Section 7: Vernier Calipers & Zero Error
+            8 -> listOf("fig_1_2_screw_gauge") // Section 8: Screw Gauge
+            22 -> listOf("fig_1_3_em") // Section 22: Thomson e/m Experiment
             else -> emptyList()
         }
         else -> emptyList()
+    }
+
+private fun figureMetadata(figKey: String): Pair<String, String> =
+    when (figKey) {
+        "fig_1_1_vernier" -> Pair(
+            "Fig. 1.1 — Vernier Calipers",
+            "Main scale (1 mm), vernier scale (0.1 mm), internal/external jaws, and depth probe."
+        )
+        "fig_1_2_screw_gauge" -> Pair(
+            "Fig. 1.2 — Micrometer Screw Gauge",
+            "Linear pitch scale (0.5 mm), circular thimble (50 or 100 divisions), and safety ratchet."
+        )
+        "fig_1_3_em" -> Pair(
+            "Fig. 1.3 — J. J. Thomson's e/m Cathode Ray Apparatus",
+            "Crossed electric (E) and magnetic (B) fields for electron velocity selection and e/m measurement."
+        )
+        "fig_1_4_zero_errors" -> Pair(
+            "Fig. 1.4 — Systematic Zero Errors",
+            "Positive zero error (vernier zero right / circular zero below) vs Negative zero error (vernier left / circular above)."
+        )
+        "fig_1_5_si_constants" -> Pair(
+            "Fig. 1.5 — The 2019 SI System Architecture",
+            "All 7 base units (m, kg, s, A, K, mol, cd) anchored to 7 fundamental invariant constants of nature."
+        )
+        else -> Pair("Scientific Diagram", "Textbook precision illustration.")
     }
 
 /** Minimal inline rich text: **bold** spans; everything else passes through unchanged. */
@@ -172,61 +215,905 @@ private fun noteAnnotated(text: String): AnnotatedString {
     }
 }
 
+/** High-resolution Diagram Inspection modal with close button. */
+@Composable
+private fun DiagramZoomDialog(
+    figKey: String,
+    onDismiss: () -> Unit
+) {
+    val (title, caption) = figureMetadata(figKey)
+    val remoteUrl = ChapterFigureData.urls[figKey]
+    var remoteFailed by remember(figKey) { mutableStateOf(false) }
+    val bitmap = remember(figKey) { ChapterFigureData.decode(figKey) }
+
+    Surface(
+        color = Color.Black.copy(alpha = 0.82f),
+        modifier = Modifier
+            .fillMaxSize()
+            .zIndex(100f)
+            .clickable { onDismiss() }
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(18.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Surface(
+                shape = RoundedCornerShape(22.dp),
+                color = Color.White,
+                shadowElevation = 20.dp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable(enabled = false) {}
+            ) {
+                Column(modifier = Modifier.padding(18.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Surface(
+                                shape = RoundedCornerShape(6.dp),
+                                color = Color(0xFFEEF2FF)
+                            ) {
+                                Text(
+                                    text = "HIGH-RESOLUTION SCHEMATIC",
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 9.5.sp,
+                                    letterSpacing = 0.5.sp,
+                                    color = Color(0xFF3569F6),
+                                    modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                                )
+                            }
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                text = title,
+                                fontFamily = OutfitDisplayFamily,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 16.sp,
+                                color = Color(0xFF0F172A)
+                            )
+                        }
+
+                        IconButton(
+                            onClick = onDismiss,
+                            modifier = Modifier.size(36.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Close,
+                                contentDescription = "Close",
+                                tint = Color(0xFF475569)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(14.dp))
+
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(14.dp))
+                            .background(Color(0xFFF8FAFC)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        if (remoteUrl != null && !remoteFailed) {
+                            AsyncImage(
+                                model = remoteUrl,
+                                contentDescription = title,
+                                contentScale = ContentScale.Fit,
+                                onError = { remoteFailed = true },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(290.dp)
+                            )
+                        } else if (bitmap != null) {
+                            Image(
+                                bitmap = bitmap.asImageBitmap(),
+                                contentDescription = title,
+                                contentScale = ContentScale.Fit,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(290.dp)
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(14.dp))
+
+                    Text(
+                        text = caption,
+                        fontFamily = InterFontFamily,
+                        fontSize = 12.5.sp,
+                        lineHeight = 18.sp,
+                        color = Color(0xFF475569)
+                    )
+                }
+            }
+        }
+    }
+}
+
+/** A chapter scientific diagram inside a clean white card with title and tap-to-zoom badge. */
+@Composable
+private fun ScientificDiagramCard(
+    figKey: String,
+    onZoom: (String) -> Unit
+) {
+    val (title, caption) = figureMetadata(figKey)
+    val remoteUrl = ChapterFigureData.urls[figKey]
+    var remoteFailed by remember(figKey) { mutableStateOf(false) }
+    val bitmap = remember(figKey) { ChapterFigureData.decode(figKey) }
+
+    if ((remoteUrl != null && !remoteFailed) || bitmap != null) {
+        Surface(
+            shape = RoundedCornerShape(16.dp),
+            color = Color.White,
+            border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+            shadowElevation = 1.dp,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        ) {
+            Column(modifier = Modifier.padding(12.dp)) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(Color(0xFFF8FAFC))
+                        .clickable { onZoom(figKey) }
+                ) {
+                    if (remoteUrl != null && !remoteFailed) {
+                        AsyncImage(
+                            model = remoteUrl,
+                            contentDescription = title,
+                            contentScale = ContentScale.FillWidth,
+                            onError = { remoteFailed = true },
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    } else if (bitmap != null) {
+                        Image(
+                            bitmap = bitmap.asImageBitmap(),
+                            contentDescription = title,
+                            contentScale = ContentScale.FillWidth,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    }
+
+                    Surface(
+                        shape = RoundedCornerShape(50),
+                        color = Color(0xCC0F172A),
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                            .padding(8.dp)
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp),
+                            modifier = Modifier.padding(horizontal = 9.dp, vertical = 4.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.ZoomIn,
+                                contentDescription = "Zoom",
+                                tint = Color.White,
+                                modifier = Modifier.size(14.dp)
+                            )
+                            Text(
+                                text = "Inspect",
+                                fontFamily = InterFontFamily,
+                                fontWeight = FontWeight.Medium,
+                                fontSize = 11.sp,
+                                color = Color.White
+                            )
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Text(
+                    text = title,
+                    fontFamily = OutfitDisplayFamily,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 13.5.sp,
+                    color = Color(0xFF0F172A)
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = caption,
+                    fontFamily = InterFontFamily,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 12.sp,
+                    lineHeight = 17.sp,
+                    color = Color(0xFF64748B)
+                )
+            }
+        }
+    }
+}
+
+/** Key Takeaway card: pale amber background, amber border, star badge, Ask AI action. */
+@Composable
+private fun KeyTakeawayCard(
+    text: String,
+    textSizeScale: Float,
+    onAskAi: (String) -> Unit
+) {
+    val cleanText = text.removePrefix("★ HIGHLIGHT —").removePrefix("★ HIGHLIGHT -").removePrefix("★ HIGHLIGHT").removePrefix("★").trim()
+    Surface(
+        shape = RoundedCornerShape(14.dp),
+        color = Color(0xFFFFFBEB),
+        border = BorderStroke(1.dp, Color(0xFFFDE68A)),
+        shadowElevation = 0.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 5.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = Color(0xFFFEF3C7)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                    ) {
+                        Text(
+                            text = "★",
+                            color = Color(0xFFD97706),
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Text(
+                            text = "KEY TAKEAWAY",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 10.sp,
+                            letterSpacing = 0.6.sp,
+                            color = Color(0xFF92400E)
+                        )
+                    }
+                }
+
+                Surface(
+                    onClick = { onAskAi("Explain this textbook takeaway: $cleanText") },
+                    shape = RoundedCornerShape(50),
+                    color = Color.White.copy(alpha = 0.8f),
+                    border = BorderStroke(1.dp, Color(0xFFFDE68A))
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        modifier = Modifier.padding(horizontal = 9.dp, vertical = 3.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.AutoAwesome,
+                            contentDescription = "Ask AI",
+                            tint = Color(0xFFD97706),
+                            modifier = Modifier.size(12.dp)
+                        )
+                        Text(
+                            text = "Ask AI",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 10.5.sp,
+                            color = Color(0xFF92400E)
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = noteAnnotated(cleanText),
+                fontFamily = InterFontFamily,
+                fontWeight = FontWeight.Normal,
+                fontSize = (14.sp * textSizeScale),
+                lineHeight = (21.sp * textSizeScale),
+                color = Color(0xFF78350F)
+            )
+        }
+    }
+}
+
+/** Exam Trap card: pale coral background, coral border, warning badge, Ask AI action. */
+@Composable
+private fun ExamTrapCard(
+    text: String,
+    textSizeScale: Float,
+    onAskAi: (String) -> Unit
+) {
+    val cleanText = text.removePrefix("⚠ EXAM TRAP —").removePrefix("⚠ EXAM TRAP -").removePrefix("⚠ EXAM TRAP").removePrefix("⚠").trim()
+    Surface(
+        shape = RoundedCornerShape(14.dp),
+        color = Color(0xFFFEF2F2),
+        border = BorderStroke(1.dp, Color(0xFFFECACA)),
+        shadowElevation = 0.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 5.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = Color(0xFFFEE2E2)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Warning,
+                            contentDescription = "Warning",
+                            tint = Color(0xFFDC2626),
+                            modifier = Modifier.size(13.dp)
+                        )
+                        Text(
+                            text = "EXAM TRAP",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 10.sp,
+                            letterSpacing = 0.6.sp,
+                            color = Color(0xFF991B1B)
+                        )
+                    }
+                }
+
+                Surface(
+                    onClick = { onAskAi("Clarify why this is an IISER IAT / NEST exam trap: $cleanText") },
+                    shape = RoundedCornerShape(50),
+                    color = Color.White.copy(alpha = 0.85f),
+                    border = BorderStroke(1.dp, Color(0xFFFECACA))
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        modifier = Modifier.padding(horizontal = 9.dp, vertical = 3.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.AutoAwesome,
+                            contentDescription = "Clarify",
+                            tint = Color(0xFFDC2626),
+                            modifier = Modifier.size(12.dp)
+                        )
+                        Text(
+                            text = "Clarify",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 10.5.sp,
+                            color = Color(0xFF991B1B)
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = noteAnnotated(cleanText),
+                fontFamily = InterFontFamily,
+                fontWeight = FontWeight.Normal,
+                fontSize = (14.sp * textSizeScale),
+                lineHeight = (21.sp * textSizeScale),
+                color = Color(0xFF7F1D1D)
+            )
+        }
+    }
+}
+
+/** Formula card: clean academic mathematical presentation with serif font, formula copy & AI explanation. */
+@Composable
+private fun FormulaBlock(
+    line: String,
+    textSizeScale: Float,
+    onCopy: (String) -> Unit,
+    onAskAi: (String) -> Unit
+) {
+    val formulaText = line.removePrefix("✔ KEY FORMULA —").removePrefix("✔ KEY FORMULA -").removePrefix("✔ KEY FORMULA").removePrefix("✔").trim()
+    Surface(
+        shape = RoundedCornerShape(14.dp),
+        color = Color.White,
+        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+        shadowElevation = 1.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 6.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = Color(0xFFEEF2FF)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                    ) {
+                        Text(
+                            text = "∑",
+                            fontFamily = AcademicSerifFamily,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF3569F6),
+                            fontSize = 12.sp
+                        )
+                        Text(
+                            text = "KEY FORMULA",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 10.sp,
+                            letterSpacing = 0.6.sp,
+                            color = Color(0xFF2563EB)
+                        )
+                    }
+                }
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Surface(
+                        onClick = { onCopy(formulaText) },
+                        shape = RoundedCornerShape(50),
+                        color = Color(0xFFF8FAFC),
+                        border = BorderStroke(1.dp, Color(0xFFE2E8F0))
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(4.dp),
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.ContentCopy,
+                                contentDescription = "Copy formula",
+                                tint = Color(0xFF64748B),
+                                modifier = Modifier.size(12.dp)
+                            )
+                            Text(
+                                text = "Copy",
+                                fontFamily = InterFontFamily,
+                                fontWeight = FontWeight.Medium,
+                                fontSize = 10.5.sp,
+                                color = Color(0xFF475569)
+                            )
+                        }
+                    }
+
+                    Surface(
+                        onClick = { onAskAi("Break down this formula and show IISER IAT application: $formulaText") },
+                        shape = RoundedCornerShape(50),
+                        color = Color(0xFFF0FDF4),
+                        border = BorderStroke(1.dp, Color(0xFFBBF7D0))
+                    ) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(3.dp),
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.AutoAwesome,
+                                contentDescription = "Derive",
+                                tint = Color(0xFF16A34A),
+                                modifier = Modifier.size(12.dp)
+                            )
+                            Text(
+                                text = "Derive",
+                                fontFamily = InterFontFamily,
+                                fontWeight = FontWeight.Medium,
+                                fontSize = 10.5.sp,
+                                color = Color(0xFF15803D)
+                            )
+                        }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Surface(
+                shape = RoundedCornerShape(10.dp),
+                color = Color(0xFFF8FAFC),
+                border = BorderStroke(1.dp, Color(0xFFF1F5F9)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 14.dp, vertical = 10.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = formulaText,
+                        fontFamily = AcademicSerifFamily,
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = (15.5.sp * textSizeScale),
+                        lineHeight = (23.sp * textSizeScale),
+                        color = Color(0xFF1E3A8A),
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+        }
+    }
+}
+
+/** Worked Example / Solved Numerical card. */
+@Composable
+private fun WorkedExampleCard(
+    line: String,
+    textSizeScale: Float
+) {
+    val cleanLine = line.removePrefix("•").trim()
+    val badgeLabel = when {
+        cleanLine.startsWith("Numerical", ignoreCase = true) -> "SOLVED NUMERICAL"
+        cleanLine.startsWith("Example", ignoreCase = true) -> "EXAM EXAMPLE"
+        cleanLine.startsWith("Worked example", ignoreCase = true) -> "WORKED CALCULATION"
+        cleanLine.startsWith("Derivation", ignoreCase = true) -> "DERIVATION"
+        cleanLine.startsWith("Check", ignoreCase = true) -> "HOMOGENEITY CHECK"
+        else -> "WORKED PATTERN"
+    }
+
+    Surface(
+        shape = RoundedCornerShape(14.dp),
+        color = Color(0xFFF8FAFC),
+        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 5.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Surface(
+                shape = RoundedCornerShape(6.dp),
+                color = Color(0xFFE0E7FF)
+            ) {
+                Text(
+                    text = badgeLabel,
+                    fontFamily = InterFontFamily,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 9.5.sp,
+                    letterSpacing = 0.5.sp,
+                    color = Color(0xFF4338CA),
+                    modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Text(
+                text = noteAnnotated(cleanLine),
+                fontFamily = InterFontFamily,
+                fontWeight = FontWeight.Normal,
+                fontSize = (13.5.sp * textSizeScale),
+                lineHeight = (20.5.sp * textSizeScale),
+                color = Color(0xFF1E293B)
+            )
+        }
+    }
+}
+
+/** Rule block for counting significant figures or arithmetic rules. */
+@Composable
+private fun RuleCard(
+    line: String,
+    textSizeScale: Float
+) {
+    val cleanLine = line.removePrefix("•").trim()
+    val rulePrefix = cleanLine.substringBefore(":").trim()
+    val ruleContent = cleanLine.substringAfter(":").trim()
+
+    Surface(
+        shape = RoundedCornerShape(12.dp),
+        color = Color.White,
+        border = BorderStroke(1.dp, Color(0xFFE5E7EB)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp)
+    ) {
+        Row(
+            modifier = Modifier.padding(12.dp),
+            verticalAlignment = Alignment.Top,
+            horizontalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            Surface(
+                shape = CircleShape,
+                color = Color(0xFFEEF2FF),
+                border = BorderStroke(1.dp, Color(0xFFC7D2FE)),
+                modifier = Modifier.size(24.dp)
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Text(
+                        text = rulePrefix.replace("Rule", "").trim(),
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 11.sp,
+                        color = Color(0xFF3569F6)
+                    )
+                }
+            }
+
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = rulePrefix,
+                    fontFamily = InterFontFamily,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 12.sp,
+                    color = Color(0xFF3569F6)
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = noteAnnotated(ruleContent),
+                    fontFamily = InterFontFamily,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = (13.5.sp * textSizeScale),
+                    lineHeight = (20.sp * textSizeScale),
+                    color = Color(0xFF17213A)
+                )
+            }
+        }
+    }
+}
+
+/** 2-column reference grid of the 7 SI Base Units & their defining constants. */
+@Composable
+private fun SiBaseUnitsGrid() {
+    val units = listOf(
+        Triple("Length", "metre (m)", "Speed of light c = 299,792,458 m/s"),
+        Triple("Mass", "kilogram (kg)", "Planck constant h = 6.62607 × 10⁻³⁴ J s"),
+        Triple("Time", "second (s)", "Caesium freq Δν_Cs = 9,192,631,770 Hz"),
+        Triple("Current", "ampere (A)", "Elementary charge e = 1.60217 × 10⁻¹⁹ C"),
+        Triple("Temperature", "kelvin (K)", "Boltzmann const k_B = 1.380649 × 10⁻²³ J/K"),
+        Triple("Amount", "mole (mol)", "Avogadro const N_A = 6.02214 × 10²³"),
+        Triple("Luminous Int.", "candela (cd)", "Luminous efficacy K_cd = 683 lm/W")
+    )
+
+    Surface(
+        shape = RoundedCornerShape(16.dp),
+        color = Color(0xFFF8FAFC),
+        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "THE 7 SI BASE UNITS & DEFINING CONSTANTS",
+                    fontFamily = InterFontFamily,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 10.5.sp,
+                    letterSpacing = 0.5.sp,
+                    color = Color(0xFF3569F6)
+                )
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = Color(0xFFEEF2FF)
+                ) {
+                    Text(
+                        text = "2019 SI Re-definition",
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 9.5.sp,
+                        color = Color(0xFF4F46E5),
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                units.forEach { (qty, unitSymbol, constant) ->
+                    Surface(
+                        shape = RoundedCornerShape(10.dp),
+                        color = Color.White,
+                        border = BorderStroke(1.dp, Color(0xFFECEFF4)),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 12.dp, vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Column(modifier = Modifier.weight(0.45f)) {
+                                Text(
+                                    text = qty,
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = FontWeight.SemiBold,
+                                    fontSize = 12.5.sp,
+                                    color = Color(0xFF0F172A)
+                                )
+                                Text(
+                                    text = unitSymbol,
+                                    fontFamily = AcademicSerifFamily,
+                                    fontWeight = FontWeight.Normal,
+                                    fontSize = 11.5.sp,
+                                    color = Color(0xFF3569F6)
+                                )
+                            }
+                            Text(
+                                text = constant,
+                                fontFamily = JetBrainsMonoFamily,
+                                fontWeight = FontWeight.Normal,
+                                fontSize = 10.sp,
+                                color = Color(0xFF475569),
+                                textAlign = TextAlign.End,
+                                modifier = Modifier.weight(0.55f)
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** Multi-column reference chips for SI decimal prefixes. */
+@Composable
+private fun PrefixReferenceTable() {
+    val prefixes = listOf(
+        Pair("tera (T)", "10¹²"),
+        Pair("giga (G)", "10⁹"),
+        Pair("mega (M)", "10⁶"),
+        Pair("kilo (k)", "10³"),
+        Pair("centi (c)", "10⁻²"),
+        Pair("milli (m)", "10⁻³"),
+        Pair("micro (μ)", "10⁻⁶"),
+        Pair("nano (n)", "10⁻⁹"),
+        Pair("pico (p)", "10⁻¹²"),
+        Pair("femto (f)", "10⁻¹⁵")
+    )
+
+    Surface(
+        shape = RoundedCornerShape(14.dp),
+        color = Color(0xFFF8FAFC),
+        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 6.dp)
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Text(
+                text = "SI DECIMAL PREFIXES REFERENCE",
+                fontFamily = InterFontFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = 10.sp,
+                letterSpacing = 0.5.sp,
+                color = Color(0xFF475569)
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                // Column 1
+                Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    prefixes.take(5).forEach { (name, pwr) ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(Color.White, RoundedCornerShape(6.dp))
+                                .border(BorderStroke(1.dp, Color(0xFFECEFF4)), RoundedCornerShape(6.dp))
+                                .padding(horizontal = 8.dp, vertical = 4.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(name, fontSize = 11.sp, fontFamily = InterFontFamily, color = Color(0xFF1E293B))
+                            Text(pwr, fontSize = 10.5.sp, fontFamily = JetBrainsMonoFamily, fontWeight = FontWeight.Bold, color = Color(0xFF3569F6))
+                        }
+                    }
+                }
+                // Column 2
+                Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    prefixes.drop(5).forEach { (name, pwr) ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(Color.White, RoundedCornerShape(6.dp))
+                                .border(BorderStroke(1.dp, Color(0xFFECEFF4)), RoundedCornerShape(6.dp))
+                                .padding(horizontal = 8.dp, vertical = 4.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(name, fontSize = 11.sp, fontFamily = InterFontFamily, color = Color(0xFF1E293B))
+                            Text(pwr, fontSize = 10.5.sp, fontFamily = JetBrainsMonoFamily, fontWeight = FontWeight.Bold, color = Color(0xFF3569F6))
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 /** One body line of the Read tab, styled by its marker prefix. */
 @Composable
-private fun NoteBodyLine(line: String) {
+private fun NoteBodyLine(
+    line: String,
+    textSizeScale: Float,
+    onCopy: (String) -> Unit,
+    onAskAi: (String) -> Unit
+) {
     when {
         line.startsWith("✔") -> {
-            Surface(
-                shape = RoundedCornerShape(10.dp),
-                color = SoftLavender,
-                border = BorderStroke(1.dp, DeepIndigo.copy(alpha = 0.25f)),
-                modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp)
-            ) {
-                Text(
-                    text = noteAnnotated(line),
-                    fontFamily = AcademicSerifFamily,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 14.5.sp,
-                    lineHeight = 22.sp,
-                    color = DeepIndigo,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
-                )
-            }
+            FormulaBlock(line = line, textSizeScale = textSizeScale, onCopy = onCopy, onAskAi = onAskAi)
         }
         line.startsWith("★") -> {
-            Surface(
-                shape = RoundedCornerShape(10.dp),
-                color = Color(0xFFFFF6D6),
-                border = BorderStroke(1.dp, AccentYellow.copy(alpha = 0.7f)),
-                modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp)
-            ) {
+            KeyTakeawayCard(text = line, textSizeScale = textSizeScale, onAskAi = onAskAi)
+        }
+        line.startsWith("⚠") -> {
+            ExamTrapCard(text = line, textSizeScale = textSizeScale, onAskAi = onAskAi)
+        }
+        line.startsWith("• Prefixes scale a unit") -> {
+            Column {
+                PrefixReferenceTable()
                 Text(
-                    text = noteAnnotated(line),
+                    text = noteAnnotated(line.removePrefix("•").trim()),
                     fontFamily = InterFontFamily,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 14.5.sp,
-                    lineHeight = 22.sp,
-                    color = Color(0xFF594400),
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                    fontWeight = FontWeight.Normal,
+                    fontSize = (14.sp * textSizeScale),
+                    lineHeight = (22.sp * textSizeScale),
+                    color = Color(0xFF17213A),
+                    modifier = Modifier.padding(vertical = 4.dp)
                 )
             }
         }
-        line.startsWith("⚠") -> {
-            Surface(
-                shape = RoundedCornerShape(10.dp),
-                color = Color(0xFFFDECEC),
-                border = BorderStroke(1.dp, WarningCoral.copy(alpha = 0.45f)),
-                modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp)
+        line.startsWith("• Rule ") -> {
+            RuleCard(line = line, textSizeScale = textSizeScale)
+        }
+        line.startsWith("• Worked example") ||
+        line.startsWith("• Example") ||
+        line.startsWith("• Numerical") ||
+        line.startsWith("• Derivation") ||
+        line.startsWith("• Check ") -> {
+            WorkedExampleCard(line = line, textSizeScale = textSizeScale)
+        }
+        line.startsWith("•") -> {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 3.5.dp),
+                verticalAlignment = Alignment.Top,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
+                Box(
+                    modifier = Modifier
+                        .padding(top = 8.dp)
+                        .size(5.dp)
+                        .clip(CircleShape)
+                        .background(Color(0xFF3569F6))
+                )
                 Text(
-                    text = noteAnnotated(line),
+                    text = noteAnnotated(line.removePrefix("•").trim()),
                     fontFamily = InterFontFamily,
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 14.5.sp,
-                    lineHeight = 22.sp,
-                    color = Color(0xFF7F1D1D),
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                    fontWeight = FontWeight.Normal,
+                    fontSize = (14.5.sp * textSizeScale),
+                    lineHeight = (22.5.sp * textSizeScale),
+                    color = Color(0xFF17213A),
+                    modifier = Modifier.weight(1f)
                 )
             }
         }
@@ -235,50 +1122,238 @@ private fun NoteBodyLine(line: String) {
                 text = noteAnnotated(line),
                 fontFamily = InterFontFamily,
                 fontWeight = FontWeight.Normal,
-                fontSize = 14.5.sp,
-                lineHeight = 22.5.sp,
-                color = Color(0xFF374151),
-                modifier = Modifier.padding(vertical = 3.dp)
+                fontSize = (14.5.sp * textSizeScale),
+                lineHeight = (22.5.sp * textSizeScale),
+                color = Color(0xFF17213A),
+                modifier = Modifier.padding(vertical = 3.5.dp)
             )
         }
     }
 }
 
-/** A chapter figure inside a white card: Cloudinary URL first (Coil, cached),
- *  embedded copy from ChapterFigureData as fallback when offline or on error. */
+/** Chapter Overview Card displayed at the top of the "Read" tab. */
 @Composable
-private fun ChapterFigure(figKey: String) {
-    val remoteUrl = ChapterFigureData.urls[figKey]
-    var remoteFailed by remember(figKey) { mutableStateOf(false) }
-    val bitmap = remember(figKey) { ChapterFigureData.decode(figKey) }
-    if ((remoteUrl != null && !remoteFailed) || bitmap != null) {
-        Surface(
-            shape = RoundedCornerShape(12.dp),
-            color = Color.White,
-            border = BorderStroke(1.dp, Color(0xFFE5E7EB)),
-            modifier = Modifier.fillMaxWidth().padding(vertical = 6.dp)
-        ) {
-            if (remoteUrl != null && !remoteFailed) {
-                AsyncImage(
-                    model = remoteUrl,
-                    contentDescription = null,
-                    contentScale = ContentScale.FillWidth,
-                    onError = { remoteFailed = true },
-                    modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp))
+private fun ChapterOverviewCard(
+    chapter: ChapterEntity,
+    sectionCount: Int,
+    keyTakeaways: List<String>,
+    onContinueReading: () -> Unit
+) {
+    var expandedOverview by remember { mutableStateOf(false) }
+
+    Surface(
+        shape = RoundedCornerShape(18.dp),
+        color = Color.White,
+        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+        shadowElevation = 1.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 18.dp)
+    ) {
+        Column(modifier = Modifier.padding(18.dp)) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = Color(0xFFEFF6FF)
+                ) {
+                    Text(
+                        text = "${chapter.subject.uppercase()} • CH ${chapter.chapterNumber.toString().padStart(2, '0')}",
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 10.5.sp,
+                        letterSpacing = 0.5.sp,
+                        color = Color(0xFF3569F6),
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                    )
+                }
+
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = Color(0xFFF0FDF4)
+                ) {
+                    Text(
+                        text = chapter.examTag,
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 10.sp,
+                        color = Color(0xFF15803D),
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Text(
+                text = chapter.title,
+                fontFamily = OutfitDisplayFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = 21.sp,
+                letterSpacing = (-0.4).sp,
+                color = Color(0xFF0F172A)
+            )
+
+            if (chapter.subtitle.isNotBlank()) {
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = chapter.subtitle,
+                    fontFamily = InterFontFamily,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 13.sp,
+                    lineHeight = 18.sp,
+                    color = Color(0xFF64748B)
                 )
-            } else if (bitmap != null) {
-                Image(
-                    bitmap = bitmap.asImageBitmap(),
+            }
+
+            Spacer(modifier = Modifier.height(14.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = Color(0xFFF8FAFC),
+                    border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Timer,
+                            contentDescription = null,
+                            tint = Color(0xFF3569F6),
+                            modifier = Modifier.size(15.dp)
+                        )
+                        Text(
+                            text = "${chapter.durationMinutes} Min Read",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 11.5.sp,
+                            color = Color(0xFF1E293B)
+                        )
+                    }
+                }
+
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = Color(0xFFF8FAFC),
+                    border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.MenuBook,
+                            contentDescription = null,
+                            tint = Color(0xFF7862EA),
+                            modifier = Modifier.size(15.dp)
+                        )
+                        Text(
+                            text = "$sectionCount Sections",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 11.5.sp,
+                            color = Color(0xFF1E293B)
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            if (keyTakeaways.isNotEmpty()) {
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = Color(0xFFF8FAFC),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = "CORE CONCEPT HIGHLIGHTS",
+                                fontFamily = InterFontFamily,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 10.sp,
+                                letterSpacing = 0.5.sp,
+                                color = Color(0xFF475569)
+                            )
+                            IconButton(
+                                onClick = { expandedOverview = !expandedOverview },
+                                modifier = Modifier.size(20.dp)
+                            ) {
+                                Icon(
+                                    imageVector = if (expandedOverview) Icons.Default.ExpandLess else Icons.Default.ExpandMore,
+                                    contentDescription = "Expand",
+                                    tint = Color(0xFF64748B),
+                                    modifier = Modifier.size(16.dp)
+                                )
+                            }
+                        }
+
+                        val visibleTakeaways = if (expandedOverview) keyTakeaways else keyTakeaways.take(2)
+                        visibleTakeaways.forEach { bullet ->
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Row(
+                                verticalAlignment = Alignment.Top,
+                                horizontalArrangement = Arrangement.spacedBy(6.dp)
+                            ) {
+                                Text("•", color = Color(0xFF3569F6), fontWeight = FontWeight.Bold, fontSize = 12.sp)
+                                Text(
+                                    text = bullet,
+                                    fontFamily = InterFontFamily,
+                                    fontSize = 12.sp,
+                                    lineHeight = 17.sp,
+                                    color = Color(0xFF334155)
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(14.dp))
+
+            Button(
+                onClick = onContinueReading,
+                shape = RoundedCornerShape(12.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF3569F6)),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(44.dp)
+            ) {
+                Text(
+                    text = "Start / Continue Reading",
+                    fontFamily = InterFontFamily,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 13.5.sp,
+                    color = Color.White
+                )
+                Spacer(modifier = Modifier.width(6.dp))
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                     contentDescription = null,
-                    contentScale = ContentScale.FillWidth,
-                    modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp))
+                    tint = Color.White,
+                    modifier = Modifier.size(15.dp)
                 )
             }
         }
     }
 }
 
-// ==================== 1. CHAPTER READER & TEXTBOOK CONCEPT VIEWER OVERLAY ====================
 @Composable
 fun ChapterReaderOverlay(
     chapter: ChapterEntity,
@@ -293,7 +1368,12 @@ fun ChapterReaderOverlay(
 ) {
     BackHandler(onBack = onBack)
 
-    // 3-Tab Pill Bar matching reference screenshot: "Read" | "Video" | "IMP Qs"
+    val context = LocalContext.current
+    val clipboardManager = LocalClipboardManager.current
+    val coroutineScope = rememberCoroutineScope()
+    val listState = rememberLazyListState()
+
+    // 3-Tab Pill Bar: "Read" | "Video" | "IMP Qs"
     val readerTabs = remember { listOf("Read", "Video", "IMP Qs") }
     var selectedTab by remember(chapter.id, startWithVideo) {
         mutableStateOf(if (startWithVideo) "Video" else "Read")
@@ -303,7 +1383,12 @@ fun ChapterReaderOverlay(
     var playbackSpeed by remember { mutableStateOf("1.0x") }
     var completionBannerShown by remember(chapter.id) { mutableStateOf(false) }
 
-    // Interactive Talk to AI & Crop/Snip Concept Sheet State
+    // Reading Controls State
+    var textSizeScale by remember { mutableFloatStateOf(1.0f) }
+    var isBookmarked by remember(chapter.id) { mutableStateOf(false) }
+    var zoomFigureKey by remember { mutableStateOf<String?>(null) }
+
+    // Interactive Talk to AI Concept Sheet State
     var showTalkToAiSheet by remember { mutableStateOf(false) }
     var aiPromptMode by remember { mutableStateOf("explain") }
     var customAiQuestion by remember { mutableStateOf("") }
@@ -340,7 +1425,7 @@ fun ChapterReaderOverlay(
             .filter { it.isNotEmpty() }
     }
 
-    // Parse detailed study notes into structured numbered sections (1. ..., 2. ..., 3. ...)
+    // Parse detailed study notes into structured numbered sections
     val parsedNoteSections = remember(chapter.detailedStudyNotes) {
         val rawBlocks = chapter.detailedStudyNotes.trim().split(Regex("\n\\s*\n"))
         rawBlocks.mapNotNull { block ->
@@ -354,243 +1439,500 @@ fun ChapterReaderOverlay(
         }
     }
 
+    // Calculate reading scroll progress
+    val readingProgress by remember {
+        derivedStateOf {
+            val layoutInfo = listState.layoutInfo
+            val total = layoutInfo.totalItemsCount
+            if (total <= 1) 0f
+            else {
+                val first = listState.firstVisibleItemIndex
+                val visible = layoutInfo.visibleItemsInfo.size
+                if (first + visible >= total) 1f
+                else (first.toFloat() / (total - visible).coerceAtLeast(1).toFloat()).coerceIn(0f, 1f)
+            }
+        }
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF7F7F5))
+            .background(Color(0xFFF8F9FC))
             .windowInsetsPadding(WindowInsets.statusBars)
             .windowInsetsPadding(WindowInsets.navigationBars)
     ) {
-        LazyColumn(
+        // ==================== STICKY HEADER & SEGMENTED CONTROLS ====================
+        Column(
             modifier = Modifier
-                .fillMaxSize()
-                .background(Color(0xFFF7F7F5))
-                .testTag("chapter_reader_overlay"),
-            contentPadding = PaddingValues(bottom = 128.dp)
+                .fillMaxWidth()
+                .background(Color(0xFFF8F9FC))
+                .zIndex(10f)
         ) {
-            item {
-                // Unified Top Header & 3-Segment Pill Bar (Cohesive 20.dp Grid & Matching Surface Tokens)
-                Column(
+            // 1. Compact Top Action Bar: Back + Breadcrumb + Title + Font Size + Bookmark
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 6.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Surface(
+                    onClick = onBack,
+                    shape = CircleShape,
+                    color = Color(0xFFF1F5F9),
+                    border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                    modifier = Modifier
+                        .size(38.dp)
+                        .testTag("chapter_overlay_back_button")
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Back",
+                            tint = Color(0xFF0F172A),
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.width(12.dp))
+
+                Column(modifier = Modifier.weight(1f)) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(6.dp)
+                                .clip(CircleShape)
+                                .background(accent)
+                        )
+                        Text(
+                            text = "${chapter.subject.uppercase()} • CH $chNumFormatted",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 11.sp,
+                            letterSpacing = 0.4.sp,
+                            color = Color(0xFF64748B)
+                        )
+                    }
+                    Text(
+                        text = chapter.title,
+                        fontFamily = OutfitDisplayFamily,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 17.sp,
+                        letterSpacing = (-0.3).sp,
+                        color = Color(0xFF0F172A),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(8.dp))
+
+                // Text scale toggle (AА)
+                Surface(
+                    onClick = {
+                        textSizeScale = if (textSizeScale == 1.0f) 1.15f else 1.0f
+                        Toast.makeText(
+                            context,
+                            if (textSizeScale > 1.0f) "Large Text: ON" else "Standard Text: ON",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    },
+                    shape = RoundedCornerShape(8.dp),
+                    color = if (textSizeScale > 1.0f) Color(0xFFEFF6FF) else Color(0xFFF1F5F9),
+                    border = BorderStroke(
+                        1.dp,
+                        if (textSizeScale > 1.0f) Color(0xFF3569F6) else Color(0xFFE2E8F0)
+                    ),
+                    modifier = Modifier.size(36.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Text(
+                            text = "AА",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 13.sp,
+                            color = if (textSizeScale > 1.0f) Color(0xFF3569F6) else Color(0xFF475569)
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.width(8.dp))
+
+                // Bookmark toggle
+                Surface(
+                    onClick = {
+                        isBookmarked = !isBookmarked
+                        Toast.makeText(
+                            context,
+                            if (isBookmarked) "Chapter Bookmarked" else "Bookmark Removed",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    },
+                    shape = RoundedCornerShape(8.dp),
+                    color = if (isBookmarked) Color(0xFFFEF3C7) else Color(0xFFF1F5F9),
+                    border = BorderStroke(
+                        1.dp,
+                        if (isBookmarked) Color(0xFFF59E0B) else Color(0xFFE2E8F0)
+                    ),
+                    modifier = Modifier.size(36.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(
+                            imageVector = if (isBookmarked) Icons.Default.Bookmark else Icons.Default.BookmarkBorder,
+                            contentDescription = "Bookmark",
+                            tint = if (isBookmarked) Color(0xFFD97706) else Color(0xFF475569),
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                }
+            }
+
+            // 2. Harmonized 3-Segment Pill Bar: Read | Video | IMP Qs
+            Surface(
+                shape = RoundedCornerShape(50),
+                color = Color(0xFFF1F5F9),
+                border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 4.dp)
+            ) {
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = 20.dp, end = 20.dp, top = 10.dp, bottom = 12.dp)
+                        .padding(3.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // 1. Aligned Top Bar: Tactile Circular Back Button + Chapter Metadata & Title
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
+                    readerTabs.forEach { tabLabel ->
+                        val isSelected = selectedTab == tabLabel
                         Surface(
-                            onClick = onBack,
-                            shape = CircleShape,
-                            color = Color(0xFFF3F4F6),
-                            border = BorderStroke(1.dp, Color(0xFFDCDFE4)),
-                            shadowElevation = 0.dp,
+                            onClick = { selectedTab = tabLabel },
+                            shape = RoundedCornerShape(50),
+                            color = if (isSelected) Color.White else Color.Transparent,
+                            shadowElevation = if (isSelected) 1.dp else 0.dp,
                             modifier = Modifier
-                                .size(40.dp)
-                                .testTag("chapter_overlay_back_button")
+                                .weight(1f)
+                                .testTag("reader_tab_${tabLabel.lowercase().replace(" ", "_")}")
                         ) {
-                            Box(contentAlignment = Alignment.Center) {
-                                Icon(
-                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                    contentDescription = "Back",
-                                    tint = Color(0xFF0F172A),
-                                    modifier = Modifier.size(19.dp)
-                                )
-                            }
-                        }
-
-                        Spacer(modifier = Modifier.width(14.dp))
-
-                        Column(
-                            modifier = Modifier.weight(1f),
-                            verticalArrangement = Arrangement.spacedBy(2.dp)
-                        ) {
-                            Row(
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.spacedBy(6.dp)
+                            Box(
+                                modifier = Modifier.padding(vertical = 7.dp),
+                                contentAlignment = Alignment.Center
                             ) {
-                                Box(
-                                    modifier = Modifier
-                                        .size(6.dp)
-                                        .clip(CircleShape)
-                                        .background(accent)
-                                )
                                 Text(
-                                    text = "${chapter.subject} • Ch $chNumFormatted",
+                                    text = tabLabel,
                                     fontFamily = InterFontFamily,
-                                    fontWeight = FontWeight.SemiBold,
-                                    fontSize = 12.sp,
-                                    letterSpacing = 0.15.sp,
-                                    color = Color(0xFF64748B)
+                                    fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Medium,
+                                    fontSize = 13.5.sp,
+                                    color = if (isSelected) Color(0xFF0F172A) else Color(0xFF64748B)
                                 )
-                            }
-                            Text(
-                                text = chapter.title,
-                                fontFamily = OutfitDisplayFamily,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 18.5.sp,
-                                letterSpacing = (-0.3).sp,
-                                color = Color(0xFF0F172A),
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(14.dp))
-
-                    // 2. Harmonized 3-Segment Pill Bar: Read | Video | IMP Qs
-                    Surface(
-                        shape = RoundedCornerShape(50),
-                        color = Color(0xFFF3F4F6),
-                        shadowElevation = 0.dp,
-                        border = BorderStroke(1.dp, Color(0xFFDCDFE4)),
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(4.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            readerTabs.forEach { tabLabel ->
-                                val isSelected = selectedTab == tabLabel
-                                Surface(
-                                    onClick = { selectedTab = tabLabel },
-                                    shape = RoundedCornerShape(50),
-                                    color = if (isSelected) Color(0xFFE2E5E9) else Color.Transparent,
-                                    shadowElevation = 0.dp,
-                                    modifier = Modifier
-                                        .weight(1f)
-                                        .testTag("reader_tab_${tabLabel.lowercase().replace(" ", "_")}")
-                                ) {
-                                    Box(
-                                        modifier = Modifier.padding(vertical = 9.dp),
-                                        contentAlignment = Alignment.Center
-                                    ) {
-                                        Text(
-                                            text = tabLabel,
-                                            fontFamily = InterFontFamily,
-                                            fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Medium,
-                                            fontSize = 14.5.sp,
-                                            letterSpacing = (-0.1).sp,
-                                            color = if (isSelected) Color(0xFF0F172A) else Color(0xFF525866),
-                                            maxLines = 1,
-                                            softWrap = false
-                                        )
-                                    }
-                                }
                             }
                         }
                     }
                 }
+            }
 
-                Spacer(modifier = Modifier.height(4.dp))
+            // 3. Thin reading progress indicator across width
+            if (selectedTab == "Read") {
+                LinearProgressIndicator(
+                    progress = { readingProgress },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(2.5.dp),
+                    color = Color(0xFF3569F6),
+                    trackColor = Color(0xFFE2E8F0)
+                )
+            } else {
+                Spacer(modifier = Modifier.height(2.5.dp))
+            }
+        }
 
-                // ==================== TAB 1: "Read" — TEXTBOOK CONCEPT PAGE (Matching Screenshot) ====================
-                if (selectedTab == "Read") {
+        // ==================== SCROLLING CONTENT ====================
+        LazyColumn(
+            state = listState,
+            modifier = Modifier
+                .fillMaxSize()
+                .testTag("chapter_reader_overlay"),
+            contentPadding = PaddingValues(top = 116.dp, bottom = 96.dp)
+        ) {
+            // ==================== TAB 1: "Read" — INTERACTIVE SCIENCE TEXTBOOK ====================
+            if (selectedTab == "Read") {
+                item {
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 22.dp)
+                            .padding(horizontal = 18.dp)
                     ) {
-                        // Top Bullet Takeaways from Chapter Key Concepts
-                        keyConceptBullets.take(2).forEach { bullet ->
-                            Text(
-                                text = "• $bullet",
-                                fontFamily = InterFontFamily,
-                                fontWeight = FontWeight.Normal,
-                                fontSize = 13.5.sp,
-                                lineHeight = 19.5.sp,
-                                color = Color(0xFF374151),
-                                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-                            )
-                        }
-
-                        if (keyConceptBullets.isNotEmpty()) {
-                            Spacer(modifier = Modifier.height(14.dp))
-
-                            // Subtle Dotted Divider Line
-                            Canvas(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(2.dp)
-                            ) {
-                                drawLine(
-                                    color = Color(0xFFD5D9E0),
-                                    start = Offset(0f, 0f),
-                                    end = Offset(size.width, 0f),
-                                    strokeWidth = 1.2.dp.toPx(),
-                                    pathEffect = PathEffect.dashPathEffect(floatArrayOf(5f, 6f), 0f)
-                                )
+                        // 1. Chapter Overview Card at Top
+                        ChapterOverviewCard(
+                            chapter = chapter,
+                            sectionCount = parsedNoteSections.size,
+                            keyTakeaways = keyConceptBullets,
+                            onContinueReading = {
+                                coroutineScope.launch {
+                                    listState.animateScrollToItem(1)
+                                }
                             }
+                        )
 
-                            Spacer(modifier = Modifier.height(18.dp))
-                        }
-
-                        // Chapter-Specific Textbook Sections & Derivations
+                        // 2. Structured Chapter Sections
                         parsedNoteSections.forEachIndexed { idx, (sectionHeading, sectionLines) ->
                             val cleanTitle = sectionHeading.removePrefix("${idx + 1}.").trim()
                             val isSubHeading = cleanTitle.startsWith("▸")
                             val displayTitle = cleanTitle.removePrefix("▸").trim()
-                            Text(
-                                text = "${chapter.chapterNumber}.${idx + 1} $displayTitle",
-                                fontFamily = InterFontFamily,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = if (isSubHeading) 15.sp else 16.sp,
-                                letterSpacing = (-0.2).sp,
-                                color = if (isSubHeading) DeepIndigo else Color(0xFF111827)
-                            )
-                            Spacer(modifier = Modifier.height(8.dp))
+
+                            if (idx > 0) {
+                                Spacer(modifier = Modifier.height(14.dp))
+                                if (!isSubHeading) {
+                                    Canvas(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(1.dp)
+                                            .padding(vertical = 4.dp)
+                                    ) {
+                                        drawLine(
+                                            color = Color(0xFFE2E8F0),
+                                            start = Offset(0f, 0f),
+                                            end = Offset(size.width, 0f),
+                                            strokeWidth = 1.dp.toPx()
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.height(12.dp))
+                                }
+                            }
+
+                            // Section Heading
+                            if (isSubHeading) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                    modifier = Modifier.padding(vertical = 4.dp)
+                                ) {
+                                    Text(
+                                        text = "▸",
+                                        color = Color(0xFF3569F6),
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 15.sp
+                                    )
+                                    Text(
+                                        text = displayTitle,
+                                        fontFamily = OutfitDisplayFamily,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 16.sp,
+                                        letterSpacing = (-0.2).sp,
+                                        color = Color(0xFF1E293B)
+                                    )
+                                }
+                            } else {
+                                Column(modifier = Modifier.padding(vertical = 6.dp)) {
+                                    Surface(
+                                        shape = RoundedCornerShape(6.dp),
+                                        color = Color(0xFFEEF2FF)
+                                    ) {
+                                        Text(
+                                            text = "SECTION ${idx + 1}",
+                                            fontFamily = InterFontFamily,
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 9.5.sp,
+                                            letterSpacing = 0.5.sp,
+                                            color = Color(0xFF3569F6),
+                                            modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.height(4.dp))
+                                    Text(
+                                        text = displayTitle,
+                                        fontFamily = OutfitDisplayFamily,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 18.sp,
+                                        letterSpacing = (-0.3).sp,
+                                        color = Color(0xFF0F172A)
+                                    )
+                                }
+                            }
+
+                            Spacer(modifier = Modifier.height(6.dp))
+
+                            // Scientific Diagrams for this section
                             chapterSectionFigures(chapter.id, idx).forEach { figKey ->
-                                ChapterFigure(figKey)
+                                ScientificDiagramCard(figKey = figKey, onZoom = { zoomFigureKey = it })
                             }
+
+                            // Interactive Grid for SI Base Units in Section 1
+                            if (idx == 1) {
+                                SiBaseUnitsGrid()
+                            }
+
+                            // Render Body Lines through Semantic Content Blocks
                             sectionLines.forEach { line ->
-                                NoteBodyLine(line)
+                                NoteBodyLine(
+                                    line = line,
+                                    textSizeScale = textSizeScale,
+                                    onCopy = { formula ->
+                                        clipboardManager.setText(AnnotatedString(formula))
+                                        Toast.makeText(context, "Formula copied to clipboard", Toast.LENGTH_SHORT).show()
+                                    },
+                                    onAskAi = { prompt ->
+                                        activeAiExplanation = prompt
+                                        showTalkToAiSheet = true
+                                    }
+                                )
                             }
-                            Spacer(modifier = Modifier.height(18.dp))
+
+                            Spacer(modifier = Modifier.height(14.dp))
                         }
 
-                        // Textbook Key Formula Box inside Read flow
+                        // Summary of Key Relations Card
                         Surface(
-                            shape = RoundedCornerShape(14.dp),
+                            shape = RoundedCornerShape(16.dp),
                             color = Color.White,
-                            border = BorderStroke(1.dp, Color(0xFFE5E7EB)),
+                            border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                            shadowElevation = 1.dp,
                             modifier = Modifier.fillMaxWidth()
                         ) {
                             Column(modifier = Modifier.padding(16.dp)) {
-                                Text(
-                                    text = "Summary of Key Relations • ${chapter.title}",
-                                    fontFamily = InterFontFamily,
-                                    fontWeight = FontWeight.SemiBold,
-                                    fontSize = 13.sp,
-                                    color = Color(0xFF111827)
-                                )
-                                Spacer(modifier = Modifier.height(8.dp))
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                                ) {
+                                    Surface(
+                                        shape = RoundedCornerShape(6.dp),
+                                        color = Color(0xFFEEF2FF)
+                                    ) {
+                                        Text(
+                                            text = "EXAM SUMMARY",
+                                            fontFamily = InterFontFamily,
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 9.5.sp,
+                                            letterSpacing = 0.5.sp,
+                                            color = Color(0xFF3569F6),
+                                            modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                                        )
+                                    }
+                                    Text(
+                                        text = "Core Formulas • ${chapter.title}",
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.SemiBold,
+                                        fontSize = 13.sp,
+                                        color = Color(0xFF111827)
+                                    )
+                                }
+                                Spacer(modifier = Modifier.height(10.dp))
                                 Text(
                                     text = chapter.formulaHighlight,
                                     fontFamily = AcademicSerifFamily,
                                     fontWeight = FontWeight.Normal,
-                                    fontSize = 15.sp,
-                                    lineHeight = 22.sp,
+                                    fontSize = (15.sp * textSizeScale),
+                                    lineHeight = (22.sp * textSizeScale),
                                     color = DeepIndigo
                                 )
                             }
                         }
 
-                        Spacer(modifier = Modifier.height(20.dp))
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        if (completionBannerShown) {
+                            Surface(
+                                color = SuccessGreen.copy(alpha = 0.12f),
+                                shape = RoundedCornerShape(14.dp),
+                                border = BorderStroke(1.dp, SuccessGreen.copy(alpha = 0.5f)),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 6.dp)
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(14.dp),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.CheckCircle,
+                                        contentDescription = null,
+                                        tint = SuccessGreen
+                                    )
+                                    Spacer(modifier = Modifier.width(10.dp))
+                                    Text(
+                                        text = "Chapter progress saved! +25 XP added to ${chapter.subject} mastery.",
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.Normal,
+                                        fontSize = 12.sp,
+                                        color = Color(0xFF047857)
+                                    )
+                                }
+                            }
+                        }
+
+                        // Bottom Actions: Complete Lesson + Practice Chapter Questions
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            Button(
+                                onClick = {
+                                    onMarkCompleted(false)
+                                    completionBannerShown = true
+                                },
+                                shape = RoundedCornerShape(14.dp),
+                                colors = ButtonDefaults.buttonColors(containerColor = SuccessGreen),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height(48.dp)
+                                    .testTag("complete_lesson_button")
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.CheckCircle,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(16.dp)
+                                )
+                                Spacer(modifier = Modifier.width(6.dp))
+                                Text(
+                                    text = "Mark Revised",
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = FontWeight.Normal,
+                                    fontSize = 12.5.sp,
+                                    maxLines = 1,
+                                    softWrap = false
+                                )
+                            }
+
+                            Button(
+                                onClick = onPracticeChapterQuestions,
+                                shape = RoundedCornerShape(14.dp),
+                                colors = ButtonDefaults.buttonColors(containerColor = accent),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height(48.dp)
+                                    .testTag("practice_chapter_questions_button")
+                            ) {
+                                Text(
+                                    text = "Practice (${chapter.practiceQuestionCount} Qs)",
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = FontWeight.Normal,
+                                    fontSize = 12.5.sp,
+                                    maxLines = 1,
+                                    softWrap = false
+                                )
+                                Spacer(modifier = Modifier.width(6.dp))
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(15.dp)
+                                )
+                            }
+                        }
                     }
                 }
+            }
 
-                // ==================== TAB 2: "Video" — INTERACTIVE LECTURE PLAYER ====================
-                if (selectedTab == "Video") {
+            // ==================== TAB 2: "Video" — INTERACTIVE LECTURE PLAYER ====================
+            if (selectedTab == "Video") {
+                item {
                     Card(
                         shape = RoundedCornerShape(22.dp),
                         colors = CardDefaults.cardColors(containerColor = DeepIndigo),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 20.dp)
+                            .padding(horizontal = 18.dp)
                     ) {
                         Column(modifier = Modifier.padding(16.dp)) {
                             Box(
@@ -744,181 +2086,15 @@ fun ChapterReaderOverlay(
                     }
                     Spacer(modifier = Modifier.height(18.dp))
                 }
+            }
 
-                // ==================== TAB 3: "Notes" — STRUCTURED REVISION SHEETS & FORMULAS ====================
-                if (selectedTab == "Notes") {
-                    // Master Formula Sheet Card
-                    Surface(
-                        shape = RoundedCornerShape(20.dp),
-                        color = Color(0xFFF3F6FF),
-                        border = BorderStroke(1.dp, Color(0xFFDCE5FF)),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 20.dp)
-                    ) {
-                        Column(modifier = Modifier.padding(16.dp)) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceBetween,
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Surface(
-                                    color = Color(0xFFE4EBFF),
-                                    shape = RoundedCornerShape(6.dp)
-                                ) {
-                                    Text(
-                                        text = "MASTER FORMULA SHEET",
-                                        fontFamily = JetBrainsMonoFamily,
-                                        fontWeight = FontWeight.Normal,
-                                        fontSize = 9.5.sp,
-                                        letterSpacing = 0.6.sp,
-                                        color = Color(0xFF4F46E5),
-                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
-                                    )
-                                }
-                                Text(
-                                    text = "${chapter.subject} • Ch $chNumFormatted",
-                                    fontFamily = JetBrainsMonoFamily,
-                                    fontWeight = FontWeight.Normal,
-                                    fontSize = 10.sp,
-                                    color = SecondaryText
-                                )
-                            }
-                            Spacer(modifier = Modifier.height(10.dp))
-                            Surface(
-                                color = Color.White,
-                                shape = RoundedCornerShape(14.dp),
-                                border = BorderStroke(1.dp, Color(0xFFE4ECFF)),
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                Text(
-                                    text = chapter.formulaHighlight,
-                                    fontFamily = AcademicSerifFamily,
-                                    fontWeight = FontWeight.Normal,
-                                    fontSize = 15.sp,
-                                    color = DeepIndigo,
-                                    lineHeight = 22.sp,
-                                    modifier = Modifier.padding(14.dp)
-                                )
-                            }
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(14.dp))
-
-                    // High-Yield Key Concepts Card
-                    Surface(
-                        shape = RoundedCornerShape(20.dp),
-                        color = Color.White,
-                        border = BorderStroke(1.dp, Color(0xFFE4E9F5)),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 20.dp)
-                    ) {
-                        Column(modifier = Modifier.padding(16.dp)) {
-                            Text(
-                                text = "CORE CONCEPTS & EXAM TAKEAWAYS",
-                                fontFamily = InterFontFamily,
-                                fontWeight = FontWeight.Normal,
-                                fontSize = 10.sp,
-                                letterSpacing = 0.6.sp,
-                                color = accent
-                            )
-                            Spacer(modifier = Modifier.height(10.dp))
-                            keyConceptBullets.forEachIndexed { idx, bullet ->
-                                Row(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .padding(vertical = 5.dp),
-                                    verticalAlignment = Alignment.Top,
-                                    horizontalArrangement = Arrangement.spacedBy(10.dp)
-                                ) {
-                                    Surface(
-                                        color = accent.copy(alpha = 0.12f),
-                                        shape = CircleShape,
-                                        modifier = Modifier.size(20.dp)
-                                    ) {
-                                        Box(contentAlignment = Alignment.Center) {
-                                            Text(
-                                                text = "${idx + 1}",
-                                                fontFamily = InterFontFamily,
-                                                fontWeight = FontWeight.Normal,
-                                                fontSize = 10.sp,
-                                                color = accent
-                                            )
-                                        }
-                                    }
-                                    Text(
-                                        text = bullet,
-                                        fontFamily = InterFontFamily,
-                                        fontWeight = FontWeight.Normal,
-                                        fontSize = 12.5.sp,
-                                        color = PrimaryText,
-                                        lineHeight = 18.5.sp,
-                                        modifier = Modifier.weight(1f)
-                                    )
-                                }
-                            }
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(14.dp))
-
-                    // Topic-by-Topic Revision Notes Cards
+            // ==================== TAB 3: "IMP Qs" — IMPORTANT IISER IAT QUESTIONS ====================
+            if (selectedTab == "IMP Qs") {
+                item {
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 20.dp),
-                        verticalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        parsedNoteSections.forEach { (sectionHeading, sectionLines) ->
-                            Surface(
-                                shape = RoundedCornerShape(18.dp),
-                                color = Color.White,
-                                border = BorderStroke(1.dp, Color(0xFFE4E9F5)),
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                Column(modifier = Modifier.padding(16.dp)) {
-                                    Surface(
-                                        color = Color(0xFFF4F7FE),
-                                        shape = RoundedCornerShape(8.dp)
-                                    ) {
-                                        Text(
-                                            text = sectionHeading,
-                                            fontFamily = InterFontFamily,
-                                            fontWeight = FontWeight.Normal,
-                                            fontSize = 11.sp,
-                                            letterSpacing = 0.3.sp,
-                                            color = DeepIndigo,
-                                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
-                                        )
-                                    }
-                                    Spacer(modifier = Modifier.height(10.dp))
-                                    sectionLines.forEach { line ->
-                                        Text(
-                                            text = line,
-                                            fontFamily = InterFontFamily,
-                                            fontWeight = FontWeight.Normal,
-                                            fontSize = 13.sp,
-                                            color = PrimaryText,
-                                            lineHeight = 19.5.sp,
-                                            modifier = Modifier.padding(vertical = 2.5.dp)
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(18.dp))
-                }
-
-                // ==================== TAB 4: "IMP Qs" — IMPORTANT IISER IAT QUESTIONS ====================
-                if (selectedTab == "IMP Qs") {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 20.dp),
+                            .padding(horizontal = 18.dp),
                         verticalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
                         Surface(
@@ -1050,220 +2226,81 @@ fun ChapterReaderOverlay(
                         Spacer(modifier = Modifier.height(12.dp))
                     }
                 }
-
-                if (completionBannerShown) {
-                    Surface(
-                        color = SuccessGreen.copy(alpha = 0.12f),
-                        shape = RoundedCornerShape(14.dp),
-                        border = BorderStroke(1.dp, SuccessGreen.copy(alpha = 0.5f)),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 20.dp, vertical = 6.dp)
-                    ) {
-                        Row(
-                            modifier = Modifier.padding(14.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.CheckCircle,
-                                contentDescription = null,
-                                tint = SuccessGreen
-                            )
-                            Spacer(modifier = Modifier.width(10.dp))
-                            Text(
-                                text = "Chapter progress saved! +25 XP added to ${chapter.subject} mastery.",
-                                fontFamily = InterFontFamily,
-                                fontWeight = FontWeight.Normal,
-                                fontSize = 12.sp,
-                                color = Color(0xFF047857)
-                            )
-                        }
-                    }
-                }
-
-                // Bottom Actions inside Scroll: Complete Lesson + Practice Chapter Questions
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    Button(
-                        onClick = {
-                            onMarkCompleted(selectedTab == "Video")
-                            completionBannerShown = true
-                        },
-                        shape = RoundedCornerShape(14.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = SuccessGreen),
-                        modifier = Modifier
-                            .weight(1f)
-                            .height(48.dp)
-                            .testTag("complete_lesson_button")
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.CheckCircle,
-                            contentDescription = null,
-                            modifier = Modifier.size(16.dp)
-                        )
-                        Spacer(modifier = Modifier.width(6.dp))
-                        Text(
-                            text = "Mark Revised",
-                            fontFamily = InterFontFamily,
-                            fontWeight = FontWeight.Normal,
-                            fontSize = 12.5.sp,
-                            maxLines = 1,
-                            softWrap = false
-                        )
-                    }
-
-                    Button(
-                        onClick = onPracticeChapterQuestions,
-                        shape = RoundedCornerShape(14.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = accent),
-                        modifier = Modifier
-                            .weight(1f)
-                            .height(48.dp)
-                            .testTag("practice_chapter_questions_button")
-                    ) {
-                        Text(
-                            text = "Practice (${chapter.practiceQuestionCount} Qs)",
-                            fontFamily = InterFontFamily,
-                            fontWeight = FontWeight.Normal,
-                            fontSize = 12.5.sp,
-                            maxLines = 1,
-                            softWrap = false
-                        )
-                        Spacer(modifier = Modifier.width(6.dp))
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                            contentDescription = null,
-                            modifier = Modifier.size(15.dp)
-                        )
-                    }
-                }
             }
         }
 
-        // ==================== FLOATING BOTTOM OVERLAY: "Talk to AI" PILL + CROP/SNIP BUTTON ====================
+        // ==================== COMPACT UNOBTRUSIVE FLOATING "ASK AI" PILL ====================
         Box(
             modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .fillMaxWidth()
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            Color.Transparent,
-                            Color(0xD9F8F9FA),
-                            Color(0xFFF8F9FA)
-                        )
-                    )
-                )
-                .padding(top = 28.dp, bottom = 18.dp, start = 24.dp, end = 24.dp)
+                .align(Alignment.BottomEnd)
+                .padding(end = 18.dp, bottom = 22.dp)
+                .imePadding()
         ) {
-            // Centered "Talk to AI" Pill Button with Blue Vertical Waveform Bars Icon
             Surface(
                 onClick = {
                     aiPromptMode = "explain"
                     showTalkToAiSheet = true
                 },
                 shape = RoundedCornerShape(50),
-                color = Color.White,
-                shadowElevation = 8.dp,
-                border = BorderStroke(1.dp, Color(0xFFE6E8EC)),
+                color = Color(0xFF3569F6),
+                shadowElevation = 6.dp,
+                border = BorderStroke(1.dp, Color(0xFF2563EB)),
                 modifier = Modifier
-                    .align(Alignment.Center)
-                    .height(48.dp)
+                    .height(44.dp)
                     .testTag("reader_talk_to_ai_button")
             ) {
                 Row(
-                    modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    horizontalArrangement = Arrangement.spacedBy(7.dp)
                 ) {
-                    // Blue Vertical Waveform Bars Icon matching reference screenshot
-                    Canvas(modifier = Modifier.size(22.dp)) {
-                        val barCount = 7
-                        val spacing = size.width / (barCount + 1)
-                        val barHeights = floatArrayOf(0.36f, 0.64f, 0.88f, 0.96f, 0.86f, 0.62f, 0.36f)
-                        for (i in 0 until barCount) {
-                            val x = spacing * (i + 1)
-                            val h = size.height * barHeights[i]
-                            val topY = (size.height - h) / 2f
-                            drawLine(
-                                color = if (i in 2..4) Color(0xFF3B66D6) else Color(0xFF7B9CEB),
-                                start = Offset(x, topY),
-                                end = Offset(x, topY + h),
-                                strokeWidth = 2.2.dp.toPx(),
-                                cap = StrokeCap.Round
-                            )
-                        }
-                    }
+                    Icon(
+                        imageVector = Icons.Default.AutoAwesome,
+                        contentDescription = "Ask AI",
+                        tint = Color.White,
+                        modifier = Modifier.size(16.dp)
+                    )
                     Text(
-                        text = "Talk to AI",
+                        text = "Ask AI",
                         fontFamily = InterFontFamily,
                         fontWeight = FontWeight.SemiBold,
-                        fontSize = 14.5.sp,
-                        color = Color(0xFF1F2937)
+                        fontSize = 13.5.sp,
+                        color = Color.White
                     )
                 }
             }
+        }
 
-            // Right-Aligned Circular Crop / Snip Icon Button (Matching Reference Screenshot)
-            Surface(
-                onClick = {
-                    aiPromptMode = "crop"
-                    activeAiExplanation =
-                        "Diagram Snip Analysis — Fig. 2.2 (${chapter.title}):\n" +
-                            "• Point A: Deflection when only Electric Field E is active (upward towards + plate).\n" +
-                            "• Point C: Deflection when only Magnetic Field B is active (downward via right-hand rule).\n" +
-                            "• Point B: Undeflected spot on the fluorescent ZnS screen when eE = evB, giving Thomson's specific charge ratio e / mₑ = E / (B² r)."
-                    showTalkToAiSheet = true
-                },
-                shape = CircleShape,
-                color = Color.White,
-                shadowElevation = 8.dp,
-                border = BorderStroke(1.dp, Color(0xFFE6E8EC)),
-                modifier = Modifier
-                    .align(Alignment.CenterEnd)
-                    .size(48.dp)
-                    .testTag("reader_crop_snip_button")
-            ) {
-                Box(contentAlignment = Alignment.Center) {
-                    // Crisp Crop Frame Icon drawn on Canvas matching the screenshot's crop icon
-                    Canvas(modifier = Modifier.size(20.dp)) {
-                        val s = size.width
-                        val strokeW = 1.8.dp.toPx()
-                        val col = Color(0xFF1F2937)
-                        // Top-left L bracket extending left & top
-                        drawLine(col, Offset(s * 0.26f, s * 0.08f), Offset(s * 0.26f, s * 0.74f), strokeW, StrokeCap.Round)
-                        drawLine(col, Offset(s * 0.26f, s * 0.74f), Offset(s * 0.92f, s * 0.74f), strokeW, StrokeCap.Round)
-                        // Top-right & bottom-right crop bracket
-                        drawLine(col, Offset(s * 0.08f, s * 0.26f), Offset(s * 0.74f, s * 0.26f), strokeW, StrokeCap.Round)
-                        drawLine(col, Offset(s * 0.74f, s * 0.26f), Offset(s * 0.74f, s * 0.92f), strokeW, StrokeCap.Round)
-                    }
-                }
-            }
+        // Diagram Zoom Lightbox Modal
+        if (zoomFigureKey != null) {
+            DiagramZoomDialog(
+                figKey = zoomFigureKey!!,
+                onDismiss = { zoomFigureKey = null }
+            )
         }
 
         // Interactive "Talk to AI" Concept Tutor Sheet
         if (showTalkToAiSheet) {
             Surface(
-                color = Color.Black.copy(alpha = 0.45f),
+                color = Color.Black.copy(alpha = 0.5f),
                 modifier = Modifier
                     .fillMaxSize()
                     .testTag("talk_to_ai_modal")
+                    .clickable { showTalkToAiSheet = false }
             ) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(18.dp),
+                        .padding(16.dp),
                     contentAlignment = Alignment.BottomCenter
                 ) {
                     Surface(
                         shape = RoundedCornerShape(26.dp),
                         color = Color.White,
-                        shadowElevation = 16.dp,
-                        modifier = Modifier.fillMaxWidth()
+                        shadowElevation = 18.dp,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable(enabled = false) {}
                     ) {
                         Column(modifier = Modifier.padding(20.dp)) {
                             Row(
@@ -1277,32 +2314,32 @@ fun ChapterReaderOverlay(
                                 ) {
                                     Surface(
                                         shape = CircleShape,
-                                        color = Color(0xFFEEF2FF),
-                                        modifier = Modifier.size(36.dp)
+                                        color = Color(0xFFEFF6FF),
+                                        modifier = Modifier.size(38.dp)
                                     ) {
                                         Box(contentAlignment = Alignment.Center) {
                                             Icon(
                                                 imageVector = Icons.Default.AutoAwesome,
                                                 contentDescription = null,
-                                                tint = Color(0xFF3B66D6),
-                                                modifier = Modifier.size(18.dp)
+                                                tint = Color(0xFF3569F6),
+                                                modifier = Modifier.size(19.dp)
                                             )
                                         }
                                     }
                                     Column {
                                         Text(
-                                            text = if (aiPromptMode == "crop") "Diagram Snip AI Breakdown" else "Talk to AI • Concept Tutor",
+                                            text = "Talk to AI • Concept Tutor",
                                             fontFamily = OutfitDisplayFamily,
                                             fontWeight = FontWeight.SemiBold,
                                             fontSize = 16.sp,
-                                            color = Color(0xFF111827)
+                                            color = Color(0xFF0F172A)
                                         )
                                         Text(
-                                            text = "Understand any textbook concept as many times as you want",
+                                            text = "Exam-focused intuition & derivations for ${chapter.title}",
                                             fontFamily = InterFontFamily,
                                             fontWeight = FontWeight.Normal,
                                             fontSize = 11.5.sp,
-                                            color = Color(0xFF6B7280)
+                                            color = Color(0xFF64748B)
                                         )
                                     }
                                 }
@@ -1310,12 +2347,12 @@ fun ChapterReaderOverlay(
                                     Icon(
                                         imageVector = Icons.Default.Cancel,
                                         contentDescription = "Close AI Tutor",
-                                        tint = Color(0xFF9CA3AF)
+                                        tint = Color(0xFF94A3B8)
                                     )
                                 }
                             }
 
-                            Spacer(modifier = Modifier.height(12.dp))
+                            Spacer(modifier = Modifier.height(14.dp))
 
                             // Quick Concept Prompts Row
                             Row(
@@ -1323,33 +2360,33 @@ fun ChapterReaderOverlay(
                                 horizontalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
                                 val quickPrompts = listOf(
-                                    "Explain Fig. 2.2",
-                                    "Intuition & Trick",
-                                    "Chapter Formula"
+                                    "SI Constants Trick",
+                                    "Vernier Zero Error",
+                                    "Error Propagation"
                                 )
                                 quickPrompts.forEach { label ->
                                     Surface(
                                         onClick = {
                                             activeAiExplanation = when (label) {
-                                                "Explain Fig. 2.2" ->
-                                                    "In Fig. 2.2, electrons travel from Cathode to Anode. Electric field alone deflects them to A; Magnetic field alone deflects them to C; balanced fields (v = E/B) send them straight to B."
-                                                "Intuition & Trick" ->
-                                                    "IISER IAT Shortcut for ${chapter.title}: Always check dimensional consistency and limiting cases first. When electric and magnetic forces balance, particle velocity v = E/B is independent of charge-to-mass ratio!"
+                                                "SI Constants Trick" ->
+                                                    "The 2019 SI redefinition fixed 7 fundamental constants: c (speed of light), h (Planck), e (elementary charge), k_B (Boltzmann), N_A (Avogadro), Δν_Cs (caesium frequency), and K_cd (luminous efficacy). Remember: μ₀ and ε₀ are now measured experimentally!"
+                                                "Vernier Zero Error" ->
+                                                    "Vernier Zero Error Rule:\n• Positive ZE = +(n × LC) if vernier zero is to the RIGHT of main scale zero (SUBTRACT from observed reading).\n• Negative ZE = −[(N − n) × LC] if vernier zero is to the LEFT (ADD to observed reading).\nCorrected Value = Observed − Zero Error (with sign)!"
                                                 else ->
-                                                    "Core Formula Breakdown (${chapter.title}):\n${chapter.formulaHighlight}"
+                                                    "Error Propagation in IISER IAT / NEST:\nFor Z = A^p · B^q / C^r:\nΔZ/Z = p(ΔA/A) + q(ΔB/B) + r(ΔC/C)\nRemember: Errors ALWAYS ADD! Even for subtraction (Z = A − B), ΔZ = ΔA + ΔB. Powers multiply percentage errors."
                                             }
                                         },
                                         shape = RoundedCornerShape(50),
-                                        color = Color(0xFFF3F4F6),
-                                        border = BorderStroke(1.dp, Color(0xFFE5E7EB))
+                                        color = Color(0xFFF1F5F9),
+                                        border = BorderStroke(1.dp, Color(0xFFE2E8F0))
                                     ) {
                                         Text(
                                             text = label,
                                             fontFamily = InterFontFamily,
                                             fontWeight = FontWeight.Medium,
                                             fontSize = 11.5.sp,
-                                            color = Color(0xFF1F2937),
-                                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+                                            color = Color(0xFF334155),
+                                            modifier = Modifier.padding(horizontal = 11.dp, vertical = 6.dp)
                                         )
                                     }
                                 }
@@ -1358,7 +2395,7 @@ fun ChapterReaderOverlay(
                             Spacer(modifier = Modifier.height(12.dp))
 
                             Surface(
-                                shape = RoundedCornerShape(16.dp),
+                                shape = RoundedCornerShape(14.dp),
                                 color = Color(0xFFF8FAFC),
                                 border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
                                 modifier = Modifier.fillMaxWidth()
@@ -1381,8 +2418,9 @@ fun ChapterReaderOverlay(
                                 onValueChange = { customAiQuestion = it },
                                 placeholder = {
                                     Text(
-                                        "Ask a follow-up question on this concept...",
-                                        fontSize = 12.5.sp
+                                        "Ask a specific question on this chapter...",
+                                        fontSize = 12.5.sp,
+                                        color = Color(0xFF94A3B8)
                                     )
                                 },
                                 singleLine = true,
@@ -1400,19 +2438,23 @@ fun ChapterReaderOverlay(
                                     onClick = {
                                         if (customAiQuestion.isNotBlank()) {
                                             activeAiExplanation =
-                                                "Concept Clarification for \"${customAiQuestion.trim()}\":\n" +
-                                                    "In ${chapter.title}, remember that ${keyConceptBullets.firstOrNull() ?: "the fundamental conservation laws govern deflection and equilibrium"}. " +
-                                                    "Key relation: ${chapter.formulaHighlight.lines().firstOrNull() ?: ""}"
+                                                "Concept Clarification for \"${customAiQuestion.trim()}\":\n\n" +
+                                                    "In ${chapter.title}, remember that ${keyConceptBullets.firstOrNull() ?: "the fundamental physical quantities determine the equations"}. " +
+                                                    "Master relation: ${chapter.formulaHighlight.lines().firstOrNull() ?: ""}"
                                             customAiQuestion = ""
                                         } else {
                                             showTalkToAiSheet = false
                                         }
                                     },
                                     shape = RoundedCornerShape(50),
-                                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1F2937)),
+                                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF3569F6)),
                                     modifier = Modifier.weight(1f)
                                 ) {
-                                    Text(if (customAiQuestion.isNotBlank()) "Ask AI Tutor" else "Got It")
+                                    Text(
+                                        text = if (customAiQuestion.isNotBlank()) "Ask AI Tutor" else "Got It",
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.SemiBold
+                                    )
                                 }
 
                                 OutlinedButton(
@@ -1421,9 +2463,15 @@ fun ChapterReaderOverlay(
                                         onOpenAiTutor()
                                     },
                                     shape = RoundedCornerShape(50),
+                                    border = BorderStroke(1.dp, Color(0xFFCBD5E1)),
                                     modifier = Modifier.weight(1f)
                                 ) {
-                                    Text("Full Snap & Solve")
+                                    Text(
+                                        text = "Full Snap & Solve",
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.Medium,
+                                        color = Color(0xFF334155)
+                                    )
                                 }
                             }
                         }
@@ -1434,279 +2482,6 @@ fun ChapterReaderOverlay(
     }
 }
 
-/**
- * Full-color labeled textbook diagram of Fig. 2.2 (J.J. Thomson's Cathode Ray Tube apparatus
- * to determine the charge-to-mass ratio of electron), matching the reference screenshot.
- */
-@Composable
-private fun TextbookCathodeRayApparatusDiagramCard() {
-    Surface(
-        shape = RoundedCornerShape(6.dp),
-        color = Color.White,
-        border = BorderStroke(1.dp, Color(0xFFECEFF4)),
-        modifier = Modifier.fillMaxWidth()
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 10.dp, vertical = 10.dp)
-        ) {
-            Canvas(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(210.dp)
-            ) {
-                val w = size.width
-                val h = size.height
-
-                val labelPaint = android.graphics.Paint().apply {
-                    isAntiAlias = true
-                    color = android.graphics.Color.parseColor("#1F2937")
-                    textSize = 10.5.sp.toPx()
-                    typeface = android.graphics.Typeface.create(android.graphics.Typeface.SERIF, android.graphics.Typeface.NORMAL)
-                }
-                val boldLabelPaint = android.graphics.Paint().apply {
-                    isAntiAlias = true
-                    color = android.graphics.Color.parseColor("#111827")
-                    textSize = 11.sp.toPx()
-                    typeface = android.graphics.Typeface.create(android.graphics.Typeface.SANS_SERIF, android.graphics.Typeface.BOLD)
-                }
-                val polePaint = android.graphics.Paint().apply {
-                    isAntiAlias = true
-                    color = android.graphics.Color.WHITE
-                    textSize = 10.sp.toPx()
-                    typeface = android.graphics.Typeface.create(android.graphics.Typeface.SANS_SERIF, android.graphics.Typeface.BOLD)
-                }
-
-                // 1. Glass Cathode Ray Tube Outline (Left cylinder + expanding cone to right fluorescent screen)
-                val tubeTopY = h * 0.25f
-                val tubeBotY = h * 0.55f
-                val neckX = w * 0.43f
-                val screenCenterX = w * 0.80f
-                val screenTopY = h * 0.08f
-                val screenBotY = h * 0.74f
-
-                val glassOutline = Path().apply {
-                    moveTo(w * 0.09f, tubeTopY)
-                    lineTo(neckX, tubeTopY)
-                    lineTo(screenCenterX, screenTopY)
-                    lineTo(screenCenterX, screenBotY)
-                    lineTo(neckX, tubeBotY)
-                    lineTo(w * 0.09f, tubeBotY)
-                    close()
-                }
-                drawPath(
-                    path = glassOutline,
-                    color = Color(0xFFF8FAFC)
-                )
-                drawPath(
-                    path = glassOutline,
-                    color = Color(0xFF4B5563),
-                    style = Stroke(width = 1.2.dp.toPx())
-                )
-                // Left rounded glass cap
-                drawOval(
-                    color = Color(0xFF4B5563),
-                    topLeft = Offset(w * 0.06f, tubeTopY),
-                    size = Size(w * 0.06f, tubeBotY - tubeTopY),
-                    style = Stroke(width = 1.2.dp.toPx())
-                )
-
-                // 2. Right Fluorescent Screen (Amber-Gold Oval matching screenshot)
-                val screenOvalTopLeft = Offset(w * 0.72f, screenTopY)
-                val screenOvalSize = Size(w * 0.17f, screenBotY - screenTopY)
-                drawOval(
-                    brush = Brush.radialGradient(
-                        colors = listOf(Color(0xFFFDE68A), Color(0xFFF59E0B)),
-                        center = Offset(w * 0.80f, h * 0.41f),
-                        radius = h * 0.36f
-                    ),
-                    topLeft = screenOvalTopLeft,
-                    size = screenOvalSize
-                )
-                drawOval(
-                    color = Color(0xFF6B7280),
-                    topLeft = screenOvalTopLeft,
-                    size = screenOvalSize,
-                    style = Stroke(width = 1.2.dp.toPx())
-                )
-
-                // 3. Cathode & Anode Metal Discs inside Left Neck
-                val cathodeX = w * 0.14f
-                val anodeX = w * 0.27f
-                // Cathode cylinder
-                drawOval(
-                    color = Color(0xFFD1D5DB),
-                    topLeft = Offset(cathodeX - w * 0.025f, h * 0.31f),
-                    size = Size(w * 0.05f, h * 0.18f)
-                )
-                drawOval(
-                    color = Color(0xFF4B5563),
-                    topLeft = Offset(cathodeX - w * 0.025f, h * 0.31f),
-                    size = Size(w * 0.05f, h * 0.18f),
-                    style = Stroke(width = 1.dp.toPx())
-                )
-                // Anode cylinder with central slit
-                drawOval(
-                    color = Color(0xFF9CA3AF),
-                    topLeft = Offset(anodeX - w * 0.03f, h * 0.28f),
-                    size = Size(w * 0.06f, h * 0.24f)
-                )
-                drawOval(
-                    color = Color(0xFF374151),
-                    topLeft = Offset(anodeX - w * 0.03f, h * 0.28f),
-                    size = Size(w * 0.06f, h * 0.24f),
-                    style = Stroke(width = 1.dp.toPx())
-                )
-
-                // High-Voltage Battery Circuit below Cathode & Anode
-                val wireY = h * 0.64f
-                drawLine(Color(0xFF1F2937), Offset(cathodeX, h * 0.40f), Offset(w * 0.05f, h * 0.40f), 1.2.dp.toPx())
-                drawLine(Color(0xFF1F2937), Offset(w * 0.05f, h * 0.40f), Offset(w * 0.05f, wireY), 1.2.dp.toPx())
-                drawLine(Color(0xFF1F2937), Offset(w * 0.05f, wireY), Offset(w * 0.16f, wireY), 1.2.dp.toPx())
-                // Battery plates symbol ─|│|─
-                for (b in 0..2) {
-                    val bx = w * (0.165f + b * 0.018f)
-                    drawLine(Color(0xFF1F2937), Offset(bx, wireY - 6.dp.toPx()), Offset(bx, wireY + 6.dp.toPx()), 1.4.dp.toPx())
-                    drawLine(Color(0xFF1F2937), Offset(bx + w * 0.008f, wireY - 3.dp.toPx()), Offset(bx + w * 0.008f, wireY + 3.dp.toPx()), 2.dp.toPx())
-                }
-                drawLine(Color(0xFF1F2937), Offset(w * 0.22f, wireY), Offset(anodeX, wireY), 1.2.dp.toPx())
-                drawLine(Color(0xFF1F2937), Offset(anodeX, wireY), Offset(anodeX, h * 0.52f), 1.2.dp.toPx())
-
-                // 4. Electric Field Deflecting Plates: Upper Blue (+) Plate & Lower Amber (-) Plate
-                val upperPlatePath = Path().apply {
-                    moveTo(w * 0.43f, h * 0.27f)
-                    lineTo(w * 0.54f, h * 0.27f)
-                    lineTo(w * 0.58f, h * 0.32f)
-                    lineTo(w * 0.47f, h * 0.32f)
-                    close()
-                }
-                drawPath(upperPlatePath, Color(0xFF38BDF8))
-                drawPath(upperPlatePath, Color(0xFF0284C7), style = Stroke(width = 1.dp.toPx()))
-                // Blue vertical lead for + plate
-                drawLine(Color(0xFF0284C7), Offset(w * 0.50f, h * 0.09f), Offset(w * 0.50f, h * 0.29f), 2.2.dp.toPx())
-
-                val lowerPlatePath = Path().apply {
-                    moveTo(w * 0.43f, h * 0.51f)
-                    lineTo(w * 0.54f, h * 0.51f)
-                    lineTo(w * 0.58f, h * 0.57f)
-                    lineTo(w * 0.47f, h * 0.57f)
-                    close()
-                }
-                drawPath(lowerPlatePath, Color(0xFFFBBF24))
-                drawPath(lowerPlatePath, Color(0xFFD97706), style = Stroke(width = 1.dp.toPx()))
-                // Red vertical lead for - plate
-                drawLine(Color(0xFFDC2626), Offset(w * 0.50f, h * 0.55f), Offset(w * 0.50f, h * 0.85f), 2.2.dp.toPx())
-
-                // 5. 3D Grey Horseshoe Magnet with N and S Poles
-                val magnetPath = Path().apply {
-                    moveTo(w * 0.40f, h * 0.29f)
-                    lineTo(w * 0.46f, h * 0.35f)
-                    lineTo(w * 0.42f, h * 0.42f)
-                    lineTo(w * 0.42f, h * 0.63f)
-                    lineTo(w * 0.57f, h * 0.77f)
-                    lineTo(w * 0.57f, h * 0.60f)
-                    lineTo(w * 0.52f, h * 0.54f)
-                    lineTo(w * 0.58f, h * 0.49f)
-                    lineTo(w * 0.64f, h * 0.56f)
-                    lineTo(w * 0.64f, h * 0.87f)
-                    lineTo(w * 0.56f, h * 0.91f)
-                    lineTo(w * 0.35f, h * 0.69f)
-                    lineTo(w * 0.35f, h * 0.36f)
-                    close()
-                }
-                drawPath(magnetPath, Color(0xFF6B7280))
-                drawPath(magnetPath, Color(0xFF374151), style = Stroke(width = 1.dp.toPx()))
-
-                // 6. Red Cathode Ray Beam & 3 Trajectories to Points A, B, C on Fluorescent Screen
-                val beamY = h * 0.40f
-                val branchX = w * 0.48f
-                val pointA = Offset(w * 0.79f, h * 0.21f)
-                val pointB = Offset(w * 0.80f, h * 0.40f)
-                val pointC = Offset(w * 0.79f, h * 0.60f)
-
-                // Main horizontal beam from Cathode to deflection region
-                drawLine(
-                    color = Color(0xFFEF4444),
-                    start = Offset(cathodeX, beamY),
-                    end = Offset(branchX, beamY),
-                    strokeWidth = 3.dp.toPx(),
-                    cap = StrokeCap.Round
-                )
-                // Deflected Ray A (Electric Field only)
-                drawLine(Color(0xFFDC2626), Offset(branchX, beamY), pointA, 1.6.dp.toPx())
-                // Undeflected Ray B (Balanced E and B Fields)
-                drawLine(Color(0xFFDC2626), Offset(branchX, beamY), pointB, 1.8.dp.toPx())
-                // Deflected Ray C (Magnetic Field only)
-                drawLine(Color(0xFFDC2626), Offset(branchX, beamY), pointC, 1.6.dp.toPx())
-
-                // Red impact dots at A, B, C
-                listOf(pointA, pointB, pointC).forEach { pt ->
-                    drawCircle(Color(0xFFB91C1C), radius = 3.dp.toPx(), center = pt)
-                }
-
-                // 7. Labels & Pointer Lines (Cathode, Anode, +, -, N, S, A, B, C, Fluorescent screen, Magnet)
-                val nc = drawContext.canvas.nativeCanvas
-                // Cathode & Anode labels + pointer lines
-                nc.drawText("Cathode", w * 0.04f, h * 0.19f, labelPaint)
-                drawLine(Color(0xFF6B7280), Offset(w * 0.11f, h * 0.21f), Offset(cathodeX, h * 0.31f), 0.9.dp.toPx())
-
-                nc.drawText("Anode", w * 0.19f, h * 0.19f, labelPaint)
-                drawLine(Color(0xFF6B7280), Offset(w * 0.23f, h * 0.21f), Offset(anodeX, h * 0.28f), 0.9.dp.toPx())
-
-                // + and - signs
-                nc.drawText("+", w * 0.47f, h * 0.11f, boldLabelPaint)
-                nc.drawText("–", w * 0.47f, h * 0.85f, boldLabelPaint)
-
-                // N and S on Magnet poles
-                nc.drawText("N", w * 0.405f, h * 0.36f, polePaint)
-                nc.drawText("S", w * 0.555f, h * 0.56f, polePaint)
-
-                // Points A, B, C on Fluorescent screen
-                nc.drawText("A", pointA.x + 8.dp.toPx(), pointA.y + 4.dp.toPx(), boldLabelPaint)
-                nc.drawText("B", pointB.x + 8.dp.toPx(), pointB.y + 4.dp.toPx(), boldLabelPaint)
-                nc.drawText("C", pointC.x + 8.dp.toPx(), pointC.y + 4.dp.toPx(), boldLabelPaint)
-
-                // Fluorescent screen & Magnet labels
-                nc.drawText("Fluorescent screen", w * 0.67f, h * 0.83f, labelPaint)
-                drawLine(Color(0xFF6B7280), Offset(w * 0.78f, h * 0.71f), Offset(w * 0.76f, h * 0.78f), 0.9.dp.toPx())
-
-                nc.drawText("Magnet", w * 0.64f, h * 0.93f, labelPaint)
-            }
-
-            Spacer(modifier = Modifier.height(4.dp))
-
-            // Italic Serif Caption Inside the Bottom of the Diagram Card (Matching Screenshot)
-            Text(
-                text = buildAnnotatedString {
-                    withStyle(
-                        SpanStyle(
-                            fontFamily = AcademicSerifFamily,
-                            fontWeight = FontWeight.Bold,
-                            fontStyle = FontStyle.Italic,
-                            color = Color(0xFF111827)
-                        )
-                    ) {
-                        append("Fig. 2.2  ")
-                    }
-                    withStyle(
-                        SpanStyle(
-                            fontFamily = AcademicSerifFamily,
-                            fontWeight = FontWeight.Normal,
-                            fontStyle = FontStyle.Italic,
-                            color = Color(0xFF1F2937)
-                        )
-                    ) {
-                        append("The apparatus to determine the charge to mass ratio of electron")
-                    }
-                },
-                fontSize = 11.5.sp,
-                lineHeight = 16.sp,
-                modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
-            )
-        }
-    }
-}
 
 // ==================== 2. INTERACTIVE QUESTION & PYQ SESSION OVERLAY ====================
 @Composable
