@@ -98,6 +98,7 @@ import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -129,6 +130,139 @@ import com.example.ui.theme.SuccessGreen
 import com.example.ui.theme.WarningCoral
 import kotlinx.coroutines.delay
 import kotlin.math.sin
+
+
+// ==================== RICH NOTE RENDERING (headings, highlights, figures) ====================
+
+/** Figure keys to display inside a parsed note section, by chapter + section index. */
+private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<String> =
+    when (chapterId) {
+        "phys_ch_1" -> when (sectionIndex) {
+            1 -> listOf("fig_1_5_si_constants")
+            7 -> listOf("fig_1_1_vernier", "fig_1_4_zero_errors")
+            8 -> listOf("fig_1_2_screw_gauge")
+            else -> emptyList()
+        }
+        else -> emptyList()
+    }
+
+/** Minimal inline rich text: **bold** spans; everything else passes through unchanged. */
+private fun noteAnnotated(text: String): AnnotatedString {
+    if (!text.contains("**")) return AnnotatedString(text)
+    return buildAnnotatedString {
+        var i = 0
+        while (i < text.length) {
+            val start = text.indexOf("**", i)
+            if (start < 0) {
+                append(text.substring(i))
+                break
+            }
+            append(text.substring(i, start))
+            val end = text.indexOf("**", start + 2)
+            if (end < 0) {
+                append(text.substring(start))
+                break
+            }
+            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                append(text.substring(start + 2, end))
+            }
+            i = end + 2
+        }
+    }
+}
+
+/** One body line of the Read tab, styled by its marker prefix. */
+@Composable
+private fun NoteBodyLine(line: String) {
+    when {
+        line.startsWith("✔") -> {
+            Surface(
+                shape = RoundedCornerShape(10.dp),
+                color = SoftLavender,
+                border = BorderStroke(1.dp, DeepIndigo.copy(alpha = 0.25f)),
+                modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp)
+            ) {
+                Text(
+                    text = noteAnnotated(line),
+                    fontFamily = AcademicSerifFamily,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 14.5.sp,
+                    lineHeight = 22.sp,
+                    color = DeepIndigo,
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                )
+            }
+        }
+        line.startsWith("★") -> {
+            Surface(
+                shape = RoundedCornerShape(10.dp),
+                color = Color(0xFFFFF6D6),
+                border = BorderStroke(1.dp, AccentYellow.copy(alpha = 0.7f)),
+                modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp)
+            ) {
+                Text(
+                    text = noteAnnotated(line),
+                    fontFamily = InterFontFamily,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 14.5.sp,
+                    lineHeight = 22.sp,
+                    color = Color(0xFF594400),
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                )
+            }
+        }
+        line.startsWith("⚠") -> {
+            Surface(
+                shape = RoundedCornerShape(10.dp),
+                color = Color(0xFFFDECEC),
+                border = BorderStroke(1.dp, WarningCoral.copy(alpha = 0.45f)),
+                modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp)
+            ) {
+                Text(
+                    text = noteAnnotated(line),
+                    fontFamily = InterFontFamily,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 14.5.sp,
+                    lineHeight = 22.sp,
+                    color = Color(0xFF7F1D1D),
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                )
+            }
+        }
+        else -> {
+            Text(
+                text = noteAnnotated(line),
+                fontFamily = InterFontFamily,
+                fontWeight = FontWeight.Normal,
+                fontSize = 14.5.sp,
+                lineHeight = 22.5.sp,
+                color = Color(0xFF374151),
+                modifier = Modifier.padding(vertical = 3.dp)
+            )
+        }
+    }
+}
+
+/** An embedded chapter figure (see ChapterFigureData) inside a white card. */
+@Composable
+private fun ChapterFigure(figKey: String) {
+    val bitmap = remember(figKey) { ChapterFigureData.decode(figKey) }
+    if (bitmap != null) {
+        Surface(
+            shape = RoundedCornerShape(12.dp),
+            color = Color.White,
+            border = BorderStroke(1.dp, Color(0xFFE5E7EB)),
+            modifier = Modifier.fillMaxWidth().padding(vertical = 6.dp)
+        ) {
+            Image(
+                bitmap = bitmap.asImageBitmap(),
+                contentDescription = null,
+                contentScale = ContentScale.FillWidth,
+                modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp))
+            )
+        }
+    }
+}
 
 // ==================== 1. CHAPTER READER & TEXTBOOK CONCEPT VIEWER OVERLAY ====================
 @Composable
@@ -463,25 +597,22 @@ fun ChapterReaderOverlay(
                         // Chapter-Specific Textbook Sections & Derivations
                         parsedNoteSections.forEachIndexed { idx, (sectionHeading, sectionLines) ->
                             val cleanTitle = sectionHeading.removePrefix("${idx + 1}.").trim()
+                            val isSubHeading = cleanTitle.startsWith("▸")
+                            val displayTitle = cleanTitle.removePrefix("▸").trim()
                             Text(
-                                text = "${chapter.chapterNumber}.${idx + 1} $cleanTitle",
+                                text = "${chapter.chapterNumber}.${idx + 1} $displayTitle",
                                 fontFamily = InterFontFamily,
                                 fontWeight = FontWeight.Bold,
-                                fontSize = 16.sp,
+                                fontSize = if (isSubHeading) 15.sp else 16.sp,
                                 letterSpacing = (-0.2).sp,
-                                color = Color(0xFF111827)
+                                color = if (isSubHeading) DeepIndigo else Color(0xFF111827)
                             )
                             Spacer(modifier = Modifier.height(8.dp))
+                            chapterSectionFigures(chapter.id, idx).forEach { figKey ->
+                                ChapterFigure(figKey)
+                            }
                             sectionLines.forEach { line ->
-                                Text(
-                                    text = line,
-                                    fontFamily = InterFontFamily,
-                                    fontWeight = FontWeight.Normal,
-                                    fontSize = 14.5.sp,
-                                    lineHeight = 22.5.sp,
-                                    color = Color(0xFF374151),
-                                    modifier = Modifier.padding(vertical = 3.dp)
-                                )
+                                NoteBodyLine(line)
                             }
                             Spacer(modifier = Modifier.height(18.dp))
                         }

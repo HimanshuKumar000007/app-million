@@ -1,81 +1,43 @@
-# Optional patch — show chapter figures inside the Read tab
+# Read-tab rich display — APPLIED (no longer a pending patch)
 
-**Why this exists:** `ChapterEntity` has no image field, and `ChapterReaderOverlay`
-(InteractiveOverlays.kt) renders `detailedStudyNotes` as text only. So today the
-notes can *reference* figures ("[Fig. 1.1]") but cannot display them. The only picture
-in the Read tab is the hardcoded Fig. 2.2 drawing in the UI code itself.
+Status: **implemented directly in the codebase** (user chose "fix the app display
+first" on 2026-10-28). This file is kept only as a record of what changed and why.
 
-This small, optional patch displays the chapter's PNG figures at the right sections.
-It changes only `InteractiveOverlays.kt` and adds 5 drawable files. Nothing else.
+## What the Read tab does now
 
-## Step 1 — add the images as drawables
+All changes are in `app/src/main/java/com/example/ui/screens/InteractiveOverlays.kt`,
+plus one new data file `app/src/main/java/com/example/ui/screens/ChapterFigureData.kt`:
 
-Copy these PNGs (delivered with the notes, folder
-`physics/ch01-units-and-measurements/images/`) into `app/src/main/res/drawable/`,
-renamed to Android resource names (lowercase, underscores):
+1. **Rich body lines** — a `NoteBodyLine` composable styles each note line by marker:
+   - `✔ KEY FORMULA` lines → lavender formula card, serif font, deep indigo text.
+   - `★ HIGHLIGHT` lines → pale yellow highlight card, semi-bold.
+   - `⚠ EXAM TRAP` lines → pale red warning card.
+   - All other lines → normal body text, with `**bold**` spans now rendered bold
+     (a minimal inline parser, `noteAnnotated`). Existing notes need no changes;
+     future notes may use `**...**` for emphasis.
+2. **Heading hierarchy** — blocks whose title starts with `▸` now render as
+   sub-headings (smaller, deep indigo) under the main section headings.
+3. **Images inside the Read tab** — a `chapterSectionFigures()` map places embedded
+   figures at the right sections of Physics Ch 01:
+   - section index 1 (SI base units) → the 7 SI constants chart
+   - section index 7 (Vernier calipers) → Vernier diagram + zero-error diagram
+   - section index 8 (Screw gauge) → screw gauge diagram
+   The Thomson e/m section needs none — the app already draws that apparatus.
 
-| File | Drawable name |
-|---|---|
-| fig-1.1-vernier-calipers.png | `fig_1_1_vernier.png` |
-| fig-1.2-screw-gauge.png | `fig_1_2_screw_gauge.png` |
-| fig-1.3-em-apparatus.png | `fig_1_3_em_apparatus.png` |
-| fig-1.4-zero-errors.png | `fig_1_4_zero_errors.png` |
-| fig-1.5-si-constants.png | `fig_1_5_si_constants.png` |
+## Why the figures are embedded as base64
 
-## Step 2 — map sections to figures (in InteractiveOverlays.kt)
+The Muse GitHub connector can only push text files, so PNG drawables could not be
+added under `res/drawable/`. Instead, the four figures were compressed to JPEG
+(47–82 KB each) and embedded as chunked base64 strings in `ChapterFigureData.kt`,
+decoded at runtime with `BitmapFactory`. If the project later moves to normal git
+pushes from a PC, these can be replaced by ordinary drawable resources and
+`painterResource` — the section map above is the only other piece.
 
-The Read tab already loops over the parsed sections with an index:
+## Honest limits
 
-```kotlin
-parsedNoteSections.forEachIndexed { idx, (sectionHeading, sectionLines) -> ... }
-```
-
-Section indexes for `phys_ch_1` (0-based, matching the current seed notes):
-
-- idx 1 («The Seven SI Base Units») → `fig_1_5_si_constants`
-- idx 7 («Vernier Calipers») → `fig_1_1_vernier` and `fig_1_4_zero_errors`
-- idx 8 («Screw Gauge») → `fig_1_2_screw_gauge`
-- idx 22 («Thomson's e/m») → `fig_1_3_em_apparatus`
-
-Add, just above that loop:
-
-```kotlin
-val sectionFigures: Map<Int, List<Int>> = when (chapter.id) {
-    "phys_ch_1" -> mapOf(
-        1 to listOf(R.drawable.fig_1_5_si_constants),
-        7 to listOf(R.drawable.fig_1_1_vernier, R.drawable.fig_1_4_zero_errors),
-        8 to listOf(R.drawable.fig_1_2_screw_gauge),
-        22 to listOf(R.drawable.fig_1_3_em_apparatus)
-    )
-    else -> emptyMap()
-}
-```
-
-And inside the loop, after the heading `Text(...)` and before the body lines:
-
-```kotlin
-sectionFigures[idx]?.forEach { resId ->
-    Image(
-        painter = painterResource(id = resId),
-        contentDescription = null,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp)
-            .clip(RoundedCornerShape(12.dp))
-    )
-}
-```
-
-Add imports if missing: `androidx.compose.foundation.Image`,
-`androidx.compose.ui.res.painterResource`, `com.example.R`
-(adjust the R import to the app's actual package).
-
-## Step 3 — build and check
-
-Run the app, open Physics → Ch 01 → Read: the SI-constants chart appears under
-section 1.2, the Vernier and zero-error figures under 1.8, the screw gauge under
-1.9, and the e/m apparatus under 1.23. If a section index ever shifts (notes
-edited), update the map — the heading titles above are the anchor.
-
-*Note: this patch was prepared by Muse from the current code but not compiled
-here — let your coding agent build it once before shipping.*
+- This patch was written and statically checked (imports, braces, string limits),
+  but **not compiled** — there is no Android SDK on Muse's machine. Build once in
+  Android Studio before shipping; any error will be local to the two files above.
+- The zero-error figure's captions are correct, but its drawn scale numerals are
+  stylised (one duplicated digit). Replace the artwork any time — its key is
+  `fig_1_4_zero_errors` in `ChapterFigureData.kt`.
