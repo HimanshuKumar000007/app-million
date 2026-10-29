@@ -1616,6 +1616,104 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "bio_ch_28" -> when (sectionIndex) {
+
+            4 -> listOf("fig_bio_28_1_restriction")
+
+            5 -> listOf("fig_bio_28_2_gel")
+
+            7 -> listOf("fig_bio_28_3_pbr322")
+
+            9 -> listOf("fig_bio_28_6_competent_host")
+
+            11 -> listOf("fig_bio_28_5_rdna_pipeline")
+
+            12 -> listOf("fig_bio_28_4_pcr")
+
+            13 -> listOf("fig_bio_28_8_selection")
+
+            15 -> listOf("fig_bio_28_7_bioreactor")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_29" -> when (sectionIndex) {
+
+            4 -> listOf("fig_bio_29_1_bt_cotton")
+
+            7 -> listOf("fig_bio_29_2_rnai")
+
+            9 -> listOf("fig_bio_29_3_insulin")
+
+            11 -> listOf("fig_bio_29_4_gene_therapy")
+
+            13 -> listOf("fig_bio_29_5_diagnosis")
+
+            15 -> listOf("fig_bio_29_7_transgenic_uses")
+
+            17 -> listOf("fig_bio_29_6_rosie")
+
+            19 -> listOf("fig_bio_29_8_ethics")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_30" -> when (sectionIndex) {
+
+            5 -> listOf("fig_bio_30_1_responses")
+
+            8 -> listOf("fig_bio_30_2_age_pyramids")
+
+            12 -> listOf("fig_bio_30_3_growth_curves")
+
+            14 -> listOf("fig_bio_30_4_interactions")
+
+            18 -> listOf("fig_bio_30_6_competition_defence")
+
+            21 -> listOf("fig_bio_30_5_mutualism")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_31" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_31_1_pond")
+
+            3 -> listOf("fig_bio_31_2_productivity")
+
+            7 -> listOf("fig_bio_31_3_decomposition")
+
+            10 -> listOf("fig_bio_31_4_energy_flow")
+
+            13 -> listOf("fig_bio_31_5_pyramids")
+
+            18 -> listOf("fig_bio_31_6_cycles")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_32" -> when (sectionIndex) {
+
+            5 -> listOf("fig_bio_32_1_species_pie")
+
+            8 -> listOf("fig_bio_32_2_latitudinal")
+
+            11 -> listOf("fig_bio_32_3_species_area")
+
+            14 -> listOf("fig_bio_32_5_extinctions")
+
+            16 -> listOf("fig_bio_32_4_evil_quartet")
+
+            21 -> listOf("fig_bio_32_6_conservation")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -4585,6 +4683,279 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Rhizobium in the nodules, cyanobacteria in the paddy, mycorrhiza at the root tip: feeding the soil, not just the plant."
 
         )
+
+        "fig_bio_28_1_restriction" -> Pair(
+
+            "Fig. 28.1 — Cutting DNA",
+
+            "A palindrome read both ways, EcoRI's staggered cut and the sticky ends it leaves — blunt ends beside them for contrast."
+
+        )
+
+        "fig_bio_28_2_gel" -> Pair(
+
+            "Fig. 28.2 — Gel Electrophoresis",
+
+            "Fragments race toward the anode through agarose: smallest travels farthest, ethidium bromide makes the bands glow under UV."
+
+        )
+
+        "fig_bio_28_3_pbr322" -> Pair(
+
+            "Fig. 28.3 — pBR322",
+
+            "The classic vector mapped: ori, rop, ampicillin and tetracycline markers, and the cloning sites inside each marker."
+
+        )
+
+        "fig_bio_28_4_pcr" -> Pair(
+
+            "Fig. 28.4 — PCR",
+
+            "Denature, anneal, extend — thirty cycles turn one DNA molecule into more than a billion copies."
+
+        )
+
+        "fig_bio_28_5_rdna_pipeline" -> Pair(
+
+            "Fig. 28.5 — The rDNA Pipeline",
+
+            "Isolate, cut, amplify, join, insert, select, express: the whole recombinant DNA assembly line on one screen."
+
+        )
+
+        "fig_bio_28_6_competent_host" -> Pair(
+
+            "Fig. 28.6 — Four Doors into a Cell",
+
+            "Heat shock, micro-injection, the gene gun and disarmed pathogen vectors — four ways to make a host accept foreign DNA."
+
+        )
+
+        "fig_bio_28_7_bioreactor" -> Pair(
+
+            "Fig. 28.7 — The Stirred-Tank Bioreactor",
+
+            "Impeller, sparger, foam control and probes: a hundred to a thousand litres of cells growing under supervision."
+
+        )
+
+        "fig_bio_28_8_selection" -> Pair(
+
+            "Fig. 28.8 — Selection by Markers",
+
+            "Grow on ampicillin, replica-plate to tetracycline: the colonies that vanish carry the insert — insertional inactivation."
+
+        )
+
+        "fig_bio_29_1_bt_cotton" -> Pair(
+
+            "Fig. 29.1 — Bt Cotton at Work",
+
+            "The plant makes an inactive protoxin; the bollworm's alkaline gut arms it, and the toxin pores the gut cells."
+
+        )
+
+        "fig_bio_29_2_rnai" -> Pair(
+
+            "Fig. 29.2 — RNA Interference",
+
+            "Sense plus antisense RNA makes double-stranded RNA that silences one nematode gene — the tobacco root stays safe."
+
+        )
+
+        "fig_bio_29_3_insulin" -> Pair(
+
+            "Fig. 29.3 — Engineered Insulin",
+
+            "Proinsulin loses its C peptide on maturation; Eli Lilly made chains A and B separately and joined them with disulfide bonds."
+
+        )
+
+        "fig_bio_29_4_gene_therapy" -> Pair(
+
+            "Fig. 29.4 — Gene Therapy for ADA",
+
+            "Lymphocytes out, a working ADA copy in by retrovirus, cells back — repeated, because lymphocytes do not live forever."
+
+        )
+
+        "fig_bio_29_5_diagnosis" -> Pair(
+
+            "Fig. 29.5 — Molecular Diagnosis",
+
+            "PCR finds pathogen DNA before symptoms, ELISA catches antigen or antibody, a radioactive probe hunts the mutated gene."
+
+        )
+
+        "fig_bio_29_6_rosie" -> Pair(
+
+            "Fig. 29.6 — Rosie, the Living Factory",
+
+            "The first transgenic cow, 1997: her milk carried human alpha-lactalbumin at 2.4 grams per litre."
+
+        )
+
+        "fig_bio_29_7_transgenic_uses" -> Pair(
+
+            "Fig. 29.7 — Why Transgenic Animals",
+
+            "Disease models, vaccine safety, chemical toxicity testing and biological products — over 95 percent of them are mice."
+
+        )
+
+        "fig_bio_29_8_ethics" -> Pair(
+
+            "Fig. 29.8 — Patents, Piracy and GEAC",
+
+            "Who owns a gene: the Basmati patent fight, biopiracy, and the committee that must approve every release in India."
+
+        )
+
+        "fig_bio_30_1_responses" -> Pair(
+
+            "Fig. 30.1 — Four Responses to Stress",
+
+            "Regulate, conform, migrate or suspend: every organism picks one of four answers to a hostile environment."
+
+        )
+
+        "fig_bio_30_2_age_pyramids" -> Pair(
+
+            "Fig. 30.2 — Age Pyramids",
+
+            "Broad base means expanding, straight sides stable, narrow base declining — a population's future in silhouette."
+
+        )
+
+        "fig_bio_30_3_growth_curves" -> Pair(
+
+            "Fig. 30.3 — J Curve versus S Curve",
+
+            "Exponential growth climbs forever; logistic growth bends and settles at the carrying capacity K."
+
+        )
+
+        "fig_bio_30_4_interactions" -> Pair(
+
+            "Fig. 30.4 — The Interaction Sign Table",
+
+            "Plus, minus or zero for each partner: mutualism, competition, predation, parasitism, commensalism, amensalism."
+
+        )
+
+        "fig_bio_30_5_mutualism" -> Pair(
+
+            "Fig. 30.5 — Mutualism Gallery",
+
+            "Lichen, mycorrhiza, the fig and its wasp, and the orchid that cheats a bee — partnerships shaped by co-evolution."
+
+        )
+
+        "fig_bio_30_6_competition_defence" -> Pair(
+
+            "Fig. 30.6 — Competition and Defence",
+
+            "Balanus excludes Chathamalus until Connell removes it; prey answer with poison, disguise and thorns."
+
+        )
+
+        "fig_bio_31_1_pond" -> Pair(
+
+            "Fig. 31.1 — The Pond Ecosystem",
+
+            "A self-contained unit: producers, consumers and decomposers stacked in strata, fed by sun and detritus."
+
+        )
+
+        "fig_bio_31_2_productivity" -> Pair(
+
+            "Fig. 31.2 — The Productivity Ledger",
+
+            "NPP is GPP minus respiration; the biosphere makes about 170 billion tons a year, oceans about 55 despite their size."
+
+        )
+
+        "fig_bio_31_3_decomposition" -> Pair(
+
+            "Fig. 31.3 — Five Steps of Decomposition",
+
+            "Fragmentation, leaching, catabolism, humification, mineralisation — detritus becomes soil in five moves."
+
+        )
+
+        "fig_bio_31_4_energy_flow" -> Pair(
+
+            "Fig. 31.4 — Energy Flow and the Ten Per Cent Law",
+
+            "Less than half the sunlight is PAR, plants catch a tenth of that, and every trophic step keeps only ten percent."
+
+        )
+
+        "fig_bio_31_5_pyramids" -> Pair(
+
+            "Fig. 31.5 — Ecological Pyramids",
+
+            "Numbers can wobble, sea biomass stands on its head, but the energy pyramid never inverts."
+
+        )
+
+        "fig_bio_31_6_cycles" -> Pair(
+
+            "Fig. 31.6 — Carbon versus Phosphorus",
+
+            "Carbon cycles through air and ocean; phosphorus has no sky — rock reservoir, no gaseous phase, no respiratory release."
+
+        )
+
+        "fig_bio_32_1_species_pie" -> Pair(
+
+            "Fig. 32.1 — Who Owns the Planet",
+
+            "Animals take over 70 percent of described species and insects top the animals; India holds 8.1 percent of life on 2.4 percent of land."
+
+        )
+
+        "fig_bio_32_2_latitudinal" -> Pair(
+
+            "Fig. 32.2 — The Latitudinal Gradient",
+
+            "Diversity peaks at the equator and fades toward the poles: more time, more stability, more sunshine in the tropics."
+
+        )
+
+        "fig_bio_32_3_species_area" -> Pair(
+
+            "Fig. 32.3 — Humboldt's Curve",
+
+            "More area, more species — log S equals log C plus Z log A, with Z near 0.2 locally and up to 1.2 across continents."
+
+        )
+
+        "fig_bio_32_4_evil_quartet" -> Pair(
+
+            "Fig. 32.4 — The Evil Quartet",
+
+            "Habitat loss, overexploitation, alien invaders and co-extinction: the four causes emptying the ledger."
+
+        )
+
+        "fig_bio_32_5_extinctions" -> Pair(
+
+            "Fig. 32.5 — The Extinction Ledger",
+
+            "784 species gone in 500 years — dodo, quagga, thylacine, Steller's sea cow — and the sixth extinction running 100 to 1000 times too fast."
+
+        )
+
+        "fig_bio_32_6_conservation" -> Pair(
+
+            "Fig. 32.6 — Two Ways to Conserve",
+
+            "In situ guards life at home — hotspots, parks, sacred groves; ex situ keeps the safety net — zoos, seed banks, frozen gametes."
+
+        )
+
 
 
 
