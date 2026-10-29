@@ -337,13 +337,13 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         "phys_ch_1" -> when (sectionIndex) {
 
-            1 -> listOf("fig_1_5_si_constants") // Section 1: The Seven SI Base Units
+            2 -> listOf("fig_1_5_si_constants") // Section 2: The Seven SI Base Units
 
-            7 -> listOf("fig_1_1_vernier", "fig_1_4_zero_errors") // Section 7: Vernier Calipers & Zero Error
+            9 -> listOf("fig_1_1_vernier", "fig_1_4_zero_errors") // Section 9: Vernier Calipers & Zero Error
 
-            8 -> listOf("fig_1_2_screw_gauge") // Section 8: Screw Gauge
+            10 -> listOf("fig_1_2_screw_gauge") // Section 10: Screw Gauge
 
-            22 -> listOf("fig_1_3_em") // Section 22: Thomson e/m Experiment
+            16 -> listOf("fig_1_3_em") // Section 16: Thomson e/m Experiment
 
             else -> emptyList()
 
