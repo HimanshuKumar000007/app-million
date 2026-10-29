@@ -28,7 +28,10 @@ object ChapterFigureData {
         "fig_1_2_screw_gauge" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175530/physics-ch01-fig-1-2-screw-gauge.png",
         "fig_1_3_em" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175532/physics-ch01-fig-1-3-em-apparatus.png",
         "fig_1_4_zero_errors" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175533/physics-ch01-fig-1-4-zero-errors.png",
-        "fig_1_5_si_constants" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175518/physics-ch01-fig-1-5-si-constants.png"
+        "fig_1_5_si_constants" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175518/physics-ch01-fig-1-5-si-constants.png",
+        "fig_2_1_xt_graphs" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793245650/physics-ch02-fig-2-1-xt-graphs.png",
+        "fig_2_2_vt_graph" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793245651/physics-ch02-fig-2-2-vt-graph.png",
+        "fig_2_3_free_fall" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793245652/physics-ch02-fig-2-3-free-fall.png"
     )
 
     val images: Map<String, String> = mapOf(
