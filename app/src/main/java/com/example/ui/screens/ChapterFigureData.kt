@@ -110,7 +110,24 @@ object ChapterFigureData {
         "fig_23_1_mirror_rays" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269693/physics-ch23-fig-23-1-concave-mirror-rays.png",
         "fig_23_2_lens_rays" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269694/physics-ch23-fig-23-2-convex-lens-rays.png",
         "fig_23_3_prism_deviation" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269696/physics-ch23-fig-23-3-prism-deviation-graph.png",
-        "fig_23_4_telescope" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269697/physics-ch23-fig-23-4-astronomical-telescope.png"
+        "fig_23_4_telescope" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269697/physics-ch23-fig-23-4-astronomical-telescope.png",
+        "fig_24_1_huygens_refraction" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270726/physics-ch24-fig-24-1-huygens-refraction.png",
+        "fig_24_2_ydse_pattern" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270727/physics-ch24-fig-24-2-ydse-pattern.png",
+        "fig_24_3_single_slit_diffraction" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270728/physics-ch24-fig-24-3-single-slit-diffraction.png",
+        "fig_24_4_polarisation_malus" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270729/physics-ch24-fig-24-4-polarisation-malus.png",
+        "fig_25_1_setup" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270869/physics-ch25-fig-25-1-photoelectric-setup.png",
+        "fig_25_2_photocurrent_curves" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270871/physics-ch25-fig-25-2-photocurrent-vs-potential.png",
+        "fig_25_3_kemax_frequency" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270873/physics-ch25-fig-25-3-kemax-vs-frequency.png",
+        "fig_26_1_alpha_scattering" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270973/physics-ch26-fig-26-1-alpha-scattering.png",
+        "fig_26_2_energy_levels" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270975/physics-ch26-fig-26-2-energy-levels.png",
+        "fig_26_3_hydrogen_series" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270976/physics-ch26-fig-26-3-hydrogen-series.png",
+        "fig_27_1_binding_energy_curve" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270636/physics-ch27-fig-27-1-binding-energy-curve.png",
+        "fig_27_2_decay_curve" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270831/physics-ch27-fig-27-2-decay-curve.png",
+        "fig_27_3_penetration" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270832/physics-ch27-fig-27-3-penetration.png",
+        "fig_28_1_energy_bands" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270726/physics-ch28-fig-28-1-energy-bands.png",
+        "fig_28_2_pn_junction" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270727/physics-ch28-fig-28-2-pn-junction.png",
+        "fig_28_3_diode_vi" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270728/physics-ch28-fig-28-3-diode-vi.png",
+        "fig_28_4_full_wave_rectifier" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270729/physics-ch28-fig-28-4-full-wave-rectifier.png"
     )
 
     val images: Map<String, String> = mapOf(

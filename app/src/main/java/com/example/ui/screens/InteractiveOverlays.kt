@@ -646,6 +646,70 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "phys_ch_24" -> when (sectionIndex) {
+
+            3 -> listOf("fig_24_1_huygens_refraction")
+
+            7 -> listOf("fig_24_2_ydse_pattern")
+
+            11 -> listOf("fig_24_3_single_slit_diffraction")
+
+            14 -> listOf("fig_24_4_polarisation_malus")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_25" -> when (sectionIndex) {
+
+            2 -> listOf("fig_25_1_setup")
+
+            8 -> listOf("fig_25_2_photocurrent_curves")
+
+            9 -> listOf("fig_25_3_kemax_frequency")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_26" -> when (sectionIndex) {
+
+            1 -> listOf("fig_26_1_alpha_scattering")
+
+            8 -> listOf("fig_26_2_energy_levels")
+
+            10 -> listOf("fig_26_3_hydrogen_series")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_27" -> when (sectionIndex) {
+
+            8 -> listOf("fig_27_1_binding_energy_curve")
+
+            10 -> listOf("fig_27_3_penetration")
+
+            12 -> listOf("fig_27_2_decay_curve")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_28" -> when (sectionIndex) {
+
+            1 -> listOf("fig_28_1_energy_bands")
+
+            7 -> listOf("fig_28_2_pn_junction")
+
+            9 -> listOf("fig_28_3_diode_vi")
+
+            10 -> listOf("fig_28_4_full_wave_rectifier")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -1295,6 +1359,143 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "The objective forms a real image at its focus; the eyepiece magnifies it for the eye."
 
         )
+
+        "fig_24_1_huygens_refraction" -> Pair(
+
+            "Fig. 24.1 — Huygens Construction for Refraction",
+
+            "Secondary wavelets from a plane wavefront at a boundary — the refracted wavefront and Snell's law from geometry."
+
+        )
+
+        "fig_24_2_ydse_pattern" -> Pair(
+
+            "Fig. 24.2 — Young's Double-Slit Pattern",
+
+            "Two coherent slits, fringe spacing β = λD/d on the screen, and the cos-squared intensity profile across the fringes."
+
+        )
+
+        "fig_24_3_single_slit_diffraction" -> Pair(
+
+            "Fig. 24.3 — Single-Slit Diffraction Pattern",
+
+            "Intensity versus angle: a wide bright central maximum flanked by rapidly weakening side lobes; minima where a sinθ = nλ."
+
+        )
+
+        "fig_24_4_polarisation_malus" -> Pair(
+
+            "Fig. 24.4 — Polarisation and Malus's Law",
+
+            "Unpolarised light is halved by the polariser, then follows I = I0 cos²θ through the analyser."
+
+        )
+
+        "fig_25_1_setup" -> Pair(
+
+            "Fig. 25.1 — Photoelectric Effect Apparatus",
+
+            "Lenard's setup: ultraviolet light on the emitter plate, a variable battery and microammeter mapping photocurrent against voltage."
+
+        )
+
+        "fig_25_2_photocurrent_curves" -> Pair(
+
+            "Fig. 25.2 — Photocurrent versus Anode Potential",
+
+            "Higher intensity raises the saturation current; the stopping potential stays fixed at a fixed frequency."
+
+        )
+
+        "fig_25_3_kemax_frequency" -> Pair(
+
+            "Fig. 25.3 — Maximum Kinetic Energy versus Frequency",
+
+            "A straight line of slope h cutting the frequency axis at the threshold frequency; the intercept gives the work function."
+
+        )
+
+        "fig_26_1_alpha_scattering" -> Pair(
+
+            "Fig. 26.1 — Alpha-Particle Scattering",
+
+            "Trajectories past a tiny massive nucleus: most particles pass nearly straight, a few deflect sharply, rare ones rebound."
+
+        )
+
+        "fig_26_2_energy_levels" -> Pair(
+
+            "Fig. 26.2 — Bohr Energy Levels of Hydrogen",
+
+            "Level energies following E = −13.6/n² eV, with Lyman, Balmer and Paschen transition arrows."
+
+        )
+
+        "fig_26_3_hydrogen_series" -> Pair(
+
+            "Fig. 26.3 — The Five Hydrogen Series",
+
+            "Lyman in the ultraviolet, Balmer in the visible, and Paschen, Brackett and Pfund in the infrared, on one wavelength axis."
+
+        )
+
+        "fig_27_1_binding_energy_curve" -> Pair(
+
+            "Fig. 27.1 — Binding Energy per Nucleon Curve",
+
+            "Binding energy per nucleon rises to the iron-56 peak near 8.8 MeV: fusion climbs the left slope, fission descends the right."
+
+        )
+
+        "fig_27_2_decay_curve" -> Pair(
+
+            "Fig. 27.2 — Radioactive Decay Curve",
+
+            "The count follows N = N0 e^(−λt) and halves every half-life, marked at one, two and three half-lives."
+
+        )
+
+        "fig_27_3_penetration" -> Pair(
+
+            "Fig. 27.3 — Penetrating Power of Alpha, Beta and Gamma",
+
+            "Alpha is stopped by paper, beta by an aluminium sheet, and gamma is only weakened by thick lead."
+
+        )
+
+        "fig_28_1_energy_bands" -> Pair(
+
+            "Fig. 28.1 — Energy Bands of Conductor, Semiconductor, Insulator",
+
+            "Overlapping bands, a gap near 1 eV and a wide forbidden gap decide how a solid conducts."
+
+        )
+
+        "fig_28_2_pn_junction" -> Pair(
+
+            "Fig. 28.2 — The p–n Junction at Equilibrium",
+
+            "Diffusion leaves a depletion region of uncovered ions and a barrier potential opposing further flow."
+
+        )
+
+        "fig_28_3_diode_vi" -> Pair(
+
+            "Fig. 28.3 — Diode V–I Characteristics",
+
+            "The forward knee sits near 0.7 V for silicon; the reverse current stays tiny until breakdown."
+
+        )
+
+        "fig_28_4_full_wave_rectifier" -> Pair(
+
+            "Fig. 28.4 — Full-Wave Rectifier Waveforms",
+
+            "Both half-cycles of the alternating input are folded into one direction in the output."
+
+        )
+
 
         else -> Pair("Scientific Diagram", "Textbook precision illustration.")
 
