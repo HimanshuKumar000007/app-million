@@ -1070,6 +1070,54 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "math_ch_11" -> when (sectionIndex) {
+
+            1 -> listOf("fig_math_11_1_tangent_secant")
+
+            11 -> listOf("fig_math_11_3_rolle_mvt")
+
+            12 -> listOf("fig_math_11_2_first_derivative_test")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_12" -> when (sectionIndex) {
+
+            1 -> listOf("fig_math_12_1_area_meaning")
+
+            8 -> listOf("fig_math_12_2_symmetry_king")
+
+            12 -> listOf("fig_math_12_3_between_curves")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_13" -> when (sectionIndex) {
+
+            0 -> listOf("fig_math_13_1_slope_field")
+
+            4 -> listOf("fig_math_13_3_family_curves")
+
+            10 -> listOf("fig_math_13_2_growth_decay")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_14" -> when (sectionIndex) {
+
+            3 -> listOf("fig_math_14_1_distribution_stats")
+
+            10 -> listOf("fig_math_14_2_bayes_tree")
+
+            13 -> listOf("fig_math_14_3_lp_region")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -2599,6 +2647,103 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "From the left it dies away to 0, from the right it explodes — different one-sided limits mean the limit does not exist."
 
         )
+
+        "fig_math_11_1_tangent_secant" -> Pair(
+
+            "Fig. 11.1 — From Secant to Tangent",
+
+            "The derivative at a point is the slope the secant settles into as the second point slides into the first — steepness at a single instant."
+
+        )
+
+        "fig_math_11_2_first_derivative_test" -> Pair(
+
+            "Fig. 11.2 — The First Derivative Test",
+
+            "Where the derivative changes sign, the curve turns: plus to minus is a local maximum, minus to plus a local minimum — the sign chart reads the shape."
+
+        )
+
+        "fig_math_11_3_rolle_mvt" -> Pair(
+
+            "Fig. 11.3 — Rolle's Theorem and the Mean Value Theorem",
+
+            "Equal endpoints force a horizontal tangent somewhere inside (Rolle); in general, some tangent inside always matches the secant's slope (the MVT)."
+
+        )
+
+        "fig_math_12_1_area_meaning" -> Pair(
+
+            "Fig. 12.1 — The Definite Integral as Area",
+
+            "The definite integral totals the signed area between the curve and the x-axis — area above counts positive, area below counts negative."
+
+        )
+
+        "fig_math_12_2_symmetry_king" -> Pair(
+
+            "Fig. 12.2 — Symmetry Shortcuts and King's Property",
+
+            "Even functions double their half and odd functions cancel to zero — and mirroring the interval is the trick behind King's property."
+
+        )
+
+        "fig_math_12_3_between_curves" -> Pair(
+
+            "Fig. 12.3 — Area Between Two Curves",
+
+            "Integrate top minus bottom between the intersection points — that is the lens-shaped region the two curves enclose."
+
+        )
+
+        "fig_math_13_1_slope_field" -> Pair(
+
+            "Fig. 13.1 — A Slope Field",
+
+            "A differential equation paints a direction at every point; a solution is any curve that everywhere flows along those directions."
+
+        )
+
+        "fig_math_13_3_family_curves" -> Pair(
+
+            "Fig. 13.3 — One Family, One Equation",
+
+            "Every member of a family of curves satisfies the same differential equation — differentiate and eliminate the constant to find it."
+
+        )
+
+        "fig_math_13_2_growth_decay" -> Pair(
+
+            "Fig. 13.2 — Growth and Decay",
+
+            "The law dy/y = k dt gives exponentials: growth doubles on a fixed clock and decay halves on one — the same law with opposite signs."
+
+        )
+
+        "fig_math_14_1_distribution_stats" -> Pair(
+
+            "Fig. 14.1 — Mean, Median and Mode in a Skewed Distribution",
+
+            "In a skewed distribution the three centres separate: the mode sits at the peak, the mean is dragged towards the tail, and the median sits between them."
+
+        )
+
+        "fig_math_14_2_bayes_tree" -> Pair(
+
+            "Fig. 14.2 — The Bayes Tree",
+
+            "Multiply along the branches for the joint probabilities; Bayes' theorem then compares the true-positive branch against all the positive branches."
+
+        )
+
+        "fig_math_14_3_lp_region" -> Pair(
+
+            "Fig. 14.3 — The Corner-Point Method",
+
+            "The feasible region is a polygon, and the optimum of a linear objective always sits at a corner — evaluate the objective at each corner and pick the best."
+
+        )
+
 
 
 

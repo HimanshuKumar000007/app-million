@@ -3185,43 +3185,280 @@ Chapter Summary, Revision Checklist and Self-Assessment
 
             completedLessons = 4,
 
-            studyNotesCount = 10,
+            studyNotesCount = 21,
 
-            practiceQuestionCount = 28,
+            practiceQuestionCount = 5,
 
             durationMinutes = 60,
 
-            formulaHighlight = "f'(c) = [f(b) − f(a)] / (b − a)  •  Concave Up: f''(x) > 0",
+            formulaHighlight = "✔ Definition: f'(a) is the limit, as h tends to 0, of (f(a + h) - f(a)) / h — the slope of the tangent at a and the instantaneous rate of change of f at a\n✔ Power rule: (x^n)' = n x^(n - 1); sum rule term by term; constant multiples pass through; constants vanish\n✔ Product rule: (f g)' = f' g + f g'. Quotient rule: (f / g)' = (f' g - f g') / g^2, numerator order fixed\n✔ Chain rule: (f(g(x)))' = f'(g(x)) x g'(x) — outer derivative at the untouched inside, times the inside's derivative; one factor per layer\n✔ Bank: (e^x)' = e^x; (a^x)' = a^x ln a; (ln x)' = 1/x; (sin x)' = cos x; (cos x)' = -sin x; (tan x)' = sec^2 x; (sin^-1 x)' = 1 / sqrt(1 - x^2); (cos^-1 x)' = -1 / sqrt(1 - x^2); (tan^-1 x)' = 1 / (1 + x^2)\n✔ Implicit: differentiate both sides in x, attaching dy/dx to every y-derivative ((y^2)' = 2y dy/dx; (xy)' = y + x dy/dx), then solve for dy/dx. Logarithmic differentiation: ln y first, expand, differentiate; the flagship (x^x)' = x^x (1 + ln x)\n✔ Parametric: dy/dx = (dy/dt) / (dx/dt), and d^2y/dx^2 = (d/dt of dy/dx) / (dx/dt) — never the ratio of second derivatives\n✔ Tangent at (x1, y1): y - y1 = f'(x1)(x - x1); normal slope -1/f'(x1). f' positive means increasing, f' negative means decreasing; critical points are where f' is 0 or undefined\n✔ Rolle: continuous on [a, b], differentiable on (a, b), f(a) = f(b) implies some c inside has f'(c) = 0. MVT: the same first two conditions imply some c with f'(c) = (f(b) - f(a)) / (b - a)\n✔ Tests: first derivative test reads the sign change of f' (plus-to-minus: maximum; minus-to-plus: minimum); second derivative test: f'(a) = 0 with f''(a) negative means maximum, positive means minimum, zero means use the first test. Closed intervals: check critical points AND endpoints\n✔ Rates: dy/dt = (dy/dx)(dx/dt); dA/dt = 2 pi r (dr/dt) for circles; dV/dt = 4 pi r^2 (dr/dt) for spheres; dv/dt = 3 a^2 (da/dt) for cubes; marginal cost is C'(x). Differentiate first, substitute the instant second",
 
-            keyConceptsSummary = "Left and right hand derivatives, sharp corners in modulus graphs, chain/implicit/parametric differentiation, Rolle's and Lagrange's Mean Value Theorems, critical points, inflection points, and optimization.",
+            keyConceptsSummary = "• The derivative at a point is one object with two faces: the slope of the tangent line there and the instantaneous rate of change — computed once from first principles as the limit of secant slopes, then forever by the rules (sum, product with its fixed order, quotient, and the chain rule, whose layer-count check catches the chapter's most common error)\n• The standard bank must be reflexive: powers n x^(n - 1), e^x unchanged, a^x with its ln a toll, ln x giving 1/x, the six trig derivatives with minus signs on cos, cot and cosec, and the inverse-trig trio 1 / sqrt(1 - x^2), -1 / sqrt(1 - x^2), 1 / (1 + x^2) — every harder derivative in the chapter is these atoms combined by the rules\n• Three disguises extend the rules: implicit differentiation for relations like x^2 + xy + y^2 = 7 (every y differentiated in x pays a dy/dx; slope -4/5 at (1, 2)), logarithmic differentiation for variable-base variable-exponent forms like x^x, whose derivative x^x (1 + ln x) is exactly the two half-rules added, and parametric differentiation dy/dx = (dy/dt) / (dx/dt) where a parameter drives both coordinates\n• Applications are interpretations of a single computation: f'(a) is the tangent's slope and -1/f'(a) the normal's; the sign chart of f' maps increasing and decreasing intervals (x^3 - 3x climbs exactly where |x| exceeds 1); Rolle's theorem and the mean value theorem certify, hypotheses first, that average slope over an interval is attained instantaneously at some interior point c\n• Extrema are a court procedure, not a guess: critical points from f' = 0 are only candidates, convicted by the first derivative test's sign change or the second derivative test (silent when f'' = 0, where y = x^4 hides a minimum), and questions ask for extreme VALUES — f(x) = x^3 - 3x^2 - 9x + 5 has local maximum value 10 at x = -1 and local minimum value -22 at x = 3; closed intervals add the endpoints as candidates\n• Optimisation adds story discipline to the same drill: eliminate one variable with the constraint (perimeter 60 m gives sides x and 30 - x), state the domain the story allows (the 12 cm sheet box needs 0 < x < 6, rejecting the formal root x = 6), classify, and answer with the story's quantity and units — maximum box volume 128 cubic cm at x = 2, maximum rectangle area 225 square metres for the 15 by 15 square\n• Rates of change run the chain rule with respect to time: differentiate the linking formula symbolically FIRST (V = (4/3) pi r^3 gives dV/dt = 4 pi r^2 dr/dt) and substitute the instant LAST (r = 5, dr/dt = 3 gives 300 pi cubic cm per second) — substituting early freezes the variable and reports 0; marginal cost C'(x) is the same derivative in economics dress, 450 rupees per extra unit for C(x) = 2x^2 + 50x + 1000 at x = 100",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — Slope, Speed and the Idea of a Derivative
+• Two questions dominate this chapter, and they are secretly one question. How steep is a curve at a single point? And how fast is a quantity changing at a single instant? The derivative is the machine that answers both, and everything else in this chapter — the rules, the theorems, the maxima hunts — is bookkeeping built on top of it.
+• DEFINITION — The derivative of f at the point x = a, written f'(a), is the instantaneous rate of change of f at a: it is the slope of the tangent line to the graph at (a, f(a)), and equally the speed at which f is changing exactly there. If s(t) is position, s'(t) is velocity; if V(r) is volume, V'(r) is volume gained per unit of radius.
+• EXAMPLE — A car covers distance s(t) = t^2 + 3t kilometres in t hours (a toy model). Its average speed over the first 2 hours is s(2)/2 = 10/2 = 5 km per hour. But its speedometer at t = 2 reads s'(2) = 2 x 2 + 3 = 7 km per hour. Average speed smears the whole journey; the derivative reports the single instant. Exams almost always ask for the instant.
+• WHY the derivative is this chapter's whole economy — once you can differentiate, slopes, tangents, increasing intervals, maxima, minima and rates of change all become lookups: each application is one derivative plus one interpretation. Students who master the rules in Sections 2 to 4 earn the applications in Sections 9 to 14 almost free.
+• WHY two faces, slope and rate — a graph turns "how fast" into "how steep": rise over run on the distance-time graph IS the speed. Whenever a rate problem feels abstract, draw the graph and ask for the slope; whenever a slope problem feels abstract, read it as a speed. The translation is always legal.
+• The map of the chapter: first the definition built honestly from a limit, then the rules that make differentiation fast, then the standard bank of results. After that the three disguises — implicit, logarithmic, parametric — and second derivatives. Then the applications: tangents and normals, increasing and decreasing, Rolle and the mean value theorem, maxima and minima, optimisation, and rates of change.
+★ HIGHLIGHT — One sentence to carry through the whole chapter: the derivative at a point is the slope of the tangent there, and it is computed as the limit of secant slopes as the second point slides into the first. Section 1 builds it; Figure 11.1 draws it.
 
-                1. Differentiability & Sharp Corners
+First Principles — Building the Derivative from a Limit
+• DEFINITION — From first principles, f'(x) is the limit, as h tends to 0, of (f(x + h) - f(x)) / h. The fraction is the slope of the secant line through (x, f(x)) and (x + h, f(x + h)); as h shrinks, the second point slides along the curve into the first, the secant rotates into the tangent, and its slope becomes the derivative. This is exactly the secant-to-tangent picture in the figure for this section.
+• WORKED PATTERN — The first-principles drill, four steps: (1) write f(x + h); (2) form f(x + h) - f(x) and simplify until an h factor appears; (3) divide by h and cancel it — legal because h is never actually 0 during the approach; (4) let h tend to 0 and read off the answer. The cancellation in step (3) is the heart: an h that refuses to factor out means an algebra slip upstream.
+• EXAMPLE — f(x) = x^3 from first principles. f(x + h) = (x + h)^3 = x^3 + 3x^2 h + 3x h^2 + h^3. Subtract f(x): the difference is 3x^2 h + 3x h^2 + h^3 = h(3x^2 + 3x h + h^2). Divide by h: 3x^2 + 3x h + h^2. Let h tend to 0: the derivative of x^3 is 3x^2. Notice the answer rehearses the power rule of Section 3 before we even state it.
+• EXAMPLE — f(x) = sqrt(x) from first principles. The difference quotient is (sqrt(x + h) - sqrt(x)) / h, and the conjugate trick from the limits chapter rescues it: multiply top and bottom by (sqrt(x + h) + sqrt(x)) to get h / (h (sqrt(x + h) + sqrt(x))) = 1 / (sqrt(x + h) + sqrt(x)), which tends to 1 / (2 sqrt(x)). Two chapters, one toolkit.
+• EXAMPLE — f(x) = sin x, stated as a sketch: the difference quotient becomes sin x (cos h - 1)/h + cos x (sin h)/h; the limits chapter's bank sends (cos h - 1)/h to 0 and (sin h)/h to 1, leaving cos x. The derivative of sin x is cos x — and now you know it is the standard sine limit wearing a new coat, not a fact to swallow whole.
+• YOUR TURN — Use first principles (or the pattern they reveal) to find the derivative of x^2 at x = 3. Answer: the difference quotient is ((3 + h)^2 - 9)/h = (6h + h^2)/h = 6 + h, tending to 6. In general the derivative of x^2 is 2x, and 2 x 3 = 6, as promised.
+⚠ EXAM TRAP — First-principles questions are lost in step (2), not step (4): students expand (x + h)^3 as x^3 + h^3, deleting the cross terms that carry the entire answer. Expand brackets fully, every time — the derivative lives in the terms multiplied by h.
 
-                • f is differentiable at x = a iff LHD = RHD (finite).
+The Differentiation Rules — Sum, Product, Quotient, Chain
+• DEFINITION — The rules are licences to differentiate in pieces. Sum rule: the derivative of (f + g) is f' + g'; a constant multiple passes through untouched: the derivative of k f is k f'. Difference: same story with a minus. These two are free — no conditions, no traps.
+✔ KEY FORMULA — Product rule: the derivative of (f g) is f' g + f g'. Memory anchor: each factor takes its turn being differentiated while the other watches. It is NOT f' g' — the product of the derivatives is almost never the derivative of the product.
+✔ KEY FORMULA — Quotient rule: the derivative of (f / g) is (f' g - f g') / g^2. Memory anchor: "low d-high minus high d-low, over low squared" — the numerator's order matters, because a minus sign lives there. Valid wherever g is not 0.
+✔ KEY FORMULA — Chain rule: the derivative of f(g(x)) is f'(g(x)) x g'(x) — differentiate the outer function leaving the inside untouched, then multiply by the derivative of the inside. Section 4 is devoted to it because the IAT is devoted to it.
+• EXAMPLE — Product: y = x ln x. Here f = x and g = ln x, so y' = 1 x ln x + x x (1/x) = ln x + 1. The second term collapses beautifully, which is exactly why setters choose this pairing.
+• EXAMPLE — Sum and power: y = 4x^5 - 3x^2 + 7. Term by term: y' = 20x^4 - 6x + 0. The constant 7 differentiates to 0 because a constant is not changing at all — zero rate of change is the only honest answer.
+• WORKED PATTERN — Rule selection in three seconds: a PLUS or MINUS between chunks means sum rule; a TIMES means product rule; a fraction bar means quotient rule (or rewrite as a product with a negative power); one function INSIDE another means chain rule. Name the structure before touching a single derivative — most errors are rule-selection errors, not arithmetic errors.
+• YOUR TURN — Differentiate y = x^2 e^x. Answer: product rule with f = x^2, g = e^x: y' = 2x e^x + x^2 e^x = e^x (x^2 + 2x). At x = 1 this is 3e — hold that number, it returns in the answer key's family of checks.
+⚠ EXAM TRAP — The quotient rule's numerator is the single most sign-flipped expression in the chapter. Write it as (derivative of top) x (bottom) MINUS (top) x (derivative of bottom), in that fixed order, every time. Reversing it negates your answer, and the options always include the negation.
 
-                • If g(x) is differentiable and g(a) = 0, then |g(x)| is differentiable at x = a iff g'(a) = 0.
+The Standard Derivatives Bank — Results to Know Cold
+• DEFINITION — The bank is the list of derivatives you must produce on sight, with zero derivation. Every rule in Section 2 spends its time combining these atoms; if an atom needs thinking, the combination collapses. Drill the bank until each line is a reflex.
+✔ KEY FORMULA — Powers: the derivative of x^n is n x^(n - 1) for any real n — bring the power down, subtract 1. Covers x^5 giving 5x^4, 1/x = x^(-1) giving -1/x^2, and sqrt(x) = x^(1/2) giving (1/2) x^(-1/2).
+✔ KEY FORMULA — Exponentials and logarithms: the derivative of e^x is e^x (the function that is its own rate of change); of a^x is a^x ln a; of ln x is 1/x; of log base a of x is 1 / (x ln a). The ln a factor is the toll every base other than e pays.
+✔ KEY FORMULA — Trigonometric: the derivative of sin x is cos x; of cos x is -sin x (the minus is mandatory); of tan x is sec^2 x; of cot x is -cosec^2 x; of sec x is sec x tan x; of cosec x is -cosec x cot x. The three "co" functions — cos, cot, cosec — carry the minus signs.
+✔ KEY FORMULA — Inverse trigonometric (results stated, derivations not required at this level): the derivative of sin^-1 x is 1 / sqrt(1 - x^2); of cos^-1 x is -1 / sqrt(1 - x^2); of tan^-1 x is 1 / (1 + x^2). The sin^-1 and cos^-1 pair differ only by sign — examiners know you know, and they test it anyway.
+• EXAMPLE — Differentiate y = 5^x + log base 10 of x. Answer on sight: y' = 5^x ln 5 + 1 / (x ln 10). Both terms are pure bank lookups with their ln-base tolls attached.
+• EXAMPLE — Differentiate y = tan^-1 x + cos x. Answer: y' = 1 / (1 + x^2) - sin x. Two atoms, one sum rule, done in one line.
+• WORKED PATTERN — Domain honesty: ln x and 1/x live only for x > 0, and the inverse-trig results live inside their domains (1 - x^2 must be positive for sin^-1). If a question differentiates ln of a negative-looking expression, the intended reading is ln |x|, whose derivative is still 1/x — Section 6 leans on this.
+• YOUR TURN — Differentiate y = x^(-3) + cosec x. Answer: y' = -3 x^(-4) - cosec x cot x. Both the power step and the cosec minus sign in one line.
+⚠ EXAM TRAP — The derivative of cos x is -sin x, not sin x; of a^x is a^x ln a, not x a^(x - 1) (that is the power rule, and a^x is not a power of x — the variable is upstairs). Classifying the function correctly before differentiating is half the battle of this whole chapter.
 
+Chain Rule in Depth — Nested Functions at Speed
+• DEFINITION — The chain rule handles composition: a function of a function of x. If y = f(u) where u = g(x), then dy/dx = (dy/du) x (du/dx). Physically: rates multiply along a chain — if y changes 5 times as fast as u, and u changes 3 times as fast as x, then y changes 15 times as fast as x.
+• EXAMPLE — A balloon's volume grows with its radius, and the radius grows with time. If dV/dr = 300 (in suitable units) when r = 5 and dr/dt = 3, then dV/dt = 300 x 3 = 900 per unit time. Section 14 does this with real formulas; the chain rule is the reason the multiplication is legal.
+• WORKED PATTERN — The unwrap drill: (1) name the OUTERMOST operation — the last thing that would be done to x; (2) differentiate it, leaving the entire inside untouched as a single blob; (3) multiply by the derivative of the blob; (4) if the blob is itself composite, repeat inside. Peeling the outermost layer first is the whole technique.
+• EXAMPLE — y = (3x^2 + 5)^4. Outermost: the fourth power. Differentiate the power, blob untouched: 4 (3x^2 + 5)^3. Blob's derivative: 6x. Multiply: y' = 24x (3x^2 + 5)^3. At x = 1: 24 x 8^3 = 24 x 512 = 12288 — this exact computation returns as Worked Example 1.
+• EXAMPLE — y = sin(x^2). Outermost: sine. y' = cos(x^2) x 2x = 2x cos(x^2). Two layers, two factors: the outer derivative evaluated at the untouched inside, times the inside's derivative.
+• EXAMPLE — Three layers: y = e^(sin(2x)). Peel: e-power gives e^(sin(2x)); sine gives cos(2x); the 2x gives 2. Total: y' = 2 e^(sin(2x)) cos(2x). Each layer contributes exactly one factor — count the layers before you start, and count the factors when you finish; the counts must match.
+• YOUR TURN — Differentiate y = sqrt(3x + 1). Answer: write it as (3x + 1)^(1/2): y' = (1/2)(3x + 1)^(-1/2) x 3 = 3 / (2 sqrt(3x + 1)). The factor 3 — the inside's derivative — is the part everyone drops.
+⚠ EXAM TRAP — Forgetting to multiply by the derivative of the inside is the most common chain-rule error in existence, and question setters build options around it: for (3x^2 + 5)^4 they will list 4(3x^2 + 5)^3 as a distractor. If your final answer has the same number of factors as the function has layers, you are probably safe; if it has one fewer, you have been robbed.
 
+Implicit Differentiation — When y Refuses to Stand Alone
+• DEFINITION — An implicit relation mixes x and y in one equation — x^2 + y^2 = 25, x^2 + xy + y^2 = 7 — without isolating y. Implicit differentiation differentiates BOTH SIDES with respect to x, treating y as an unnamed function of x, so every y-term picks up a chain-rule factor of dy/dx. Then ordinary algebra solves for dy/dx.
+✔ KEY FORMULA — The three chain-rule footprints: the derivative of y^2 is 2y (dy/dx); of sin y is cos y (dy/dx); of e^y is e^y (dy/dx); and a mixed product like xy differentiates by the product rule into y + x (dy/dx). Wherever y is differentiated, dy/dx appears — it is the receipt proving y was treated as a function of x.
+• EXAMPLE — The circle x^2 + y^2 = 25 at the point (3, 4). Differentiate: 2x + 2y (dy/dx) = 0, so dy/dx = -x / y = -3/4 at (3, 4). The tangent there is perpendicular to the radius — and indeed the radius to (3, 4) has slope 4/3, whose negative reciprocal is -3/4. Geometry and algebra sign the same cheque.
+• WORKED PATTERN — The implicit drill: (1) differentiate term by term, attaching dy/dx to every y-derivative; (2) sweep every dy/dx term to one side and everything else to the other; (3) factor out dy/dx and divide. The answer legitimately contains BOTH x and y — that is normal for implicit work, not a sign of failure.
+• EXAMPLE — x^2 + xy + y^2 = 7 at (1, 2). Check the point first: 1 + 2 + 4 = 7, so (1, 2) truly lies on the curve. Differentiate: 2x + y + x (dy/dx) + 2y (dy/dx) = 0. Collect: (dy/dx)(x + 2y) = -(2x + y). At (1, 2): dy/dx = -(2 + 2) / (1 + 4) = -4/5. This is Question q_math_56's twin — the pattern is an IAT regular.
+• WHY implicit beats isolating — solving x^2 + xy + y^2 = 7 for y gives two messy branches with roots inside roots; differentiating implicitly takes three lines and never asks which branch you are on. When isolation is ugly, implicit is not a trick, it is the professional route.
+• YOUR TURN — Find dy/dx for x^2 + y^2 = 13 at the point (2, 3). Answer: dy/dx = -x/y = -2/3. (Audit: 4 + 9 = 13, so the point is genuinely on the circle.)
+⚠ EXAM TRAP — Dropping the dy/dx after a y-term — writing the derivative of y^2 as 2y and moving on — silently assumes y is the variable, and every subsequent line is wrong. Second trap: substituting the point BEFORE differentiating; the point goes in only at the end, into the finished dy/dx.
 
-                2. Rolle's Theorem & Lagrange's Mean Value Theorem (LMVT)
+Logarithmic Differentiation — Variable Powers Tamed
+• DEFINITION — Logarithmic differentiation is the rescue method for functions where the variable appears in the exponent — y = x^x, y = (sin x)^x — and for heavy products and quotients of many factors. Take ln of both sides, expand with the log laws, differentiate implicitly, and multiply back by y.
+✔ KEY FORMULA — The shape of every answer: if y = (expression), then (dy/dx) / y = the derivative of ln y, so dy/dx = y x (that derivative). The log laws do the heavy lifting first: ln of a product becomes a sum, ln of a quotient becomes a difference, and ln of a power brings the exponent down in front — that last move is what tames x^x.
+• EXAMPLE — y = x^x for x > 0. Take logs: ln y = x ln x. Differentiate implicitly: (1/y)(dy/dx) = ln x + x x (1/x) = ln x + 1. Therefore dy/dx = x^x (1 + ln x). At x = 1: 1^1 x (1 + 0) = 1 — Worked Example 4 verifies this from scratch.
+• WHY the naive rules both fail on x^x — the power rule needs a constant exponent (here the exponent moves), and the exponential rule needs a constant base (here the base moves). x^x is neither a power nor an exponential; it is both at once, and the logarithm is the only tool that speaks to both parts. Recognising "variable upstairs AND downstairs" is the trigger for this whole section.
+• WORKED PATTERN — The log-diff drill: (1) take ln of both sides (write ln |y| if signs worry you — the derivative lands the same); (2) expand fully with log laws BEFORE differentiating; (3) differentiate implicitly, remembering (ln y)' = y'/y; (4) multiply through by y and substitute the original expression back in. An answer still containing a bare "y" is unfinished — replace it.
+• EXAMPLE — A product brute: y = (x + 1)(x + 2)(x + 3) could be expanded, but log-diff reads ln y = ln(x + 1) + ln(x + 2) + ln(x + 3), giving y'/y = 1/(x + 1) + 1/(x + 2) + 1/(x + 3) in one breath. At x = 0: y = 6 and y' = 6 x (1 + 1/2 + 1/3) = 6 x 11/6 = 11. Expanding the cubic and differentiating also gives 11 at 0 — two routes, one answer.
+• YOUR TURN — Find dy/dx for y = x^(2x) at x = 1. Answer: ln y = 2x ln x, so y'/y = 2 ln x + 2, and at x = 1: y = 1, y' = 1 x (0 + 2) = 2.
+⚠ EXAM TRAP — Differentiating x^x as x x x^(x - 1) (power rule) or as x^x ln x (exponential rule) — each grabs half the truth, and both halves appear as separate options. The correct answer x^x (1 + ln x) is literally their sum, which is a beautiful thing to notice in the exam hall: both half-rules contribute one term each.
 
-                • Rolle's Theorem: If f is continuous on [a, b], differentiable on (a, b), and f(a) = f(b), then ∃ c ∈ (a, b) with f'(c) = 0.
+Parametric Differentiation — Two Functions, One Parameter
+• DEFINITION — A parametric curve gives x and y separately as functions of a third variable t: x = t^2, y = t^3 traces a curve without ever writing y in terms of x. The slope of the curve is dy/dx = (dy/dt) / (dx/dt), provided dx/dt is not 0 — divide the rates, because dy/dx asks how fast y moves per unit of x, and t is just the courier.
+✔ KEY FORMULA — dy/dx = (dy/dt) divided by (dx/dt). And the second derivative has a sting: d^2y/dx^2 = (d/dt of dy/dx) divided by (dx/dt) — you differentiate the first derivative with respect to t and divide by dx/dt once more. It is NOT (d^2y/dt^2) / (d^2x/dt^2).
+• EXAMPLE — x = t^2, y = t^3. dy/dt = 3t^2, dx/dt = 2t, so dy/dx = 3t^2 / 2t = 3t/2. At t = 2 the point is (4, 8) and the slope is 3. Sanity check by elimination: y = x^(3/2) along this curve, whose derivative (3/2) x^(1/2) at x = 4 is (3/2) x 2 = 3. Agreement, as required.
+• EXAMPLE — The circle in disguise: x = 5 cos t, y = 5 sin t. dy/dx = (5 cos t) / (-5 sin t) = -cot t. At t = pi/4 the point is (5/sqrt(2), 5/sqrt(2)) and the slope is -1 — matching the implicit circle result -x/y at equal coordinates. Three methods, one geometry.
+• WORKED PATTERN — Parametric drill: (1) differentiate x and y with respect to t, separately, on two lines; (2) divide y-rate by x-rate; (3) simplify BEFORE substituting t; (4) if the point is given in (x, y) form, first solve for t from one equation and confirm it in the other. Substituting t early turns algebra into arithmetic soup.
+• YOUR TURN — For x = t^2 + 1, y = 2t + 3, find dy/dx at t = 3. Answer: dy/dt = 2, dx/dt = 2t = 6, so dy/dx = 2/6 = 1/3. (The curve is secretly the line y = 2 sqrt(x - 1) + 3 on its upper branch — but the parametric slope never needed to know.)
+⚠ EXAM TRAP — Inverting the division: dx/dy instead of dy/dx. Guard with units: dy/dx must be (y-units per x-unit), so the y-rate goes on top. Second trap: the second derivative — differentiating dy/dx with respect to t and stopping, forgetting the final division by dx/dt. That forgotten division is a designed option.
+Second Derivatives — Acceleration and the Shape of Bending
+• DEFINITION — The second derivative f''(x) is the derivative of the derivative: differentiate f' once more. Its physical face is acceleration — velocity is the derivative of position, acceleration is the derivative of velocity. Its geometric face is bending: f'' measures how fast the slope itself is turning.
+✔ KEY FORMULA — Sign dictionary for f'': where f'' is positive, the graph is concave up (holds water, slopes increasing); where f'' is negative, concave down (sheds water, slopes decreasing). A point where concavity changes sign is a point of inflection. Section 12 weaponises this into the second derivative test.
+• EXAMPLE — Position s(t) = t^3 - 6t^2 metres. Velocity: s'(t) = 3t^2 - 12t. Acceleration: s''(t) = 6t - 12. At t = 1: velocity -9 (moving backwards), acceleration -6. At t = 3: velocity -9, acceleration +6 — same speed of travel, opposite push. The second derivative sees what the first cannot.
+• EXAMPLE — Pure powers: y = x^4 gives y' = 4x^3 and y'' = 12x^2, so at x = 2, y'' = 48 (this returns as Practice Q4). Powers simply apply the power rule twice — each pass brings a factor down and drops the exponent by 1.
+• WORKED PATTERN — Higher derivatives of the cyclers: sin x differentiates in a four-cycle — sin x, cos x, -sin x, -cos x, sin x — so the fourth derivative of sin x is sin x again; e^x is the fixed point, every derivative equal to itself. Questions asking for a 10th derivative are cycle-detection questions, not endurance tests.
+• YOUR TURN — Find the second derivative of y = sin x at x = 0, and state what it tells you. Answer: y'' = -sin x, so y''(0) = 0; moreover y' (0) = cos 0 = 1 is not 0, so x = 0 is not even a turning point for sin x — it is an inflection point of the graph, where the bending flips.
+⚠ EXAM TRAP — f''(a) = 0 does NOT automatically mean inflection, and f'(a) = 0 does NOT automatically mean a maximum or minimum — y = x^4 at 0 has f' = 0 and f'' = 0, yet 0 is a minimum (the graph flattens but does not turn or flip there). Zero is a hint to investigate, never a verdict. Section 12 gives the full court procedure.
 
-                • LMVT: ∃ c ∈ (a, b) such that f'(c) = [f(b) − f(a)] / (b − a).
+Tangents and Normals — Lines that Touch and Lines that Square Up
+• DEFINITION — The tangent to a curve at a point is the straight line with that point and the curve's slope there; the normal is the line perpendicular to the tangent at the same point. The derivative is the slope of the tangent, m = f'(a); the normal's slope is the negative reciprocal, -1/m (when m is not 0).
+✔ KEY FORMULA — Tangent at (x1, y1): y - y1 = f'(x1) (x - x1). Normal at (x1, y1): y - y1 = (-1 / f'(x1)) (x - x1). Edge cases: if f'(x1) = 0 the tangent is horizontal (y = y1) and the normal is vertical (x = x1); if the tangent is vertical, the normal is horizontal. Patterns for implicit curves: get dy/dx implicitly first, then use the same two formulas.
+• EXAMPLE — y = x^3 at (1, 1). Slope: f'(x) = 3x^2, so f'(1) = 3. Tangent: y - 1 = 3(x - 1), that is y = 3x - 2. Normal: y - 1 = (-1/3)(x - 1), that is x + 3y = 4. Audit both at (1, 1): 3 - 2 = 1 ✓ and 1 + 3 = 4 ✓ — always audit a line by feeding its point back in.
+• EXAMPLE — The hyperbola y = 1/x at (2, 1/2). Slope: f'(x) = -1/x^2, so f'(2) = -1/4. Tangent: y - 1/2 = (-1/4)(x - 2), tidying to x + 4y = 4. The tangent falls gently because the curve itself is settling towards the x-axis.
+• WORKED PATTERN — The tangent drill: (1) confirm the point lies on the curve (substitute!); (2) differentiate and evaluate at the point — that number is the tangent's slope; (3) write the point-slope line; (4) for the normal, flip and negate the slope; (5) audit by substitution. Skipping step (1) has embarrassed many: a point not on the curve produces a confident, worthless line.
+• YOUR TURN — Find the tangent to y = x^2 + 3 at (1, 4). Answer: f'(x) = 2x gives slope 2 at x = 1, so the tangent is y - 4 = 2(x - 1), that is y = 2x + 2. Audit: at x = 1, 2 + 2 = 4 ✓. (Practice Q5 asks the same question cold.)
+⚠ EXAM TRAP — Two classics: using f(a) as the slope instead of f'(a) (the height is not the steepness), and giving the normal the same slope as the tangent. Perpendicular means negative reciprocal — for slope 3 the normal's slope is -1/3, never 3 and never 1/3.
 
+Increasing and Decreasing — Reading the Sign of the Derivative
+• DEFINITION — A function is increasing on an interval when its values climb as x climbs — equivalently, when f'(x) is positive throughout the interval. It is decreasing when values fall, equivalently f'(x) negative throughout. Where the derivative is 0 or undefined, the behaviour can switch — those x-values are the critical points, the border crossings of monotonicity.
+✔ KEY FORMULA — The sign-chart method: solve f'(x) = 0 (and note where f' is undefined), mark the roots on a number line, test the sign of f' in each region with one sample point, and read off: positive region means increasing, negative means decreasing. The chart is the proof — draw it even when the answer feels obvious.
+• EXAMPLE — f(x) = x^3 - 3x^2. f'(x) = 3x^2 - 6x = 3x(x - 2), with roots 0 and 2. Sign audit: at x = -1, f' = 9 (positive); at x = 1, f' = -3 (negative); at x = 3, f' = 9 (positive). So f increases on (-infinity, 0), decreases on (0, 2), increases on (2, infinity). The sign chart in the chapter's second figure is exactly this drawing for a sibling cubic.
+• EXAMPLE — f(x) = x^3 - 3x, the Question q_math_57 function: f'(x) = 3x^2 - 3 = 3(x - 1)(x + 1) is positive when |x| is greater than 1 and negative between -1 and 1. So the function climbs on (1, infinity) and on (-infinity, -1), and falls on (-1, 1). Knowing the roots ±1 makes every interval question about this cubic a five-second read.
+• WHY the sign of f' governs climbing — f' is the slope of the tangent at each point. A curve whose every tangent leans uphill cannot descend, just as a traveller whose every step is upward cannot end lower. The theorem is the formal version of that obvious sentence, and it needs f continuous on the closed interval and differentiable inside it.
+• WORKED PATTERN — Interval discipline: monotonicity is a property of INTERVALS, never of points. Answer in interval language ("increasing on (2, infinity)"), include or exclude endpoints as the problem's convention dictates (endpoints do not affect increasing/decreasing on the interior), and never merge two climbing regions across a falling one into a single claim.
+• YOUR TURN — On which interval is f(x) = x^2 - 4x increasing? Answer: f'(x) = 2x - 4 is positive exactly when x is greater than 2, so f increases on (2, infinity) and decreases on (-infinity, 2); the vertex of the parabola sits at x = 2, agreeing perfectly.
+⚠ EXAM TRAP — f'(a) positive at ONE point does not make f increasing "at the point" in the interval sense, and a function can be increasing on two separate intervals while the union claim "increasing everywhere except the roots" still fails (x^3 - 3x climbs, falls, climbs — it is not increasing on any interval containing [-1, 1]). Answer with the chart's intervals, not with vibes.
 
+Rolle's Theorem and the Mean Value Theorem
+• DEFINITION — Rolle's theorem: if f is continuous on [a, b], differentiable on (a, b), and f(a) = f(b), then somewhere strictly inside there is a point c with f'(c) = 0 — a flat tangent must exist. Picture a journey that ends at its starting height: somewhere you stopped climbing and turned, and at that instant your slope was zero. The second panel-pair figure for this chapter draws both theorems of this section.
+• DEFINITION — Lagrange's mean value theorem (MVT): under the same continuity and differentiability conditions (no equal-endpoint requirement), there is a point c inside with f'(c) = (f(b) - f(a)) / (b - a) — somewhere, the instantaneous slope exactly equals the average slope over the whole interval. Rolle is the special case where the average slope is 0.
+• EXAMPLE — Rolle verified: f(x) = x^2 - 3x on [0, 3]. f(0) = 0 and f(3) = 9 - 9 = 0 — equal ✓; polynomials are continuous and differentiable everywhere ✓. f'(x) = 2x - 3 = 0 gives x = 3/2, genuinely inside (0, 3) ✓. All three hypotheses checked, conclusion landed: this four-line verification IS the standard IAT answer template (it returns as Worked Example 8).
+• EXAMPLE — MVT verified: f(x) = x^3 on [1, 2]. Average slope: (8 - 1) / (2 - 1) = 7. Set f'(c) = 3c^2 = 7, so c = sqrt(7/3) ≈ 1.53, which lies inside (1, 2) ✓. The theorem promises at least one such c; here exactly one of the two algebraic roots (±1.53) qualifies, and the negative root is correctly discarded.
+• WORKED PATTERN — The verification template for both theorems: (1) state continuity on the closed interval (polynomials and standard functions qualify automatically — say so); (2) state differentiability on the open interval; (3) check the endpoint condition (equality for Rolle, or compute the average slope for MVT); (4) solve f'(c) = target and CONFIRM the root lies strictly inside the interval. A root outside the interval is a rejection, not an answer.
+• WHY these theorems matter beyond their own questions — they are the legal foundation under Section 10 and 12: the sign-of-f' test and the derivative tests are proved using MVT. When an exam asks "verify Rolle", it is checking whether you respect hypotheses; most real-world failures come from a function with a corner or a break, where the theorem simply does not apply.
+• YOUR TURN — Verify Rolle's theorem for f(x) = x^2 - 5x + 6 on [2, 3]. Answer: f(2) = 4 - 10 + 6 = 0 and f(3) = 9 - 15 + 6 = 0 ✓; f'(x) = 2x - 5 = 0 at x = 5/2 = 2.5, strictly inside (2, 3) ✓.
+⚠ EXAM TRAP — Applying Rolle where f(a) is not equal to f(b), or to a function with a corner inside the interval (like |x| on [-1, 1], where f(-1) = f(1) but no flat tangent exists because the derivative never exists at 0 and is ±1 elsewhere). The hypotheses are not decoration — check all three, in writing, every time.
 
-                3. Monotonicity, Maxima-Minima & Concavity
+Maxima and Minima — The Two Derivative Tests
+• DEFINITION — A local maximum at a is a peak among nearby points: f(a) is at least every nearby value. A local minimum is a valley. Together they are local extrema, and they can only occur at critical points — where f' is 0 or undefined — though not every critical point delivers one (remember y = x^3 at 0: f' = 0, no extremum, just a pause).
+✔ KEY FORMULA — First derivative test: at a critical point, if f' changes sign from positive to negative as x crosses it, the point is a local maximum; negative to positive means local minimum; no sign change means no extremum. The sign chart from Section 10 is the entire computation — the figure for this section shows the chart and the curve agreeing peak for peak.
+✔ KEY FORMULA — Second derivative test: if f'(a) = 0 and f''(a) is negative, a is a local maximum; if f''(a) is positive, a local minimum; if f''(a) = 0, the test is SILENT — fall back to the first derivative test. Faster than the sign chart when f'' is easy, useless when f'' is messy or zero.
+• EXAMPLE — f(x) = x^3 - 3x^2 - 9x + 5, the chapter's flagship. f'(x) = 3x^2 - 6x - 9 = 3(x - 3)(x + 1), critical points -1 and 3. Second derivative f''(x) = 6x - 6: f''(-1) = -12, negative, so x = -1 is a local maximum with value f(-1) = -1 - 3 + 9 + 5 = 10. f''(3) = 12, positive, so x = 3 is a local minimum with value f(3) = 27 - 27 - 27 + 5 = -22. Worked Example 5 replays this in full court dress.
+• EXAMPLE — Question q_math_58's cubic: f(x) = 2x^3 - 3x^2 - 12x + 5 has f'(x) = 6x^2 - 6x - 12 = 6(x - 2)(x + 1); the local minimum sits at x = 2 with value f(2) = 16 - 12 - 24 + 5 = -15, and the local maximum at x = -1 with value 12. Notice the setter's fingerprint: the max value and the min value differ by a sign-and-swap pattern designed to catch students who stop at the critical points and report the x-values instead of the f-values.
+• WORKED PATTERN — The extrema drill: (1) differentiate; (2) solve f' = 0 for critical points (and flag undefined points); (3) classify each by either test; (4) compute the extreme VALUES f at those points — questions ask for values at least as often as locations; (5) state the verdict in words: "local maximum value 10 at x = -1". A bare "x = -1" earns half the marks for full work.
+• YOUR TURN — Find the local maximum and minimum values of f(x) = x^3 - 3x. Answer: f'(x) = 3x^2 - 3 vanishes at ±1; f''(-1) = -6 (negative) so the local maximum value is f(-1) = 2, and f''(1) = 6 (positive) so the local minimum value is f(1) = -2.
+⚠ EXAM TRAP — Three perennials: reporting the critical x as the answer when the question asks for the extreme value; declaring every f' = 0 point an extremum (x^3 at 0 sends its regards); and trusting the second derivative test at f'' = 0, where it has literally nothing to say — x^4 at 0 is a minimum that the silent test cannot see.
 
-                • Strictly increasing on I if f'(x) ≥ 0 and f'(x) = 0 only at isolated points.
+Absolute Extrema and Optimisation — Best Possible Answers
+• DEFINITION — The absolute (global) maximum of f on a closed interval [a, b] is the single largest value anywhere on it. The candidates are exactly three kinds: critical points inside, and the two endpoints. The closed-interval method: evaluate f at every candidate and let the numbers vote — the largest is the absolute maximum, the smallest the absolute minimum. Endpoints are candidates precisely because a function can peak at a wall without ever flattening.
+• EXAMPLE — f(x) = x^3 - 3x on [-2, 2]. Critical points ±1 give f(-1) = 2 and f(1) = -2; endpoints give f(-2) = -2 and f(2) = 2. Absolute maximum value: 2 (attained at both x = -1 and x = 2); absolute minimum value: -2 (at x = 1 and x = -2). Ties are legal — report every attaining point.
+• DEFINITION — Optimisation problems are extrema problems wearing a story: a quantity to maximise or minimise, a constraint linking the variables, and a domain implied by the story. The method never changes: use the constraint to write the target quantity as a function of ONE variable, then run Section 12's drill on it, inside the story's domain.
+• WORKED PATTERN — The optimisation drill: (1) name the variables and draw the situation; (2) write the quantity to optimise; (3) write the constraint equation and eliminate one variable; (4) state the domain the story allows (lengths positive, x less than half the sheet, and so on); (5) differentiate, solve, classify with a derivative test; (6) answer the STORY's question with units — area in square units, not a naked x.
+• EXAMPLE — The open box, a certified classic: from a 12 cm by 12 cm square sheet, cut equal squares of side x from the corners and fold up an open box. Volume V(x) = x (12 - 2x)^2 on the domain 0 < x < 6. V'(x) = (12 - 2x)(12 - 6x), vanishing at x = 2 (x = 6 is the domain's dead edge). Maximum volume: V(2) = 2 x 8^2 = 128 cubic cm. Worked Example 6 runs the full audit, including why x = 6 is rejected by the domain rather than by the test.
+• EXAMPLE — Question q_math_59's rectangle: perimeter 60 m, sides x and 30 - x, area A(x) = x (30 - x) = 30x - x^2. A'(x) = 30 - 2x = 0 at x = 15 — the square — giving maximum area 15 x 15 = 225 square metres. Memorise the moral: among rectangles of fixed perimeter, the square wins; among boxes of fixed surface, the cube wins. Symmetry is the optimiser's first guess and very often its last.
+• YOUR TURN — Two positive numbers add to 36. Maximise their product. Answer: with numbers x and 36 - x, the product x(36 - x) peaks at x = 18, giving 18 x 18 = 324 — the equal split wins again.
+⚠ EXAM TRAP — Optimisation answers die in three places: forgetting the constraint (optimising a two-variable function with one derivative), ignoring the domain (accepting x = 6 for the box, where no box exists), and answering with x when the question asked for the maximum volume or area. The last line of your solution should be the story's quantity, with units.
 
-                • Second Derivative Test: If f'(c) = 0 and f''(c) < 0 ⇒ Local Maximum; if f''(c) > 0 ⇒ Local Minimum.
+Rates of Change — Spheres, Circles and Marginal Cost
+• DEFINITION — A rate-of-change problem hands you a quantity that depends on a variable that itself depends on time, and asks how fast the quantity is changing. The engine is the chain rule wearing a watch: if y depends on x and x depends on t, then dy/dt = (dy/dx) x (dx/dt). Given one rate, find the other — the formula linking the quantities is differentiated with respect to t, and every variable's derivative appears with its dt receipt.
+✔ KEY FORMULA — The geometry rates bank: circle area A = pi r^2 gives dA/dt = 2 pi r (dr/dt); circumference C = 2 pi r gives dC/dt = 2 pi (dr/dt); sphere volume V = (4/3) pi r^3 gives dV/dt = 4 pi r^2 (dr/dt); sphere surface S = 4 pi r^2 gives dS/dt = 8 pi r (dr/dt); cube volume v = a^3 gives dv/dt = 3 a^2 (da/dt). Derive each once from the chain rule, then quote them forever.
+• EXAMPLE — A circular ripple spreads so the radius grows at 2 cm per second. When r = 6 cm, the area grows at dA/dt = 2 pi x 6 x 2 = 24 pi square cm per second, about 75.4. Note the moral: the same dr/dt buys more area per second as the circle grows, because the frontier being fed is longer.
+• EXAMPLE — Marginal cost, the economics dialect: a factory's cost for x units is C(x) = 2x^2 + 50x + 1000 rupees. The marginal cost is C'(x) = 4x + 50 — the approximate cost of one more unit. At x = 100, C'(100) = 450 rupees per extra unit. "Marginal" in economics is simply the derivative with a business accent; marginal revenue and marginal profit are the same move on R(x) and P(x).
+• WORKED PATTERN — The rates drill: (1) write the linking formula (area, volume, cost) connecting the two quantities; (2) differentiate BOTH sides with respect to t, attaching dx/dt-style factors to every variable — a bare dr instead of dr/dt is the classic slip; (3) substitute the given instant's values ONLY NOW (r = 6, dr/dt = 2); (4) solve for the unknown rate and attach units. Substituting numbers before differentiating freezes a variable that was supposed to move — the single most fatal error in this section.
+• YOUR TURN — A cube's edge grows at 0.5 cm per second. How fast is its volume growing when the edge is 4 cm? Answer: dv/dt = 3 a^2 (da/dt) = 3 x 16 x 0.5 = 24 cubic cm per second.
+⚠ EXAM TRAP — Two designed killers: substituting the instant's radius before differentiating (which turns V into a constant and its derivative into 0), and reporting a balloon's dV/dt using the surface formula or vice versa. Write the linking formula in words first — "volume of a sphere" — then its symbols; the wrong-formula option is built for students who skip the words.
 
-                • Point of Inflection: Concavity (sign of f''(x)) changes across x = c.
+Formula Sheet — Every Rule on One Screen
+✔ KEY FORMULA — Definition: f'(a) is the limit, as h tends to 0, of (f(a + h) - f(a)) / h — the slope of the tangent at a, and the instantaneous rate of change of f at a.
+✔ KEY FORMULA — Power rule: the derivative of x^n is n x^(n - 1). Sum rule: differentiate term by term; constant multiples pass through; constants vanish.
+✔ KEY FORMULA — Product rule: (f g)' = f' g + f g'. Quotient rule: (f / g)' = (f' g - f g') / g^2, numerator order fixed.
+✔ KEY FORMULA — Chain rule: (f(g(x)))' = f'(g(x)) x g'(x) — outer derivative at the untouched inside, times the inside's derivative; one factor per layer.
+✔ KEY FORMULA — Bank: (e^x)' = e^x; (a^x)' = a^x ln a; (ln x)' = 1/x; (sin x)' = cos x; (cos x)' = -sin x; (tan x)' = sec^2 x; (sin^-1 x)' = 1 / sqrt(1 - x^2); (cos^-1 x)' = -1 / sqrt(1 - x^2); (tan^-1 x)' = 1 / (1 + x^2).
+✔ KEY FORMULA — Implicit: differentiate both sides in x, attaching dy/dx to every y-derivative (the derivative of y^2 is 2y dy/dx; of xy is y + x dy/dx), then solve for dy/dx.
+✔ KEY FORMULA — Logarithmic differentiation: for variable powers, ln y first, expand, differentiate, then dy/dx = y x (derivative of ln y); the flagship: (x^x)' = x^x (1 + ln x).
+✔ KEY FORMULA — Parametric: dy/dx = (dy/dt) / (dx/dt); and d^2y/dx^2 = (d/dt of dy/dx) / (dx/dt) — never the ratio of second derivatives.
+✔ KEY FORMULA — Tangent at (x1, y1): y - y1 = f'(x1)(x - x1); normal: slope -1/f'(x1). f' positive means increasing, f' negative means decreasing; critical points are where f' is 0 or undefined.
+✔ KEY FORMULA — Rolle: continuous on [a, b], differentiable on (a, b), f(a) = f(b) implies some c inside has f'(c) = 0. MVT: same first two conditions imply some c with f'(c) = (f(b) - f(a)) / (b - a).
+✔ KEY FORMULA — Tests: first derivative test reads the sign change of f' (plus-to-minus: maximum; minus-to-plus: minimum); second derivative test: f'(a) = 0 with f''(a) negative means maximum, positive means minimum, zero means use the first test. Closed interval: check critical points AND endpoints.
+✔ KEY FORMULA — Rates: dy/dt = (dy/dx)(dx/dt); dA/dt = 2 pi r (dr/dt) for circles; dV/dt = 4 pi r^2 (dr/dt) for spheres; dv/dt = 3 a^2 (da/dt) for cubes; marginal cost is C'(x). Differentiate first, substitute the instant second.
 
-            """.trimIndent(),
+Common Mistakes and Exam Traps
+• Mistake 1: Differentiating a product as the product of derivatives, (f g)' = f' g'. Why it is wrong: for y = x ln x it gives 1 x 1/x = 1, but the true derivative is ln x + 1. Correct principle: product rule — each factor takes a turn: f' g + f g'.
+• Mistake 2: Reversing the quotient rule's numerator, writing (f g' - f' g) / g^2. Why it is wrong: it negates every answer; for (2x + 1)/(x^2 + 3) at 0 it hands you -2/3 instead of 2/3. Correct principle: "low d-high minus high d-low" in exactly that order.
+• Mistake 3: Dropping the chain factor — reporting the derivative of (3x^2 + 5)^4 as 4(3x^2 + 5)^3. Why it is wrong: the inside 3x^2 + 5 is itself changing, and at x = 1 the true answer 12288 is exactly 6 times the trap answer 2048. Correct principle: one factor per layer; finish by counting layers against factors.
+• Mistake 4: Treating x^x with the power rule or the exponential rule alone. Why it is wrong: the power rule needs a fixed exponent and the exponential rule a fixed base; x^x has neither, and each half-rule alone gives a wrong option. Correct principle: variable base AND variable exponent means logarithmic differentiation, and the answer x^x (1 + ln x) is the two half-answers added.
+• Mistake 5: Writing the derivative of y^2 as 2y during implicit differentiation. Why it is wrong: y is a function of x, so the chain rule demands the receipt: 2y (dy/dx). Without it, the circle x^2 + y^2 = 25 "yields" dy/dx = -x with no y anywhere. Correct principle: every y differentiated in x pays a dy/dx.
+• Mistake 6: Using f(a) as the slope of the tangent. Why it is wrong: f(a) is the height of the point; slope is f'(a). For y = x^3 at (1, 1) the height is 1 but the tangent's slope is 3. Correct principle: differentiate first, then evaluate, then write the line.
+• Mistake 7: Declaring an extremum at every point where f' = 0. Why it is wrong: y = x^3 at 0 has derivative 0 and no extremum — the sign of f' does not change. Correct principle: critical points are candidates; only a sign change (or the second derivative test) convicts.
+• Mistake 8: Trusting the second derivative test when f''(a) = 0. Why it is wrong: the test is silent there, and y = x^4 shows a minimum hiding under the silence. Correct principle: f''(a) = 0 means switch to the first derivative test, not "no extremum".
+• Mistake 9: In optimisation, ignoring the domain and the constraint. Why it is wrong: the box problem formally offers x = 6, where the sheet has been cut away entirely and no box exists. Correct principle: eliminate with the constraint, state the story's domain, and reject roots outside it.
+• Mistake 10: Substituting the instant's values before differentiating in rate problems. Why it is wrong: it freezes the radius as a constant, making dV/dt = 0 — the balloon that never grows. Correct principle: differentiate the linking formula symbolically first; numbers enter only at the final line.
+
+Worked Examples — Basic to Challenging
+• Example 1 — Problem: Differentiate y = (3x^2 + 5)^4 and evaluate the derivative at x = 1.
+• Given: A composite function: a fourth power wrapped around the quadratic 3x^2 + 5.
+• Principle: Chain rule — differentiate the outer power leaving the inside untouched, then multiply by the inside's derivative.
+• Steps: Outer derivative: 4 (3x^2 + 5)^3. Inside derivative: 6x. So y' = 24x (3x^2 + 5)^3. At x = 1: 24 x 1 x (8)^3 = 24 x 512 = 12288.
+• Answer: y' = 24x (3x^2 + 5)^3; y'(1) = 12288.
+• Reasoning: Two layers, two factors — the count check passes, and the arithmetic rides on 8^3 = 512.
+• Mistake to avoid: Answering 4(3x^2 + 5)^3, or 2048 at x = 1 — the missing 6x is exactly the trap of Mistake 3.
+• Example 2 — Problem: For f(x) = (2x + 1) / (x^2 + 3), find f'(0).
+• Given: A quotient with linear numerator and quadratic denominator.
+• Principle: Quotient rule: (f' g - f g') / g^2 with the numerator's order fixed.
+• Steps: f'(x) = (2 (x^2 + 3) - (2x + 1)(2x)) / (x^2 + 3)^2 = (2x^2 + 6 - 4x^2 - 2x) / (x^2 + 3)^2 = (-2x^2 - 2x + 6) / (x^2 + 3)^2. At x = 0: 6 / 9 = 2/3.
+• Answer: f'(0) = 2/3.
+• Reasoning: At x = 0 only the derivative-of-top times bottom survives in the numerator — a useful shortcut check for quotients at 0.
+• Mistake to avoid: Reversing the numerator (Mistake 2) gives -2/3, and it sits in the options waiting.
+• Example 3 — Problem: Find the slope of the tangent to x^2 + y^2 = 25 at (3, 4), and write the tangent's equation.
+• Given: An implicit circle of radius 5, and a point that satisfies it: 9 + 16 = 25 ✓.
+• Principle: Implicit differentiation gives dy/dx; the tangent is the point-slope line with that slope.
+• Steps: Differentiate: 2x + 2y (dy/dx) = 0, so dy/dx = -x/y. At (3, 4): slope = -3/4. Tangent: y - 4 = (-3/4)(x - 3), tidying to 3x + 4y = 25 — elegantly, the same constants as the point itself.
+• Answer: Slope -3/4; tangent 3x + 4y = 25.
+• Reasoning: The radius to (3, 4) has slope 4/3; a tangent must be perpendicular to the radius, and -3/4 is exactly its negative reciprocal. Geometry confirms algebra.
+• Mistake to avoid: Solving for y = sqrt(25 - x^2) first and drowning in roots — implicit is three lines.
+• Example 4 — Problem: Differentiate y = x^x (x > 0) and evaluate at x = 1.
+• Given: Variable base and variable exponent — neither the power rule nor the exponential rule applies.
+• Principle: Logarithmic differentiation: take ln, expand, differentiate implicitly, multiply back by y.
+• Steps: ln y = x ln x. Differentiate: y'/y = ln x + x (1/x) = ln x + 1. So y' = x^x (1 + ln x). At x = 1: 1 x (1 + 0) = 1.
+• Answer: y' = x^x (1 + ln x); at x = 1 the value is 1.
+• Reasoning: The answer is visibly the sum of the two half-rules — power-rule term 1 x x^x and exponential-rule term ln x x x^x — each contributing its share.
+• Mistake to avoid: Quoting just one half (Mistake 4); both appear as options in real papers.
+• Example 5 — Problem: Find the local maximum and minimum values of f(x) = x^3 - 3x^2 - 9x + 5.
+• Given: A cubic with a positive leading coefficient — expect one peak then one valley.
+• Principle: Critical points from f' = 0, classified by the second derivative test, values computed at the end.
+• Steps: f'(x) = 3x^2 - 6x - 9 = 3(x + 1)(x - 3), so critical points x = -1 and x = 3. f''(x) = 6x - 6. At x = -1: f'' = -12, negative, local maximum; value f(-1) = -1 - 3 + 9 + 5 = 10. At x = 3: f'' = 12, positive, local minimum; value f(3) = 27 - 27 - 27 + 5 = -22.
+• Answer: Local maximum value 10 at x = -1; local minimum value -22 at x = 3.
+• Reasoning: The sign of the leading coefficient predicts peak-then-valley for a cubic with two critical points, and the computation obeys the prediction.
+• Mistake to avoid: Reporting "-1 and 3" as the answer — those are locations; the question asked for values, 10 and -22 (Mistake 7's family).
+• Example 6 — Problem: Equal squares of side x are cut from the corners of a 12 cm square sheet and the sides fold up into an open box. Find the x that maximises the volume, and the maximum volume.
+• Given: Sheet 12 by 12; after cutting, the base is (12 - 2x) by (12 - 2x) and the height is x; the story's domain is 0 < x < 6.
+• Principle: Optimisation drill — one-variable target function, differentiate, classify, respect the domain.
+• Steps: V(x) = x (12 - 2x)^2. V'(x) = (12 - 2x)^2 - 4x (12 - 2x) = (12 - 2x)(12 - 6x). Roots: x = 6 and x = 2. x = 6 is outside the open domain (nothing would remain of the sheet), leaving x = 2, where the sign of V' flips from positive to negative — a maximum. V(2) = 2 x 8 x 8 = 128.
+• Answer: Cut squares of side 2 cm; maximum volume 128 cubic cm.
+• Reasoning: The domain rejection is part of the mathematics, not a footnote — the other root describes a box of zero base.
+• Mistake to avoid: Accepting x = 6 (volume 0, the minimum in disguise) or reporting "x = 2" without the volume the question actually requested (Mistake 9).
+• Example 7 — Problem: Air is pumped into a spherical balloon at a rate such that the radius grows at 3 cm per second. How fast is the volume growing when the radius is 5 cm?
+• Given: dr/dt = 3 cm per second; the instant r = 5 cm; sphere volume V = (4/3) pi r^3.
+• Principle: Differentiate the linking formula with respect to t first — the chain rule produces dV/dt = 4 pi r^2 (dr/dt) — then substitute the instant.
+• Steps: dV/dt = 4 pi r^2 (dr/dt). Substitute r = 5 and dr/dt = 3: 4 pi x 25 x 3 = 300 pi, approximately 942.5 cubic cm per second.
+• Answer: 300 pi cubic cm per second (about 942.5).
+• Reasoning: The 4 pi r^2 factor is the sphere's surface area — the volume grows by feeding the whole surface outward, which is why the surface formula appears inside the volume rate.
+• Mistake to avoid: Putting r = 5 into V before differentiating (Mistake 10) — that freezes the balloon and reports 0.
+• Example 8 — Problem: Verify Rolle's theorem for f(x) = x^2 - 3x on the interval [0, 3].
+• Given: A polynomial on a closed interval; f(0) = 0 and f(3) = 9 - 9 = 0.
+• Principle: Audit the three hypotheses, then solve f'(c) = 0 and confirm c lies strictly inside.
+• Steps: (1) f is a polynomial, hence continuous on [0, 3] ✓. (2) Differentiable on (0, 3) ✓. (3) f(0) = f(3) = 0 ✓. f'(x) = 2x - 3 = 0 gives x = 3/2, and 0 < 3/2 < 3 ✓.
+• Answer: Rolle's theorem is verified, with c = 3/2.
+• Reasoning: Every hypothesis earns its own line — the verification IS the answer, and the value of c is its final sentence.
+• Mistake to avoid: Solving f'(x) = 0 first and never auditing the hypotheses; on a function with a corner, that routine produces a confident false verification.
+
+Practice Questions — Self-Test Set
+• Q1. Differentiate y = (5x - 3)^6.
+• Q2. Differentiate y = e^(3x) sin 2x.
+• Q3. For the curve xy = 4, find dy/dx at the point (2, 2).
+• Q4. If y = x^4, find the second derivative at x = 2.
+• Q5. Find the equation of the tangent to y = x^2 + 3 at the point (1, 4).
+• Q6. Find the local maximum value of f(x) = x^3 - 12x.
+• Q7. For f(x) = x^2 on [2, 4], find the point c promised by the mean value theorem.
+• Q8. The radius of a circle increases at 0.5 cm per second. How fast is the area increasing when the radius is 10 cm?
+
+▸ Answer Key with Explanations
+• A1. y' = 30 (5x - 3)^5. Route: chain rule — outer power 6 brings down 6 (5x - 3)^5, times the inside's derivative 5. Misconception watch: answering 6 (5x - 3)^5 forgets the inside factor 5 (Mistake 3); the 30 is the sound of both layers being counted.
+• A2. y' = e^(3x) (3 sin 2x + 2 cos 2x). Route: product rule where each factor itself needs the chain rule: derivative of e^(3x) is 3 e^(3x); derivative of sin 2x is 2 cos 2x; combine and factor out e^(3x). Misconception watch: differentiating sin 2x as cos 2x drops the 2; compound functions nested inside a product are where layer-counting earns its keep.
+• A3. dy/dx = -1. Route: differentiate xy = 4 implicitly: y + x (dy/dx) = 0, so dy/dx = -y/x = -2/2 = -1 at (2, 2). Misconception watch: the product xy demands the product rule — treating it as x times a constant gives dy/dx = 0, and the tangent to a hyperbola is never horizontal at (2, 2).
+• A4. 48. Route: y' = 4x^3, y'' = 12x^2, and at x = 2: 12 x 4 = 48. Misconception watch: stopping at y'(2) = 32 answers a question nobody asked — when a problem says second derivative, differentiate twice before substituting anything.
+• A5. y = 2x + 2. Route: slope f'(1) = 2 from f'(x) = 2x; point-slope: y - 4 = 2(x - 1). Audit at x = 1: 2 + 2 = 4 ✓. Misconception watch: slope 4 (the height f(1)) builds the line y = 4x, which misses the point entirely (Mistake 6).
+• A6. 16. Route: f'(x) = 3x^2 - 12 = 0 at x = ±2; f''(x) = 6x gives f''(-2) = -12, negative, so the local maximum is at x = -2 with value f(-2) = -8 + 24 = 16. Misconception watch: answering x = -2 (location, not value), or picking x = 2, whose value f(2) = -16 is the local MINIMUM wearing the same digits.
+• A7. c = 3. Route: average slope (16 - 4) / (4 - 2) = 6; set f'(c) = 2c = 6, so c = 3, strictly inside (2, 4) ✓. Misconception watch: answering c = 2 or c = 4 — endpoints are never the promised point; the theorem guarantees an interior point, and 3 is the interval's own midpoint here.
+• A8. 10 pi square cm per second (about 31.4). Route: dA/dt = 2 pi r (dr/dt) = 2 pi x 10 x 0.5 = 10 pi. Misconception watch: using the sphere formula 4 pi r^2 (dr/dt) inflates the answer to 200 pi — name the shape in words before choosing the formula.
+
+Chapter Summary, Revision Checklist and Self-Assessment
+• Summary: The derivative is the limit of secant slopes and the instantaneous rate of change in one object. First principles builds it once, honestly; then the rules — sum, product, quotient, chain — and the standard bank make it fast, and the chain rule's layer-count is the chapter's master skill.
+• Summary: Three disguises cover the functions the basic rules cannot reach: implicit differentiation for relations that will not isolate y, logarithmic differentiation for variable bases raised to variable powers, and parametric differentiation where x and y ride on a parameter t. Second derivatives add acceleration, concavity and the bending story.
+• Summary: Applications are interpretations of one computation: f'(a) is a tangent's slope (and -1/f'(a) the normal's); the sign of f' maps increasing and decreasing intervals; Rolle and MVT certify that average behaviour shows up instantaneously somewhere; the two derivative tests convict maxima and minima; optimisation adds a constraint and a domain; and rates of change run the chain rule with respect to time, differentiating first and substituting the instant last.
+• Revision checklist — I can derive x^3 and sqrt(x) from first principles without notes, including the cancellation step.
+• Revision checklist — I can state and correctly order the product, quotient and chain rules, and I count layers against factors on every composite.
+• Revision checklist — The standard bank is reflexive: powers, e^x, a^x, ln x, all six trig derivatives with their minus signs, and the three inverse-trig results.
+• Revision checklist — Implicit, logarithmic and parametric problems each trigger their drill automatically, and every y I differentiate in x pays its dy/dx.
+• Revision checklist — I can write tangent and normal equations from a point-slope template and audit them by substituting the point.
+• Revision checklist — Given any f, I can produce the sign chart of f', read off increasing and decreasing intervals, and classify critical points by either derivative test.
+• Revision checklist — I can verify Rolle and MVT in the four-line template, hypotheses first, and confirm the promised c lies strictly inside the interval.
+• Revision checklist — Optimisation: I eliminate with the constraint, state the domain, reject outside roots, and finish with the story's quantity and units.
+• Revision checklist — Rates: I differentiate the linking formula symbolically before substituting any numbers.
+• Self-assessment: Score your practice set. 7-8 correct: exam-ready — the rules are reflexes and the interpretations are fluent; revisit in a week. 5-6: solid; drill the sections behind your misses, especially any dropped chain factor or dy/dx. 3-4: rebuild from the Formula Sheet, re-deriving each rule on one example, then re-test. Below 3: restart from First Principles and the Rules, slowly — applications cannot stand on rules that are not yet automatic.""".trimIndent(),
 
             videoTitle = "Mean Value Theorems, Graphical Differentiability & AOD Optimization",
 
@@ -3253,45 +3490,276 @@ Chapter Summary, Revision Checklist and Self-Assessment
 
             completedLessons = 5,
 
-            studyNotesCount = 11,
+            studyNotesCount = 20,
 
-            practiceQuestionCount = 30,
+            practiceQuestionCount = 6,
 
             durationMinutes = 65,
 
-            formulaHighlight = "∫_a^b f(x)dx = ∫_a^b f(a+b−x)dx  •  d/dx ∫_{g(x)}^{h(x)} f(t)dt = f(h)h' − f(g)g'",
+            formulaHighlight = "✔ Power rule: the integral of x^n dx = x^(n + 1)/(n + 1) + C for n not equal to -1; the exception is the integral of 1/x dx = ln|x| + C; the integral of a^x dx = a^x / ln a + C and e^x integrates to itself\n✔ Trig bank: integral of sin x is -cos x, of cos x is sin x, of sec^2 x is tan x, of cosec^2 x is -cot x, of tan x is ln|sec x|, of cot x is ln|sin x|, of sec x is ln|sec x + tan x| (all + C)\n✔ Substitution signature: the integral of f'/f is ln|f| + C — an inner function with its derivative beside it means set u = the inner function; in definite integrals convert the limits to u and finish in the u-world\n✔ Parts: the integral of u v dx = u (integral of v) - the integral of [u' (integral of v)] dx; choose u by ILATE (Inverse-trig, Log, Algebraic, Trig, Exponential); a lone ln x is ln x times 1, and a cyclic integral is solved as an equation in I\n✔ Partial fractions: divide first if improper, then one simple fraction per linear factor by cover-up, each integrating to a log; quadratic denominators with no real roots are completed to a square and routed to the arctangent form\n✔ Special forms: integral of dx/(x^2 + a^2) = (1/a) tan^-1 (x/a); of dx/(a^2 - x^2) = (1/(2a)) ln|(a + x)/(a - x)|; of dx/sqrt(a^2 - x^2) = sin^-1 (x/a); of dx/sqrt(x^2 + a^2) = ln|x + sqrt(x^2 + a^2)|; of sqrt(a^2 - x^2) dx = (x/2) sqrt(a^2 - x^2) + (a^2/2) sin^-1 (x/a) (all + C)\n✔ Fundamental Theorem: the integral from a to b of f(x) dx = F(b) - F(a) for any antiderivative F, the + C cancelling; swapping limits flips the sign, zero width gives 0, adjacent intervals add\n✔ Symmetry: on -a to a an even integrand doubles its half-integral and an odd integrand gives 0; on 0 to 2a the integral folds to the integral from 0 to a of [f(x) + f(2a - x)] dx\n✔ King: the integral from 0 to a of f(x) dx equals the integral from 0 to a of f(a - x) dx; silhouette law: the integral from 0 to a of f(x)/(f(x) + f(a - x)) dx = a/2; landmark: the integral from 0 to pi/2 of ln(sin x) dx = -(pi/2) ln 2\n✔ Areas: one curve takes the integral of |f(x)| split at axis crossings; two curves take the integral of (top - bottom) between intersection x-values; circle pi a^2, ellipse pi a b, parabola y^2 = 4ax with x = a gives 8a^2/3, the facing parabolas give 16a^2/3, one sine hump has area 2",
 
-            keyConceptsSummary = "Integration by parts (∫ eˣ[f(x) + f'(x)]dx), partial fractions, definite integral symmetry properties, differentiation under the integral sign (Leibniz rule), Riemann sums as definite integrals, and bounded area calculation.",
+            keyConceptsSummary = "• Indefinite integration is differentiation reversed: the bank read off the derivative tables, substitution (the chain rule reversed — crowned by the integral of f'/f being ln|f|), parts (the product rule reversed, u by ILATE, cyclic integrals solved as equations), and partial fractions by cover-up cover every indefinite integrand, and every answer can be audited by differentiating it\n• The special forms are recognised by silhouette: dx/(x^2 + a^2) gives (1/a) tan^-1 (x/a), dx/sqrt(a^2 - x^2) gives sin^-1 (x/a), and the plus-root and difference forms give logs — with completing the square marching any rootless quadratic denominator into the family, and the 1/a and 1/(2a) factors being the most dropped marks in the chapter\n• The definite integral is signed area and the Fundamental Theorem prices it as F(b) - F(a), the constant cancelling; the working discipline is bracket notation, top limit substituted first, the whole bottom value subtracted — the step where most definite-integral marks actually die\n• Symmetry is checked before computation: on a symmetric interval even parts double and odd parts vanish (the integral from -2 to 2 of (x^3 + x^2) dx is 16/3 from the x^2 organ alone), the [0, 2a] fold adds f(2a - x), and King's mirror on [0, a] pairs an integral with its reflection so that symmetric ratios collapse — sin x/(sin x + cos x) on [0, pi/2] is pi/4 without any antiderivative existing in the bank\n• Modulus and greatest-integer integrands are bookkeeping, not calculus: split at the breakpoints where the inside changes sign, price each piece with its correct sign — the integral from -1 to 2 of |x| dx is 5/2, not the single-gulp 3/2 — and remember the staircase sits at -1 on [-1, 0)\n• Area questions add one decision to integral questions: sign. One curve means integrating |f| piece by piece (sin x over [0, 2pi] is 0 as an integral but 4 as an area); two curves mean intersections for the limits and (top - bottom) for the integrand — the line and parabola y = x and y = x^2 enclose exactly 1/6\n• The standard regions are quotable vocabulary: circle pi a^2 (quadrant pi a^2/4, from the sqrt(a^2 - x^2) antiderivative), ellipse pi a b, parabola y^2 = 4ax cut by x = a enclosing 8a^2/3 with the symmetry doubling done deliberately, and the facing parabolas y^2 = 4ax and x^2 = 4ay enclosing 16a^2/3",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — Running Differentiation Backwards
+• Integration answers the reverse question of this whole calculus block: differentiation takes a function and hands you its rate of change; integration is handed the rate of change and must rebuild the function. Every technique in this chapter is one of the derivative rules read in a mirror.
+• DEFINITION — An antiderivative of f(x) is a function F(x) whose derivative is f(x): F'(x) = f(x). The indefinite integral of f, written as the integral of f(x) dx, is the whole family of antiderivatives: F(x) + C, where C is an arbitrary constant, because the derivative of any constant is 0.
+• EXAMPLE — The derivative of x^3 is 3x^2, so the integral of 3x^2 dx is x^3 + C. The derivative of x^3 + 7 is also 3x^2, and so is the derivative of x^3 - 100 — that is exactly why the + C exists: reversing a derivative can never recover a constant that differentiation destroyed.
+• WHY this chapter is guaranteed marks — the IAT calculus section leans on integration twice over: first the techniques themselves (substitution, parts, partial fractions), then the definite-integral properties and area applications, where most questions are pattern questions with ten-second shortcuts hidden inside them (King's property, even-odd symmetry, standard regions). A student who has drilled the patterns collects marks that look like hard calculus to everyone else.
+• WHY the constant matters beyond pedantry — in applications the constant is fixed by extra information: a velocity integral gives position up to where the object started. The IAT tests this honestly: an antiderivative question without + C among the options is testing whether you know the family is infinite.
+• The map of the chapter: first the two faces of integration — reverse differentiation, and area accumulation. Then the four weapons: the standard bank, substitution, parts, partial fractions, plus the special-forms family. Then definite integrals and the Fundamental Theorem, the symmetry toolkit and King's mirror trick, modulus and greatest-integer splitting. Finally the area applications: one curve, two curves, and the standard regions whose answers you should know before you compute.
+★ HIGHLIGHT — The whole chapter in one breath: indefinite integration is differentiation reversed (and every method is a derivative rule in a mirror), while the definite integral is an area — and the Fundamental Theorem is the bridge that lets the reverse-derivative machine compute areas exactly.
 
-                1. Key Indefinite Integral Forms
+Integration as Area — The Accumulation Idea
+• DEFINITION — The definite integral of f from a to b is the limit of rectangle sums: slice [a, b] into thin strips of width dx, each strip contributing roughly f(x) times dx of area, and add them all. For a curve above the x-axis it equals the exact area between the curve, the axis, and the vertical lines x = a and x = b.
+• DEFINITION — Signed area: where the curve dips below the axis, the strips contribute negative area, and the definite integral reports the NET total — area above minus area below. The integral is a bookkeeper, not a surveyor; Section 11 shows how to convert its net figure into true geometric area.
+• EXAMPLE — Real life: a car's velocity is v(t) = 3t^2 metres per second. Distance travelled is accumulated velocity, so the distance from t = 0 to t = 2 is the integral from 0 to 2 of 3t^2 dt = [t^3] from 0 to 2 = 8 metres. Integration is how any rate becomes a total: flow rate to volume, power to energy, density to mass.
+• EXAMPLE — The integral from 0 to 4 of x dx = [x^2/2] from 0 to 4 = 8. Geometry agrees: the region under y = x from 0 to 4 is a triangle of base 4 and height 4, area (1/2) x 4 x 4 = 8. When a region is a familiar shape, the integral must reproduce the school formula — a free audit of your calculus.
+• WORKED PATTERN — Reading a definite integral geometrically: before computing, sketch and ask three questions. Where is the curve relative to the axis (sign)? Is the region a standard shape (triangle, semicircle, trapezoid) whose area I already know? Is there symmetry to exploit? Half of all definite-integral errors are really sketch errors.
+• YOUR TURN — Find the area under y = 2x from x = 0 to x = 3 in two ways. Answer: the integral from 0 to 3 of 2x dx = [x^2] from 0 to 3 = 9, and the triangle check gives (1/2) x 3 x 6 = 9. Agreement, as it must be.
+⚠ EXAM TRAP — The integral sign with limits is a NET area. If a question asks for "area" and the curve crosses the axis inside the interval, the raw integral can be smaller than the true area — or even zero for a large region, as with sin x over a full period. Net versus total is a decision you make from the sketch, never from habit.
 
-                • Cancellation Form: ∫ eˣ [f(x) + f'(x)] dx = eˣ f(x) + C.
+The Standard Integrals Bank — Results You Must Know Cold
+• DEFINITION — The bank is the set of antiderivatives read straight off the derivative tables. Everything in this chapter either is a bank entry, or is massaged by substitution, parts or splitting until a bank entry appears. There is no fourth possibility — that is the chapter's deepest pattern.
+✔ KEY FORMULA — Power rule: the integral of x^n dx = x^(n + 1)/(n + 1) + C, valid for every n except n = -1. The exception has its own entry: the integral of 1/x dx = ln|x| + C — note the modulus, because the log of a negative number does not exist while 1/x happily integrates on the negative side too.
+✔ KEY FORMULA — Exponentials: the integral of e^x dx = e^x + C (the only function that integrates to itself), and the integral of a^x dx = a^x / ln a + C for a > 0, a not equal to 1.
+✔ KEY FORMULA — Trigonometric six: the integral of sin x dx = -cos x + C; of cos x dx = sin x + C; of sec^2 x dx = tan x + C; of cosec^2 x dx = -cot x + C; of sec x tan x dx = sec x + C; of cosec x cot x dx = -cosec x + C. The minus signs live exactly where the derivative table has them — cos and the two "co" functions.
+✔ KEY FORMULA — The log forms: the integral of tan x dx = -ln|cos x| + C = ln|sec x| + C; of cot x dx = ln|sin x| + C; of sec x dx = ln|sec x + tan x| + C; of cosec x dx = ln|cosec x - cot x| + C. Each is really the pattern "integral of f'/f equals ln|f|" wearing a costume — Section 3 makes that pattern official.
+✔ KEY FORMULA — The inverse-trig pair: the integral of dx/(1 + x^2) = tan^-1 x + C, and the integral of dx/sqrt(1 - x^2) = sin^-1 x + C. Watch the twins: a PLUS and a SQUARE in the denominator calls tan^-1; a MINUS under a ROOT calls sin^-1. Swapping them is the classic bank error.
+• EXAMPLE — Combine freely, term by term: the integral of (3x^2 + 2/x + e^x) dx = x^3 + 2 ln|x| + e^x + C. Indefinite integrals split over sums and pull constants out — the same linearity differentiation had, because it IS differentiation reversed.
+• EXAMPLE — A definite bank audit: the integral from 0 to pi/4 of tan x dx = [-ln(cos x)] from 0 to pi/4 = -ln(1/sqrt(2)) = (1/2) ln 2. Substitution hides inside (tan is sin over cos, a f'/f shape), but the bank entry quotes it directly.
+• WORKED PATTERN — Differentiate to verify, always: an antiderivative claim is proven by differentiating it. Whenever you produce an integral — in practice, in a worked problem, in the exam hall on rough paper — one quick derivative of your answer must return the integrand. Ten seconds, total certainty.
+• YOUR TURN — Write down the integral of (1/x + cos x - 4) dx. Answer: ln|x| + sin x - 4x + C. Audit by differentiating term by term: ln|x| gives 1/x, sin x gives cos x, -4x gives -4 — total 1/x + cos x - 4, exactly the integrand. Audit passed.
+⚠ EXAM TRAP — Two bank traps guard this section: using the power rule at n = -1 (it divides by zero — the answer is ln|x|, full stop), and dropping the + C on indefinite integrals. In multiple-choice papers the option without + C is bait for exactly the student who computed correctly and finished carelessly.
 
-                • Algebraic Twin: ∫ (1 ± 1/x²) / (x ∓ 1/x)² dx via substitution t = x ∓ 1/x.
+Substitution — The Chain Rule in Reverse
+• DEFINITION — Substitution (change of variable): if an integrand contains a composite shape f(g(x)) multiplied by something close to g'(x), set u = g(x). The g'(x) dx becomes du, the composite unwinds into the plain integral of f(u) du, and the chain rule that built the composite is run backwards.
+• WHY it works — differentiation of F(g(x)) produces f(g(x)) times g'(x): the inner derivative is FORCED to appear. Substitution is pattern-matching for that forced factor. When you see an inner function whose derivative is sitting beside it, the problem has already told you its substitution.
+• EXAMPLE — The integral of 2x cos(x^2) dx. Inner function x^2, its derivative 2x sitting right there. Set u = x^2, du = 2x dx: the integral becomes the integral of cos u du = sin u + C = sin(x^2) + C.
+• EXAMPLE — The master pattern f'/f: the integral of (ln x)/x dx. Set u = ln x, du = dx/x: the integral becomes the integral of u du = u^2/2 + C = (ln x)^2/2 + C. Same family: the integral of x/(1 + x^2) dx with u = 1 + x^2 gives (1/2) ln(1 + x^2) + C — whenever the numerator is (a constant times) the derivative of the denominator, the answer is a log.
+• WORKED PATTERN — The substitution drill, four steps: (1) nominate u = the inner function (inside a root, a power, an exponential, a log, a trig argument, or a denominator); (2) compute du and hunt for it in the integrand — a constant multiple discrepancy is fine, absorb the constant; (3) rewrite EVERYTHING in u, including dx — no mixed-variable integrals allowed; (4) integrate, then substitute back.
+• WORKED PATTERN — Definite integrals: change the LIMITS with u and never return to x. The integral from 0 to pi/2 of sin^2 x cos x dx: set u = sin x, so when x = 0, u = 0, and when x = pi/2, u = 1; du = cos x dx. The integral becomes the integral from 0 to 1 of u^2 du = 1/3. The cos x was the derivative of the inner sin x — the pattern again.
+• EXAMPLE — The integral from 1 to 2 of (ln x)/x dx: with u = ln x the limits become 0 and ln 2, giving [u^2/2] from 0 to ln 2 = (ln 2)^2/2. Note how the definite version rewards the limit-change: no back-substitution, no arithmetic slip at the end.
+• YOUR TURN — Evaluate the integral from 0 to 1 of x e^(x^2) dx. Answer: set u = x^2, du = 2x dx, so the integral is (1/2) times the integral from 0 to 1 of e^u du = (e - 1)/2.
+⚠ EXAM TRAP — The two substitution felonies: forgetting that dx itself must be converted (writing the integral of cos u times 2x dx is a mixed-variable mess that scores zero), and — in definite integrals — substituting back to x but evaluating with the u-limits, or vice versa. Choose one variable world per computation and finish inside it.
 
+Integration by Parts — The Product Rule in Reverse
+• DEFINITION — Integration by parts: the integral of u v dx = u times (the integral of v dx) minus the integral of [u' times (the integral of v dx)] dx. It is the product rule (u v)' = u'v + u v' integrated and rearranged — use it when the integrand is a product of two unlike families (polynomial times exponential, polynomial times trig, log times anything).
+✔ KEY FORMULA — Choosing u, the ILATE ladder: prefer as u whichever family comes first in Inverse-trig, Logarithmic, Algebraic (polynomial), Trigonometric, Exponential. The rule exists because u is the factor that gets DIFFERENTIATED — choose the factor that becomes simpler when differentiated: ln x collapses to 1/x, x^2 steps down to 2x, while e^x and sin x merely cycle.
+• EXAMPLE — The integral of x e^x dx. ILATE: u = x (algebraic beats exponential), v = e^x. Parts gives x e^x minus the integral of e^x dx = x e^x - e^x + C = e^x (x - 1) + C. Audit by differentiating: e^x (x - 1) + e^x = x e^x. Correct.
+• EXAMPLE — The integral of ln x dx, the solo act: write it as ln x times 1, with u = ln x, v = 1. Parts gives x ln x minus the integral of x times (1/x) dx = x ln x - x + C. Every lone log or lone inverse-trig integral is this trick: multiply by 1 and let parts manufacture the partner.
+• EXAMPLE — A definite parts computation: the integral from 0 to 1 of x e^x dx = [e^x (x - 1)] from 0 to 1 = e^1 (0) - e^0 (-1) = 0 + 1 = 1. A suspiciously clean answer — the kind the IAT loves, and a reminder that the boundary term is part of the method, not an afterthought.
+• WORKED PATTERN — Tabular shortcut for polynomial times e^x or trig: differentiate the polynomial down to zero in one column, integrate the other factor repeatedly in the next, and combine with alternating signs. The integral of x^2 e^x dx becomes e^x (x^2 - 2x + 2) + C in three rows — the middle coefficient pattern (1, -2, +2) is the factorial staircase of the repeated differentiation.
+• EXAMPLE — The cyclic classic (IAT extension): the integral of e^x sin x dx. Parts twice returns the original integral on the right side; collecting it gives 2I = e^x (sin x - cos x), so the integral is e^x (sin x - cos x)/2 + C. An integral that "comes back" is not a failure — it is an equation for I.
+• YOUR TURN — Evaluate the integral of x cos x dx. Answer: u = x gives x sin x minus the integral of sin x dx = x sin x + cos x + C. Audit: the derivative of x sin x is sin x + x cos x, and the derivative of cos x is -sin x — the sin x terms cancel, leaving x cos x. Audit passed.
+⚠ EXAM TRAP — ILATE inverted: choosing u = e^x in the integral of x e^x dx makes the polynomial factor GROW under integration (the integral of x is x^2/2), so each application makes the problem harder, not easier. If parts makes the integrand worse, you chose u wrongly: swap the roles and restart. Persistence in a worsening direction is the most expensive habit in this chapter.
 
+Partial Fractions — Split Before You Integrate
+• DEFINITION — Partial fractions: a proper rational function (numerator degree below denominator degree) whose denominator factorises into linear factors can be written as a sum of simple fractions, one per factor — and each simple fraction integrates to a logarithm. Splitting converts an impossible integral into several bank entries.
+• WHY splitting works — a product in the denominator is what blocks the bank. One fraction per factor turns 1/((x + 1)(x + 2)) into 1/(x + 1) - 1/(x + 2), and each piece is the f'/f log pattern with f' = 1. The algebra is the price; the logs are the prize.
+• WORKED PATTERN — The cover-up method for distinct linear factors: to split P(x)/((x - a)(x - b)), the constant over (x - a) is found by deleting the (x - a) factor and substituting x = a into what remains; repeat for each factor. Then integrate term by term: each A/(x - a) gives A ln|x - a|.
+• EXAMPLE — The integral of dx/((x + 1)(x + 2)). Cover-up: constant over (x + 1) is 1/(−1 + 2) = 1; over (x + 2) is 1/(−2 + 1) = -1. So the integrand is 1/(x + 1) - 1/(x + 2), and the integral is ln|x + 1| - ln|x + 2| + C = ln|(x + 1)/(x + 2)| + C.
+• EXAMPLE — A definite split: the integral from 0 to 1 of dx/((x + 1)(x + 2)) = [ln((x + 1)/(x + 2))] from 0 to 1 = ln(2/3) - ln(1/2) = ln(4/3). Two ugly logs combine into one clean one — definite partial-fraction answers often tidy themselves this way, which is a useful correctness signal.
+• EXAMPLE — A numerator with personality: (3x + 5)/((x + 1)(x + 2)). Cover-up at x = -1: (3(-1) + 5)/(-1 + 2) = 2, so 2/(x + 1). At x = -2: (3(-2) + 5)/(-2 + 1) = (-1)/(-1) = 1, so 1/(x + 2). The integral is 2 ln|x + 1| + ln|x + 2| + C. The cover-up handles any numerator — it evaluates the numerator too.
+• WORKED PATTERN — Improper fractions first: if the numerator's degree is at least the denominator's, do polynomial division BEFORE splitting. The integral of (x^2 + 1)/(x + 1) dx: divide to get x - 1 plus remainder 2/(x + 1), integrating to x^2/2 - x + 2 ln|x + 1| + C. Skipping the division makes the cover-up produce nonsense, because partial fractions only exist for proper fractions.
+• YOUR TURN — Split and integrate dx/((x - 1)(x + 2)). Answer: cover-up gives 1/3 over (x - 1) and -1/3 over (x + 2), so the integral is (1/3) ln|x - 1| - (1/3) ln|x + 2| + C = (1/3) ln|(x - 1)/(x + 2)| + C.
+⚠ EXAM TRAP — The sign of the second constant: for 1/((x + 1)(x + 2)) the (x + 2) constant is -1, not +1 — cover-up substitutes into the SURVIVING factor, and (-2 + 1) = -1. Writing the split with two plus signs is the section's signature error; recombine your split mentally over a common denominator whenever the stakes are high.
 
-                2. Definite Integration Properties & Leibniz Rule
+Special Forms — The 1/(a^2 + x^2) Family and Root Forms
+• DEFINITION — The special forms are the bank entries built on a^2 combined with x^2 in a denominator or under a root. They cannot be reached by the power rule (the denominator is a SUM, which is why the answer is an inverse trig function or a log, never a power). Recognising the family portrait — a constant squared, combined with x squared — is the entire skill.
+✔ KEY FORMULA — The arctangent form: the integral of dx/(x^2 + a^2) = (1/a) tan^-1 (x/a) + C. The (1/a) in front is the most dropped factor in the chapter: it comes from scaling x = a t to reach the parent form dx/(1 + x^2).
+✔ KEY FORMULA — The two log forms with a difference: the integral of dx/(a^2 - x^2) = (1/(2a)) ln|(a + x)/(a - x)| + C, and the integral of dx/(x^2 - a^2) = (1/(2a)) ln|(x - a)/(x + a)| + C. Both are partial fractions in disguise — each splits into two simple logs that merge into one ratio.
+✔ KEY FORMULA — The root family: the integral of dx/sqrt(a^2 - x^2) = sin^-1 (x/a) + C; the integral of dx/sqrt(x^2 + a^2) = ln|x + sqrt(x^2 + a^2)| + C; the integral of dx/sqrt(x^2 - a^2) = ln|x + sqrt(x^2 - a^2)| + C; and the integral of sqrt(a^2 - x^2) dx = (x/2) sqrt(a^2 - x^2) + (a^2/2) sin^-1 (x/a) + C — the last one is the engine behind every circle-area computation in Section 13.
+• WORKED PATTERN — Completing the square: any quadratic denominator with no real roots is marched into the family by completing the square. The integral of dx/(x^2 + 2x + 5): the denominator is (x + 1)^2 + 4, a (something)^2 + 2^2 shape, so with a = 2 the answer is (1/2) tan^-1 ((x + 1)/2) + C. Shift first, quote the form second.
+• EXAMPLE — The integral from 0 to 1 of dx/(1 + x^2) = [tan^-1 x] from 0 to 1 = pi/4 - 0 = pi/4. This single computation is why tan^-1 1 = pi/4 earns its keep — the area under 1/(1 + x^2) across [0, 1] is exactly a quarter of pi.
+• EXAMPLE — The integral from 0 to 2 of dx/(x^2 + 4): here a = 2, so the answer is (1/2) [tan^-1 (x/2)] from 0 to 2 = (1/2)(pi/4) = pi/8. Watch the two appearances of 2 doing different jobs: the a inside the formula, and the upper limit landing exactly on it.
+• WORKED PATTERN — Family recognition drill: denominator x^2 + a^2 with NO root means tan^-1; denominator under a ROOT with a MINUS (sqrt(a^2 - x^2)) means sin^-1; denominator under a root with a PLUS, or x^2 - a^2 anywhere, means a log. Three silhouettes, three answers — misreading the silhouette, not the calculus, is where this section is lost.
+• YOUR TURN — Evaluate the integral from 0 to 3 of dx/(x^2 + 9). Answer: a = 3, so (1/3) [tan^-1 (x/3)] from 0 to 3 = (1/3)(tan^-1 1) = (1/3)(pi/4) = pi/12.
+⚠ EXAM TRAP — Writing the integral of dx/(x^2 + a^2) as tan^-1 (x/a) WITHOUT the 1/a factor. Differentiate tan^-1 (x/a) and the chain rule hands you a/(x^2 + a^2) — the missing 1/a exposed. Any antiderivative you are unsure about can be settled exactly this way, in the exam, in seconds.
 
-                • King's Property: ∫_a^b f(x) dx = ∫_a^b f(a + b − x) dx.
+Definite Integrals — The Fundamental Theorem
+• DEFINITION — The Fundamental Theorem of Calculus, part 2 (the working half): if F is any antiderivative of f, then the integral from a to b of f(x) dx = F(b) - F(a). The area machine and the reverse-derivative machine are the same machine — this identity is the bridge the Introduction promised, and it converts every indefinite technique of Sections 2 to 6 into an area computation.
+• DEFINITION — Part 1, in one line: the accumulated-area function A(x) = the integral from a to x of f(t) dt has derivative A'(x) = f(x) — accumulation and rate are inverse operations, which is why the bridge exists at all.
+✔ KEY FORMULA — The housekeeping properties: swapping limits flips the sign — the integral from a to b is minus the integral from b to a; a zero-width interval gives 0; intervals glue — the integral from a to b plus the integral from b to c equals the integral from a to c; and constants and sums pass through exactly as they did for derivatives.
+• WHY the + C vanishes — a definite integral subtracts F(b) - F(a), and the constant appears in both: (F(b) + C) - (F(a) + C) = F(b) - F(a). So for definite work pick the simplest antiderivative (C = 0) and never carry the constant again.
+• EXAMPLE — The integral from 0 to 3 of x^2 dx = [x^3/3] from 0 to 3 = 27/3 - 0 = 9. Compare with Section 1: the accumulation picture said this is the area under a parabola — and 9 is it, exactly, no rectangles required.
+• EXAMPLE — The integral from 1 to 4 of sqrt(x) dx = [(2/3) x^(3/2)] from 1 to 4 = (2/3)(8) - (2/3)(1) = 16/3 - 2/3 = 14/3. Fractional powers obey the same power rule; the only skill added is evaluating x^(3/2) as (sqrt(x))^3 at both ends without dropping a term.
+• WORKED PATTERN — The definite routine, four beats: (1) find any antiderivative; (2) write it in square brackets with the limits attached; (3) substitute the TOP limit, subtract the substitution of the BOTTOM limit — in that order, always; (4) simplify. Writing the bracket notation explicitly is not decoration; it is the error shield for step 3.
+• YOUR TURN — Evaluate the integral from 1 to 3 of (1/x) dx. Answer: [ln|x|] from 1 to 3 = ln 3 - ln 1 = ln 3 - 0 = ln 3.
+⚠ EXAM TRAP — Sign suicide in step 3: F(b) - F(a) computed as F(a) - F(b), or a negative F(a) subtracted as if positive — the integral from 0 to 1 of x e^x dx earlier gave F(1) - F(0) = 0 - (-1) = +1, and students who rush write -1. Brackets, order, then arithmetic: in that sequence, every time.
 
-                • Queen's Property: ∫_0^(2a) f(x) dx = ∫_0^a [f(x) + f(2a − x)] dx.
+Properties of Definite Integrals — The Symmetry Toolkit
+• DEFINITION — An even function satisfies f(-x) = f(x) (mirror symmetry about the y-axis: x^2, cos x, |x|); an odd function satisfies f(-x) = -f(x) (point symmetry about the origin: x^3, sin x, tan x). On the symmetric interval from -a to a, these symmetries become integration shortcuts.
+✔ KEY FORMULA — The symmetric-interval verdicts: for an even function, the integral from -a to a equals 2 times the integral from 0 to a — the two halves are equal copies. For an odd function, the integral from -a to a is 0 — the two halves are equal in size and opposite in sign, and they annihilate. Mixed functions: split into even part plus odd part and bill each separately.
+✔ KEY FORMULA — The doubled-interval property: the integral from 0 to 2a of f(x) dx equals the integral from 0 to a of [f(x) + f(2a - x)] dx. Two corollaries worth memorising: if f(2a - x) = f(x) throughout, the integral is 2 times the integral from 0 to a; if f(2a - x) = -f(x), the integral is 0.
+• EXAMPLE — The integral from -2 to 2 of x^2 dx: x^2 is even, so it is 2 times the integral from 0 to 2 of x^2 dx = 2 x (8/3) = 16/3. Direct evaluation of both halves would double the work for the same 16/3.
+• EXAMPLE — The integral from -2 to 2 of (x^3 + x^2) dx: split the integrand. The x^3 part is odd and contributes 0; the x^2 part is even and contributes 16/3 from the previous line. Total: 16/3. Splitting a mixed integrand into its even and odd organs is the standard IAT dissection.
+• EXAMPLE — The integral from -pi to pi of sin x dx = 0 by oddness — sin is odd, the interval is symmetric, case closed in one line, no antiderivative needed. Examiners include such questions precisely to see who reaches for symmetry and who reaches for F(b) - F(a) and burns a minute.
+• WORKED PATTERN — The symmetry audit, run before ANY definite integral: (1) is the interval symmetric (-a to a) or doubled (0 to 2a)? (2) is the integrand, or a part of it, recognisably even or odd — test f(-x) if unsure; (3) is there a mirror partner f(a - x) — that is Section 9's door. Ten seconds of audit routinely halves the computation.
+• YOUR TURN — Evaluate the integral from -1 to 1 of (x^3 + x^5 + 7) dx. Answer: x^3 and x^5 are odd and vanish; the constant 7 is even and gives 2 times the integral from 0 to 1 of 7 dx = 14. Total: 14.
+⚠ EXAM TRAP — Applying the even-odd verdicts on a NON-symmetric interval: the integral from -1 to 2 of x^3 dx is NOT 0, because the halves are not mirror images. The symmetry shortcuts are licensed by the interval's shape first and the function second — check the licence before using the shortcut.
 
-                • Leibniz Rule: d/dx [∫_{g(x)}^{h(x)} f(t) dt] = f(h(x))·h'(x) − f(g(x))·g'(x).
+King's Property — The Mirror Trick
+• DEFINITION — King's property: the integral from 0 to a of f(x) dx equals the integral from 0 to a of f(a - x) dx. The integrand may be read in a mirror — replacing x by (a - x) throughout — without changing the value, because the substitution u = a - x merely walks the same interval backwards.
+• WHY it is powerful — many integrands are ugly in x but pair beautifully with their mirror: f(x) + f(a - x) often collapses to a constant or a trivial function. The property converts one hard integral into half of an easy one: compute I and its mirror twin, add them, divide by 2.
+• WORKED PATTERN — The King drill, four steps: (1) name the integral I; (2) write the mirror I with f(a - x) — simplify the mirror integrand using trig identities (sin(a - x) with a = pi/2 is cos x; that swap is the classic); (3) add the two expressions for I and simplify the combined integrand; (4) evaluate the easy combined integral and halve.
+• EXAMPLE — The superstar: I = the integral from 0 to pi/2 of sin x/(sin x + cos x) dx. Mirror: sin becomes cos, cos becomes sin, so the mirror I is the integral of cos x/(cos x + sin x) dx over the same interval. Adding: 2I = the integral from 0 to pi/2 of (sin x + cos x)/(sin x + cos x) dx = the integral of 1 dx = pi/2. Therefore I = pi/4. The integrand was never antidifferentiated — it was outmanoeuvred.
+• EXAMPLE — Same silhouette, different costume: the integral from 0 to pi/2 of sqrt(sin x)/(sqrt(sin x) + sqrt(cos x)) dx. Mirror swaps the roots; the sum again collapses to the integral of 1, so the answer is again pi/4. The pattern to memorise is the SILHOUETTE — f(x)/(f(x) + f(mirror of x)) integrated from 0 to a always gives a/2 — not any single costume of it.
+✔ KEY FORMULA — The silhouette law: the integral from 0 to a of f(x)/(f(x) + f(a - x)) dx = a/2, whenever the denominator never vanishes on the interval. Both examples above are a = pi/2 giving pi/4. Recognising the silhouette turns a five-minute problem into a five-second one.
+• EXAMPLE — The heavyweight (IAT extension): I = the integral from 0 to pi of x sin x/(1 + cos^2 x) dx. King removes the x: the mirror replaces x by (pi - x), and since sin(pi - x) = sin x and cos(pi - x) = -cos x (squared away), adding gives 2I = pi times the integral from 0 to pi of sin x/(1 + cos^2 x) dx. That integral, with u = cos x, is [−tan^-1 (cos x)] from 0 to pi = pi/4 + pi/4 = pi/2. So 2I = pi^2/2 and I = pi^2/4. King did the heavy lifting; a plain substitution finished.
+• EXAMPLE — The famous one, stated for culture: the integral from 0 to pi/2 of ln(sin x) dx = -(pi/2) ln 2. Its proof adds the mirror ln(cos x) version and simplifies the product sin x cos x — King again, at concert level. You need the value memorised less than you need the reflex: symmetric ratio or symmetric log on [0, pi/2] means mirror first, integrate later (if at all).
+• YOUR TURN — Evaluate the integral from 0 to pi/2 of cos x/(sin x + cos x) dx. Answer: it is the mirror twin of the superstar — by the silhouette law (or by adding it to its partner), the value is pi/4.
+⚠ EXAM TRAP — King requires the exact stage: limits 0 to a, mirror (a - x). On limits a to b the mirror is (a + b - x) (a valid generalisation, but a different formula) — and swapping sin for cos works because a = pi/2; on [0, pi] the mirror of sin x is sin x itself, which is why the heavyweight example needed the x-removal instead. Apply the mirror that matches the interval in front of you.
 
-                • Limit of a Sum: lim (n→∞) (1/n) Σ_{r=1}^n f(r/n) = ∫_0^1 f(x) dx.
+Modulus and Greatest Integer — Split at the Breakpoints
+• DEFINITION — A modulus inside an integral is two functions sharing one costume: |g(x)| is g(x) where g is positive and -g(x) where g is negative. The integral is computed by finding the breakpoints (where g changes sign), splitting the interval there, and integrating each piece with its correct sign.
+• DEFINITION — The greatest integer function [x] is a staircase: constant on every unit interval [n, n + 1), equal to n there. Its integral over any interval is a sum of rectangle areas — on the negative side remember that [-0.5] = -1, so on [-1, 0) the staircase sits at -1, not 0.
+• WORKED PATTERN — The modulus drill: (1) solve g(x) = 0 inside the interval — those are the breakpoints; (2) test one point in each sub-interval to fix the sign; (3) drop the modulus with the correct sign per piece; (4) integrate piece by piece and add. Never integrate a modulus across a breakpoint in one gulp.
+• EXAMPLE — The integral from -1 to 2 of |x| dx. Breakpoint at 0. Left piece: the integral from -1 to 0 of (-x) dx = [−x^2/2] from -1 to 0 = 0 - (-1/2) = 1/2. Right piece: the integral from 0 to 2 of x dx = 2. Total: 1/2 + 2 = 5/2. Geometry audit: two triangles, (1/2)(1)(1) and (1/2)(2)(2) — 1/2 and 2. Agreement.
+• EXAMPLE — The integral from 0 to 3 of |x - 1| dx. Breakpoint at x = 1: left piece the integral from 0 to 1 of (1 - x) dx = 1/2; right piece the integral from 1 to 3 of (x - 1) dx = [(x - 1)^2/2] from 1 to 3 = 2. Total: 5/2. The V-shape with a shifted vertex splits exactly where the vertex touches the axis.
+• EXAMPLE — The integral from 0 to 3 of [x] dx: rectangles of heights 0, 1, 2 over [0, 1), [1, 2), [2, 3) give 0 x 1 + 1 x 1 + 2 x 1 = 3. And the trap-flavoured twin: the integral from -1 to 1 of [x] dx = (-1) x 1 + 0 x 1 = -1, because on [-1, 0) the floor is -1. A staircase integral is bookkeeping, not calculus — but the bookkeeping has one sign ambush.
+• YOUR TURN — Evaluate the integral from 0 to 5/2 of [x] dx. Answer: heights 0 on [0, 1), 1 on [1, 2), 2 on [2, 5/2), so 0 x 1 + 1 x 1 + 2 x (1/2) = 0 + 1 + 1 = 2.
+⚠ EXAM TRAP — The single-gulp error: integrating |x| from -1 to 2 as if it were x gives [x^2/2] from -1 to 2 = 2 - 1/2 = 3/2, confidently wrong against the true 5/2. The modulus symbol in a definite integral is an instruction to split — treat it as punctuation that changes the problem, not as decoration on the integrand.
 
+Area Under a Curve — One Curve and the Axis
+• DEFINITION — The area between a curve y = f(x), the x-axis, and the lines x = a and x = b is the integral from a to b of f(x) dx when f stays on or above the axis throughout. Area is a physical quantity — it is never negative — while the integral is a signed quantity; the two coincide exactly when the curve behaves.
+• DEFINITION — When the curve dips below the axis, the true area is the integral from a to b of |f(x)| dx: split at the crossing points (Section 10's drill) and flip the sign of every below-axis piece. Equivalently: area = (integral over the above-axis pieces) minus (integral over the below-axis pieces), each integral computed raw.
+• EXAMPLE — The area under y = x^2 from 0 to 2: the parabola never dips, so the area is the integral from 0 to 2 of x^2 dx = [x^3/3] from 0 to 2 = 8/3 square units.
+• EXAMPLE — The area between y = sin x and the axis from 0 to pi: one full hump, all above, so the area is the integral from 0 to pi of sin x dx = [-cos x] from 0 to pi = 1 + 1 = 2. This "2 per hump" figure is worth memorising — sine-area questions recur constantly.
+• EXAMPLE — The signed-versus-true showdown: y = sin x from 0 to 2pi. The raw integral is [-cos x] from 0 to 2pi = -1 + 1 = 0 — the two humps cancel in the bookkeeping. The TRUE area is 2 + 2 = 4, adding the second hump's modulus. Same curve, same interval, two different correct answers to two different questions: "evaluate the integral" (0) versus "find the area" (4). Read which one is being asked.
+• WORKED PATTERN — The area routine: (1) sketch the curve and shade the region; (2) mark every axis crossing inside the interval; (3) if the question says AREA, integrate |f| by pieces; if it says INTEGRAL, integrate f in one pass; (4) sanity-check against the sketch — an area smaller than the rectangle that visibly contains the region, or negative, means a sign slipped.
+• YOUR TURN — Find the area between y = sqrt(x), the x-axis, and the lines x = 0 and x = 4. Answer: the root curve stays above the axis, so the area is the integral from 0 to 4 of sqrt(x) dx = [(2/3) x^(3/2)] from 0 to 4 = (2/3)(8) = 16/3 square units.
+⚠ EXAM TRAP — "Area enclosed by the curve and the axis" over an interval where the curve crosses: the reflexive single integral hands the examiner a signed number — frequently 0 — while every option's true area sits unchosen. The words AREA in a question are a standing order to take the modulus.
 
+Area Between Two Curves — Top Minus Bottom
+• DEFINITION — The area enclosed between two curves y = f(x) (the upper) and y = g(x) (the lower) is the integral from a to b of [f(x) - g(x)] dx, where a and b are the x-coordinates of the intersection points. Each vertical strip's height is (top minus bottom), and the integral accumulates the strips — this is the accumulation idea of Section 1 with a moving floor.
+• WORKED PATTERN — The two-curve drill: (1) find ALL intersection points by solving f(x) = g(x) — they supply the limits, and missing one silently amputates a lobe of the region; (2) decide which curve is on top by testing one x between the limits (or by knowing the shapes); (3) integrate (top - bottom) between the outermost relevant limits; (4) if the curves swap roles mid-interval, split there — the intersection points usually announce exactly where.
+• EXAMPLE — The area between y = x and y = x^2. Intersections: x = x^2 gives x = 0 and x = 1. Between them the line is on top (test x = 1/4: the line gives 1/4, the parabola 1/16). Area = the integral from 0 to 1 of (x - x^2) dx = [x^2/2 - x^3/3] from 0 to 1 = 1/2 - 1/3 = 1/6. The most famous small area in the syllabus.
+• EXAMPLE — The area between y = sqrt(x) and y = x: intersections again at 0 and 1, but now the root curve is on top (at x = 1/4 the root gives 1/2 against the line's 1/4). Area = the integral from 0 to 1 of (sqrt(x) - x) dx = 2/3 - 1/2 = 1/6. Two different regions, the same 1/6 — the examiners know both, and so should you; the lesson is that the answer is decided by which curve is on top, not by the pair of curves alone.
+• EXAMPLE — The figure problem: the area between the parabola y = x^2 and the line y = x + 2. Intersections: x^2 = x + 2 gives x^2 - x - 2 = 0, so x = -1 and x = 2, with points (-1, 1) and (2, 4). Between them the line is on top. Area = the integral from -1 to 2 of [(x + 2) - x^2] dx = [x^2/2 + 2x - x^3/3] from -1 to 2 = (2 + 4 - 8/3) - (1/2 - 2 + 1/3) = 10/3 + 7/6 = 9/2. Note the lower-limit substitution producing a NEGATIVE bracket (-7/6) that must be subtracted whole — the bracket discipline of Section 7 paying rent.
+★ HIGHLIGHT — Subtraction order is the whole game: (top - bottom) integrated is always positive; (bottom - top) is its negative. If your area comes out negative, you did not make an arithmetic error — you integrated upside down. Flip, do not fudge the sign at the end.
+• YOUR TURN — Find the area between y = 2x and y = x^2. Answer: intersections at x = 0 and x = 2, the line on top between them, so the area is the integral from 0 to 2 of (2x - x^2) dx = [x^2 - x^3/3] from 0 to 2 = 4 - 8/3 = 4/3 square units.
+⚠ EXAM TRAP — Assuming the same curve stays on top across the whole interval. Whenever three or more intersection points exist, the curves trade places, and a single (top - bottom) integral across all of them nets the lobes against each other — the signed-area demon of Section 11 in a two-curve costume. Count intersections before choosing limits.
 
-                3. Applications of Integration (Area Bounded by Curves)
+Areas of Standard Regions — Parabolas, Circles, Ellipses
+• DEFINITION — A gallery of regions whose areas recur so often that the IAT treats them as vocabulary: the circle, the ellipse, the parabola cut by a line, and two parabolas facing each other. Each is one application of the sqrt(a^2 - x^2) antiderivative from Section 6, or of a symmetry doubling — and each answer should eventually be quotable on sight.
+✔ KEY FORMULA — Circle: the area of x^2 + y^2 = a^2 is pi a^2, and one quadrant is pi a^2/4. Derivation in one breath: the quadrant is the integral from 0 to a of sqrt(a^2 - x^2) dx = [(x/2) sqrt(a^2 - x^2) + (a^2/2) sin^-1 (x/a)] from 0 to a = (a^2/2)(pi/2) = pi a^2/4 — the Section 6 root formula evaluated, with the first term vanishing at both ends.
+✔ KEY FORMULA — Ellipse: the area of x^2/a^2 + y^2/b^2 = 1 is pi a b — the circle's pi a^2 with the second radius allowed to differ. One quadrant is pi a b/4. Memory anchor: set b = a and the ellipse formula must collapse to the circle's; any formula you invent in the exam should pass the same collapse test.
+• EXAMPLE — Parabola and a vertical line: the area enclosed by y^2 = 4ax and the line x = a. The parabola is symmetric about the x-axis, so the area is 2 times the upper half. The upper half is y = 2 sqrt(a x), and the integral from 0 to a of 2 sqrt(a x) dx = 2 sqrt(a) times [(2/3) x^(3/2)] from 0 to a = 2 sqrt(a) x (2/3) a^(3/2) = (4/3) a^2. Doubling for the lower half gives 2 x (4/3) a^2 = 8a^2/3. The doubling for symmetry is the step everyone forgets — the bare integral sees only the top half of the region.
+• EXAMPLE — Two parabolas facing off: the area enclosed between y^2 = 4ax and x^2 = 4ay. They meet at (0, 0) and (4a, 4a); between x = 0 and x = 4a the first parabola's upper branch y = 2 sqrt(a x) is on top and the second parabola y = x^2/(4a) is below. Area = the integral from 0 to 4a of [2 sqrt(a x) - x^2/(4a)] dx = 32a^2/3 - 16a^2/3 = 16a^2/3. Longer arithmetic, same drill: intersections, top minus bottom, bracket discipline.
+• WORKED PATTERN — Halve by symmetry before integrating: regions symmetric about an axis (parabola y^2 = 4ax about the x-axis, circle and ellipse about both) should be computed as 2 or 4 times one symmetric piece. Symmetry is not elegance points — it is fewer chances to slip, and it converts the sqrt formulas into single-quadrant evaluations.
+• YOUR TURN — State (do not derive) the area of one quadrant of the ellipse with a = 5 and b = 3, and the full area. Answer: quadrant = pi a b/4 = 15 pi/4; full area = pi a b = 15 pi square units.
+⚠ EXAM TRAP — The vanishing first term trick in the circle derivation tempts a shortcut: students drop (x/2) sqrt(a^2 - x^2) "because it is always zero" — it is zero at x = 0 and x = a for THIS quadrant, but it is the working term in other regions (segments, shifted circles). Quote pi a^2/4 for the quadrant; derive anything non-standard honestly.
 
-                • Area between y = f(x) and y = g(x) on [a, b]: A = ∫_a^b |f(x) − g(x)| dx.
+Formula Sheet — The Integration Toolkit
+✔ KEY FORMULA — Power rule: the integral of x^n dx = x^(n + 1)/(n + 1) + C for n not equal to -1; the exceptional case is the integral of 1/x dx = ln|x| + C. Exponential: the integral of a^x dx = a^x/ln a + C; e^x integrates to itself.
+✔ KEY FORMULA — Trig bank: integral of sin x is -cos x; of cos x is sin x; of sec^2 x is tan x; of cosec^2 x is -cot x; of tan x is ln|sec x|; of cot x is ln|sin x|; of sec x is ln|sec x + tan x|; of cosec x is ln|cosec x - cot x| (all + C).
+✔ KEY FORMULA — Substitution signature: the integral of f'/f is ln|f| + C; more generally, inner function plus its derivative standing beside it means set u = inner function. In definite integrals, change the limits with u and finish in the u-world.
+✔ KEY FORMULA — Parts: the integral of u v dx = u (integral of v) - the integral of [u' (integral of v)] dx. Choose u by ILATE: Inverse-trig, Log, Algebraic, Trig, Exponential. A lone ln x is ln x times 1.
+✔ KEY FORMULA — Partial fractions: proper fraction, factorise the denominator, one simple fraction per linear factor via cover-up, each integrating to a log. Improper fraction: divide first, split second.
+✔ KEY FORMULA — Special forms: integral of dx/(x^2 + a^2) = (1/a) tan^-1 (x/a); of dx/(a^2 - x^2) = (1/(2a)) ln|(a + x)/(a - x)|; of dx/sqrt(a^2 - x^2) = sin^-1 (x/a); of dx/sqrt(x^2 + a^2) = ln|x + sqrt(x^2 + a^2)|; of sqrt(a^2 - x^2) dx = (x/2) sqrt(a^2 - x^2) + (a^2/2) sin^-1 (x/a) (all + C). Quadratic denominator: complete the square first.
+✔ KEY FORMULA — Fundamental Theorem: the integral from a to b of f(x) dx = F(b) - F(a) for any antiderivative F; the + C cancels. Swap limits, flip sign; zero width, zero value; adjacent intervals add.
+✔ KEY FORMULA — Symmetry: on -a to a, even integrand doubles the half-integral, odd integrand gives 0. On 0 to 2a: the integral equals the integral from 0 to a of [f(x) + f(2a - x)] dx.
+✔ KEY FORMULA — King: the integral from 0 to a of f(x) dx = the integral from 0 to a of f(a - x) dx. Silhouette law: the integral from 0 to a of f(x)/(f(x) + f(a - x)) dx = a/2. Cultural landmark: the integral from 0 to pi/2 of ln(sin x) dx = -(pi/2) ln 2.
+✔ KEY FORMULA — Areas: one curve, the integral from a to b of |f(x)| dx (split at crossings); two curves, the integral of (top - bottom) between intersection x-values. Circle area pi a^2; ellipse pi a b; parabola y^2 = 4ax with x = a encloses 8a^2/3; between y^2 = 4ax and x^2 = 4ay lies 16a^2/3; one hump of sin x has area 2.
 
-                • Standard parabolic area shortcut: Area enclosed between y² = 4ax and x² = 4by is 16ab / 3.
+Common Mistakes and Exam Traps
+• Mistake 1: Applying the power rule to 1/x and writing x^0/0 or 0. Why it is wrong: n = -1 divides by (n + 1) = 0 — the rule itself refuses; the exceptional antiderivative is ln|x|. Correct principle: 1/x is the one power with a logarithm for an answer; it is a separate bank entry, not a computation.
+• Mistake 2: Dropping the + C from indefinite integrals. Why it is wrong: antiderivatives form a family — x^3 and x^3 + 7 differentiate to the same 3x^2 — so a bare F(x) claims one member is the whole family, and it is the option the paper marks wrong. Correct principle: every indefinite answer carries + C; definite answers never need it because it cancels in F(b) - F(a).
+• Mistake 3: In substitution, converting the integrand but not dx. Why it is wrong: dx is a factor of the integrand, not a label; leaving 2x dx beside a u-integrand mixes two variables into a meaningless expression. Correct principle: u, du, limits — rewrite everything, or do not start the substitution.
+• Mistake 4: Choosing u against ILATE in parts, so the new integral is harder than the old. Why it is wrong: parts differentiates u and integrates v; differentiating e^x changes nothing while integrating x grows it, so u = e^x on the integral of x e^x dx spirals. Correct principle: u is the factor that improves under differentiation — logs collapse, polynomials descend, exponentials and trigs merely cycle.
+• Mistake 5: Partial fractions with both constants positive by default. Why it is wrong: cover-up substitutes into the SURVIVING factor — for 1/((x + 1)(x + 2)) the (x + 2) constant is 1/(-2 + 1) = -1, and two plus signs fail to recombine into the original fraction. Correct principle: after splitting, mentally recombine over a common denominator as an audit before integrating.
+• Mistake 6: Dropping the 1/a in the integral of dx/(x^2 + a^2). Why it is wrong: differentiating tan^-1 (x/a) returns a/(x^2 + a^2), not 1/(x^2 + a^2) — the chain rule's inner derivative must be divided away. Correct principle: quote the form as (1/a) tan^-1 (x/a), and audit any special form by one differentiation.
+• Mistake 7: Computing F(b) - F(a) in the wrong order or mishandling a negative F(a). Why it is wrong: the theorem's order is structural — top limit minus bottom limit — and subtracting a negative is where the sign dies, as in [e^x (x - 1)] from 0 to 1 = 0 - (-1) = 1, not -1. Correct principle: bracket notation, substitute top, subtract the WHOLE bottom value, then simplify.
+• Mistake 8: Using even-odd shortcuts on asymmetric intervals. Why it is wrong: the verdicts are licensed by mirror symmetry of the INTERVAL [-a, a]; on [-1, 2] the halves of x^3 do not cancel, and the integral is not 0. Correct principle: audit the interval shape first, the integrand's parity second, in that order.
+• Mistake 9: Integrating a modulus in one gulp across its breakpoint. Why it is wrong: |x| is -x on one side of 0 and x on the other; one antiderivative cannot serve both, and the single-gulp value 3/2 for the integral from -1 to 2 of |x| dx misses the true 5/2. Correct principle: breakpoints first, split, sign per piece, then integrate.
+• Mistake 10: Reporting a signed integral as an area. Why it is wrong: the integral of sin x from 0 to 2pi is 0 while the enclosed area is 4 — below-axis pieces subtract in the integral but add in the area. Correct principle: the word AREA in a question is an order to integrate the modulus; the word INTEGRAL alone is an order to integrate the function as signed.
 
-            """.trimIndent(),
+Worked Examples — Basic to Challenging
+• Example 1 — Problem: Evaluate the integral of x e^x dx.
+• Given: A product of an algebraic factor and an exponential.
+• Principle: Integration by parts with u chosen by ILATE — algebraic before exponential, so u = x, v = e^x.
+• Steps: Parts gives u times the integral of v: x e^x, minus the integral of u' times the integral of v: the integral of 1 x e^x dx = e^x. Result: x e^x - e^x + C.
+• Answer: e^x (x - 1) + C.
+• Reasoning: Differentiating the answer returns e^x (x - 1) + e^x = x e^x — the audit closes the problem. One application of parts sufficed because differentiating x demoted it to a constant.
+• Mistake to avoid: Choosing u = e^x, which integrates the x into x^2/2 and makes the surviving integral harder than the original.
+• Example 2 — Problem: Evaluate the integral from 0 to 1 of 2x/(1 + x^2) dx.
+• Given: A rational integrand whose numerator is exactly the derivative of its denominator.
+• Principle: Substitution u = 1 + x^2 — the f'/f pattern — with the limits converted to the u-world.
+• Steps: u = 1 + x^2, du = 2x dx. When x = 0, u = 1; when x = 1, u = 2. The integral becomes the integral from 1 to 2 of (1/u) du = [ln u] from 1 to 2 = ln 2 - 0.
+• Answer: ln 2.
+• Reasoning: The numerator 2x was the substitution's entry ticket; recognising f'/f is faster than any partial-fraction machinery, and no partial fractions are even possible here since the denominator does not factorise over the reals.
+• Mistake to avoid: Changing u but keeping the x-limits 0 and 1, which evaluates the logarithm at the wrong endpoints and produces a wrong number with confident-looking working.
+• Example 3 — Problem: Evaluate the integral from 0 to pi/2 of sin x/(sin x + cos x) dx.
+• Given: A trig ratio on [0, pi/2] whose antiderivative is not in any bank.
+• Principle: King's property — add the integral to its mirror and watch the integrand collapse.
+• Steps: Call it I. The mirror replaces x by (pi/2 - x): sin becomes cos and cos becomes sin, so the mirror I is the integral from 0 to pi/2 of cos x/(cos x + sin x) dx. Adding: 2I = the integral from 0 to pi/2 of (sin x + cos x)/(sin x + cos x) dx = the integral from 0 to pi/2 of 1 dx = pi/2.
+• Answer: pi/4.
+• Reasoning: The silhouette law of Section 9 predicted a/2 = (pi/2)/2 = pi/4 before any work — the computation merely confirms the pattern recognition.
+• Mistake to avoid: Attacking with substitution u = sin x + cos x and drowning; when the integrand is a symmetric ratio on [0, a], the mirror is the method, not a last resort.
+• Example 4 — Problem: Evaluate the integral from 0 to 1 of dx/((x + 1)(x + 2)).
+• Given: A proper rational function with a factorised quadratic denominator.
+• Principle: Partial fractions by cover-up, then the log bank entry on each piece.
+• Steps: Cover-up at x = -1 gives 1/(-1 + 2) = 1; at x = -2 gives 1/(-2 + 1) = -1. So the integrand is 1/(x + 1) - 1/(x + 2). Integrate: [ln|x + 1| - ln|x + 2|] from 0 to 1 = [ln(2/3)] - [ln(1/2)] = ln((2/3)/(1/2)) = ln(4/3).
+• Answer: ln(4/3).
+• Reasoning: The final log-of-a-ratio tidiness is characteristic: definite partial-fraction answers collapse, and a collapse this clean is evidence the split signs were right.
+• Mistake to avoid: Writing the split with +1 over (x + 2) — the cover-up value there is -1, and the wrong sign survives integration to poison the final logs.
+• Example 5 — Problem: Evaluate the integral from 0 to 3 of |x - 1| dx.
+• Given: A modulus whose inside changes sign at x = 1, inside the interval.
+• Principle: Split at the breakpoint; on each side the modulus is an ordinary linear function.
+• Steps: From 0 to 1, |x - 1| = 1 - x, integral = [x - x^2/2] from 0 to 1 = 1/2. From 1 to 3, |x - 1| = x - 1, integral = [(x - 1)^2/2] from 1 to 3 = 4/2 - 0 = 2. Total: 1/2 + 2.
+• Answer: 5/2.
+• Reasoning: Geometry audits again: two triangles, bases 1 and 2 with heights 1 and 2, areas 1/2 and 2 — the V-graph's two halves, priced separately and added.
+• Mistake to avoid: Integrating (x - 1) across the whole [0, 3] in one pass, which prices the left triangle as negative and returns 3/2.
+• Example 6 — Problem: Find the area enclosed by the parabola y = x^2 and the line y = x + 2.
+• Given: Two curves, intersections not supplied — the region must be located before it can be measured.
+• Principle: Intersections first (they are the limits), then the integral of (top - bottom).
+• Steps: Solve x^2 = x + 2: x^2 - x - 2 = 0 factorises as (x - 2)(x + 1) = 0, so x = -1 and x = 2, points (-1, 1) and (2, 4). Between them the line is above the parabola (test x = 0: line 2, parabola 0). Area = the integral from -1 to 2 of [(x + 2) - x^2] dx = [x^2/2 + 2x - x^3/3] from -1 to 2 = (2 + 4 - 8/3) - (1/2 - 2 + 1/3) = 10/3 - (-7/6) = 20/6 + 7/6.
+• Answer: 9/2 square units.
+• Reasoning: This is the chapter's figure problem — the shaded lens. The delicate step is the lower limit: F(-1) = -7/6 is negative, and subtracting it ADDS 7/6. Bracket discipline is what separates 9/2 from the popular wrong answer 11/6 obtained by subtracting 7/6 instead.
+• Mistake to avoid: Using x = 0 and the vertex or the y-intercepts as limits — the limits of a two-curve area are the INTERSECTION abscissae, nothing else.
+• Example 7 — Problem: Evaluate the integral of e^x sin x dx.
+• Given: A product of two cycling functions — neither differentiates away.
+• Principle: Parts twice; the original integral returns on the right-hand side, turning the computation into an equation for I.
+• Steps: Set I = the integral of e^x sin x dx. Parts with u = sin x: I = e^x sin x - the integral of e^x cos x dx. Parts again on the new integral (u = cos x): the integral of e^x cos x dx = e^x cos x + the integral of e^x sin x dx = e^x cos x + I. Substitute back: I = e^x sin x - e^x cos x - I. Collect: 2I = e^x (sin x - cos x).
+• Answer: e^x (sin x - cos x)/2 + C.
+• Reasoning: The returning I is not a loop failure — it is linear-equation data. Divide by 2 and the cyclic integral surrenders. Any e^x times sin/cos product falls to this same two-parts manoeuvre.
+• Mistake to avoid: Swapping the u-choice between the two applications of parts, which makes the second application undo the first and returns 0 = 0 theatre instead of an equation for I.
+
+Practice Questions — Self-Test Set
+• Q1. Evaluate the integral from 0 to 1 of x e^(x^2) dx.
+• Q2. Evaluate the integral from 0 to 3 of dx/(x^2 + 9).
+• Q3. Evaluate the integral from -2 to 2 of x^3 dx.
+• Q4. Evaluate the integral from 0 to 5/2 of [x] dx.
+• Q5. Find the area between y = sin x and the x-axis from x = 0 to x = pi.
+• Q6. Evaluate the integral of x cos x dx.
+• Q7. Evaluate the integral from 0 to pi/2 of cos x/(sin x + cos x) dx.
+• Q8. Find the area enclosed by y = x^2 and y = 2x.
+
+▸ Answer Key with Explanations
+• A1. (e - 1)/2. Route: substitution u = x^2, du = 2x dx, giving (1/2) times the integral from 0 to 1 of e^u du = (e - 1)/2. Misconception watch: answering e - 1 forgets the 1/2 that du = 2x dx demands — the constant multiple in the derivative must be divided back out.
+• A2. pi/12. Route: the arctangent form with a = 3: (1/3) [tan^-1 (x/3)] from 0 to 3 = (1/3)(pi/4). Misconception watch: answering pi/4 drops the 1/a factor — the single most repeated special-forms error; the audit is one differentiation of tan^-1 (x/3), which returns 3/(x^2 + 9), three times too big.
+• A3. 0. Route: x^3 is odd and [-2, 2] is symmetric, so the halves cancel exactly. Misconception watch: computing [x^4/4] from -2 to 2 = 4 - 4 = 0 reaches the same number honestly, but answering 8 by evaluating only the top limit and doubling is the even-function reflex misapplied to an odd one.
+• A4. 2. Route: staircase rectangles: 0 over [0, 1), 1 over [1, 2), 2 over [2, 5/2) — so 0 x 1 + 1 x 1 + 2 x (1/2) = 2. Misconception watch: treating [x] as x and integrating gives 25/8 — the staircase is constant on each tread; the last tread is only half a unit wide and its height is 2, not 5/2.
+• A5. 2. Route: the hump is entirely above the axis, so the area is the integral from 0 to pi of sin x dx = [-cos x] from 0 to pi = 2. Misconception watch: extending the interval to 2pi and answering 0 confuses the signed integral with the area — over [0, pi] there is no cancellation available to confuse them.
+• A6. x sin x + cos x + C. Route: parts with u = x (ILATE: algebraic over trig): x sin x minus the integral of sin x dx. Misconception watch: answering x sin x - cos x flips the sign of the surviving integral — the integral of sin x is -cos x, and parts SUBTRACTS it, giving plus cos x. Two minuses, one answer.
+• A7. pi/4. Route: this is the mirror twin of the superstar integral; by King's property it equals its partner, and the pair sums to pi/2, so each is pi/4 — the silhouette law with a = pi/2. Misconception watch: answering pi/2 mistakes the pair's total for one member's share; the divide-by-2 is the last step of every King computation.
+• A8. 4/3. Route: intersections where x^2 = 2x, so x = 0 and x = 2; the line is on top between them; the integral from 0 to 2 of (2x - x^2) dx = [x^2 - x^3/3] from 0 to 2 = 4 - 8/3 = 4/3. Misconception watch: integrating (x^2 - 2x) instead returns -4/3 and students "fix" it by deleting the minus sign — the honest fix is recognising the order was upside down from the start; a negative area is a diagnosis, not a typo.
+
+Chapter Summary, Revision Checklist and Self-Assessment
+• Summary: Indefinite integration is differentiation reversed, and its four weapons are the bank, substitution (the chain rule reversed, signature: an inner function with its derivative beside it, crowned by f'/f giving ln|f|), parts (the product rule reversed, u chosen by ILATE, cyclic integrals solved as equations), and partial fractions (proper fractions split by cover-up into logs), with the special forms — (1/a) tan^-1, sin^-1 under a root, and the log forms — completing the toolkit after completing the square.
+• Summary: The definite integral is signed area, computed by the Fundamental Theorem as F(b) - F(a) with the constant cancelling. Before computing, run the symmetry audit: even doubles and odd vanishes on [-a, a], the [0, 2a] fold adds f(2a - x), and King's mirror on [0, a] pairs an integral with its reflection — the silhouette f/(f + mirror f) always yields a/2. Modulus and greatest-integer integrands are split at their breakpoints and priced piecewise.
+• Summary: Area questions are integral questions with one extra decision — sign. One curve: integrate |f| by pieces (a sine hump is 2, a full period is 4 of area but 0 of integral). Two curves: intersections supply the limits, (top - bottom) supplies the integrand. The standard regions are vocabulary: circle pi a^2, ellipse pi a b, parabola y^2 = 4ax cut by x = a giving 8a^2/3, the two facing parabolas giving 16a^2/3.
+• Revision checklist — I can reproduce the whole bank from the derivative tables, including the n = -1 exception and the inverse-trig twins, and I audit any antiderivative by differentiating it.
+• Revision checklist — I spot substitution signatures instantly: composite with derivative present, and numerator equal to the derivative of the denominator.
+• Revision checklist — I run definite substitutions entirely in the u-world, limits converted, never mixing variables.
+• Revision checklist — I choose u by ILATE without hesitation, handle the lone ln x by multiplying by 1, and solve cyclic integrals as equations in I.
+• Revision checklist — I divide improper fractions before splitting, and I audit every partial-fraction split by recombining it mentally.
+• Revision checklist — I quote the special forms with their factors intact: 1/a with tan^-1, 1/(2a) with the difference-of-squares logs, and I complete the square on sight.
+• Revision checklist — I bracket every definite evaluation, substitute the top limit first, and subtract the whole bottom value, sign and all.
+• Revision checklist — I run the symmetry audit (interval shape, parity, mirror partner) before computing any definite integral, and I apply King to symmetric silhouettes on [0, a] by reflex.
+• Revision checklist — I split modulus and staircase integrands at their breakpoints, remembering [x] = -1 on [-1, 0).
+• Revision checklist — For areas I sketch first, mark crossings and intersections, take the modulus where the question says AREA, and double symmetric regions deliberately rather than accidentally.
+• Self-assessment: Score your practice set. 7-8 correct: exam-ready — the techniques are reflexes; revisit in a week and move to differential equations. 5-6: solid base; re-drill the sections behind your misses — a dropped 1/a or 1/2 and a missed King silhouette are the usual leaks. 3-4: rebuild from the Formula Sheet, re-deriving each bank entry once by differentiation, then re-test. Below 3: restart from the accumulation picture in Section 1 and the bank in Section 2, one technique at a time — integration rewards pattern fluency, and fluency is built in order.""".trimIndent(),
 
             videoTitle = "King's Property, Leibniz Integral Differentiation & Bounded Areas",
 
@@ -3325,47 +3793,247 @@ Chapter Summary, Revision Checklist and Self-Assessment
 
             completedLessons = 3,
 
-            studyNotesCount = 7,
+            studyNotesCount = 18,
 
-            practiceQuestionCount = 22,
+            practiceQuestionCount = 5,
 
             durationMinutes = 50,
 
-            formulaHighlight = "dy/dx + P(x)y = Q(x)  ⇒  IF = e^(∫ P(x)dx)  ⇒  y · (IF) = ∫ Q(x)·(IF) dx + C",
+            formulaHighlight = "✔ Order = highest derivative present; degree = power of that derivative, only when the equation is polynomial in the derivatives — clear roots first, and a derivative inside sin, e-power or ln means degree is not defined\n✔ An order-n DE has a general solution with exactly n independent arbitrary constants; each initial condition fixes one constant\n✔ Separable: dy/dx = f(x) g(y) separates to integral of dy/g(y) = integral of f(x) dx + C\n✔ Homogeneous (right side a function of y/x alone): set y = vx, with dy/dx = v + x(dv/dx); the equation separates and dx/x integrates to ln|x|\n✔ Linear: dy/dx + P(x) y = Q(x) has IF = e^(integral of P dx) and solution y times IF = integral of (Q times IF) dx + C — standardise first so the coefficient of dy/dx is 1 before reading P\n✔ The flip: dx/dy + P1(y) x = Q1(y) has IF = e^(integral of P1 dy) and solution x times IF = integral of (Q1 times IF) dy + C\n✔ Disguised products: y + x(dy/dx) = d/dx (xy) and (x(dy/dx) - y)/x^2 = d/dx (y/x) — exact match required, then one integration solves it\n✔ Growth and decay: dN/dt = kN gives N = N0 e^(kt); doubling time and half-life both equal ln 2 / |k| ≈ 0.693/|k| — count powers of 2 or 1/2 before solving for k\n✔ Cooling: dT/dt = -k(T - Ts) gives T = Ts + (T0 - Ts) e^(-kt) — the temperature gap decays exponentially and never overshoots",
 
-            keyConceptsSummary = "Order and degree of differential equations, variable separable and homogeneous forms, first-order linear differential equations, Bernoulli's equation, exact differentials, and orthogonal trajectories.",
+            keyConceptsSummary = "• A differential equation prescribes slopes, not values: its unknown is a whole function, and a solution is any curve that obeys the slope rule everywhere — picture the slope field of dy/dx = x + y, where each point carries a tiny direction dash and solutions thread through them\n• Order is the highest derivative present; degree is that derivative's power, defined only when the equation is polynomial in the derivatives — clear roots by raising to powers first, and a derivative trapped inside sin, exp or log (as in d^2y/dx^2 + sin(dy/dx) = 0) makes the degree not defined\n• The general solution of an order-n DE carries exactly n arbitrary constants, one per integration; initial conditions pin them into a particular solution — and any claimed solution can be audited by differentiating and substituting back, checking the equation and the conditions as two separate tests\n• Forming a family's DE: differentiate once per arbitrary constant and eliminate the constants — the circles x^2 + y^2 = r^2 give x + y(dy/dx) = 0 in a single step, while y = A e^x + B e^(-x) needs two differentiations to reach y'' - y = 0\n• Three solving machines cover first-order IAT equations: separate the variables when the right side factors as f(x) g(y); substitute y = vx (dy/dx = v + x(dv/dx)) when only the ratio y/x matters; and run the integrating factor IF = e^(integral P dx) for the linear form dy/dx + P y = Q — with the dx/dy flip and disguised products d/dx (xy), d/dx (y/x) as accelerators\n• Growth and decay are one law: dN/dt = kN solves to N = N0 e^(kt), with doubling time and half-life both equal to ln 2 / |k| — a 100 g sample with 5-day half-life leaves 12.5 g after 15 days, and counting powers of 2 beats solving for k whenever the data allows\n• Newton's cooling is the decay law with an offset: dT/dt = -k(T - Ts) gives T = Ts + (T0 - Ts) e^(-kt) — word problems are won at the translation step (rate proportional to amount, or to the gap), and solving second-order DEs stays out of scope: labels, forming and verifying only",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — An Equation That Speaks in Derivatives
+• Every equation you have solved so far has unknown numbers. A differential equation (DE) is bolder: its unknown is an entire function, and the clues it gives are about that function's rates of change. Solve it and you do not get a number — you get the curve itself, the population itself, the temperature itself.
+• DEFINITION — A differential equation is an equation involving one or more derivatives of a dependent variable with respect to an independent variable (possibly alongside the variables themselves). This chapter uses ordinary DEs only: one independent variable, written dy/dx, d^2y/dx^2 and so on. If y depends on x alone, it is an ordinary DE; partial derivatives are out of scope.
+• EXAMPLE — Three faces of the same idea: dy/dx = 3y (a quantity whose growth rate is triple its current size), dT/dt = -k(T - 20) (a hot object cooling towards a 20-degree room), and d^2s/dt^2 = -g (falling motion: acceleration is constant). Each sentence about a rate becomes an equation about a derivative.
+• WHY the picture matters — read the figure with this section: it plots the slope field of dy/dx = x + y. The DE does not hand you a curve; it hands you a direction at every point, a tiny compass needle saying "if you pass through here, you must head this way". A solution is a curve that threads through the field obeying every needle it touches. Keep that image and every method in this chapter becomes "how do I find the thread".
+• WHY this chapter is guaranteed marks — the IAT asks the same small cast: read the order and degree, form the DE of a family, solve by one of three methods (separable, homogeneous, linear), and run one growth-or-cooling application. Four patterns, endlessly re-costumed. Drill the cast and the chapter pays out in minutes.
+• The map of the chapter: first the two labels (order, degree) and what a solution means, then how to check a claimed solution and how to build a DE from a family of curves. Then the three solving machines, a flip trick for stubborn equations, and a shortcut-spotting section. Finally the applications — growth, decay and cooling — where the chapter meets the real world.
+★ HIGHLIGHT — The whole chapter in one breath: a DE is a rule about slopes; a solution is any curve that obeys the rule everywhere; the order tells you how many arbitrary constants the full solution family carries. Everything else is technique.
 
-                1. Order, Degree & Formation
+Order and Degree — The Two Labels of a DE
+• DEFINITION — The order of a DE is the order of the highest derivative appearing in it. dy/dx + y = x is order 1; d^2y/dx^2 + y = 0 is order 2. Nothing else about the equation matters for the order — not powers, not coefficients, just the highest derivative present.
+• DEFINITION — The degree of a DE is the power (exponent) of the highest-order derivative, counted only when the equation is a polynomial equation in the derivatives. In (d^2y/dx^2)^2 + (dy/dx)^3 + y = 0 the highest derivative is d^2y/dx^2 and its power is 2, so the degree is 2 — the cube on dy/dx is decoration.
+• WHY the polynomial condition exists — a "power" only makes sense if the derivative appears as a plain algebraic factor. If a derivative hides inside sin, e, ln or a root that cannot be cleared, there is no honest exponent to report, and the degree is simply not defined. "Not defined" is a legitimate exam answer, not a failure.
+• EXAMPLE — d^2y/dx^2 + sin(dy/dx) = 0. Order: 2, from d^2y/dx^2. Degree: not defined, because dy/dx sits inside sin, and no algebra turns sin(dy/dx) into a polynomial term. This exact shape is the IAT's favourite degree trap.
+• EXAMPLE — sqrt(1 + (dy/dx)^2) = d^2y/dx^2. Square both sides: 1 + (dy/dx)^2 = (d^2y/dx^2)^2. Now the equation is polynomial in the derivatives, the highest derivative carries power 2, so order 2, degree 2. Roots that CAN be cleared by raising to a power do not block the degree.
+• EXAMPLE — (dy/dx)^5 + d^2y/dx^2 = 0. The eye is dragged to the 5, but degree belongs to the highest ORDER derivative: d^2y/dx^2 appears to power 1, so order 2, degree 1. The (dy/dx)^5 is bait.
+• EXAMPLE — d^3y/dx^3 + (dy/dx)^2 = x. Highest derivative is the third, appearing to the first power: order 3, degree 1. The squared first derivative is again decoration — order first, then the degree of THAT derivative.
+• WORKED PATTERN — The label drill, three steps: (1) clean the equation — clear roots and fractional powers of derivatives by raising both sides to suitable powers, when possible; (2) check that no derivative survives inside a trig, exponential or log function — if one does, degree is not defined, full stop; (3) read the order off the highest derivative, then read the degree off that same derivative's exponent.
+• YOUR TURN — State the order and degree of (d^3y/dx^3)^2 + (dy/dx)^4 + y = x. Answer: order 3 (the third derivative is present), degree 2 (its power is 2; the fourth power on dy/dx is the same bait as the last example).
+⚠ EXAM TRAP — Two mirror errors: reporting a degree for an equation containing sin(dy/dx), e^(dy/dx) or ln(dy/dx) (impossible — degree is not defined), and reading the degree from the biggest exponent anywhere in the equation instead of the exponent of the highest-order derivative. Clean first, check for trapped derivatives, then read the labels off the top derivative only.
 
-                • Order: Highest order derivative present in the differential equation.
+Solutions — General, Particular and the Constant Count
+• DEFINITION — A solution of a DE is a function that satisfies the equation identically when substituted into it — every x, not just one point. A general solution is the complete family: it contains as many independent arbitrary constants as the order of the DE. A particular solution is one member of the family, with the constants pinned down by extra conditions (usually an initial value like y(0) = 3).
+• EXAMPLE — dy/dx = 2y has general solution y = C e^(2x): one arbitrary constant C, matching order 1. Give the condition y(0) = 3 and C is forced: 3 = C e^0 = C, so the particular solution is y = 3 e^(2x). One condition, one constant, one curve.
+• EXAMPLE — d^2y/dx^2 + y = 0 has general solution y = A cos x + B sin x: two constants A and B, matching order 2. Pinning both needs two conditions, for instance y(0) and y'(0).
+• WHY the count always matches — solving a DE of order n means integrating n times (in spirit), and every integration donates exactly one arbitrary constant. Order 1, one integration, one constant; order 2, two constants. The count is not a coincidence — it is bookkeeping of the integrations.
+• WORKED PATTERN — To predict a family question: count the arbitrary constants in the given family; that number is the order of the DE the family satisfies, and it tells you how many times you will differentiate when forming the DE (next sections put this to work).
+• YOUR TURN — Write the particular solution of dy/dx = cos x with y(0) = 5. Answer: integrating, the general solution is y = sin x + C; the condition gives 5 = sin 0 + C = C, so y = sin x + 5.
+⚠ EXAM TRAP — Presenting a family with fewer constants than the order as "the general solution" — y = A cos x alone is NOT the general solution of y'' + y = 0, because the sin x family has been lost. If the constant count is short of the order, the solution is incomplete, however pretty it looks.
 
-                • Degree: Highest power of the highest order derivative after clearing radicals and fractions in derivatives.
+Verifying a Solution — Differentiation as the Lie Detector
+• DEFINITION — To verify that a function solves a DE, differentiate the candidate as many times as the DE demands, substitute the function and its derivatives into the DE, and simplify: the equation must collapse to an identity (left side equal to right side for all x). Then, if an initial condition is given, check it separately by direct substitution.
+• EXAMPLE — Claim: y = x^2 solves x(dy/dx) = 2y. Differentiate: dy/dx = 2x. Substitute: left side x times 2x = 2x^2; right side 2 times x^2 = 2x^2. Identical — verified, in four lines.
+• EXAMPLE — Claim: y = e^(3x) solves dy/dx = 3y. Differentiate: dy/dx = 3 e^(3x) = 3y. The derivative is literally 3 times the function — verified at sight.
+• EXAMPLE — A full audit with a condition: claim y = sin x + 5 solves dy/dx = cos x with y(0) = 5. Equation audit: dy/dx = cos x, exactly the right side — pass. Condition audit: y(0) = sin 0 + 5 = 5 — pass. Both audits green, so this is THE particular solution, not just A solution.
+• WHY this section earns its keep — verification runs the solving machinery backwards, and backwards is easier. In a multiple-choice question it is often faster to test the four options by substitution than to solve the DE outright, and in a written answer it is a free self-audit: differentiate your final answer and watch the DE accept it.
+• WORKED PATTERN — The audit, three lines: (1) compute the derivatives the DE needs; (2) substitute everything and simplify until the two sides visibly match (or do not); (3) test any initial or boundary condition on the candidate itself. A candidate passes only if all three lines pass.
+• YOUR TURN — Is y = e^(-x) a solution of dy/dx + y = 0? Answer: yes — dy/dx = -e^(-x), and -e^(-x) + e^(-x) = 0 for every x.
+⚠ EXAM TRAP — Verifying the equation but forgetting the initial condition: y = e^(2x) genuinely solves dy/dx = 2y, yet it fails the condition y(0) = 3 (it gives 1). Equation-check and condition-check are two separate audits, and the second is where setters hide the wrong option.
 
+Forming a DE — Eliminating the Arbitrary Constants
+• DEFINITION — A family of curves is one equation containing arbitrary constants — x^2 + y^2 = r^2 is a family (all circles centred at the origin, one for each r). The DE of the family is the single differential equation that every member satisfies and that contains none of the constants: the family's shared slope-law.
+• WORKED PATTERN — The elimination drill: (1) count the arbitrary constants — that is how many times you differentiate; (2) differentiate the family equation that many times (treating y as a function of x); (3) eliminate the constants between the original equation and its derivatives; (4) audit the result: no constant may survive.
+• EXAMPLE — The circles x^2 + y^2 = r^2 (one constant, r). Differentiate once: 2x + 2y(dy/dx) = 0, that is x + y(dy/dx) = 0. The constant r vanished on its own — no elimination step was even needed. Read the figure with this section: every circle in the family, whatever its radius, has tangent slope -x/y at each point; that shared law IS the DE.
+• EXAMPLE — The lines y = mx through the origin (one constant, m). Differentiate: dy/dx = m. Substitute back: dy/dx = y/x, or x(dy/dx) - y = 0. Every straight line through the origin obeys it, and m is gone.
+• EXAMPLE — The parabolas y^2 = 4ax (one constant, a). Differentiate: 2y(dy/dx) = 4a. From the family, 4a = y^2/x, so 2y(dy/dx) = y^2/x, which tidies to 2x(dy/dx) = y. One differentiation, one substitution, constant eliminated.
+• EXAMPLE — Two constants need two differentiations: y = A e^x + B e^(-x). First derivative: y' = A e^x - B e^(-x). Second: y'' = A e^x + B e^(-x) = y. So the DE is y'' - y = 0 — order 2, exactly the constant count, as the bookkeeping promised.
+• YOUR TURN — Form the DE of the family y = C x^2. Answer: differentiate, y' = 2Cx; divide by the family equation (or substitute C = y/x^2): y' = 2y/x, i.e. x(dy/dx) = 2y.
+⚠ EXAM TRAP — Differentiating fewer times than there are constants and proudly presenting an "answer" that still contains A or C — that is not a DE of the family, it is the family wearing a derivative. Count constants first, differentiate that many times, and finish with the no-constant audit.
 
+Method One — Variable Separable
+• DEFINITION — A first-order DE is variable separable when it can be rearranged as (expression in y alone) dy = (expression in x alone) dx: all the y-stuff on one side with dy, all the x-stuff on the other side with dx. Then each side integrates independently, and one constant of integration appears.
+• WORKED PATTERN — The separation drill: (1) factor the right side as f(x) times g(y) if needed; (2) divide so that dy/g(y) faces f(x) dx; (3) integrate both sides — do not forget the constant, and hang it on one side only; (4) tidy into y as a function of x if the question asks or an initial condition is given; (5) apply the condition to fix the constant for a particular solution.
+✔ KEY FORMULA — dy/dx = f(x) g(y) separates to: integral of dy/g(y) = integral of f(x) dx + C. The workhorse integrals: integral of dy/y = ln|y|, and integral of e-type and power forms from the integration chapter.
+• EXAMPLE — Solve dy/dx = 2xy with y(0) = 1. Separate: dy/y = 2x dx. Integrate: ln y = x^2 + C, so y = A e^(x^2). The condition: 1 = A e^0 = A. Particular solution y = e^(x^2), and at x = 2 it gives y = e^4 ≈ 54.6 — the growth is ferocious because the exponent itself is growing.
+• EXAMPLE — Solve dy/dx = x/y. Separate: y dy = x dx. Integrate: y^2/2 = x^2/2 + C, tidied to y^2 - x^2 = C1 (the doubled constant renamed). Note the answer is an implicit relation, not y = something — perfectly acceptable as a general solution.
+• EXAMPLE — Solve dy/dx = e^(x - y). Split the exponent: e^(x - y) = e^x times e^(-y), so the equation separates as e^y dy = e^x dx. Integrate: e^y = e^x + C, i.e. y = ln(e^x + C). Exponent-splitting is the standard disguise for separable equations in IAT papers — whenever you see e^(x - y) or similar, split it before concluding anything.
+• WHY separation is the first tool to reach for — most first-order DEs the IAT sets, including the growth law dN/dt = kN behind Section 10, are separable in disguise. If a DE can be massaged into f(x) g(y) shape, separation ends it in four lines.
+• YOUR TURN — Solve dy/dx = 3x^2 y with y(0) = 1, and give y(1). Answer: dy/y = 3x^2 dx gives ln y = x^3 + C, so y = e^(x^3) after the condition; y(1) = e ≈ 2.718.
+⚠ EXAM TRAP — Dividing by g(y) without a thought: if g(y) can be zero, the constant function you divided away may itself be a solution (for dy/dx = 2xy, y = 0 solves the DE — luckily it reappears as the C = 0 member of the family). The safe habit: after separating, ask "did I divide by something that can vanish, and does that constant function check out as a solution?"
 
-                2. First-Order Linear & Bernoulli Equations
+Method Two — Homogeneous Equations and y = vx
+• DEFINITION — A first-order DE dy/dx = f(x, y) is homogeneous when the right side depends only on the ratio y/x — equivalently, when numerator and denominator are built from terms of the same total degree, so f(tx, ty) = f(x, y) for any scale t. Specimens: (x + y)/x, (x^2 + y^2)/(2xy), (x - y)/x.
+• WHY y = vx works — if only the ratio y/x matters, promote the ratio to a variable: set v = y/x, i.e. y = vx. The two-variable tangle collapses to a separable equation in v and x, because the DE was secretly about the ratio all along.
+• WORKED PATTERN — The substitution drill: (1) confirm homogeneity (same-degree terms, or rewrite in y/x); (2) set y = vx, and MEMORISE the derivative: dy/dx = v + x(dv/dx) — the product rule, not just x(dv/dx); (3) substitute and watch the v terms arrange themselves into a separable equation in v and x; (4) separate, integrate, then back-substitute v = y/x; (5) apply any initial condition.
+✔ KEY FORMULA — y = vx gives dy/dx = v + x(dv/dx). After substitution the x cancels structurally and the equation separates: dv/(something in v) = dx/x, whose right side always integrates to ln|x|.
+• EXAMPLE — Solve dy/dx = (x + y)/x. Substitute y = vx: v + x(dv/dx) = 1 + v. The v cancels (the signature moment of this method): x(dv/dx) = 1, so dv = dx/x, giving v = ln|x| + C. Back-substitute: y = x ln|x| + Cx. With y(1) = 2: C = 2, so y = x ln x + 2x for x positive, and y(e) = e + 2e = 3e ≈ 8.15.
+• EXAMPLE — A degree audit: is dy/dx = (x^2 + xy)/x^2 homogeneous? Numerator terms have degree 2, denominator degree 2 — divide top and bottom by x^2: 1 + (y/x), a function of y/x alone. Yes, homogeneous; y = vx will separate it.
+• YOUR TURN — Solve dy/dx = (x - y)/x. Answer: with y = vx, v + x(dv/dx) = 1 - v, so x(dv/dx) = 1 - 2v; separating, dv/(1 - 2v) = dx/x; integrating, -(1/2) ln|1 - 2v| = ln|x| + C, which tidies to y = x/2 + C/x — check it by differentiating if you like; it obeys the DE exactly.
+⚠ EXAM TRAP — The missing +v: writing dy/dx = x(dv/dx) after setting y = vx throws away the product-rule term and derails everything downstream. Say it as a sentence every time: "y equals v x, so y-prime equals v plus x v-prime."
 
-                • Standard Linear DE: dy/dx + P(x)y = Q(x).
+Method Three — Linear Equations and the Integrating Factor
+• DEFINITION — A first-order linear DE has the standard form dy/dx + P(x) y = Q(x), where P and Q are functions of x alone: y and dy/dx appear only to the first power, never multiplied together, never inside functions. It is the most mechanical DE in the chapter — there is a machine, and the machine always works.
+• WHY the integrating factor works — multiply the whole equation by a factor IF chosen so that the left side becomes the derivative of a product: d/dx (y times IF). The product rule gives (dy/dx)(IF) + y(IF'), and matching y(IF') with P y (IF) forces IF' = P times IF, whose solution is IF = e^(integral of P dx). One multiplication converts "unsolvable-looking" into "integrate both sides".
+✔ KEY FORMULA — For dy/dx + P(x) y = Q(x): IF = e^(integral of P(x) dx), and the solution drops out in one line: y times IF = integral of (Q times IF) dx + C. No constant is needed inside the IF's own integral — pick the simplest antiderivative of P.
+• WORKED PATTERN — The machine, five steps: (1) force standard form — divide through so the coefficient of dy/dx is exactly 1; (2) read off P (with its sign) and Q; (3) compute IF = e^(integral P dx); (4) write y times IF = integral of Q times IF dx + C in one breath; (5) integrate the right side, divide by IF, apply any condition.
+• EXAMPLE — Solve dy/dx + y = e^x. P = 1, so IF = e^x. Then y e^x = integral of e^x times e^x dx = integral of e^(2x) dx = e^(2x)/2 + C. Divide: y = e^x/2 + C e^(-x). Verify mentally: y' + y = (e^x/2 - C e^(-x)) + (e^x/2 + C e^(-x)) = e^x. Clean.
+• EXAMPLE — Solve dy/dx + y/x = x^2, with y(1) = 1. P = 1/x, so IF = e^(ln x) = x. Then xy = integral of x^2 times x dx = x^4/4 + C, so y = x^3/4 + C/x. The condition: 1 = 1/4 + C gives C = 3/4. At x = 2: y = 8/4 + 3/8 = 19/8 = 2.375.
+• EXAMPLE — Solve dy/dx + 2y = e^(-x). P = 2, so IF = e^(2x). Then y e^(2x) = integral of e^(-x) times e^(2x) dx = integral of e^x dx = e^x + C. Divide: y = e^(-x) + C e^(-2x). Notice how the IF merged the exponents into one easy integral — that merging is the machine earning its keep.
+• YOUR TURN — Solve dy/dx - y = 2. Answer: P = -1, so IF = e^(-x); y e^(-x) = integral of 2 e^(-x) dx = -2 e^(-x) + C; divide by e^(-x): y = C e^x - 2.
+⚠ EXAM TRAP — Reading P before standardising: in 2(dy/dx) + 4y = x, the P is 2, not 4 — you must divide by 2 first so dy/dx stands alone. And mind the sign: dy/dx - y has P = -1 and IF = e^(-x); flipping the sign in the exponent is the single most common integrating-factor error.
 
-                  Integrating Factor (IF) = e^(∫ P(x) dx); General Solution: y · (IF) = ∫ Q(x) · (IF) dx + C.
+The dx/dy Flip — When x Is the Dependent Variable
+• DEFINITION — Some equations are ugly as dy/dx but tame as dx/dy: if swapping the roles of x and y produces the linear shape dx/dy + P1(y) x = Q1(y), the whole integrating-factor machine runs again with y as the independent variable and IF = e^(integral of P1 dy). Nothing about the machine cares which letter is on top.
+• WHEN to flip — look at the equation and ask which arrangement isolates a first-power "dependent variable times a coefficient". If y is trapped inside an exponential or a messy bracket while x appears politely to the first power, flip: treat x as the function, y as the input.
+• WORKED PATTERN — The flip drill: (1) rewrite dy/dx as 1/(dx/dy) — the equation turns into a statement about dx/dy; (2) rearrange to dx/dy + P1(y) x = Q1(y); (3) IF = e^(integral of P1 dy); (4) x times IF = integral of Q1 times IF dy + C; (5) present the answer as a relation between x and y (solving for y explicitly is often impossible and never required).
+• EXAMPLE — Solve (x + y) dy = dx. As dy/dx this is 1/(x + y), hopeless-looking. Flip: dx/dy = x + y, i.e. dx/dy - x = y — linear in x. IF = e^(-y). Then x e^(-y) = integral of y e^(-y) dy = -(y + 1) e^(-y) + C, so x = C e^y - y - 1. One flip turned a wall into a routine integral.
+• EXAMPLE — Recognition drill: dy/dx = e^y/(x + ...) style equations, where y sits in an exponent and x appears linearly on the other side, are flip candidates almost by definition — as dx/dy they typically read "dx/dy = (something in y) divided by (something with x to the first power)", and the linear template is one rearrangement away.
+• YOUR TURN — Solve dx/dy - x = e^y. Answer: IF = e^(integral of -1 dy) = e^(-y); x e^(-y) = integral of e^y times e^(-y) dy = integral of 1 dy = y + C; so x = (y + C) e^y.
+⚠ EXAM TRAP — After flipping, students keep integrating with respect to x out of muscle memory: the IF is e^(integral of P1 dy) and the final integration is in y. Every symbol in the flipped problem lives in y-world until the answer is written.
 
-                • Bernoulli's Form: dy/dx + P(x)y = Q(x)yⁿ; divide by yⁿ and substitute v = y^(1−n).
+Spotting the Shortcut — Products in Disguise
+• DEFINITION — A small family of first-order equations are exact derivatives wearing a disguise: the left side is already d/dx of a product or quotient. Spot the pattern and the "solution" is a single integration — no method, no substitution, no IF.
+✔ KEY FORMULA — d/dx (xy) = y + x(dy/dx). So if an equation reads y + x(dy/dx) = (function of x), then xy = integral of that function dx + C immediately.
+✔ KEY FORMULA — d/dx (y/x) = (x(dy/dx) - y)/x^2, and d/dx (x/y) has the matching form. An equation whose left side is x(dy/dx) - y, possibly divided by x^2, is y/x waiting to be integrated.
+• EXAMPLE — Solve y + x(dy/dx) = 6x. The left side is d/dx (xy) verbatim. Integrate: xy = 3x^2 + C, so y = 3x + C/x. Twenty seconds, done — the IF machine would also work here (it is the linear equation dy/dx + y/x = 6 in disguise), but spotting the product skips the machinery entirely.
+• EXAMPLE — Solve (x(dy/dx) - y)/x^2 = 2x. The left side is d/dx (y/x) verbatim. Integrate: y/x = x^2 + C, so y = x^3 + Cx. Verify by differentiating if the pattern felt too easy — it checks out exactly.
+• WHY setters love these — the equation looks like work and is actually a gift, but only for students who have the product and quotient derivatives loaded as visual patterns. This is a recognition skill, and it is trainable in one sitting: rewrite y + x y', x y' - y, and y' y-forms until your eye catches them mid-equation.
+• YOUR TURN — Solve x(dy/dx) + y = x^3. Answer: the left side is d/dx (xy), so xy = x^4/4 + C and y = x^3/4 + C/x — the same skeleton as the linear example in Section 7, reached in one line.
+⚠ EXAM TRAP — Forcing the shortcut onto a near-miss: y + 2x(dy/dx) is NOT d/dx of anything simple (the coefficients must match the product rule exactly — 1 and 1 for xy, with the x attached to the derivative). If the match is not exact, fall back on the machine; a forced pattern is worse than an honest method.
 
+Applications I — Growth and Decay
+• DEFINITION — The growth law: when a quantity N changes at a rate proportional to its current size, dN/dt = kN. Separating (Section 5) gives the solution N = N0 e^(kt), where N0 is the size at t = 0. k positive is growth, k negative is decay — one DE, one formula, both directions.
+✔ KEY FORMULA — N = N0 e^(kt). Doubling time (growth) and half-life (decay) are the same number in mirror: the time for the exponent to reach ln 2, i.e. T = ln 2 / |k| ≈ 0.693/|k|. After n doubling times the quantity is multiplied by 2^n; after n half-lives it is multiplied by (1/2)^n.
+• EXAMPLE — Radioactive decay: a 100 g sample has half-life 5 days. After 15 days — three half-lives — the remaining mass is 100 times (1/2)^3 = 12.5 g. No k needed; the half-life data plus power counting finishes it.
+• EXAMPLE — Population growth: a town of 1000 grows to 8000 in 30 years. 8000 is 1000 times 8 = 2^3, so exactly 3 doublings fit in 30 years and the doubling time is 10 years. At 50 years — 5 doublings — the population is 1000 times 2^5 = 32,000.
+• EXAMPLE — Bacteria: a culture grows from 500 to 2000 in 2 hours. Four-fold in 2 hours means two doublings, so the doubling time is 1 hour; after 5 hours (5 doublings) the count is 500 times 2^5 = 16,000.
+• EXAMPLE — Working backwards from a percentage: a sample decays to 25 percent of itself in 12 years. 25 percent is (1/2)^2, so 12 years holds exactly 2 half-lives and the half-life is 6 years. After 18 years — 3 half-lives — the remainder is (1/2)^3 = 12.5 percent. Percentages that are clean powers of 1/2 are the setter telling you to count, not to compute k.
+• WORKED PATTERN — The application drill: (1) translate the words into the DE or straight into N = N0 e^(kt); (2) prefer ratio reasoning — count doublings or half-lives and use powers of 2 or 1/2 — and only solve for k (via ln) when the question demands a time or a rate; (3) if k is needed: k = ln(N/N0)/t, with the sign carried honestly; (4) sanity-check the direction: growth answers exceed N0, decay answers fall below it.
+• WHY the same DE keeps reappearing — "rate proportional to the amount present" is nature's favourite sentence: bacteria, compound interest, radioactive nuclei, drug clearance. The IAT rotates the costume (grams, people, rupees, cells) and never changes the equation.
+• YOUR TURN — A sample starts at 1000 units and doubles every 10 years. What remains of the growth story after 30 years? Answer: 3 doublings, so 1000 times 2^3 = 8000 units.
+⚠ EXAM TRAP — The percentage costume: "grows by 10 percent per hour" tempts students to write k = 10 or to use (1.1)^t blindly with a mismatched N0. In the DE model the rate constant is a relative rate (k = ln 2 / doubling time, or k from the data), and when the paper hands you a half-life or doubling time, power counting with 2 and 1/2 bypasses k entirely — do not manufacture a k you were not given.
 
+Applications II — Cooling and Word-Statement Equations
+• DEFINITION — Newton's law of cooling: the rate of change of a body's temperature T is proportional to the gap between the body and its surroundings Ts, so dT/dt = -k(T - Ts) with k positive. The minus sign is the physics: a hotter body (T above Ts) must have dT/dt negative. Separating and integrating gives T = Ts + (T0 - Ts) e^(-kt) — exponential approach to room temperature, never overshooting.
+✔ KEY FORMULA — Cooling: T = Ts + A e^(-kt), where A = T0 - Ts is the starting gap. The gap halves every ln 2 / k minutes, exactly the decay law wearing a thermometer.
+• EXAMPLE — Coffee at 90 degrees sits in a 20-degree room, so T = 20 + 70 e^(-kt). After 10 minutes it reads 65 degrees: the gap fell from 70 to 45, so e^(-10k) = 45/70 = 9/14, giving k = ln(14/9)/10 ≈ 0.0442 per minute. At 20 minutes the gap is multiplied by (9/14)^2 = 81/196 ≈ 0.413, so T ≈ 20 + 70 times 0.413 ≈ 48.9 degrees. Notice the trick: squaring the 10-minute factor skips solving for k entirely.
+• WORKED PATTERN — The word-to-DE dictionary: "rate proportional to the amount present" becomes dN/dt = kN; "rate proportional to the difference from ambient" becomes dT/dt = -k(T - Ts); "the slope at (x, y) equals (some expression)" becomes dy/dx = that expression, verbatim; "velocity proportional to the square root of distance fallen" becomes dv/dt = k times sqrt(s). Translate first, solve second — the translation IS the question in application problems.
+• EXAMPLE — Slope statements: "a curve has slope at (x, y) equal to twice its x-coordinate" is dy/dx = 2x. Integrate: y = x^2 + C — the family of all parabolas y = x^2 + C, a forming-and-solving question compressed into one line.
+• YOUR TURN — Translate: "the rate at which a substance decomposes is proportional to the mass still present." Answer: dm/dt = -km — the minus sign because the mass decreases; drop it and your "decay" grows, which the sanity check would catch.
+★ HIGHLIGHT — Scope note, said once and plainly: solving second-order DEs (with constant coefficients and the rest) is OUT of the IAT scope for this chapter. Second-order equations appear only for order-and-degree labels, forming DEs, and verifying solutions — if a question asks you to SOLVE beyond first order, you have misread it.
+⚠ EXAM TRAP — Sign sabotage in cooling: writing dT/dt = -k(T - Ts) for a body colder than the room and panicking at the "negative rate" — in fact T below Ts makes (T - Ts) negative, so dT/dt comes out positive and the body warms, correctly. The formula handles both directions; do not flip signs by hand.
 
-                3. Exact Differentials (Inspection Method)
+Formula Sheet — The Whole Chapter on One Screen
+✔ KEY FORMULA — Order = highest derivative present. Degree = power of that derivative, and it exists only when the equation is polynomial in the derivatives (clear roots first; sin, e, ln of a derivative means degree is not defined).
+✔ KEY FORMULA — A DE of order n has a general solution with exactly n independent arbitrary constants; an initial condition fixes one constant each.
+✔ KEY FORMULA — Separable: dy/dx = f(x) g(y) becomes integral of dy/g(y) = integral of f(x) dx + C.
+✔ KEY FORMULA — Homogeneous (right side a function of y/x): set y = vx, and dy/dx = v + x(dv/dx); the equation then separates in v and x, with dx/x integrating to ln|x|.
+✔ KEY FORMULA — Linear: dy/dx + P(x) y = Q(x) has IF = e^(integral of P dx) and solution y times IF = integral of (Q times IF) dx + C. Standardise first: the coefficient of dy/dx must be 1 before P is read.
+✔ KEY FORMULA — The flip: dx/dy + P1(y) x = Q1(y) has IF = e^(integral of P1 dy) and solution x times IF = integral of (Q1 times IF) dy + C.
+✔ KEY FORMULA — Disguised products: y + x(dy/dx) = d/dx (xy), and (x(dy/dx) - y)/x^2 = d/dx (y/x). Exact match required — then one integration solves the equation.
+✔ KEY FORMULA — Growth and decay: dN/dt = kN gives N = N0 e^(kt); doubling time and half-life both equal ln 2 / |k| ≈ 0.693/|k|. Count powers of 2 or 1/2 before solving for k.
+✔ KEY FORMULA — Cooling: dT/dt = -k(T - Ts) gives T = Ts + (T0 - Ts) e^(-kt). The temperature gap decays exponentially towards zero; the body never overshoots the room.
+✔ KEY FORMULA — Forming a DE: differentiate once per arbitrary constant, eliminate the constants between the equations, and audit that none survive.
 
-                • x dy + y dx = d(xy)
+Common Mistakes and Exam Traps
+• Mistake 1: Reading the degree from the biggest exponent in the equation. Why it is wrong: in (dy/dx)^5 + d^2y/dx^2 = 0 the degree is 1, because degree belongs to the highest-ORDER derivative only. Correct principle: find the highest derivative first; its exponent is the degree.
+• Mistake 2: Awarding a degree to d^2y/dx^2 + sin(dy/dx) = 0. Why it is wrong: a derivative inside sin makes the equation non-polynomial in the derivatives, so no degree exists. Correct principle: trapped derivatives (inside trig, exp or log) mean "degree not defined" — say so.
+• Mistake 3: Reading labels before cleaning roots. Why it is wrong: sqrt(1 + (dy/dx)^2) = d^2y/dx^2 looks degreeless until squared into 1 + (dy/dx)^2 = (d^2y/dx^2)^2, where the degree is plainly 2. Correct principle: clear roots and fractional powers first, then read the labels.
+• Mistake 4: Calling a solution "general" with too few constants. Why it is wrong: y = A cos x for y'' + y = 0 omits the entire sin x family. Correct principle: constant count must equal the order; count before you claim.
+• Mistake 5: In homogeneous equations, writing dy/dx = x(dv/dx) after y = vx. Why it is wrong: the product rule demands dy/dx = v + x(dv/dx); dropping the v wrecks the separation. Correct principle: chant "v plus x v-prime" at every substitution.
+• Mistake 6: Reading P from an unstandardised equation. Why it is wrong: in 2(dy/dx) + 4y = x the machine needs P = 2 (after dividing by 2), not 4; the wrong P poisons the IF. Correct principle: divide until dy/dx stands alone, then read P with its sign.
+• Mistake 7: Sign slip in the IF exponent. Why it is wrong: dy/dx - y = 2 has P = -1 and IF = e^(-x); using e^x integrates the wrong product and the "solution" fails verification. Correct principle: P carries its minus sign into the exponent, and a 10-second differentiate-back audit catches any slip.
+• Mistake 8: Dividing by y while separating and never mentioning the lost solution. Why it is wrong: dy/y = ... assumes y is never 0, yet y = 0 may satisfy the original DE. Correct principle: after separating, test the constant function you divided away; report it (or note it returns as the C = 0 member).
+• Mistake 9: Mixing variables after the dx/dy flip. Why it is wrong: the flipped IF is e^(integral of P1 dy) and the closing integral is in y; integrating in x out of habit produces nonsense. Correct principle: after flipping, live in y-world until the answer is written down.
+• Mistake 10: Sign errors in applications. Why it is wrong: decay and cooling need the minus sign (dN/dt = -kN for a decaying mass with k positive, dT/dt = -k(T - Ts)); without it, "decay" grows exponentially. Correct principle: fix the sign from the story (is the quantity shrinking?), then sanity-check the final answer's direction.
 
-                • (x dy − y dx) / x² = d(y/x)
+Worked Examples — Basic to Challenging
+• Example 1 — Problem: Find the order and degree of sqrt(1 + (dy/dx)^2) = d^2y/dx^2.
+• Given: A DE with the first derivative under a square root and the second derivative standing alone.
+• Principle: Clean the equation into polynomial form first; then order from the highest derivative, degree from its power.
+• Steps: Square both sides: 1 + (dy/dx)^2 = (d^2y/dx^2)^2. The highest derivative present is d^2y/dx^2, so the order is 2. Its power in the cleaned equation is 2, so the degree is 2.
+• Answer: Order 2, degree 2.
+• Reasoning: The root blocked the degree only until it was cleared; a clearable root never makes a degree "not defined" — only trapped derivatives inside trig, exp or log functions do that.
+• Mistake to avoid: Announcing "degree not defined" at the sight of the square root, or reporting the degree as 2 because of the (dy/dx)^2 before checking WHICH derivative carries it.
+• Example 2 — Problem: Form the DE of the family of circles x^2 + y^2 = r^2.
+• Given: One arbitrary constant, r; all circles centred at the origin.
+• Principle: One constant means one differentiation; then eliminate r — or watch it eliminate itself.
+• Steps: Differentiate with respect to x: 2x + 2y(dy/dx) = 0. Divide by 2: x + y(dy/dx) = 0. The constant r has vanished entirely.
+• Answer: x + y(dy/dx) = 0.
+• Reasoning: Every circle in the family has tangent slope -x/y at (x, y) — the radius is perpendicular to the tangent — so one first-order DE captures the whole family.
+• Mistake to avoid: Trying to "solve for r" and substitute (r = sqrt(x^2 + y^2)) — messy and pointless; differentiation removes constants, substitution chases them.
+• Example 3 — Problem: Form the DE of y = A e^x + B e^(-x).
+• Given: Two arbitrary constants, A and B.
+• Principle: Differentiate twice (once per constant), then eliminate A and B between the three equations.
+• Steps: y' = A e^x - B e^(-x). Then y'' = A e^x + B e^(-x). Compare with the original: y'' is term-for-term identical to y. So y'' - y = 0.
+• Answer: d^2y/dx^2 - y = 0, order 2 — matching the two constants.
+• Reasoning: The two exponentials are each their own second derivative (up to sign pattern), so the family as a whole reproduces itself after two differentiations; elimination is then just recognition.
+• Mistake to avoid: Stopping after one differentiation and "eliminating" one constant — the result still contains the other constant and is not the family's DE.
+• Example 4 — Problem: Solve dy/dx = 2xy with y(0) = 1, and find y(2).
+• Given: A separable DE with an initial condition.
+• Principle: Separate, integrate, fix the constant with the condition, then evaluate.
+• Steps: dy/y = 2x dx. Integrate: ln y = x^2 + C, so y = A e^(x^2). Apply y(0) = 1: A = 1. Particular solution: y = e^(x^2). At x = 2: y = e^4 ≈ 54.6.
+• Answer: y = e^(x^2); y(2) = e^4 ≈ 54.6.
+• Reasoning: The growth compounds quadratically in the exponent — that is why the value explodes from 1 to nearly 55 in two units, far outrunning plain e^(2x) growth.
+• Mistake to avoid: Writing the constant additively after exponentiating (y = e^(x^2) + C) — the constant lives inside as a multiplier A = e^C; the initial condition decides A, not an added C.
+• Example 5 — Problem: Solve dy/dx = (x + y)/x with y(1) = 2, and find y(e).
+• Given: A homogeneous DE (right side is 1 + y/x) with an initial condition.
+• Principle: Substitute y = vx, separate in v and x, back-substitute, then fix the constant.
+• Steps: y = vx gives v + x(dv/dx) = 1 + v, so x(dv/dx) = 1 and dv = dx/x. Integrate: v = ln x + C (for x positive). Back-substitute: y = x ln x + Cx. The condition y(1) = 2 gives C = 2. At x = e: y = e times 1 + 2e = 3e ≈ 8.15.
+• Answer: y = x ln x + 2x; y(e) = 3e ≈ 8.15.
+• Reasoning: The cancellation of v on the two sides is the method's signature — it happens for every homogeneous equation and confirms the substitution was the right key.
+• Mistake to avoid: Forgetting the back-substitution and presenting v = ln x + C as the answer — v was scaffolding; the answer must speak in x and y.
+• Example 6 — Problem: Solve dy/dx + y/x = x^2 with y(1) = 1, and find y(2).
+• Given: A linear DE in standard form, P = 1/x, Q = x^2.
+• Principle: Run the integrating-factor machine: IF = e^(integral of P dx), then y times IF = integral of (Q times IF) dx + C.
+• Steps: IF = e^(ln x) = x. Then xy = integral of (x^2 times x) dx = x^4/4 + C, so y = x^3/4 + C/x. Condition: 1 = 1/4 + C, so C = 3/4. At x = 2: y = 8/4 + 3/8 = 19/8 = 2.375.
+• Answer: y = x^3/4 + 3/(4x); y(2) = 19/8.
+• Reasoning: The IF here collapses to plain x because integral of 1/x dx is ln x and e^(ln x) = x — when the IF is a simple polynomial factor, the machine is nearly free.
+• Mistake to avoid: Integrating Q alone on the right side (forgetting Q times IF): the RHS is integral of x^3, not of x^2 — the IF multiplies EVERYTHING.
+• Example 7 — Problem: A radioactive sample of 80 g has a half-life of 8 days. How much remains after 24 days, and what is the decay constant k?
+• Given: Decay data in half-life form; the DE is dN/dt = -kN with solution N = N0 e^(-kt).
+• Principle: Count half-lives for the amount; use T = ln 2 / k for the constant.
+• Steps: 24 days is 3 half-lives, so N = 80 times (1/2)^3 = 80/8 = 10 g. And k = ln 2 / 8 ≈ 0.693/8 ≈ 0.0866 per day.
+• Answer: 10 g remains; k ≈ 0.0866 per day.
+• Reasoning: The power-counting route and the formula route agree — check: e^(-0.0866 times 24) = e^(-2.079) ≈ 0.125 = 1/8, matching three halvings. Two routes, one answer.
+• Mistake to avoid: Halving 80 three times as 80, 40, 20 and stopping (that is only two halvings at day 16) — count the half-lives in the elapsed time first: 24 divided by 8 is 3.
 
-                • (x dy − y dx) / (x² + y²) = d(tan⁻¹(y/x))
+Practice Questions — Self-Test Set
+• Q1. State the order and degree of (d^2y/dx^2)^2 + (dy/dx)^3 + y = 0.
+• Q2. Form the differential equation of the family y = A sin x + B cos x.
+• Q3. Solve dy/dx = x^2 y.
+• Q4. Solve dy/dx = (x + y)/x.
+• Q5. Solve dy/dx + y = x.
+• Q6. Solve dy/dx = y with y(0) = 5, and give y(1).
+• Q7. A population obeys dN/dt = 0.02 N with N(0) = 5000. Find N(50).
+• Q8. State the order and degree of d^2y/dx^2 = (1 + (dy/dx)^2)^(3/2).
 
-                • (x dx + y dy) / (x² + y²) = ½ d(ln(x² + y²))
+▸ Answer Key with Explanations
+• A1. Order 2, degree 2. Route: the highest derivative is d^2y/dx^2 and its power is 2. Misconception watch: the cube on dy/dx is not the degree — degree reads only the top derivative's exponent.
+• A2. d^2y/dx^2 + y = 0. Route: differentiate twice — y' = A cos x - B sin x, then y'' = -A sin x - B cos x = -y. Misconception watch: stopping after one differentiation leaves one constant alive; two constants demand two rounds.
+• A3. y = C e^(x^3/3). Route: separate, dy/y = x^2 dx; integrate, ln y = x^3/3 + C. Misconception watch: integrating x^2 to x^3 and dropping the division by 3 — the antiderivative of x^2 is x^3/3.
+• A4. y = x ln|x| + Cx. Route: y = vx gives x(dv/dx) = 1, so v = ln|x| + C (same skeleton as Worked Example 5). Misconception watch: presenting the answer in v — back-substitute before boxing anything.
+• A5. y = x - 1 + C e^(-x). Route: linear with P = 1, IF = e^x; y e^x = integral of x e^x dx = (x - 1) e^x + C; divide. Misconception watch: integral of x e^x is (x - 1) e^x, not x e^x — integrate by parts or differentiate the guess to check.
+• A6. y = 5e^x, so y(1) = 5e ≈ 13.59. Route: separate dy/dx = y into y = C e^x; the condition fixes C = 5. Misconception watch: answering e (the C = 1 solution) by forgetting the initial condition scales the whole curve.
+• A7. N(50) = 5000 e^(0.02 times 50) = 5000 e ≈ 13,591. Route: N = N0 e^(kt) with k = 0.02 and t = 50, and the exponent lands exactly on 1. Misconception watch: computing 2 percent of 5000 (only 100) and scaling linearly — the DE compounds; the answer is exponential, not linear.
+• A8. Order 2, degree 2. Route: square both sides to get (d^2y/dx^2)^2 = (1 + (dy/dx)^2)^3, a polynomial equation in the derivatives; the top derivative's power is 2. Misconception watch: calling the degree 3/2 from the original exponent — degree is read after cleaning, from the cleaned equation, and it is the power of d^2y/dx^2 (2), not the 3 now sitting on the bracket.
 
-            """.trimIndent(),
+Chapter Summary, Revision Checklist and Self-Assessment
+• Summary: A differential equation prescribes slopes, not values; its order is the highest derivative present, its degree is that derivative's power when the equation is polynomial in the derivatives — and "not defined" whenever a derivative is trapped inside sin, exp or log. A solution is any function the DE accepts on substitution; the general solution of an order-n DE carries exactly n arbitrary constants, and conditions pin them into a particular solution.
+• Summary: Building a DE from a family means differentiating once per constant and eliminating every constant. Solving a first-order DE means choosing the right door: separate the variables if the right side factors as f(x) g(y); substitute y = vx (with dy/dx = v + x(dv/dx)) if the equation speaks only of y/x; run the integrating factor IF = e^(integral P dx) if the equation is linear; flip to dx/dy when x behaves better as the dependent variable; and always glance first for a disguised product like y + x(dy/dx) = d/dx (xy).
+• Summary: The applications are one law in costumes: rate proportional to amount gives N = N0 e^(kt) with doubling time and half-life ln 2 / |k|; rate proportional to the temperature gap gives Newton's cooling T = Ts + (T0 - Ts) e^(-kt). Ratio reasoning — counting doublings and half-lives — beats solving for k whenever the data allows. Second-order solving stays out of scope: labels, forming and verifying only.
+• Revision checklist — I can label any DE: clean roots, check for trapped derivatives, then read order and degree off the highest derivative.
+• Revision checklist — I can verify a candidate solution by differentiating and substituting, and I check initial conditions as a separate audit.
+• Revision checklist — I can form the DE of a family: count constants, differentiate that many times, eliminate, and confirm no constant survives.
+• Revision checklist — I separate variables fluently and remember to ask whether a divided-away constant function is itself a solution.
+• Revision checklist — I run y = vx with the full product rule (v + x dv/dx), separate, integrate to ln|x|, and back-substitute.
+• Revision checklist — I standardise before reading P, build the IF with the correct sign, and write y times IF = integral of (Q times IF) dx in one motion.
+• Revision checklist — I recognise the flip (linear in x as a function of y) and the disguised products d/dx (xy) and d/dx (y/x) at sight.
+• Revision checklist — For growth, decay and cooling I translate the words into the DE first, count doublings or half-lives where possible, and sanity-check the direction of my answer.
+• Self-assessment: Score your practice set. 7-8 correct: exam-ready — the three machines and the labels are reflexes; revisit in a week. 5-6: solid; re-drill the method behind each miss, especially any IF sign slips. 3-4: rebuild from the Formula Sheet, redo Worked Examples 4 to 6 by hand, then re-test. Below 3: restart from Order and Degree and work forward slowly — differential equations reward a clean sequence: label it, check it, form it, then solve it.""".trimIndent(),
 
             videoTitle = "Integrating Factors, Exact Differentials & Initial Value Problems in IAT",
 
@@ -3397,51 +4065,285 @@ Chapter Summary, Revision Checklist and Self-Assessment
 
             completedLessons = 4,
 
-            studyNotesCount = 9,
+            studyNotesCount = 20,
 
-            practiceQuestionCount = 26,
+            practiceQuestionCount = 5,
 
             durationMinutes = 55,
 
-            formulaHighlight = "P(Eᵢ|A) = P(Eᵢ)P(A|Eᵢ) / Σ P(Eⱼ)P(A|Eⱼ)  •  σ² = (1/n)Σxᵢ² − x̄²",
+            formulaHighlight = "✔ Statistics — mean = (sum of fi xi) / N; step deviation: mean = A + ((sum of fi ui) / N) x h with ui = (xi - A) / h\n✔ Grouped median = l + ((N/2 - cf) / f) x h; grouped mode = l + ((f1 - f0) / (2 f1 - f0 - f2)) x h\n✔ Variance = (sum of fi xi^2) / N - (mean)^2; SD = sqrt(variance); under y = a x + b: mean takes a and b, SD takes |a| only, variance takes a^2 only\n✔ Coefficient of variation = (SD / mean) x 100 percent — smaller CV means more consistent; mean deviation = (sum of |xi - c|) / n\n✔ P(A or B) = P(A) + P(B) - P(A and B); P(not E) = 1 - P(E); exclusive events have P(A and B) = 0, independent events have P(A and B) = P(A) x P(B)\n✔ Conditional: P(A given B) = P(A and B) / P(B); Bayes reverses it: posterior = (likelihood x prior) / (all routes to the evidence)\n✔ Random variable: E(X) = sum of xi pi; Var(X) = E(X^2) - (E(X))^2; binomial: P(X = k) = C(n, k) p^k q^(n-k), mean np, variance npq\n✔ Linear programming: a linear objective over a polygonal feasible region attains its optimum at a corner — list every corner, tabulate Z, compare",
 
-            keyConceptsSummary = "Mean deviation, variance and standard deviation under linear scaling, conditional probability, Law of Total Probability, Bayes' theorem, binomial probability distribution, and corner-point optimization in LPP.",
+            keyConceptsSummary = "• Statistics describes data with a centre and a spread: mean (direct, assumed-mean and step-deviation routes), median and mode for the centre; variance, SD, mean deviation and CV for the spread — and Table One (mean 23.57, median 23.75, mode 24.44, SD about 11.50) shows all of them computed on one dataset\n• The scaling laws under y = a x + b are the chapter's most-tested trap: the mean takes a and then b, the SD takes |a| only, the variance takes a^2 only, and a pure shift changes no spread at all — audit any transformation answer with (new SD)^2 = new variance\n• Probability is disciplined counting with four rules: complement for 'at least' and 'not', addition with the overlap subtracted, the product test that separates independence from exclusivity (exclusive events with positive probability are never independent), and conditional probability as a shrunken sample space\n• Bayes' theorem reverses a conditional by weighing every route to the evidence against the base rate: with 2 percent prevalence, a 95 percent sensitive test with a 10 percent false-alarm rate yields a posterior of only 19/117, about 16.2 percent — the prior dominates whenever the condition is rare\n• Random variables reuse the centre-and-spread machinery: E(X) = sum of xi pi and Var(X) = E(X^2) - (E(X))^2, with the probabilities summing to 1 as a free error check; the binomial distribution then packages n independent Bernoulli trials into C(n, k) p^k q^(n-k), mean np and variance npq\n• Linear programming optimises by corners, not by searching: shade the feasible region, list every corner including line crossings, evaluate Z in a table, and flag the infeasible and unbounded cases before declaring a winner",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — Three Units, One Theme of Chance and Average
+• This chapter fuses three units that look unrelated and are secretly one subject: Statistics asks "what is typical, and how spread out is it?", Probability asks "how likely is each possibility?", and Linear Programming asks "what is the best choice inside a fence of limits?" Averages, chances and optima — the mathematics of real decisions made with incomplete information.
+• WHY the IAT loves this chapter — the questions are formula-direct and pattern-based. A grouped median, a Bayes reversal, a binomial probability, a corner-point maximum: each is a fixed machine with fixed steps, and the traps are always the same five or six. This is the highest marks-per-hour chapter in the mathematics syllabus if your machines are drilled.
+• EXAMPLE — A coaching institute advertises "average score 92" for its batch. One number, three possible meanings (mean, median, mode), and the honest question — how spread out were the scores? — needs a fourth idea entirely (standard deviation). By the end of this chapter you will be able to interrogate any such claim like an examiner.
+• The map of the chapter: first Statistics — mean, step deviation, median and mode; then spread — variance, standard deviation, the scaling laws, coefficient of variation and mean deviation. Then Probability — sample spaces and the addition rule, the exclusive-versus-independent confusion, conditional probability, Bayes' theorem, random variables and the binomial distribution. Finally one compact section on Linear Programming and its corner-point method.
+• YOUR TURN — A school reports that the "average" salary of its 10 teachers is 9 lakh per year, but 9 of them earn between 3 and 5 lakh. Which centre is being quoted, and which would be honest? Answer: the mean, dragged up by one very large salary (the principal's); the median, around 4 lakh, describes a typical teacher far better. Keep this suspicion alive through the whole chapter.
+★ HIGHLIGHT — The whole chapter in one breath: describe data with a centre AND a spread, price uncertainty with honest base rates, and optimise by checking corners — three machines, zero invention required in the exam hall.
 
-                1. Measures of Dispersion (Variance & Standard Deviation)
+The Mean — Raw Data, Grouped Data and the Assumed Mean
+• DEFINITION — The mean (arithmetic mean) of n observations x1, x2, ..., xn is their sum divided by n: mean = (x1 + x2 + ... + xn) / n. It is the balance point of the data: the total, shared out equally.
+• EXAMPLE — Raw data: marks 12, 15, 18, 20, 25. Sum = 90, n = 5, mean = 90 / 5 = 18. Every value contributed; no value was ignored. That is both the mean's strength (it uses all the data) and its weakness (one extreme value drags it, as the salary story showed).
+• DEFINITION — For grouped data with class marks xi (the mid-value of each class) and frequencies fi, the mean is mean = (sum of fi xi) / (sum of fi). The class mark represents every observation inside its class.
+• EXAMPLE — Marks of 35 students: classes 0-10, 10-20, 20-30, 30-40, 40-50 with frequencies 5, 8, 12, 7, 3. Class marks are 5, 15, 25, 35, 45. The products fi xi are 25, 120, 300, 245, 135, giving sum fi xi = 825 and N = 35, so mean = 825 / 35 = 165/7, approximately 23.57. This table returns all chapter long — call it Table One.
+• WORKED PATTERN — The four-column machine for any grouped mean: (1) write the class marks xi; (2) multiply each by its frequency to get fi xi; (3) add both columns; (4) divide. Never skip writing the table — most errors are arithmetic slips in invisible mental columns, and the table makes them visible.
+• WHY the class mark is honest — inside a class we no longer know the exact values, so the mid-value is the fair representative: errors from values above and below it roughly cancel, which is exactly why grouped results are estimates, not exact values.
+• DEFINITION — The assumed-mean method: pick any value A (usually the middle class mark), set di = xi - A, and compute mean = A + (sum of fi di) / N. Small deviations are easier to add than big class marks.
+• EXAMPLE — Table One with A = 25: the deviations di are -20, -10, 0, 10, 20 and fi di are -100, -80, 0, 70, 60, summing to -50. Mean = 25 + (-50) / 35 = 25 - 10/7 = 165/7, approximately 23.57. Same answer, friendlier numbers.
+• YOUR TURN — Find the mean of the first 10 natural numbers. Answer: sum = 55, n = 10, mean = 5.5. (Worth remembering: the mean of 1 to n is (n + 1) / 2.)
+✔ KEY FORMULA — mean = (sum of fi xi) / N for grouped data, and mean = A + (sum of fi di) / N with di = xi - A for the assumed-mean method
+⚠ EXAM TRAP — Using a class boundary (like 10 or 20) instead of the class MARK (the mid-value, like 15) in the fi xi column. And the silent killer: dividing by the number of classes instead of by N, the total frequency.
 
-                • Variance: σ² = (1/n) Σ(xᵢ − x̄)² = (1/n) Σ xᵢ² − (x̄)².
+Step Deviation — The Shortcut That Shrinks Big Numbers
+• DEFINITION — Step deviation codes each class mark as ui = (xi - A) / h, where A is an assumed mean and h is the common class width. The mean is then mean = A + ((sum of fi ui) / N) x h: compute in the small coded world, then decode.
+• WHY it works — coding is just a change of ruler. Subtracting A shifts every value by the same amount, so the mean shifts by A too; dividing by h squeezes the scale, so the mean squeezes by h. Reversing both operations exactly restores the true mean — nothing is approximated here, the shortcut is exact.
+• EXAMPLE — Table One again, with A = 25 and h = 10. The codes ui are -2, -1, 0, 1, 2; the products fi ui are -10, -8, 0, 7, 6, summing to -5. Mean = 25 + (-5 / 35) x 10 = 25 - 10/7 = 165/7, approximately 23.57 — a third method, the same answer, and the arithmetic never left single digits.
+• WORKED PATTERN — Five steps: (1) choose A as the class mark of the middle (or highest-frequency) class; (2) read h, the class width; (3) code ui = (xi - A) / h — these should come out as small integers like -2, -1, 0, 1, 2; if they do not, A or h is wrong; (4) total fi ui; (5) decode with mean = A + (sum fi ui / N) x h.
+• EXAMPLE — When does this matter? When class marks are ugly: classes 100-110, 110-120, ... with marks 105, 115, 125. Coding with A = 125 and h = 10 turns them into -2, -1, 0, 1, 2 and the whole problem becomes mental arithmetic.
+• YOUR TURN — A coded calculation gives A = 40, h = 5 and (sum of fi ui) / N = 0.4. Find the mean. Answer: 40 + 0.4 x 5 = 42. The decode step — multiply by h, then add A — is where the marks live.
+✔ KEY FORMULA — ui = (xi - A) / h and mean = A + ((sum of fi ui) / N) x h; the same coding returns for variance in a few sections
+⚠ EXAM TRAP — Two classics: forgetting to multiply by h at the decode step (you report the coded mean as the answer), and trying step deviation when class widths are unequal — the method needs one common h.
 
-                • Effect of Linear Transformation yᵢ = a xᵢ + b:
+Median and Mode — The Other Two Centres
+• DEFINITION — The median is the middle value of ordered data: half the observations lie at or below it, half at or above. For n ordered values, if n is odd it is the ((n+1)/2)th value; if n is even it is the average of the (n/2)th and (n/2 + 1)th values.
+• EXAMPLE — Ordered marks 3, 7, 9, 12, 15, 18, 20: n = 7, so the median is the 4th value, 12. The mean of the same data is also exactly 12 — the two centres agree here because this data is nearly symmetric; they part company exactly when the data is skewed.
+• DEFINITION — For grouped data, the median is Median = l + ((N/2 - cf) / f) x h, where l is the lower limit of the median class, cf is the cumulative frequency of the class before it, f is its frequency and h is the class width. The median class is the first class whose cumulative frequency reaches N/2.
+• EXAMPLE — Table One: N = 35, so N/2 = 17.5. Cumulative frequencies run 5, 13, 25, 32, 35, so the median class is 20-30 (the first to reach 17.5), with l = 20, cf = 13, f = 12, h = 10. Median = 20 + ((17.5 - 13) / 12) x 10 = 20 + 3.75 = 23.75.
+• DEFINITION — The mode is the most frequent value — the crowd's favourite. For grouped data, Mode = l + ((f1 - f0) / (2 f1 - f0 - f2)) x h, where f1 is the frequency of the modal class (the tallest class) and f0, f2 are the frequencies of the classes just before and after it.
+• EXAMPLE — Table One: the modal class is 20-30 with f1 = 12, f0 = 8, f2 = 7, l = 20, h = 10. Mode = 20 + ((12 - 8) / (24 - 8 - 7)) x 10 = 20 + (4/9) x 10 = 220/9, approximately 24.44. So Table One reads: mean 23.57, median 23.75, mode 24.44 — three centres, three slightly different stories, because the data leans a little.
+• EXAMPLE — The chapter's first figure shows marks of 60 students in classes 0-10 up to 50-60 with frequencies 12, 18, 14, 9, 5, 2. There the mode is 16, the median is 20 and the mean is 133/6, approximately 22.17: a long right tail drags the mean upward while the mode stays with the crowd. In a right-skewed distribution the order is mode, then median, then mean; in a left-skewed one it reverses.
+• WORKED PATTERN — Cumulative frequency is the engine of the median: build the cf column first, locate N/2 inside it, and only then open the formula. For the mode, identify the tallest class first and read its two neighbours — the formula is meaningless until those three frequencies are named.
+• YOUR TURN — Find the median of 4, 8, 15, 16, 23, 42. Answer: n = 6 is even, so average the 3rd and 4th ordered values: (15 + 16) / 2 = 15.5. Note the 42 — an outlier — dragged the mean up to 18 but left the median calm at 15.5.
+★ HIGHLIGHT — Karl Pearson's empirical relation for moderately skewed data: Mode is approximately 3 x Median - 2 x Mean. Check it on the figure's data: 3 x 20 - 2 x 22.17 = 15.67, close to the true mode 16. It is an approximation, not a law — but a superb way to audit a computed mode.
+✔ KEY FORMULA — Median = l + ((N/2 - cf) / f) x h, and Mode = l + ((f1 - f0) / (2 f1 - f0 - f2)) x h, both anchored at the lower limit l of the special class
+⚠ EXAM TRAP — Using (N + 1) / 2 to hunt the median class in grouped data — that recipe belongs to raw data; grouped data uses N/2 inside the cumulative frequencies. And in the mode formula, f0 and f2 are the neighbours of the MODAL class, not of any class you happen to like.
 
-                  - New Mean: ȳ = a x̄ + b
+Variance and Standard Deviation — Measuring the Spread
+• DEFINITION — The variance measures the average squared distance from the mean: variance = (sum of (xi - mean)^2) / n for raw data, and (sum of fi (xi - mean)^2) / N for grouped data. The standard deviation (SD) is its square root. Squaring makes every deviation positive and punishes big deviations harder — exactly what "spread" should mean.
+• WHY SD is the headline and variance the engine — variance lives in squared units (marks squared means nothing to a teacher), while SD is back in the original units and can be compared with the mean directly. Compute with variance, report with SD.
+• EXAMPLE — Raw data 2, 4, 6, 8, 10: mean = 6, deviations -4, -2, 0, 2, 4, squares 16, 4, 0, 4, 16, sum 40. Variance = 40 / 5 = 8, and SD = sqrt(8) = 2 sqrt(2), approximately 2.83. Small, tidy, and worth memorising as a reference example.
+• DEFINITION — The shortcut formula skips the deviation column entirely: variance = (sum of fi xi^2) / N - (mean)^2, the mean of the squares minus the square of the mean. With step deviation it becomes variance = h^2 x [ (sum of fi ui^2) / N - ((sum of fi ui) / N)^2 ].
+• EXAMPLE — Table One by the shortcut: sum of fi xi^2 = 125 + 1800 + 7500 + 8575 + 6075 = 24075, so (sum fi xi^2) / N = 24075 / 35, approximately 687.86, and (mean)^2 = (165/7)^2, approximately 555.61. Variance = 6480/49, approximately 132.24, and SD is approximately 11.50 marks.
+• EXAMPLE — Same answer by step deviation: with A = 25 and h = 10, sum of fi ui^2 = 47 and sum of fi ui = -5, so variance = 100 x [ 47/35 - (1/7)^2 ] = 100 x (324/245) = 6480/49, approximately 132.24. Two routes, one number — in the exam, use whichever the given table makes cheaper.
+• WORKED PATTERN — The spread audit, three questions in order: (1) do I have the mean right? (every spread formula eats the mean; a wrong mean poisons everything); (2) which formula matches the table I am given — deviations, squares, or codes?; (3) did I take the square root at the end if the question asks for SD, not variance?
+• YOUR TURN — Find the variance and SD of 1, 2, 3, 4, 5. Answer: mean = 3, squared deviations 4, 1, 0, 1, 4 sum to 10, variance = 10 / 5 = 2, SD = sqrt(2), approximately 1.41.
+✔ KEY FORMULA — variance = (sum of fi xi^2) / N - (mean)^2, and SD = sqrt(variance); in coded form, variance = h^2 x [ (sum fi ui^2) / N - ((sum fi ui) / N)^2 ]
+⚠ EXAM TRAP — Dividing by N - 1 out of habit from other courses: the NCERT and IAT convention for variance and SD divides by N, the total frequency. And the mirror trap: computing variance perfectly, then forgetting the final square root when the question asked for standard deviation.
 
-                  - New Variance: σ_y² = a² σ_x² (independent of origin shift b)
+The Scaling Laws — Transforming Data Without Recomputing
+• DEFINITION — If every observation is transformed by y = a x + b, then the centres and spreads obey: new mean = a x (old mean) + b; new variance = a^2 x (old variance); new SD = |a| x (old SD). The shift b moves the centre but leaves every measure of spread untouched; the multiplier a stretches the spread, and variance — being squared — stretches by a^2.
+• WHY the shift cannot change spread — spread measures distances between values, and adding the same b to every value moves the whole dataset rigidly: all gaps stay identical. Only stretching (a) changes the gaps, and it multiplies every gap by |a|.
+• EXAMPLE — A dataset has mean 10 and SD 4. Transform every value by y = 3x + 2 (say, converting and rescaling scores). New mean = 3 x 10 + 2 = 32. New SD = 3 x 4 = 12. New variance = 9 x 16 = 144 — note that 12^2 = 144, a built-in audit that the two answers agree.
+• WORKED PATTERN — The three-line drill for any transformation question: (1) apply a and b to the mean; (2) apply only |a| to the SD; (3) apply only a^2 to the variance. Then cross-check: (new SD)^2 must equal the new variance. If it does not, one of the three lines used the wrong law.
+• EXAMPLE — Grace marks: every student's mark is increased by 5. The mean rises by exactly 5, but the SD and variance do not move at all — the class is exactly as spread out as before, just shifted. Examiners adore asking this because intuition shouts "everything increases".
+• YOUR TURN — A dataset has SD 5. Every value is doubled and then increased by 3. Find the new SD. Answer: the doubling stretches SD to 2 x 5 = 10; the +3 shift changes nothing. New SD = 10 (and the new variance is 100, not 28).
+✔ KEY FORMULA — Under y = a x + b: mean scales by a then shifts by b; SD scales by |a| only; variance scales by a^2 only. Shifts never touch spread.
+⚠ EXAM TRAP — The single most-tested error in this chapter: scaling the SD by a^2 as well (that law belongs to variance), or adding b to the SD (b belongs to the mean only). This exact trap is worked in the examples and tested in the question set below.
 
-                  - New Standard Deviation: σ_y = |a| σ_x.
+Coefficient of Variation and Mean Deviation
+• DEFINITION — The coefficient of variation is CV = (SD / mean) x 100 percent. It expresses spread as a percentage of the centre, which makes it the only fair way to compare the consistency of two datasets whose means (or units) differ.
+• WHY raw SD misleads — an SD of 5 marks is wild for a test averaging 20 and negligible for one averaging 500. SD alone cannot tell you which dataset is "more consistent"; CV can, because it asks "spread relative to what?"
+• EXAMPLE — Series A: mean 50, SD 5, so CV = 10 percent. Series B: mean 80, SD 12, so CV = 15 percent. Series B has the bigger mean and the bigger SD, yet Series A is the more consistent one — its spread is a smaller fraction of its centre. Verdict: A wins on consistency.
+• DEFINITION — The mean deviation about a centre c is the average of the absolute deviations: MD = (sum of |xi - c|) / n, taken about the mean or the median. It is the spread measure that treats all deviations linearly — no squaring — so outliers hurt it less than they hurt variance.
+• EXAMPLE — For 2, 4, 6, 8, 10 about the mean 6: absolute deviations are 4, 2, 0, 2, 4, summing to 12, so MD = 12 / 5 = 2.4. Compare with the SD of the same data, 2.83: the SD is larger because squaring amplified the two big deviations of 4.
+• WORKED PATTERN — Consistency questions have a fixed script: compute CV for each series, and the SMALLER CV is the more consistent (less variable) one. If a question gives SDs and means in different units (runs vs wickets, rupees vs dollars), CV is not optional — it is the only legal comparison.
+• YOUR TURN — A batsman averages 40 with SD 8. Find his CV. Answer: (8 / 40) x 100 = 20 percent. (A second batsman averaging 60 with SD 9 has CV 15 percent — more consistent, despite the larger SD.)
+⚠ EXAM TRAP — Declaring the series with the smaller SD "more consistent" when the means are far apart — that is precisely the error CV exists to catch. Also: CV is meaningless when the mean is near zero or the data straddles zero (temperatures in Celsius), because the ratio explodes or flips sign.
 
+Probability — Sample Spaces, Events and the First Rules
+• DEFINITION — A random experiment's sample space S is the set of all possible outcomes. An event is any subset of S. When all outcomes are equally likely, P(E) = (number of outcomes favourable to E) / (number of outcomes in S). Every probability lives in [0, 1]: 0 is impossible, 1 is certain.
+• EXAMPLE — Two dice are thrown: S has 36 equally likely pairs. The event "sum is 8" holds for (2,6), (3,5), (4,4), (5,3), (6,2) — five outcomes — so P(sum 8) = 5/36. Notice the method: count the event, count the space, divide. Ninety percent of school probability is disciplined counting.
+• DEFINITION — The complement rule: P(not E) = 1 - P(E). The addition rule: P(A or B) = P(A) + P(B) - P(A and B), where the subtracted term repairs the double-counted overlap. If A and B cannot happen together, the overlap is 0 and the rule simplifies — that special case gets its own section next.
+• EXAMPLE — One card from 52: P(red or king). There are 26 red cards and 4 kings, but 2 cards (the red kings) are counted twice, so P = (26 + 4 - 2) / 52 = 28/52 = 7/13. Forget the overlap and you get 30/52 — a wrong answer that looks completely respectable.
+• WORKED PATTERN — The three-step habit: (1) name the sample space and its size; (2) count the event with clean cases, watching for overlaps and order (does (3,5) differ from (5,3)? for two dice, yes); (3) divide, then sanity-check that the answer lies between 0 and 1 and that complementary events sum to 1.
+• YOUR TURN — A single die is thrown. Find P(not a 6) using the complement rule. Answer: 1 - 1/6 = 5/6. The complement rule is the laziest powerful move in the chapter — whenever "at least one" or "not" appears, price the opposite event first.
+✔ KEY FORMULA — P(E) = favourable / total for equally likely outcomes; P(not E) = 1 - P(E); P(A or B) = P(A) + P(B) - P(A and B)
+⚠ EXAM TRAP — Adding probabilities for "or" without subtracting the overlap. The overlap error is invisible because the result still looks like a plausible fraction — audit every "or" with the question: can both happen at once? If yes, subtract.
 
+Mutually Exclusive versus Independent — The Classic Confusion
+• DEFINITION — Events A and B are mutually exclusive (disjoint) if they cannot occur together: P(A and B) = 0. They are independent if learning that one occurred changes nothing about the other: P(A and B) = P(A) x P(B), equivalently P(A given B) = P(A).
+• WHY they are opposites, not synonyms — exclusivity is about the outcomes themselves (the events share no outcomes); independence is about information (one event's occurrence carries no news about the other). An exclusive pair is maximally informative: if A happened, B is now impossible. That is the opposite of independent.
+• EXAMPLE — Exclusive: one die, A = {1, 2} and B = {5, 6}. They share no outcome, so P(A or B) = P(A) + P(B) = 1/3 + 1/3 = 2/3, with nothing to subtract. But they are not independent: P(A) x P(B) = 1/9, which is not 0.
+• EXAMPLE — Independent: two separate events with P(A) = 0.3, P(B) = 0.5 and P(A and B) = 0.15. Check the product: 0.3 x 0.5 = 0.15 — the product condition holds exactly, so A and B are independent. Their union: P(A or B) = 0.3 + 0.5 - 0.15 = 0.65. Note the overlap is NOT zero here; independence never promises that.
+• WORKED PATTERN — The two tests, kept separate: to test exclusivity, ask "can both happen together?" and check whether P(A and B) is 0. To test independence, multiply: does P(A) x P(B) equal P(A and B)? A question that hands you three probabilities is begging for the multiplication test.
+• YOUR TURN — A coin is tossed twice. Let A = "first toss is a head" and B = "second toss is a head". Exclusive or independent? Answer: independent — the tosses do not share outcomes and neither influences the other; P(A and B) = 1/2 x 1/2 = 1/4. They are certainly not exclusive, since both heads happen a quarter of the time.
+★ HIGHLIGHT — If A and B are mutually exclusive with both probabilities positive, they can NEVER be independent: exclusivity forces P(A and B) = 0, independence would force P(A and B) = P(A) x P(B), which is positive. One line, and half the confusion in this unit dies.
+✔ KEY FORMULA — Exclusive: P(A and B) = 0 and P(A or B) = P(A) + P(B). Independent: P(A and B) = P(A) x P(B) and P(A or B) = P(A) + P(B) - P(A) x P(B)
+⚠ EXAM TRAP — The phrase "the events do not affect each other, so they are mutually exclusive" is wrong twice over: no-effect is independence, and independent events usually CAN occur together. Read every such statement with the two tests, never with vibes.
 
-                2. Conditional Probability, Total Probability & Bayes' Theorem
+Conditional Probability — Shrinking the Sample Space
+• DEFINITION — The conditional probability P(A given B) is the probability of A inside the reduced world where B is known to have occurred: P(A given B) = P(A and B) / P(B), valid whenever P(B) is not 0. The word "given" shrinks the sample space to B and re-normalises.
+• EXAMPLE — A card is drawn and seen to be a face card (jack, queen or king — 12 cards). What is the probability it is a king? The shrunken world has 12 cards, of which 4 are kings: P(king given face card) = 4/12 = 1/3. Compare the unconditional P(king) = 4/52 = 1/13 — the information "face card" changed the answer completely.
+• EXAMPLE — Two dice are thrown and you are told at least one die shows a 5. What is the probability the sum is 8? The shrunken world is the 11 pairs containing a 5; among them, (3,5) and (5,3) give sum 8. Answer: 2/11. Notice how wrong the unconditioned count (5/36) would be here.
+• DEFINITION — The multiplication rule rearranges the definition: P(A and B) = P(B) x P(A given B) = P(A) x P(B given A). It prices a chain of dependent events one conditional step at a time, and when the events are independent the conditional factor collapses to the plain probability — the multiplication rule contains independence as a special case.
+• EXAMPLE — Two aces in two draws without replacement: P = (4/52) x (3/51) = 12/2652 = 1/221. The second factor is conditional — after one ace leaves, 3 aces remain among 51 cards. "Without replacement" in a problem statement is a flashing sign that the second probability must be recomputed.
+• WORKED PATTERN — The shrink-first method for any "given" problem: (1) describe the reduced sample space (only outcomes where the given event holds); (2) count the target inside that reduced space; (3) divide the two counts. This counting route and the formula route always agree — use whichever the problem's numbers make easier, and use the other to check.
+• YOUR TURN — A card drawn from a deck is known to be red. Find the probability that it is a heart. Answer: the shrunken world is the 26 red cards, 13 of which are hearts: 13/26 = 1/2.
+✔ KEY FORMULA — P(A given B) = P(A and B) / P(B), and P(A and B) = P(A) x P(B given A); with replacement, conditionals collapse to plain probabilities
+⚠ EXAM TRAP — P(A given B) and P(B given A) are different numbers with different shrunken worlds — swapping them is the single most consequential error in this unit, and the next section (Bayes) exists entirely because the swap is so tempting.
 
-                • Conditional Probability: P(A | B) = P(A ∩ B) / P(B) (for P(B) > 0).
+Bayes' Theorem — Running Probability Backwards
+• DEFINITION — Bayes' theorem reverses a conditional: P(E given A) = P(A given E) x P(E) / P(A), where the denominator is rebuilt by total probability: P(A) = P(A given E) x P(E) + P(A given not E) x P(not E). In words: posterior = (likelihood x prior) / (all the ways the evidence could arise).
+• WHY this section matters beyond marks — every "the test is 95 percent accurate, so a positive result means 95 percent chance I am ill" headline commits the swap error from the last section. Bayes is the correction, and its engine is the base rate: how common the condition was BEFORE the test spoke.
+• WORKED PATTERN — The medical test, honestly priced. A condition affects 2 percent of a population (the base rate, or prior). A test detects it in 95 percent of those who have it (sensitivity: P(+ given condition) = 0.95) but also flags 10 percent of those who do not (false-alarm rate: P(+ given healthy) = 0.10, so specificity is 90 percent). You test positive. What is P(condition given +)?
+• EXAMPLE — Build the tree (the chapter's second figure draws exactly this): the condition branch contributes 0.02 x 0.95 = 0.019 true positives; the healthy branch contributes 0.98 x 0.10 = 0.098 false alarms. Total positives: 0.019 + 0.098 = 0.117. Therefore P(condition given +) = 0.019 / 0.117 = 19/117, approximately 16.2 percent. Read that again: a "95 percent accurate" test, and a positive is right only about one time in six.
+• WHY the answer is so low — the healthy crowd is 49 times larger than the ill crowd, so even a small false-alarm rate manufactures more false positives (0.098 of everyone) than the test finds true ones (0.019). The base rate is not a detail; when the condition is rare, the base rate IS the story.
+• WORKED PATTERN — The Bayes machine, four moves: (1) write the prior P(E) and its complement; (2) attach the likelihoods P(A given E) and P(A given not E) as tree branches; (3) multiply along branches to get every route to the evidence; (4) the posterior is (your route) divided by (sum of all routes to the same evidence). If your tree's final branch products do not sum to 1, a branch is wrong.
+• YOUR TURN — Same test, but now the condition affects half the population (prior 0.5). Find P(condition given +). Answer: routes are 0.5 x 0.95 = 0.475 and 0.5 x 0.10 = 0.05, so the posterior is 0.475 / 0.525 = 19/21, approximately 90.5 percent. Same test, wildly different verdict — the prior did that.
+✔ KEY FORMULA — P(E given A) = P(A given E) x P(E) / [ P(A given E) x P(E) + P(A given not E) x P(not E) ]; the denominator is the law of total probability
+⚠ EXAM TRAP — Answering with the sensitivity (95 percent) when the question asks for the posterior. The moment a problem gives a prevalence AND a test accuracy AND asks "given a positive, what is the chance", it is Bayes — reach for the tree, never for the headline number.
 
-                • Independent Events: P(A ∩ B) = P(A) · P(B).
+Random Variables — Distributions, Mean and Variance
+• DEFINITION — A random variable X assigns a number to each outcome of an experiment. Its probability distribution lists each value xi with its probability pi, and the pi must satisfy two laws: every pi lies in [0, 1], and the pi sum to exactly 1. A distribution that breaks either law is not a distribution — checking the sum is a free error-detector.
+• DEFINITION — The mean (expected value) of X is E(X) = sum of xi pi — the long-run average if the experiment repeats forever. The variance is Var(X) = E(X^2) - (E(X))^2, where E(X^2) = sum of xi^2 pi; the standard deviation is sqrt(Var(X)). Expectation is the centre of the distribution, variance its spread — Statistics has followed us into Probability, wearing the same formulas.
+• EXAMPLE — Let X take values 0, 1, 2 with probabilities 0.2, 0.5, 0.3 (check: they sum to 1). E(X) = 0 x 0.2 + 1 x 0.5 + 2 x 0.3 = 1.1. E(X^2) = 0 x 0.2 + 1 x 0.5 + 4 x 0.3 = 1.7. Var(X) = 1.7 - (1.1)^2 = 1.7 - 1.21 = 0.49, so SD = 0.7. Clean numbers, and the same three-step rhythm as every mean-variance problem before it.
+• WORKED PATTERN — The three-column machine: build columns for xi, pi, xi pi and xi^2 pi side by side. Sum the third column for E(X), sum the fourth for E(X^2), then combine. The table prevents the classic disaster of computing E(X^2) as (E(X))^2 — they are different objects and their difference is precisely the variance.
+• EXAMPLE — A fair die: X is the face shown, each with probability 1/6. E(X) = (1 + 2 + 3 + 4 + 5 + 6) / 6 = 21/6 = 3.5. You will never roll a 3.5 — expectation is a long-run average, not a prediction of a single trial, and confusing the two is a conceptual trap examiners probe with "which value is most likely" style follow-ups (here every face is equally likely; 3.5 is not even a face).
+• YOUR TURN — For the die above, E(X^2) = (1 + 4 + 9 + 16 + 25 + 36) / 6 = 91/6. Find Var(X). Answer: 91/6 - (3.5)^2 = 91/6 - 49/4 = (182 - 147) / 12 = 35/12, approximately 2.92.
+✔ KEY FORMULA — E(X) = sum of xi pi; Var(X) = E(X^2) - (E(X))^2 = sum of xi^2 pi - (sum of xi pi)^2; and the probabilities in any distribution sum to 1
+⚠ EXAM TRAP — Writing Var(X) = E(X^2) and forgetting to subtract (E(X))^2 — the subtraction is the whole formula. Second trap: accepting a "distribution" whose probabilities sum to 0.9 or 1.1; the question is testing whether you check.
 
-                • Bayes' Theorem for mutually exclusive and exhaustive partition E₁, E₂, ..., Eₙ:
+Bernoulli Trials and the Binomial Distribution
+• DEFINITION — A Bernoulli trial is a single experiment with exactly two outcomes: success (probability p) and failure (probability q = 1 - p). Repeat it under three strict conditions — a fixed number n of trials, independence between trials, and the same p every trial — and the number of successes X follows the binomial distribution: P(X = k) = C(n, k) x p^k x q^(n-k).
+• WHY each condition is load-bearing — fixed n tells you how many trials to count; independence lets the probabilities multiply; constant p keeps every arrangement of k successes equally priced at p^k q^(n-k), so the only remaining question is how many arrangements exist — and that count is exactly C(n, k).
+• EXAMPLE — A fair die is rolled 4 times; find P(exactly 2 sixes). Here n = 4, p = 1/6, q = 5/6, k = 2: P = C(4, 2) x (1/6)^2 x (5/6)^2 = 6 x (1/36) x (25/36) = 150/1296 = 25/216, approximately 0.116. The C(4, 2) = 6 counts the six orders in which the two sixes can appear — omitting it is the most common binomial error.
+• DEFINITION — The binomial's centre and spread need no table: mean = n p, variance = n p q, SD = sqrt(n p q). A marksman with p = 0.3 over n = 10 shots expects np = 3 hits on average, with variance 10 x 0.3 x 0.7 = 2.1 and SD approximately 1.45.
+• WORKED PATTERN — The applicability audit before touching the formula: (1) is n fixed in advance? (2) exactly two outcomes per trial? (3) is p the same on every trial? (4) are trials independent? Four yeses: binomial. Any no — especially drawing without replacement from a small bag, where p changes after every draw — and the formula is illegal, however tempting.
+• YOUR TURN — A student guesses all 20 true-or-false questions on a quiz (p = 0.5 each). Find the expected score and the variance of the score. Answer: mean = 20 x 0.5 = 10; variance = 20 x 0.5 x 0.5 = 5 (SD approximately 2.24). Pure guessing centres you on half marks with a spread of about 2 — the mathematics of why guessing is a strategy, not a plan.
+✔ KEY FORMULA — P(X = k) = C(n, k) p^k q^(n-k) with q = 1 - p; mean = np, variance = npq. For "at least one success", use 1 - q^n
+⚠ EXAM TRAP — Three regulars: forgetting the C(n, k) factor; swapping p and q mid-problem (define success first, in writing); and grinding out "at least one" by adding P(1) + P(2) + ... when the complement 1 - P(0) does it in one line.
 
-                  P(Eₖ | A) = [P(Eₖ) P(A | Eₖ)] / Σⱼ [P(Eⱼ) P(A | Eⱼ)].
+Linear Programming — The Corner-Point Method
+• DEFINITION — A linear programming problem (LPP) asks for the maximum or minimum of a linear objective function Z = a x + b y subject to linear constraints and the non-negativity conditions x, y are at least 0. The set of points satisfying every constraint is the feasible region — always a convex polygon (possibly unbounded, possibly empty).
+• DEFINITION — The corner-point theorem: if an optimum exists, it is attained at a corner (vertex) of the feasible region. The interior is never better than the best corner — so an infinite search collapses to checking finitely many points.
+• WORKED PATTERN — Maximise Z = 3x + 5y subject to x + 2y is at most 8, 3x + 2y is at most 12, x and y at least 0 (the chapter's third figure draws this). Corners: (0, 0) from the axes; (4, 0) where 3x + 2y = 12 meets y = 0; (0, 4) where x + 2y = 8 meets x = 0; and (2, 3) where the two constraint lines cross (subtracting the equations gives 2x = 4). Evaluate Z: 0, 12, 20, and 21. Maximum Z = 21 at (2, 3).
+• WORKED PATTERN — The five-step routine for any LPP: (1) draw each constraint line and shade the correct side (test the origin); (2) mark the feasible region; (3) list every corner, solving pairs of lines for the crossing ones; (4) evaluate Z at each corner in a small table; (5) read off the best value AND the point where it occurs — questions ask for both.
+• EXAMPLE — Two flags the routine must raise. If the feasible region is empty (constraints contradict each other), the problem is infeasible — no solution exists, and saying so IS the answer. If the region is unbounded in the direction the objective grows, a maximum may not exist at all: always check whether Z can keep growing along the open side before declaring a corner the winner.
+• YOUR TURN — Keep the same feasible region as the worked pattern but change the objective to Z = x + 2y. Evaluate the corners. Answer: (0, 0) gives 0, (4, 0) gives 4, (2, 3) gives 8, (0, 4) gives 8 — a tie between two corners, which means every point on the edge joining (2, 3) and (0, 4) is optimal: when Z's direction is parallel to a boundary edge, that whole edge wins.
+✔ KEY FORMULA — There is no single formula; the theorem is the tool: optimum of a linear objective over a polygonal feasible region, if it exists, sits at a corner. List corners, evaluate Z, compare
+⚠ EXAM TRAP — Testing a random interior point (the centre is never the answer in an LPP), forgetting the non-negativity constraints when listing corners, and reporting the maximum VALUE without the point — half the marks live in the coordinates.
 
-                • Binomial Distribution B(n, p): P(X = r) = ⁿCᵣ pʳ qⁿ⁻ʳ, Mean = np, Variance = npq.
+Formula Sheet — Every Result on One Screen
+✔ Raw mean = (sum of xi) / n; grouped mean = (sum of fi xi) / N; assumed mean: mean = A + (sum of fi di) / N with di = xi - A
+✔ Step deviation: ui = (xi - A) / h and mean = A + ((sum of fi ui) / N) x h
+✔ Grouped median = l + ((N / 2 - cf) / f) x h, using the first class whose cumulative frequency reaches N / 2
+✔ Grouped mode = l + ((f1 - f0) / (2 f1 - f0 - f2)) x h, with f0 and f2 the neighbours of the modal class
+✔ Variance = (sum of fi xi^2) / N - (mean)^2; SD = sqrt(variance); by step deviation, variance = h^2 x [ (sum fi ui^2) / N - ((sum fi ui) / N)^2 ]
+✔ Scaling under y = a x + b: new mean = a (mean) + b; new SD = |a| (SD); new variance = a^2 (variance); a shift b alone changes no spread
+✔ Coefficient of variation = (SD / mean) x 100 percent — the smaller CV is the more consistent series; mean deviation = (sum of |xi - c|) / n about the mean or median
+✔ P(E) = favourable / total (equally likely); P(not E) = 1 - P(E); P(A or B) = P(A) + P(B) - P(A and B)
+✔ Exclusive events: P(A and B) = 0. Independent events: P(A and B) = P(A) x P(B). Non-trivial exclusive events are never independent
+✔ Conditional: P(A given B) = P(A and B) / P(B); multiplication rule: P(A and B) = P(A) x P(B given A)
+✔ Bayes: P(E given A) = P(A given E) P(E) / [ P(A given E) P(E) + P(A given not E) P(not E) ] — prior times likelihood, over all routes to the evidence
+✔ Random variable: E(X) = sum of xi pi; Var(X) = E(X^2) - (E(X))^2; the pi sum to 1
+✔ Binomial: P(X = k) = C(n, k) p^k q^(n - k), q = 1 - p; mean = np; variance = npq; at least one success = 1 - q^n
+✔ Linear programming: the optimum, if it exists, is at a corner of the feasible region — evaluate Z at every corner and compare
 
+Common Mistakes and Exam Traps
+• Mistake 1: Scaling the standard deviation by a^2 when data is multiplied by a. Why it is wrong: a^2 is the variance law; the SD is a square-rooted quantity and stretches only by |a|. Correct principle: y = a x + b sends mean to a(mean) + b, SD to |a| x SD, variance to a^2 x variance — three different laws for three different objects.
+• Mistake 2: Adding the shift b to the SD. Why it is wrong: spread is built from gaps between values, and a rigid shift changes no gap. Correct principle: shifts move centres only; if every value gains 5, the mean gains 5 and the SD gains nothing.
+• Mistake 3: Hunting the grouped median class with (N + 1) / 2. Why it is wrong: that recipe locates the middle item of raw data; grouped data has no items, only cumulative frequencies, and its formula is built around N / 2. Correct principle: raw data uses (N + 1) / 2 positions; grouped median uses the first cf reaching N / 2.
+• Mistake 4: Feeding the mode formula the frequencies of the wrong classes. Why it is wrong: f0 and f2 must be the immediate neighbours of the modal class; any other pair corrupts the interpolation. Correct principle: name the modal class first, then read its left and right neighbours, then compute.
+• Mistake 5: Comparing consistency by comparing raw SDs. Why it is wrong: an SD of 9 around a mean of 45 is relatively larger than an SD of 6 around 60, even though 9 beats 6 in absolute size. Correct principle: consistency comparisons run on CV = (SD / mean) x 100 percent; smaller CV wins.
+• Mistake 6: Writing P(A or B) = P(A) + P(B) unconditionally. Why it is wrong: when both events can occur together, the overlap is counted twice — red-or-king becomes 30/52 instead of the true 28/52. Correct principle: always subtract P(A and B); it vanishes only for mutually exclusive events.
+• Mistake 7: Treating "mutually exclusive" and "independent" as the same idea. Why it is wrong: exclusive events share no outcomes and are maximally dependent on each other, while independent events typically overlap freely. Correct principle: test exclusivity by P(A and B) = 0 and independence by P(A and B) = P(A) x P(B) — two separate tests for two separate ideas.
+• Mistake 8: Swapping P(A given B) with P(B given A). Why it is wrong: the two conditionals shrink the world to different sets — P(king given face card) is 1/3, but P(face card given king) is 1. Correct principle: the event after "given" owns the denominator; reversing the question needs Bayes and fresh numbers.
+• Mistake 9: Quoting the test's sensitivity as the answer to a Bayes question. Why it is wrong: sensitivity is P(positive given condition); the question asks P(condition given positive), and when the base rate is 2 percent the honest answer collapses to about 16 percent. Correct principle: draw the tree, multiply along branches, and divide your route by all routes to the evidence.
+• Mistake 10: Applying the binomial formula to draws without replacement from a small set. Why it is wrong: each draw changes the composition, so p is not constant and trials are not independent — the formula's entry conditions fail. Correct principle: run the four-point audit (fixed n, two outcomes, constant p, independence) before any C(n, k) p^k q^(n-k) appears; price changing-probability chains with the multiplication rule instead.
+• Mistake 11: In linear programming, evaluating the objective at a convenient interior point. Why it is wrong: the corner-point theorem guarantees the optimum, if it exists, at a vertex; interior points are never better than the best corner. Correct principle: list every corner of the feasible region, tabulate Z there, and also flag the unbounded and infeasible cases before declaring a winner.
 
+Worked Examples — Basic to Challenging
+• Example 1 — Problem: For Table One (classes 0-10 to 40-50, frequencies 5, 8, 12, 7, 3), find the mean by step deviation.
+• Given: Class marks 5, 15, 25, 35, 45 and a common class width h = 10.
+• Principle: Code with ui = (xi - A) / h around A = 25, compute in the coded world, then decode with mean = A + ((sum fi ui) / N) x h.
+• Steps: Codes: -2, -1, 0, 1, 2. Products fi ui: -10, -8, 0, 7, 6, summing to -5, with N = 35. Mean = 25 + (-5 / 35) x 10 = 25 - 10/7.
+• Answer: 165/7, approximately 23.57.
+• Reasoning: The direct method (sum fi xi = 825, divided by 35) gives the identical 165/7 — step deviation is a labour-saving device, never an approximation.
+• Mistake to avoid: Stopping at the coded value -5/35 and reporting it as the mean; the decode (times h, plus A) is part of the method, not an optional garnish.
+• Example 2 — Problem: For Table One, find the median and the mode.
+• Given: N = 35; cumulative frequencies 5, 13, 25, 32, 35; the tallest class is 20-30.
+• Principle: Median = l + ((N/2 - cf) / f) x h from the median class; Mode = l + ((f1 - f0) / (2 f1 - f0 - f2)) x h from the modal class.
+• Steps: N/2 = 17.5 first falls inside 20-30, so l = 20, cf = 13, f = 12, h = 10: Median = 20 + (4.5 / 12) x 10 = 23.75. Mode with f1 = 12, f0 = 8, f2 = 7: Mode = 20 + (4 / 9) x 10 = 24.44.
+• Answer: Median 23.75; Mode 220/9, approximately 24.44.
+• Reasoning: The order mean (23.57) below median (23.75) below mode (24.44) signals a slight left lean in the data — the three centres together describe the shape, not just the centre.
+• Mistake to avoid: Choosing 10-20 as the median class because cf jumps past 17.5 "somewhere nearby" — the rule is the FIRST class whose cumulative frequency reaches N/2, and that is 20-30 with cf before it equal to 13.
+• Example 3 — Problem: For Table One, find the variance and standard deviation.
+• Given: Class marks and frequencies as before; sum of fi xi^2 = 24075 (built from 5 x 25, 8 x 225, 12 x 625, 7 x 1225, 3 x 2025); mean = 165/7.
+• Principle: Variance = (sum of fi xi^2) / N - (mean)^2; SD is its square root.
+• Steps: (sum fi xi^2) / N = 24075 / 35, approximately 687.86. (mean)^2 = (165/7)^2, approximately 555.61. Variance = 687.86 - 555.61, approximately 132.24 (exactly 6480/49). SD = sqrt(132.24), approximately 11.50.
+• Answer: Variance 6480/49, approximately 132.24; SD approximately 11.50 marks.
+• Reasoning: Audit by step deviation: variance = 100 x [ 47/35 - (1/7)^2 ] = 6480/49 — the same number, so the squares column and the codes agree.
+• Mistake to avoid: Reporting 132.24 as "the standard deviation" — that is the variance; the question's unit (marks, not marks-squared) tells you the square root is still owed.
+• Example 4 — Problem: A dataset has mean 20 and SD 6. Every value is transformed by y = 2x + 10 (a scaling plus grace marks). Find the new mean, variance and SD.
+• Given: a = 2, b = 10; old mean 20, old SD 6, old variance 36.
+• Principle: The scaling laws: mean takes a then b; SD takes |a| only; variance takes a^2 only.
+• Steps: New mean = 2 x 20 + 10 = 50. New SD = 2 x 6 = 12. New variance = 4 x 36 = 144. Audit: 12^2 = 144 — the SD and variance agree.
+• Answer: Mean 50, SD 12, variance 144.
+• Reasoning: No raw data was needed — transformation questions are pure law-application, which is why examiners set them: they separate students who know the laws from students who recompute.
+• Mistake to avoid: The double error of new SD = 2 x 6 + 10 = 22 (adding b to the SD) or new variance = 2 x 36 = 72 (scaling by a instead of a^2). The audit (new SD)^2 = new variance catches both.
+• Example 5 — Problem: A condition affects 2 percent of a population. A test has sensitivity 95 percent and a false-alarm rate of 10 percent on healthy people. A random person tests positive. Find the probability they have the condition.
+• Given: Prior P(condition) = 0.02; P(+ given condition) = 0.95; P(+ given healthy) = 0.10.
+• Principle: Bayes' theorem on a tree: posterior = (route to a true positive) / (all routes to a positive).
+• Steps: True-positive route: 0.02 x 0.95 = 0.019. False-alarm route: 0.98 x 0.10 = 0.098. All positives: 0.019 + 0.098 = 0.117. Posterior: 0.019 / 0.117 = 19/117.
+• Answer: 19/117, approximately 16.2 percent.
+• Reasoning: The healthy group is 49 times larger, so its 10 percent false-alarm rate produces about five times as many positives as the condition itself. Base rates dominate verdicts whenever the condition is rare.
+• Mistake to avoid: Answering 95 percent (the sensitivity) — that is P(+ given condition), the forward conditional. The question asks the reverse conditional, and the reverse needs the tree.
+• Example 6 — Problem: Two dice are thrown. Given that at least one die shows a 5, find the probability that the sum is 8.
+• Given: The condition restricts the world to pairs containing a 5: (1,5), (2,5), (3,5), (4,5), (5,5), (6,5), (5,1), (5,2), (5,3), (5,4), (5,6) — 11 pairs.
+• Principle: Conditional probability by shrinking the sample space, then counting inside it.
+• Steps: Inside the 11-pair world, sum 8 occurs for (3,5) and (5,3) only: 2 favourable outcomes. Probability = 2/11.
+• Answer: 2/11.
+• Reasoning: Formula check: P(sum 8 and a 5 shows) = 2/36 and P(a 5 shows) = 11/36, whose ratio is 2/11 — the counting and formula routes agree, as they always must.
+• Mistake to avoid: Answering 5/36 (the unconditional P(sum 8)) or 2/36 (forgetting to re-normalise after shrinking). The word "given" changes the denominator — that is its entire job.
+• Example 7 — Problem: A random variable X takes values 1, 2, 3 with probabilities 1/6, 1/2, 1/3. Find E(X), Var(X) and the SD.
+• Given: A valid distribution (probabilities sum to 1/6 + 1/2 + 1/3 = 1).
+• Principle: E(X) = sum of xi pi; Var(X) = E(X^2) - (E(X))^2.
+• Steps: E(X) = 1 x (1/6) + 2 x (1/2) + 3 x (1/3) = 1/6 + 1 + 1 = 13/6. E(X^2) = 1 x (1/6) + 4 x (1/2) + 9 x (1/3) = 1/6 + 2 + 3 = 31/6. Var = 31/6 - (13/6)^2 = 31/6 - 169/36 = (186 - 169) / 36 = 17/36. SD = sqrt(17) / 6.
+• Answer: E(X) = 13/6, approximately 2.17; Var(X) = 17/36, approximately 0.47; SD approximately 0.69.
+• Reasoning: The expectation sits between 2 and 3, pulled toward 3 by its heavy 1/3 probability, and the modest variance confirms the values huddle near the centre.
+• Mistake to avoid: Computing E(X^2) as (E(X))^2 = 169/36 — then the "variance" comes out 0. The two quantities differ exactly by the variance; keep their columns separate.
+• Example 8 — Problem: Maximise Z = 3x + 5y subject to x + 2y at most 8, 3x + 2y at most 12, x and y at least 0.
+• Given: A bounded feasible region with corners where constraint lines meet the axes and each other.
+• Principle: The corner-point theorem: evaluate Z at every corner; the best corner is the optimum.
+• Steps: Corners: (0, 0) gives Z = 0; (4, 0), from 3x + 2y = 12 on y = 0, gives 12; (0, 4), from x + 2y = 8 on x = 0, gives 20; the crossing of the two lines (subtract: 2x = 4, so x = 2, y = 3) gives 3 x 2 + 5 x 3 = 21. Largest value: 21.
+• Answer: Maximum Z = 21 at (x, y) = (2, 3).
+• Reasoning: Brute-force scanning of the region on a fine grid confirms no interior or edge point beats 21 — the theorem's promise holds, as it must for linear objectives.
+• Mistake to avoid: Testing the "middle" of the region or only the axis corners and missing (2, 3): the crossing point of the two constraint lines is a corner too, and here it is the winner.
 
-                3. Linear Programming Problems (LPP)
+Practice Questions — Self-Test Set
+• Q1. Find the mean of 5, 8, 12, 15, 20, 24.
+• Q2. Find the median of 9, 3, 14, 7, 21, 11, 5.
+• Q3. Class A has mean 60 and SD 6; Class B has mean 45 and SD 9. Which class is more consistent, and why?
+• Q4. A bag holds 4 red and 6 blue balls. Two balls are drawn at random without replacement. Find the probability that both are red.
+• Q5. Events A and B satisfy P(A) = 0.4, P(B) = 0.5 and P(A and B) = 0.2. Are A and B independent? Also find P(A or B).
+• Q6. Box A contains 3 red and 2 white balls; Box B contains 2 red and 3 white balls. A box is chosen at random (equal chance) and one ball is drawn, which turns out red. Find the probability that it came from Box A.
+• Q7. A fair coin is tossed 3 times. Find the probability of getting at least one head.
+• Q8. Minimise Z = 2x + 3y subject to x + y is at least 4, x is at most 6, y is at most 6, and x, y are at least 0. State the minimum value and the point where it occurs.
 
-                • Corner Point Theorem: The optimal value (maximum or minimum) of objective function Z = ax + by over a convex feasible polygon occurs at one of its extreme corner vertices.
+▸ Answer Key with Explanations
+• A1. 14. Route: sum = 5 + 8 + 12 + 15 + 20 + 24 = 84, and 84 / 6 = 14. Misconception watch: dividing by 5 (miscounting the data) or averaging only the extremes ((5 + 24) / 2 = 14.5) — the mean uses every value exactly once.
+• A2. 9. Route: order the data — 3, 5, 7, 9, 11, 14, 21 — and take the 4th of 7 values: 9. Misconception watch: picking the middle of the UNSORTED list (7, the 4th printed value) — the median is defined on ordered data; sorting is not a courtesy step, it is the definition.
+• A3. Class A is more consistent. Route: CV of A = (6 / 60) x 100 = 10 percent; CV of B = (9 / 45) x 100 = 20 percent; smaller CV means relatively steadier. Misconception watch: answering B because "9 is a bigger SD so B varies more, so A" by luck, or answering B outright by comparing SDs in the wrong direction — the comparison must be relative to the means, which is the entire point of CV.
+• A4. 2/15. Route: multiplication rule with re-computed conditionals: (4/10) x (3/9) = 12/90 = 2/15. Misconception watch: using (4/10) x (4/10) — that is the WITH-replacement price; the words "without replacement" shrink both the red count and the total for the second draw.
+• A5. Yes, independent; P(A or B) = 0.7. Route: check the product — P(A) x P(B) = 0.4 x 0.5 = 0.2, which equals P(A and B), so the independence test passes. Then P(A or B) = 0.4 + 0.5 - 0.2 = 0.7. Misconception watch: refusing independence because "the events overlap, so they cannot be independent" — overlap is irrelevant to independence; only the product test decides. (It is EXCLUSIVE events that cannot afford overlap.)
+• A6. 3/5. Route: Bayes with equal priors. Route from A: (1/2) x (3/5) = 3/10. Route from B: (1/2) x (2/5) = 2/10. Posterior: (3/10) / (3/10 + 2/10) = 3/5. Misconception watch: answering 3/5 "because Box A has 3 red balls out of 5 total" by coincidence of numbers — the reasoning must run through the two routes; with unequal priors the naive fraction fails while the tree still works.
+• A7. 7/8. Route: complement — P(at least one head) = 1 - P(no heads) = 1 - (1/2)^3 = 1 - 1/8 = 7/8. Misconception watch: adding P(one head) + P(two heads) + P(three heads) the long way and slipping on the binomial coefficients (the long way gives 3/8 + 3/8 + 1/8, which does check the complement — use it as the audit, not the method).
+• A8. Minimum Z = 8 at (4, 0). Route: the feasible region's corners are (4, 0), (6, 0), (6, 6), (0, 6), (0, 4), with Z values 8, 12, 30, 18, 12 — the smallest is 8 at (4, 0). Misconception watch: testing (0, 0), which violates x + y at least 4 and is not feasible at all — a point must pass EVERY constraint before its Z value means anything. Note also the direction: with "at least" constraints the region opens outward, and it is the caps x, y at most 6 that close it here.
 
-            """.trimIndent(),
+Chapter Summary, Revision Checklist and Self-Assessment
+• Summary: Statistics runs on two questions — where is the centre, and how wide is the spread? The mean (raw, grouped, assumed-mean and step-deviation routes), median and mode answer the first; variance, SD, mean deviation and the scaling laws answer the second; and the coefficient of variation turns spread into a percentage so different datasets can be compared fairly.
+• Summary: Probability prices uncertainty by counting: favourable over total, complements for "at least" and "not", addition with the overlap subtracted. Mutually exclusive and independent are different tests (zero overlap versus product rule), conditional probability shrinks the world to the given event, and Bayes' theorem reverses a conditional honestly by weighing routes against the base rate.
+• Summary: Random variables import the centre-and-spread machinery into probability — E(X) and Var(X) = E(X^2) - (E(X))^2 — and the binomial distribution packages repeated Bernoulli trials into P(X = k) = C(n, k) p^k q^(n-k) with mean np and variance npq. Linear programming closes the chapter: optimise a linear objective by evaluating it at the corners of the feasible region.
+• Revision checklist — I can build the fx and cumulative-frequency tables for grouped data and extract mean, median, mode and SD from them without hesitating.
+• Revision checklist — I can state the three scaling laws (mean, SD, variance under y = a x + b) and run the audit (new SD)^2 = new variance.
+• Revision checklist — I compare consistency with CV, never with naked SDs, and I can say why mean deviation and SD can disagree about outliers.
+• Revision checklist — I run the two tests separately: exclusivity by P(A and B) = 0, independence by the product rule, and I know non-trivial exclusive events are never independent.
+• Revision checklist — On any "given" I shrink the sample space first; on any reverse conditional I draw the Bayes tree and check that branch products sum to 1.
+• Revision checklist — I audit binomial problems with the four conditions (fixed n, two outcomes, constant p, independence) and use 1 - q^n for "at least one".
+• Revision checklist — For an LPP I shade the feasible region, list ALL corners including line-crossings, tabulate Z, and flag infeasible or unbounded cases before answering.
+• Self-assessment: Score your practice set. 7-8 correct: exam-ready — the machines are reflexes; revisit in a week. 5-6: solid; drill the sections behind your misses, especially any base-rate or scaling slip. 3-4: rebuild from the Formula Sheet, re-deriving each result once on Table One, then re-test. Below 3: restart from the Mean section and work forward slowly — this chapter rewards methodical rebuilding more than any other.""".trimIndent(),
 
             videoTitle = "Bayes' Theorem Trees, Variance Transformations & LPP Feasible Regions",
 
@@ -19554,6 +20456,494 @@ QuestionEntity(
                 Step 3: From the left, 1/x tends to -infinity, so e^(1/x) tends to e^(-infinity) = 0.
                 Step 4: The two sides approach completely different values, so the two-sided limit does not exist.
                 Trap: +infinity (option D) grades only the right half of the graph, and 0 (option A) only the left half. This asymmetry is precisely why the question is asked.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_math_55",
+            chapterId = "math_ch_11",
+            subject = "Mathematics",
+            topic = "Chain Rule — Derivative Value of a Composite",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "If f(x) = (x^2 + 2x)^3, then f'(1) equals:",
+            optionA = "27",
+            optionB = "54",
+            optionC = "108",
+            optionD = "36",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Identify the composition: an outer cube wrapped around the inside x^2 + 2x. The chain rule gives f'(x) = 3 (x^2 + 2x)^2 x (2x + 2).
+                Step 2: Evaluate the inside at x = 1: 1 + 2 = 3, so (x^2 + 2x)^2 = 9. The inside's derivative at x = 1 is 2 + 2 = 4.
+                Step 3: Multiply the layers: 3 x 9 x 4 = 108.
+                Trap: 27 (option A) is f(1) = 3^3, the function's value, not its derivative. 54 (option B) uses 2x instead of 2x + 2 for the inside derivative. Count the layers: outer factor 3, squared inside 9, inner derivative 4 — all three must appear.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_56",
+            chapterId = "math_ch_11",
+            subject = "Mathematics",
+            topic = "Implicit Differentiation — Slope at a Point",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 75,
+            prompt = "For the curve x^2 + xy + y^2 = 7, the value of dy/dx at the point (1, 2) is:",
+            optionA = "-4/5",
+            optionB = "-5/4",
+            optionC = "4/5",
+            optionD = "-1/5",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Confirm the point lies on the curve: 1 + 2 + 4 = 7. It does.
+                Step 2: Differentiate implicitly with respect to x, attaching dy/dx to every y-term: 2x + y + x (dy/dx) + 2y (dy/dx) = 0. The xy term needs the product rule.
+                Step 3: Collect the dy/dx terms: (dy/dx)(x + 2y) = -(2x + y), so dy/dx = -(2x + y) / (x + 2y).
+                Step 4: Substitute (1, 2): -(2 + 2) / (1 + 4) = -4/5.
+                Trap: -5/4 (option B) inverts the final fraction. 4/5 (option C) drops the minus sign that the collection step produces. Skipping the product rule on xy loses the standalone y term and corrupts everything downstream.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_57",
+            chapterId = "math_ch_11",
+            subject = "Mathematics",
+            topic = "Increasing and Decreasing — the Sign of f'",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The function f(x) = x^3 - 3x is (strictly) increasing on the interval:",
+            optionA = "(-1, 1)",
+            optionB = "(0, 1)",
+            optionC = "(-2, 2)",
+            optionD = "(1, infinity)",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Differentiate: f'(x) = 3x^2 - 3 = 3(x - 1)(x + 1). The critical points are x = -1 and x = 1.
+                Step 2: Run the sign chart: f'(-2) = 9, positive; f'(0) = -3, negative; f'(2) = 9, positive. So f' is positive outside [-1, 1] and negative inside it.
+                Step 3: f is increasing exactly where f' is positive: on (-infinity, -1) and on (1, infinity). Of the options offered, only (1, infinity) qualifies.
+                Trap: (-1, 1) (option A) is the DECREASING interval — the peak-to-valley stretch. (-2, 2) (option C) mixes both behaviours. Monotonicity is read off the sign chart, never guessed from the graph's endpoints.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_58",
+            chapterId = "math_ch_11",
+            subject = "Mathematics",
+            topic = "Maxima and Minima — Local Extremum Value",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "The local minimum value of the function f(x) = 2x^3 - 3x^2 - 12x + 5 is:",
+            optionA = "12",
+            optionB = "-15",
+            optionC = "-10",
+            optionD = "15",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Differentiate: f'(x) = 6x^2 - 6x - 12 = 6(x - 2)(x + 1). Critical points: x = 2 and x = -1.
+                Step 2: Classify with the second derivative: f''(x) = 12x - 6. f''(2) = 18, positive, so x = 2 is the local minimum point. f''(-1) = -18, negative, so x = -1 is the local maximum point.
+                Step 3: The question asks for the minimum VALUE: f(2) = 16 - 12 - 24 + 5 = -15.
+                Trap: 12 (option A) is the local MAXIMUM value f(-1) — correct arithmetic, wrong extremum. 15 (option D) is the same digits with the sign dropped. Always finish by asking: location or value, maximum or minimum?
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_59",
+            chapterId = "math_ch_11",
+            subject = "Mathematics",
+            topic = "Optimisation — Maximum Area at Fixed Perimeter",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 60,
+            prompt = "A rectangle has perimeter 60 m. The maximum possible area of the rectangle is:",
+            optionA = "225 square metres",
+            optionB = "200 square metres",
+            optionC = "250 square metres",
+            optionD = "144 square metres",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Let the sides be x and 30 - x (half the perimeter is 30, so the two sides share it). Area: A(x) = x (30 - x) = 30x - x^2, on the domain 0 < x < 30.
+                Step 2: Differentiate: A'(x) = 30 - 2x, which is zero at x = 15. A''(x) = -2, negative, confirming a maximum.
+                Step 3: At x = 15 the rectangle is a 15 by 15 square, and the maximum area is 15 x 15 = 225 square metres.
+                Trap: 144 (option D) is the 12 by 18 split some students guess first; 250 (option C) is unattainable under this perimeter. Moral worth memorising: at fixed perimeter, the square is the optimal rectangle.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_math_60",
+            chapterId = "math_ch_12",
+            subject = "Mathematics",
+            topic = "Substitution — the f'/f Pattern in a Definite Integral",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 75,
+            prompt = "The value of the integral from 0 to 1 of 2x/(1 + x^2) dx is:",
+            optionA = "ln 2",
+            optionB = "1/2",
+            optionC = "ln 3",
+            optionD = "2 ln 2",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Recognise the pattern: the numerator 2x is exactly the derivative of the denominator 1 + x^2, so this is the f'/f shape whose antiderivative is a logarithm.
+                Step 2: Substitute u = 1 + x^2, du = 2x dx. The limits convert with u: when x = 0, u = 1; when x = 1, u = 2.
+                Step 3: The integral becomes the integral from 1 to 2 of (1/u) du = [ln u] from 1 to 2 = ln 2 - ln 1 = ln 2.
+                Trap: 2 ln 2 (option D) comes from doubling the log by confusing this with the integral of (2x)/(1 + x^2) over limits that would make u run from 1 to 4 — here u runs 1 to 2, giving exactly one ln 2. ln 3 (option C) misreads the upper u-limit as 1 + 2 = 3 by substituting x = 2, which is not even in the interval.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_61",
+            chapterId = "math_ch_12",
+            subject = "Mathematics",
+            topic = "King's Property — the Symmetric Ratio",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "The value of the integral from 0 to pi/2 of sin x/(sin x + cos x) dx is:",
+            optionA = "pi/2",
+            optionB = "pi/4",
+            optionC = "pi/6",
+            optionD = "1",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Do not hunt for an antiderivative — the integrand is a symmetric ratio on [0, pi/2], which is King's property territory.
+                Step 2: Call the integral I. The mirror (replace x by pi/2 - x) swaps sin and cos, so the mirror I is the integral from 0 to pi/2 of cos x/(cos x + sin x) dx.
+                Step 3: Add the twins: 2I = the integral from 0 to pi/2 of (sin x + cos x)/(sin x + cos x) dx = the integral from 0 to pi/2 of 1 dx = pi/2.
+                Step 4: Halve: I = pi/4. This is the silhouette law: f/(f + mirror f) on [0, a] always gives a/2.
+                Trap: pi/2 (option A) is the pair's combined value before halving — the divide-by-2 is the last step of every King computation. 1 (option D) guesses a decimal-flavoured answer for an interval whose length itself is pi/2.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_62",
+            chapterId = "math_ch_12",
+            subject = "Mathematics",
+            topic = "Integration by Parts — Polynomial times Exponential",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 60,
+            prompt = "The integral of x e^x dx is:",
+            optionA = "e^x (x + 1) + C",
+            optionB = "x e^x + C",
+            optionC = "e^x (x - 1) + C",
+            optionD = "e^x (1 - x) + C",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: The integrand is a product of unlike families, so use parts. ILATE puts algebraic before exponential: u = x, v = e^x.
+                Step 2: Parts gives u times the integral of v, minus the integral of u' times the integral of v: x e^x - the integral of 1 x e^x dx = x e^x - e^x + C.
+                Step 3: Factor: e^x (x - 1) + C. Audit by differentiating: e^x (x - 1) + e^x = x e^x, exactly the integrand.
+                Trap: e^x (x + 1) (option A) flips the sign of the subtracted integral — parts SUBTRACTS the integral of u'v. x e^x alone (option B) forgets that subtraction entirely, keeping only the first term of the formula.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_63",
+            chapterId = "math_ch_12",
+            subject = "Mathematics",
+            topic = "Area Between Two Curves — Line and Parabola",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 75,
+            prompt = "The area enclosed by the curves y = x^2 and y = x is:",
+            optionA = "1/3",
+            optionB = "1/2",
+            optionC = "1/4",
+            optionD = "1/6",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Find the limits from the intersections: x^2 = x gives x(x - 1) = 0, so x = 0 and x = 1.
+                Step 2: Decide the top curve: at x = 1/4 the line gives 1/4 and the parabola gives 1/16, so the line y = x is on top between the intersections.
+                Step 3: Area = the integral from 0 to 1 of (x - x^2) dx = [x^2/2 - x^3/3] from 0 to 1 = 1/2 - 1/3 = 1/6.
+                Trap: 1/2 (option B) is just the area under the line alone — it never subtracts the parabola. Integrating (x^2 - x) upside down returns -1/6, and deleting the minus sign afterwards is a fudge, not a fix; the order (top - bottom) must be set before integrating.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_64",
+            chapterId = "math_ch_12",
+            subject = "Mathematics",
+            topic = "Definite Integrals — Even and Odd Splitting",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The value of the integral from -2 to 2 of (x^3 + x^2) dx is:",
+            optionA = "0",
+            optionB = "16/3",
+            optionC = "32/3",
+            optionD = "8/3",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Run the symmetry audit first: the interval [-2, 2] is symmetric, so split the integrand by parity.
+                Step 2: x^3 is odd, so its integral from -2 to 2 is 0 — the two halves cancel exactly.
+                Step 3: x^2 is even, so its integral is 2 times the integral from 0 to 2 of x^2 dx = 2 x (8/3) = 16/3.
+                Step 4: Total: 0 + 16/3 = 16/3.
+                Trap: 0 (option A) wrongly extends the odd verdict to the whole integrand — only the x^3 organ vanishes. 32/3 (option C) doubles twice: once by the even rule and once again by habit.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_math_65",
+            chapterId = "math_ch_13",
+            subject = "Mathematics",
+            topic = "Order and Degree — the sin(dy/dx) Trap",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The order and degree of the differential equation d^2y/dx^2 + sin(dy/dx) = 0 are:",
+            optionA = "order 2, degree 1",
+            optionB = "order 2, degree not defined",
+            optionC = "order 1, degree not defined",
+            optionD = "order 2, degree 2",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: The highest derivative present is d^2y/dx^2, so the order is 2.
+                Step 2: Degree is the power of that highest derivative, and it exists only when the equation is a polynomial equation in the derivatives.
+                Step 3: Here dy/dx is trapped inside sin, and no algebra converts sin(dy/dx) into a polynomial term — so the degree is not defined.
+                Trap: degree 1 (option A) pretends sin(dy/dx) behaves like a plain factor; degree 2 (option D) copies the order into the degree slot. Whenever a derivative sits inside sin, cos, e-power or log, the degree answer is "not defined".
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_66",
+            chapterId = "math_ch_13",
+            subject = "Mathematics",
+            topic = "Variable Separable — Particular Solution",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 75,
+            prompt = "If dy/dx = 2xy and y(0) = 3, then y(1) equals:",
+            optionA = "3e",
+            optionB = "3 + e",
+            optionC = "e^3",
+            optionD = "3e^2",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Separate the variables: dy/y = 2x dx.
+                Step 2: Integrate both sides: ln y = x^2 + C, so the general solution is y = A e^(x^2).
+                Step 3: Apply y(0) = 3: 3 = A e^0 = A, so the particular solution is y = 3 e^(x^2).
+                Step 4: At x = 1: y(1) = 3 e^(1) = 3e (approximately 8.15).
+                Trap: 3e^2 (option D) evaluates the exponent x^2 at x = 2 instead of x = 1, and e^3 (option C) swaps the roles of the constant and the base — the 3 is a multiplier fixed by the initial condition, not an exponent.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_67",
+            chapterId = "math_ch_13",
+            subject = "Mathematics",
+            topic = "Linear Equations — the Integrating Factor",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "The integrating factor of the differential equation dy/dx + (2/x) y = x^2 is:",
+            optionA = "e^(2x)",
+            optionB = "e^(x^2)",
+            optionC = "x^2",
+            optionD = "2/x",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: The equation is already in standard form dy/dx + P y = Q with P = 2/x.
+                Step 2: The integrating factor is IF = e^(integral of P dx) = e^(integral of (2/x) dx) = e^(2 ln x).
+                Step 3: Simplify: e^(2 ln x) = e^(ln (x^2)) = x^2.
+                Trap: e^(2x) (option A) integrates 2/x as if it were the constant 2. The integral of 2/x is 2 ln x, and the exponential of that is a power of x, not an exponential of x.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_68",
+            chapterId = "math_ch_13",
+            subject = "Mathematics",
+            topic = "Forming a DE — Eliminating the Constant",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The differential equation of the family of curves y = C x^2, where C is an arbitrary constant, is:",
+            optionA = "2x (dy/dx) = y",
+            optionB = "dy/dx = 2x y",
+            optionC = "x (dy/dx) = y",
+            optionD = "x (dy/dx) = 2y",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: One arbitrary constant (C) means one differentiation: dy/dx = 2Cx.
+                Step 2: Eliminate C using the family itself: from y = C x^2, C = y / x^2.
+                Step 3: Substitute: dy/dx = 2 (y / x^2) x = 2y / x, which tidies to x (dy/dx) = 2y.
+                Audit: the answer contains no C, as a family's DE must. Quick check with C = 1: y = x^2 gives dy/dx = 2x, and x times 2x = 2x^2 = 2y — the equation holds.
+                Trap: option C drops the factor 2 that differentiation of x^2 produces; option B confuses the DE with the separable lookalike dy/dx = 2xy, whose solutions are exponentials, not parabolas.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_69",
+            chapterId = "math_ch_13",
+            subject = "Mathematics",
+            topic = "Applications — Doubling Time",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "A bacterial culture doubles every 3 hours. If the culture starts with 200 bacteria, the number of bacteria after 12 hours is:",
+            optionA = "800",
+            optionB = "1600",
+            optionC = "3200",
+            optionD = "6400",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: The growth obeys dN/dt = kN, so the count follows N = N0 times 2^(number of doubling periods).
+                Step 2: Count the doublings: 12 hours divided by 3 hours per doubling = 4 doublings.
+                Step 3: N = 200 times 2^4 = 200 times 16 = 3200.
+                Trap: 1600 (option B) is only 3 doublings (9 hours), and 800 (option A) treats each 3-hour block as adding a flat 200 — growth multiplies, it does not add.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_math_70",
+            chapterId = "math_ch_14",
+            subject = "Mathematics",
+            topic = "Statistics — Scaling Laws for Standard Deviation",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The standard deviation of a dataset is 6. Every observation x is replaced by y = 4x - 3. The standard deviation of the new dataset is:",
+            optionA = "6",
+            optionB = "21",
+            optionC = "24",
+            optionD = "96",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Split the transformation into its two parts: a stretch by a = 4 and a shift by b = -3.
+                Step 2: A shift moves every value rigidly — all gaps stay the same, so the shift changes no measure of spread at all.
+                Step 3: A stretch by a multiplies every gap by |a|, so the SD scales by |a| only: new SD = 4 x 6 = 24.
+                Audit: the new variance is 24^2 = 576, which also equals 4^2 x (old variance 36) = 576. Both laws agree.
+                Trap: 21 (option B) applies the whole of y = 4x - 3 to the SD, shift included. 96 (option D) uses the variance law a^2 on the SD. 6 (option A) forgets the stretch entirely.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_71",
+            chapterId = "math_ch_14",
+            subject = "Mathematics",
+            topic = "Conditional Probability — Cards",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "A card is drawn from a standard 52-card deck and is seen to be a face card (jack, queen or king). The probability that it is a king is:",
+            optionA = "1/3",
+            optionB = "1/13",
+            optionC = "4/13",
+            optionD = "1/4",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: The word "given" shrinks the sample space. The card is known to be a face card, and a deck has 12 face cards (4 jacks, 4 queens, 4 kings).
+                Step 2: Inside this reduced world of 12 cards, exactly 4 are kings.
+                Step 3: P(king given face card) = 4/12 = 1/3.
+                Trap: 1/13 (option B) is the unconditional P(king) = 4/52 — it ignores the given information. 1/4 (option D) counts only one suit's worth of reasoning. The conditional world, not the full deck, owns the denominator.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_72",
+            chapterId = "math_ch_14",
+            subject = "Mathematics",
+            topic = "Bayes' Theorem — Medical Test and Base Rate",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 105,
+            prompt = "A disease affects 1% of a population. A test detects the disease in 99% of those who have it, but also gives a positive result for 5% of those who do not have it. A randomly chosen person tests positive. The probability that the person actually has the disease is:",
+            optionA = "99/100",
+            optionB = "1/6",
+            optionC = "1/2",
+            optionD = "1/100",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Draw the tree. Prior: P(disease) = 0.01, P(healthy) = 0.99.
+                Step 2: True-positive route: 0.01 x 0.99 = 0.0099. False-alarm route: 0.99 x 0.05 = 0.0495.
+                Step 3: All positives: 0.0099 + 0.0495 = 0.0594. Bayes: P(disease given positive) = 0.0099 / 0.0594 = 99/594 = 1/6.
+                Step 4: Despite a 99% detection rate, a positive is right only about 1 time in 6 — the healthy crowd is 99 times larger, so its 5% false alarms swamp the true positives.
+                Trap: 99/100 (option A) is the sensitivity P(positive given disease) — the forward conditional, not the reversed one asked for. 1/100 (option D) is just the prior, ignoring the test entirely.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_73",
+            chapterId = "math_ch_14",
+            subject = "Mathematics",
+            topic = "Binomial Distribution — Exactly k Successes",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 75,
+            prompt = "A fair coin is tossed 5 times. The probability of getting exactly 3 heads is:",
+            optionA = "5/32",
+            optionB = "3/8",
+            optionC = "1/2",
+            optionD = "5/16",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Audit the binomial conditions: n = 5 fixed tosses, two outcomes per toss, p = 1/2 constant, tosses independent. The formula is legal.
+                Step 2: P(X = 3) = C(5, 3) x (1/2)^3 x (1/2)^2 = 10 x (1/32) = 10/32.
+                Step 3: Simplify: 10/32 = 5/16.
+                Trap: 5/32 (option A) comes from C(5, 3) = 5 — the combination counts the 10 orders in which 3 heads can land among 5 tosses, and dropping it (or halving it) is the classic binomial slip. 1/2 (option C) confuses the expected proportion with the probability of exactly 3.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_74",
+            chapterId = "math_ch_14",
+            subject = "Mathematics",
+            topic = "Linear Programming — Corner-Point Method",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 90,
+            prompt = "Maximise Z = 5x + 3y subject to x + y <= 6, x <= 4, y <= 5, x >= 0, y >= 0. The maximum value of Z is:",
+            optionA = "20",
+            optionB = "30",
+            optionC = "26",
+            optionD = "15",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: The feasible region is the polygon cut out by the three constraints in the first quadrant. Its corners are (0, 0), (4, 0), (4, 2), (1, 5) and (0, 5).
+                Step 2: The corner (4, 2) is where x = 4 meets x + y = 6; the corner (1, 5) is where y = 5 meets x + y = 6.
+                Step 3: Evaluate Z = 5x + 3y at each corner: (0, 0) gives 0; (4, 0) gives 20; (4, 2) gives 26; (1, 5) gives 20; (0, 5) gives 15.
+                Step 4: The largest value is 26, attained at (4, 2).
+                Trap: 30 (option B) is the value at (3, 4) or similar interior guesses — no interior point is ever optimal; 20 (option A) is the best AXIS corner, beaten by the crossing corner (4, 2). In an LPP, list every corner before concluding.
             """.trimIndent()
         ),
 

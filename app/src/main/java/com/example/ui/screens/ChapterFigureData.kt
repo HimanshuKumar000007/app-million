@@ -220,7 +220,19 @@ object ChapterFigureData {
         "fig_math_9_3_telescoping" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/mathematics-ch09-fig-9-3-telescoping.png",
         "fig_math_10_1_sinx_x" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277056/mathematics-ch10-fig-10-1-sinx-x.png",
         "fig_math_10_2_discontinuity_types" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277058/mathematics-ch10-fig-10-2-discontinuity-types.png",
-        "fig_math_10_3_one_sided" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277059/mathematics-ch10-fig-10-3-one-sided.png"
+        "fig_math_10_3_one_sided" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277059/mathematics-ch10-fig-10-3-one-sided.png",
+        "fig_math_11_1_tangent_secant" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793279062/mathematics-ch11-fig-11-1-tangent-secant.png",
+        "fig_math_11_2_first_derivative_test" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793279063/mathematics-ch11-fig-11-2-first-derivative-test.png",
+        "fig_math_11_3_rolle_mvt" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793279064/mathematics-ch11-fig-11-3-rolle-mvt.png",
+        "fig_math_12_1_area_meaning" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793278878/mathematics-ch12-fig-12-1-area-meaning.png",
+        "fig_math_12_2_symmetry_king" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793278880/mathematics-ch12-fig-12-2-symmetry-king.png",
+        "fig_math_12_3_between_curves" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793278881/mathematics-ch12-fig-12-3-between-curves.png",
+        "fig_math_13_1_slope_field" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793278899/mathematics-ch13-fig-13-1-slope-field.png",
+        "fig_math_13_3_family_curves" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793278901/mathematics-ch13-fig-13-3-family-curves.png",
+        "fig_math_13_2_growth_decay" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793278900/mathematics-ch13-fig-13-2-growth-decay.png",
+        "fig_math_14_1_distribution_stats" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793278905/mathematics-ch14-fig-14-1-distribution-stats.png",
+        "fig_math_14_2_bayes_tree" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793278907/mathematics-ch14-fig-14-2-bayes-tree.png",
+        "fig_math_14_3_lp_region" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793278908/mathematics-ch14-fig-14-3-lp-region.png"
     )
 
     val images: Map<String, String> = mapOf(
