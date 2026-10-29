@@ -11098,6 +11098,636 @@ QuestionEntity(
                 Step 3: Option C is correct. Option A uses the right organ family but the wrong side of the count. Option B fails twice: GIFT transfers a gamete (an ovum), not an embryo, and is not an embryo-transfer technique at all. Option D misuses ICSI, which is the laboratory injection of a single sperm into an ovum, not a transfer procedure.
                 Trap: The boundary is inclusive on the ZIFT side — exactly 8 blastomeres still goes to the fallopian tube. Only embryos with MORE than 8 blastomeres change both the technique's name and the destination organ.
             """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_115",
+            chapterId = "bio_ch_23",
+            subject = "Biology",
+            topic = "Monohybrid Cross and the Test Cross",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "A tall pea plant is test-crossed with a dwarf plant, and the offspring are tall and dwarf in nearly equal numbers. The genotype of the tall parent is:",
+            optionA = "TT, homozygous dominant",
+            optionB = "Tt, heterozygous",
+            optionC = "tt, homozygous recessive",
+            optionD = "Cannot be decided from a test cross",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: A test cross mates the dominant-phenotype plant with the recessive parent (tt), which can contribute only the t allele, so the offspring expose the tested parent's gametes.
+                Step 2: The appearance of dwarf (tt) offspring proves the tall parent supplied a t gamete — it must carry the recessive allele hidden alongside T.
+                Step 3: A parent carrying both T and t is heterozygous, Tt, and its roughly equal T and t gametes give the observed 1:1 split.
+                Trap: A TT parent (option A) could never produce a dwarf offspring; option C contradicts the parent being tall at all.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_116",
+            chapterId = "bio_ch_23",
+            subject = "Biology",
+            topic = "Codominance — ABO Blood Groups",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "A man with blood group AB marries a woman with blood group O. Their children can have which blood groups?",
+            optionA = "AB and O only",
+            optionB = "A, B, AB and O",
+            optionC = "A and B only",
+            optionD = "AB only",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Write the genotypes: the AB father is IA IB, and the O mother is i i.
+                Step 2: The father passes either IA or IB; the mother can pass only i, so every child is either IA i or IB i.
+                Step 3: IA i shows group A and IB i shows group B — groups A and B only.
+                Trap: A child of an AB parent is never AB (the other parent would also need to supply IA or IB) and never O (the AB parent has no i to give). Options A, B and D all smuggle in one of those impossibilities.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_117",
+            chapterId = "bio_ch_23",
+            subject = "Biology",
+            topic = "Linkage and Recombination Frequency",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "In Morgan's Drosophila test cross for the genes of white eye (w) and miniature wing (m), the parental combinations were 62.8 percent and the recombinants 37.2 percent. What does this establish?",
+            optionA = "The two genes lie on different chromosomes",
+            optionB = "The two genes are linked, about 37.2 map units apart",
+            optionC = "The two genes assort independently",
+            optionD = "The two genes are 62.8 map units apart",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Parental combinations well above 50 percent of the offspring mean the two genes travel together — they are linked on the same chromosome (here, the X).
+                Step 2: Map distance is read from the recombinant percentage, not the parental one: 37.2 percent recombinants means about 37.2 map units (centimorgans) between the loci.
+                Step 3: Compare with the yellow-white pair in Morgan's work — only 1.3 percent recombinants, a much tighter linkage — to see that recombination frequency scales with distance.
+                Trap: Independent assortment (options A and C) would give roughly 50 percent recombinants and four equal classes; option D reads the distance off the wrong class.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_118",
+            chapterId = "bio_ch_23",
+            subject = "Biology",
+            topic = "Pedigree Analysis — Autosomal versus X-linked",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "In a pedigree, two unaffected parents have an affected daughter. The trait in this family is most consistent with:",
+            optionA = "X-linked recessive inheritance",
+            optionB = "X-linked dominant inheritance",
+            optionC = "Autosomal dominant inheritance",
+            optionD = "Autosomal recessive inheritance",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: An affected child born to two unaffected parents shows the trait can hide in the parents — the signature of recessive inheritance. Dominant options (B and C) are ruled out, because a dominant allele in either parent would have shown itself.
+                Step 2: Test the X-linked recessive option: a daughter receives her father's only X. An unaffected father carries no recessive disease allele on that X to give, so his daughter cannot be homozygous affected under X-linkage.
+                Step 3: What remains is autosomal recessive — both parents are carriers of an autosomal allele, and the daughter received it from each.
+                Trap: "Recessive" alone does not force "X-linked"; the affected daughter with an unaffected father is precisely the observation that separates the autosomal case from the X-linked one.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_119",
+            chapterId = "bio_ch_23",
+            subject = "Biology",
+            topic = "Sickle-Cell Anaemia — Molecular Basis",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Sickle-cell anaemia results from a point mutation in the beta-globin gene in which the codon GAG is changed to GUG. The direct molecular consequence is that in the beta chain:",
+            optionA = "Glutamic acid is replaced by valine at the sixth position",
+            optionB = "Valine is replaced by glutamic acid at the sixth position",
+            optionC = "The beta chain is produced in greatly reduced amount",
+            optionD = "The reading frame shifts and all later codons change",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: GAG codes for glutamic acid (Glu) and GUG codes for valine (Val), so the substitution swaps Glu for Val — one amino acid in one position, the sixth of the beta-globin chain.
+                Step 2: This single swap makes haemoglobin S polymerise at low oxygen tension, deforming red cells into sickles — a quality defect: a wrong amino acid, not a missing chain.
+                Step 3: Only HbS HbS homozygotes show the severe anaemia; HbA HbS heterozygotes are carriers with the sickle-cell trait.
+                Trap: Option B states the swap backwards. Option C describes thalassemia (too little chain), and option D describes a frameshift — a single base substitution changes only one codon.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_120",
+            chapterId = "bio_ch_24",
+            subject = "Biology",
+            topic = "DNA Length — E. coli Calculation",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "The DNA of Escherichia coli contains 4.6 x 10^6 base pairs. Taking the distance between two consecutive base pairs as 0.34 nm, the length of this DNA is approximately",
+            optionA = "0.46 millimetres",
+            optionB = "1.36 millimetres",
+            optionC = "3.4 millimetres",
+            optionD = "2.2 metres",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Length of DNA equals the number of base pairs multiplied by the rise per base pair, 0.34 nm.
+                Step 2: The multiplication 4.6 x 10^6 by 0.34 nm lands on the scale of one to one-and-a-half millimetres, and the value NCERT quotes for E. coli is approximately 1.36 millimetres — the only option on this scale.
+                Step 3: The 2.2 metres option is the length of DNA in a human diploid cell (6.6 x 10^9 base pairs), planted here as the classic swap.
+                Trap: Do not multiply by 3.4 nm — that is the pitch of one complete turn holding 10 base pairs, not the spacing between two neighbouring pairs.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_121",
+            chapterId = "bio_ch_24",
+            subject = "Biology",
+            topic = "Meselson and Stahl — Band Pattern",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Bacteria grown for many generations in a medium containing only heavy nitrogen (15N) are transferred to a medium with light nitrogen (14N). After two generations of growth in the light medium, the DNA extracted and centrifuged in a caesium chloride gradient will show",
+            optionA = "A single band of hybrid (intermediate) density",
+            optionB = "A single band of light density",
+            optionC = "Two bands — hybrid and light — in equal amounts",
+            optionD = "Two bands — heavy and light — in equal amounts",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Replication is semiconservative: after one generation in light medium, every DNA molecule is hybrid — one heavy parental strand, one new light strand.
+                Step 2: In the second generation, each hybrid strand is copied. The heavy template strand again gives a hybrid molecule; the light template strand gives a light molecule.
+                Step 3: The population is therefore half hybrid and half light, giving two bands in equal amounts. The heavy-only band never returns, because no new heavy strands are ever synthesised.
+                Trap: The single hybrid band belongs to the first generation (about 20 minutes), not the second — the question's two generations are the whole game.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_122",
+            chapterId = "bio_ch_24",
+            subject = "Biology",
+            topic = "RNA Polymerase III — Products",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "In a eukaryotic nucleus, RNA polymerase III is responsible for transcribing",
+            optionA = "tRNA, 5S rRNA and small nuclear RNAs",
+            optionB = "28S, 18S and 5.8S rRNA",
+            optionC = "Heterogeneous nuclear RNA, the precursor of mRNA",
+            optionD = "All types of RNA, since eukaryotes use a single RNA polymerase",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Eukaryotes split transcription among three nuclear RNA polymerases, each with its own products.
+                Step 2: Polymerase I makes the large ribosomal RNAs (28S, 18S, 5.8S); polymerase II makes hnRNA, the precursor of mRNA; polymerase III makes tRNA, 5S rRNA and snRNAs.
+                Step 3: The products listed in the first option — tRNA, 5S rRNA and snRNAs — belong to polymerase III.
+                Trap: 5S rRNA is the deliberate misfit — it sounds like a polymerase I product with the other rRNAs, but it is made by polymerase III.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_123",
+            chapterId = "bio_ch_24",
+            subject = "Biology",
+            topic = "Lac Operon — The Inducer Switch",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "Escherichia coli growing without lactose is transferred to a medium where lactose is the only sugar. Which event directly switches the lac operon ON?",
+            optionA = "Lactose binds the operator and pushes the RNA polymerase forward",
+            optionB = "The repressor is destroyed, and the i gene stops working permanently",
+            optionC = "Lactose binds the promoter and helps RNA polymerase attach",
+            optionD = "The inducer binds the repressor and inactivates it, so the repressor leaves the operator free",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: In the absence of lactose, the repressor made by the i gene sits on the operator and physically blocks RNA polymerase — the operon is off.
+                Step 2: When lactose appears, it acts as the inducer (through its isomer allolactose): it binds the repressor and changes its shape so it can no longer hold the operator.
+                Step 3: With the operator free, RNA polymerase transcribes genes z, y and a, producing beta-galactosidase, permease and transacetylase. This is negative, inducible regulation — the repressor is inactivated, never destroyed, and the i gene keeps working throughout.
+                Trap: Lactose never touches the operator or the promoter — its only target is the repressor protein.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_124",
+            chapterId = "bio_ch_24",
+            subject = "Biology",
+            topic = "Replication — Why the Lagging Strand Is Discontinuous",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "At a replication fork, one new strand is synthesised continuously while the other is made in short Okazaki fragments. The fundamental reason for this difference is that",
+            optionA = "DNA ligase is present on only one side of the fork",
+            optionB = "DNA polymerase can polymerise nucleotides only in the 5 prime to 3 prime direction",
+            optionC = "The lagging strand template is not available until replication is nearly complete",
+            optionD = "Okazaki fragments are later converted into the leading strand",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: The two template strands are antiparallel, so they present opposite polarities to the opening fork.
+                Step 2: DNA polymerase has one unbreakable rule: it polymerises only 5 prime to 3 prime, reading its template 3 prime to 5 prime.
+                Step 3: On the template that runs 3 prime to 5 prime towards the fork, synthesis runs continuously — the leading strand. On the opposite template, polymerase can only build away from the fork, so it restarts repeatedly as the fork opens, producing Okazaki fragments that DNA ligase later joins.
+                Trap: Ligase only seals the fragments; it is not the reason they exist. And the fragments are never converted into a leading strand — they are joined into the lagging strand itself.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_125",
+            chapterId = "bio_ch_25",
+            subject = "Biology",
+            topic = "Origin of Life — Miller's Experiment",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "In Miller's 1953 experiment, a closed flask containing CH4, H2, NH3 and water vapour was subjected to electric discharge at high temperature. After about a week, the condensed liquid was found to contain:",
+            optionA = "Living bacterial cells",
+            optionB = "Proteins and enzymes",
+            optionC = "Amino acids",
+            optionD = "DNA and RNA molecules",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Miller recreated early-Earth conditions — a reducing mixture of methane, hydrogen, ammonia and water vapour, with electric discharge standing in for lightning.
+                Step 2: Analysis of the liquid that condensed in the trap showed amino acids, the building blocks of proteins, had formed from the inorganic gases.
+                Step 3: Nothing living was added or produced, so options claiming cells, complete proteins or nucleic acids all overstate the result.
+                Trap: Option B tempts students who reason "amino acids make proteins, so proteins must have formed" — polymerisation into proteins was not observed. The demonstrated step is gases to amino acids only.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_126",
+            chapterId = "bio_ch_25",
+            subject = "Biology",
+            topic = "Evidence — Homologous Organs in Plants",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The thorn of Bougainvillea and the tendril of Cucurbita are cited as homologous organs because they:",
+            optionA = "Perform the same function in both plants",
+            optionB = "Are both modifications of the stem but perform different functions",
+            optionC = "Are both modifications of the leaf that help the plant climb",
+            optionD = "Have different origins but converged on the same function",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Homology is decided by origin and basic structure, not by function: same origin, different function is the homologous pattern.
+                Step 2: Both the Bougainvillea thorn and the Cucurbita tendril are modified stems — the origin matches.
+                Step 3: Their jobs differ — the thorn defends the plant while the tendril helps it climb — which completes the homologous signature of option B.
+                Trap: Option D describes analogy and convergence, the opposite pattern. Option A fails because the functions are plainly different, and option C mislabels both structures as leaf modifications.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_127",
+            chapterId = "bio_ch_25",
+            subject = "Biology",
+            topic = "Hardy-Weinberg Principle — Carrier Frequency",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "In a population in Hardy-Weinberg equilibrium, 9 percent of individuals show a recessive trait. The percentage of heterozygous carriers in this population is:",
+            optionA = "42 percent",
+            optionB = "21 percent",
+            optionC = "49 percent",
+            optionD = "9 percent",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Individuals showing the recessive trait are homozygous recessive, so q^2 = 0.09. Take the square root first: q = 0.3.
+                Step 2: The dominant allele frequency is p = 1 − q = 1 − 0.3 = 0.7.
+                Step 3: Heterozygous carriers are 2pq = 2 × 0.7 × 0.3 = 0.42, that is, 42 percent of the population.
+                Trap: Option D simply repeats the phenotype percentage. Option B halves the correct product by dropping the factor 2. The compulsory move in every such sum is root first — never use 0.09 as q.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_128",
+            chapterId = "bio_ch_25",
+            subject = "Biology",
+            topic = "Genetic Drift — The Founder Effect",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "A few individuals of a mainland bird species colonise a distant island. The island population that develops from them shows allele frequencies markedly different from the mainland population, although the alleles involved confer no survival advantage. This is best explained by:",
+            optionA = "Natural selection acting on the island",
+            optionB = "Gene flow between the island and the mainland",
+            optionC = "A burst of new mutations on the island",
+            optionD = "The founder effect, a case of genetic drift",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: The founders are a small, chance sample of the mainland gene pool, so their allele frequencies need not match the mainland's — sampling error, not advantage, sets the island's starting frequencies.
+                Step 2: NCERT names this the founder effect: the original drifted population becomes the founders, and the change in allele frequency in the new population can be so different that it may even lead to a new species.
+                Step 3: The founder effect is a case of genetic drift — change by chance — which is option D.
+                Trap: Option A is excluded by the stem itself, which states the alleles confer no survival advantage. Option B requires continuing exchange between populations, the opposite of an isolated founding event.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_129",
+            chapterId = "bio_ch_25",
+            subject = "Biology",
+            topic = "Origin and Evolution of Man — Brain Capacities",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "Which pairing of a human ancestor with its brain capacity is correct?",
+            optionA = "Homo habilis — about 1400 cc",
+            optionB = "Homo erectus — 650 to 800 cc",
+            optionC = "Neanderthal man — 1400 cc",
+            optionD = "Homo erectus — 1400 cc",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Recall the capacity ladder in ascending order: Homo habilis 650-800 cc, Homo erectus about 900 cc, Neanderthal man 1400 cc.
+                Step 2: Test each option against the ladder. Option A hands the Neanderthal figure to habilis. Option B hands the habilis range to erectus. Option D hands the Neanderthal figure to erectus.
+                Step 3: Only option C pairs a species with its own rung — the Neanderthal man at 1400 cc, the species that also used hides and buried its dead.
+                Trap: The question is built entirely from swapped rungs; if you know the ladder as an ordered set rather than three loose numbers, every wrong option exposes itself.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_130",
+            chapterId = "bio_ch_26",
+            subject = "Biology",
+            topic = "Malaria — Haemozoin and the Fever Cycle",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "In malaria, the chill and high fever that recur every three to four days are caused by:",
+            optionA = "Sporozoites multiplying inside the liver cells",
+            optionB = "Haemozoin released when infected red blood cells rupture",
+            optionC = "Gametocytes undergoing fertilisation in the mosquito gut",
+            optionD = "Antibodies produced against the sporozoite surface proteins",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Trace the human phase of the Plasmodium cycle. Sporozoites first infect liver cells and multiply there silently. The parasites then enter red blood cells and multiply inside them until the cells rupture.
+                Step 2: NCERT states that with the rupture of RBCs, a toxic substance called haemozoin is released, and this haemozoin is responsible for the chill and high fever recurring every three to four days. Because infected RBCs rupture in near-synchrony, the toxin arrives in pulses and the fever is cyclic.
+                Step 3: Option B names exactly this substance and this event.
+                Trap: Option A is the liver stage, which produces no symptoms. Option C happens inside the mosquito, not the patient, so it cannot cause the patient's fever. Option D invents a mechanism NCERT never assigns to the fever cycle.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_131",
+            chapterId = "bio_ch_26",
+            subject = "Biology",
+            topic = "Immunity — Passive Immunity via Colostrum",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "A newborn receives abundant IgA antibodies through the mother's colostrum during the initial days of lactation. This protection is an example of:",
+            optionA = "Active immunity, because the antibodies protect the infant against many pathogens",
+            optionB = "Innate immunity, because the protection is present from the time of birth",
+            optionC = "Passive immunity, because the infant receives ready-made antibodies produced by the mother",
+            optionD = "Cell-mediated immunity, because IgA acts inside the infant's body cells",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Classify immunity from the receiver's side. Active immunity means the protected person's own body produced the antibodies after exposure to antigen. Passive immunity means ready-made antibodies were directly given.
+                Step 2: The IgA in colostrum was manufactured by the mother's immune system, not the infant's. The infant simply receives it, so the protection is borrowed — immediate but temporary, with no memory formed in the infant. NCERT explicitly lists colostrum IgA (and placental IgG) as examples of passive immunity.
+                Step 3: Option C states this correctly.
+                Trap: Option A fails because "active" never describes who benefits, only who produces. Option B confuses timing with type — passive immunity can also be present at birth, but innate immunity refers to the barriers a person is born with, not donated antibodies.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_132",
+            chapterId = "bio_ch_26",
+            subject = "Biology",
+            topic = "Typhoid — Widal Test",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "A patient shows sustained high fever of 39 to 40 degrees Celsius with weakness, stomach pain and constipation. The Widal test is positive. The causative organism is:",
+            optionA = "Salmonella typhi, a bacterium that enters the small intestine through contaminated food and water",
+            optionB = "Plasmodium falciparum, a protozoan transmitted by the female Anopheles mosquito",
+            optionC = "Streptococcus pneumoniae, a bacterium that fills the alveoli with fluid",
+            optionD = "Entamoeba histolytica, a protozoan parasite of the large intestine",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: The Widal test is the diagnostic anchor — NCERT states that typhoid fever can be confirmed by the Widal test. The clinical picture agrees: sustained (not cyclic) fever of 39 to 40 degrees Celsius with abdominal symptoms is typhoid's signature.
+                Step 2: The pathogen of typhoid is Salmonella typhi, a pathogenic bacterium which enters the small intestine through contaminated food and water and then migrates to other organs through the blood.
+                Step 3: Option A matches disease, pathogen, type and route together.
+                Trap: Option B causes malaria, whose fever recurs every three to four days with chills and is never Widal-positive. Option C causes pneumonia, a lung disease of the alveoli. Option D causes amoebiasis, whose signature is stools with excess mucus and blood clots, not sustained high fever with a positive Widal test.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_133",
+            chapterId = "bio_ch_26",
+            subject = "Biology",
+            topic = "AIDS — HIV Replication in Macrophages",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "After HIV enters a macrophage, which sequence of events correctly describes how the macrophage becomes an HIV factory?",
+            optionA = "The viral DNA is transcribed into RNA, which is packaged directly into new virus particles",
+            optionB = "The viral RNA is translated into capsid proteins, and the macrophage bursts to release them",
+            optionC = "Reverse transcriptase converts the viral RNA into viral DNA, which is then exported to helper T-lymphocytes",
+            optionD = "Reverse transcriptase copies the viral RNA into viral DNA, the DNA is incorporated into the host cell's DNA, and the host cell is directed to produce new virus particles continuously",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: HIV is a retrovirus with an RNA genome. Inside the macrophage, the RNA genome replicates to form viral DNA with the help of the enzyme reverse transcriptase — this reverse flow, RNA to DNA, is the defining step.
+                Step 2: The viral DNA then gets incorporated into the DNA of the host cell and directs the infected cell to produce virus particles. Because the macrophage survives and keeps producing virus, NCERT says the macrophages continue to produce virus particles and in this way act like an HIV factory.
+                Step 3: Option D contains every link in the correct order — reverse transcriptase, viral DNA, incorporation into host DNA, continuous production.
+                Trap: Option A reverses the direction of information flow. Option B skips DNA formation entirely and wrongly bursts the macrophage — the factory must stay alive to keep producing. Option C gets the enzyme right but invents an export step; the viral DNA stays incorporated in the same host cell's genome.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_134",
+            chapterId = "bio_ch_26",
+            subject = "Biology",
+            topic = "Immunity — Secondary (Anamnestic) Response",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "When the same pathogen enters the body a second time, the antibody response is much faster and far more intense than during the first encounter. This is because:",
+            optionA = "Innate barriers such as interferons become stronger after the first infection",
+            optionB = "Memory B-cells and T-cells formed during the primary response recognise the pathogen and mount the highly intensified secondary response",
+            optionC = "The pathogen becomes weaker after surviving the first immune response",
+            optionD = "Antibodies from the first encounter remain stored in the blood for the person's whole life",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Acquired immunity is characterised by memory. The first encounter with a pathogen produces the primary response, which is of low intensity, but it leaves behind memory B-lymphocytes and T-lymphocytes.
+                Step 2: On a subsequent encounter with the same pathogen, these memory cells recognise it immediately, and the body produces a highly intensified secondary response — also called the anamnestic response. No fresh search-and-multiply delay is needed, so antibody production is both faster and greater.
+                Step 3: Option B gives exactly this mechanism.
+                Trap: Option A fails because innate immunity has no memory — its barriers respond identically every time. Option C reverses the logic; the pathogen has not changed, the host has. Option D is wrong because free antibodies are cleared from the blood; what persists is the memory cell population, not the antibodies themselves.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_135",
+            chapterId = "bio_ch_27",
+            subject = "Biology",
+            topic = "Microbes in Household Products",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "When milk is converted into curd by lactic acid bacteria, the nutritional quality of the curd improves because the content of which vitamin increases?",
+            optionA = "Vitamin D",
+            optionB = "Vitamin C",
+            optionC = "Vitamin B12",
+            optionD = "Vitamin E",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                LAB (Lactobacillus and other lactic acid bacteria) grow in milk and convert it into curd.
+                Their lactic acid coagulates and partially digests the milk proteins.
+                NCERT states that LAB improve the nutritional quality of curd by increasing its vitamin B12 content.
+                Hence option C — Vitamin B12 — is correct.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_136",
+            chapterId = "bio_ch_27",
+            subject = "Biology",
+            topic = "Microbes in Industrial Production",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Which one of the following microbe–product pairs is correctly matched for industrial production?",
+            optionA = "Aspergillus niger — citric acid",
+            optionB = "Acetobacter aceti — butyric acid",
+            optionC = "Clostridium butylicum — acetic acid",
+            optionD = "Lactobacillus — ethanol",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Citric acid is produced by Aspergillus niger, a fungus — option A is correctly matched.
+                Acetobacter aceti produces acetic acid, not butyric acid.
+                Clostridium butylicum produces butyric acid, not acetic acid — options B and C are the classic swapped pair.
+                Lactobacillus produces lactic acid; beverage and industrial ethanol comes from Saccharomyces cerevisiae.
+                Hence option A is correct.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_137",
+            chapterId = "bio_ch_27",
+            subject = "Biology",
+            topic = "Microbes in Sewage Treatment",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "BOD (biochemical oxygen demand) of a water sample refers to the amount of oxygen that would be consumed if all the organic matter in one litre of the sample were oxidised by bacteria. A sewage sample therefore shows a high BOD because it",
+            optionA = "contains very little organic matter",
+            optionB = "is rich in dissolved oxygen",
+            optionC = "is already fully treated",
+            optionD = "contains a large amount of organic matter and has greater polluting potential",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                BOD is an indirect measure of organic matter: more organic matter means bacteria need more oxygen to oxidise it.
+                NCERT states the interpretation directly — the greater the BOD of waste water, the more is its polluting potential.
+                Sewage carries a large load of organic matter, so its BOD is high and its polluting potential is great.
+                Options A, B and C all describe clean or treated water, the opposite of sewage.
+                Hence option D is correct.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_138",
+            chapterId = "bio_ch_27",
+            subject = "Biology",
+            topic = "Biocontrol Agents",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "Caterpillars feeding on plants sprayed with Bacillus thuringiensis (Bt) die, while many other insects in the same field remain unharmed. The best explanation is that in the caterpillar",
+            optionA = "the toxin is activated by the acidic pH of its gut and blocks its nerve impulses",
+            optionB = "the inactive protoxin is converted into active toxin by the alkaline pH of its gut, and the toxin creates pores in gut cells causing them to swell and lyse",
+            optionC = "the bacteria multiply in its blood and cause septicaemia",
+            optionD = "the spores germinate on its skin and digest the cuticle from outside",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Bt spores sprayed on plants are eaten by insect larvae; the bacterial protein is an inactive protoxin.
+                In the larva's gut, the alkaline pH converts the protoxin into the active toxin.
+                The activated toxin creates pores in the gut cells, causing them to swell and lyse, and the larva dies.
+                Insects whose guts do not provide this alkaline activation are not harmed — that is the basis of Bt's selectivity.
+                Option A reverses the pH (it is alkaline, not acidic), and options C and D describe mechanisms NCERT does not give for Bt.
+                Hence option B is correct.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_139",
+            chapterId = "bio_ch_27",
+            subject = "Biology",
+            topic = "Microbes in Energy Production",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "In a sewage treatment plant, the major part of the activated sludge is pumped into anaerobic sludge digesters, where biogas is produced. This happens because",
+            optionA = "aerobic flocs keep growing there and release oxygen",
+            optionB = "yeasts ferment the sludge to ethanol and carbon dioxide",
+            optionC = "methanogens digest the sludge anaerobically and release a gas mixture rich in methane",
+            optionD = "denitrifying bacteria convert the sludge into nitrogen gas",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                In anaerobic sludge digesters, anaerobic bacteria digest the bacteria and fungi present in the sludge.
+                The key producers are methanogens such as Methanobacterium, which grow anaerobically and produce large amounts of methane along with carbon dioxide and hydrogen (with hydrogen sulphide in the digester mixture).
+                These gases form biogas, which is inflammable and used as an energy source.
+                Methanogens cannot work in the aeration tank — they are anaerobes — and neither yeast fermentation nor denitrification is the digester process described by NCERT.
+                Hence option C is correct.
+            """.trimIndent()
         )
 
     )
