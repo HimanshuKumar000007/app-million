@@ -774,6 +774,66 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "chem_ch_6" -> when (sectionIndex) {
+
+            7 -> listOf("fig_chem_6_2_geometrical_isomers")
+
+            10 -> listOf("fig_chem_6_1_crystal_field_splitting")
+
+            11 -> listOf("fig_chem_6_3_spectrochemical_series")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_7" -> when (sectionIndex) {
+
+            6 -> listOf("fig_chem_7_3_bomb_calorimeter")
+
+            7 -> listOf("fig_chem_7_1_enthalpy_profiles")
+
+            9 -> listOf("fig_chem_7_2_hess_cycle")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_8" -> when (sectionIndex) {
+
+            3 -> listOf("fig_chem_8_1_equilibrium_approach")
+
+            11 -> listOf("fig_chem_8_2_haber_lechatelier")
+
+            15 -> listOf("fig_chem_8_3_buffer_action")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_9" -> when (sectionIndex) {
+
+            2 -> listOf("fig_chem_9_3_electron_transfer")
+
+            3 -> listOf("fig_chem_9_1_sulphur_ladder")
+
+            13 -> listOf("fig_chem_9_2_daniell_cell")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_10" -> when (sectionIndex) {
+
+            7 -> listOf("fig_chem_10_1_raoult_ideal")
+
+            9 -> listOf("fig_chem_10_2_deviations")
+
+            12 -> listOf("fig_chem_10_3_osmosis")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -1695,6 +1755,127 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Ionic radii of the trivalent lanthanoid ions shrink steadily from lanthanum to lutetium as the poorly shielding 4f shell fills."
 
         )
+
+        "fig_chem_6_1_crystal_field_splitting" -> Pair(
+
+            "Fig. 6.1 — Crystal Field Splitting: Octahedral and Tetrahedral",
+
+            "In an octahedral field the t2g set drops and the eg set rises; tetrahedral splitting is inverted and smaller."
+
+        )
+
+        "fig_chem_6_2_geometrical_isomers" -> Pair(
+
+            "Fig. 6.2 — Geometrical Isomers",
+
+            "Cis and trans forms of a square-planar complex, and the facial and meridional forms of an octahedral MA3B3 complex."
+
+        )
+
+        "fig_chem_6_3_spectrochemical_series" -> Pair(
+
+            "Fig. 6.3 — The Spectrochemical Series",
+
+            "Ligands ranked by splitting strength, from iodide the weakest to carbon monoxide the strongest, with the spin fork for d4 to d7."
+
+        )
+
+        "fig_chem_7_1_enthalpy_profiles" -> Pair(
+
+            "Fig. 7.1 — Enthalpy Profiles: Exothermic and Endothermic",
+
+            "Both reactions climb an activation barrier; the sign of the enthalpy change is set by which side finishes lower."
+
+        )
+
+        "fig_chem_7_2_hess_cycle" -> Pair(
+
+            "Fig. 7.2 — A Hess Cycle",
+
+            "The direct route and the two-step route between the same states must give the same total enthalpy change."
+
+        )
+
+        "fig_chem_7_3_bomb_calorimeter" -> Pair(
+
+            "Fig. 7.3 — The Bomb Calorimeter",
+
+            "Combustion at constant volume: the heat released warms the surrounding water, giving the change in internal energy."
+
+        )
+
+        "fig_chem_8_1_equilibrium_approach" -> Pair(
+
+            "Fig. 8.1 — Approaching Dynamic Equilibrium",
+
+            "Concentrations level off when forward and reverse rates become equal — the reaction continues, the composition stops changing."
+
+        )
+
+        "fig_chem_8_2_haber_lechatelier" -> Pair(
+
+            "Fig. 8.2 — Le Chatelier and the Haber Process",
+
+            "Ammonia yield rises with pressure and falls with temperature; industry compromises on moderate heat, high pressure and a catalyst."
+
+        )
+
+        "fig_chem_8_3_buffer_action" -> Pair(
+
+            "Fig. 8.3 — How a Buffer Resists pH Change",
+
+            "Added acid or base barely moves the buffer's pH, while the same additions swing plain water across the scale."
+
+        )
+
+        "fig_chem_9_1_sulphur_ladder" -> Pair(
+
+            "Fig. 9.1 — The Oxidation-Number Ladder of Sulphur",
+
+            "Sulphur climbs from minus 2 in hydrogen sulphide to plus 6 in sulphuric acid — every rung a compound to recognise."
+
+        )
+
+        "fig_chem_9_2_daniell_cell" -> Pair(
+
+            "Fig. 9.2 — The Daniell Cell",
+
+            "Zinc is oxidised at the anode, copper ions are reduced at the cathode, and the salt bridge completes the circuit."
+
+        )
+
+        "fig_chem_9_3_electron_transfer" -> Pair(
+
+            "Fig. 9.3 — Electron Transfer: Zinc plus Copper Ions",
+
+            "Each zinc atom hands two electrons to a copper ion: one half-reaction loses electrons, the other gains them."
+
+        )
+
+        "fig_chem_10_1_raoult_ideal" -> Pair(
+
+            "Fig. 10.1 — Raoult's Law for an Ideal Solution",
+
+            "Each component's vapour pressure is its pure value times its mole fraction; the total is a straight line between the two pure pressures."
+
+        )
+
+        "fig_chem_10_2_deviations" -> Pair(
+
+            "Fig. 10.2 — Positive and Negative Deviations",
+
+            "Weaker A–B attractions bow the total vapour pressure above the ideal line; stronger A–B attractions pull it below."
+
+        )
+
+        "fig_chem_10_3_osmosis" -> Pair(
+
+            "Fig. 10.3 — Osmosis and Osmotic Pressure",
+
+            "Solvent flows through the semipermeable membrane towards the solution until the liquid head balances the osmotic pressure."
+
+        )
+
 
 
 

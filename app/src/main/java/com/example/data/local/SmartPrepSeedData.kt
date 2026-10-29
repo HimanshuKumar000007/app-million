@@ -10362,35 +10362,288 @@ Chapter Summary and Revision Checklist
 
             completedLessons = 4,
 
-            studyNotesCount = 10,
+            studyNotesCount = 22,
 
-            practiceQuestionCount = 26,
+            practiceQuestionCount = 6,
 
             durationMinutes = 55,
 
-            formulaHighlight = "CFSE (Oct) = (−0.4 n_t2g + 0.6 n_eg) Δ_o  •  Δ_t = (4/9) Δ_o",
+            formulaHighlight = "CFSE(oct) = (-0.4 x t2g + 0.6 x eg) delta o | CFSE(tet) = (-0.6 x e + 0.4 x t2) delta t | delta t = 4/9 delta o | mu = sqrt(n(n+2)) BM (1.73-5.92) | eg +0.6, t2g -0.4 delta o (oct); e -0.6, t2 +0.4 delta t (tet) | spectrochemical: I- < Br- < Cl- < F- < OH- < H2O < NH3 < en < CN- < CO | EAN = Z - oxidation state + 2 x CN",
 
-            keyConceptsSummary = "Denticity and chelate effect, geometrical and optical isomerism in octahedral/square planar complexes, spectrochemical series, octahedral/tetrahedral crystal field splitting, and synergistic π-backbonding.",
+            keyConceptsSummary = "• Werner: primary valency = oxidation state (ionisable), secondary valency = coordination number (directed in space); only ionisation-sphere ions precipitate — [Co(NH3)5Cl]Cl2 gives 2 mol AgCl per mol, not 3\n• Ligands donate electron pairs; count DONOR ATOMS, not molecules — EDTA is one ligand giving CN 6, en and oxalato give 2 each; chelates gain extra stability from entropy (the chelate effect); ambidentate NO2-/ONO- and SCN-/NCS- flip donor atoms\n• Naming: ligands alphabetical ignoring di/tri/bis prefixes, anionic ligands end in -ido, the metal takes -ate in anionic entities (ferrate, cuprate, argentate), oxidation state in Roman numerals — K4[Fe(CN)6] is potassium hexacyanidoferrate(II)\n• Isomerism: ionisation, solvate, linkage and coordination (structural); cis/trans in MA4B2 and square planar MA2B2, fac/mer in MA3B3 (geometrical); cis-[Co(en)2Cl2]+ and [Co(en)3]3+ are optically active, the trans partner is not\n• VBT: strong ligands pair electrons — inner-orbital d2sp3 or square-planar dsp2, diamagnetic; weak ligands leave outer-orbital sp3d2 or tetrahedral sp3, paramagnetic; spin-only moment mu = sqrt(n(n+2)) BM runs 1.73 to 5.92\n• CFT: octahedral field raises eg by +0.6 delta o and lowers t2g by -0.4 delta o; tetrahedral reverses the pattern with delta t = 4/9 delta o and is always high-spin; the d4-d7 spin fork is decided by delta o versus pairing energy P\n• CFSE = (-0.4 x t2g + 0.6 x eg) delta o peaks at d3 and d8 (-1.2) and low-spin d6 (-2.4); colour is d-d absorption seen as the complementary colour; carbonyls are held by synergic sigma donation plus pi back-donation (M-C strengthens, C-O weakens)",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — The Chemistry of Handshakes and Cages
+• Take a blue copper sulphate solution and drip in ammonia. The pale blue deepens to an inky violet-blue so dark it looks like ink. Nothing was added except a small molecule with a lone pair — yet the copper ion has been grabbed, caged and transformed. That grab is a coordinate bond, and this chapter is the science of the grab: who grabs whom, in what shape, with what colour, magnetism and stability.
+• DEFINITION — A coordination compound (or complex) is a compound in which a central metal atom or ion is bonded to a surrounding group of molecules or ions (the ligands) by coordinate (dative) bonds, and the assembly retains its identity in solution. The central ion is a Lewis acid; every ligand is a Lewis base offering a lone pair.
+• EXAMPLE — Your blood is this chapter at work: haemoglobin is an Fe2+ ion caged by a porphyrin ring, picking up O2 in the lungs and releasing it in the tissues. Chlorophyll is the same architecture around Mg2+, vitamin B12 around Co3+, and the drug cisplatin is a platinum complex that fights cancer. Roughly a third of all enzymes are metalloenzymes — coordination chemistry is not a niche, it is the operating system of bioinorganic life.
+• WHY complexes form at all — a transition metal ion is small and carries a high charge, so its charge density is enormous. Lone pairs from nearby molecules rush in to share that pull, and empty metal orbitals accept them. s-block ions are bigger and softer targets, so they complex weakly; d-block ions complex avidly. That is the same reason Chapter 5 kept meeting complexes inside catalysis and colour.
+• DEFINITION — A double salt and a complex both look like "two salts stuck together", but they behave oppositely in water. A double salt (Mohr's salt, carnallite KCl.MgCl2.6H2O) falls apart completely and gives the tests of every simple ion it contains. A complex like K4[Fe(CN)6] keeps its [Fe(CN)6]4- entity intact — it does not give the test for free Fe2+ or free CN- at all. If the cage survives in solution, it is a coordination compound.
+• Here is the map. First Werner, the man who imagined the octahedron before anyone could see one, and the vocabulary he built. Then the ligand library and the naming rulebook. Then the isomerism zoo — structural, geometrical, optical. Then the two bonding theories, valence bond and crystal field, ending with CFSE arithmetic and colour. Carbonyls and applications close the chapter.
+★ HIGHLIGHT — The whole chapter in one breath: a metal ion accepts lone pairs from ligands into a fixed number of positions (Werner's secondary valency); the shape, the spin state, the colour and the stability of the resulting cage are all decided by how strongly those ligands split the metal's d orbitals — weak field, high spin; strong field, low spin, and a big CFSE reward.
 
-                1. Crystal Field Theory (CFT) & Spectrochemical Series
+Werner's Theory — Primary and Secondary Valences
+• DEFINITION — Alfred Werner (1893, Nobel Prize 1913) proposed that a metal in a complex shows two kinds of valency. The PRIMARY valency is ionisable, equals the oxidation state of the metal, and is satisfied by negative ions. The SECONDARY valency is non-ionisable, equals the coordination number, and is satisfied by ligands (neutral molecules or negative ions) attached directly to the metal.
+• Picture the notation Werner himself used: primary valencies are dashed lines (loose, ionisable, like the Cl- that floats free), secondary valencies are solid lines (firm coordinate bonds inside the cage). Everything inside square brackets is held by secondary valencies and does not ionise; everything outside the brackets is held by primary valency alone and behaves like an ordinary ion.
+• Postulate that changed chemistry — the secondary valencies are FIXED in number for a given metal and are directed in space towards fixed positions. Six secondary valencies point to the corners of an octahedron; four point to the corners of a tetrahedron or a square. Geometry was born here: before X-ray crystallography existed, Werner deduced the octahedron purely from counting isomers.
+• The classic evidence, the cobalt ammine series (Co is +3 throughout, coordination number 6 throughout):
+• CoCl3.6NH3 is [Co(NH3)6]Cl3 — all 3 Cl- precipitate with AgNO3; solution has 4 ions; colour yellow
+• CoCl3.5NH3 is [Co(NH3)5Cl]Cl2 — only 2 Cl- precipitate; solution has 3 ions; colour purple
+• CoCl3.4NH3 is [Co(NH3)4Cl2]Cl — only 1 Cl- precipitates; solution has 2 ions; exists in violet (cis) and green (trans) forms
+• CoCl3.3NH3 is [Co(NH3)3Cl3] — no Cl- precipitates, the compound is a non-electrolyte with 0 ions; all three Cl are inside the sphere
+• Read the pattern backwards and it proves itself: as NH3 molecules leave, Cl- ions move INSIDE the sphere to keep the secondary valency at six, and each chloride that moves inside stops being precipitable and stops contributing an ion to conductivity. Molar conductivity falls step by step exactly as the ion count falls 4, 3, 2, 0.
+• The subtle stroke — one Cl- can satisfy BOTH valencies at once. In [Co(NH3)5Cl]Cl2 the inner chloride holds a solid secondary bond to cobalt and also balances one unit of cobalt's primary valency (its +3 charge), so it is doubly employed and cannot be precipitated. Only the two outer chlorides answer to AgNO3.
+• WHY Werner beat the rival chain theory — the older Blomstrand-Jorgensen theory strung NH3 molecules into chains and could not explain why CoCl3.4NH3 exists in exactly two forms (violet and green) or why CoCl3.3NH3 conducts nothing. Werner's octahedron predicts precisely two arrangements for [Co(NH3)4Cl2]+ — chlorides adjacent (cis) or opposite (trans). He later resolved optically active complexes too, prediction after prediction landing.
+• WORKED PATTERN — any "how much AgCl" question is sphere-counting: write the Werner formula, count only the chlorides OUTSIDE the brackets, and that count is the moles of AgCl per mole of complex. The same count-plus-one gives the number of ions for conductivity comparisons.
+⚠ EXAM TRAP — Primary valency is not "the number of anions" and secondary valency is not "the number of ligands". An anion inside the sphere (like the Cl in [Co(NH3)5Cl]2+) is satisfying a secondary valency, and a neutral NH3 never satisfies a primary one. Keep the two bookkeeping systems separate: primary counts charge balance, secondary counts attachments.
+• YOUR TURN — A complex of composition PtCl4.2NH3 gives no precipitate with AgNO3 and does not conduct. Write its Werner formula and state both valencies of Pt. (Answer: [Pt(NH3)2Cl4] — all four Cl are inside the sphere; primary valency of Pt is 4 (oxidation state +4), secondary valency is 6.)
 
-                • Spectrochemical Order: I⁻ < Br⁻ < SCN⁻ < Cl⁻ < F⁻ < OH⁻ < C₂O₄²⁻ < H₂O < NCS⁻ < EDTA⁴⁻ < NH₃ < en < CN⁻ < CO.
+The Core Vocabulary — Entity, Central Ion and Sphere
+• DEFINITION — The coordination entity is the central atom or ion together with the ligands directly attached to it, written inside square brackets with the net charge shown: [Co(NH3)6]3+, [Fe(CN)6]4-, [PtCl4]2-. It is the particle that actually travels through solution.
+• DEFINITION — The central atom or ion is the Lewis acid at the heart of the entity, almost always a transition metal (occasionally a main-group ion like Mg2+ in chlorophyll). It accepts electron pairs into its empty orbitals. The atom or group that donates the pair is the ligand; the specific atom of the ligand that touches the metal is the donor atom (N in NH3, O in H2O, C in CN-).
+• DEFINITION — The coordination sphere is the bracketed world: central ion plus ligands. The ionisation sphere is everything outside the brackets — counter-ions that dissociate freely and answer ordinary ionic tests. [Co(NH3)5Cl]Cl2 has a sphere containing Co, 5 NH3 and 1 Cl; its ionisation sphere holds 2 Cl-.
+• DEFINITION — A homoleptic complex carries only one kind of ligand: [Co(NH3)6]3+, [Ni(CO)4], [Fe(CN)6]4-. A heteroleptic complex carries two or more kinds: [Co(NH3)4Cl2]+, [Pt(NH3)2Cl2]. The words come from Greek homo (same) and hetero (different) — and nearly every interesting property (isomerism, medicine, analysis) belongs to the heteroleptic family.
+• EXAMPLE — Read K4[Fe(CN)6] like a sentence. Potassium ions: counter-ions in the ionisation sphere (4 K+). Entity: [Fe(CN)6]4-. Central ion: Fe2+. Ligands: six CN-, donor atom carbon. Homoleptic. In solution you get 5 ions, but a test for free Fe2+ fails and a test for free CN- fails — the cage keeps its identity, which is precisely why this salt is safe to handle while KCN is lethal.
+• WHY the donor atom matters — the same ligand formula can touch the metal through different atoms, and the touch changes the chemistry. NO2- binds through N (nitro) or through O (nitrito); SCN- through S or through N. These ambidentate ligands get their own spotlight in the next section, and they are the source of linkage isomerism later.
+• One vocabulary trap to bury now: the coordination entity's charge is the ALGEBRAIC SUM of the central ion's charge and the ligands' charges. [Co(NH3)5Cl]2+ is +3 (Co) + 0 (NH3) + (-1) (Cl) = +2. Always do this sum before naming, counting ions or balancing a formula.
+✔ KEY FORMULA — Charge on entity = oxidation state of metal + sum of ligand charges. Counter-ions then balance the whole compound to zero. Ninety percent of formula-writing errors die at this one line of arithmetic.
+• YOUR TURN — For Na3[Co(NO2)6]: name the central ion and its oxidation state, the ligands, and the entity charge check. (Answer: central ion Co3+ — because 3 Na+ balance an entity of charge 3-, and x + 6(-1) = -3 gives x = +3; ligands are six NO2-, N-bound nitro here; the compound is homoleptic.)
 
-                • Octahedral CFSE = (−0.4 n_t2g + 0.6 n_eg) Δ_o; low-spin occurs when Δ_o > P (strong field ligands or 4d/5d metals).
+Ligands — the Donor Library, Chelates and Ambidentate
+• DEFINITION — A ligand is an ion or molecule that donates one or more electron pairs to the central metal. Ligands are classified by DENTICITY — the number of donor atoms through which one ligand binds. Denticity, not the number of ligand molecules, is what adds up to the coordination number.
+• Monodentate ligands (one donor atom) — the everyday library:
+• Anionic — F- fluorido (F), Cl- chlorido (Cl), Br- bromido (Br), I- iodido (I), OH- hydroxido (O), CN- cyanido (C), SO4 2- sulfato (O), CO3 2- carbonato (O), NO3- nitrato (O), CH3COO- acetato (O), S2- sulfido (S), O2- oxo (O), H- hydrido (H)
+• Neutral — H2O aqua (O), NH3 ammine (N), CO carbonyl (C), NO nitrosyl (N), C5H5N pyridine, py (N), PPh3 triphenylphosphine (P), CH3NH2 methylamine (N)
+• Cationic (rare but examinable) — NO+ nitrosonium (N), NH3+-NH2 hydrazinium (N); positive ligands take the suffix -ium in names
+• Bidentate ligands (two donor atoms, one ring with the metal):
+• ethane-1,2-diamine, en — donors N, N — forms a 5-membered ring
+• oxalato, ox 2- — donors O, O — 5-membered ring
+• glycinato, gly - — donors N, O — amino-acid ligand
+• 2,2'-bipyridyl, bipy — donors N, N — flat aromatic pair
+• 1,10-phenanthroline, phen — donors N, N — rigid cousin of bipy
+• dimethylglyoximato, dmg - — donors N, N — the nickel reagent of the next chapters
+• Higher denticity — the multiclawed family:
+• diethylenetriamine, dien — tridentate, N, N, N
+• triethylenetetramine, trien — tetradentate, N, N, N, N
+• EDTA (ethylenediaminetetraacetate) — hexadentate, 2 N + 4 O donors, wraps a metal in five 5-membered rings and binds almost every metal ion 1 : 1
+• DEFINITION — A chelating ligand is a bi- or polydentate ligand whose donor atoms close a ring that includes the metal (Greek chele, a claw). The product is a chelate. Five-membered rings (en, ox, EDTA arms) are the most stable; four-membered rings are strained and rare.
+• WHY chelates are extra stable — the chelate effect. Compare [Ni(NH3)6]2+ (overall formation constant log value about 8.6) with [Ni(en)3]2+ (about 18.3): swapping six NH3 for three en molecules releases free particles (4 particles become 7), so entropy climbs and the equilibrium dives towards the chelate. Ring closure is paid for in entropy, and the bill makes chelates dramatically more stable than their monodentate lookalikes.
+• DEFINITION — An ambidentate ligand has two different potential donor atoms and can bind through either (never both at once to the same metal). The three classic cases: NO2- binds via N (nitrito-N, traditionally nitro) or via O (nitrito-O); SCN- binds via S (thiocyanato-S) or via N (thiocyanato-N); CN- binds almost always via C but is listed with the family.
+• EXAMPLE — The ligand decides the medicine cabinet too. EDTA's six claws are why it is pumped into patients with lead poisoning (it wraps Pb2+ and escorts it out in urine) and why it is the titrant that measures water hardness, seizing Ca2+ and Mg2+ one-for-one. One ligand, two industries — denticity is destiny.
+⚠ EXAM TRAP — Coordination number counts DONOR ATOMS, not ligand molecules. [Co(en)3]3+ has three ligands but coordination number 6; [Fe(EDTA)]- has one ligand and coordination number 6. Options that read "three ligands, so CN is 3" are bait.
+• YOUR TURN — Classify by denticity and give the total coordination number: [Cr(ox)3]3- and [Zn(en)(NH3)2]2+. (Answer: oxalato is bidentate, so three ox give CN 6. In the zinc complex: en contributes 2, two NH3 contribute 1 each, total CN 4.)
 
-                • d⁸ with strong field ligand (e.g., [Ni(CN)₄]²⁻, [PtCl₄]²⁻, [AuCl₄]⁻) adopts dsp² square planar geometry (diamagnetic).
+Coordination Number and Oxidation Number
+• DEFINITION — The coordination number (CN) is the total number of sigma bonds formed between the ligands and the central metal — equivalently, the total number of donor atoms attached to it (Werner's secondary valency). The oxidation number of the metal is the charge it would carry if every ligand were removed along with the electron pairs it donated (Werner's primary valency).
+• The geometry menu that CN opens: CN 2 is linear — [Ag(NH3)2]+, [Ag(CN)2]-. CN 4 is tetrahedral — [Ni(CO)4], [Zn(NH3)4]2+ — or square planar — [Ni(CN)4]2-, [PtCl4]2-. CN 6 is octahedral — [Co(NH3)6]3+, [Fe(CN)6]4- — and it is the commonest by far. CN also reaches 5 (trigonal bipyramidal, Fe(CO)5), 7, 8 and 9 for large metals, but 2, 4 and 6 run the exam.
+• What controls CN — the size of the metal ion, the bulk of the ligands, and the metal's oxidation state. Small ions with bulky ligands stop at 4; Pt4+ (5d, large) reaches 6 where the smaller Ni2+ with the same Cl- stops at 4. High oxidation states pull more ligands in.
+• WORKED PATTERN — oxidation number by algebra, in three moves: (1) write the entity charge, (2) assign every ligand its known charge (neutral ligands are zero), (3) solve metal + ligand charges = entity charge. [Fe(CN)6]4-: x + 6(-1) = -4, so x = +2. K2[PdCl4]: the entity is [PdCl4]2-, x + 4(-1) = -2, so x = +2. [Co(NH3)5Cl]Cl2: entity is 2+ (two outer Cl-), x + 0(5) + (-1) = +2, so x = +3.
+• EXAMPLE — The special zero. In [Ni(CO)4] and [Fe(CO)5] the ligands are neutral and the entity is neutral, so the oxidation number of the metal is zero. Metals in oxidation state zero sound impossible from salt chemistry, yet carbonyls make them shelf-stable — the carbonyl section later explains the glue.
+⚠ EXAM TRAP — Do not confuse the charge ON the complex with the oxidation state OF the metal. [Fe(CN)6]4- carries charge 4-, but iron is +2 — the other six negative charges belong to the cyanides. Two different numbers, two different questions; examiners swap them deliberately.
+• YOUR TURN — Find the oxidation number and coordination number of the metal in (a) [Cr(NH3)4Cl2]+ and (b) [Co(EDTA)]-. (Answer: (a) x + 2(-1) = +1 gives Cr = +3; donor atoms 4 + 2 = 6, CN 6. (b) EDTA is 4- as a ligand: x + (-4) = -1 gives Co = +3; EDTA is hexadentate, CN 6.)
 
+Naming Complexes — IUPAC Rules, Both Directions
+• DEFINITION — Systematic nomenclature names a coordination compound so completely that its formula can be rebuilt from the name alone. The skeleton: (counter-ion words) + [ligands in alphabetical order + metal + (oxidation number)] + (anion word). Cation first, anion second — exactly like ordinary salts.
+• Rule 1 — Order inside the entity: ligands first, metal last. Ligands are cited ALPHABETICALLY by ligand name, ignoring any multiplicative prefix (di, tri, bis, tris). In [Co(NH3)5Cl]2+, ammine (a) precedes chlorido (c): the name is pentaamminechloridocobalt(III), never pentachloridoammine... read the letters, not the numbers.
+• Rule 2 — Ligand name endings: anionic ligands end in -o (modern IUPAC writes -ido): chlorido, bromido, fluorido, iodido, cyanido, hydroxido, sulfato, carbonato, nitrato, oxalato. Neutral ligands mostly keep their names, with four famous exceptions: H2O is aqua, NH3 is ammine (double m), CO is carbonyl, NO is nitrosyl. Cationic ligands end in -ium: nitrosonium.
+• Rule 3 — Multiplicative prefixes: use di, tri, tetra, penta, hexa for simple ligand names (dichlorido, tetraammine). Use bis, tris, tetrakis when the ligand name itself already contains a number word (ethane-1,2-diamine, triphenylphosphine) or is composite: [Co(en)3]3+ is tris(ethane-1,2-diamine)cobalt(III), with the ligand name in brackets.
+• Rule 4 — The metal: in a NEUTRAL or CATIONIC entity, use the plain metal name (cobalt, platinum, nickel). In an ANIONIC entity the metal takes the suffix -ate, often from its Latin name: iron becomes ferrate, copper cuprate, silver argentate, gold aurate, tin stannate, lead plumbate, zinc zincate, chromium chromate. Then the oxidation state follows in Roman numerals in brackets: (III), (II), (0) — even zero is written.
+• Rule 5 — Assembling salts: a complex cation keeps its entity name and the simple anion follows (chloride, sulphate...). A complex anion is preceded by the cation's name: K4[Fe(CN)6] is potassium hexacyanidoferrate(II) — potassium first as words, ferrocyanide's old nickname retired by the systematic name. A charged entity on its own is called an ion: [Co(NH3)4Cl2]+ is the tetraamminedichloridocobalt(III) ion.
+• Rule 6 — Two refinements for completeness: a ligand bridging two metals gets the prefix mu (Greek mu) before its name, as in di-mu-hydroxido species; and geometrical prefixes cis/trans or fac/mer go in front when a specific isomer is meant, as in cis-diamminedichloridoplatinum(II) — cisplatin itself.
+• Worked namings — formula to name:
+• [Co(NH3)6]Cl3 — hexaamminecobalt(III) chloride
+• [Co(NH3)5Cl]Cl2 — pentaamminechloridocobalt(III) chloride
+• K4[Fe(CN)6] — potassium hexacyanidoferrate(II)
+• K3[Fe(CN)6] — potassium hexacyanidoferrate(III)
+• [Pt(NH3)2Cl2] — diamminedichloridoplatinum(II)
+• [Co(en)3]Cl3 — tris(ethane-1,2-diamine)cobalt(III) chloride
+• [Cr(H2O)6]Cl3 — hexaaquachromium(III) chloride
+• [Ni(CO)4] — tetracarbonylnickel(0)
+• [Cu(NH3)4]SO4 — tetraamminecopper(II) sulphate
+• Worked namings — name to formula:
+• potassium tetrachloridopalladate(II) — entity [PdCl4]2-, Pd is +2, so two K+ balance it: K2[PdCl4]
+• tetraamminedichloridocobalt(III) chloride — entity [Co(NH3)4Cl2]+ (Co +3, two Cl- inside), one outer Cl-: [Co(NH3)4Cl2]Cl
+• sodium pentacyanidonitrosylferrate(II) (nitroprusside) — NO counts as NO+, Fe is +2, entity charge = 2 - 5 + 1 = -2: Na2[Fe(CN)5(NO)]
+• WORKED PATTERN — building any formula from a name: (1) metal and oxidation state give the metal's charge, (2) list ligands with counts and charges, (3) sum to get the entity charge, (4) add exactly enough counter-ions to neutralise, (5) brackets around the entity, always.
+⚠ EXAM TRAP — Older books (and many answer keys) write chloro, cyano, nitro instead of chlorido, cyanido, nitrito. NCERT's current rationalised text uses the -ido forms. Either is understood by examiners, but inside one answer keep a single system — and never write "hexaamine": ammine keeps its double m from ammonia's old name.
+• YOUR TURN — Name [Fe(H2O)6]Cl3 and write the formula of potassium hexacyanidoferrate(III). (Answer: hexaaquairon(III) chloride — iron stays "iron" because the entity is cationic. The ferrate(III) salt has entity [Fe(CN)6]3-, needing three K+: K3[Fe(CN)6].)
 
+Isomerism I — Structural Isomerism
+• DEFINITION — Isomers share a molecular formula but differ in structure or arrangement, and therefore in properties. Structural isomers differ in CONNECTIVITY — which atoms are bonded to which. In coordination chemistry they come in four families: ionisation, solvate, linkage and coordination isomerism.
+• Ionisation isomerism — a ligand inside the sphere swaps places with a counter-ion outside it, so the two forms release DIFFERENT ions in solution. Pair to memorise: [Co(NH3)5(SO4)]Br (red-violet; gives a cream AgBr precipitate with AgNO3, no BaSO4 test) and [Co(NH3)5Br]SO4 (red; gives white BaSO4 with BaCl2, no AgBr). Same atoms, different prisoner exchange at the sphere wall.
+• Solvate isomerism — a solvent molecule swaps between the sphere and the lattice. The chromium chloride hydrates are the textbook trio, all CrCl3.6H2O on paper: [Cr(H2O)6]Cl3 is violet and precipitates 3 AgCl; [Cr(H2O)5Cl]Cl2.H2O is blue-green and precipitates 2; [Cr(H2O)4Cl2]Cl.2H2O is green and precipitates 1. The AgCl count is the fingerprint that tells them apart — Werner's method, still earning marks.
+• Linkage isomerism — an ambidentate ligand flips its donor atom. [Co(NH3)5(NO2)]Cl2 with N-bound nitro is yellow; [Co(NH3)5(ONO)]Cl2 with O-bound nitrito is red. Thiocyanate does the same trick: M-SCN (thiocyanato-S) versus M-NCS (thiocyanato-N). Same formula, different hand doing the holding.
+• Coordination isomerism — possible only when BOTH the cation and the anion are complexes: ligands redistribute between the two metal centres. [Co(NH3)6][Cr(CN)6] and [Cr(NH3)6][Co(CN)6] are a pair; push further and mixed species like [Co(NH3)5(CN)][Cr(NH3)(CN)5] also fit the same overall formula. The metals swap wardrobes while the total outfit count stays fixed.
+• EXAMPLE — How a lab distinguishes them in practice: measure molar conductivity (ionisation isomers give different ion sets), add AgNO3 or BaCl2 and see which precipitate falls, or watch the colour shift (linkage isomers are famously different colours — yellow versus red above). Isomerism questions in exams are almost always "which test distinguishes X from Y" in disguise.
+✔ KEY FORMULA — Decision tree: components move between sphere and outside = ionisation (solvent involved = solvate); same sphere, ambidentate flipped = linkage; two complex ions trading ligands = coordination; same connectivity, different spatial arrangement = stereo (next two sections).
+• YOUR TURN — [Pt(NH3)4][PtCl4] and [Pt(NH3)4Cl2][PtCl2(NH3)2]... simpler: what type of isomerism links [Co(NH3)6][Cr(C2O4)3] and [Cr(NH3)6][Co(C2O4)3]? (Answer: coordination isomerism — both ions are complexes and the ligands have been redistributed between Co and Cr.)
 
-                2. Stereoisomerism & Metal Carbonyls
+Isomerism II — Geometrical Isomerism
+• DEFINITION — Geometrical isomers have identical connectivity but different spatial arrangements of ligands around the metal. The two labels you need: cis, where identical ligands sit adjacent (90 degrees apart in an octahedron, sharing an edge in a square), and trans, where they sit opposite (180 degrees apart). Study the isomer gallery in Figure 2 until you can redraw all four sketches blind.
+• Square planar [MA2B2] — cis and trans, the most famous pair in all of coordination chemistry: cis-[Pt(NH3)2Cl2] is cisplatin, a front-line anticancer drug that cross-links DNA; trans-[Pt(NH3)2Cl2] (transplatin) is clinically inactive. Same formula, one cures, one does not — geometry is pharmacology. Their properties differ measurably too: the cis form has a large dipole moment, the centrosymmetric trans form nearly zero.
+• Octahedral [MA4B2] — cis and trans again: cis-[Co(NH3)4Cl2]+ is violet (the two Cl adjacent, 90 degrees), trans-[Co(NH3)4Cl2]+ is green (Cl opposite, 180 degrees). Werner isolated exactly these two — the experiment that buried chain theory. The rule of thumb: in octahedral MA4B2 the angle between the two B ligands is the whole question.
+• Octahedral [MA3B3] — fac and mer, the pair students forget: in the FACIAL (fac) isomer the three identical ligands occupy the three corners of one triangular face of the octahedron (positions 1, 2, 3 — all mutually cis). In the MERIDIONAL (mer) isomer they lie around the middle belt, on a meridian (positions 1, 2, 4 — two of them trans to each other). Example: [Co(NH3)3(NO2)3] and [Cr(NH3)3Cl3] exist as fac and mer.
+• Bidentate variations — [M(AA)2B2] such as [Co(en)2Cl2]+ also shows cis/trans (the two Cl adjacent or opposite), and [M(AA)3] like [Co(en)3]3+ has no geometrical isomers but is optically active — hold that thought for the next section. Square planar [M(AB)2] with unsymmetrical bidentates gives cis/trans too.
+• Where geometrical isomerism CANNOT occur — tetrahedral [MA2B2]: every position in a tetrahedron is adjacent to every other, so swapping gives the identical molecule. Also octahedral [MA6], [MA5B] and [MA2B4] with only one "odd" type present in the wrong count — always ask "are there two identical ligands that can be adjacent or opposite?" If the count of some ligand is 1 or 5, no cis/trans exists.
+• WORKED PATTERN — counting geometrical isomers in 10 seconds: identify the type (MA2B2 square planar: 2; MA4B2 octahedral: 2; MA3B3: 2, fac and mer; MA2B2 tetrahedral: 1, no isomers). Then check whether the question also wants optical partners — cis-[M(AA)2B2] adds a non-superimposable mirror twin, trans does not.
+⚠ EXAM TRAP — fac and mer belong ONLY to MA3B3 (and MA3B2C-type formulas), never to MA4B2. And "cis/trans" for an octahedron refers to the angle between the two named ligands — 90 degrees is cis, 180 is trans; a 120-degree answer option reveals a trigonal-planar daydream, not an octahedron.
+• YOUR TURN — How many geometrical isomers does [Co(NH3)3Cl3] have, and does either form have a plane of symmetry? (Answer: two — fac and mer. The mer form has a plane of symmetry through its belt; fac-[Co(NH3)3Cl3] also retains mirror planes because NH3 and Cl are simple monodentates — optical activity needs the chelate twist of the next section.)
 
-                • [M(AA)₃], cis-[M(AA)₂b₂], and cis-[M(AA)b₂c₂] are optically active (chiral); square planar complexes rarely show optical isomerism unless ligand itself is chiral.
+▸ Optical Isomerism — Mirror-Image Complexes
+• DEFINITION — Optical isomers (enantiomers) are non-superimposable mirror images of each other. A complex is optically active (chiral) when it has NO plane of symmetry and no centre of inversion, so its mirror image cannot be rotated to match it. The two forms rotate plane-polarised light equally in opposite directions: dextrorotatory (d or +) and laevorotatory (l or -), also labelled with the propeller symbols capital delta and capital lambda.
+• The classic active species are chelated octahedra, whose rings twist the molecule into a propeller: [Co(en)3]3+, [Cr(ox)3]3-, [Co(EDTA)]- are all chiral. Werner resolving [Co(en)3]3+ into d and l forms in 1911 was the final proof that the octahedron — not a planar hexagon — was the true shape.
+• The comparison that exams recycle endlessly — cis-[Co(en)2Cl2]+ is optically ACTIVE (chiral propeller, exists as d and l). trans-[Co(en)2Cl2]+ is optically INACTIVE: it has a plane of symmetry slicing through the Cl-Co-Cl line. Same formula, and the cis form doubles into two enantiomers while the trans form stands alone.
+• Square planar complexes are essentially never optically active — the molecular plane itself is a symmetry plane. Tetrahedral complexes with four DIFFERENT monodentate ligands would be chiral in principle, but they racemise instantly by ligand exchange, so examinable optical activity lives in octahedral chelates.
+• A 50 : 50 mixture of d and l forms is a racemic mixture — optically inactive by external compensation, though each molecule is chiral. Resolution means separating the twins, historically done with a chiral counter-ion that forms diastereomeric salts of different solubilities.
+✔ KEY FORMULA — Chirality check in three questions: (1) chelate rings present to twist the shape? (2) any mirror plane through the metal? (3) is there an identical opposite arrangement (trans pair of identical ligands on a symmetry plane)? If the answers run yes, no, no — you are holding an enantiomer pair.
+• YOUR TURN — Which of these are optically active: [Co(en)3]3+, trans-[Co(en)2Cl2]+, [Zn(NH3)4]2+, [Cr(ox)3]3-? (Answer: [Co(en)3]3+ and [Cr(ox)3]3- — both tris-chelate propellers. The trans cobalt complex has a symmetry plane, and tetrahedral [Zn(NH3)4]2+ with four identical ligands is fully symmetric.)
 
-                • Synergistic M → CO π*-backbonding increases M–C bond order and decreases C–O bond order (lowering ν_CO stretching frequency).
+Bonding I — Valence Bond Theory
+• DEFINITION — Valence bond theory (Pauling) explains a complex in four steps: find the metal's oxidation state and d-electron count; decide whether the ligands force the d electrons to pair up; the metal then hybridises its empty orbitals to accept ligand lone pairs; the hybridisation dictates the geometry, and the surviving unpaired electrons dictate the magnetism.
+• The two octahedral families — if pairing occurs, two inner 3d orbitals empty out and the metal uses (n-1)d2 ns np3 hybridisation: an INNER-orbital complex, low-spin, fewer (or zero) unpaired electrons. If no pairing occurs, the metal must borrow outer nd orbitals: ns np3 nd2, an OUTER-orbital complex, high-spin, maximum unpaired electrons.
+• Case study 1 — [Co(NH3)6]3+: Co3+ is 3d6. NH3 facing Co3+ behaves as a strong ligand and pairs the electrons into three 3d orbitals (all six in pairs), freeing two 3d orbitals. Result: d2sp3 hybridisation, octahedral, n = 0, diamagnetic — an inner-orbital, low-spin complex. Experiment agrees: it is diamagnetic.
+• Case study 2 — [CoF6]3-: same Co3+, same 3d6, but F- is a weak ligand and cannot force pairing. The four unpaired electrons stay put, no 3d orbital is freed, so cobalt hybridises 4s, 4p and two 4d orbitals: sp3d2, octahedral but outer-orbital, n = 4, magnetic moment about 4.90 BM — high-spin. The metal did not change; the ligand's personality did.
+• Square planar versus tetrahedral, the CN 4 fork — [Ni(CN)4]2-: Ni2+ is 3d8; CN- forces pairing, one 3d orbital empties, and dsp2 hybridisation gives a square planar, diamagnetic complex. [NiCl4]2-: Cl- cannot pair the electrons, so Ni2+ uses sp3, stays tetrahedral with n = 2 and moment 2.83 BM. And [Ni(CO)4]: Ni(0) is 3d8 4s2, CO herds the two 4s electrons into 3d making 3d10, then sp3 gives a tetrahedral, diamagnetic molecule.
+• DEFINITION — Magnetic moment (spin-only) ties the theory to experiment: mu = sqrt(n(n + 2)) BM, where n is the number of unpaired electrons and BM is the Bohr magneton. The ladder to memorise: n = 1, 2, 3, 4, 5 gives 1.73, 2.83, 3.87, 4.90, 5.92 BM. Measure mu, read n off the ladder, and you know whether the complex paired its electrons or not.
+• WORKED PATTERN — the VBT drill for any complex: (1) oxidation state from algebra, (2) d count of the ION, (3) ligand strength verdict: CN-, CO, en, NH3 (with 4d/5d metals and high-charge 3d ions) pair up; halides, OH-, H2O do not, (4) hybridisation, geometry, n, and mu from the ladder. Four moves, every time, in this order.
+• WHY 4d and 5d metals almost always pair — their d orbitals are larger and more diffuse, ligands approach closer, splitting is bigger and pairing is easily forced: [PtCl4]2- is square planar and low-spin even though Cl- is weak with 3d metals. Down a group, low spin is the default; across the 3d row, it is a ligand-by-ligand negotiation.
+• The honest limitations of VBT — it does not explain the COLOUR of complexes or their spectra at all; it cannot say WHY NH3 pairs electrons with Co3+ but leaves [Fe(NH3)6]3+ high-spin (the pairing verdict is pasted in from experiment, not predicted); it offers no energies, so it cannot rank stability; and it ignores the temperature dependence of magnetic behaviour. VBT gives shapes; it does not give numbers. That failure is the doorway to crystal field theory.
+⚠ EXAM TRAP — NH3 is NOT an unconditional strong-field ligand. With Co3+ it pairs electrons (d2sp3, diamagnetic [Co(NH3)6]3+), but [Fe(NH3)6]3+ stays high-spin with n = 5. Strength depends on the metal too — oxidation state, row and charge density all vote. Quote the complex, not just the ligand.
+• YOUR TURN — Predict hybridisation, geometry and mu for [Mn(CN)6]3-. (Answer: Mn3+ is 3d4; CN- pairs electrons to n = 2, freeing two 3d orbitals: d2sp3, octahedral, inner-orbital, mu = sqrt(2 x 4) = 2.83 BM.)
 
-            """.trimIndent(),
+Bonding II — Crystal Field Splitting
+• DEFINITION — Crystal field theory (Bethe, Van Vleck) treats ligands as point charges (or point dipoles) arranged around the metal, and asks a purely electrostatic question: the five d orbitals are no longer equivalent in that field — how do their energies split? The splitting pattern, and how electrons occupy it, explains colour, magnetism and stability in one framework.
+• Octahedral field (Figure 1, left) — six ligands approach along the x, y and z axes. The eg set — dz2 and dx2-y2 — has lobes pointing straight along the axes, head-on into the incoming ligands, so these two orbitals are repelled UP by +0.6 delta o. The t2g set — dxy, dyz and dzx — has lobes pointing between the axes, dodging the ligands, so these three sink by -0.4 delta o. The gap between the sets is delta o (delta-oct).
+• WHY the numbers must be +0.6 and -0.4 — the average energy (the barycentre) cannot move: the field redistributes, it does not create energy. Check: two orbitals rise by 0.6, three fall by 0.4: 2(0.6) - 3(0.4) = 1.2 - 1.2 = 0. If a proposed splitting fails this barycentre audit, it is wrong, whatever the option sheet says.
+• Tetrahedral field (Figure 1, right) — four ligands approach from alternate corners of a cube, slipping BETWEEN the axes. Now the e set (dz2, dx2-y2) points away from the traffic and falls by -0.6 delta t, while the t2 set (dxy, dyz, dzx) sits closer to the approach paths and rises by +0.4 delta t — the octahedral pattern turned upside down. Two details matter: the labels lose their g subscript (a tetrahedron has no centre of symmetry), and the splitting is much smaller.
+✔ KEY FORMULA — delta t = (4/9) delta o. The tetrahedral split is small for two stacked reasons: only 4 ligands instead of 6, and none of them points directly at any d orbital. Consequence to memorise as a law: the pairing energy always wins in tetrahedral fields, so tetrahedral complexes are (essentially) always HIGH-SPIN.
+• Placing electrons — fill the lower set first, one per orbital with parallel spins (Hund), and only then face the fork: is it cheaper to climb to the upper set (cost delta) or to pair up in the lower set (cost P, the pairing energy)? For octahedral d4 to d7 both answers are chemically real; for d1-d3 and d8-d10 there is no fork at all — the arrangement is forced.
+• EXAMPLE — Ti3+ (d1) in [Ti(H2O)6]3+: the single electron sits in t2g, stabilised by -0.4 delta o. V3+ (d2): t2g2. Cr3+ (d3): t2g3, one in each lower orbital, none forced upward — the famously stable half-filled t2g3 arrangement that Chapter 5 met as chromium's inertness. The fork begins exactly at d4.
+⚠ EXAM TRAP — In tetrahedral splitting the e set is the LOWER one and carries only 2 orbitals; students who copy the octahedral picture flip the sets and the signs together. Also: t2g with a g in a tetrahedron is an automatic error — g (gerade) requires a centre of symmetry the tetrahedron does not have.
+• YOUR TURN — A tetrahedral complex has delta t = 100 kJ per mol for a given metal-ligand pair. Estimate delta o for the corresponding octahedral complex, and state which set, e or t2, holds a d1 electron in the tetrahedron. (Answer: delta o = (9/4) x 100 = 225 kJ per mol. The d1 electron enters the lower e set, gaining -0.6 delta t.)
+
+The Spectrochemical Series and the Spin Fork
+• DEFINITION — The spectrochemical series ranks ligands by the size of the splitting (delta) they produce, measured from spectra. Weak-field ligands give small delta; strong-field ligands give large delta. Learn it as one chant (Figure 3 shows it as a bar):
+• I- < Br- < S2- < SCN- (S-bound) < Cl- < NO3- < N3- < F- < OH- < oxalato < H2O < NCS- (N-bound) < NH3 < en < bipy < phen < NO2- < PPh3 < CN- < CO
+• Read the landmarks: halides hug the weak end (I- weakest of all); H2O sits just below NH3, so aqua complexes are usually high-spin while ammines of high-charge ions may pair; CN- and CO tower at the strong end because they add pi back-bonding to their sigma donation. Note the ambidentate cameo: SCN- bound through S is weak, NCS- bound through N is much stronger — the donor atom moves the ligand's rank.
+• WHY OH- sits below H2O, an anion below a neutral molecule — the series is empirical, built from measured spectra, not from charge intuition. Pi-donor ligands (halides, OH-) push the t2g set up and shrink delta; pi-acceptor ligands (CO, CN-, phen) drain t2g electron density, drop t2g and stretch delta. When the series surprises you, pi behaviour is usually the reason.
+• DEFINITION — The spin fork: for octahedral d4, d5, d6 and d7 ions there are two legal fillings. If delta o is SMALLER than the pairing energy P, electrons spread out to maximise unpaired spins — HIGH-SPIN. If delta o EXCEEDS P, electrons pair in t2g first — LOW-SPIN. The d count decides whether a fork exists; the ligand decides which branch is taken.
+• The fork table (octahedral) — d4: high-spin t2g3 eg1, n = 4; low-spin t2g4, n = 2. d5: high-spin t2g3 eg2, n = 5; low-spin t2g5, n = 1. d6: high-spin t2g4 eg2, n = 4; low-spin t2g6, n = 0. d7: high-spin t2g5 eg2, n = 3; low-spin t2g6 eg1, n = 1.
+• EXAMPLE — One ion, both branches: Fe2+ (d6). With water, [Fe(H2O)6]2+ is high-spin, n = 4, mu about 4.90 BM, pale green. With cyanide, [Fe(CN)6]4- is low-spin, n = 0, diamagnetic, yellow. Haemoglobin exploits exactly this fork: Fe2+ flips spin state when O2 binds, and the geometry twitch that follows is part of how the protein breathes.
+• WORKED PATTERN — spin verdict in three moves: (1) d count of the ion, (2) is the count in the fork zone d4-d7 (and the geometry octahedral)? If not, the filling is forced — stop. (3) locate the ligand in the series: left of H2O usually high-spin, right of NH3 usually low-spin for 3d metals; 4d and 5d metals default to low-spin.
+⚠ EXAM TRAP — "Strong field means strong bonds and inert complexes" — not automatically. Low-spin d6 is inert, but low-spin d7 has an electron in eg and is labile; and high-spin Cr3+? There is none — d3 is t2g3 under both fields. Spin state, d count and lability are three separate judgements; do not let one do the others' work.
+• YOUR TURN — State n and mu (spin-only) for [Co(H2O)6]3+ given that Co3+ with H2O stays high-spin, and for [Co(CN)6]3-. (Answer: water complex: d6 high-spin t2g4 eg2, n = 4, mu = 4.90 BM. Cyanide complex: d6 low-spin t2g6, n = 0, mu = 0 — diamagnetic. Same metal, same charge, opposite magnets.)
+
+CFSE — Counting the Stabilisation
+• DEFINITION — The crystal field stabilisation energy (CFSE) is the net lowering of energy when the d electrons take their split-level positions, measured against the spherical (barycentre) arrangement. Each electron in t2g contributes -0.4 delta o; each in eg contributes +0.6 delta o (octahedral). In a tetrahedral field each e electron contributes -0.6 delta t and each t2 electron +0.4 delta t.
+✔ KEY FORMULA — CFSE (octahedral) = (-0.4 x + 0.6 y) delta o, where x = electrons in t2g and y = electrons in eg. CFSE (tetrahedral) = (-0.6 x + 0.4 y) delta t, x in e and y in t2. If a low-spin arrangement creates extra electron pairs beyond those in the free ion, add the pairing cost for each extra pair: total = CFSE + (extra pairs) x P.
+• The octahedral ladder (high-spin unless stated): d1: -0.4; d2: -0.8; d3: -1.2; d4: -0.6; d5: 0; d6: -0.4; d7: -0.8; d8: -1.2; d9: -0.6; d10: 0 (all in delta o). Low-spin upgrades: d4: -1.6; d5: -2.0; d6: -2.4; d7: -1.8 (before pairing corrections).
+• Read the ladder like a story: peaks of stability at d3 and d8 (-1.2) and at low-spin d6 (-2.4, the maximum possible); valleys at high-spin d5 and d10 (zero — the spherical arrangement, no gain at all). Half-filled and fully filled shells earn nothing from the field, exactly as the barycentre symmetry promises.
+• EXAMPLE — [Fe(CN)6]4-, Fe2+ d6 low-spin, t2g6 eg0: CFSE = (-0.4 x 6 + 0.6 x 0) delta o = -2.4 delta o, with 2 extra pairs formed versus the free ion, so the full count is -2.4 delta o + 2P — still hugely negative because delta o for CN- dwarfs P. Compare [Fe(H2O)6]2+ high-spin t2g4 eg2: (-1.6 + 1.2) = -0.4 delta o and no extra pairs. The cyanide cage is stabilised six times as much by the field.
+• WHY CFSE earns a whole section — it explains facts no other theory touches: (1) hydration and lattice enthalpies of M2+ and M3+ ions trace a double-humped curve across the 3d series, with humps exactly at d3 and d8 and the baseline touching d0, d5, d10; (2) ionic radii dip mid-series where CFSE pulls ligands closest; (3) spinel structures choose their cation sites by CFSE gains (oxide-ion site preferences); (4) d3 (Cr3+) and low-spin d6 (Co3+) complexes are kinetically inert — swapping a ligand would break the maximal CFSE arrangement, so they react slowly.
+• WORKED PATTERN — CFSE questions are pure bookkeeping: (1) oxidation state, (2) d count, (3) HS or LS verdict from the series, (4) write the occupation as t2g-a eg-b, (5) multiply out. Never start multiplying before step 3 is settled — half of all CFSE errors are spin-state errors wearing arithmetic clothes.
+⚠ EXAM TRAP — Sign discipline: CFSE of a stable complex is NEGATIVE (stabilisation). An option offering +1.2 delta o for d3 has flipped a sign. And in tetrahedral problems the coefficients are -0.6 and +0.4 with delta t — using octahedral coefficients with delta t is the classic copy-paste blunder.
+• YOUR TURN — Calculate the CFSE of [Ni(H2O)6]2+ and of tetrahedral [CoCl4]2- (in delta t). (Answer: Ni2+ is d8, t2g6 eg2: (-2.4 + 1.2) = -1.2 delta o. Co2+ is d7 tetrahedral, high-spin e4 t2 3: (-0.6 x 4 + 0.4 x 3) delta t = (-2.4 + 1.2) = -1.2 delta t.)
+
+Why Coordination Compounds Are Coloured
+• DEFINITION — A complex is coloured when it absorbs part of the visible spectrum. In d-block complexes the usual mechanism is the d-d transition: a photon whose energy equals delta lifts an electron from t2g to eg, and the colour you see is the complementary colour of the light absorbed.
+• The energy ledger — delta for typical complexes sits exactly in the visible range, which is why this chapter and not the s-block owns the paint box. Absorb the yellow-green band and the eye receives its complement: [Ti(H2O)6]3+ (d1) absorbs around 500 nm and looks purple. Change the ligand and delta changes, so the absorbed band and the visible colour march together.
+• EXAMPLE — Copper's wardrobe: [Cu(H2O)6]2+ absorbs in the orange-red and appears blue. Replace water by NH3 stepwise and delta grows, the absorption shifts to higher energy, and the colour deepens to the famous inky blue-violet of [Cu(NH3)4(H2O)2]2+. Add concentrated chloride instead and tetrahedral [CuCl4]2- forms with the small delta t, absorbing lower-energy light — the solution turns green-yellow. One metal ion, three colours, all written by the ligand field.
+• EXAMPLE — The vanishing trick: anhydrous CuSO4 is off-white. No ligands means no field, no splitting, no visible d-d absorption. Add water and the blue switches on. Colour is not a property of the metal ion alone — it is a property of the ion-in-its-field, which is why solid anhydrous salts and their solutions so often differ.
+• Gemstones are CFSE you can wear: ruby is Cr3+ lodged in Al2O3, where the tight oxide field makes delta large and the stone glows red; emerald is the same Cr3+ in beryl (Be3Al2(SiO3)6) with a slightly weaker field — and the colour flips to green. Same ion, different host, different delta, different gem.
+• Intensity has a pattern too: d-d transitions are formally forbidden, so colours are usually soft — pale pink high-spin Mn2+ (d5, whose transitions are also spin-forbidden, is palest of all), while charge-transfer transitions are allowed and violent (remember purple MnO4- from Chapter 5 — an LMCT band, not a d-d band, in a d0 ion).
+⚠ EXAM TRAP — d0 and d10 complexes have no d-d transitions: Sc3+ and Zn2+ complexes are colourless, and [Zn(NH3)4]2+ will not turn blue no matter how much ammonia you add. If a "coloured Zn complex" appears in an option, its colour needs a charge-transfer or ligand-based excuse — as a d-d claim it is always false.
+• YOUR TURN — [Co(H2O)6]2+ is pink; with excess concentrated HCl it turns deep blue as [CoCl4]2- forms. Explain both colours in one argument. (Answer: octahedral aqua complex has the larger delta o and absorbs green-yellow, appearing pink. The tetrahedral chloro complex has delta t = 4/9 delta o — much smaller — so it absorbs lower-energy orange-red light and appears deep blue.)
+
+Metal Carbonyls — the Synergic Bond
+• DEFINITION — Metal carbonyls are complexes of carbon monoxide with metals in low (usually zero) oxidation states. Homoleptic members to know cold: Ni(CO)4, tetrahedral; Fe(CO)5, trigonal bipyramidal; Cr(CO)6, octahedral. Dinuclear members add metal-metal bonds: Mn2(CO)10 and Co2(CO)8, and Fe2(CO)9 carries bridging CO groups as well.
+• The puzzle — CO is a feeble base and the metal is in oxidation state zero, yet these are robust, well-defined compounds (Ni(CO)4 is an industrial intermediate in the Mond process for purifying nickel). An ordinary dative bond M←CO should be far too weak. The resolution is a two-way street called synergic bonding.
+• DEFINITION — Synergic bonding: (1) sigma donation — the lone pair on carbon of CO donates into an empty metal orbital, forming the M-C sigma bond; (2) pi back-donation — a filled metal d orbital donates back into the empty antibonding pi-star orbital of CO. Each flow feeds the other: sigma donation piles negative charge on the metal, which back-donation relieves; back-donation makes CO electron-hungry, so it donates harder. Synergy — the pair of flows is stronger than either alone.
+• The evidence is written in bond lengths and spectra: in carbonyls the M-C bond is SHORTER and stronger than a pure single bond (it has partial double-bond character), while the C-O bond is LONGER and weaker than in free CO (its bond order sinks from 3 towards 2, since pi-star is antibonding). The infrared C-O stretch falls from 2143 per cm in free CO to roughly 1850-2100 per cm in complexes — a number spectroscopists read like a gauge of back-donation.
+• The 18-electron comfort blanket (EAN rule): count the metal's electrons after bonding as Z - oxidation state + 2 x coordination number. Ni(CO)4: 28 - 0 + 8 = 36, the krypton count. Fe(CO)5: 26 + 10 = 36. Cr(CO)6: 24 + 12 = 36. Carbonyls that reach the noble-gas count are the stable, isolable ones — the EAN rule is the carbonyl family's house rule.
+⚠ EXAM TRAP — Back-donation goes INTO an antibonding orbital, so it WEAKENS C-O while it STRENGTHENS M-C. Options claiming synergic bonding strengthens both bonds have missed the entire mechanism. And the donor atom of CO is carbon, not oxygen — CO binds M-C-O, never M-O-C in these complexes.
+• YOUR TURN — Why does V(CO)6 exist as a reactive 17-electron species while Cr(CO)6 is contentedly inert? (Answer: V contributes 23 + 12 = 35 electrons (EAN), one short of 36, so it grabs electrons and dimerises or reduces easily; Cr hits exactly 36 and stops.)
+
+Importance and Applications of Coordination Compounds
+• Analytical chemistry runs on complexes: Fe3+ with SCN- gives the blood-red [Fe(SCN)]2+, a test so sensitive it detects traces of iron. Ni2+ with dimethylglyoxime (dmg) precipitates as a rosy-red chelate Ni(dmg)2 — used to estimate nickel gravimetrically. Mix Fe3+ with ferrocyanide and Prussian blue, Fe4[Fe(CN)6]3, falls out — the classic test pair for Fe3+ and [Fe(CN)6]4-.
+• Photography's fixer is a complex in disguise: sodium thiosulphate (hypo) dissolves unexposed AgBr from film as the soluble [Ag(S2O3)2]3-, washing the image permanent. Electroplaters plate silver from K[Ag(CN)2] rather than AgNO3 — the trickle of free Ag+ released by the complex gives smooth, adherent, professional coatings.
+• Metallurgy: gold and silver are extracted by the cyanide process — 4 Au + 8 CN- + 2 H2O + O2 gives 4 [Au(CN)2]- + 4 OH- — complexation drags even a noble metal into solution. Nickel is purified through volatile Ni(CO)4 in the Mond process: form the carbonyl at 330 K, decompose it at 450 K, collect pure nickel.
+• Medicine is coordination chemistry with a dosage: cisplatin, cis-[Pt(NH3)2Cl2], cross-links DNA in cancer cells (its trans twin is useless — the geometry section's warning made flesh). Lead poisoning is treated with CaNa2EDTA: Pb2+ displaces Ca2+ from the EDTA cage and is excreted. BAL (British Anti-Lewisite, dimercaprol) chelates arsenic; D-penicillamine strips excess copper in Wilson's disease.
+• Industry: Wilkinson's catalyst, [RhCl(PPh3)3], hydrogenates alkenes homogeneously at room temperature. Ziegler-Natta catalysts (TiCl4 with Al(C2H5)3) — already met in Chapter 5 — grow polyethylene chain by ordered chain. Rhodium carbonyl-iodide complexes run the Monsanto process making ethanoic acid from methanol, and Co2(CO)8 hydroformylates alkenes to aldehydes.
+• Biology keeps its metals in cages: haemoglobin (Fe2+ in porphyrin) ferries O2; chlorophyll (Mg2+ in a chlorin ring) harvests light; vitamin B12 (Co3+ in a corrin ring) runs rearrangement chemistry; carbonic anhydrase parks Zn2+ at its active site. Strip the cage and the metal is useless or toxic; the ligand set is what tunes a metal into an enzyme.
+• Everyday analysis: water hardness is estimated by EDTA titration (Eriochrome Black T indicator), because EDTA binds Ca2+ and Mg2+ strictly 1 : 1; qualitative salt analysis leans on ammine formation — [Zn(NH3)4]2+ staying dissolved in excess NH4OH is what separates zinc from the group that precipitates.
+• YOUR TURN — A patient with lead poisoning is given CaNa2EDTA, not plain Na4EDTA. Why the calcium version? (Answer: plain EDTA would chelate the blood's own Ca2+ and cause dangerous hypocalcaemia; the calcium-loaded form swaps Ca2+ for Pb2+ — Pb-EDTA is the more stable complex — so lead leaves in urine while calcium balance survives.)
+★ HIGHLIGHT — Notice the pattern across every application: the complex is used to CONTROL a metal — to dissolve it (Au, AgBr), hide it (plating baths), carry it (haemoglobin), poison-selectively bind it (cisplatin, EDTA therapy) or make it catalytic (Wilkinson). Coordination chemistry is metal management.
+
+High-Yield Formula Sheet
+✔ Magnetic moment (spin-only): mu = sqrt(n(n + 2)) BM; ladder n = 1 to 5: 1.73, 2.83, 3.87, 4.90, 5.92 BM
+✔ Octahedral split: eg rises +0.6 delta o; t2g falls -0.4 delta o; barycentre check 2(0.6) = 3(0.4)
+✔ Tetrahedral split: e falls -0.6 delta t; t2 rises +0.4 delta t; delta t = (4/9) delta o — always high-spin
+✔ CFSE octahedral = (-0.4 x + 0.6 y) delta o, x in t2g, y in eg; add +P per extra pair in low-spin counts
+✔ CFSE tetrahedral = (-0.6 x + 0.4 y) delta t, x in e, y in t2
+✔ Spin fork (octahedral d4-d7 only): delta o > P gives low-spin; delta o < P gives high-spin
+✔ Spectrochemical series: I- < Br- < S2- < SCN- < Cl- < NO3- < N3- < F- < OH- < ox < H2O < NCS- < NH3 < en < bipy < phen < NO2- < PPh3 < CN- < CO
+✔ Oxidation number: (oxidation state of metal) + (sum of ligand charges) = charge on the entity; whole compound sums to zero
+✔ Coordination number = total donor atoms bound; EDTA contributes 6, en and ox contribute 2 each
+✔ EAN = Z - (oxidation state) + 2 x (coordination number); stable carbonyls reach the noble-gas count, e.g. 36 for Kr-row totals
+✔ Hybridisation map: d2sp3 octahedral inner; sp3d2 octahedral outer; dsp2 square planar; sp3 tetrahedral
+✔ Ion counting (Werner): ions in solution = 1 (for the entity) + number of counter-ions; precipitable halide = halide OUTSIDE the sphere only
+✔ d-d colour rule: absorbed photon energy = delta; observed colour = complement of absorbed colour; d0 and d10 give no d-d colour
+
+Common Mistakes and Exam Traps
+• Mistake 1 — Counting every chlorine for the AgNO3 test. Why wrong: only ionisation-sphere Cl- is free to precipitate. Correct principle: rewrite the Werner formula first; count Cl outside the brackets (CoCl3.5NH3 gives 2 mol AgCl, not 3, not 5).
+• Mistake 2 — Reporting coordination number as the number of ligands. Why wrong: polydentate ligands bind through several atoms. Correct principle: CN = donor atoms; one EDTA alone gives CN 6.
+• Mistake 3 — Mixing up complex charge and metal oxidation state. Why wrong: [Fe(CN)6]4- has entity charge 4- but Fe is +2. Correct principle: solve the algebra x + (ligand charges) = entity charge.
+• Mistake 4 — Alphabetising ligands by their prefixes. Why wrong: di, tri, bis are invisible in the alphabet. Correct principle: pentaamminechlorido — ammine (a) before chlorido (c), regardless of the 5 and the 1.
+• Mistake 5 — Forgetting the -ate ending (or using it wrongly). Why wrong: an anionic entity renames the metal (ferrate, cuprate, argentate), while cationic and neutral entities keep the plain name. Correct principle: look at the entity's charge sign before choosing the metal word.
+• Mistake 6 — Calling every CN 4 complex square planar. Why wrong: weak ligands with 3d metals give tetrahedral sp3 ([NiCl4]2-, [Zn(NH3)4]2+). Correct principle: square planar needs dsp2, which needs forced pairing — strong ligands or 4d/5d metals.
+• Mistake 7 — Assuming NH3 always pairs electrons. Why wrong: [Fe(NH3)6]3+ is high-spin; NH3 pairs with Co3+ but not with Fe3+. Correct principle: spin verdict = metal + ligand + charge together, checked against measured mu where given.
+• Mistake 8 — Using fac/mer for MA4B2 or cis/trans for a tetrahedron. Why wrong: fac/mer needs three identical ligands (MA3B3); tetrahedral positions are all mutually adjacent, so no geometrical isomers exist. Correct principle: name the formula type before naming the isomer.
+• Mistake 9 — Declaring trans-[Co(en)2Cl2]+ optically active. Why wrong: the trans form has a plane of symmetry. Correct principle: in the en2 pair, CIS is the chiral one; trans is its achiral partner.
+• Mistake 10 — Flipping CFSE signs or tetrahedral coefficients. Why wrong: t2g electrons stabilise (-0.4), eg electrons destabilise (+0.6); tetrahedral flips both the sets and the coefficients (-0.6 for e, +0.4 for t2) and swaps delta o for delta t = 4/9 delta o. Correct principle: derive from the picture (Figure 1), never from memory of the last problem.
+
+Worked Examples — Basic to Challenging
+• EXAMPLE 1 (Werner counting) — Problem: 0.05 mol of CoCl3.4NH3 is treated with excess AgNO3. How many moles of AgCl precipitate, and how many ions does one formula unit give in solution? Given: Co is +3, CN 6. Principle: only outer-sphere chloride precipitates. Steps: the sphere takes 4 NH3 + 2 Cl to reach CN 6, so the formula is [Co(NH3)4Cl2]Cl — one Cl outside. Answer: 0.05 mol AgCl; ions = 2 (one entity cation + one Cl-). Reasoning: the ion count matches the low molar conductivity Werner measured. Mistake to avoid: answering 0.15 mol by counting all three chlorides.
+• EXAMPLE 2 (oxidation state and name) — Problem: find the oxidation state of cobalt in [Co(NH3)4Cl2]Cl and name the compound. Given: entity charge +1 (one outer Cl-). Principle: algebra for the state, alphabet for the name. Steps: x + 4(0) + 2(-1) = +1, so x = +3. Ligands: ammine (a) before chlorido (c); counts tetra and di; metal plain (cationic entity); anion chloride. Answer: Co is +3; name: tetraamminedichloridocobalt(III) chloride. Reasoning: two ligand types make it heteroleptic. Mistake to avoid: writing dichloridotetraammine — alphabetical order is not optional.
+• EXAMPLE 3 (name to formula) — Problem: write the formula of potassium hexacyanidoferrate(II). Given: ferrate signals an anionic entity; Fe is +2; six CN-. Principle: charge balance builds the salt. Steps: entity charge = +2 + 6(-1) = -4; four K+ needed. Answer: K4[Fe(CN)6]. Reasoning: the same salt is potassium ferrocyanide in old language — the systematic name and the formula must agree on Fe(II). Mistake to avoid: K3[Fe(CN)6] — that is the ferrate(III) salt, ferricyanide.
+• EXAMPLE 4 (the CN 4 fork) — Problem: [NiCl4]2- is paramagnetic with mu about 2.83 BM while [Ni(CN)4]2- is diamagnetic. Explain with VBT. Given: Ni2+ is 3d8 in both. Principle: ligand strength decides pairing, pairing decides hybridisation. Steps: Cl- is weak: no pairing, n = 2, sp3, tetrahedral. CN- is strong: electrons pair (n = 0), one 3d orbital frees, dsp2, square planar. Answer: same ion, two geometries — tetrahedral paramagnetic chloro complex, square planar diamagnetic cyano complex. Reasoning: mu measurement (2.83 vs 0) is the experimental proof that the shapes differ. Mistake to avoid: forcing square planar dsp2 for the chloride because "Ni2+ is d8" — d8 alone does not decide; the ligand votes.
+• EXAMPLE 5 (CFSE both branches) — Problem: calculate CFSE for Cr2+ (d4) in (a) [Cr(H2O)6]2+ and (b) [Cr(CN)6]4-. Given: H2O is weak-field, CN- is strong-field. Principle: settle the spin state before multiplying. Steps: (a) high-spin t2g3 eg1: CFSE = (-0.4 x 3) + (0.6 x 1) = -1.2 + 0.6 = -0.6 delta o, n = 4, mu = 4.90 BM. (b) low-spin t2g4 eg0: CFSE = -0.4 x 4 = -1.6 delta o (plus pairing energy P for the one extra pair), n = 2, mu = 2.83 BM. Answer: -0.6 delta o versus -1.6 delta o + P. Reasoning: the cyanide complex banks almost three times the field stabilisation — the arithmetic behind cyanide complexes being both more stable and slower to exchange their ligands. Mistake to avoid: using t2g4 for the aqua complex because "four electrons, fill the low set first" — Hund's rule beats the elevator until delta o exceeds P.
+• EXAMPLE 6 (isomer audit) — Problem: for [Co(NH3)3(NO2)3], list the geometrical isomers and say which structural isomerism the NO2 ligand can additionally show. Given: formula type MA3B3, ambidentate ligand. Principle: MA3B3 gives fac/mer; NO2- flips donor atoms. Steps: the three NO2 groups can share one face (fac) or a meridian (mer) — 2 geometrical isomers. Each NO2 can bind through N (nitrito-N) or O (nitrito-O), giving linkage variants on top. Answer: fac and mer geometrical isomers, with linkage isomerism possible for every nitro group. Reasoning: isomer counts multiply across independent choices — geometry of the set, donor atom of each ambidentate ligand. Mistake to avoid: answering cis/trans — those labels belong to MA4B2 and MA2B2, not MA3B3.
+• EXAMPLE 7 (carbonyl bookkeeping) — Problem: verify the EAN of iron in Fe(CO)5 and use synergic bonding to predict what happens to the C-O bond on complexation. Given: Fe Z = 26, oxidation state 0, CN 5. Principle: EAN = Z - oxidation state + 2 x CN; back-donation enters pi-star. Steps: EAN = 26 - 0 + 10 = 36 = Kr. Sigma donation C to Fe and pi back-donation Fe to CO strengthen M-C; the pi-star population weakens and lengthens C-O, dropping its IR stretch below 2143 per cm. Answer: EAN 36 (stable count); C-O bond order falls towards 2 while M-C gains partial double-bond character. Reasoning: the two predictions — shorter M-C, longer C-O — are exactly what diffraction and IR show. Mistake to avoid: claiming coordination strengthens the C-O bond because "the molecule is more stable overall".
+• EXAMPLE 8 (chelate effect, quantitative feel) — Problem: log overall formation constants: [Ni(NH3)6]2+ about 8.6, [Ni(en)3]2+ about 18.3. How many times more stable is the en complex, roughly, and why? Given: both Ni2+, CN 6, N donors. Principle: chelate effect — entropy of released particles. Steps: the ratio is 10 raised to (18.3 - 8.6) = 10^9.7, about 5 x 10^9. The exchange [Ni(NH3)6]2+ + 3 en gives [Ni(en)3]2+ + 6 NH3 turns 4 particles into 7. Answer: roughly ten billion times more stable, driven by entropy, not by stronger individual Ni-N bonds (they are nearly the same bond). Reasoning: that is why EDTA, with five rings at once, binds almost irreversibly. Mistake to avoid: attributing the chelate effect to enthalpy or to "more bonds" — the bond count is identical (six Ni-N bonds on both sides).
+
+Practice Questions — Self-Test Set
+• Q1. The oxidation state of iron in Na2[Fe(CN)5(NO)], counting NO as NO+, is: (A) +1 (B) +2 (C) +3 (D) 0
+• Q2. The IUPAC name of K2[PdCl4] is: (A) potassium tetrachloridopalladium(II) (B) potassium tetrachloridopalladate(II) (C) dipotassium tetrachloridopalladate(II) (D) potassium tetrachloropalladate(IV)
+• Q3. One formula unit of [Co(NH3)4Cl2]Cl produces how many ions in aqueous solution? (A) 1 (B) 2 (C) 3 (D) 4
+• Q4. The hybridisation and shape of [Zn(NH3)4]2+ are: (A) dsp2, square planar (B) sp3, tetrahedral (C) sp3d2, octahedral (D) d2sp3, octahedral
+• Q5. The CFSE of [Ni(H2O)6]2+ in an octahedral field is: (A) -0.4 delta o (B) -0.8 delta o (C) -1.2 delta o (D) -2.4 delta o
+• Q6. Which complex is low-spin: [Fe(H2O)6]3+, [Fe(CN)6]3-, [CoF6]3-, [Mn(H2O)6]2+? (A) the aqua iron (B) the cyanide iron (C) the fluoro cobalt (D) the aqua manganese
+• Q7. The number of geometrical isomers of square planar [Pt(NH3)2Cl2] and tetrahedral [NiCl2Br2]2- are respectively: (A) 2 and 2 (B) 2 and 1 (C) 1 and 2 (D) 2 and 0
+• Q8. Linkage isomerism in [Co(NH3)5(NO2)]2+ arises because NO2- can bind through: (A) N only (B) O only (C) N or O (D) N and O together to the same metal
+
+▸ Answer Key with Explanations
+• A1. (B) +2 — x + 5(-1) + (+1) = -2 gives x = +2. Misconception: treating NO as neutral gives +3; nitroprusside's NO is NO+, nitrosonium.
+• A2. (B) — the entity is anionic, so palladium becomes palladate, and Pd is +2 (x - 4 = -2). Misconception: (A) forgets the -ate rule; (D) misreads the state; counter-ions are never counted inside the entity name (C).
+• A3. (B) 2 — the entity [Co(NH3)4Cl2]+ plus one Cl-. Misconception: counting every Cl as a separate ion gives 3 or 4; the two inner chlorides travel with the cage.
+• A4. (B) sp3, tetrahedral — Zn2+ is d10: no orbital can be freed by pairing (all are full), so dsp2 is impossible. Misconception: d10 square-planar claims; full subshells cannot hybridise inward.
+• A5. (C) -1.2 delta o — Ni2+ d8 is t2g6 eg2 with either field: (-0.4 x 6) + (0.6 x 2) = -2.4 + 1.2 = -1.2. Misconception: d8 has no spin fork; answers (A) and (D) are the d6 high-spin and low-spin values planted as bait.
+• A6. (B) — CN- forces Fe3+ (d5) into t2g5, n = 1. The others are weak-field: [Fe(H2O)6]3+ n = 5, [CoF6]3- n = 4, [Mn(H2O)6]2+ n = 5. Misconception: assuming any ammine/aqua 3+ ion pairs up — charge alone does not pair electrons; the ligand must outrank H2O.
+• A7. (B) 2 and 1 — square planar MA2B2 gives cis and trans; in a tetrahedron every vertex is adjacent to every other, so all arrangements of 2 Cl and 2 Br are the same molecule: 1 form, zero geometrical isomers. Misconception: importing square-planar logic into tetrahedral geometry.
+• A8. (C) N or O — nitro (N-bound) and nitrito (O-bound) are the linkage pair. Misconception: (D) describes chelation; a monodentate ambidentate ligand uses one donor atom at a time.
+
+Chapter Summary, Checklist and Self-Assessment
+• Summary in one paragraph: Werner split valency into an ionisable primary part (oxidation state) and a directional secondary part (coordination number), and his cobalt ammine series proved it by precipitation and conductivity. Around that skeleton the chapter built its vocabulary (entity, sphere, ligands by denticity, chelates, ambidentate donors), a naming rulebook (alphabetical ligands, -ido endings, -ate for anionic entities, Roman-numeral oxidation states), and an isomerism zoo (ionisation, solvate, linkage, coordination; cis/trans and fac/mer; optical activity in chelated propellers). Two theories then explained behaviour: VBT with hybridisation and spin-only moments, and CFT with splitting (delta o, delta t = 4/9 delta o), the spectrochemical series, the high-spin/low-spin fork for d4-d7, CFSE bookkeeping, and d-d colour. Carbonyls added synergic sigma-plus-pi bonding, and the applications showed complexes managing metals across analysis, industry, medicine and biology.
+• Revision checklist — say each aloud before the exam:
+• I can write Werner formulas for the whole CoCl3.nNH3 series and predict AgCl moles and ion counts
+• I can classify any ligand by denticity and donor atom, including EDTA (6), en and ox (2), and ambidentate NO2- and SCN-
+• I can name any complex in both directions, with alphabetical ligands, bis/tris where needed, -ate for anionic entities
+• I can assign structural isomer types from a formula pair and draw cis/trans, fac/mer and the cis/trans-[Co(en)2Cl2]+ optical pair
+• I can run the VBT drill (state, d count, pairing verdict, hybridisation, geometry, n, mu) for d2sp3, sp3d2, dsp2 and sp3 cases
+• I can draw octahedral and tetrahedral splitting, pass the barycentre audit, and place the spectrochemical series from I- to CO
+• I can compute CFSE for any d count in either spin state and in tetrahedral fields, and explain colour as complementary d-d absorption
+• I can explain synergic bonding in carbonyls with its two bond-length consequences and check an EAN count
+• Self-assessment — rate yourself 1 to 5: (a) Werner evidence and sphere counting, (b) ligand library recall, (c) nomenclature both directions, (d) isomer identification speed, (e) VBT drills, (f) CFSE arithmetic under time pressure. Any score below 3 sends you back to that section for one more pass — the sections are built to be re-read in any order.
+• One last image to keep: the complex is a hand (the metal) being held by several hands at once (the ligands). Werner counted the fingers, IUPAC named the handshake, VBT described the grip, and crystal field theory measured how hard each finger squeezes the d orbitals. Master the squeeze — delta versus P — and this chapter is yours.""".trimIndent(),
 
             videoTitle = "Crystal Field Splitting, Spin-Only Moments & Octahedral Stereoisomers",
 
@@ -10424,37 +10677,290 @@ Chapter Summary and Revision Checklist
 
             completedLessons = 4,
 
-            studyNotesCount = 9,
+            studyNotesCount = 21,
 
-            practiceQuestionCount = 24,
+            practiceQuestionCount = 6,
 
             durationMinutes = 50,
 
-            formulaHighlight = "ΔH = ΔU + Δn_g RT  •  ΔG = ΔH − TΔS  •  ΔG° = −RT ln K_eq",
+            formulaHighlight = "ΔU = q + w (chemistry convention: heat absorbed +, work done ON the system +; physics writes ΔU = Q - W for work done BY the system) • w = -P_ext ΔV, free expansion w = 0, reversible isothermal w = -2.303 nRT log (V2/V1), 1 L atm = 101.325 J • ΔH = qp at constant pressure and ΔU = qv at constant volume • ΔH = ΔU + Δng RT with Δng = gaseous product moles - gaseous reactant moles (RT = 2.48 kJ/mol at 298 K) • ΔrH° = sum ΔfH° (products) - sum ΔfH° (reactants); ΔfH° of an element in its reference state = 0 • ΔfH° from combustion data = sum ΔcH° of elements - ΔcH° of compound • bond enthalpy estimate: ΔrH = bonds broken - bonds formed • Kirchhoff: ΔH(T2) = ΔH(T1) + ΔCp (T2 - T1) • ΔG = ΔH - TΔS (ΔS in kJ per kelvin, T in kelvin) and ΔG° = -RT ln K; at 298 K every -5.71 kJ/mol of ΔG° multiplies K by 10 • neutralisation of strong acid by strong base = -57.1 kJ/mol",
 
-            keyConceptsSummary = "IUPAC sign convention (ΔU = q + w), reversible vs irreversible isothermal/adiabatic work, thermochemistry and Born-Haber cycle, entropy changes, and Gibbs free energy spontaneity.",
+            keyConceptsSummary = "Thermodynamics starts with a boundary: the system is what you study, everything else is surroundings, and open, closed and isolated systems differ by what may cross — matter, energy, or neither; U, H, S, G, P, V and T are state functions fixed by the state alone, while heat q and work w are path functions, and properties split into extensive (amount-dependent: U, H, V) and intensive (amount-free: T, P, density)\\nThe first law in CHEMISTRY bookkeeping is ΔU = q + w, with q positive when heat is absorbed BY the system and w positive when work is done ON the system — the mirror image of the physics form ΔU = Q - W, where W is work done BY the system; expansion work is w = -P_ext ΔV (free expansion gives w = 0, reversible isothermal work is -2.303 nRT log (V2/V1)), and the special cases fall out instantly: adiabatic ΔU = w, isochoric ΔU = qv, isothermal ideal gas q = -w\\nEnthalpy H = U + PV is built for the open bench: at constant pressure ΔH = qp, while a rigid bomb calorimeter measures qv = ΔU, and the two are bridged by ΔH = ΔU + Δng RT with Δng counting GASEOUS moles only (water liquid versus gas changes the count); calorimetry itself is one bookkeeping sentence — heat absorbed by the calorimeter (C ΔT, or m c ΔT) is the negative of the reaction's heat, scaled per mole, as in the neutralisation measurement that gives about -56.8 kJ/mol against the standard -57.1\\nStandard states (1 bar, specified temperature, 1 mol per litre for solutes) anchor all tables; ΔfH° is the enthalpy of forming one mole of a compound from its elements in reference states, elements in reference form score exactly zero (graphite, not diamond, for carbon), and any reaction enthalpy follows from ΔrH° = sum of ΔfH° (products) - sum of ΔfH° (reactants), with coefficients honoured and the value belonging to the equation as written\\nHess's law — ΔH is route-independent because H is a state function — runs on four moves (write the target, reverse to flip signs or scale to multiply, cancel, add) and unlocks what cannot be measured directly: formation of CO (-110.5 kJ/mol) from combustion data, formation of methane (-74.8 kJ/mol) from the combustion values of C, H2 and CH4, and lattice enthalpies through Born-Haber cycles\\nA named enthalpy exists for every standard event — combustion (always negative), atomisation (always positive), solution (NaCl about +3.9 kJ/mol), lattice (breaking one mole of ionic solid into gaseous ions, +788 kJ/mol for NaCl in the dissociation convention), neutralisation (-57.1 kJ/mol for any strong acid with any strong base); bond enthalpies estimate ΔrH as bonds BROKEN minus bonds FORMED (gas phase, averages — H2 + Cl2 gives -184 kJ), and Kirchhoff's equation ΔH(T2) = ΔH(T1) + ΔCp (T2 - T1) corrects enthalpy changes to other temperatures\\nDirection is judged by entropy and Gibbs energy, not by heat: entropy S (joules per kelvin) grows with microstates, ΔS is usually positive when gas moles increase, and the second law demands ΔS of the universe be positive for any spontaneous process; at constant T and P the verdict compresses into ΔG = ΔH - TΔS (negative spontaneous, zero equilibrium, positive reverse-spontaneous), the four sign cases make temperature the referee when ΔH and ΔS compete (ice melts spontaneously only above 273 K), and ΔG° = -RT ln K ties the standard verdict to equilibrium — at 298 K every -5.71 kJ/mol of ΔG° multiplies K by ten",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — Why Thermodynamics Decides Whether a Reaction Runs
+• Here is an uncomfortable truth about chemistry: knowing that a reaction CAN be written on paper tells you nothing about whether it will actually happen. Diamond should, by every energy calculation, slowly turn into graphite — yet your diamond ring is in no hurry. Thermodynamics is the branch of science that separates reactions that merely look good on paper from reactions that genuinely run.
+• DEFINITION — Thermodynamics is the study of energy changes — heat, work and internal energy — that accompany physical and chemical processes, and of the conditions under which a process is feasible (spontaneous) at all.
+• WHY this chapter pays rent in the IAT — it is pure concept-plus-calculation territory: sign conventions, calorimetry arithmetic, Hess cycles and Gibbs energy judgements. Every one of those is a scoring machine if your signs are disciplined, and a mark shredder if they are not. Almost every error in this chapter is a sign error or a unit error, never a knowledge error.
+• EXAMPLE — An instant cold pack works because ammonium nitrate dissolves in water endothermically, pulling heat out of your sprained ankle. A hand warmer works because iron oxidation is exothermic and pushes heat out. Same subject, opposite directions — this chapter teaches you to predict which way the energy flows, how much flows, and whether the process needs a push or runs by itself.
+• The map of the chapter: first the vocabulary (system, surroundings, state functions, processes). Then the first law, with the CHEMISTRY sign convention stated so clearly you can never lose it. Then enthalpy and calorimetry — how energy changes are actually measured. Then the bookkeeping systems: standard enthalpies, Hess's law, bond enthalpies, Kirchhoff. Finally the judges of feasibility: entropy and Gibbs energy.
+★ HIGHLIGHT — The whole chapter in one breath: energy is conserved (ΔU = q + w, chemistry convention), enthalpy is the heat measured at constant pressure, enthalpy changes can be rerouted through any convenient path (Hess), and a process runs by itself only when the Gibbs energy falls (ΔG = ΔH - TΔS < 0).
 
-                1. First Law & Work in Chemical Thermodynamics
+The Thermodynamic Vocabulary — Systems, Surroundings and Properties
+• DEFINITION — The system is the specific part of the universe chosen for study — usually the reaction mixture in its vessel. The surroundings are everything else in the universe, and the boundary is the real or imaginary surface separating the two.
+• DEFINITION — An open system exchanges both matter and energy with its surroundings. A closed system exchanges energy but not matter. An isolated system exchanges neither matter nor energy.
+• EXAMPLE — Boiling water in an open pan: open system (steam escapes, heat enters). The same water in a sealed steel vessel on a heater: closed system (heat crosses, steam cannot). Coffee in a good thermos flask: approximately isolated — that approximation is exactly what a calorimeter tries to achieve.
+• DEFINITION — A state function is a property whose value depends only on the present state of the system, not on the path used to reach it. Internal energy U, enthalpy H, entropy S, Gibbs energy G, and also P, V and T are state functions.
+• DEFINITION — A path function depends on the route taken between two states. Heat q and work w are path functions: the same change of state can be reached with many different combinations of heat and work.
+• WORKED PATTERN — The mountain test for state functions: your altitude change between two camps is fixed (state function), but the distance you walked and the calories you burned depend on the trail (path functions). Whenever a question asks "is X a state function", run the mountain test on it.
+• DEFINITION — An extensive property depends on the amount of matter present: mass, volume, internal energy, enthalpy, entropy, heat capacity. Double the system and the property doubles.
+• DEFINITION — An intensive property does not depend on the amount of matter: temperature, pressure, density, molar volume, specific heat. Cut the system in half and the property is unchanged.
+• EXAMPLE — Two beakers of water at 60 degrees C, one with 100 mL and one with 1 L: same temperature (intensive), very different total internal energy and heat capacity (extensive). The exam loves asking exactly this pair.
+• YOUR TURN — Classify as open, closed or isolated: (a) a pressure cooker with the weight on, being heated, (b) a human body eating and breathing, (c) the universe as a whole. Answers: (a) closed — steam is sealed in while heat crosses, (b) open — matter and energy both flow, (c) isolated by definition — there is nothing outside it to exchange with.
+⚠ EXAM TRAP — A thermos flask is only approximately isolated. In theory questions "perfectly insulated container" signals isolated; a named real object may be a trap dressed as an example.
 
-                • ΔU = q + w, where w = −∫ P_ext dV.
+▸ Processes — Isothermal, Adiabatic, Isobaric, Isochoric and Cyclic
+• DEFINITION — An isothermal process keeps the temperature constant (ΔT = 0). An adiabatic process exchanges no heat with the surroundings (q = 0). An isobaric process keeps pressure constant (ΔP = 0). An isochoric process keeps volume constant (ΔV = 0). A cyclic process returns the system to its initial state.
+• EXAMPLE — Slow expansion of a gas in a thermostat bath: isothermal. Expansion inside a perfectly insulated cylinder: adiabatic. Any reaction in an open beaker under the sky: isobaric (atmospheric pressure). A reaction sealed in a rigid steel bomb: isochoric — this is why the bomb calorimeter appears later in this chapter.
+• DEFINITION — A reversible process is carried out infinitely slowly, through a series of equilibrium states, so that reversing the external conditions by an infinitesimal amount reverses the process. It is an idealisation — real processes are irreversible, but the reversible route gives the maximum work and defines entropy changes.
+• WHY reversibility matters for marks — maximum work is obtained only in the reversible route, and the entropy change of the universe is zero for a reversible process and positive for every real (irreversible, spontaneous) one. Two favourite one-line questions, both answered by this paragraph.
+• For a cyclic process every state function returns to its starting value, so ΔU = 0 and ΔH = 0 for the cycle, and the first law then forces q = -w: the net heat absorbed equals the net work done BY the system in chemistry bookkeeping.
+• YOUR TURN — Name the process: (a) a gas expands in a Dewar flask and cools as it pushes the piston, (b) a reaction runs in a sealed rigid autoclave, (c) a gas is compressed slowly in a water bath held at 25 degrees C. Answers: (a) adiabatic — no heat exchanged, so the work is paid out of internal energy and the gas cools, (b) isochoric, (c) isothermal.
+★ HIGHLIGHT — Learn the process names as equations: isothermal ΔT = 0, adiabatic q = 0, isobaric ΔP = 0, isochoric ΔV = 0 (and therefore w = 0), cyclic ΔU = 0. Five one-line facts that unlock half the MCQs in this chapter.
 
-                • Reversible isothermal expansion of ideal gas: w_rev = −nRT ln(V₂/V₁), ΔU = 0, ΔH = 0, q = −w_rev.
+Internal Energy and the First Law — Chemistry's Sign Convention
+• DEFINITION — Internal energy U is the total energy stored inside a system: the kinetic energies of its molecules (translation, rotation, vibration) plus the potential energy of the interactions between them. Its absolute value cannot be measured — only changes ΔU are measurable.
+• DEFINITION — The first law of thermodynamics is conservation of energy applied to a system: the energy of an isolated system is constant; equivalently, any change in a system's internal energy equals the energy that crossed its boundary as heat plus the energy that crossed as work.
+✔ KEY FORMULA — CHEMISTRY convention: ΔU = q + w, where q is positive when heat is absorbed BY the system and w is positive when work is done ON the system. Memorise the sentence, not just the symbols: energy that ENTERS the system is positive.
+• WHY chemistry chose this convention — chemists care about the system (the reaction), so anything flowing into the system counts as a gain, positive. Compression (work done on the gas) raises its energy, so w is positive in compression and negative in expansion.
+⚠ EXAM TRAP — THE sign trap of the whole subject: Physics writes the same first law as ΔU = Q - W, where W is the work done BY the system. The physics is identical; only the bookkeeping of w flips sign. In this app, the Physics chapter on thermodynamics uses the physics form and this Chemistry chapter uses ΔU = q + w. Before ANY first-law calculation, write down which convention the question lives in — this one habit is worth several marks a year.
+• WORKED PATTERN — Reading a first-law sentence: "the gas absorbs 200 J of heat and expands, doing 120 J of work". Chemistry: q = +200 (heat in), w = -120 (work done by the system is negative work done on it), so ΔU = 200 - 120 = +80 J. Translate every word into a signed number BEFORE touching a formula.
+• EXAMPLE — Compressing a bicycle pump warms it up: you do work ON the air (w positive), the air's internal energy rises, and the barrel feels hot. Let the air expand against nothing and nothing happens — no resistance, no work, no energy change.
+• Special cases that fall straight out of ΔU = q + w: adiabatic process, q = 0, so ΔU = w. Isochoric process, w = 0, so ΔU = qv (the subscript v marks constant volume). Isothermal expansion of an ideal gas, ΔU = 0 (U of an ideal gas depends only on temperature), so q = -w.
+• YOUR TURN — A system releases 150 J of heat and is compressed with 90 J of work. Find ΔU. Answer: q = -150 (heat left the system), w = +90 (work done on it), ΔU = -150 + 90 = -60 J. The system lost 60 J of internal energy overall.
+★ HIGHLIGHT — Sign discipline ritual: (1) heat in +, heat out -; (2) work on +, work by -; (3) then ΔU = q + w. Do it in writing for every problem until it is automatic.
 
-                • Relation between enthalpy and internal energy of reaction: Δ_r H = Δ_r U + (Δn_g) RT.
+▸ Expansion Work — the Sign-Safe Way to Use w = -P ΔV
+• DEFINITION — In expansion or compression against an external pressure P_ext, the work is w = -P_ext x ΔV, where ΔV = V_final - V_initial. The minus sign is not decoration: when a gas expands (ΔV positive), it does work on the surroundings, so work done ON the system is negative, exactly as the formula gives.
+✔ KEY FORMULA — w = -P_ext ΔV. Units check: pressure in pascals times volume in cubic metres gives joules directly; pressure in atm times volume in litres gives litre-atmospheres, and 1 L atm = 101.325 J.
+• DEFINITION — Free expansion is expansion into a vacuum, where P_ext = 0. No resistance is pushed against, so w = 0 no matter how large ΔV is. If the expansion is also insulated and the gas is ideal, q = 0 and ΔU = 0 too — the temperature does not change.
+• WORKED PATTERN — Reversible isothermal work: for n mol of ideal gas expanding reversibly and isothermally from V1 to V2, w = -2.303 nRT log(V2 / V1). Try it: 1 mol at 300 K expanding from 1 L to 10 L gives w = -2.303 x 1 x 8.314 x 300 x log 10 = -5744 J, about -5.74 kJ. Since ΔU = 0 for this process, q = +5.74 kJ: the gas absorbs exactly as much heat as the work it performs.
+• WHY reversible work is the maximum — at every instant the external pressure is only a hair below the gas pressure, so almost the full push of the gas is harvested. Expand against a much lower constant pressure instead and part of the push is wasted; expand into vacuum and all of it is wasted. Same start, same finish, different w — proof that work is a path function.
+• EXAMPLE — A gas expands from 2 L to 5 L against a constant 1 atm. ΔV = +3 L, so w = -1 x 3 = -3 L atm = -3 x 101.325 = -304 J. The negative sign says: 304 J of work was done BY the gas. You will use this exact number in Worked Example 2 below.
+• YOUR TURN — A gas is compressed from 10 L to 4 L against a constant external pressure of 2 atm. Find w in joules. Answer: ΔV = 4 - 10 = -6 L; w = -2 x (-6) = +12 L atm = 12 x 101.325 = +1216 J. Positive, because work was done ON the gas — the sign self-checks if you let it.
+⚠ EXAM TRAP — Two classic slips: using the gas's own pressure instead of the EXTERNAL pressure in w = -P_ext ΔV, and computing ΔV as V_initial - V_final. Both flip the sign of w and poison everything downstream.
 
 
+Enthalpy — the Heat Chemists Actually Measure
+• Here is the practical problem with internal energy: most reactions run in open vessels at atmospheric pressure, not at constant volume, so the heat measured is not ΔU. Chemists therefore built a second quantity designed for exactly those conditions.
+• DEFINITION — Enthalpy H is defined as H = U + PV. It is a state function (built from state functions), and its change is ΔH = ΔU + Δ(PV). At constant pressure this becomes ΔH = ΔU + PΔV.
+✔ KEY FORMULA — At constant pressure, ΔH = qp: the enthalpy change equals the heat absorbed by the system when the only work is expansion work. This single fact is why enthalpy, not internal energy, dominates chemistry — the lab bench lives at constant pressure.
+• WHY the two differ — when a reaction produces gas at constant pressure, some of its energy is spent pushing back the atmosphere. That expansion work leaves as work, not heat, so the heat you measure (ΔH) is smaller in magnitude than the total energy change (ΔU) by exactly PΔV.
+• DEFINITION — An exothermic reaction releases heat to the surroundings: products sit lower in enthalpy than reactants, ΔH is negative. An endothermic reaction absorbs heat: products sit higher, ΔH is positive. The sign of ΔH is written from the system's point of view, always.
+• EXAMPLE — Combustion of methane, CH4 + 2O2 gives CO2 + 2H2O, has ΔH = -890 kJ/mol: the system ends 890 kJ poorer per mole and the surroundings gain it. Photosynthesis runs the same ledger backwards, ΔH positive, banking sunlight as chemical enthalpy.
+• YOUR TURN — A reaction absorbs 75 kJ of heat at constant pressure while doing negligible non-expansion work. What are qp and ΔH, and is the reaction exo- or endothermic? Answer: qp = ΔH = +75 kJ; positive sign, heat absorbed, so endothermic.
+★ HIGHLIGHT — Two heats, two quantities: heat at constant volume is ΔU (qv), heat at constant pressure is ΔH (qp). Matching the measurement condition to the quantity is the whole game of the next section.
+⚠ EXAM TRAP — ΔH is not "heat" in general — it equals heat only at constant pressure with expansion work alone. The moment a question adds electrical work or a changing pressure, ΔH and q part company.
 
-                2. Second Law, Entropy & Gibbs Energy
+Measuring Energy Changes — Bomb Calorimeters and Coffee Cups
+• DEFINITION — Calorimetry measures heat changes by letting the reaction warm (or cool) a known thermal mass and reading the temperature change. The heat absorbed by the calorimeter and its contents is q = C x ΔT, where C is the total heat capacity of the absorbing assembly; for water-based setups, q = m x c x ΔT with c = 4.18 J per gram per kelvin for water.
+• [diagram: bomb calorimeter — the steel bomb sits in a known mass of water inside an insulated vessel; the reaction's heat becomes a temperature rise]
+• DEFINITION — A bomb calorimeter is a sealed, rigid steel vessel charged with oxygen, in which a fuel or food sample is ignited electrically inside a known mass of water. Rigid means ΔV = 0, so no expansion work is done and the measured heat is qv.
+✔ KEY FORMULA — In a bomb calorimeter, ΔU = qv = -(C x ΔT) per mole of sample burned (sign: heat released by the reaction is absorbed by the calorimeter, so the reaction's ΔU is negative when ΔT is positive).
+• DEFINITION — A coffee-cup calorimeter — two nested foam cups with a lid and thermometer — works open to the atmosphere, so it runs at constant pressure and measures qp, which is ΔH directly. It is the standard tool for solution reactions like neutralisation and dissolution.
+• WORKED PATTERN — Heat gained by the surroundings equals heat lost by the reaction. That one bookkeeping sentence runs every calorimetry problem: compute q_absorbed = C ΔT (or m c ΔT) for the calorimeter side, attach a negative sign for the reaction, then divide by the moles that reacted to get the molar quantity.
+• EXAMPLE — Mixing 50 mL of 1 M HCl with 50 mL of 1 M NaOH in a coffee-cup calorimeter raises the temperature of the 100 g of solution by 6.8 K. Heat released = 100 x 4.18 x 6.8 = 2842 J for 0.05 mol of water formed, giving ΔH of neutralisation = -2842 / 0.05 = about -56.8 kJ/mol — close to the standard value of -57.1 kJ/mol quoted for strong acid-strong base pairs. This becomes Worked Example 4.
+✔ KEY FORMULA — ΔH = ΔU + Δng RT, where Δng is (moles of gaseous products) minus (moles of gaseous reactants). Only gases are counted — solids and liquids have negligible volume change. At 298 K, RT is about 2.48 kJ/mol, so each net mole of gas created shifts ΔH from ΔU by roughly 2.5 kJ.
+• WHY the conversion matters — the bomb gives ΔU, but tables and questions usually want ΔH. If a reaction creates gas (Δng positive), ΔH is larger than ΔU; if it consumes gas, ΔH is more negative. For reactions with no gases at all, ΔH and ΔU are practically identical.
+• YOUR TURN — For CH4 + 2O2 gives CO2 + 2H2O (liquid), Δng = 1 - 3 = -2. Given ΔU = -885.4 kJ/mol at 298 K, estimate ΔH. Answer: ΔH = -885.4 + (-2)(2.48) = -885.4 - 5.0 = -890.4 kJ/mol (the precise value using RT = 2.478 is -890.3). Gas moles fell, extra energy came out as heat instead of being needed for expansion bookkeeping, so ΔH is more negative than ΔU.
+⚠ EXAM TRAP — Δng counts ONLY gaseous species, and water's state matters: if the equation writes H2O (g) instead of H2O (l), Δng changes and so does the answer. Read the state symbols before counting anything.
 
-                • Entropy change of ideal gas: ΔS_sys = n C_V,m ln(T₂/T₁) + n R ln(V₂/V₁).
+Reaction Enthalpy and Standard States
+• DEFINITION — The enthalpy change of a reaction, ΔrH, is the enthalpy of the products minus the enthalpy of the reactants for the reaction exactly as written, with every coefficient honoured. Double the equation and ΔrH doubles; reverse the equation and ΔrH flips sign.
+• [diagram: enthalpy profile diagrams — exothermic reactions end lower (ΔH negative), endothermic reactions end higher (ΔH positive); both must first climb the activation-energy barrier]
+• HOW TO READ the profile diagram — the vertical gap between the reactant level and the product level is ΔH; the height from reactants up to the peak (the activated complex) is the activation energy Ea, a kinetics quantity that says nothing about ΔH. A reaction can be strongly exothermic yet slow if Ea is large — thermodynamics and kinetics are separate ledgers.
+• DEFINITION — Standard state: a substance at 1 bar pressure and a specified temperature (conventionally 298 K); for a solute, a concentration of 1 mol per litre. Standard quantities carry the symbol °, as in ΔH°.
+• WHY standard states exist — enthalpy changes drift with pressure, concentration and temperature, so the world's data tables need one agreed reference condition. Every tabulated value you will meet — formation, combustion, atomisation — is a standard value unless stated otherwise.
+• EXAMPLE — The thermochemical equation CH4 (g) + 2O2 (g) gives CO2 (g) + 2H2O (l), ΔrH° = -890.3 kJ/mol, is a complete sentence: substances, states, coefficients and energy, all pinned down. Change H2O (l) to H2O (g) and the number changes to about -802 kJ/mol, because condensing steam releases the difference. State symbols are part of the data.
+• YOUR TURN — If ΔrH° for 2H2 + O2 gives 2H2O (l) is -571.6 kJ, what is ΔrH° for H2O (l) gives H2 + 1/2 O2, and for H2 + 1/2 O2 gives H2O (l)? Answers: decomposition is the reverse, so +571.6 / 2 = +285.8 kJ per mole of water split; formation is half the original equation, so -571.6 / 2 = -285.8 kJ/mol — which is exactly the standard enthalpy of formation of liquid water, a fact the next section formalises.
+★ HIGHLIGHT — ΔrH belongs to the equation AS WRITTEN. Scale it, reverse it, or change a state symbol, and you must transform the number the same way. Hess's law, next, is nothing but this rule used systematically.
+⚠ EXAM TRAP — "Per mole" in a thermochemical equation means per mole of the reaction as written (per mole of the event), not per mole of whichever substance you like. For CH4 + 2O2, -890.3 kJ is released per mole of CH4 AND per 2 moles of O2 — same event, one number.
 
-                • Gibbs-Helmholtz Spontaneity: ΔG = ΔH − TΔS < 0 for spontaneous process at constant T, P.
+▸ Standard Enthalpy of Formation — the Bookkeeping Zero
+• DEFINITION — The standard enthalpy of formation ΔfH° of a compound is the enthalpy change when one mole of the compound is formed from its elements in their reference (most stable) states, everything in standard states.
+• DEFINITION — By convention, ΔfH° of an element in its reference state is exactly zero: O2 (g), H2 (g), N2 (g), C (graphite), S (rhombic), Fe (s). You cannot "form" an element from itself, so its formation enthalpy is defined as nothing.
+✔ KEY FORMULA — ΔrH° = sum of ΔfH° (products) - sum of ΔfH° (reactants), each value multiplied by its coefficient in the equation. This is the single most-used formula of the chapter: products minus reactants, formation data in, reaction enthalpy out.
+• EXAMPLE — Anchor values worth knowing cold: ΔfH° of CO2 (g) = -393.5 kJ/mol, H2O (l) = -285.8, CH4 (g) = -74.8, CO (g) = -110.5, HCl (g) = -92.3, NH3 (g) = -46.1. Note that CO2's formation enthalpy IS its carbon's combustion enthalpy — for C + O2 gives CO2, the two definitions describe the same equation.
+• WORKED PATTERN — Combustion of methane from formation data: ΔrH° = [ΔfH°(CO2) + 2 x ΔfH°(H2O)] - [ΔfH°(CH4) + 2 x ΔfH°(O2)] = [-393.5 + 2(-285.8)] - [-74.8 + 0] = -965.1 + 74.8 = -890.3 kJ/mol. Formation data alone reproduces the measured combustion enthalpy — the bookkeeping is self-consistent.
+• WHY a zero had to be invented — absolute enthalpies cannot be measured, only differences. Giving elements a formation enthalpy of zero is like setting sea level as zero altitude: arbitrary, but it makes every other height comparable. Formation enthalpies are the altitude map of chemistry.
+• YOUR TURN — Using ΔfH° values CO2 = -393.5 and H2O (l) = -285.8 kJ/mol, find ΔrH° for C2H4 (g) + 3O2 gives 2CO2 + 2H2O (l), given ΔfH° of C2H4 = +52.3 kJ/mol. Answer: products = 2(-393.5) + 2(-285.8) = -1358.6; reactants = +52.3 + 0 = +52.3; ΔrH° = -1358.6 - 52.3 = -1410.9 kJ/mol.
+⚠ EXAM TRAP — The reference form matters: carbon's zero is GRAPHITE, not diamond (ΔfH° of diamond is +1.9 kJ/mol); sulphur's is rhombic; phosphorus questions may specify white or red. A formation equation that starts from the wrong allotrope is a wrong formation equation.
 
-                • Standard Gibbs Free Energy and Equilibrium: ΔG° = −RT ln K_eq = −2.303 RT log₁₀ K_eq.
+Hess's Law — Enthalpy Keeps No Memory of the Route
+• DEFINITION — Hess's law of constant heat summation: the enthalpy change of a reaction is the same whether the reaction occurs in one step or in several steps, provided the initial and final states are the same. It is true because enthalpy is a state function — only the endpoints matter.
+• [diagram: a Hess cycle — carbon burns directly to CO2 with ΔH = -393.5 kJ/mol, or in two steps via CO with -110.5 and -283.0 kJ/mol; the two routes sum to the same total]
+• WORKED PATTERN — The four moves of every Hess problem: (1) write the target equation; (2) rearrange the given equations — reverse (flip the sign), scale (multiply the value), or use as-is — so that adding them reproduces the target; (3) cancel species that appear on both sides; (4) add the transformed ΔH values with their signs. If a species refuses to cancel, a move was wrong.
+• EXAMPLE — Formation of CO cannot be measured directly, because burning carbon in limited oxygen always makes some CO2 as well. Hess rescues it: C + O2 gives CO2 has ΔH = -393.5, and CO + 1/2 O2 gives CO2 has ΔH = -283.0. Subtracting the second from the first: C + 1/2 O2 gives CO with ΔH = -393.5 - (-283.0) = -110.5 kJ/mol. The cycle diagram for this calculation is Figure 2 of this section.
+✔ KEY FORMULA — Enthalpy of formation from combustion data: ΔfH° (compound) = sum of ΔcH° of its elements - ΔcH° of the compound. Burn everything to the same ash, and the formation enthalpy is what is left over.
+• WORKED PATTERN — Formation of methane, the classic: ΔcH° values are C = -393.5, H2 = -285.8, CH4 = -890.3 kJ/mol. Then ΔfH°(CH4) = [-393.5 + 2(-285.8)] - [-890.3] = -965.1 + 890.3 = -74.8 kJ/mol. Methane cannot be made by simply mixing carbon and hydrogen in a calorimeter — this cycle is the only way to its formation enthalpy. Worked Example 5 walks it in full.
+• WHY Hess's law is bigger than a trick — it is conservation of energy wearing a disguise. If two routes between the same states had different ΔH, you could go one way and return by the other and create energy from nothing. The law also powers the Born-Haber cycle for lattice enthalpies, met in the next section.
+• YOUR TURN — Given N2 + O2 gives 2NO with ΔH = +180 kJ, and 2NO + O2 gives 2NO2 with ΔH = -112 kJ, find ΔH for N2 + 2O2 gives 2NO2. Answer: add the equations as written (NO cancels): ΔH = 180 - 112 = +68 kJ for the equation as written, i.e. +34 kJ per mole of NO2 formed.
+⚠ EXAM TRAP — The two deadly Hess slips: reversing an equation but forgetting to flip the sign of ΔH, and scaling an equation by 2 but forgetting to scale ΔH by 2. Transform the number every time you transform the equation — no exceptions.
 
-            """.trimIndent(),
+An Enthalpy for Every Occasion — Combustion, Atomisation, Solution, Lattice
+• WHY so many named enthalpies — each one is ΔH for a precisely defined standard event, chosen because that event is measurable or reusable. Learn each definition with its event and sign habit, and data questions become reading comprehension.
+• DEFINITION — Standard enthalpy of combustion ΔcH° is the enthalpy change when one mole of a substance is burned completely in excess oxygen under standard conditions. Combustion is exothermic, so ΔcH° is always negative. Values: C = -393.5, H2 = -285.8 (product H2O liquid), CH4 = -890.3 kJ/mol.
+• DEFINITION — Standard enthalpy of atomisation ΔaH° is the enthalpy change when one mole of gaseous atoms is formed from an element in its standard state: Na (s) gives Na (g), ΔaH° = +108.4 kJ/mol; 1/2 Cl2 (g) gives Cl (g), +121 kJ/mol. Breaking a substance into free atoms always costs energy, so atomisation enthalpies are positive.
+• DEFINITION — Standard enthalpy of solution ΔsolH° is the enthalpy change when one mole of a solute dissolves in a large excess of solvent. For NaCl it is small and positive, about +3.9 kJ/mol — which is why dissolving salt cools water very slightly.
+• DEFINITION — Lattice enthalpy is the enthalpy change when one mole of an ionic solid is broken into its gaseous ions, NaCl (s) gives Na+ (g) + Cl- (g), ΔH = +788 kJ/mol. It cannot be measured directly — it is extracted from a Born-Haber cycle, which is Hess's law arranged in a ring of formation, atomisation, ionisation, electron-gain and formation steps.
+• DEFINITION — Enthalpy of neutralisation is the enthalpy change when one mole of water is formed by neutralising an acid with a base in dilute solution. For any strong acid with any strong base it is essentially constant at -57.1 kJ/mol, because the only real reaction is H+ + OH- gives H2O. With a weak acid or base it is less exothermic — part of the energy is spent pulling the weak electrolyte apart into ions first.
+• EXAMPLE — Why is ammonia's formation enthalpy, -46.1 kJ/mol, so much smaller in magnitude than methane's combustion, -890.3? Because they are different events: forming one mole of NH3 from N2 and H2 versus destroying one mole of CH4 into CO2 and water. Named enthalpies are never comparable until you check the event each one describes.
+• YOUR TURN — State the event and expected sign: (a) ΔcH° of ethanol, (b) ΔaH° of bromine from Br2 (l), (c) lattice enthalpy of MgO. Answers: (a) burn 1 mol ethanol completely in O2 — negative; (b) form 1 mol of Br (g) atoms from Br2 (l) — positive (vaporise, then break bonds); (c) split 1 mol MgO (s) into gaseous Mg2+ and O2- ions — large and positive, far bigger than NaCl's because the ions carry double charges.
+★ HIGHLIGHT — Every named enthalpy answers three questions: how much substance (always 1 mol of the named thing), what event (formed, burned, atomised, dissolved, split into ions), and which states. If you can state the event, you can use the number.
+⚠ EXAM TRAP — Lattice enthalpy sign conventions differ between books: some define it as the formation of the solid from gaseous ions (then it is negative, -788 kJ/mol for NaCl). In this chapter it is the dissociation direction, positive. When a question gives a Born-Haber cycle, read ITS arrow directions instead of trusting memory.
+
+▸ Bond Enthalpy — Estimating Reaction Enthalpy from Bonds
+• DEFINITION — Bond enthalpy (bond dissociation enthalpy) is the energy required to break one mole of a particular bond in gaseous molecules. Tabulated values are averages over many compounds — a C-H bond in methane and in ethane differ slightly, and the table gives the mean.
+✔ KEY FORMULA — ΔrH (estimated) = sum of bond enthalpies of bonds BROKEN - sum of bond enthalpies of bonds FORMED. Breaking costs (+), forming pays back (-). Say it as a sentence: pay to break, get paid to form, the bill is the difference.
+• WORKED PATTERN — H2 + Cl2 gives 2HCl. Bonds broken: H-H (436) + Cl-Cl (242) = 678 kJ. Bonds formed: 2 x H-Cl = 2 x 431 = 862 kJ. ΔrH = 678 - 862 = -184 kJ for the equation as written. The measured value is about -184.6 kJ — bond enthalpies are sharpest for small gas-phase molecules. This is Worked Example 6.
+• WHY only an estimate — the method assumes gas-phase species and average bonds. Water formed as liquid, resonance-stabilised rings like benzene, and ionic solids all break the assumptions, so treat answers as approximations and expect the exam to test whether you know that.
+• EXAMPLE — Anchor bond enthalpies (kJ/mol): H-H 436, Cl-Cl 242, H-Cl 431, C-H 413, C-C 348, C-Cl 328, O=O 498, O-H 463, N triple bond N 945. Notice the pattern: multiple bonds are stronger but never exact multiples — a double bond is not worth two single bonds.
+• YOUR TURN — Estimate ΔrH for CH4 + Cl2 gives CH3Cl + HCl using C-H 413, Cl-Cl 242, C-Cl 328, H-Cl 431. Answer: broken = 413 + 242 = 655; formed = 328 + 431 = 759; ΔrH = 655 - 759 = -104 kJ. Mildly exothermic — one bond swap, small net bill.
+⚠ EXAM TRAP — The order in the formula is broken minus formed — the exact reverse of the formation-enthalpy formula (products minus reactants). Mixing the two formulas is the most common bond-enthalpy error. Also: count bonds, not molecules — 2HCl means TWO H-Cl bonds.
+
+▸ Kirchhoff's Equation — Enthalpy at a Different Temperature
+• THE GAP this fills — tables give ΔH at 298 K, but reactors run hot. Enthalpy changes themselves drift with temperature because reactants and products store heat at different rates.
+• DEFINITION — Heat capacity at constant pressure, Cp, is the heat needed to raise the temperature of a system by 1 K at constant pressure. For a reaction, ΔCp = sum of Cp (products) - sum of Cp (reactants), coefficients included.
+✔ KEY FORMULA — Kirchhoff's equation: ΔH at T2 = ΔH at T1 + ΔCp x (T2 - T1). If ΔCp is positive, ΔH grows (less negative or more positive) as temperature rises; if negative, it falls.
+• WORKED PATTERN — A reaction has ΔH (298 K) = -100 kJ/mol and ΔCp = -40 J per kelvin per mol. Find ΔH at 398 K. ΔH = -100 + (-0.040) x (398 - 298) = -100 - 4 = -104 kJ/mol. Note the unit conversion: ΔCp in joules must become kilojoules before meeting ΔH — the same J-versus-kJ discipline that Gibbs energy will demand again.
+• WHY it is usually a small correction — heat capacities of reactants and products rarely differ much, so over a 100 K interval ΔH typically moves by only a few kJ. Kirchhoff is a refinement, not a rewrite; in most exam questions it appears as a one-step application, exactly like the pattern above.
+• YOUR TURN — A reaction has ΔH (300 K) = +50 kJ/mol and ΔCp = +100 J per kelvin per mol. Find ΔH at 400 K. Answer: ΔH = 50 + 0.100 x 100 = +60 kJ/mol.
+★ HIGHLIGHT — Kirchhoff in one line: enthalpy changes drift with temperature at a rate set by how much better the products store heat than the reactants.
+
+Spontaneity and Entropy — Why Reactions Choose a Direction
+• THE PUZZLE — if exothermic reactions release energy, students expect only exothermic reactions to run spontaneously. Reality disagrees: ice melts endothermically on a warm day, ammonium nitrate dissolves endothermically in a cold pack, and baking soda fizzes with vinegar while absorbing heat. Energy alone does not choose the direction. Something else votes.
+• DEFINITION — A spontaneous process is one that proceeds on its own, without continuous external work being done on the system, once started. Spontaneous says nothing about speed: rusting is spontaneous and slow; the diamond-to-graphite conversion is spontaneous and effectively frozen.
+• DEFINITION — Entropy S is a state function that measures the number of microscopic arrangements (microstates) available to a system — loosely, its degree of disorder or energy dispersal. Boltzmann's relation S = k ln W ties it to W, the microstate count. Its units are joules per kelvin (per mole for molar entropy).
+• EXAMPLE — Entropy in everyday clothes: a gas spreading through a room, perfume diffusing, a shuffled deck of cards, sugar dissolving. In each, the energy and particles end up spread over more arrangements. Systems drift towards the arrangement with the most microstates simply because there are more ways to be there.
+✔ KEY FORMULA — For the universe, the second law: ΔS (universe) = ΔS (system) + ΔS (surroundings) is greater than zero for every spontaneous process, and exactly zero only for a reversible process at equilibrium.
+• WORKED PATTERN — Predicting the sign of ΔS for a reaction, three questions in order: (1) Did the number of gas moles increase? More gas moles almost always means ΔS positive (2NH3 gives N2 + 3H2: 2 gas moles become 4, ΔS > 0). (2) Did a solid or liquid turn into gas, or a solid dissolve? Usually ΔS positive. (3) Did gas moles decrease or a gas condense or freeze? ΔS negative (N2 + 3H2 gives 2NH3: 4 gas moles become 2, ΔS = -198.7 J per kelvin per mol for the equation as written — a real, tabulated value).
+• EXAMPLE — Vaporising water: ΔS = ΔHvap / T at the boiling point = 40700 J/mol / 373 K = +109 J per kelvin per mol. Liquid molecules locked in a network become a free gas — a large entropy jump, and the division by T is the general bridge: for a reversible change at constant temperature, ΔS = q_rev / T.
+• WHY surroundings count — a reaction that absorbs heat (endothermic) cools its surroundings, lowering THEIR entropy. Melting ice works above 273 K because the system's entropy gain outweighs the surroundings' loss from giving up heat; below 273 K the same trade fails. Spontaneity is a universe-level vote, not a system-level one.
+• YOUR TURN — Predict the sign of ΔS: (a) CaCO3 (s) gives CaO (s) + CO2 (g); (b) water freezing at -10 degrees C in the sample itself; (c) 2SO2 (g) + O2 (g) gives 2SO3 (g). Answers: (a) positive — a gas is born from solids; (b) negative for the system — liquid order to solid order (the surroundings' gain is what makes the overall process spontaneous at that temperature); (c) negative — 3 gas moles become 2.
+⚠ EXAM TRAP — "Spontaneous" does not mean fast, exothermic, or complete. It means thermodynamically downhill. Activation energy (kinetics) decides speed; ΔG decides direction; neither borrows the other's job.
+
+Gibbs Energy — the Final Judge of Spontaneity
+• THE PROBLEM with judging by the universe — ΔS (universe) decides spontaneity, but computing the surroundings' entropy for every reaction is tedious. Gibbs repackaged the whole vote into a property of the system alone, valid at constant temperature and pressure — the lab's default conditions.
+• DEFINITION — Gibbs energy G = H - TS, a state function. Its change at constant T and P is ΔG = ΔH - TΔS, where ΔS is the entropy change of the SYSTEM and T is in kelvin.
+✔ KEY FORMULA — ΔG = ΔH - TΔS. Spontaneity verdicts at constant T and P: ΔG < 0, spontaneous; ΔG = 0, equilibrium; ΔG > 0, non-spontaneous (the reverse process is spontaneous instead).
+• WHY it works — at constant pressure, the surroundings' entropy change is -ΔH / T (they gain or lose exactly the reaction's heat). Adding the system's ΔS and multiplying through by -T turns the universe's vote into ΔG = -T x ΔS (universe): negative ΔG is precisely positive ΔS (universe). Gibbs energy is the second law translated into system-only language.
+• THE FOUR CASES — ΔH negative and ΔS positive: ΔG always negative, spontaneous at all temperatures. ΔH positive and ΔS negative: ΔG always positive, never spontaneous. ΔH negative and ΔS negative: spontaneous only when T is LOW (the TΔS penalty is small). ΔH positive and ΔS positive: spontaneous only when T is HIGH (the TΔS reward grows). When signs compete, temperature is the referee, and the crossover sits at T = ΔH / ΔS.
+• WORKED PATTERN — Ice is the referee in action: melting has ΔH = +6.0 kJ/mol and ΔS = +22 J per kelvin per mol. At 283 K: ΔG = 6.0 - 283 x 0.022 = -0.23 kJ, melting is spontaneous. At 263 K: ΔG = 6.0 - 263 x 0.022 = +0.21 kJ, melting refuses and freezing wins instead. At 273 K, ΔG is about zero — the two phases sit at equilibrium, which is exactly what a melting point means.
+✔ KEY FORMULA — ΔG° = -RT ln K = -2.303 RT log K, linking the standard Gibbs energy change to the equilibrium constant K. At 298 K, 2.303 RT = 5.71 kJ/mol, so every 5.71 kJ/mol of negative ΔG° multiplies K by ten.
+• WORKED PATTERN — A reaction with ΔG° = -11.4 kJ/mol at 298 K: log K = 11.4 / 5.71 = 2.0, so K is about 100 — products favoured a hundredfold. With ΔG° = -28.5 kJ/mol, log K = 5.0 and K is about 10^5. Negative ΔG° means K > 1; positive ΔG° means K < 1; ΔG° = 0 means K = 1.
+• EXAMPLE — ΔG also measures the maximum useful (non-expansion) work a process can deliver at constant T and P — which is why fuel cells and batteries are rated through ΔG = -nFE for the cell, a bridge the Electrochemistry chapter will cross. A reaction can have a large negative ΔH yet deliver little work if its ΔS is very negative; the TΔS part leaves as unavoidable heat.
+• YOUR TURN — A reaction has ΔH = -92 kJ/mol and ΔS = -198.7 J per kelvin per mol (ammonia synthesis, per equation as written). Find ΔG at 298 K and the crossover temperature. Answers: ΔG = -92 - 298 x (-0.1987) = -92 + 59.2 = -32.8 kJ, spontaneous at 298 K; crossover T = 92000 / 198.7 = about 463 K, above which the entropy term wins and the forward reaction stops being spontaneous under standard conditions — one reason ammonia plants must compromise between rate and equilibrium.
+⚠ EXAM TRAP — Unit ambush: ΔH arrives in kilojoules, ΔS in joules per kelvin. Convert ΔS to kilojoules (divide by 1000) BEFORE computing TΔS, and use kelvin, never degrees C. More Gibbs marks are lost to these two slips than to any concept in the chapter.
+
+High-Yield Formula Sheet
+✔ First law, CHEMISTRY convention: ΔU = q + w (heat absorbed by system +, work done ON system +). Physics writes the same law as ΔU = Q - W with W = work done BY the system
+✔ Expansion work: w = -P_ext ΔV; free expansion w = 0; reversible isothermal work w = -2.303 nRT log (V2 / V1); 1 L atm = 101.325 J
+✔ Special cases: adiabatic q = 0 so ΔU = w; isochoric w = 0 so ΔU = qv; cyclic ΔU = 0 so q = -w; isothermal ideal gas ΔU = 0 so q = -w
+✔ Enthalpy: H = U + PV; at constant pressure ΔH = qp; at constant volume ΔU = qv
+✔ Bomb to bench conversion: ΔH = ΔU + Δng RT, with Δng = gaseous product moles - gaseous reactant moles; RT at 298 K = 2.48 kJ/mol
+✔ Calorimetry: heat absorbed by calorimeter = C x ΔT, or m x c x ΔT for water (c = 4.18 J per gram per kelvin); the reaction's heat change is the negative of the absorbed heat, divided by moles reacted
+✔ Reaction enthalpy from formation data: ΔrH° = sum of ΔfH° (products) - sum of ΔfH° (reactants); ΔfH° of an element in its reference state = 0 (graphite for carbon, never diamond)
+✔ Formation from combustion data: ΔfH° (compound) = sum of ΔcH° of the constituent elements - ΔcH° of the compound
+✔ Bond enthalpy estimate: ΔrH = sum of bond enthalpies BROKEN - sum of bond enthalpies FORMED (gas phase, averages)
+✔ Kirchhoff: ΔH at T2 = ΔH at T1 + ΔCp x (T2 - T1), with ΔCp = Cp (products) - Cp (reactants)
+✔ Entropy: ΔS = q_rev / T for a reversible isothermal change; ΔS (universe) = ΔS (system) + ΔS (surroundings) > 0 for any spontaneous process
+✔ Gibbs: ΔG = ΔH - TΔS (kelvin, and ΔS converted to kJ per kelvin); ΔG < 0 spontaneous, = 0 equilibrium, > 0 reverse spontaneous; crossover T = ΔH / ΔS
+✔ Standard Gibbs and equilibrium: ΔG° = -RT ln K = -2.303 RT log K; at 298 K each -5.71 kJ/mol of ΔG° multiplies K by 10
+✔ Anchors: neutralisation of a strong acid by a strong base, ΔH = -57.1 kJ/mol; ΔfH° CO2 = -393.5, H2O (l) = -285.8, CH4 = -74.8, CO = -110.5 kJ/mol; combustion of CH4 = -890.3 kJ/mol
+
+Common Mistakes and Exam Traps
+• Mistake 1 — Using the physics convention inside a chemistry problem (or the reverse) → Why it fails: the two conventions define w with opposite signs, so the same physical event gets opposite ΔU → Correct principle: chemistry is ΔU = q + w with w = work done ON the system; physics writes ΔU = Q - W with W = work done BY the system. Decide the convention from the subject and question source before computing
+• Mistake 2 — Taking w as positive when the gas expands → Why it fails: expansion is work done BY the system, which in chemistry bookkeeping is energy leaving, hence negative → Correct principle: w = -P_ext ΔV produces the sign automatically; expansion (ΔV > 0) gives w < 0, compression gives w > 0
+• Mistake 3 — Counting liquids and solids in Δng → Why it fails: ΔH = ΔU + Δng RT corrects only for gas volume work; condensed phases barely change volume → Correct principle: Δng counts gaseous moles only, products minus reactants, and the state symbols decide (H2O liquid versus gas changes the count)
+• Mistake 4 — Reversing or doubling a Hess equation but not its ΔH → Why it fails: ΔH is attached to the equation as written → Correct principle: reverse flips the sign, scaling multiplies the value; transform the number with the equation, every time
+• Mistake 5 — Using products minus reactants for bond enthalpies → Why it fails: the bond formula is the mirror of the formation formula → Correct principle: bond enthalpies give ΔH = broken - formed; formation enthalpies give ΔH = products - reactants. Different data, different order
+• Mistake 6 — Feeding ΔS in joules into ΔG = ΔH - TΔS while ΔH is in kilojoules → Why it fails: TΔS then comes out a thousand times too large → Correct principle: convert ΔS to kJ per kelvin first, and always use kelvin for T
+• Mistake 7 — Declaring every exothermic reaction spontaneous and every endothermic one impossible → Why it fails: spontaneity is decided by ΔG, and the -TΔS term can overrule ΔH, especially at high temperature → Correct principle: check both terms; endothermic processes with large positive ΔS (melting, dissolving, gas-forming decompositions) run spontaneously once T is high enough
+• Mistake 8 — Assuming a bomb calorimeter measures ΔH → Why it fails: the bomb is rigid, so volume is constant and the heat measured is qv → Correct principle: bomb gives ΔU; convert with ΔH = ΔU + Δng RT when the question wants ΔH. A coffee-cup calorimeter at atmospheric pressure gives ΔH directly
+• Mistake 9 — Reading ΔG° > 0 as K > 1 → Why it fails: ΔG° = -RT ln K, so the sign inverts → Correct principle: ΔG° negative means K > 1 (products favoured); ΔG° positive means K < 1
+★ HIGHLIGHT — Notice the pattern: six of these nine mistakes are sign or unit slips, not concept gaps. The fix is ritual, not more theory: write the convention, convert the units, and let the formulas generate the signs.
+
+Worked Examples — Basic to Challenging
+• Example 1 (Basic) — Problem: a system absorbs 400 J of heat and 250 J of work is done on the system. Find ΔU
+• Given: q = +400 J (absorbed, so positive); w = +250 J (done ON the system, so positive)
+• Principle: first law, chemistry convention, ΔU = q + w
+• Steps: substitute the signed values directly: ΔU = 400 + 250
+• Answer: ΔU = +650 J
+• Reasoning: both energy streams flowed INTO the system, so its internal energy must rise by their sum; the positive result self-checks
+• Mistake to avoid: assigning w a negative sign out of physics habit — in the physics convention the same event would be written with W (work by system) = -250 J, but the question's chemistry framing fixes w = +250 J
+• Example 2 (Basic) — Problem: a gas expands from 2 L to 5 L against a constant external pressure of 1 atm, absorbing 200 J of heat. Find w and ΔU
+• Given: ΔV = 5 - 2 = +3 L; P_ext = 1 atm; q = +200 J
+• Principle: w = -P_ext ΔV, then ΔU = q + w; convert with 1 L atm = 101.325 J
+• Steps: w = -1 x 3 = -3 L atm = -3 x 101.325 = -304 J; then ΔU = 200 + (-304) = -104 J
+• Answer: w = -304 J; ΔU = -104 J
+• Reasoning: the gas spent 304 J pushing the surroundings back but only took in 200 J of heat, so it paid the 104 J difference out of its own internal energy
+• Mistake to avoid: reporting ΔU = +504 J by adding the magnitudes — the expansion work must carry its negative sign into the sum
+• Example 3 (Moderate) — Problem: in a bomb calorimeter, the combustion of methane at 298 K gives ΔU = -885.35 kJ/mol. Calculate ΔH for CH4 (g) + 2O2 (g) gives CO2 (g) + 2H2O (l)
+• Given: ΔU = -885.35 kJ/mol; gaseous moles: reactants 1 + 2 = 3, products 1, so Δng = 1 - 3 = -2; T = 298 K
+• Principle: ΔH = ΔU + Δng RT converts a constant-volume measurement to constant-pressure conditions
+• Steps: Δng RT = (-2) x 8.314 x 298 / 1000 = -4.96 kJ/mol; ΔH = -885.35 + (-4.96)
+• Answer: ΔH = -890.3 kJ/mol
+• Reasoning: the reaction consumes gas moles, so at constant pressure the system contracts and the atmosphere does a little work ON it, adding about 5 kJ to the heat released
+• Mistake to avoid: counting the liquid water in Δng — only the gaseous CO2 counts on the product side
+• Example 4 (Moderate) — Problem: 50 mL of 1 M HCl is mixed with 50 mL of 1 M NaOH in a coffee-cup calorimeter. The temperature of the resulting 100 g of solution rises by 6.8 K. Find the enthalpy of neutralisation (c of solution = 4.18 J per gram per kelvin)
+• Given: moles of water formed = 0.050 L x 1 M = 0.05 mol; mass of solution 100 g; ΔT = +6.8 K
+• Principle: at constant pressure the heat released by the reaction equals the heat absorbed by the solution, and that heat is ΔH for the amount reacted
+• Steps: heat absorbed by solution = 100 x 4.18 x 6.8 = 2842 J; reaction heat = -2842 J for 0.05 mol; per mole: -2842 / 0.05 = -56,850 J
+• Answer: ΔH of neutralisation is about -56.8 kJ/mol (accepted value for strong acid-strong base: -57.1 kJ/mol; the small gap is heat lost to the cup and air)
+• Reasoning: the calorimeter measures the surroundings' gain; flipping the sign and scaling to one mole converts a temperature reading into a molar enthalpy
+• Mistake to avoid: forgetting the division by moles — -2842 J is the heat for the mixture, not the molar enthalpy the question asks for
+• Example 5 (Moderate) — Problem: the standard enthalpies of combustion of carbon, hydrogen and methane are -393.5, -285.8 and -890.3 kJ/mol. Find the standard enthalpy of formation of methane
+• Given: ΔcH° C = -393.5; ΔcH° H2 = -285.8; ΔcH° CH4 = -890.3 kJ/mol
+• Principle: Hess's law — burn the elements and the compound to the same products (CO2 and H2O) and take the difference
+• Steps: build C + 2H2 from combustion routes: ΔfH°(CH4) = ΔcH°(C) + 2 x ΔcH°(H2) - ΔcH°(CH4) = -393.5 + 2(-285.8) - (-890.3) = -965.1 + 890.3
+• Answer: ΔfH° of CH4 = -74.8 kJ/mol
+• Reasoning: forming methane from its elements releases exactly the energy difference between burning the ingredients separately and burning the finished compound
+• Mistake to avoid: using one mole of H2 — methane's formula demands 2 H2, and dropping the coefficient gives +211.0 kJ/mol, a classic distractor value
+• Example 6 (Moderate) — Problem: estimate ΔrH for H2 (g) + Cl2 (g) gives 2HCl (g) using bond enthalpies H-H = 436, Cl-Cl = 242, H-Cl = 431 kJ/mol
+• Given: bonds broken: one H-H and one Cl-Cl; bonds formed: two H-Cl
+• Principle: ΔrH = sum of bond enthalpies broken - sum of bond enthalpies formed
+• Steps: broken = 436 + 242 = 678 kJ; formed = 2 x 431 = 862 kJ; ΔrH = 678 - 862
+• Answer: ΔrH = -184 kJ for the equation as written (the measured value is about -184.6 kJ)
+• Reasoning: the energy recovered by forming two strong H-Cl bonds exceeds the cost of breaking the two reactant bonds, so the surplus leaves as heat
+• Mistake to avoid: subtracting in the formation-formula order (formed - broken), which returns +184 kJ and reverses the chemistry
+• Example 7 (Challenging) — Problem: a reaction has ΔH = -50 kJ/mol and ΔS = -100 J per kelvin per mol. Judge its spontaneity at 298 K and at 600 K, and find the crossover temperature
+• Given: ΔH = -50 kJ/mol; ΔS = -0.100 kJ per kelvin per mol (converted); competing signs: enthalpy favours, entropy opposes
+• Principle: ΔG = ΔH - TΔS; with ΔS negative, the -TΔS term is a growing penalty, so low temperature favours spontaneity
+• Steps: at 298 K, ΔG = -50 - 298 x (-0.100) = -50 + 29.8 = -20.2 kJ/mol; at 600 K, ΔG = -50 + 60.0 = +10.0 kJ/mol; crossover when ΔG = 0: T = ΔH / ΔS = 50 / 0.100 = 500 K
+• Answer: spontaneous at 298 K (ΔG = -20.2 kJ/mol), non-spontaneous at 600 K (ΔG = +10.0 kJ/mol), equilibrium crossover at 500 K
+• Reasoning: heating amplifies the entropy penalty until it overwhelms the enthalpy advantage — the same logic that sets the ceiling on ammonia-synthesis temperatures
+• Mistake to avoid: leaving ΔS in joules, which would give the absurd ΔG = -50 + 29,800 — a unit check (kJ with kJ) catches it instantly
+
+Practice Questions — Self-Test Set
+• Q1. A gas is compressed with 150 J of work done on it while it releases 60 J of heat. ΔU is: (A) +90 J (B) -90 J (C) +210 J (D) -210 J
+• Q2. Which of the following is NOT a state function: (A) enthalpy (B) internal energy (C) work (D) entropy
+• Q3. A reaction at 298 K has ΔU = -100 kJ/mol and Δng = -1. ΔH is: (A) -97.5 kJ/mol (B) -100 kJ/mol (C) -102.5 kJ/mol (D) -110 kJ/mol
+• Q4. Given C + O2 gives CO2 with ΔH = -393.5 kJ/mol and CO + 1/2 O2 gives CO2 with ΔH = -283.0 kJ/mol, the enthalpy of C + 1/2 O2 gives CO is: (A) -676.5 kJ/mol (B) -110.5 kJ/mol (C) +110.5 kJ/mol (D) -220.5 kJ/mol
+• Q5. In a bomb calorimeter of heat capacity 8.0 kJ per kelvin, burning 0.8 g of methane (0.05 mol) raises the temperature by 5.5 K. The molar ΔU of combustion is: (A) -44 kJ/mol (B) -440 kJ/mol (C) -880 kJ/mol (D) -704 kJ/mol
+• Q6. Using bond enthalpies C-H = 413, Cl-Cl = 242, C-Cl = 328 and H-Cl = 431 kJ/mol, the estimated ΔH for CH4 + Cl2 gives CH3Cl + HCl is: (A) +104 kJ (B) -104 kJ (C) -759 kJ (D) -208 kJ
+• Q7. The entropy change is expected to be positive for: (A) N2 (g) + 3H2 (g) gives 2NH3 (g) (B) H2O (l) gives H2O (s) (C) 2NH3 (g) gives N2 (g) + 3H2 (g) (D) CO2 (g) gives CO2 (s)
+• Q8. A process has ΔH = +40 kJ/mol and ΔS = +120 J per kelvin per mol. At 298 K it is: (A) spontaneous, ΔG = -35.8 kJ (B) non-spontaneous, ΔG = +4.2 kJ (C) at equilibrium (D) spontaneous, ΔG = +4.2 kJ
+
+▸ Answer Key with Explanations
+• Q1 — Answer (A) +90 J: w = +150 (work on), q = -60 (heat out), ΔU = 150 - 60 = +90 J. Misconception: adding magnitudes to get 210 ignores that the two flows run in opposite directions
+• Q2 — Answer (C) work: work depends on the path (reversible versus free expansion give different w between the same states); enthalpy, internal energy and entropy depend only on state
+• Q3 — Answer (C) -102.5 kJ/mol: ΔH = ΔU + Δng RT = -100 + (-1)(2.48) = -102.5 kJ/mol. Misconception: choosing -97.5 flips the correction's sign; Δng is negative, so ΔH must be MORE negative than ΔU here
+• Q4 — Answer (B) -110.5 kJ/mol: subtract the CO combustion from the carbon combustion, -393.5 - (-283.0) = -110.5. Misconception: -676.5 comes from adding the two values, which double-counts the CO2 endpoint
+• Q5 — Answer (C) -880 kJ/mol: heat released = 8.0 x 5.5 = 44 kJ from 0.05 mol, so per mole ΔU = -44 / 0.05 = -880 kJ/mol. Misconception: -44 kJ/mol forgets the per-mole scaling; the bomb measures ΔU because volume is fixed
+• Q6 — Answer (B) -104 kJ: broken = 413 + 242 = 655; formed = 328 + 431 = 759; ΔH = 655 - 759 = -104 kJ. Misconception: +104 reverses the broken-minus-formed order
+• Q7 — Answer (C): gas moles rise from 2 to 4, so disorder and ΔS increase. Misconception: options A, B and D all reduce gas freedom — fewer gas moles, freezing, and deposition each lower entropy
+• Q8 — Answer (B): ΔG = 40 - 298 x 0.120 = 40 - 35.8 = +4.2 kJ/mol, positive, so non-spontaneous at 298 K — but it turns spontaneous above T = 40000 / 120 = 333 K. Misconception: a positive ΔG with a negative sign in option D is a contradiction; sign and verdict must agree
+
+Chapter Summary, Revision Checklist and Self-Assessment
+• The chapter's storyline: energy is conserved (first law), and chemistry books it as ΔU = q + w with inflows positive — the exact mirror of the physics convention. Enthalpy H = U + PV is the constant-pressure face of the same energy, measured in coffee cups; the bomb measures ΔU at constant volume, and Δng RT translates between them. Because H is a state function, Hess's law lets you reach any ΔH by any convenient route — formation tables, combustion cycles, Born-Haber rings or bond bookkeeping. Finally, direction is judged not by energy but by Gibbs energy: ΔG = ΔH - TΔS, with entropy as the universe's tiebreaker and ΔG° = -RT ln K tying the verdict to equilibrium.
+✔ REVISION CHECKLIST — State the chemistry sign convention and convert any problem's words into signed q and w before calculating
+✔ REVISION CHECKLIST — Compute w = -P_ext ΔV, recognise free expansion (w = 0) and the special cases qv = ΔU, qp = ΔH
+✔ REVISION CHECKLIST — Convert bomb results with ΔH = ΔU + Δng RT, counting gaseous moles only and respecting state symbols
+✔ REVISION CHECKLIST — Run a Hess cycle with the four moves: target equation, transform (reverse flips, scale multiplies), cancel, add
+✔ REVISION CHECKLIST — Use ΔrH° = products - reactants for formation data, and broken - formed for bond enthalpies, without swapping them
+✔ REVISION CHECKLIST — Judge spontaneity with ΔG = ΔH - TΔS, with ΔS in kJ per kelvin and T in kelvin, and find crossover temperatures from T = ΔH / ΔS
+✔ REVISION CHECKLIST — Convert ΔG° to K with 5.71 kJ per power of ten at 298 K, and predict ΔS signs from gas-mole changes
+• SELF-ASSESSMENT — Rate yourself honestly: if you can do Worked Examples 1 to 4 without notes, your sign and calorimetry discipline is exam-safe. If Examples 5 and 6 also feel routine, your Hess and bond bookkeeping is set. Example 7 plus Q8 are the chapter's ceiling — master the unit conversion inside them and the Gibbs questions become free marks.
+• ONE LAST THING — every formula in this chapter is a sign convention wearing a costume. Slow down for the first two lines of any problem (which convention, which units), and the rest of the solution is arithmetic.""".trimIndent(),
 
             videoTitle = "Reversible vs Irreversible Work, Thermochemistry & Gibbs Free Energy",
 
@@ -10486,35 +10992,279 @@ Chapter Summary and Revision Checklist
 
             completedLessons = 5,
 
-            studyNotesCount = 11,
+            studyNotesCount = 23,
 
-            practiceQuestionCount = 28,
+            practiceQuestionCount = 5,
 
             durationMinutes = 60,
 
-            formulaHighlight = "K_p = K_c(RT)^Δn_g  •  pH = pK_a + log([Salt]/[Acid])  •  K_sp = x^x y^y s^(x+y)",
+            formulaHighlight = "Kc = [C]^c [D]^d / [A]^a [B]^b | Kp = Kc (RT)^dn, dn = gas moles products - reactants | Q < K forward, Q > K reverse, Q = K equilibrium | dG0 = -RT ln K | pH = pKa + log [salt]/[acid] (Henderson) | Ksp for AxBy = x^x y^y s^(x+y) | Kw = 1.0 x 10^-14 at 298 K, pKa + pKb = 14",
 
-            keyConceptsSummary = "Law of mass action, degree of dissociation from vapor density, Le Chatelier's principle, Ostwald's dilution law, pH of buffers and hydrolyzed salts, and solubility product with common-ion effect.",
+            keyConceptsSummary = "• Equilibrium means equal forward and reverse RATES with constant (not equal) concentrations — a dynamic balance that demands a closed system at fixed temperature\n• K is set by temperature alone for the equation exactly as written: reverse it and K inverts, scale it and K rises to that power; catalysts, pressure and starting amounts never change K\n• Kp = Kc (RT)^dn with dn counting gas moles only, and pure solids and liquids never appear in K — CaCO3 decomposition is simply Kc = [CO2], Kp = p(CO2)\n• Q is the live snapshot of the K expression: below K the reaction runs forward, above K it runs reverse; ICE tables with the square-root and small-x shortcuts deliver equilibrium compositions\n• dG0 = -RT ln K binds energy to extent — at 298 K every factor of 10 in K is worth 5.7 kJ per mol, and equilibrium is the point where the mixture's dG reaches zero\n• Le Chatelier: a disturbed system partially undoes the disturbance — compression favours fewer gas moles, heating favours the endothermic direction and is the only lever that changes K, inert gas at constant volume changes nothing\n• Water runs on K in uniform: Ka x Kb = Kw = 10^-14, the common ion effect suppresses weak ionisation, buffers obey pH = pKa + log [salt]/[acid], and Qsp versus Ksp decides precipitation",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — Chemistry's Great Balancing Act
+• Every other chapter so far has shown reactions running one way, reactants in, products out, done. This chapter is about the far more common truth: most reactions never finish. They slow down, level off, and settle into a restless balance where the forward reaction and the reverse reaction run forever at exactly the same speed. That balance point — not completion — is what the word equilibrium really means.
+• DEFINITION — A system is in equilibrium when the forward and reverse processes occur at equal rates, so that every macroscopic property (concentration, pressure, colour, pH) stays constant with time, even though the microscopic traffic never stops.
+• WHY this chapter is the boss level — equilibrium is where kinetics (how fast), thermodynamics (how far, through dG) and electrochemistry-style number work (K, Q, pH, Ksp) all collide. It is also the most numerical chapter of Class 11 chemistry: ICE tables, Kp-Kc conversions, buffer pH and solubility products are all guaranteed question factories for IAT.
+• EXAMPLE — The fizz in a sealed soda bottle is equilibrium you can hold. CO2 dissolves into the drink and escapes out of it at equal rates, so the pressure in the headspace sits constant — until you open the cap, wreck the balance, and the system charges off toward a new one.
+• Here is the map. First physical equilibria (melting ice, evaporating water, dissolving gas), then chemical equilibrium and its constant K, the Kp-Kc conversion, heterogeneous systems, and the three professional tools: the reaction quotient Q, ICE tables, and the dG connection. Then Le Chatelier tells you how systems respond to stress, and the second half applies everything to water itself: acids and bases, pH, common ion effect, buffers, and solubility equilibria with Ksp.
+★ HIGHLIGHT — The whole chapter in one breath: at equilibrium the forward and reverse RATES are equal (not the concentrations), the composition is captured by one number K per temperature, Q tells you which way a mixture must move to reach K, and every acid, buffer and sparingly soluble salt in water is just K wearing a special name (Ka, Kb, Kw, Ksp).
 
-                1. Chemical Equilibrium & Le Chatelier's Principle
+Equilibrium in Physical Processes — Still, but Secretly Moving
+• DEFINITION — A physical equilibrium involves no change in chemical identity: the same substance exists in two phases (or states) and molecules cross the boundary in both directions at equal rates. Three families cover the syllabus: solid-liquid, liquid-gas, and solid-or-gas in solution.
+• Ice and water at 0 °C and 1 atm are the cleanest case. Ice melts and water freezes at exactly equal rates, so the lump neither grows nor shrinks and the temperature pins itself at the melting point. That is why an ice-water mixture is a thermostat: add heat and more ice melts instead of the temperature rising.
+• Liquid-gas in a CLOSED vessel: water evaporates into the space above it, vapour molecules condense back, and after a while the vapour pressure stops rising. That constant pressure is the saturated vapour pressure at that temperature. Open the lid and equilibrium is impossible — vapour escapes faster than it returns, and the dish dries up.
+• WHY a closed system is non-negotiable — equilibrium needs the reverse process to be physically possible. Escaped vapour, gas or heat must stay available to come back; an open system leaks one direction away and can never balance. Every equilibrium statement in this chapter silently assumes closed vessel, constant temperature.
+• Solid in solution: stir sugar into water and it dissolves; past saturation, undissolved crystals sit at the bottom while dissolved sugar crystallises back at the same rate it dissolves. The solution concentration freezes at the solubility — a number you will meet again as Ksp logic in the last section.
+• Gas in solution: CO2 in the sealed soda, O2 in lake water. Gas molecules enter the liquid and leave it continuously, and at equilibrium the dissolved concentration is proportional to the gas pressure above the liquid — the next sub-section turns that into Henry's law.
+• EXAMPLE — A pressure cooker is liquid-gas equilibrium with the stakes raised: the sealed lid traps vapour, the pressure climbs, the boiling point climbs with it (about 120 °C at 2 atm), and food cooks faster. Same physics as the evaporating dish, weaponised for dal.
+⚠ EXAM TRAP — "Nothing is happening" is never the right description of equilibrium. Properties are constant because two opposite processes CANCEL, not because both stopped. Any option that says molecules stop moving, reacting or exchanging at equilibrium is wrong — equilibrium is dynamic at the molecular level, static only at the measuring-instrument level.
+• YOUR TURN — A sealed bottle of water is left for a week; the vapour pressure above the water stays constant. A friend says evaporation has stopped. Correct them in one line. (Answer: evaporation continues at the same rate as condensation — molecules exchange constantly, the LEVEL stays constant because the two rates match.)
 
-                • K_p = K_c (RT)^(Δn_g); Vapor density degree of dissociation: α = (D − d) / [(n − 1)d].
+▸ Henry's Law — the Gas-Liquid Truce
+• DEFINITION — Henry's law: at constant temperature, the mass (equivalently the mole fraction) of a gas dissolved in a liquid is proportional to the partial pressure of the gas above the liquid. In symbols: p = KH x, where x is the mole fraction of dissolved gas and KH is the Henry constant for that gas-solvent pair.
+• Read KH backwards to most constants: a LARGER KH means a SMALLER solubility at the same pressure — the gas needs more pressure persuasion to dissolve. KH depends only on the gas, the solvent and the temperature; solubility of gases falls as temperature rises, which is why warm soda goes flat faster and why thermal pollution suffocates fish.
+• EXAMPLE — Oxygen in air-saturated water: KH for O2 at 298 K is about 4.34 x 10^4 atm and oxygen's partial pressure in air is 0.21 atm, so x(O2) = 0.21 / (4.34 x 10^4) = 4.8 x 10^-6. One litre of water holds about 55.5 mol of water, so dissolved O2 is about 2.7 x 10^-4 mol per litre — roughly 8.6 mg per litre, exactly the dissolved-oxygen level real lakes show. Henry's law is not exam decoration; it is the budget every fish lives on.
+• WHY divers fear this law — a scuba diver at depth breathes air at high pressure, so extra nitrogen dissolves in blood (Henry's law, higher p, more gas). Surface too fast and the pressure drops before the nitrogen can leave gently: it fizzes out as bubbles in the joints — the bends. Slow ascent and helium mixes are Henry's law management.
+• Applications worth quoting: soda and soft drinks are bottled at high CO2 pressure to force gas in; scuba tanks use helium diluted oxygen (helium has low blood solubility); at high altitudes climbers suffer because lower oxygen pressure means less dissolved O2 in blood.
+⚠ EXAM TRAP — Henry's law fails for gases that REACT with the solvent. NH3 and HCl dissolve far beyond Henry predictions in water because they ionise; CO2 slightly exceeds it by forming carbonic acid. The law is for gases that dissolve physically and stay themselves — the moment chemistry happens, the simple proportionality bends.
+• YOUR TURN — KH for N2 at 298 K is 7.6 x 10^4 atm (mole-fraction form). Air is 79 percent N2 at 1 atm total. What is the mole fraction of N2 dissolved in water in equilibrium with air? (Answer: p(N2) = 0.79 atm, x = 0.79 / (7.6 x 10^4) = about 1.0 x 10^-5 — nitrogen is even less soluble than oxygen, yet its sheer abundance still loads the blood at depth.)
 
-                • Adding inert gas at constant V has no effect; at constant P, equilibrium shifts toward greater number of gas moles.
+Dynamic Equilibrium in Chemical Reactions — the Two-Way Street
+• DEFINITION — A reversible reaction can proceed in both directions under the same conditions: aA + bB ⇌ cC + dD. Chemical equilibrium is the state where the forward rate equals the reverse rate, so the concentrations of A, B, C and D become constant — Figure 1 shows the two signatures, concentrations levelling off while the two rate curves meet.
+• Study Figure 1 until the shape is automatic. Left panel: reactant concentration falls steeply, then flattens; product rises and flattens at matching heights set by the two rate constants — note the flat levels are NOT equal (0.33 and 0.67 here), because equal rates do not mean equal amounts. Right panel: the forward rate decays, the reverse rate grows, and they converge to the same nonzero value.
+• The classic demonstrations: heat CaCO3 in a closed vessel and it decomposes to CaO + CO2 until the CO2 pressure reaches a fixed value, then stops — reopen the vessel and it decomposes completely. Mix ethanol and ethanoic acid and the esterification freezes with all four species present, whichever pair you start from. Equilibrium can be approached from EITHER side and lands at the same composition for given conditions.
+• WHY the rates equalise — the forward rate depends on reactant concentrations, which only fall; the reverse rate depends on product concentrations, which only rise. Two monotonic curves moving toward each other must cross exactly once: that crossing is equilibrium. It is not a stalemate someone arranged; it is arithmetic.
+• Equilibrium is dynamic, proven by isotopes: add a drop of radioactive-labelled reactant to an equilibrated system and the label appears in the products within moments, while every concentration reading stays frozen. The bulk numbers sleep; the molecules dance.
+• Conditions for chemical equilibrium, the checklist examiners love: closed system, constant temperature (and pressure for gas work), no removal of any species, and enough time. Disturb any one and the system migrates to a new equilibrium — that migration is Le Chatelier's territory, sections 10 and 11.
+⚠ EXAM TRAP — At equilibrium the concentrations are constant, not EQUAL, and the rates are equal, not ZERO. Exams rotate these two swaps endlessly. Also note: a reaction that looks complete (like burning petrol) is simply an equilibrium lying astronomically far to the right — "irreversible" in everyday language means K is gigantic, not that the reverse reaction is forbidden.
+• YOUR TURN — In Figure 1, kf = 0.08 and kr = 0.04 for A ⇌ B, starting from 1.0 mol per litre of A. Without reading the graph, predict the equilibrium concentrations. (Answer: at equilibrium kf[A] = kr[B], so [B]/[A] = kf/kr = 2, and with [A] + [B] = 1.0, [A] = 0.33 and [B] = 0.67 mol per litre — exactly the flat levels drawn.)
+
+The Law of Mass Action and the Equilibrium Constant
+• DEFINITION — The law of mass action: at a given temperature, the rate of a reaction is proportional to the product of the active masses (molar concentrations for solutions, partial pressures for gases) of the reactants, each raised to its stoichiometric coefficient. Applied to aA + bB ⇌ cC + dD, the forward rate is kf [A]^a [B]^b and the reverse rate is kr [C]^c [D]^d.
+• Set the two rates equal at equilibrium and the constants fall out as one ratio. That ratio is the equilibrium constant: Kc = kf/kr = [C]^c [D]^d / ([A]^a [B]^b), with every concentration measured AT equilibrium. Kc is the single most important number of this chapter — the composition fingerprint of the reaction at that temperature.
+✔ KEY FORMULA — For aA + bB ⇌ cC + dD: Kc = [C]^c [D]^d divided by [A]^a [B]^b, products on top, every concentration raised to its equation coefficient. Coefficients become powers — the step students most often forget under time pressure.
+• EXAMPLE — Ammonia synthesis N2 + 3H2 ⇌ 2NH3 has Kc = [NH3]^2 / ([N2] [H2]^3). Note the cube on H2 — three moles in the equation, power three in the expression. For H2 + I2 ⇌ 2HI, Kc = [HI]^2 / ([H2] [I2]), and its measured value near 700 K is about 49: products comfortably ahead, but far from complete.
+• Characteristics of K, the full examinable list: (1) K depends ONLY on temperature for a given reaction as written — change T and K changes; nothing else moves it. (2) K is independent of initial concentrations, pressure, volume and catalyst. (3) Reverse the equation and K inverts: K(reverse) = 1/K(forward). (4) Multiply the equation by n and K becomes K^n — halve the ammonia equation and the new K is sqrt(K). (5) Add two equations and their K values multiply. (6) K has no units in the strict treatment because each term is measured relative to a standard state (1 mol per litre or 1 bar); school problems may still carry units of (mol per litre)^dn or (atm)^dn, where dn is (gas moles of products minus gas moles of reactants).
+• Reading the size of K — the three zones: K greater than about 10^3, the reaction nearly completes, products dominate; K less than about 10^-3, virtually no reaction, reactants dominate; K between 10^-3 and 10^3, both sides present in appreciable amounts and ICE tables earn their keep. These zones predict the extent of reaction before any calculation.
+• WHY temperature alone changes K — kf and kr both rise with temperature, but by different factors (the two directions have different activation energies). Their ratio therefore drifts with T: for an exothermic forward reaction, heating grows kr more, K falls; for an endothermic one, K rises. This is the seed of the temperature rule in Le Chatelier.
+⚠ EXAM TRAP — Writing K for an equation DIFFERENT from the one given. If the paper flips the reaction or doubles it, K must be flipped or squared BEFORE you use it — the plain measured K belongs to the equation exactly as printed. Second trap: putting a catalyst or starting amounts into explanations of K changing. They change how fast you ARRIVE, never the value of K.
+• YOUR TURN — For 2HI ⇌ H2 + I2 at the same temperature where H2 + I2 ⇌ 2HI has Kc = 49, what is the new Kc? And what is Kc for H2 + I2 ⇌ 2HI if instead the equation is written with half coefficients, (1/2)H2 + (1/2)I2 ⇌ HI? (Answer: reversed reaction, Kc = 1/49 = 0.0204. Half coefficients, Kc = sqrt(49) = 7. Same flask, same mixture — only the bookkeeping changed.)
+
+▸ Kp and Kc — Two Currencies, One Exchange Rate
+• DEFINITION — For gas-phase equilibria, concentrations can be replaced by partial pressures, giving Kp = (pC)^c (pD)^d / ((pA)^a (pB)^b). The two constants are linked by the ideal gas relation p = cRT, producing the conversion: Kp = Kc (RT)^dn, where dn = (total gas moles of products) minus (total gas moles of reactants), solids and liquids never counted.
+✔ KEY FORMULA — Kp = Kc (RT)^dn, with R = 0.0821 litre atm per mol per K and T in kelvin. Special cases that save minutes: dn = 0 means Kp = Kc exactly (H2 + I2 ⇌ 2HI); dn positive means Kp greater than Kc (at ordinary T); dn negative means Kp smaller (ammonia synthesis, dn = 2 - 4 = -2).
+• WORKED PATTERN — converting in three moves: (1) count dn from the equation, gases only; (2) compute RT at the given T; (3) raise to dn — a negative dn means divide. PCl5 ⇌ PCl3 + Cl2 has dn = +1; at 473 K, RT = 0.0821 x 473 = 38.8, so Kp = Kc x 38.8. Dissociation of CaCO3 has dn = +1 as well; ammonia synthesis dn = -2, so Kp = Kc / (RT)^2.
+• EXAMPLE — the numbers version: Kc for PCl5 dissociation at 473 K is 8.3 x 10^-3. Then Kp = 8.3 x 10^-3 x 38.8 = 0.32 (in atm units). Same equilibrium, two report cards — Kp looks forty times bigger purely because the atm scale and the mol per litre scale differ by the RT factor.
+⚠ EXAM TRAP — Kp and Kc are NOT interchangeable numbers. Plugging a Kc value into a partial-pressure ICE table (or vice versa) silently poisons the answer. Also, temperature MUST be kelvin in RT: 473 K, not 200 °C. And when the problem gives Kp but asks for concentrations, convert FIRST, calculate second.
+• YOUR TURN — For 2SO2 + O2 ⇌ 2SO3 at 1000 K, Kp = 2.5 x 10^-2 (atm based) in the forward direction... actually compute the other way: given Kc = 3.5 for this reaction at 1000 K, find Kp. (Answer: dn = 2 - 3 = -1, so Kp = Kc/(RT) = 3.5 / (0.0821 x 1000) = 3.5 / 82.1 = 0.0426. The negative dn shrinks Kp below Kc.)
+
+Homogeneous and Heterogeneous Equilibria — Solids Sit Out
+• DEFINITION — In a homogeneous equilibrium every species shares one phase: N2 + 3H2 ⇌ 2NH3 (all gas), CH3COOH + C2H5OH ⇌ CH3COOC2H5 + H2O (all liquid), Fe3+ + SCN- ⇌ [Fe(SCN)]2+ (all aqueous). In a heterogeneous equilibrium the species span phases: CaCO3(s) ⇌ CaO(s) + CO2(g), ice ⇌ water, a saturated salt solution with crystals.
+• The rule that defines this section: the concentration of a pure solid or pure liquid is constant (its density divided by its molar mass — a fixed number), so it is folded into K and does NOT appear in the expression. Only gases (as pressures or concentrations) and dissolved species (as concentrations) get written.
+✔ KEY FORMULA — CaCO3(s) ⇌ CaO(s) + CO2(g): Kc = [CO2] and Kp = p(CO2). NH4HS(s) ⇌ NH3(g) + H2S(g): Kp = p(NH3) x p(H2S). If a species is a pure solid or pure liquid, it vanishes from the expression — no matter how dramatic its role in the equation looks.
+• WHY solids sit out — add more CaCO3 to the vessel and nothing changes: its "concentration" is the same solid density as before, the surface is already fully exposed to the gas, and the CO2 pressure at equilibrium is unmoved. Amount of solid matters only in one way: at least SOME must remain, or equilibrium cannot be maintained (all decomposed means no reverse reaction).
+• EXAMPLE — Saturated limewater: Ca(OH)2(s) ⇌ Ca2+(aq) + 2OH-(aq) gives Kc = [Ca2+] [OH-]^2 — the solid is invisible in the expression, and this is exactly the Ksp pattern of section 16 wearing an early disguise.
+• Equilibrium position in heterogeneous systems has a lovely consequence: for CaCO3, the CO2 pressure at a given temperature is FIXED — compress the vessel and CO2 just converts back to carbonate until the same pressure returns (or the CaO runs out). One gas over two solids behaves like the vapour pressure of a liquid.
+⚠ EXAM TRAP — Do not over-apply the rule. Ca(OH)2 DISSOLVED counts (it is aqueous, its concentration varies); only the undissolved solid is excluded. Solvents in dilute solution (water in aqueous Kc expressions) are likewise treated as constant and omitted — but water as a reactant in a gas-phase or non-aqueous system must be included. Read the state symbols; they decide everything.
+• YOUR TURN — Write Kc for: (a) 4NH3(g) + 5O2(g) ⇌ 4NO(g) + 6H2O(g); (b) NH4Cl(s) ⇌ NH3(g) + HCl(g). (Answer: (a) Kc = [NO]^4 [H2O]^6 / ([NH3]^4 [O2]^5) — all gases, everything counts. (b) Kc = [NH3] [HCl] — the solid ammonium chloride contributes nothing.)
+
+What K Tells You — Extent, Magnitude and Direction with Q
+• DEFINITION — The reaction quotient Q has the same algebraic form as K but is calculated from the concentrations (or pressures) at ANY moment, equilibrium or not: Qc = [C]^c [D]^d / ([A]^a [B]^b) with the values right now. Q is a snapshot; K is the destination.
+✔ KEY FORMULA — The three-way verdict: Q less than K, the mixture is product-poor, the forward reaction wins and the system moves right. Q greater than K, product-rich, the reverse reaction wins and the system moves left. Q equal to K, the system is already at equilibrium and nothing changes. This single comparison answers every "which direction" question ever set.
+• WORKED PATTERN — direction questions in three moves: (1) write the Q expression exactly as for K; (2) substitute the GIVEN concentrations (not equilibrium ones — that is the whole point); (3) compare with K and announce the shift. Units and dn care from the Kp section apply unchanged.
+• EXAMPLE — H2 + I2 ⇌ 2HI with Kc = 49 near 700 K. A flask analysed mid-reaction shows [H2] = [I2] = 0.10 and [HI] = 0.50 mol per litre. Q = (0.50)^2 / (0.10 x 0.10) = 25. Since Q (25) is less than K (49), the forward reaction outruns the reverse: more HI forms and H2 and I2 keep falling until Q climbs to 49.
+• WHY Q always hunts K — if Q is below K, products are scarcer than equilibrium demands, the forward rate (fed by relatively abundant reactants) exceeds the reverse rate, and net forward reaction raises Q. The chase ends only when the rates equalise — at Q = K. Every system is a thermostat wired to one setpoint.
+⚠ EXAM TRAP — A large K does NOT mean a fast reaction, and a fast reaction does not mean a large K. K is pure thermodynamics (where the balance sits); speed is kinetics (how long the journey takes). Diamond converting to graphite has a favourable K and an unmeasurably small rate — both facts live happily together. Exams pair these ideas precisely to catch students who fuse them.
+• YOUR TURN — For N2 + 3H2 ⇌ 2NH3, Kc = 0.50 at some temperature. A mixture contains [N2] = 0.20, [H2] = 0.10 and [NH3] = 0.50 mol per litre. Which way does it move? (Answer: Q = (0.50)^2 / (0.20 x (0.10)^3) = 0.25 / (2.0 x 10^-4) = 1250, far greater than K = 0.50, so the mixture is wildly product-rich and the reaction runs in reverse, decomposing NH3 until Q falls to 0.50.)
+
+▸ ICE Tables — the Accountant's Method
+• DEFINITION — An ICE table tracks each species through three rows — Initial, Change, Equilibrium — and converts any equilibrium problem into one equation in one unknown, x. It is the single most valuable mechanical skill of this chapter; master it and half the numerical questions become routine.
+• The method in five moves: (1) write the balanced equation; (2) fill the Initial row with given amounts (concentrations, or partial pressures for Kp work); (3) write the Change row as multiples of x with stoichiometric coefficients and correct signs — minus for what is consumed, plus for what is formed; (4) Equilibrium row = Initial + Change; (5) substitute into the K expression and solve for x, then read off every equilibrium value.
+• ICE TABLE — H2 + I2 ⇌ 2HI, Kc = 49, starting with 1.00 mol per litre of each reactant in a closed vessel
+• Initial row — [H2] = 1.00, [I2] = 1.00, [HI] = 0
+• Change row — [H2] = -x, [I2] = -x, [HI] = +2x
+• Equilibrium row — [H2] = 1.00 - x, [I2] = 1.00 - x, [HI] = 2x
+• Solve it: 49 = (2x)^2 / (1 - x)^2. Every factor is a perfect square, so take the square root of both sides: 7 = 2x / (1 - x), giving 7 - 7x = 2x, x = 7/9 = 0.78. Equilibrium values: [HI] = 1.56, [H2] = [I2] = 0.22 mol per litre. Notice the shortcut — whenever the K expression is a ratio of squares, root it BEFORE expanding and the quadratic never appears.
+• The approximation clause: if K is very small (say below 10^-4) and the starting concentration is healthy, the change x is negligible beside it — replace (C - x) by C, solve the easy version, then CHECK that x came out below about 5 percent of C. This "small-x" licence powers nearly all weak-acid pH maths in the second half of the chapter.
+• When the quadratic is real, solve it fully and REJECT the root that makes a concentration negative or larger than the starting amount — nature only accepts the physical root. Two roots, one answer: the other is algebra's decoy.
+⚠ EXAM TRAP — ICE tables count CHANGE in moles or concentration consistently with the vessel. If amounts are given in moles and the volume is not 1 litre, convert to concentration first (or work in moles and divide by V inside K). Mixing moles for one species and molarity for another is the classic silent killer of ICE answers.
+• YOUR TURN — PCl5 ⇌ PCl3 + Cl2 starts with [PCl5] = 1.00 and no products; at equilibrium [PCl3] = 0.20 mol per litre. Find Kc. (Answer: change is 0.20, so [PCl5] = 0.80, [Cl2] = 0.20 at equilibrium; Kc = (0.20 x 0.20) / 0.80 = 0.050 mol per litre. Notice no x-solving was needed — when one equilibrium value is given, ICE runs backwards just as smoothly.)
+
+K, Q and Gibbs Energy — Why Systems Stop Where They Do
+• DEFINITION — The Gibbs energy change of a reaction mixture is dG = dG° + RT ln Q, where dG° is the change under standard conditions and Q is the current reaction quotient. A process runs forward spontaneously while dG is negative and stops — at equilibrium — exactly when dG reaches zero.
+• Set dG = 0 at equilibrium, where Q has become K, and the bridge formula of the chapter appears: dG° = -RT ln K. Thermodynamics (Chapter 7's dG) and equilibrium are the same story told twice: K is just dG° wearing an exponential.
+✔ KEY FORMULA — dG° = -RT ln K = -2.303 RT log K. Sign dictionary: dG° negative means K greater than 1 (products favoured); dG° positive means K less than 1 (reactants favoured); dG° = 0 means K = 1. At 298 K, every factor of 10 in K is worth 5.7 kJ per mol of dG°.
+• EXAMPLE — A reaction with K = 10^5 at 298 K has dG° = -8.314 x 298 x ln(10^5) = -28.5 kJ per mol: strongly product-favoured, matching the "K above 10^3 means nearly complete" zone from section 4 — now with the energy reason attached. Conversely a reaction with dG° = +28.5 kJ per mol has K = 10^-5 and barely proceeds.
+• WHY equilibrium stops short of completion — as products accumulate, Q grows, the RT ln Q term climbs, and dG rises toward zero. The mixture stalls at the composition where the energy profit of going further is exactly spent. Equilibrium is not laziness; it is bankruptcy — no free energy left to spend in either direction.
+• This also explains the temperature dependence of K in one line: dG° = dH° - T dS°, so ln K = -dH°/RT + dS°/R. For an exothermic reaction (dH° negative), raising T shrinks ln K — K falls, exactly as Le Chatelier will say in words. For endothermic, K rises with T. Words and algebra agree, as they must.
+⚠ EXAM TRAP — Two different quantities share the letter: dG (depends on the actual mixture, zero at equilibrium) and dG° (a fixed standard-state number tied to K). Writing "dG = 0, therefore K = 1" mixes them fatally — K = 1 only when dG° = 0. Keep them in separate mental boxes and the whole section is safe.
+• YOUR TURN — A reaction has dG° = -11.4 kJ per mol at 298 K. Estimate K. (Answer: log K = 11400 / (2.303 x 8.314 x 298) = 11400 / 5706 = 2.0, so K = 10^2 = 100. Products favoured, but both sides present — prime ICE-table territory.)
+
+Le Chatelier's Principle — the System Fights Back
+• DEFINITION — Le Chatelier's principle: when a system at equilibrium is disturbed by a change in concentration, pressure or temperature, the system shifts in the direction that partially counteracts the disturbance and restores equilibrium. It is a rule of resistance, not revenge: the shift UNDOES PART of the change, never all of it.
+• Concentration: add a reactant and the system consumes some of it (shifts right); remove a product and more forms (shifts right); add a product and the system shifts left. Note carefully — K itself does not change. The system reaches a new equilibrium position with the SAME K at the same temperature; only temperature can rewrite K.
+• Pressure (by changing volume): compress a gas equilibrium and the system shifts toward the side with FEWER gas moles, reducing the pressure build-up. Expand it and it shifts toward more gas moles. If dn = 0 (H2 + I2 ⇌ 2HI), pressure changes shift nothing — there is no side with fewer moles to flee to.
+• Temperature: treat heat as a chemical. For an endothermic forward reaction, heat is a reactant — heating shifts right and K increases. For an exothermic forward reaction, heat is a product — heating shifts left and K decreases; cooling shifts right. This is the one disturbance that changes K itself, and the Haber right panel of Figure 2 is its portrait.
+• WORKED PATTERN — every Le Chatelier question in four moves: (1) write the equation with dH sign and gas-mole counts on each side; (2) name the disturbance; (3) ask "which shift eats or releases the thing added, or relieves the squeeze?"; (4) answer shift direction AND what happens to K (unchanged, unless temperature moved).
+• EXAMPLE — the blood-red equilibrium Fe3+(aq) + SCN-(aq) ⇌ [Fe(SCN)]2+(aq) is a living demo: add Fe3+ and the red deepens (shift right, more complex); add a reagent that removes Fe3+ (like fluoride, which complexes it away) and the red fades. The colour IS the equilibrium position, visible to the naked eye.
+⚠ EXAM TRAP — "Counteracts" does not mean "cancels completely". Add reactant and the new equilibrium has MORE of it than before the addition — just less than if no shift had occurred. Options claiming the system fully restores the original concentration are always wrong. Second trap: pressure added by pumping in an inert gas at constant volume changes total pressure but NO partial pressures and NO concentrations — no shift at all, as the next section details.
+• YOUR TURN — For 2SO2 + O2 ⇌ 2SO3, dH negative: state the effect of (a) adding O2, (b) compressing the vessel, (c) heating. (Answer: (a) shifts right, more SO3. (b) shifts right — 3 gas moles become 2, compression favours fewer moles. (c) shifts LEFT — exothermic reaction, heating favours the reverse and K decreases. Three different levers, three different reasons; be able to narrate each.)
+
+▸ Inert Gas, Catalysts and the Haber Workshop
+• Inert gas at CONSTANT VOLUME: the total pressure rises, but every reacting gas keeps its volume, so concentrations and partial pressures are unchanged, Q still equals K, and the equilibrium does not shift. The pressure gauge moved; the chemistry did not.
+• Inert gas at CONSTANT PRESSURE: the vessel must expand to hold the extra gas, so every reacting gas is diluted — concentrations and partial pressures all fall. Falling pressure favours the side with MORE gas moles: the system shifts toward larger dn side (for ammonia synthesis, constant-pressure argon addition shifts LEFT, toward 4 moles; for a dn = 0 reaction, still no shift).
+• Catalyst: it lowers the activation energy of the forward and reverse reactions by the SAME amount, so both rates multiply equally, equilibrium is reached FASTER, and the position — and K — are untouched. A catalyst is a faster road to the same destination. Industrially priceless (time is money), thermodynamically invisible.
+• Now assemble the Haber process as the chapter's grand case study, Figure 2. N2 + 3H2 ⇌ 2NH3, dH = -92 kJ per mol. Left panel: at every temperature, yield climbs with pressure (4 gas moles to 2 — compression is the industry's friend). Right panel: at every pressure, yield falls as temperature rises (exothermic — heat is the enemy of yield but the friend of speed).
+• The industrial compromise, and WHY each choice is forced: pressure about 200 atm (higher helps yield but pipes and safety costs explode); temperature about 450 °C (thermodynamics wants cold, kinetics wants hot — 450 °C is where the iron catalyst works fast enough while equilibrium still allows roughly a third conversion); catalyst of iron with promoters; and the unreacted N2 and H2 are recycled after NH3 is condensed out — removing product drags Q below K and pulls more conversion on every pass.
+• Read the marked point on Figure 2: at 450 °C and 200 bar the equilibrium yield computes to about 36 percent. Real plants take less per pass because the gas does not linger long enough to fully equilibrate — then the recycle loop, not brute force, delivers near-total overall conversion. Equilibrium sets the ceiling; engineering decides how close you live to it.
+⚠ EXAM TRAP — The Haber temperature question is the most-missed in the chapter: "why not run cold for maximum yield?" Because at low temperature the reaction is too SLOW to reach that beautiful equilibrium — the catalyst barely functions and the plant produces a trickle. Yield per pass is not profit; rate matters. Any answer ignoring kinetics in an industrial question is half an answer.
+• YOUR TURN — Argon is injected into an equilibrated ammonia-synthesis vessel (a) at constant volume, (b) at constant pressure. Predict each shift. (Answer: (a) none — partial pressures unchanged. (b) shift left — expansion dilutes the gases, and the side with more moles (reactants, 4 versus 2) is favoured.)
 
 
+Ionic Equilibrium — Acids, Bases and Salts in Solution
+• DEFINITION — Ionic equilibrium is equilibrium inside aqueous solutions, where the competing species are ions: acids donating protons, bases accepting them, water ionising itself, salts hydrolysing, solids dissolving. Every constant in this half of the chapter — Ka, Kb, Kw, Ksp — is a K from section 4 with a specialised name and job.
+• The Arrhenius concept (1887): an acid produces H+ in water (HCl, CH3COOH), a base produces OH- (NaOH, NH4OH). It works beautifully for aqueous bookkeeping but fails outside water and cannot explain why NH3 — with no OH- in its formula — is basic, or why Na2CO3 solution is alkaline.
+• The Brønsted–Lowry concept (1923): an acid is a proton (H+) DONOR, a base is a proton ACCEPTOR. Every acid, on losing its proton, leaves behind a conjugate base; every base, on gaining one, becomes a conjugate acid. NH3 + H2O ⇌ NH4+ + OH- explains ammonia's basicity instantly: NH3 accepts a proton from water, so water plays the acid here.
+• Conjugate pairs — the only four you need to be fluent with:
+• HCl and Cl- — strong acid, its conjugate base is a hopeless base (that is WHY HCl ionises fully)
+• CH3COOH and CH3COO- — weak acid, moderately eager conjugate base
+• NH4+ and NH3 — weak acid, weak base conjugate pair, the basis of the ammonia buffer
+• H2O and OH-, and H3O+ and H2O — water is amphiprotic: it donates a proton to NH3 but accepts one from HCl
+✔ KEY FORMULA — The golden rule of conjugates: the stronger the acid, the weaker its conjugate base, and vice versa. Strength runs downhill in pairs — a strong acid (HCl) has a negligible base (Cl-) as partner, while a weak acid (CH3COOH) keeps a fairly competent base (CH3COO-) beside it.
+• The Lewis concept (1923) swallows the other two: an acid accepts an electron PAIR, a base donates one. BF3 is a Lewis acid (empty orbital on B) though it has no proton at all; every metal ion (Fe3+, Cu2+, Ag+) is a Lewis acid and every ligand of the coordination chapter is a Lewis base — which is why complex formation is acid-base chemistry in disguise. H+ itself is the smallest Lewis acid.
+• Salts inherit acid-base character from their parents: salt of strong acid + strong base (NaCl) is neutral; weak acid + strong base (CH3COONa) is basic, pH above 7; strong acid + weak base (NH4Cl) is acidic — a 0.10 mol per litre NH4Cl solution has pH 5.13, verified in the worked examples pattern below; weak + weak (NH4CH3COO) sits near neutral when Ka and Kb are nearly equal, as they are for acetic acid and ammonia.
+⚠ EXAM TRAP — Arrhenius H+ does not float free in water; it rides as H3O+ (and larger clusters). Equations may be written with H+ for brevity and that is accepted, but conceptually the proton is always hydrated. Second trap: "strong" describes ionisation completeness, not concentration — 10^-6 mol per litre HCl is a strong acid AND a nearly neutral solution.
+• YOUR TURN — Label the acid, base and both conjugate pairs in: HCO3- + H2O ⇌ CO3 2- + H3O+. (Answer: HCO3- donates a proton, so it is the acid and CO3 2- is its conjugate base; H2O accepts the proton, so it is the base and H3O+ is its conjugate acid. Note HCO3- is amphiprotic — in the reaction with HCl it would play the base instead.)
 
-                2. Ionic Equilibrium: pH, Buffers & Solubility
+▸ Ka, Kb, Kw and the pH Scale — Measuring Acid Muscle
+• DEFINITION — A weak acid HA ionises partially: HA + H2O ⇌ H3O+ + A-, with acid ionisation constant Ka = [H3O+] [A-] / [HA]. A weak base B has Kb = [BH+] [OH-] / [B] for B + H2O ⇌ BH+ + OH-. Bigger Ka or Kb means a stronger weak electrolyte; pKa = -log Ka and pKb = -log Kb flip the scale so bigger pKa means weaker acid.
+• For any conjugate pair the two constants are chained to water: Ka x Kb = Kw, or pKa + pKb = 14 at 298 K. Acetic acid's Ka is 1.8 x 10^-5 (pKa 4.74), so acetate's Kb is 5.6 x 10^-10 (pKb 9.26) — one measured number buys you both partners.
+• DEFINITION — Water ionises itself: 2H2O ⇌ H3O+ + OH-, with ionic product Kw = [H3O+] [OH-] = 1.0 x 10^-14 at 298 K. In pure water [H3O+] = [OH-] = 10^-7, the root of the famous pH 7.
+• DEFINITION — pH = -log [H3O+], pOH = -log [OH-], and at 298 K, pH + pOH = pKw = 14.00. pH below 7 is acidic, above 7 is basic — at 298 K only.
+⚠ EXAM TRAP — Neutral does NOT mean pH 7; neutral means [H3O+] = [OH-]. Kw grows with temperature (water ionises more when hot): at 310 K, pKw is about 13.62, so neutral pH is 6.81 and a pH of 7.00 is actually slightly alkaline there. Exam questions on "neutral at body temperature" exist precisely to catch the pH-7 reflex.
+• Ostwald's dilution law: for a weak electrolyte of concentration C and degree of ionisation alpha, Ka = C alpha^2 / (1 - alpha), and when alpha is small, alpha is about sqrt(Ka/C). Dilution RAISES alpha (a weak acid ionises more fully when diluted) yet [H3O+] = C alpha = sqrt(Ka C) FALLS — the solution grows weaker even as the molecule ionises more. Both directions of that sentence get tested.
+• WORKED PATTERN — pH of a weak acid in three moves using the small-x licence: (1) [H3O+] = sqrt(Ka x C); (2) pH = -log of it, equivalently pH = half of (pKa - log C); (3) sanity check alpha = [H3O+]/C below 5 percent. For 0.10 mol per litre acetic acid: [H3O+] = sqrt(1.8 x 10^-5 x 0.10) = 1.34 x 10^-3, pH = 2.87, alpha = 1.34 percent — licence valid. The same moves with Kb and pOH handle weak bases: 0.10 mol per litre NH3 gives pOH 2.87, pH 11.13.
+• Polyprotic acids ionise in steps with collapsing constants: H2CO3 has Ka1 = 4.3 x 10^-7 and Ka2 = 5.6 x 10^-11. The second proton leaves a negatively charged HCO3- ion, which holds it far more tightly — each successive Ka typically drops by 10^4 or more, so in most pH calculations only the first step matters.
+• Strong electrolyte reference points: pH of 0.05 mol per litre NaOH — pOH = -log(0.05) = 1.30, so pH = 12.70. pH of 10^-3 mol per litre HCl is exactly 3. Strong means fully ionised; the only maths is the logarithm.
+• YOUR TURN — Rank these 0.10 mol per litre solutions by pH: HCl, CH3COOH, NaCl, NH4Cl, CH3COONa. (Answer: HCl lowest (pH 1), then NH4Cl (5.13, acidic salt), then NaCl (7), then CH3COOH... no — check yourself: CH3COOH has pH 2.87, so the order is HCl 1.00, CH3COOH 2.87, NH4Cl 5.13, NaCl 7.00, CH3COONa about 8.9. Weak acid beats salt of weak base for acidity — Ka of acetic acid (1.8 x 10^-5) exceeds the effective acidity of NH4+, whose Ka is Kw/Kb = 5.6 x 10^-10.)
 
-                • Salt of weak acid + strong base: pH = 7 + ½(pK_a + log C).
+The Common Ion Effect — Suppression by Family
+• DEFINITION — The common ion effect: the ionisation of a weak electrolyte is suppressed when a strong electrolyte containing one of its own ions is added to the solution. It is Le Chatelier applied to ionic equilibrium — the added ion is a product of the ionisation, so the equilibrium retreats left.
+• Numbers make it unforgettable. Pure 0.10 mol per litre acetic acid: [H3O+] = 1.34 x 10^-3, alpha = 1.34 percent. Now dissolve 0.10 mol per litre sodium acetate alongside: the acetate flood forces CH3COOH ⇌ CH3COO- + H+ backwards until [H3O+] = Ka x [acid]/[salt] = 1.8 x 10^-5, pH 4.74, and alpha crashes to 0.018 percent — a 74-fold suppression from one spoonful of its own salt.
+• The mirror case: NH4OH ionisation is suppressed by NH4Cl (common NH4+ ion), which is exactly how qualitative analysis works — NH4Cl is added before NH4OH in group III so that OH- stays low enough to precipitate Fe(OH)3 and Al(OH)3 but not the later-group hydroxides. A separation scheme built entirely on one equilibrium trick.
+• WHY it matters beyond exams — the effect is a dimmer switch for ionisation: add the salt of a weak acid and you choose the [H3O+] almost at will. That dimmer, stabilised against disturbance, becomes the buffer of the next section; applied to a dissolving solid, it becomes the solubility suppression of section 16.
+⚠ EXAM TRAP — The common ion effect applies to WEAK electrolytes. Adding NaCl to HCl does nothing to HCl's ionisation (it was already complete — there is no equilibrium left to shift). Also the added salt must share an ion with the weak electrolyte: sodium chloride does not suppress acetic acid; sodium acetate does.
+• YOUR TURN — A solution is 0.20 mol per litre in CH3COOH and 0.20 mol per litre in CH3COONa. Estimate its pH and the degree of ionisation of the acid. (Answer: equal partners, so pH = pKa = 4.74 by Henderson in the next section; [H3O+] = 1.8 x 10^-5, alpha = 1.8 x 10^-5 / 0.20 = 9 x 10^-5 — the acid is virtually unionised, yet the solution is decidedly acidic. Ionisation fraction and pH are different stories.)
 
-                • Salt of weak acid + weak base: pH = 7 + ½(pK_a − pK_b) (independent of concentration C).
+Buffer Solutions — Chemistry's Shock Absorbers
+• DEFINITION — A buffer solution resists change in pH when small amounts of acid or alkali are added, or when diluted. An acidic buffer pairs a weak acid with its salt (CH3COOH + CH3COONa); a basic buffer pairs a weak base with its salt (NH4OH + NH4Cl).
+• The mechanism is a two-way reservoir. Add H+ and the salt's anion stockpile (CH3COO-) swallows it into CH3COOH; add OH- and the acid stockpile (CH3COOH) neutralises it into CH3COO-. Both stockpiles are large compared with the intruder, so the ratio [salt]/[acid] — the only thing pH depends on — barely budges.
+✔ KEY FORMULA — Henderson–Hasselbalch for an acidic buffer: pH = pKa + log([salt] / [acid]). For a basic buffer: pOH = pKb + log([salt] / [base]). When salt and acid are equal, the log term vanishes and pH = pKa exactly — the buffer's home address and its point of maximum capacity.
+• EXAMPLE — A buffer of 0.20 mol per litre CH3COOH and 0.30 mol per litre CH3COONa: pH = 4.74 + log(0.30/0.20) = 4.74 + 0.18 = 4.92. Now add 0.01 mol of HCl to a litre of a 0.10/0.10 buffer: the acid stock rises to 0.11, the salt falls to 0.09, and pH = 4.74 + log(0.09/0.11) = 4.66 — a fall of 0.08. The same 0.01 mol of HCl in a litre of plain water takes pH from 7.00 to 2.00 — a fall of 5 units. Sixty times the disturbance absorbed; that is Figure 3 in numbers.
+• Study Figure 3: across the whole battlefield of 50 mmol of strong acid or base per litre, the buffer's pH drifts only between about 4.26 and 5.22, glued to the shaded band around pKa, while unbuffered water is catapulted from 1.3 to 12.7. Buffers do not make pH constant — they make pH STUBBORN.
+• Buffer capacity — the amount of acid or base a buffer can absorb before its pH shifts appreciably — is greatest when [salt] = [acid] and when both are concentrated. The useful range of a buffer is roughly pKa plus or minus 1; outside it, one stockpile is nearly empty and the shock absorber bottoms out.
+• EXAMPLE — Your blood is a buffer with a job description: the H2CO3/HCO3- pair holds plasma at pH 7.4, and drifting even 0.4 units either way is life-threatening. Lactic acid from sprinting muscles, CO2 from every cell — the bicarbonate reservoir eats them all, and the lungs and kidneys act as the refill service for the two stockpiles.
+⚠ EXAM TRAP — A buffer needs BOTH partners in comparable, appreciable amounts. Mixing a strong acid with its salt (HCl + NaCl) is NOT a buffer — there is no weak partner to run the reservoir trick. Diluting a buffer does not change its pH (the ratio survives dilution) but DOES shrink its capacity — two different claims, tested separately.
+• YOUR TURN — Design target: you need 1 litre of buffer at pH 5.00 from acetic acid (pKa 4.74) and sodium acetate, with total acetate species 0.20 mol per litre. Find the ratio. (Answer: 5.00 = 4.74 + log(ratio), so log(ratio) = 0.26 and [salt]/[acid] = 1.8; with the sum 0.20, salt is about 0.13 and acid about 0.07 mol per litre.)
 
-                • Henderson-Hasselbalch Equation: pH = pK_a + log₁₀([A⁻]/[HA]); maximum buffer capacity occurs when [A⁻] = [HA] (pH = pK_a).
+Solubility Equilibria — Ksp and the Precipitation Test
+• DEFINITION — When a sparingly soluble salt sits in its saturated solution, dissolution and crystallisation balance: AgCl(s) ⇌ Ag+(aq) + Cl-(aq). The equilibrium constant, with the solid omitted as section 6 taught, is the solubility product: Ksp = [Ag+] [Cl-]. Every sparingly soluble salt owns one at each temperature — AgCl's is 1.8 x 10^-10 at 298 K.
+✔ KEY FORMULA — If the molar solubility of AxBy is s mol per litre, then Ksp = (x s)^x (y s)^y = x^x y^y s^(x+y). The three patterns to own: 1:1 salt (AgCl, BaSO4): Ksp = s^2. 1:2 or 2:1 salt (CaF2, Ag2CrO4): Ksp = 4 s^3. 1:3 salt (Fe(OH)3 type): Ksp = 27 s^4. Coefficients enter twice — once as multipliers, once as powers.
+• EXAMPLE — AgCl: s = sqrt(Ksp) = sqrt(1.8 x 10^-10) = 1.34 x 10^-5 mol per litre — about 2 mg in a litre, genuinely sparingly soluble. CaF2 with Ksp = 3.9 x 10^-11: s = (Ksp/4)^(1/3) = (9.75 x 10^-12)^(1/3) = 2.14 x 10^-4 mol per litre. Smaller Ksp, LARGER solubility — different stoichiometries cannot be ranked by Ksp alone; always convert to s before crowning the "least soluble".
+• Cross-link worth a mark: a saturated Mg(OH)2 solution (Ksp = 5.6 x 10^-12) has s = (Ksp/4)^(1/3) = 1.12 x 10^-4, so [OH-] = 2s = 2.24 x 10^-4 and the pH is 10.35. A solubility equilibrium literally manufactures an alkaline solution out of a nearly insoluble solid — milk of magnesia works on exactly this.
+• Predicting precipitation: compute the ion product Qsp from the ACTUAL concentrations after mixing (remembering that mixing dilutes both!) and compare. Qsp greater than Ksp: supersaturated, precipitate forms until Qsp falls to Ksp. Qsp less than Ksp: unsaturated, solid dissolves or none forms. Qsp equal to Ksp: saturated, at equilibrium, on the knife edge.
+• Common ion effect returns wearing a Ksp mask: AgCl in 0.10 mol per litre NaCl has s = Ksp / [Cl-] = 1.8 x 10^-10 / 0.10 = 1.8 x 10^-9 mol per litre — roughly 7000 times less soluble than in pure water. Same K, crushed s: Ksp is the constant, solubility is the variable. Analytical chemists precipitate "completely" by flooding with a common ion.
+• Selective precipitation is the payoff: ions with very different Ksp values can be separated by adding a common partner slowly — the lower-Ksp salt falls first. Group I of the salt-analysis scheme (PbCl2, AgCl, Hg2Cl2 crashing out with dilute HCl while everything else stays dissolved) is Ksp league tables turned into a laboratory ritual.
+⚠ EXAM TRAP — Compare like with like. Ag2CrO4 has Ksp = 1.1 x 10^-12, SMALLER than AgCl's 1.8 x 10^-10, yet its solubility (s = (Ksp/4)^(1/3) = 6.5 x 10^-5) is LARGER than AgCl's 1.34 x 10^-5. Students who rank solubility by raw Ksp across different salt types lose this mark every single year. Second trap: forgetting the dilution on mixing — two solutions mixed in equal volumes halve each other's concentrations BEFORE Qsp is computed.
+• YOUR TURN — Equal volumes of 2 x 10^-4 mol per litre AgNO3 and 2 x 10^-4 mol per litre NaCl are mixed. Does AgCl precipitate? (Answer: after mixing, [Ag+] = [Cl-] = 1 x 10^-4; Qsp = 1 x 10^-8, which exceeds Ksp = 1.8 x 10^-10 by nearly two powers of ten — yes, AgCl precipitates until [Ag+] falls to Ksp / [Cl-] territory and Qsp settles at Ksp.)
 
-            """.trimIndent(),
+High-Yield Formula Sheet
+✔ Kc = [products]^coefficients / [reactants]^coefficients, concentrations at equilibrium only
+✔ Kp = Kc (RT)^dn, R = 0.0821 litre atm per mol per K, dn = gas moles products minus reactants
+✔ Q versus K: Q less than K go forward, Q greater than K go reverse, Q equal K equilibrium
+✔ dG = dG° + RT ln Q; at equilibrium dG = 0 and dG° = -RT ln K = -2.303 RT log K
+✔ Henry's law: p = KH x — higher KH means lower solubility at the same pressure
+✔ Pure solids and pure liquids never appear in K expressions; their activity is 1
+✔ K rules: reverse the equation, invert K; multiply equation by n, raise K to power n; add equations, multiply K values
+✔ Kw = [H3O+] [OH-] = 1.0 x 10^-14 at 298 K; pH + pOH = 14 at 298 K; pKa + pKb = 14 for a conjugate pair
+✔ pH = -log [H3O+]; weak acid [H3O+] = sqrt(Ka C), pH = half (pKa - log C); weak base mirrors with Kb and pOH
+✔ Ostwald: alpha about sqrt(Ka/C) — dilution raises alpha but lowers [H3O+] towards 10^-7
+✔ Common ion: [H3O+] in a weak acid plus its salt = Ka x [acid] / [salt]
+✔ Henderson–Hasselbalch: pH = pKa + log([salt]/[acid]); basic buffer pOH = pKb + log([salt]/[base])
+✔ Salts: weak acid salt basic, weak base salt acidic, NH4Cl 0.10 mol per litre has pH 5.13
+✔ Ksp for AxBy with solubility s: Ksp = x^x y^y s^(x+y) — 1:1 gives s^2, 1:2 gives 4s^3, 1:3 gives 27s^4
+✔ Precipitation test: Qsp greater than Ksp precipitate; Qsp less than Ksp no precipitate; equal means saturated
+
+Common Mistakes and Exam Traps
+• MISTAKE 1 — Saying equilibrium means equal concentrations. WHY IT TEMPTS: "equal" is in the definition of the RATES, and the word migrates. CORRECT PRINCIPLE: rates equal, concentrations constant at whatever values K dictates — 0.33 and 0.67 in Figure 1, nowhere near equal.
+• MISTAKE 2 — Claiming a catalyst shifts equilibrium or changes K. WHY IT TEMPTS: more product per minute feels like more product, period. CORRECT PRINCIPLE: the catalyst speeds both directions equally; the position and K are thermodynamic property, unreachable by any kinetic tool.
+• MISTAKE 3 — Putting solids into K expressions. WHY IT TEMPTS: the equation shows CaCO3 prominently. CORRECT PRINCIPLE: pure solids and liquids have fixed activity 1 — CaCO3 decomposition is Kc = [CO2], Kp = p(CO2), full stop.
+• MISTAKE 4 — Using the printed K after the equation was flipped or scaled. WHY IT TEMPTS: the number sits right there in the question. CORRECT PRINCIPLE: flip gives 1/K, scaling by n gives K^n — transform first, calculate second.
+• MISTAKE 5 — Believing K depends on starting amounts or pressure. WHY IT TEMPTS: changing them changes the equilibrium composition. CORRECT PRINCIPLE: composition changes, K does not — only temperature rewrites K, up for endothermic, down for exothermic.
+• MISTAKE 6 — Inert gas panic. WHY IT TEMPTS: total pressure genuinely rises at constant volume. CORRECT PRINCIPLE: at constant volume nothing the reaction cares about changes, so no shift; at constant pressure the gases dilute and the system shifts toward more gas moles.
+• MISTAKE 7 — Declaring any solution with pH 7 neutral at any temperature. WHY IT TEMPTS: 7 is the most memorised number in the chapter. CORRECT PRINCIPLE: neutral means [H3O+] = [OH-]; at 310 K that is pH 6.81, because Kw itself moved.
+• MISTAKE 8 — Ranking solubilities by raw Ksp across different salt types. WHY IT TEMPTS: smaller Ksp sounds like smaller solubility. CORRECT PRINCIPLE: convert to s first — Ag2CrO4 (Ksp 1.1 x 10^-12, s = 6.5 x 10^-5) is MORE soluble than AgCl (Ksp 1.8 x 10^-10, s = 1.34 x 10^-5).
+• MISTAKE 9 — Forgetting mixing dilution in precipitation tests. WHY IT TEMPTS: the printed concentrations look ready-made. CORRECT PRINCIPLE: equal-volume mixing halves both ion concentrations before Qsp is computed — a factor of four in the product for a 1:1 salt.
+
+Worked Examples — Basic to Challenging
+• WORKED EXAMPLE 1 — Kp from Kc. Problem: Kc for PCl5(g) ⇌ PCl3(g) + Cl2(g) at 473 K is 8.3 x 10^-3. Find Kp.
+• Given: Kc = 8.3 x 10^-3, T = 473 K, dn = 2 - 1 = +1. Principle: Kp = Kc (RT)^dn. Steps: RT = 0.0821 x 473 = 38.8; Kp = 8.3 x 10^-3 x 38.8^1 = 0.322. Answer: Kp about 0.32.
+• Reasoning: one extra gas mole is born per reaction event, so pressure units reward the products more than concentration units do at this temperature. Mistake: using T = 200 (the Celsius value) — kelvin or the answer dies.
+• WORKED EXAMPLE 2 — ICE with a squared shortcut. Problem: 1.00 mol per litre each of H2 and I2 react in a closed vessel at about 700 K, Kc = 49 for H2 + I2 ⇌ 2HI. Find all equilibrium concentrations.
+• Given: initial 1.00, 1.00, 0; Kc = 49. Principle: ICE, then notice the expression is a perfect square. Steps: equilibrium values 1 - x, 1 - x, 2x; 49 = (2x)^2/(1 - x)^2; root both sides, 7 = 2x/(1 - x); x = 0.78. Answer: [HI] = 1.56, [H2] = [I2] = 0.22 mol per litre.
+• Reasoning: check by resubstitution — (1.56)^2/(0.22 x 0.22) = 2.43/0.0484 = about 49, confirmed. Mistake: squaring out the full quadratic and drowning; the root-first shortcut exists whenever exponents mirror each other.
+• WORKED EXAMPLE 3 — the Q verdict with a twist. Problem: For N2O4(g) ⇌ 2NO2(g), Kc = 0.20 at 400 K. A flask contains [N2O4] = 0.050 and [NO2] = 0.10 mol per litre. Which way does the reaction proceed?
+• Given: Kc = 0.20, current concentrations as stated. Principle: compare Q with K. Steps: Q = (0.10)^2 / 0.050 = 0.010 / 0.050 = 0.20. Answer: Q equals K exactly — the mixture is ALREADY at equilibrium; no net change in either direction.
+• Reasoning: direction questions are not obliged to move; examiners plant the equality case to punish students who always pick a direction. Mistake: assuming any listed mixture must be "on its way" somewhere.
+• WORKED EXAMPLE 4 — partial pressures from a solid. Problem: NH4HS(s) ⇌ NH3(g) + H2S(g) reaches equilibrium in an initially empty closed vessel; the total pressure is 0.80 atm. Find Kp.
+• Given: only gases are the two products, formed in a 1:1 ratio from nothing. Principle: Kp = p(NH3) x p(H2S), and the stoichiometric birth ratio forces the partial pressures equal. Steps: each gas carries half the total, 0.40 atm; Kp = 0.40 x 0.40 = 0.16. Answer: Kp = 0.16 (atm squared units in school convention).
+• Reasoning: the solid contributes no term and no pressure; total pressure splits strictly by mole fraction. Mistake: using 0.80 for both gases — that double-counts the same pressure.
+• WORKED EXAMPLE 5 — weak acid pH with the licence check. Problem: Find the pH and degree of ionisation of 0.10 mol per litre CH3COOH, Ka = 1.8 x 10^-5.
+• Given: C = 0.10, Ka = 1.8 x 10^-5. Principle: [H3O+] = sqrt(Ka C) under the small-x licence. Steps: [H3O+] = sqrt(1.8 x 10^-6) = 1.34 x 10^-3; pH = 2.87; alpha = 1.34 x 10^-3 / 0.10 = 0.0134. Answer: pH 2.87, alpha = 1.34 percent.
+• Reasoning: alpha is well under 5 percent, so ignoring x beside C was legitimate. Mistake: taking pH from the full 0.10 concentration (pH 1) — that is the strong-acid answer for a weak-acid question.
+• WORKED EXAMPLE 6 — buffer arithmetic and the resilience test. Problem: A buffer holds 0.20 mol per litre CH3COOH and 0.30 mol per litre CH3COONa (pKa 4.74). (a) Find its pH. (b) A separate 0.10/0.10 buffer receives 0.01 mol of HCl per litre; find the new pH and compare with unbuffered water.
+• Given: the two ratios and additions above. Principle: Henderson–Hasselbalch, with added H+ converting salt to acid mole-for-mole. Steps: (a) pH = 4.74 + log(0.30/0.20) = 4.74 + 0.18 = 4.92. (b) new salt 0.09, new acid 0.11; pH = 4.74 + log(0.09/0.11) = 4.66. Water with the same acid dose: pH 2.00. Answer: (a) 4.92; (b) 4.66 against water's collapse to 2.00.
+• Reasoning: the buffer spent 0.01 of its 0.10 salt stockpile — a 10 percent ratio change, worth only 0.08 of a pH unit. Mistake: applying Henderson with the pre-addition concentrations for part (b); the addition rewrites BOTH numbers.
+• WORKED EXAMPLE 7 — precipitation verdict. Problem: A solution is prepared with [Ag+] = 1.0 x 10^-4 and [Cl-] = 1.0 x 10^-5 mol per litre. Ksp of AgCl = 1.8 x 10^-10. Will AgCl precipitate, and what is AgCl's solubility in pure water for comparison?
+• Given: ion concentrations and Ksp as stated. Principle: compare Qsp with Ksp; solubility from s = sqrt(Ksp). Steps: Qsp = 1.0 x 10^-4 x 1.0 x 10^-5 = 1.0 x 10^-9, which is greater than 1.8 x 10^-10, so the solution is supersaturated. Answer: yes, AgCl precipitates until Qsp falls to Ksp; in pure water s = sqrt(1.8 x 10^-10) = 1.34 x 10^-5 mol per litre.
+• Reasoning: precipitation stops when the ion product is dragged down to Ksp — here the chloride, being scarcer, is nearly exhausted first. Mistake: comparing the individual concentrations with Ksp instead of their PRODUCT; Ksp judges products of ions, never single ions.
+
+Practice Questions — Self-Test Set
+• Q1 — For A(g) ⇌ 2B(g) at 500 K, Kc = 0.040. Calculate Kp.
+• Q2 — A reaction has K = 10^-13 at room temperature. In one sentence, describe the equilibrium mixture and the practical extent of the reaction.
+• Q3 — CO(g) + H2O(g) ⇌ CO2(g) + H2(g) has Kc = 4.0. Starting with [CO] = [H2O] = 1.00 mol per litre and no products, find the equilibrium concentration of CO2.
+• Q4 — For N2O4(g) ⇌ 2NO2(g), dH = +57 kJ per mol, state the effect on the brown colour intensity of (a) heating the tube, (b) compressing the gas, (c) adding argon at constant volume.
+• Q5 — Calculate the pH of 1.0 x 10^-8 mol per litre HCl, and explain why the answer is not 8.
+• Q6 — A buffer is made from equal concentrations of NH3 and NH4Cl (pKb of NH3 = 4.74). Find its pH.
+• Q7 — The Ksp of CaF2 is 3.9 x 10^-11. Calculate its molar solubility in pure water.
+• Q8 — For CaCO3(s) ⇌ CaO(s) + CO2(g), a student writes Kc = [CaO] [CO2] / [CaCO3]. Correct the expression and state the rule being applied.
+
+▸ Answer Key with Explanations
+• A1 — dn = +1, so Kp = Kc x RT = 0.040 x 0.0821 x 500 = 0.040 x 41.05 = 1.64. Misconception caught: treating Kp and Kc as identical numbers — they coincide only when dn = 0.
+• A2 — With K = 10^-13 the equilibrium lies essentially completely on the reactant side: products are present only in trace amounts and the reaction is, for all practical purposes, a non-reaction in the forward direction. Misconception caught: small K does not mean slow; it means unfavourable — rate is a separate question entirely.
+• A3 — ICE: equilibrium x, x, 1 - x, 1 - x in some order, with Kc = x^2/(1 - x)^2 = 4.0. Root both sides: x/(1 - x) = 2, so x = 2/3 = 0.67 mol per litre of CO2 (and of H2), leaving 0.33 of each reactant. Misconception caught: expanding the quadratic — with dn = 0 and mirrored squares, the root shortcut is the professional move.
+• A4 — (a) Heating: forward reaction is endothermic, equilibrium shifts right, more brown NO2, colour DEEPENS. (b) Compressing: shifts toward fewer gas moles, left toward colourless N2O4, colour FADES. (c) Argon at constant volume: no change in any partial pressure, colour UNCHANGED. Misconception caught: "pressure rose, so something must shift" in part (c) — the gauge is not the chemistry.
+• A5 — Water's own ionisation can no longer be ignored at this dilution. Charge balance gives [H3O+] = 1.05 x 10^-7, so pH = 6.98 — very slightly below 7, never above it. An acid, however dilute, cannot make a solution alkaline; pH 8 would require the HCl to have donated OH-. Misconception caught: blindly applying pH = -log C when C approaches 10^-7.
+• A6 — Equal partners: pOH = pKb = 4.74, so pH = 14 - 4.74 = 9.26. Misconception caught: using the acidic Henderson form for a basic buffer, or forgetting the pOH-to-pH conversion at the end.
+• A7 — CaF2 gives Ksp = 4 s^3, so s = (3.9 x 10^-11 / 4)^(1/3) = (9.75 x 10^-12)^(1/3) = 2.14 x 10^-4 mol per litre. Misconception caught: writing Ksp = s^2 out of AgCl habit — the fluoride coefficient 2 changes the algebra completely.
+• A8 — Both solids vanish from the expression: Kc = [CO2] (and Kp = p(CO2)). Rule: pure solids and pure liquids have constant activity 1 and are omitted from equilibrium expressions. Misconception caught: assuming every species printed in the equation must appear in K.
+
+Chapter Summary and Revision Checklist
+• Equilibrium means equal and opposite RATES, constant concentrations, and a system that answers every disturbance by partially undoing it. One number, K, per temperature per equation as written, fixes the final composition; Q measures how far a live mixture stands from that target and which way it must walk.
+• The professional toolkit of the chapter: write K correctly (coefficients as powers, no pure solids or liquids), convert with Kp = Kc (RT)^dn, judge direction with Q versus K, solve amounts with ICE (root-the-square shortcut, small-x licence, physical root only), and translate to energy with dG° = -RT ln K.
+• Le Chatelier is qualitative K: concentration and pressure move the position, only temperature moves K; catalysts and constant-volume inert gas move nothing but the clock.
+• The aqueous empire is K in uniform: Ka and Kb for weak acids and bases chained by Ka Kb = Kw, pH as the log of H3O+, common ion effect as the dimmer switch, buffers as Henderson–Hasselbalch reservoirs, and Ksp as the solubility constant whose ion-product test Qsp versus Ksp decides precipitation.
+• Self-assessment — be honest, tick only what you can do unaided:
+• I can write Kc and Kp for any equation, including heterogeneous ones, without including solids
+• I can convert Kp and Kc both ways and state dn before touching the calculator
+• I can predict reaction direction from Q versus K in under a minute
+• I can run an ICE table, use the square-root and small-x shortcuts, and reject the unphysical root
+• I can explain why a catalyst and constant-volume inert gas leave equilibrium untouched
+• I can compute pH for strong acids, weak acids, weak bases, salts and buffers from first principles
+• I can derive a buffer's pH from Henderson–Hasselbalch and say where its capacity is greatest
+• I can move between Ksp and solubility for any stoichiometry and call precipitation from Qsp
+★ HIGHLIGHT — If you can run that checklist cold, this chapter converts from the longest in the book into the most predictable source of marks in the paper: the questions repeat, the traps are catalogued above, and every single one of them is now yours.""".trimIndent(),
 
             videoTitle = "Buffer Titration Curves, Salt Hydrolysis & Selective Precipitation",
 
@@ -10546,35 +11296,293 @@ Chapter Summary and Revision Checklist
 
             completedLessons = 3,
 
-            studyNotesCount = 6,
+            studyNotesCount = 20,
 
-            practiceQuestionCount = 18,
+            practiceQuestionCount = 5,
 
             durationMinutes = 35,
 
-            formulaHighlight = "Eq. Wt = M₀ / n-factor  •  n_eq(Oxidant) = n_eq(Reductant)",
+            formulaHighlight = "Oxidation = loss of e- (number rises), reduction = gain of e- (number falls) | Sum of oxidation numbers = 0 for a compound, = ion charge for an ion | Acid halves: MnO4- + 8H+ + 5e- to Mn2+ + 4H2O; Cr2O7 2- + 14H+ + 6e- to 2Cr3+ + 7H2O | Base half: MnO4- + 2H2O + 3e- to MnO2 + 4OH- | Daniell cell: Zn anode (negative) gives Zn2+ + 2e-, Cu cathode (positive), E = +1.10 V | Eq wt KMnO4 = 31.6 in acid, 52.7 in base; K2Cr2O7 = 49",
 
-            keyConceptsSummary = "Special oxidation states (peroxide linkages in CrO₅, H₂SO₅, H₂S₂O₈), disproportionation vs comproportionation, half-reaction balancing, n-factor calculations, and iodometric/permanganometric titrations.",
+            keyConceptsSummary = "• Redox is electron transfer: oxidation is loss of electrons (oxidation number rises), reduction is gain (number falls), and the two always occur together — OIL RIG\n• Oxidation number is a bookkeeping charge found by pretending every bond is ionic; assign with the rules (F always -1; O -2 except peroxide -1 and superoxide -1/2; H +1 except metal hydrides -1) and the sum rule\n• Peroxide structures break naive algebra: S in H2S2O8 is +6, not +7, and Cr in CrO5 is +6, not +10 — any answer above the element's group maximum exposes the trap\n• Fractional oxidation numbers are averages over non-equivalent atoms: Fe3O4 is +8/3 (one Fe at +2, two at +3), thiosulphate averages +2 from +5 and -1, tetrathionate is +5/2\n• The oxidising agent accepts electrons and is itself reduced (its number falls); the reducing agent donates electrons and is oxidised — KMnO4, K2Cr2O7 and the halogens oxidise, active metals and I- reduce, H2O2 and SO2 play both sides\n• Five families: combination, decomposition, displacement, disproportionation (one element in one species splits both ways, like Cl2 in cold dilute alkali) and comproportionation (two states merge into one, like H2S + SO2 giving S)\n• Balance by equalising electrons lost and gained — oxidation-number method for molecules, half-reaction method for ions (H+/H2O in acid; in base convert until no H+ survives) — and the Daniell cell wires the two halves into a 1.10 V battery",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — Chemistry's Great Electron Economy
+• Right now, as you read this line, your cells are burning glucose, your phone battery is quietly discharging, and somewhere a factory is coaxing nitrogen and hydrogen into fertiliser. Different stories, one plot: electrons are changing hands. Redox is not one chapter of chemistry — it is the economy the whole subject trades in.
+• DEFINITION — A redox reaction is a reaction in which electrons are transferred from one species to another, so the oxidation number of at least one element rises (oxidation) and of at least one other falls (reduction). The word redox is just re-duction plus ox-idation welded together, because the two halves can never occur alone.
+• WHY electrons are currency — an atom that loses electrons loses negative charge, so its oxidation number climbs; an atom that gains them sinks. Every rusting gate, every respiration, every battery is this transfer made visible, and the bookkeeping tool of this chapter — the oxidation number — lets you audit any reaction in seconds.
+• EXAMPLE — Drop a zinc strip into blue copper sulphate solution and three things happen together: the blue fades, reddish copper coats the strip, and the solution warms up. Zinc atoms hand two electrons each to copper ions. Hold that one picture; this entire chapter is the art of describing it precisely, predicting it, and finally wiring it into a battery.
+• Here is the map. We start with the old oxygen-and-hydrogen language your Class 10 book used, upgrade it to the electron-transfer definition, then build the oxidation-number rulebook and drill it to exam speed. After that: fractional oxidation numbers, the five families of redox reactions, both balancing methods step by step, and finally the Daniell cell — the bridge that carries this chapter straight into Electrochemistry.
+★ HIGHLIGHT — The whole chapter in one breath: oxidation is loss of electrons (oxidation number rises), reduction is gain of electrons (oxidation number falls), the two always travel together, and if you can assign oxidation numbers flawlessly and balance electrons honestly, every redox question in IAT is already half solved.
 
-                1. Structural Oxidation States & Special Peroxides
+The Classical Idea — Oxidation Meant Oxygen
+• DEFINITION — In the classical (oldest) language, oxidation is the addition of oxygen to a substance, or the removal of hydrogen from it. Reduction is the mirror image: removal of oxygen, or addition of hydrogen. It is a useful dialect — but only a dialect, as you will see in two minutes.
+• EXAMPLE — 2Mg + O2 gives 2MgO. Magnesium gains oxygen, so magnesium is oxidised. The same reaction in the second dialect: nothing about hydrogen here, so the oxygen rule is the one that speaks.
+• EXAMPLE — CuO + H2 gives Cu + H2O. Copper oxide loses oxygen, so CuO is reduced; hydrogen gains oxygen (it ends inside water), so H2 is oxidised. One reaction, both halves visible — the hydrogen walked away carrying the oxygen, and chemists named hydrogen a reducing agent for exactly this trick.
+• EXAMPLE — H2S + Cl2 gives 2HCl + S. Hydrogen is removed from H2S, so by the hydrogen rule H2S is oxidised, and chlorine, which gains that hydrogen, is the oxidising agent. Notice oxygen never appears — the classical language already stretches to cover it through the hydrogen clause.
+• WHY two clauses exist — oxygen and hydrogen are chemistry's most common travelling companions, so watching either one catches most everyday reactions: burning, rusting, respiration, bleaching. For two centuries this was enough, and in organic chemistry this language still survives quietly — converting an alcohol to a carboxylic acid is called oxidation because oxygen is added and hydrogen removed.
+⚠ EXAM TRAP — The classical definitions fail completely when neither oxygen nor hydrogen moves. In Fe + S gives FeS, or 2Na + Cl2 gives 2NaCl, nothing classical happens — yet electrons clearly transfer (iron and sodium end as cations). If an option defines redox only through oxygen, it is the old dialect, not the definition.
+• YOUR TURN — In the reaction ZnO + C gives Zn + CO, name what is oxidised and what is reduced using only the classical language. Answer: ZnO loses oxygen, so ZnO is reduced; carbon gains oxygen, so C is oxidised (and is the reducing agent).
+• YOUR TURN — Is the conversion of ethanol to ethanoic acid (vinegar formation) an oxidation? Answer: yes — oxygen is added and hydrogen is removed overall, the classical double signature of oxidation.
 
-                • CrO₅ (butterfly structure, two peroxo rings): Cr is in +6 oxidation state.
+The Electron-Transfer View — Oxidation Is Loss
+• DEFINITION — In the modern electronic language, oxidation is the loss of electrons by an atom, ion or molecule, and reduction is the gain of electrons. This definition covers every reaction the classical one did, plus all the ones it missed, because gaining oxygen always ends up meaning the atom's electron grip has loosened.
+• DEFINITION — The two memory hooks that will never leave you: OIL RIG (Oxidation Is Loss, Reduction Is Gain) and LEO the lion says GER (Lose Electrons Oxidation, Gain Electrons Reduction). Pick one and tattoo it on your exam brain.
+• EXAMPLE — Return to the zinc strip. A zinc atom at the metal surface lets go of two electrons: Zn gives Zn2+ + 2e-. The ion slips into solution; the electrons stay in the metal for an instant, then a Cu2+ ion arriving at the surface collects exactly those two: Cu2+ + 2e- gives Cu, and a neutral copper atom plates onto the strip. Loss on one side, gain on the other — see Figure 3 for this handshake drawn particle by particle.
+• DEFINITION — A half-reaction is an equation showing only the oxidation half or only the reduction half of a redox reaction, with electrons written explicitly as a reactant or a product. Splitting a reaction into halves is the single most powerful habit in this chapter — balancing, cells and titrations all begin by splitting.
+✔ KEY FORMULA — Oxidation half of zinc: Zn gives Zn2+ + 2e- (electrons on the product side, because they are produced by the loss). Reduction half of copper: Cu2+ + 2e- gives Cu (electrons on the reactant side, because they are consumed by the gain). Add the halves and the electrons cancel: Zn + Cu2+ gives Zn2+ + Cu.
+• WHY the electrons must cancel exactly — free electrons never accumulate in a beaker; every electron released by oxidation is instantly swallowed by a reduction. That is why oxidation and reduction are married: the total electrons lost always equals the total electrons gained, and this equality is the engine of both balancing methods later in this chapter.
+• EXAMPLE — 2Na + Cl2 gives 2NaCl, decoded electronically: each sodium atom loses one electron (oxidation half: 2Na gives 2Na+ + 2e-) and each chlorine atom gains one (reduction half: Cl2 + 2e- gives 2Cl-). No oxygen, no hydrogen — the classical language was silent, the electronic language explains it completely.
+• EXAMPLE — Even "gain of oxygen" is electron loss in disguise. When magnesium burns to MgO, each Mg atom has effectively handed its two valence electrons to oxygen; oxygen's oxidation number falls to -2 while magnesium's rises to +2. The classical event and the electronic event are the same film in two languages.
+⚠ EXAM TRAP — Electrons appear on the LEFT of a reduction half-reaction and on the RIGHT of an oxidation half-reaction. Writing Zn2+ + 2e- gives Zn and calling it oxidation is one of the most common one-mark gifts to the examiner — check the side before you name the process.
+• YOUR TURN — Write the two half-reactions for Mg + 2HCl gives MgCl2 + H2. Answer: oxidation — Mg gives Mg2+ + 2e-; reduction — 2H+ + 2e- gives H2. Magnesium is oxidised, hydrogen ions are reduced.
+• YOUR TURN — In the half-reaction Fe2+ gives Fe3+ + e-, is iron oxidised or reduced, and what happens to its oxidation number? Answer: oxidised — an electron is lost, and the oxidation number rises from +2 to +3.
 
-                • Caro's acid (H₂SO₅) and Marshall's acid (H₂S₂O₈): S is in +6 oxidation state.
+Oxidation Number — the Bookkeeper's Charge
+• DEFINITION — The oxidation number (oxidation state) of an atom in a compound or ion is the charge that atom would carry if every bond were perfectly ionic — that is, if the shared electrons of every bond were handed entirely to the more electronegative partner. It is a bookkeeping charge, an accounting fiction, but an astonishingly useful one.
+• WHY a fiction beats reality here — real bonds are mostly covalent and electrons are shared, not surrendered. But for tracking electron transfer we do not need the real charge; we need a consistent ledger. Pretending every bond is ionic gives every atom a whole-number (or clean fractional) score, and redox becomes pure arithmetic: whose score rose, whose fell, and by how much.
+• EXAMPLE — In HCl the real charge separation is partial, roughly a tenth of an electron. The bookkeeping pretends chlorine, the more electronegative partner, took the whole electron: Cl scores -1 and H scores +1. In NaCl the pretence is nearly true. Same ledger, both molecules — that consistency is the point.
+• DEFINITION — The working rules of the ledger: in any redox reaction, the oxidation number of the oxidised element increases, and of the reduced element decreases. The size of the change, multiplied by the number of atoms changing, counts the electrons transferred — n-factor thinking that returns in volumetric analysis and electrochemistry.
+• EXAMPLE — Read the sulphur ladder in Figure 1. Sulphur lives at every rung from -2 in H2S to +6 in H2SO4. Burning H2S to SO2 moves sulphur from -2 to +4: a rise of 6 per atom, so each sulphur atom loses 6 electrons. One glance at the ladder converts any sulphur reaction into an electron count.
+★ HIGHLIGHT — Master the direction words once and forever: oxidation number UP means electrons OUT (oxidation); oxidation number DOWN means electrons IN (reduction). The number is a scoreboard for electrons — rising score, escaping electrons.
+• EXAMPLE — Manganese is the other great ladder-climber: +2 in Mn2+, +4 in MnO2, +6 in green K2MnO4, +7 in purple KMnO4. Acidified permanganate works as an oxidiser precisely because Mn at +7 is at its ceiling and can only come down, grabbing electrons as it falls to +2.
+⚠ EXAM TRAP — Oxidation number is not the same as the actual charge on an ion in every case, and it is not valency either (Section 7 is devoted to that distinction). S in SO4 2- scores +6 even though no sulphur atom carries anything like a +6 real charge — the sulphate ion's total charge is only -2.
+• YOUR TURN — In the reaction 2H2S + SO2 gives 3S + 2H2O, track sulphur. Answer: sulphur in H2S starts at -2 and rises to 0, so H2S is oxidised; sulphur in SO2 starts at +4 and falls to 0, so SO2 is reduced. Both end as the same element — a beautiful pattern named comproportionation, returning in Section 9.
+• YOUR TURN — What is the oxidation number of chromium in Cr2O7 2-, the orange dichromate ion? Answer: 2x + 7(-2) = -2, so 2x = +12 and x = +6.
 
-                • Bleaching powder (CaOCl₂): Contains Cl⁻ (−1) and OCl⁻ (+1); Br₃O₈ has terminal Br (+6) and central Br (+4).
+The Rulebook — Assigning Oxidation Numbers
+• DEFINITION — Assigning an oxidation number is a five-second routine: give every atom you are sure about its standard score, let the unknown be x, and use the master equation — the sum of oxidation numbers equals zero for a neutral compound and equals the charge for an ion. The rulebook below fixes the "sure" values; treat them as laws with named exceptions.
+• RULE 1 — A free, uncombined element scores 0: Na, Fe, O2, O3, P4, S8, and every noble gas. Zero because no bond means no electron has been assigned away.
+• RULE 2 — A monoatomic ion scores exactly its charge: Na+ is +1, Ca2+ is +2, Al3+ is +3, Cl- is -1, O2- is -2, N3- is -3. The ledger and the letter agree here.
+• RULE 3 — Fluorine, the most electronegative element of all, is always -1 in its compounds, no exceptions. It wins every tug-of-war it enters.
+• RULE 4 — Oxygen is -2 in most compounds. Named exceptions: peroxides score -1 (H2O2, Na2O2 — the O-O bond splits its ownership evenly), superoxides score -1/2 (KO2), and with fluorine oxygen loses for once: +2 in OF2 and +1 in O2F2.
+• RULE 5 — Hydrogen is +1 in most compounds. Named exception: in metal hydrides such as NaH, CaH2 and LiAlH4, hydrogen is the more electronegative partner and scores -1, as the hydride ion H-.
+• RULE 6 — Group 1 metals are always +1 and Group 2 metals always +2 in their compounds. Halogens are usually -1, but a halogen bonded to oxygen or to a more electronegative halogen scores positive — chlorine is +1 in HClO, +5 in KClO3 and +7 in KClO4.
+• RULE 7 — The sum rule, the master equation itself: for a neutral molecule the scores add to 0; for a polyatomic ion they add to the ion's charge. This is the equation you actually solve — every other rule just stocks it with known values.
+✔ KEY FORMULA — Sum of (atoms of each element x its oxidation number) = 0 for a compound, = charge for an ion. Set the unknown to x, substitute the sure values, solve. That is the entire algorithm — speed comes only from drilling it.
+• WORKED PATTERN — Mn in KMnO4: K is +1 (Rule 6), O is -2 (Rule 4). So +1 + x + 4(-2) = 0, giving x = +7. Five seconds, no hesitation.
+• WORKED PATTERN — N in HNO3: +1 + x + 3(-2) = 0, so x = +5. N in NH3: x + 3(+1) = 0, so x = -3. Same element, eight rungs apart — nitrogen's ladder is as dramatic as sulphur's.
+• WORKED PATTERN — C in CH4: x + 4(+1) = 0, so x = -4. C in C2H6: 2x + 6(+1) = 0, so x = -3. C in CO2: x = +4. Carbon spans -4 to +4, which is why organic chemistry is a redox playground.
+⚠ EXAM TRAP — Never assign oxygen -2 before checking for a peroxide O-O bond or a fluorine partner. CrO5 looks like Cr is +10 by the blind rule — impossible, since chromium has only six valence electrons to lose. The structure hides four peroxide oxygens at -1, and the true value is +6. Insane answers (above the group maximum) are your alarm bell.
+• YOUR TURN — Find P in H3PO4 and S in H2SO4. Answer: 3(+1) + x + 4(-2) = 0 gives P = +5; 2(+1) + x + 4(-2) = 0 gives S = +6.
+• YOUR TURN — Find the oxidation number of O in KO2 and of H in CaH2. Answer: KO2 — K is +1, so 2 oxygens total -1, each scoring -1/2 (superoxide). CaH2 — Ca is +2, so each H scores -1 (hydride).
 
+▸ The Drill Bench — Assignments at Exam Speed
+• WORKED PATTERN — The bench rules: say the knowns aloud, write the sum equation, solve for x. Ten reps, each under ten seconds when fluent. Cover the answers and run them daily for a week; oxidation numbers should become reflex, not reasoning.
+• DRILL 1 — Fe in FeSO4: SO4 2- carries -2 overall and FeSO4 is neutral, so Fe = +2. (Shortcut: learn the common ion charges and skip the algebra.)
+• DRILL 2 — Fe in Fe2(SO4)3: 2x + 3(-2) = 0, so Fe = +3. Same partner, different iron — the salt's formula tells you which.
+• DRILL 3 — S in SO3 2-: x + 3(-2) = -2, so S = +4. S in SO4 2-: x = +6. One extra oxygen, two rungs up the ladder.
+• DRILL 4 — Cl in HClO4: +1 + x + 4(-2) = 0 gives Cl = +7, chlorine's ceiling. Cl in HClO: x = +1. The oxyacids of chlorine are a staircase: +1, +3, +5, +7 for HClO, HClO2, HClO3, HClO4.
+• DRILL 5 — N in NO3-: x + 3(-2) = -1, so N = +5. N in NH4+: x + 4(+1) = +1, so N = -3. One formula unit of NH4NO3 therefore hides nitrogen at BOTH extremes, -3 and +5 — never average them; they are different atoms.
+• DRILL 6 — Xe in XeOF4: x + (-2) + 4(-1) = 0, so Xe = +6. Noble gases are not exempt from the ledger once they form compounds.
+• DRILL 7 — C in C2O4 2- (oxalate): 2x + 4(-2) = -2, so x = +3. Remember this one — oxalate is oxidised to CO2 (C at +4) in permanganate titrations, losing exactly one electron per carbon.
+• DRILL 8 — Cr in K2CrO4: 2(+1) + x + 4(-2) = 0 gives Cr = +6, same as in dichromate. Chromate and dichromate swap in solution without any redox, precisely because chromium's score never changes.
+• DRILL 9 — Mn in MnO2: x = +4. Mn in K2MnO4: x = +6. You now hold the full manganese ladder: +2, +4, +6, +7.
+• DRILL 10 — H in H2O2: oxygen takes -1 here (peroxide), so H stays +1 and the check reads 2(+1) + 2(-1) = 0. If you had forced oxygen to -2 you would have invented H at +2 — trust the exception list, not habit.
+★ HIGHLIGHT — The pattern beneath the drills: maximum oxidation number of a main-group element equals its group number in the old numbering (S +6, Cl +7, N +5), and the minimum equals group number minus 8 (S -2, Cl -1, N -3). The ladder's top and bottom are written into the periodic table itself.
+• YOUR TURN — Assign: I in KI, I in KIO3, I in I2. Answer: -1 (Rule 6 partner), +5 (x + 1 - 6 = 0), and 0 (free element). Iodine's swing from -1 to +5 powers the iodometric titrations of the Equilibrium and Electrochemistry chapters.
 
+Fractional Oxidation Numbers — Averages with a Story
+• DEFINITION — A fractional oxidation number is an average: the sum equation divides the total score equally among identical atoms, even when those atoms are not actually equivalent. A fraction never means an atom carries a fractional charge — it means the ledger is reporting a team average.
+• EXAMPLE — Fe3O4, magnetite: 3x + 4(-2) = 0 gives x = +8/3, about +2.67. Reality: Fe3O4 is a mixed oxide, FeO + Fe2O3 fused in one crystal — one iron is genuinely +2 and two are genuinely +3, and (2 + 3 + 3)/3 = 8/3. The fraction is the average of honest whole numbers.
+• EXAMPLE — Thiosulphate, S2O3 2-: 2x + 3(-2) = -2 gives x = +2 on average. Reality: the ion is a sulphate with one oxygen replaced by sulphur — the central sulphur scores +5 and the outer sulphur scores -1, and (5 + (-1))/2 = +2. When thiosulphate reduces iodine in titrations, it is the outer, electron-rich sulphur that does the work.
+• EXAMPLE — Tetrathionate, S4O6 2-, the product of that titration: 4x - 12 = -2 gives the famous average +5/2, that is +2.5. Reality check: the chain runs O3S-S-S-SO3, with the two end sulphurs at +5 and the two middle ones at 0 — (5 + 0 + 0 + 5)/4 = +2.5 exactly.
+• EXAMPLE — Superoxide KO2 gives oxygen -1/2: two equivalent oxygens share a single -1 between them, so the fraction here is an average over genuinely identical atoms splitting one unit — the honest cousin of the Fe3O4 case.
+• WHY the average still earns its keep — balancing and electron counting only ever need the total. If Fe3O4 is oxidised fully to Fe2O3, the electrons lost per formula unit are 3 x (3 - 8/3) = 1, computed from the average without ever opening the structure. Use fractions boldly for bookkeeping; just never claim an atom owns a third of an electron.
+⚠ EXAM TRAP — "The oxidation number of Fe in Fe3O4 is +2 and +3" and "is +8/3" are both accepted phrasings of different questions: the first asks for the individual states, the second for THE oxidation number (the average). Read which one the examiner wants — and in a single-answer MCQ, +8/3 is the standard key.
+• YOUR TURN — Find the average oxidation number of carbon in CH3COOH, then the two individual values. Answer: average — 2x + 4(+1) + 2(-2) = 0 gives x = 0. Individuals: the methyl carbon is -3 (three H partners won by carbon, one C-C tie), the carboxyl carbon is +3. Average of -3 and +3 is 0 — the fraction-free cousin of the same lesson.
 
-                2. Equivalent Concept & Disproportionation n-Factor
+▸ Oxidation Number versus Valency
+• DEFINITION — Valency is the combining capacity of an element: the number of hydrogen atoms (or their equivalent) one atom combines with or displaces, rooted in how many electrons the atom uses for bonding. Oxidation number is a signed bookkeeping score rooted in electronegativity. Cousins, not twins.
+• Row by row — Meaning: oxidation number is the hypothetical charge if all bonds were ionic; valency is the number of bonds or electrons engaged in bonding.
+• Row by row — Sign: oxidation number carries a sign, positive or negative, and can be zero; valency is quoted as a plain positive count (older texts occasionally sign it, but the score itself is a capacity).
+• Row by row — Values: oxidation number may be fractional (averages) and changes from compound to compound; valency is always a whole number and is far more constant for an element.
+• Row by row — Zero case: an element in its free state has oxidation number 0 but still has its characteristic valency (oxygen in O2 has valency 2, oxidation number 0).
+• EXAMPLE — Nitrogen shows the split cleanly: in NH3 its oxidation number is -3 and its valency is 3 (the rare match). In NH4+ the oxidation number stays -3, yet nitrogen now forms four bonds — valency reckonings strain, the ledger does not blink.
+• EXAMPLE — Carbon: oxidation number -4 in CH4, 0 on average in CH3COOH, +4 in CO2 — a nine-rung swing — while its valency stays 4 in every one of them. Valency tells you carbon builds four bonds; oxidation number tells you who is winning the electrons inside them.
+✔ KEY FORMULA — Quick discriminator in the exam hall: if the quantity can be negative or fractional, it is an oxidation number; if it counts bonds and never changes its spots, it is valency.
+• YOUR TURN — State the oxidation number and the valency of sulphur in H2S and in SF6. Answer: H2S — oxidation number -2, valency 2. SF6 — oxidation number +6, valency 6. (Sulphur is obliging here; try carbon above to see them divorce.)
 
-                • For disproportionation where 1 molecule goes from oxidation state x → y (n₁ e⁻ lost) and x → z (n₂ e⁻ gained):
+Agents of Change — Oxidisers and Reducers
+• DEFINITION — An oxidising agent (oxidant) is the species that accepts electrons and thereby oxidises the other partner; in doing so it is itself reduced, and one of its atoms' oxidation numbers falls. A reducing agent (reductant) donates electrons, is itself oxidised, and its oxidation number rises. The agent is named for what it does to the OTHER species — the eternal source of confusion, now ended.
+• WORKED PATTERN — The two-question test for any species: (1) Did its oxidation number fall? Then it gained electrons, was reduced, and is the oxidising agent. (2) Did its oxidation number rise? Then it lost electrons, was oxidised, and is the reducing agent. Never answer from the species' reputation; answer from its numbers in THIS reaction.
+• EXAMPLE — Zn + CuSO4 gives ZnSO4 + Cu: zinc 0 to +2 (rose — zinc is the reducing agent, and zinc is oxidised); Cu2+ falls +2 to 0 (CuSO4 is the oxidising agent, and copper is reduced). The strip both donates electrons and earns the title "reducing agent" for the donation.
+• EXAMPLE — 2KMnO4 + 16HCl gives 2KCl + 2MnCl2 + 5Cl2 + 8H2O. Manganese falls +7 to +2, so KMnO4 is the oxidising agent. Chloride rises -1 to 0 in Cl2, so HCl is the reducing agent — but note only 10 of the 16 HCl molecules are oxidised; the other 6 simply supply acid and the Cl- in the salts. One reagent, two jobs.
+• EXAMPLE — The celebrity oxidisers, recognisable by an element at or near its ceiling: KMnO4 (Mn +7), K2Cr2O7 (Cr +6), conc. HNO3 (N +5), conc. H2SO4 (S +6), the halogens, and O2. The celebrity reducers: active metals (Na, Zn, Fe), H2, C and CO, H2S (S at its floor, -2), and iodide I-.
+• EXAMPLE — The double agents: H2O2 (O at -1, mid-ladder) oxidises Fe2+ to Fe3+ yet reduces KMnO4 to Mn2+, where oxygen climbs to O2. SO2 (S at +4) likewise reduces dichromate but is oxidised by chlorine. A mid-ladder species can walk either way — its partner decides.
+★ HIGHLIGHT — Strength logic for the MCQ hall: the strongest oxidising agents hold an element desperate to fall (F2 is the champion — fluorine only ever falls), and the strongest reducing agents hold an element desperate to rise (alkali metals, and among halide ions I- out-reduces Br-, which out-reduces Cl-, while F- barely reduces at all).
+⚠ EXAM TRAP — "The oxidising agent gets oxidised" — false, and it is the single most planted trap in this chapter. The oxidising agent is REDUCED. If you feel the sentence twisting, return to the numbers: agent's own number falls, agent is oxidant.
+• YOUR TURN — In Cl2 + 2KBr gives 2KCl + Br2, name both agents. Answer: chlorine falls 0 to -1, so Cl2 is the oxidising agent; bromine rises -1 to 0, so KBr (the Br-) is the reducing agent. This is a halogen displacement — the stronger oxidant evicts the weaker one's electrons.
+• YOUR TURN — Can Fe3+ act as an oxidising agent? As a reducing agent? Answer: as an oxidant, yes — it falls to Fe2+ (it oxidises I- to I2, for instance). As a reductant, practically no in school chemistry — +3 is already high for iron (ferrate +6 exists but is exotic).
 
-                  n_eq = (n₁ × n₂) / (n₁ + n₂).
+Types of Redox Reactions
+• DEFINITION — Redox reactions sort into five families by their shape: combination, decomposition, displacement, disproportionation, and its mirror, comproportionation. Naming the family is not decoration — each family has its own prediction rules, and IAT loves asking "which type is this?"
+• FAMILY 1, Combination — Two or more substances merge into one product, with oxidation numbers changing: C + O2 gives CO2 (carbon 0 to +4, oxygen 0 to -2); 2Na + Cl2 gives 2NaCl. Not every combination is redox — CaO + CO2 gives CaCO3 changes nobody's score, so check numbers before labelling.
+• FAMILY 2, Decomposition — One compound splits into two or more products with score changes: 2KClO3 gives 2KCl + 3O2, where chlorine falls +5 to -1 while oxygen rises -2 to 0. Contrast CaCO3 gives CaO + CO2 — a decomposition with NO score changes, hence not redox at all.
+• FAMILY 3, Displacement — A stronger player evicts a weaker one from its compound: Zn + CuSO4 gives ZnSO4 + Cu (metal displacement, governed by the reactivity/electrode-potential ladder), and Cl2 + 2KBr gives 2KCl + Br2 (halogen displacement — oxidising power falls F2 > Cl2 > Br2 > I2, so each halogen evicts the ones below it).
+• FAMILY 4, Disproportionation — DEFINITION: one species, one element, both directions at once — part of it is oxidised and part reduced in the same reaction. The element must start at an intermediate oxidation number with at least one rung above and one below.
+• EXAMPLE — 2H2O2 gives 2H2O + O2: oxygen at -1 splits into -2 (in water, reduced) and 0 (in O2, oxidised). And Cl2 with cold dilute NaOH: Cl2 + 2OH- gives Cl- + ClO- + H2O — chlorine 0 falls to -1 and rises to +1 simultaneously. With hot concentrated alkali the rise goes further, to +5: 3Cl2 + 6NaOH gives 5NaCl + NaClO3 + 3H2O.
+• EXAMPLE — 4KClO3 gives 3KClO4 + KCl (chlorine +5 splits to +7 and -1) and P4 + 3OH- + 3H2O gives PH3 + 3H2PO2- (phosphorus 0 splits to -3 and +1). Even a metal ion can do it: 2Cu+ gives Cu2+ + Cu in water, which is exactly why Cu+ salts are unstable in aqueous solution while Cu2+ rules.
+• FAMILY 5, Comproportionation — DEFINITION: the mirror of disproportionation — two species containing the same element at different oxidation numbers merge into one intermediate state. 2H2S + SO2 gives 3S + 2H2O (sulphur -2 and +4 meet at 0), and the iodometric workhorse IO3- + 5I- + 6H+ gives 3I2 + 3H2O (+5 and -1 meet at 0).
+⚠ EXAM TRAP — Decomposition of KClO3 is NOT disproportionation, though it looks tempting: chlorine is only reduced and oxygen is only oxidised — two different elements travel, but disproportionation demands ONE element travelling both ways from ONE starting species. Check the traveller's identity, not the drama of the reaction.
+• WORKED PATTERN — The disproportionation test, three questions: (1) Does one element appear in a single reactant species? (2) Does it appear in two product species? (3) Is one product's score higher and the other's lower than the start? Three yeses — disproportionation certified.
+• YOUR TURN — Classify: (a) 2Mg + O2 gives 2MgO (b) Fe + CuSO4 gives FeSO4 + Cu (c) Cl2 + 2NaOH (cold, dilute) gives NaCl + NaOCl + H2O. Answer: (a) combination, (b) displacement, (c) disproportionation — chlorine 0 splits to -1 and +1.
+• YOUR TURN — Why can NaCl never disproportionate in water, while NaClO can? Answer: in NaCl chlorine sits at -1, its floor — it has no rung below, so it can only be oxidised. In NaClO chlorine is +1, mid-ladder, free to split toward -1 and higher states.
 
-            """.trimIndent(),
+Balancing with Oxidation Numbers
+• DEFINITION — The oxidation-number method balances a redox equation by enforcing the ledger's golden rule: total rise in oxidation number equals total fall, because electrons lost must equal electrons gained. It is fastest for molecular equations where the species are written whole.
+• THE METHOD — Step 1: write the skeleton equation and assign oxidation numbers to every atom that might change. Step 2: pick out the oxidised and reduced elements and compute the rise and fall per atom. Step 3: multiply the oxidised species by the fall and the reduced species by the rise (cross-multiplication) so total rise equals total fall. Step 4: balance all remaining atoms by inspection. Step 5: finish with oxygen and hydrogen — in molecular equations, water and the acid in the equation are your balancing stock.
+• WORKED PATTERN — Copper with dilute nitric acid. Skeleton: Cu + HNO3 gives Cu(NO3)2 + NO + H2O. Scores: Cu 0 to +2, a rise of 2. N +5 to +2 (in NO), a fall of 3. Cross-multiply to make both 6: 3 Cu and 2 reacting HNO3. But each Cu(NO3)2 also parks two unreacted nitrate ions, so total HNO3 = 3 x 2 + 2 = 8. Result: 3Cu + 8HNO3 gives 3Cu(NO3)2 + 2NO + 4H2O. Count to verify: Cu 3/3, N 8/8, H 8/8, O 24/24 — sealed.
+• WORKED PATTERN — The permanganate–iron(II) classic. Skeleton: FeSO4 + KMnO4 + H2SO4 gives Fe2(SO4)3 + MnSO4 + K2SO4 + H2O. Scores: Fe +2 to +3, rise 1; Mn +7 to +2, fall 5. Cross-multiply: 5 Fe per 1 Mn, doubled to respect Fe2(SO4)3: 10FeSO4 + 2KMnO4. Then sulphates and potassium by inspection, hydrogen last: 10FeSO4 + 2KMnO4 + 8H2SO4 gives 5Fe2(SO4)3 + 2MnSO4 + K2SO4 + 8H2O. Verify charge-free atoms: Fe 10/10, Mn 2/2, S 18/18, O 80/80 — sealed.
+⚠ EXAM TRAP — The spectator trap from the copper example generalises: when the oxidising agent also plays a second role (acid, salt-former), cross-multiplication gives only the REDOX-ACTIVE amount. Total reagent = redox part + spectator part. HNO3 needed 2 for reduction but 8 in total — forgetting the other 6 is the classic error.
+• WHY cross-multiplication works — rise per atom x atoms oxidised = electrons lost; fall per atom x atoms reduced = electrons gained. Setting them equal is not a trick; it is conservation of charge wearing a shortcut's clothes.
+• YOUR TURN — Balance by oxidation numbers: K2Cr2O7 + HCl gives KCl + CrCl3 + H2O + Cl2 (skeleton). Answer: Cr falls +6 to +3 (3 per Cr, 6 per formula unit), Cl rises -1 to 0 (1 per atom), so 6 Cl atoms are oxidised per dichromate; result K2Cr2O7 + 14HCl gives 2KCl + 2CrCl3 + 7H2O + 3Cl2.
+• YOUR TURN — In the reaction above, how many of the 14 HCl are oxidised? Answer: 6 — the ones that became 3Cl2. The other 8 provide acid medium and the chloride parked in KCl and CrCl3.
+
+Balancing with Half-Reactions — Acidic Medium
+• DEFINITION — The ion-electron (half-reaction) method balances each half separately — atoms first, then charge with electrons — and adds the halves after equalising the electron count. It is the method of record for ionic equations, and the only one that survives basic medium gracefully.
+• THE METHOD — Step 1: split the skeleton into oxidation and reduction halves by oxidation numbers. Step 2: in each half, balance all atoms except O and H. Step 3: balance O by adding H2O to the oxygen-poor side. Step 4: balance H by adding H+ to the hydrogen-poor side. Step 5: balance charge by adding electrons to the more positive side. Step 6: multiply the halves so electrons lost equal electrons gained, add, and cancel anything appearing on both sides (including the electrons — they must vanish).
+• WORKED PATTERN — Permanganate meets iron(II), in acid. Reduction half: MnO4- gives Mn2+. Balance O with 4H2O on the right; balance H with 8H+ on the left; charges: left -1 + 8 = +7, right +2, so add 5e- on the left: MnO4- + 8H+ + 5e- gives Mn2+ + 4H2O. Oxidation half: Fe2+ gives Fe3+ + e-. Multiply by 5 and add: MnO4- + 5Fe2+ + 8H+ gives Mn2+ + 5Fe3+ + 4H2O. Final audit — atoms balance, and charge reads +17 on both sides. Sealed.
+• WORKED PATTERN — Dichromate half, the other titration giant: Cr2O7 2- gives 2Cr3+. Balance O with 7H2O right; H with 14H+ left; charge left is -2 + 14 = +12 against +6 right, so 6e- join the left: Cr2O7 2- + 14H+ + 6e- gives 2Cr3+ + 7H2O. Six electrons per dichromate — the same 6 that Chapter 5's equivalent weight of 49 was built on.
+✔ KEY FORMULA — The two half-reactions to know cold: MnO4- + 8H+ + 5e- gives Mn2+ + 4H2O (5 electrons, acid); Cr2O7 2- + 14H+ + 6e- gives 2Cr3+ + 7H2O (6 electrons, acid). Between them they anchor nearly every redox titration question ever set.
+• WORKED PATTERN — A deeper cut: zinc reduces nitrate all the way to ammonium in acid. Reduction half: NO3- gives NH4+. O: add 3H2O right. H: add 10H+ left. Charge: left -1 + 10 = +9, right +1, so 8e- on the left: NO3- + 10H+ + 8e- gives NH4+ + 3H2O. Oxidation half Zn gives Zn2+ + 2e-, times 4. Sum: 4Zn + NO3- + 10H+ gives 4Zn2+ + NH4+ + 3H2O. Nitrogen fell +5 to -3 — an eight-electron plunge, counted perfectly by the method.
+⚠ EXAM TRAP — Electrons are added to make the CHARGE balance, never to make atoms balance, and their side is decided by arithmetic, not by memory: compute both sides' total charge and add electrons to the side that is too positive. If your "reduction" half ends with electrons on the right, you have built an oxidation by mistake.
+• YOUR TURN — Balance in acid: MnO4- + C2O4 2- gives Mn2+ + CO2. Answer: oxidation half C2O4 2- gives 2CO2 + 2e- (x5); reduction half as above (x2); sum 2MnO4- + 5C2O4 2- + 16H+ gives 2Mn2+ + 10CO2 + 8H2O. Charge audit: -2 - 10 + 16 = +4 left, +4 right.
+
+▸ Balancing with Half-Reactions — Basic Medium
+• DEFINITION — In basic medium the same half-reaction machinery runs, with one extra move at the end: neutralise every H+ by adding an equal number of OH- to BOTH sides, let H+ + OH- become H2O, and cancel excess water. Alternatively, balance O with H2O and H with H2O/OH- pairs directly — both roads reach the same equation; the convert-at-the-end road is harder to get wrong.
+• THE METHOD — Steps 1 to 6 exactly as in acid, treating the equation as if it were acidic. Step 7: count the H+ ions; add that many OH- to both sides. Step 8: rewrite each H+ + OH- pair as H2O, then cancel water molecules appearing on both sides. Step 9: the final audit — atoms, charge, and a scan that no H+ survives anywhere in a basic-medium answer.
+• WORKED PATTERN — Permanganate oxidises sulphite in base, stopping at MnO2. Oxidation half: SO3 2- gives SO4 2-. Balance directly in base: add 2OH- left and H2O right for the O and H, then 2e- right for charge: SO3 2- + 2OH- gives SO4 2- + H2O + 2e-. Reduction half: MnO4- gives MnO2: MnO4- + 2H2O + 3e- gives MnO2 + 4OH-. Equalise at 6 electrons (oxidation x3, reduction x2) and add: 2MnO4- + 3SO3 2- + H2O gives 2MnO2 + 3SO4 2- + 2OH-. Audit: O 18/18, charge -8/-8 — sealed.
+✔ KEY FORMULA — The basic-medium permanganate half, worth memorising beside its acidic twin: MnO4- + 2H2O + 3e- gives MnO2 + 4OH- (3 electrons, product MnO2, a brown solid). Same oxidant, different medium, different electron appetite — the medium is part of the formula.
+• WORKED PATTERN — The hydrogen peroxide reduction in base, by the convert-at-end road. Acid form first: H2O2 + 2H+ + 2e- gives 2H2O. Add 2OH- to both sides: H2O2 + 2H2O + 2e- gives 2H2O + 2OH-. Cancel 2H2O: H2O2 + 2e- gives 2OH-. Charge audit: -2 on both sides, atoms H 2/2, O 2/2 — sealed, and not an H+ in sight.
+⚠ EXAM TRAP — Delivering H+ in a final basic-medium equation is an automatic fail of that question, and examiners hunt for it. Run the Step 9 scan religiously: H+ in a base answer is like ice in a furnace — it cannot exist there.
+• YOUR TURN — Balance in basic medium: Cl2 gives Cl- + ClO- (the cold-dilute alkali reaction from Section 9). Answer: reduction half Cl2 + 2e- gives 2Cl-; oxidation half Cl2 + 4OH- gives 2ClO- + 2H2O + 2e-. Add the halves and divide by 2: Cl2 + 2OH- gives Cl- + ClO- + H2O. Charge audit: -2 on both sides.
+
+From Beaker to Battery — the Daniell Cell
+• DEFINITION — An electrode process is a half-reaction occurring at the surface of an electrode. A galvanic (voltaic) cell is a device that separates the two halves of a spontaneous redox reaction into two compartments and forces the transferred electrons through an external wire — converting chemical energy into electrical energy. This section is the doorway into the Electrochemistry chapter; walk through it slowly.
+• EXAMPLE — Everything so far was the direct version: zinc strip dipped into CuSO4, electrons handed over at the surface, energy wasted as heat. The Daniell cell performs the same reaction — Zn + Cu2+ gives Zn2+ + Cu — but with the partners locked in separate rooms. Zinc sits in ZnSO4 solution in one beaker; copper sits in CuSO4 solution in another. The only road between them for electrons is the wire, and electrons on a road can do work.
+• DEFINITION — The anode is the electrode where oxidation occurs — in the Daniell cell, the zinc electrode: Zn gives Zn2+ + 2e-. The cathode is where reduction occurs — the copper electrode: Cu2+ + 2e- gives Cu. AN OX and RED CAT: ANode for OXidation, REDuction at the CAThode — true in every cell ever built.
+• EXAMPLE — Watch the cell work (Figure 2). The zinc electrode slowly dissolves and loses mass as Zn2+ enters its solution. Copper ions leave the blue solution and plate onto the copper electrode, which gains mass while the blue fades. The voltmeter reads 1.10 V with standard concentrations — the full prize for the electron detour, and the number the Electrochemistry chapter will teach you to predict from tables.
+• DEFINITION — The salt bridge is an inverted U-tube of inert electrolyte (KCl or KNO3 in agar gel) dipping into both half-cells. Its job is pure bookkeeping: it completes the circuit and keeps both solutions electrically neutral — K+ ions drift toward the cathode compartment (where Cu2+ is vanishing) and Cl- ions drift toward the anode compartment (where Zn2+ is piling up).
+• WHY no salt bridge, no cell — without it, the anode solution would accumulate positive charge and the cathode solution negative charge within moments, and that charge build-up would repel further electron flow to a stop. The cell dies in seconds. The salt bridge is not plumbing; it is the permit that lets the reaction continue.
+★ HIGHLIGHT — Sign sense, galvanic edition: in a galvanic cell the anode is the NEGATIVE terminal and the cathode is POSITIVE, because the anode is where electrons are produced and pushed out. File this carefully — in an electrolytic cell (next chapter) the signs flip while AN OX and RED CAT stay true. The names follow the chemistry; the signs follow the circuit.
+⚠ EXAM TRAP — Two Daniell traps recur every year. One: electrons flow through the WIRE from Zn to Cu, never through the salt bridge — ions travel the bridge, electrons travel the wire. Two: the zinc electrode is the anode even though it is negative; students who learned "anode = positive" from electrolysis questions walk straight into it.
+• YOUR TURN — In a working Daniell cell, which electrode's mass decreases, and which way do the bridge's cations move? Answer: the zinc anode loses mass (it is dissolving as Zn2+); cations (K+) move toward the cathode compartment to replace the departing Cu2+.
+• YOUR TURN — Write the cell's two half-reactions and the overall reaction, and state the standard EMF given in Figure 2. Answer: anode Zn gives Zn2+ + 2e-; cathode Cu2+ + 2e- gives Cu; overall Zn + Cu2+ gives Zn2+ + Cu; EMF 1.10 V.
+
+High-Yield Formula Sheet
+✔ KEY FORMULA — Oxidation = loss of electrons = oxidation number rises. Reduction = gain of electrons = oxidation number falls. OIL RIG and AN OX, RED CAT — four hooks that answer half the chapter's MCQs by themselves.
+✔ KEY FORMULA — The master equation: sum of (atoms x oxidation number) = 0 for a neutral compound; = the ion's charge for a polyatomic ion. Unknown = x; solve.
+✔ KEY FORMULA — The default scores: free element 0; F always -1; O -2 (peroxide -1, superoxide -1/2, OF2 +2); H +1 (metal hydride -1); Group 1 +1; Group 2 +2; monoatomic ion = its charge.
+✔ KEY FORMULA — Electrons transferred per formula unit (n-factor) = (change in oxidation number per atom) x (number of atoms changing). Total rise must equal total fall in any balanced redox equation.
+✔ KEY FORMULA — Half-reactions in acid: MnO4- + 8H+ + 5e- gives Mn2+ + 4H2O; Cr2O7 2- + 14H+ + 6e- gives 2Cr3+ + 7H2O; NO3- + 10H+ + 8e- gives NH4+ + 3H2O.
+✔ KEY FORMULA — Half-reactions in base: MnO4- + 2H2O + 3e- gives MnO2 + 4OH-; H2O2 + 2e- gives 2OH-. In neutral medium permanganate also stops at MnO2 with the same 3-electron appetite.
+✔ KEY FORMULA — Equivalent weight of an oxidant or reductant = molar mass / n-factor. KMnO4: 158/5 = 31.6 in acid, 158/3 = 52.7 in neutral or base, 158/1 = 158 in strong alkali (to MnO4 2-). K2Cr2O7: 294/6 = 49.
+✔ KEY FORMULA — Daniell cell: anode (negative) Zn gives Zn2+ + 2e-; cathode (positive) Cu2+ + 2e- gives Cu; overall Zn + Cu2+ gives Zn2+ + Cu; E cell = +1.10 V under standard conditions.
+• Ladder landmarks to visualise instantly: S runs -2 (H2S) to +6 (H2SO4); Mn runs +2, +4, +6, +7; Cl runs -1 to +7; N runs -3 (NH3) to +5 (HNO3); C runs -4 (CH4) to +4 (CO2); Fe lives at +2 and +3.
+
+Common Mistakes and Exam Traps
+• MISTAKE 1 — "The oxidising agent is the one that gets oxidised." WHY IT FAILS: the agent is named for its effect on the partner, and causing oxidation costs the agent its own reduction. CORRECT PRINCIPLE: oxidising agent = electron acceptor = itself reduced = its oxidation number falls. Say it with the numbers, every time.
+• MISTAKE 2 — Assigning oxygen -2 inside H2S2O8 and announcing S = +7. WHY IT FAILS: the molecule hides an O-O peroxide bridge whose oxygens score -1, not -2. CORRECT PRINCIPLE: with 6 normal oxygens and 2 peroxide oxygens, 2(+1) + 2x + 6(-2) + 2(-1) = 0 gives S = +6. Any answer above the group maximum (+6 for sulphur) exposes the error instantly.
+• MISTAKE 3 — Reporting Cr in CrO5 as +10. WHY IT FAILS: chromium has only six valence electrons; +10 would require losing electrons it does not own. CORRECT PRINCIPLE: CrO5 has a butterfly structure with four peroxide oxygens (-1) and one oxide oxygen (-2), so x - 2 - 4 = 0 and Cr = +6. Impossible scores are diagnostic alarms, not answers.
+• MISTAKE 4 — Claiming Fe3O4 contains iron with a charge of +8/3 on each atom. WHY IT FAILS: oxidation numbers from the sum rule are ensemble averages when atoms are non-equivalent. CORRECT PRINCIPLE: Fe3O4 is FeO + Fe2O3 — one Fe at +2, two at +3, average +8/3. Use the average for counting electrons; use the individuals for structure.
+• MISTAKE 5 — Balancing the atoms and forgetting the charge. WHY IT FAILS: an atom-balanced ionic equation can still leak charge, and charge is conserved just as strictly. CORRECT PRINCIPLE: finish every ionic balance with a charge audit — totals on both sides must match exactly, as the +17/+17 audit in Section 11 showed.
+• MISTAKE 6 — Leaving H+ in a basic-medium final equation. WHY IT FAILS: H+ cannot survive in base; it is consumed by OH- the instant it forms. CORRECT PRINCIPLE: after balancing in acid form, add OH- to both sides equal to the H+ count, convert pairs to H2O, cancel, and scan the final answer for stray H+.
+• MISTAKE 7 — Putting electrons on the wrong side of a half-reaction. WHY IT FAILS: memory-guessing sides ignores the definition — oxidation produces electrons, reduction consumes them. CORRECT PRINCIPLE: electrons are products in oxidation halves and reactants in reduction halves; verify with the charge arithmetic, not with vibes.
+• MISTAKE 8 — Calling the KClO3 decomposition a disproportionation. WHY IT FAILS: disproportionation needs ONE element in ONE species splitting both ways; in 2KClO3 gives 2KCl + 3O2, chlorine only falls and oxygen only rises — two different one-way travellers. CORRECT PRINCIPLE: run the three-question disproportionation test from Section 9 before using the word.
+• MISTAKE 9 — Saying the Daniell cell's zinc anode is positive, or that electrons swim through the salt bridge. WHY IT FAILS: both reverse the cell's actual traffic. CORRECT PRINCIPLE: in a galvanic cell the anode is negative (it manufactures the electrons), electrons travel only through the wire, and ions — never electrons — travel the salt bridge.
+
+Worked Examples — Basic to Challenging
+• EXAMPLE 1 — THE PEROXIDE AMBUSH
+• Problem — Find the oxidation number of S in H2S2O8, Marshall's acid, whose structure contains one O-O peroxide linkage
+• Given — Formula H2S2O8; 2 of the 8 oxygens form the peroxide bridge; standard scores H +1, ordinary O -2, peroxide O -1
+• Principle — Structure beats habit: score each oxygen family separately, then apply the master sum equation
+• Steps — Naive attempt first: 2(+1) + 2x + 8(-2) = 0 gives x = +7. Alarm check: sulphur's maximum is +6 (six valence electrons), so +7 is impossible and a hidden peroxide is present. Corrected: 2(+1) + 2x + 6(-2) + 2(-1) = 0, so 2x = 12
+• Answer — S = +6 in H2S2O8
+• Reasoning — The naive method fails by exactly the two electrons the peroxide bond hides; the ceiling check is what catches it in the exam hall
+• Mistake to avoid — Trusting the first algebra result without the sanity check against the group maximum
+• EXAMPLE 2 — THE AVERAGE AND THE INDIVIDUALS
+• Problem — Find the oxidation number of sulphur in the tetrathionate ion, S4O6 2-, and comment on what the number means
+• Given — Ion charge -2; O -2; the ion has a chain structure O3S-S-S-SO3 with two kinds of sulphur
+• Principle — The sum rule returns the average over all four sulphurs; structure then splits the average into individuals
+• Steps — 4x + 6(-2) = -2 gives 4x = 10, so x = +5/2 = +2.5. Structure audit: the two end sulphurs (bonded to three oxygens each) score +5, the two middle chain sulphurs score 0, and (5 + 0 + 0 + 5)/4 = +2.5
+• Answer — Average oxidation number +2.5, composed of +5, 0, 0, +5
+• Reasoning — A fractional oxidation number is always an average; here it conceals whole-number extremes symmetric about the mean
+• Mistake to avoid — Writing that each sulphur in S4O6 2- "has charge +2.5"; no atom does
+• EXAMPLE 3 — NAME THE AGENTS
+• Problem — For the reaction 2KMnO4 + 16HCl gives 2KCl + 2MnCl2 + 5Cl2 + 8H2O, identify the oxidising agent, the reducing agent, and what fraction of the HCl is actually oxidised
+• Given — The balanced equation; oxidation numbers: Mn +7 in reactant, +2 in product; Cl -1 in HCl, 0 in Cl2, -1 in the salt products
+• Principle — Follow each element's number: fall means that species' owner is the oxidant; rise means reductant
+• Steps — Mn falls +7 to +2: KMnO4 is reduced, so KMnO4 is the oxidising agent. Of the 16 Cl atoms, 10 rise -1 to 0 (in 5Cl2) while 6 stay at -1 (in KCl and MnCl2). The rising ones make HCl the reducing agent
+• Answer — Oxidising agent KMnO4; reducing agent HCl; 10 of 16 HCl molecules, that is 5/8, are oxidised; the rest serve as acid
+• Reasoning — A reagent can hold two jobs in one equation; the agent title belongs to the fraction that changes its number
+• Mistake to avoid — Crediting all 16 HCl as reducing agent — the 6 spectator chlorides never changed
+• EXAMPLE 4 — THE DISPROPORTIONATION VERDICT
+• Problem — Decide whether P4 + 3OH- + 3H2O gives PH3 + 3H2PO2- is a disproportionation, and prove it with oxidation numbers
+• Given — P in P4 is 0 (free element). In PH3: x + 3(+1) = 0. In H2PO2-: 2(+1) + x + 2(-2) = -1
+• Principle — Apply the three-question test: one element, one reactant species, products on both sides of the starting score
+• Steps — PH3 gives P = -3. H2PO2- gives P = +1. Phosphorus starts at 0 in the single species P4 and ends at -3 (reduced branch) and +1 (oxidised branch)
+• Answer — Yes, a textbook disproportionation: P4 is both oxidised (to +1) and reduced (to -3)
+• Reasoning — The starting score 0 sits between -3 and +1, satisfying the intermediate-state requirement exactly as the definition demands
+• Mistake to avoid — Testing only whether "something is oxidised and something reduced" — that is true of EVERY redox reaction; the same-element, same-species, both-directions clause is the discriminator
+• EXAMPLE 5 — BALANCING BY OXIDATION NUMBERS
+• Problem — Balance: Cu + HNO3 (dilute) gives Cu(NO3)2 + NO + H2O
+• Given — Score changes: Cu 0 to +2 (rise 2); N +5 to +2 in NO (fall 3)
+• Principle — Total rise equals total fall; then repair spectators; then audit every atom
+• Steps — LCM of 2 and 3 is 6: take 3 Cu and 2 reduced N. That makes 3Cu(NO3)2, parking 6 more nitrate N as spectators, so HNO3 total = 2 + 6 = 8. Hydrogen then forces 4H2O. Assembled: 3Cu + 8HNO3 gives 3Cu(NO3)2 + 2NO + 4H2O
+• Answer — 3Cu + 8HNO3 gives 3Cu(NO3)2 + 2NO + 4H2O (audit: Cu 3/3, H 8/8, N 8/8, O 24/24)
+• Reasoning — The redox core fixed only 2 of the 8 acid molecules; the nitrate parked in the salt is bookkeeping the cross-multiplication cannot see
+• Mistake to avoid — Writing 2HNO3 as the acid coefficient — the most common way this classic is lost
+• EXAMPLE 6 — BALANCING BY HALF-REACTIONS IN ACID
+• Problem — Balance the ionic equation: MnO4- + C2O4 2- + H+ gives Mn2+ + CO2 + H2O (skeleton with unknown coefficients)
+• Given — Half-reactions: MnO4- + 8H+ + 5e- gives Mn2+ + 4H2O; C in oxalate is +3, in CO2 is +4
+• Principle — Balance each half for atoms and charge, equalise electrons at the LCM, add and audit
+• Steps — Oxidation half: C2O4 2- gives 2CO2 + 2e- (atoms balanced; charge -2 both sides). Multiply oxidation by 5 and reduction by 2 to move 10 electrons each way. Add: 2MnO4- + 5C2O4 2- + 16H+ gives 2Mn2+ + 10CO2 + 8H2O
+• Answer — 2MnO4- + 5C2O4 2- + 16H+ gives 2Mn2+ + 10CO2 + 8H2O (charge audit: -2 - 10 + 16 = +4; right +4)
+• Reasoning — This is the oxalate standardisation of permanganate from the titration bench — the warm, pink-fading reaction behind a hundred practical exams
+• Mistake to avoid — Forgetting that each oxalate releases TWO electrons (two carbons each rising by one), not one
+• EXAMPLE 7 — BALANCING IN BASE, FULLY
+• Problem — Balance in basic medium: MnO4- + SO3 2- gives MnO2 + SO4 2-
+• Given — Sulphur rises +4 to +6 (2 electrons lost per sulphite); manganese falls +7 to +4 (3 electrons gained per permanganate)
+• Principle — Build true basic-medium halves with OH- and H2O; equalise at LCM 6; audit atoms and charge
+• Steps — Reduction: MnO4- + 2H2O + 3e- gives MnO2 + 4OH-. Oxidation: SO3 2- + 2OH- gives SO4 2- + H2O + 2e-. Reduction x2, oxidation x3: 2MnO4- + 4H2O + 3SO3 2- + 6OH- gives 2MnO2 + 8OH- + 3SO4 2- + 3H2O. Cancel 3H2O and 6OH-: 2MnO4- + 3SO3 2- + H2O gives 2MnO2 + 3SO4 2- + 2OH-
+• Answer — 2MnO4- + 3SO3 2- + H2O gives 2MnO2 + 3SO4 2- + 2OH- (audit: Mn 2/2, S 3/3, O 18/18, H 2/2, charge -8/-8)
+• Reasoning — Note the surviving single H2O on the left — cancellation leaves remainders, and forcing symmetry instead of auditing is how these equations go wrong
+• Mistake to avoid — Importing the acid half-reaction (Mn2+ product) into a basic-medium problem; in base, permanganate's destination is MnO2
+
+Practice Questions — Self-Test Set
+• Q1 — The oxidation number of sulphur in H2S2O8 is: (A) +7 (B) +6 (C) +8 (D) +4
+• Q2 — The oxidation number of iron in Fe3O4 is: (A) +2 (B) +3 (C) +8/3 (D) +4/3
+• Q3 — Which of the following reactions is a disproportionation? (A) CH4 + 2O2 gives CO2 + 2H2O (B) 2H2O2 gives 2H2O + O2 (C) Zn + CuSO4 gives ZnSO4 + Cu (D) CaCO3 gives CaO + CO2
+• Q4 — In acidic medium, the number of Fe2+ ions oxidised by one MnO4- ion is: (A) 1 (B) 3 (C) 5 (D) 10
+• Q5 — When the half-reaction MnO4- to MnO2 is balanced in basic medium, the correct half-equation is: (A) MnO4- + 4H+ + 3e- gives MnO2 + 2H2O (B) MnO4- + 2H2O + 3e- gives MnO2 + 4OH- (C) MnO4- + 2H2O gives MnO2 + 4OH- + 3e- (D) MnO4- + 4OH- gives MnO2 + 2H2O + 3e-
+• Q6 — Which one of the following is NOT a redox reaction? (A) 2KClO3 gives 2KCl + 3O2 (B) AgNO3 + NaCl gives AgCl + NaNO3 (C) 2Na + Cl2 gives 2NaCl (D) Cl2 + 2KBr gives 2KCl + Br2
+• Q7 — In NH4NO3, the oxidation numbers of the two nitrogen atoms are: (A) both +1 (B) -3 and +5 (C) both +5 (D) -3 and +3
+• Q8 — In the reaction 2H2S + SO2 gives 3S + 2H2O, the oxidising agent is: (A) H2S (B) SO2 (C) S (D) H2O
+
+▸ Answer Key with Explanations
+• A1 — (B) +6. The peroxide bridge scores its two oxygens at -1: 2(+1) + 2x + 6(-2) + 2(-1) = 0 gives x = +6. Misconception: blind O = -2 algebra returns +7 (option A) — an impossible score above sulphur's group maximum.
+• A2 — (C) +8/3. 3x + 4(-2) = 0 gives x = +8/3, the average of one Fe(II) and two Fe(III) in the mixed oxide FeO + Fe2O3. Misconception: picking +2 or +3 alone — each describes only part of the crystal.
+• A3 — (B). Oxygen in H2O2 (-1) splits to -2 in H2O and 0 in O2 — one element, one species, both directions. Misconception: calling the KClO3-style decomposition (option A here is combustion; option D is not even redox) disproportionation — different elements travelling one way each does not qualify.
+• A4 — (C) 5. Mn falls +7 to +2, gaining 5 electrons; each Fe2+ supplies exactly 1 electron rising to Fe3+. Electron equality demands five irons per permanganate. Misconception: matching formula units 1:1 (option A) ignores the electron ledger entirely.
+• A5 — (B). It alone balances atoms (Mn 1, O 6, H 4 on both sides) and charge (-4 on both sides) with electrons consumed in a reduction. Misconception: option A is the same half written for ACID — right chemistry, wrong medium; option C puts electrons on the product side of a reduction.
+• A6 — (B). In the AgNO3 + NaCl double displacement, every oxidation number is unchanged (Ag +1, N +5, Na +1, Cl -1 throughout) — precipitation, not redox. Misconception: assuming every reaction with a dramatic visible change (a white precipitate) must be redox.
+• A7 — (B) -3 and +5. The NH4+ nitrogen computes to -3 and the NO3- nitrogen to +5, independently. Misconception: averaging the whole formula to +1 (option A) — the two nitrogens are in different ions and never share their scores.
+• A8 — (B) SO2. Sulphur in SO2 falls +4 to 0, so SO2 is reduced and is the oxidising agent; H2S (sulphur -2 rising to 0) is the reducing agent in this comproportionation. Misconception: choosing H2S because it "sounds reactive" — the numbers, not the vibes, assign the title.
+
+Chapter Summary and Revision Checklist
+• The one-paragraph chapter: Redox is electron transfer. Oxidation is loss (number rises), reduction is gain (number falls), and the two are inseparable because electrons are conserved. The oxidation number — a bookkeeping charge assigned by fixed rules with named exceptions — turns every reaction into arithmetic: assign scores, watch who rises and who falls, and you can name the agents, classify the reaction family, and balance the equation by oxidation numbers or by half-reactions in acid or base. Split the halves into separate beakers with a wire between them and the bookkeeping becomes a battery: the Daniell cell, gateway to Electrochemistry.
+• Checklist — I can state oxidation and reduction in the classical language (oxygen/hydrogen) and in the electron language, and explain why the electron version wins
+• Checklist — I can split any redox reaction into two half-reactions with electrons on the correct sides
+• Checklist — I can assign oxidation numbers using all seven rules, including the peroxide, superoxide, hydride and OF2 exceptions, in under ten seconds per species
+• Checklist — I can explain fractional oxidation numbers as averages and unpack Fe3O4 (+8/3), S2O3 2- (+2) and S4O6 2- (+5/2) into their individual atomic values
+• Checklist — I can distinguish oxidation number from valency on meaning, sign, fractionality and constancy
+• Checklist — I can identify oxidising and reducing agents from oxidation-number changes alone, including double agents like H2O2 and split-role reagents like HCl with KMnO4
+• Checklist — I can classify combination, decomposition, displacement, disproportionation and comproportionation, and run the three-question disproportionation test
+• Checklist — I can balance molecular equations by the oxidation-number method, remembering to add back spectator portions of reagents like HNO3
+• Checklist — I can balance ionic equations by half-reactions in acid, and convert them correctly into basic medium with no surviving H+
+• Checklist — I can draw and narrate the Daniell cell: anode reaction, cathode reaction, electron path, ion traffic in the salt bridge, and why the zinc terminal is negative
+• Self-assessment — score yourself honestly: 9 or 10 boxes ticked means this chapter is exam-ready; 6 to 8 means re-run the Drill Bench and both balancing sections; below 6, restart from the Electron-Transfer View and rebuild half-reactions before anything else
+★ HIGHLIGHT — Final one-line revision: electrons are never created or destroyed in a beaker — they are only transferred, counted by oxidation numbers, and, if you give them a wire, made to work for a living.""".trimIndent(),
 
             videoTitle = "Peroxide Oxidation States, Disproportionation n-Factors & Back Titrations",
 
@@ -10606,35 +11614,299 @@ Chapter Summary and Revision Checklist
 
             completedLessons = 4,
 
-            studyNotesCount = 8,
+            studyNotesCount = 20,
 
-            practiceQuestionCount = 22,
+            practiceQuestionCount = 5,
 
             durationMinutes = 45,
 
-            formulaHighlight = "P_total = P_A° x_A + P_B° x_B  •  ΔT_b = i K_b m  •  π = i C R T",
+            formulaHighlight = "x_B = n_B/(n_A + n_B) | m = n_B x 1000/w_A (g), M = n_B x 1000/V (mL), density bridge M = (mass% x d x 10)/M_B | Henry: p = K_H x (bigger K_H, smaller solubility) | Raoult: p_A = p_A0 x_A, p_total = p_A + p_B, y_A = p_A/p_total | relative lowering = x_solute; Raoult = Henry with K_H = p0 | ideal: Delta H mix = 0, Delta V mix = 0 | Delta T_b = K_b m (water 0.52), Delta T_f = K_f m (water 1.86) | pi = C R T | i = normal M / observed M; alpha diss = (i - 1)/(n - 1), alpha assoc = n(1 - i)/(n - 1)",
 
-            keyConceptsSummary = "Henry's law for gas solubility, Raoult's law and vapor-phase mole fraction y_A, positive/negative deviations and azeotropes, all four colligative properties, and van 't Hoff factor i for association/dissociation.",
+            keyConceptsSummary = "• Concentration speaks six dialects — mass %, volume %, ppm, mole fraction, molality, molarity — and only the mass/mole-based ones are temperature-proof; density is the bridge between the mass and volume worlds\n• Henry's law p = K_H x runs all dissolved gases: a larger K_H means LOWER solubility, and the same law explains soda fizz, the diver's bends and high-altitude anoxia\n• Raoult's law gives p = p0 x for each volatile component; the vapour is always richer in the more volatile partner (that is why distillation works), and Raoult's law is simply Henry's law with K_H = p0\n• Ideal solutions (benzene + toluene) have Delta H mix = 0 and Delta V mix = 0; positive deviation means weaker A-B pulls (ethanol + water), negative means stronger cross-attractions (chloroform + acetone), and extremes form azeotropes\n• Colligative properties count particles, not identity: relative lowering = x solute, Delta T_b = K_b m, Delta T_f = K_f m, pi = C R T — and each one doubles as a molar-mass balance\n• Osmotic pressure is the most sensitive of the four, weighing proteins and polymers at room temperature; exceed it and reverse osmosis squeezes pure water out of seawater\n• The van't Hoff factor i = normal M / observed M corrects the particle census — i > 1 for dissociation, i < 1 for association — and alpha follows from (i - 1)/(n - 1) or n(1 - i)/(n - 1)",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — The Chapter That Counts Particles
+• Open your eyes and count the solutions running your life right now. The blood in your veins is a solution. The IV drip in a hospital is a solution tuned to match that blood exactly. The fizz in your soda, the antifreeze in a car radiator, the salt sprinkled on an icy road — every one of them is this chapter at work.
+• DEFINITION — A solution is a homogeneous mixture of two or more components whose composition can be varied continuously up to a limit called the solubility. Homogeneous means one single phase, uniform all the way down to the molecular level — no layers, no lumps, no settling.
+• The component present in the largest amount is the solvent; the others are solutes. In sugar water, water is the solvent and sugar the solute — but watch out, the solvent is decided by amount and by which component keeps its physical state, not by which one feels more important.
+• WHY this chapter is a scoring goldmine — almost everything here reduces to one revolutionary idea: for a large family of properties, nature does not care WHAT the dissolved particles are, only HOW MANY of them there are. Count particles correctly and four different-looking phenomena fall out of one thought.
+• EXAMPLE — Sprinkle the same number of moles of sugar or of urea into water and the freezing point drops by the same amount, even though sugar and urea are completely different chemicals. That indifference to identity is the signature of this chapter, and examiners love testing whether you spot it.
+★ HIGHLIGHT — The whole chapter in one breath: concentration is just bookkeeping of particles, Raoult's law says dissolved particles elbow solvent molecules away from the surface so vapour pressure falls, and that one fall shows up again as a higher boiling point, a lower freezing point and an osmotic push — with the van't Hoff factor correcting the count whenever particles split apart or team up.
+• Here is the map. First the nine types of solutions and the five ways to state concentration. Then solubility and Henry's law for gases. Then vapour pressure, Raoult's law, and how real solutions deviate from it. Finally the four colligative properties, molar-mass determination, and the abnormal results that reveal association and dissociation.
 
-                1. Raoult's Law & Vapor Phase Composition
+Types of Solutions — Nine Ways to Mix
+• DEFINITION — A binary solution contains exactly two components, one solvent and one solute. Most exam problems are binary, but the classification runs on the physical states of solute and solvent, giving three times three equals nine types.
+• Gas in gas — EXAMPLE — air itself: oxygen and nitrogen gases mixed uniformly; gases mix in all proportions because their molecules barely attract each other.
+• Gas in liquid — EXAMPLE — oxygen dissolved in river water (fish breathe it), and carbon dioxide dissolved in soda water under pressure.
+• Gas in solid — EXAMPLE — hydrogen gas absorbed into palladium metal; the gas molecules slip into the metal lattice, a trick used in hydrogen purification and storage research.
+• Liquid in gas — EXAMPLE — fog and clouds: microscopic liquid water droplets suspended in air; also the mist above a hot cup of tea.
+• Liquid in liquid — EXAMPLE — ethanol mixed with water (sanitiser, spirits), and acetic acid in water (vinegar).
+• Liquid in solid — EXAMPLE — amalgams, such as mercury dissolved in sodium or the mercury alloy once common in dental fillings; gels like jelly and cheese also park liquid inside a solid framework.
+• Solid in gas — EXAMPLE — smoke: fine solid carbon particles carried in air; iodine vapour in air is another classic, from iodine subliming straight into the gas phase.
+• Solid in liquid — EXAMPLE — salt or sugar dissolved in water, the workhorse of this chapter; iodine in ethanol (tincture of iodine) is the coloured version.
+• Solid in solid — EXAMPLE — alloys: brass is zinc dissolved in copper, bronze is tin in copper, and 22-carat gold is copper or silver dissolved in gold. Solid solutions are why metals can be tuned for hardness.
+• DEFINITION — A saturated solution holds the maximum amount of solute that can dissolve at that temperature, in dynamic equilibrium with undissolved solute. An unsaturated solution holds less; a supersaturated one temporarily holds more and is unstable.
+• WHY "like dissolves like" — a solute dissolves well when the solute-solvent attractions resemble the attractions being broken. Polar and ionic solutes dissolve in polar water; greasy non-polar solutes like naphthalene dissolve in benzene, not water. This one line predicts most solubility yes-or-no questions.
+• YOUR TURN — Classify: (1) chlorine gas disinfected into swimming-pool water; (2) the steel of a bridge. Answers — (1) gas in liquid; (2) solid in solid (carbon in iron).
 
-                • Liquid phase: P_T = P_A° x_A + P_B° x_B.
+Expressing Concentration — Saying How Much, Precisely
+• DEFINITION — Concentration is the amount of solute present in a given amount of solution or solvent. The chapter gives five standard languages for it, and half the exam errors in this chapter are translation errors between them.
+• WHY so many units — because different jobs need different anchors. A pharmacist cares about mass, a titration cares about moles per litre, and a freezing-point experiment needs a unit that does not drift when the lab warms up. Choosing the unit is choosing what stays constant.
+• The five you must own: mass percentage, volume percentage, parts per million (ppm), mole fraction, molality and molarity — yes, that is six names, because ppm is really mass percentage in a smaller costume.
+• The golden rule of this chapter: any unit built on VOLUME (molarity, volume percentage) changes with temperature because liquids expand; any unit built on MASS or MOLE COUNT (molality, mole fraction, mass percentage, ppm) is temperature-proof. Write that on the inside of your eyelids.
+★ HIGHLIGHT — Density is the bridge between the mass world and the volume world. Whenever a problem gives you percentage AND density, it is inviting you to cross that bridge: take a basis of 100 g or 1 L of solution and convert everything from that one base.
+• WORKED PATTERN — the universal recipe: (1) pick a basis — 100 g of solution for percentage data, 1 L for molarity data; (2) get moles of solute from mass and molar mass; (3) get whichever denominator the target unit wants (litres of solution, kg of solvent, or total moles); (4) divide. Every concentration problem in existence is these four steps in some order.
 
-                • Vapor phase (Dalton's Law): y_A = P_A / P_T = (P_A° x_A) / P_T  ⇒  1/P_T = y_A/P_A° + y_B/P_B°.
+▸ Mass Percentage, Volume Percentage and Parts Per Million
+• DEFINITION — Mass percentage (w/w) = (mass of solute / mass of solution) x 100. Mass of a component per 100 mass units of the whole mixture.
+• DEFINITION — Volume percentage (V/V) = (volume of solute / volume of solution) x 100, used for liquid-in-liquid mixtures; a 10 percent V/V ethanol solution carries 10 mL ethanol per 100 mL of solution.
+• DEFINITION — Mass by volume percentage (w/V) = (mass of solute in g / volume of solution in mL) x 100; common on medicine labels, like a 5 percent w/V glucose drip meaning 5 g glucose in every 100 mL.
+• DEFINITION — Parts per million, ppm = (mass of solute / mass of solution) x 10^6. It is mass percentage scaled by ten thousand, built for trace quantities too small for percentages to say gracefully.
+• EXAMPLE — Chloroform contamination of drinking water at 15 ppm means 15 g of chloroform per 10^6 g of water — roughly 15 mg in every litre. Regulatory limits for hardness, fluoride and pollutants are always quoted in ppm for this reason.
+• EXAMPLE — A 10 percent w/w glucose solution means 10 g glucose dissolved in 90 g water, making 100 g of solution. Notice the denominator is the SOLUTION (solute plus solvent), not the solvent — the single most common slip in this section.
+⚠ EXAM TRAP — "10 g of NaCl in 100 g of water" is NOT a 10 percent solution. It is 10 / 110 = 9.09 percent w/w, because the solution weighs 110 g. Examiners plant this exact distinction.
+• YOUR TURN — What is the mass percentage of a solution made from 5 g salt and 95 g water, and the ppm of 0.02 g impurity in 1 kg of water? Answers — 5 / 100 = 5 percent w/w; ppm = 0.02 / 1000 x 10^6 = 20 ppm.
 
+▸ Mole Fraction, Molality and Molarity — the Exam Trio
+• DEFINITION — Mole fraction of a component = moles of that component / total moles of all components. Symbol x; the mole fractions of all components always add up to exactly 1.
+✔ KEY FORMULA — x_A = n_A / (n_A + n_B) and x_A + x_B = 1; mole fraction has no unit and never changes with temperature.
+• DEFINITION — Molality (m) = moles of solute / mass of solvent in kg. Symbol small m. A 1 molal solution holds 1 mole of solute per 1000 g of solvent.
+✔ KEY FORMULA — Molality = (w_B / M_B) x (1000 / w_A), with masses in grams; molality is temperature-independent because masses do not expand.
+• DEFINITION — Molarity (M) = moles of solute / volume of solution in litres. A 1 molar solution holds 1 mole of solute per litre of finished solution.
+✔ KEY FORMULA — Molarity = (w_B / M_B) x (1000 / V in mL); molarity DECREASES when temperature rises, because the same solution occupies more volume.
+• WORKED PATTERN — the density bridge in action: molarity = (mass percent x density in g per mL x 10) / molar mass of solute. And going the other way, 1/m = (density / M) − (M_B / 1000), connecting molality and molarity when you need it.
+• EXAMPLE — Mole fraction's party trick: in very dilute aqueous solutions, 1 L of water is 55.5 moles, so the mole fraction of a solute is about n_solute / 55.5. This 55.5 appears in Henry's law and colligative shortcuts again and again.
+⚠ EXAM TRAP — Molality counts kilograms of SOLVENT; molarity counts litres of SOLUTION. A problem that gives 500 g of water wants molality thinking; one that gives 500 mL of solution wants molarity thinking. Read the noun after the number.
+• YOUR TURN — 0.5 mol of glucose is dissolved in 500 g of water. Find the molality and (taking the water as 27.78 mol) the mole fraction of glucose. Answers — m = 0.5 / 0.5 = 1 mol per kg; x = 0.5 / 28.28 = 0.0177.
 
+Solubility — How Much Will Dissolve
+• DEFINITION — The solubility of a substance is the maximum amount of it that can dissolve in a given amount of solvent at a specified temperature, forming a saturated solution in equilibrium with the excess.
+• WHY saturation is an equilibrium, not a full stop — at saturation, solute particles keep dissolving and keep crystallising out at equal rates. Nothing looks like it is happening, but microscopically the exchange never stops; that dynamic balance is what Le Chatelier reasoning will push around.
+• Solid in liquid — the temperature effect splits solids into two families. For most salts like KNO3 and NaCl alternatives such as sugar, dissolving absorbs heat (endothermic), so solubility rises with temperature, sharply for KNO3, gently for NaCl. For a few like Na2SO4 below its transition and cerium sulphate, dissolving releases heat and solubility falls as temperature rises.
+• EXAMPLE — Recrystallisation, the purification trick from the lab, is applied solubility: dissolve impure KNO3 in minimum hot water, cool, and pure crystals rain out because solubility crashed. NaCl cannot be purified this way — its solubility barely moves with temperature.
+• Solid in liquid — pressure has almost no effect on the solubility of solids or liquids, because neither can be compressed much. Save the pressure lever for gases only.
+• Gas in liquid — gases are less soluble in hot liquid than cold. WHY — gas molecules in solution are trapped; heating shakes them loose into the freedom of the gas phase, so solubility of gases falls as temperature rises. That is why aquatic creatures struggle in warm summer water and why a warm soda goes flat faster.
+• EXAMPLE — A bottle of soda fizzes violently when opened warm and gently when opened ice-cold: the warm bottle simply could not hold as much dissolved carbon dioxide once the pressure dropped.
+• YOUR TURN — A saturated solution of KNO3 at 80 degrees C is cooled to 20 degrees C. What happens and why? Answer — crystals separate out, because KNO3 solubility falls steeply on cooling; the solution stays saturated throughout, just with less solute dissolved.
 
-                2. Colligative Properties & van 't Hoff Factor (i)
+▸ Henry's Law — Pressure Squeezes Gas into Liquid
+• DEFINITION — Henry's law states that, at constant temperature, the mass (equivalently the mole fraction) of a gas dissolved in a liquid is directly proportional to the partial pressure of the gas above the liquid.
+✔ KEY FORMULA — p = K_H x, where p is the partial pressure of the gas, x its mole fraction in solution, and K_H the Henry's law constant with units of pressure (bar, atm or Pa).
+• WHY it works — more pressure means more gas molecules striking the surface per second, so more get captured by the liquid until escape and capture balance at a higher dissolved amount. Squeeze harder, dissolve more; release the pressure and the excess escapes as fizz.
+★ HIGHLIGHT — Read K_H backwards to rank solubility: a LARGE K_H means the gas needs a huge pressure to force even a small mole fraction in — it is barely soluble. A small K_H means an eager, soluble gas. Higher K_H, lower solubility; that inversion is the most tested sentence of this section.
+• K_H depends on the nature of the gas, the solvent and the temperature; it increases as temperature rises, restating that gases dissolve less in warm liquids.
+• EXAMPLE — Carbon dioxide in soda: K_H for CO2 in water at 298 K is 1.67 x 10^8 Pa. Bottling under about 2.5 atm of CO2 pressure forces in a mole fraction of about 1.5 x 10^-3, which is why soda is bottled and canned under pressure and stored cool.
+• EXAMPLE — Deep-sea divers: at depth, high pressure forces extra nitrogen into the blood. Rising too fast drops the pressure suddenly, nitrogen bubbles out inside the blood vessels — the painful, dangerous bends. The fix is slow ascent, or breathing helium-oxygen mixtures because helium is far less soluble in blood.
+• EXAMPLE — At high altitude the partial pressure of oxygen is low, so less oxygen dissolves into blood, causing anoxia — weakness, nausea, fuzzy thinking. Same law, opposite direction: pressure down, dissolved gas down.
+• WORKED PATTERN — every Henry problem is three moves: (1) identify p (use the partial pressure of that gas, not total pressure, if a mixture is given); (2) x = p / K_H; (3) convert x to moles or mass using n_gas roughly x times n_solvent when x is tiny.
+⚠ EXAM TRAP — Henry's law does NOT apply to gases that react with the solvent. HCl gas and NH3 ionise and react in water and dissolve far beyond Henry predictions; CO2 also deviates slightly because some of it converts to carbonic acid.
+• YOUR TURN — The K_H of gas A is twice the K_H of gas B in the same solvent at the same pressure and temperature. Which dissolves more, and by what factor? Answer — B dissolves twice as much as A, because x = p / K_H and B has the smaller constant.
 
-                • Relative Lowering of Vapor Pressure: (P° − P_s)/P° = i x_solute.
+Vapour Pressure and Raoult's Law
+• DEFINITION — The vapour pressure of a liquid is the pressure exerted by its vapour when the vapour is in equilibrium with the liquid at a given temperature. It measures escaping tendency: higher vapour pressure means a more volatile liquid.
+• Vapour pressure depends on the nature of the liquid and on temperature only — it climbs steeply as temperature rises. It does NOT depend on the amount of liquid, the surface area, or the size of the container, though those affect how fast equilibrium is reached.
+• EXAMPLE — Diethyl ether (strong smell, evaporates in seconds) has a much higher vapour pressure than water at the same temperature because its intermolecular attractions are far weaker. Weak grip, easy escape, high vapour pressure — the same logic runs through this whole chapter.
+• DEFINITION — Raoult's law for a solution of two volatile liquids: the partial vapour pressure of each component equals the vapour pressure of the pure component multiplied by its mole fraction in the solution.
+✔ KEY FORMULA — p_A = p_A0 x_A, p_B = p_B0 x_B, and p_total = p_A + p_B; the superscript 0 marks the pure liquid.
+• WHY Raoult's law is plausible — in the mixture, only the fraction x_A of surface sites holds A molecules, so A escapes at x_A times its pure rate; identical reasoning for B. The figure for this section plots all three straight lines: each partial pressure is linear in mole fraction, so the total is linear too.
+• The vapour is always richer in the more volatile component than the liquid is. Formally, if y_A is the mole fraction of A in the vapour, y_A = p_A / p_total, and y_A exceeds x_A whenever A is the more volatile partner. This enrichment is the entire basis of distillation.
+• WORKED PATTERN — Raoult problems: (1) convert masses to moles, get mole fractions; (2) multiply each p0 by its x for partial pressures; (3) add for total; (4) if vapour composition is asked, divide each partial by the total. Four steps, no exceptions.
+• YOUR TURN — Pure A has p0 = 100 mm Hg and pure B has p0 = 40 mm Hg. For x_B = 0.25, find p_total. Answer — p_total = 100 x 0.75 + 40 x 0.25 = 75 + 10 = 85 mm Hg.
 
-                • Elevation in Boiling Point: ΔT_b = i K_b m; Depression in Freezing Point: ΔT_f = i K_f m; Osmotic Pressure: π = i C R T.
+▸ Non-Volatile Solute — and Raoult as Henry's Special Case
+• DEFINITION — A non-volatile solute (salt, sugar, urea) contributes no vapour of its own; the vapour above the solution is pure solvent. Raoult's law then shrinks to one line: p = p0 x_solvent.
+✔ KEY FORMULA — p = p0 (1 − x_solute), and the relative lowering of vapour pressure (p0 − p) / p0 = x_solute = n_solute / (n_solute + n_solvent), which for dilute solutions is approximately n_solute / n_solvent.
+• WHY the pressure falls — solute particles occupy surface positions and get in the way; fewer solvent molecules are at the surface to escape, and those that do must also disentangle from solute attractions. Fewer escapees, lower vapour pressure.
+• Now the elegant unification the syllabus explicitly asks for: compare Raoult's law for the solvent, p = p0 x, with Henry's law for a dissolved gas, p = K_H x. They have the same skeleton. If the solute happens to be exactly as volatile as the pure solvent's escaping tendency — that is, if K_H equals p0 — Henry's line becomes Raoult's line.
+★ HIGHLIGHT — Raoult's law is a special case of Henry's law, the case K_H = p0. One law governs both partners in an ideal solution: the solvent follows Raoult automatically because for it the Henry constant equals its own pure vapour pressure.
+• EXAMPLE — In a truly ideal solution, both components obey Raoult's law across the whole composition range — each one acts as though the other were just more of itself.
+⚠ EXAM TRAP — Relative lowering equals the mole fraction of the SOLUTE, not the solvent. Writing (p0 − p)/p0 = x_solvent flips the entire meaning and is a planted distractor in option sets.
+• YOUR TURN — A solution has p0 = 100 mm Hg and p = 98 mm Hg. What is x_solute? Answer — (100 − 98)/100 = 0.02.
 
-                • Dissociation (A → n Ions): i = 1 + (n − 1)α; Association (n A → A_n): i = 1 + (1/n − 1)α.
+Ideal and Non-Ideal Solutions
+• DEFINITION — An ideal solution obeys Raoult's law at every concentration and temperature. Two fingerprints confirm it: enthalpy of mixing is zero and volume of mixing is zero.
+✔ KEY FORMULA — Ideal solution tests: Delta H_mix = 0 and Delta V_mix = 0, with A-B attractions essentially equal to A-A and B-B attractions.
+• EXAMPLE — Near-ideal pairs are look-alike molecules: benzene + toluene, n-hexane + n-heptane, bromoethane + chloroethane, ethyl bromide + ethyl iodide. Siblings mix without noticing each other.
+• DEFINITION — A non-ideal solution disobeys Raoult's law; its measured partial or total vapour pressure sits above or below the Raoult prediction. Above means positive deviation, below means negative deviation.
+• Positive deviation — WHY: the A-B attractions are WEAKER than A-A and B-B. Molecules in the mixture are held more loosely, escape more easily, and vapour pressure exceeds the Raoult value, so the total pressure curve bows upward (see this section's figure). Mixing absorbs heat and the volume expands slightly.
+✔ KEY FORMULA — Positive deviation signature: p > Raoult value, Delta H_mix > 0, Delta V_mix > 0.
+• EXAMPLE — Ethanol + water shows positive deviation: water breaks ethanol's hydrogen-bond network and the new cross-attractions do not fully compensate. Also ethanol + cyclohexane, and carbon disulphide + acetone.
+• Negative deviation — WHY: the A-B attractions are STRONGER than in the pure liquids. Molecules are gripped harder, escape less, vapour pressure falls below the Raoult value, and the total curve bows downward. Mixing releases heat and the volume contracts slightly.
+✔ KEY FORMULA — Negative deviation signature: p < Raoult value, Delta H_mix < 0, Delta V_mix < 0.
+• EXAMPLE — Chloroform + acetone is the celebrity negative pair: the hydrogen of chloroform hydrogen-bonds to the oxygen of acetone, a cross-attraction neither pure liquid has. Also phenol + aniline, HNO3 + water, HCl + water.
+• DEFINITION — An azeotrope is a mixture that boils at a constant temperature and distils unchanged, like a pure liquid, so fractional distillation cannot separate it further.
+• Minimum-boiling azeotropes come from large positive deviation — EXAMPLE — ethanol + water stops separating at 95.4 percent ethanol, boiling unchanged at 351.15 K, which is why ordinary distillation can never give absolute alcohol.
+• Maximum-boiling azeotropes come from large negative deviation — EXAMPLE — nitric acid + water at 68 percent HNO3 boils unchanged at 393.5 K, above the boiling point of either pure component.
+• WORKED PATTERN — deviation diagnosis in three questions: (1) does mixing break strong bonds without replacing them? Positive. (2) Does a NEW strong attraction (especially H-bonding) appear between the partners? Negative. (3) Are the molecules near-identical in size and forces? Ideal.
+⚠ EXAM TRAP — The deviation sign describes vapour pressure versus the RAOULT prediction, not versus the pure components. A positive-deviation total can still lie between p_A0 and p_B0 at some compositions in weak cases — judge against the straight Raoult line, not against the endpoints.
+• YOUR TURN — Predict the deviation for acetone + carbon disulphide and for chloroform + acetone. Answers — positive (CS2 breaks acetone's dipole attractions with nothing stronger in return); negative (new C-H...O hydrogen bond forms between chloroform and acetone).
 
-            """.trimIndent(),
+Colligative Properties — Properties That Count Particles
+• DEFINITION — Colligative properties are properties of dilute solutions that depend only on the relative number of solute particles present, and not at all on the chemical nature of the solute. Colligative comes from Latin words meaning bound together — the properties are tied to particle count.
+• The famous four: relative lowering of vapour pressure, elevation of boiling point, depression of freezing point, and osmotic pressure. One cause (solute particles diluting and obstructing the solvent) wearing four different costumes.
+• WHY counting works — adding solute increases the disorder advantage of the liquid state. The liquid becomes harder to leave by evaporation (boiling point rises), harder to leave by freezing into an ordered solid (freezing point falls), and the vapour above it thins out (pressure falls). Osmosis is the same drive seen through a membrane.
+• The working assumptions behind the basic formulas: the solution is dilute, the solute is non-volatile, and the solute neither associates nor dissociates. Section 13 exists precisely for when that last assumption breaks.
+• EXAMPLE — 0.1 mol of glucose and 0.1 mol of urea in separate litres of water give identical boiling point elevation, freezing point depression and osmotic pressure. Swap in 0.1 mol of fructose — same numbers again. Identity is irrelevant; only the headcount matters.
+★ HIGHLIGHT — Every colligative formula has the same shape: effect = constant of the solvent x a concentration of particles. Learn one and you have learned all four; the only skill is picking the right concentration unit each formula demands (mole fraction, molality, or molarity).
+• YOUR TURN — Two solutions contain 0.2 mol glucose and 0.1 mol sucrose in equal water. Which freezes lower? Answer — the glucose solution: double the particles, double the depression, even though sucrose is the bigger molecule.
+
+▸ Relative Lowering, Boiling Point Up, Freezing Point Down
+✔ KEY FORMULA — Relative lowering of vapour pressure: (p0 − p) / p0 = x_solute; this yields the molar mass relation (p0 − p)/p0 = (w_B / M_B) / (w_A / M_A) for dilute solutions.
+• DEFINITION — Elevation of boiling point: a solution boils when its vapour pressure reaches atmospheric pressure; since solute lowered that vapour pressure, extra heating is needed. The increase, Delta T_b, is the elevation.
+✔ KEY FORMULA — Delta T_b = K_b x m, where m is molality and K_b is the ebullioscopic (molal elevation) constant of the solvent; for water K_b = 0.52 K kg per mol.
+• DEFINITION — Depression of freezing point: the solution freezes when its vapour pressure matches that of the pure solid solvent; solute drags the liquid's vapour pressure down, so the match happens colder. The drop, Delta T_f, is the depression.
+✔ KEY FORMULA — Delta T_f = K_f x m, where K_f is the cryoscopic (molal depression) constant; for water K_f = 1.86 K kg per mol — over three times K_b, which is why freezing measurements are more sensitive.
+• Molar mass from either effect: M_B = (K x w_B x 1000) / (Delta T x w_A), using K_b with Delta T_b or K_f with Delta T_f, masses in grams. This is how molar masses were measured before mass spectrometers existed.
+• EXAMPLE — Antifreeze is applied colligative chemistry: ethylene glycol in radiator water depresses the freezing point so coolant stays liquid in winter, and simultaneously elevates the boiling point — two effects, one additive.
+• EXAMPLE — Salt on icy roads and in ice-cream makers: salt depresses water's freezing point, so ice at 0 degrees C finds itself above the solution's freezing point and melts; the salt-ice mixture plunges well below 0 degrees C, cold enough to freeze ice cream.
+• WORKED PATTERN — colligative numerics: (1) compute moles of solute, hence molality; (2) multiply by the right constant (K_b for boiling, K_f for freezing — never swap); (3) ADD Delta T_b to the pure boiling point but SUBTRACT Delta T_f from the pure freezing point.
+⚠ EXAM TRAP — Delta T_f is a depression: a solution with Delta T_f = 2.25 K freezes at minus 2.25 degrees C, not at 2.25 degrees C. And Kelvin versus Celsius never matters for Delta T itself, because a difference of 1 K equals a difference of 1 degree C.
+• YOUR TURN — Find Delta T_f and Delta T_b for a 0.1 molal glucose solution in water. Answers — Delta T_f = 1.86 x 0.1 = 0.186 K, so it freezes at −0.186 degrees C; Delta T_b = 0.52 x 0.1 = 0.052 K, so it boils at 100.052 degrees C.
+
+▸ Osmosis, Osmotic Pressure and Reverse Osmosis
+• DEFINITION — Osmosis is the net flow of solvent molecules from a pure solvent (or dilute solution) into a more concentrated solution through a semipermeable membrane — a membrane that passes solvent molecules but blocks solute particles.
+• Familiar membranes: cellophane, parchment, the copper ferrocyanide film grown in lab demonstrations, and every living cell wall. In this section's figure, solvent climbs the funnel tube until the weight of the raised column balances the osmotic drive.
+• DEFINITION — Osmotic pressure (pi) is the excess pressure that must be applied to the solution side to just stop osmosis — equivalently, the pressure that stops the column rising, pi = rho g h at the balance point in the funnel experiment.
+✔ KEY FORMULA — pi V = n_B R T, or pi = C R T, where C is the molarity of the solution. Osmotic pressure behaves exactly like the pressure of an ideal gas of the solute particles — van't Hoff's beautiful analogy.
+• WHY osmotic pressure is the biologist's favourite — it works at room temperature (kind to proteins that would cook in a boiling experiment) and stays measurable even for extremely dilute solutions of huge molecules, making it THE method for molar masses of polymers and biomolecules.
+• DEFINITION — Solutions with the same osmotic pressure at the same temperature are isotonic; a solution with higher pi is hypertonic to the other (hypotonic). Blood is isotonic with 0.9 percent w/V NaCl — inject anything far from that and red blood cells shrink (in hypertonic) or swell and burst (in hypotonic).
+• EXAMPLE — Everyday osmosis: wilted vegetables crisp up in water, raisins swell in water and shrink in syrup, salt preserves meat and fish by sucking water out of microbes, and excess fertiliser kills plants by reversing the flow at their roots.
+• DEFINITION — Reverse osmosis: apply pressure GREATER than pi on the solution side and the flow flips — solvent is squeezed out of the solution, leaving solute behind. Desalination plants purify seawater this way; seawater's pi is roughly 30 bar, so working pressures must exceed that comfortably.
+• WORKED PATTERN — osmotic numerics: (1) decide what is unknown among pi, C, T, M_B; (2) write pi = (w_B / M_B) x (R T / V) and solve; (3) sanity check — pi for 0.1 M at room temperature is about 2.5 bar, surprisingly large; if your answer is tiny, you probably used Celsius or litres wrongly in R.
+⚠ EXAM TRAP — Osmotic pressure uses MOLARITY (volume-based), not molality, and T must be in Kelvin. Also, osmosis moves the SOLVENT, never the solute — any statement about solute flowing through a semipermeable membrane is automatically false.
+• YOUR TURN — What is the osmotic pressure of a 0.05 M urea solution at 300 K (R = 0.083 L bar per mol per K)? Answer — pi = 0.05 x 0.083 x 300 = 1.245 bar.
+
+Abnormal Molar Mass and the van't Hoff Factor
+• DEFINITION — When a solute associates or dissociates in solution, the molar mass calculated from a colligative property comes out wrong — lower than normal for dissociation, higher for association. Such results are called abnormal molar masses.
+• WHY — colligative properties count particles, and chemistry can change the headcount after dissolving. NaCl splits into Na+ and Cl−, nearly doubling the particles; acetic acid and benzoic acid in benzene pair up into dimers, halving them. The formula is not broken; the census changed.
+• DEFINITION — The van't Hoff factor i is the ratio that repairs every colligative formula: i = normal molar mass / observed molar mass = observed colligative property / colligative property calculated ignoring association or dissociation.
+✔ KEY FORMULA — The modified family: (p0 − p)/p0 = i x_solute (approximately i n_B / n_A for dilute), Delta T_b = i K_b m, Delta T_f = i K_f m, pi = i C R T. Every formula simply gains a factor i.
+• Reading i like a detective: i = 1 means a well-behaved non-electrolyte (glucose, urea, sucrose). i > 1 means dissociation — ideally 2 for NaCl or KNO3, 3 for Na2SO4 or MgCl2, 4 for K3[Fe(CN)6]... count the ions the formula unit releases. i < 1 means association.
+• Real data keeps you honest: 0.1 molal NaCl gives i about 1.87, not the full 2 — opposite ions attract and briefly pair up even in solution, so dissociation is effective but not perfectly free. Exam values are usually stated in the problem; use the given i, not the ideal one, when both appear.
+• Degree of dissociation: if one formula unit splits into n particles and a fraction alpha dissociates, then i = 1 + (n − 1) alpha, so alpha = (i − 1) / (n − 1).
+• Degree of association: if n molecules associate into one cluster and a fraction alpha associates, then i = 1 − alpha (1 − 1/n), so alpha = n (1 − i) / (n − 1). For dimerisation (n = 2) this simplifies to alpha = 2 (1 − i).
+• EXAMPLE — Benzoic acid in benzene nearly doubles its apparent molar mass (measured about 242 against the true 122), giving i about 0.5 — the fingerprint of almost complete dimerisation through paired hydrogen bonds.
+• EXAMPLE — Acetic acid in water behaves nearly normally (weak dissociation), but in benzene it dimerises just like benzoic acid. The solvent votes on the headcount — a subtlety favourite in assertion-reason questions.
+• WORKED PATTERN — van't Hoff problems: (1) compute the effect or molar mass the naive way; (2) form i as observed over calculated; (3) read the story from i (above 1 split, below 1 pairing); (4) if alpha is asked, pick the dissociation or association relation according to that story and the particle count n.
+⚠ EXAM TRAP — i is observed molar mass in the DENOMINATOR: i = normal M / observed M. Dissociation makes observed M smaller and i bigger. Inverting the ratio flips every conclusion — examiners know and set options accordingly.
+• YOUR TURN — The freezing point depression of 0.1 molal NaCl is found to be 0.348 K. Find i. Answer — calculated Delta T_f = 1.86 x 0.1 = 0.186 K; i = 0.348 / 0.186 = 1.87.
+
+High-Yield Formula Sheet
+✔ KEY FORMULA — Mass percent = (w_solute / w_solution) x 100; volume percent = (V_solute / V_solution) x 100; ppm = (w_solute / w_solution) x 10^6
+✔ KEY FORMULA — Mole fraction x_B = n_B / (n_A + n_B), with x_A + x_B = 1
+✔ KEY FORMULA — Molality m = n_B x 1000 / w_A (g); Molarity M = n_B x 1000 / V (mL); density bridge M = (mass percent x d x 10) / M_B
+✔ KEY FORMULA — Henry's law: p = K_H x — larger K_H means SMALLER solubility
+✔ KEY FORMULA — Raoult, two volatile liquids: p_A = p_A0 x_A, p_B = p_B0 x_B, p_total = p_A + p_B, and vapour composition y_A = p_A / p_total
+✔ KEY FORMULA — Raoult, non-volatile solute: p = p0 x_solvent; relative lowering (p0 − p)/p0 = x_solute, dilute limit about n_B / n_A
+✔ KEY FORMULA — Raoult's law is Henry's law with K_H = p0
+✔ KEY FORMULA — Ideal solution: Delta H_mix = 0, Delta V_mix = 0; positive deviation: both positive; negative deviation: both negative
+✔ KEY FORMULA — Delta T_b = K_b m (water K_b = 0.52); Delta T_f = K_f m (water K_f = 1.86); molar mass M_B = K w_B 1000 / (Delta T w_A)
+✔ KEY FORMULA — Osmotic pressure pi = C R T = (n_B / V) R T; isotonic solutions have equal pi at equal T
+✔ KEY FORMULA — van't Hoff factor i = normal M / observed M = observed effect / calculated effect; modify everything: Delta T_f = i K_f m, Delta T_b = i K_b m, pi = i C R T
+✔ KEY FORMULA — Degree of dissociation alpha = (i − 1)/(n − 1); degree of association alpha = n (1 − i)/(n − 1), which for dimers is 2 (1 − i)
+
+Common Mistakes and Exam Traps
+• Mistake 1 — Calling 10 g solute in 100 g water a 10 percent solution. Why it fails — percentage is per mass of SOLUTION, which is 110 g. Correct principle — always add solute plus solvent for the denominator; the true value is 9.09 percent.
+• Mistake 2 — Using litres of solution in a molality calculation, or kilograms of solvent in a molarity one. Why it fails — the two units anchor to different denominators. Correct principle — molality per kg of SOLVENT, molarity per litre of SOLUTION; underline the noun in the question.
+• Mistake 3 — Quoting a molarity without a temperature, as if it were constant. Why it fails — volume expands on heating, so molarity falls. Correct principle — only mass- and mole-based units (molality, mole fraction, mass percent, ppm) are temperature-proof.
+• Mistake 4 — Reading a large Henry constant as high solubility. Why it fails — p = K_H x means x = p / K_H; big constant, small dissolved fraction. Correct principle — rank solubility by INVERSE K_H; oxygen's huge K_H is why so little of it dissolves in your blood.
+• Mistake 5 — Using total pressure instead of partial pressure in Henry's law for air above water. Why it fails — each gas dissolves according to its own partial pressure only. Correct principle — for oxygen in air at 1 bar total, p is 0.21 bar.
+• Mistake 6 — Writing relative lowering equal to the mole fraction of the solvent. Why it fails — lowering measures what the solute displaced. Correct principle — (p0 − p)/p0 = x_solute, always the solute.
+• Mistake 7 — Swapping K_b and K_f, or reporting a freezing point of +2.25 degrees C after a depression of 2.25 K. Why it fails — the constants differ threefold and depression goes DOWN. Correct principle — K_f = 1.86 pairs with freezing and subtraction; K_b = 0.52 pairs with boiling and addition.
+• Mistake 8 — Computing osmotic pressure with molality or with Celsius temperature. Why it fails — pi = C R T is built on molarity and absolute temperature. Correct principle — convert to mol per litre and Kelvin before touching R.
+• Mistake 9 — Inverting the van't Hoff factor as observed M over normal M. Why it fails — that makes dissociation shrink i below 1, contradicting its boosted effect. Correct principle — i = normal / observed; dissociation gives i > 1, association gives i < 1.
+• Mistake 10 — Assuming the vapour has the same composition as the liquid. Why it fails — the more volatile component escapes preferentially. Correct principle — y_A = p_A / p_total always leans toward the component with the higher p0; that lean is exactly what distillation exploits.
+
+Worked Examples — Basic to Challenging
+• EXAMPLE 1 — ONE SOLUTION, TWO UNITS
+• Problem — Aqueous NaOH is 20 percent by mass and its density is 1.2 g per mL. Find its molarity and its molality (NaOH = 40 g per mol)
+• Given — Basis of 100 g solution: 20 g NaOH and 80 g water; density 1.2 g per mL
+• Principle — Molarity needs litres of solution (cross the density bridge); molality needs kilograms of solvent
+• Steps — Moles of NaOH = 20 / 40 = 0.5 mol; volume of 100 g solution = 100 / 1.2 = 83.3 mL, so M = 0.5 / 0.0833 = 6.0 mol per L; molality = 0.5 / 0.080 = 6.25 mol per kg
+• Answer — Molarity 6.0 M, molality 6.25 m — close, but never identical
+• Reasoning — The density bridge shortcut confirms it: M = (20 x 1.2 x 10) / 40 = 6.0 exactly
+• Mistake to avoid — Putting 100 g (or 100 mL) in both denominators; molarity divides by 83.3 mL of solution while molality divides by 80 g of solvent
+• EXAMPLE 2 — FIZZ BY NUMBERS
+• Problem — Soda water is bottled under CO2 at 2.5 atm and 298 K. Find the mole fraction of dissolved CO2 and the moles of CO2 in a 500 mL bottle, given K_H = 1.67 x 10^8 Pa
+• Given — p = 2.5 atm = 2.5 x 1.013 x 10^5 Pa; 500 mL of water is 500 / 18 = 27.78 mol
+• Principle — Henry's law x = p / K_H, then n_gas about x times n_water for tiny x
+• Steps — x = (2.5 x 1.013 x 10^5) / (1.67 x 10^8) = 1.52 x 10^-3; n_CO2 = 1.52 x 10^-3 x 27.78 = 0.042 mol
+• Answer — x = 1.52 x 10^-3 and about 0.042 mol of CO2 per bottle
+• Reasoning — That dissolved load is what bursts out as fizz the moment the cap drops the pressure — Henry's law reversing live
+• Mistake to avoid — Feeding p in atm into a K_H quoted in Pa; units of p and K_H must match before dividing
+• EXAMPLE 3 — BENZENE MEETS TOLUENE
+• Problem — 78 g of benzene (p0 = 95.1 mm Hg) is mixed with 92 g of toluene (p0 = 28.4 mm Hg) at 25 degrees C. Find the total vapour pressure and the mole fraction of benzene in the vapour
+• Given — Benzene molar mass 78, toluene 92, so the mixture holds exactly 1 mol of each
+• Principle — Raoult's law for each component, add for total, divide for vapour composition
+• Steps — x_benzene = x_toluene = 0.5; p_benzene = 95.1 x 0.5 = 47.55 mm Hg; p_toluene = 28.4 x 0.5 = 14.2 mm Hg; p_total = 61.75 mm Hg; y_benzene = 47.55 / 61.75 = 0.77
+• Answer — p_total = 61.75 mm Hg, and the vapour is 77 percent benzene though the liquid was only 50 percent
+• Reasoning — Benzene is the more volatile partner, so the vapour leans towards it — distil this once and the distillate is already 77 percent pure; repeat and it purifies further
+• Mistake to avoid — Reporting y_benzene as 0.5 by copying the liquid composition; vapour composition is a new calculation, not a copy
+• EXAMPLE 4 — UREA AND VAPOUR PRESSURE
+• Problem — 50 g of urea (molar mass 60) is dissolved in 850 g of water. If pure water has p0 = 23.8 mm Hg at 25 degrees C, find the vapour pressure of the solution
+• Given — n_urea = 50 / 60 = 0.833 mol; n_water = 850 / 18 = 47.2 mol
+• Principle — Relative lowering equals x_solute; then p = p0 (1 − x_solute)
+• Steps — x_urea = 0.833 / (0.833 + 47.2) = 0.0173; p = 23.8 x (1 − 0.0173) = 23.39 mm Hg
+• Answer — p = 23.39 mm Hg, a lowering of about 0.41 mm Hg
+• Reasoning — Only about 1.7 percent of particles are urea, so the pressure falls by only about 1.7 percent — the relative lowering IS the solute's mole fraction, visibly
+• Mistake to avoid — Using the shortcut n/N without checking dilution is fine here, but swapping in x_solvent (0.983) as the lowering gives a nonsense pressure near zero
+• EXAMPLE 5 — ANTIFREEZE ARITHMETIC
+• Problem — 45 g of ethylene glycol (C2H6O2, molar mass 62) is mixed with 600 g of water. Calculate the freezing point depression and the boiling point elevation (K_f = 1.86, K_b = 0.52)
+• Given — n_glycol = 45 / 62 = 0.726 mol in 0.600 kg of water
+• Principle — Both effects run off the same molality; compute it once, use it twice
+• Steps — Molality = 0.726 / 0.600 = 1.21 mol per kg; Delta T_f = 1.86 x 1.21 = 2.25 K; Delta T_b = 0.52 x 1.21 = 0.63 K
+• Answer — The coolant freezes at −2.25 degrees C and boils at 100.63 degrees C
+• Reasoning — One additive buys protection at both ends of the thermometer — that double duty is exactly why glycols are chosen as antifreeze
+• Mistake to avoid — Dividing by 600 g instead of 0.600 kg inflates the molality a thousandfold; molality's denominator is kilograms
+• EXAMPLE 6 — WEIGHING A PROTEIN WITH PRESSURE
+• Problem — 200 mL of an aqueous solution contains 1.26 g of a protein and shows an osmotic pressure of 2.57 x 10^-3 bar at 300 K. Find the protein's molar mass (R = 0.083 L bar per mol per K)
+• Given — w_B = 1.26 g, V = 0.200 L, pi = 2.57 x 10^-3 bar, T = 300 K
+• Principle — pi V = (w_B / M_B) R T, rearranged for M_B; osmosis is chosen because a protein this large gives no readable boiling or freezing effect
+• Steps — M_B = w_B R T / (pi V) = (1.26 x 0.083 x 300) / (2.57 x 10^-3 x 0.200); the numerator is 31.37 and the denominator is 5.14 x 10^-4, giving M_B ≈ 61,000 g per mol
+• Answer — M_B is about 6.1 x 10^4 g per mol
+• Reasoning — A mere 2.57 millibar of pressure was enough to weigh a molecule of sixty-one thousand mass units — no other colligative property offers that sensitivity at room temperature
+• Mistake to avoid — Using V = 200 instead of 0.200 L with R in litre units; keep the litre family together
+• EXAMPLE 7 — THE DOUBLED MOLECULE
+• Problem — 2 g of benzoic acid dissolved in 25 g of benzene lowers the freezing point by 1.62 K (K_f of benzene = 4.9). Find the observed molar mass and the van't Hoff factor, and interpret (true molar mass of benzoic acid = 122)
+• Given — w_B = 2 g, w_A = 25 g, Delta T_f = 1.62 K
+• Principle — M_B = K_f w_B x 1000 / (Delta T_f x w_A), then i = normal M / observed M
+• Steps — M_observed = (4.9 x 2 x 1000) / (1.62 x 25) = 9800 / 40.5 = 242 g per mol; i = 122 / 242 = 0.50
+• Answer — Observed molar mass 242 (double the true value), i = 0.50
+• Reasoning — i of one-half means the particle count halved: benzoic acid molecules pair into hydrogen-bonded dimers in benzene, so each particle carries two molecules' worth of mass
+• Mistake to avoid — Concluding the acid dissociated because the molar mass changed; mass went UP and i fell BELOW 1, which is association's signature, the opposite story
+
+Practice Questions — Self-Test Set
+• Q1 — Chloroform in drinking water is found to be 15 ppm by mass. Its mass percentage and molality (molar mass of CHCl3 = 119.5) are: (A) 1.5 x 10^-3 percent and 1.26 x 10^-4 m (B) 1.5 percent and 1.26 m (C) 1.5 x 10^-3 percent and 1.26 x 10^-2 m (D) 15 percent and 0.126 m
+• Q2 — The solubility of H2S in water at 1 bar is 0.195 mol per kg of water. The Henry's law constant for H2S is about: (A) 0.286 bar (B) 2.86 bar (C) 28.6 bar (D) 286 bar
+• Q3 — 18 g of glucose is dissolved in 1 kg of water. The boiling point of the solution is (K_b = 0.52): (A) 373.052 K (B) 373.202 K (C) 373.52 K (D) 374.02 K
+• Q4 — A 5 percent (w/V) cane sugar solution is isotonic with a 0.877 percent (w/V) solution of an unknown X. The molar mass of X is (cane sugar = 342): (A) 34.2 (B) 60 (C) 120 (D) 342
+• Q5 — Which pair of liquids shows negative deviation from Raoult's law? (A) ethanol + water (B) acetone + carbon disulphide (C) chloroform + acetone (D) benzene + toluene
+• Q6 — The freezing point of a 0.1 molal NaCl solution, if the van't Hoff factor is 1.87 and K_f = 1.86, is: (A) −0.186 degrees C (B) −0.348 degrees C (C) −0.372 degrees C (D) −0.093 degrees C
+• Q7 — For a solution of a non-volatile solute, p0 = 100 mm Hg and p = 98 mm Hg. The mole fraction of the solute is: (A) 0.98 (B) 0.50 (C) 0.20 (D) 0.02
+• Q8 — The osmotic pressure of a 0.1 M glucose solution at 300 K is (R = 0.083 L bar per mol per K): (A) 0.249 bar (B) 1.245 bar (C) 2.49 bar (D) 24.9 bar
+
+▸ Answer Key with Explanations
+• Q1 — (A) 1.5 x 10^-3 percent and 1.26 x 10^-4 m. 15 ppm = 15 / 10^6 = 1.5 x 10^-3 percent; per kg of water there are 0.015 g of CHCl3, that is 0.015 / 119.5 = 1.26 x 10^-4 mol per kg. Misconception: option (C) — slipping two powers of ten in the ppm-to-molality step.
+• Q2 — (D) 286 bar. Mole fraction of H2S = 0.195 / (0.195 + 55.5) = 0.0035, so K_H = p / x = 1 / 0.0035 ≈ 286 bar. Misconception: option (A) — that is K_H expressed in kbar, a unit slip; in bar the constant is 286.
+• Q3 — (B) 373.202 K. Molality = (18/180) / 1 = 0.1 m; Delta T_b = 0.52 x 0.1 = 0.052 K on top of 373.15 K. Misconception: option (A) comes from adding only half the elevation; option (C) comes from using K_f instead of K_b.
+• Q4 — (B) 60. Isotonic means equal molarity at the same temperature: 5 / 342 = 0.877 / M_X, giving M_X = 0.877 x 342 / 5 = 60 — suspiciously urea-like. Misconception: option (A) — dividing by ten through a w/V versus w/w confusion.
+• Q5 — (C) chloroform + acetone. Its hydrogen bonds between chloroform's H and acetone's O make A-B attractions stronger than either pure liquid's. Misconception: option (A) — ethanol + water is the classic POSITIVE deviation; benzene + toluene (D) is nearly ideal, showing no deviation at all.
+• Q6 — (B) −0.348 degrees C. Delta T_f = i K_f m = 1.87 x 1.86 x 0.1 = 0.348 K below zero. Misconception: option (C) uses the ideal i = 2 the question deliberately replaced with 1.87 — always use the i you are given.
+• Q7 — (D) 0.02. Relative lowering (100 − 98) / 100 = 0.02 equals x_solute directly. Misconception: option (A) is x_solvent; the lowering belongs to the solute alone.
+• Q8 — (C) 2.49 bar. pi = C R T = 0.1 x 0.083 x 300 = 2.49 bar. Misconception: option (A) — using T = 30 instead of 300 K territory or dropping a factor of ten; osmotic pressures of even dilute solutions are bar-scale, never millibar-scale.
+
+Chapter Summary and Revision Checklist
+• One idea powers the chapter: dissolved particles dilute the solvent and obstruct its escape. That lowers vapour pressure, raises the boiling point, lowers the freezing point and drives osmosis — four properties, one census. Concentration units are just five ways of keeping that census, and the van't Hoff factor corrects it when particles split or pair.
+• Checklist — I can write all nine solution types with an example each and explain like dissolves like
+• Checklist — I can convert between mass percent, ppm, mole fraction, molality and molarity using the density bridge, and say which units ignore temperature
+• Checklist — I can state Henry's law, rank solubility from K_H values the right way round, and give the soda, diver and altitude applications
+• Checklist — I can apply Raoult's law to two volatile liquids, find p_total and the vapour composition, and handle the non-volatile case as relative lowering = x_solute
+• Checklist — I can explain why Raoult's law is Henry's law with K_H = p0
+• Checklist — I can sort any pair into ideal, positive or negative deviation using bond-breaking versus bond-making logic, with Delta H_mix and Delta V_mix signs and one azeotrope of each kind
+• Checklist — I can run all four colligative calculations from molality, mole fraction or molarity as each demands, and extract a molar mass from any of them
+• Checklist — I can explain why osmosis is the best molar-mass method for polymers and proteins, and how reverse osmosis desalinates seawater
+• Checklist — I can compute i, read association versus dissociation from it, and convert i into degree of dissociation or association
+• Self-assessment — score yourself honestly: 8 or more boxes ticked means this chapter is exam-ready; 5 to 7 means re-read the flagged sections and redo the worked examples; below 5, restart from the concentration sections and rebuild the particle-counting idea slowly
+★ HIGHLIGHT — Final one-line revision: count the particles honestly — with i when they cheat — and concentration, Raoult, deviation and all four colligative effects become a single story.""".trimIndent(),
 
             videoTitle = "Raoult-Dalton Vapor Plots, Azeotropes & van 't Hoff Colligative Math",
 
@@ -17162,6 +18434,603 @@ QuestionEntity(
                 Step 2: Hf comes immediately after the lanthanoids, so it is squeezed to almost exactly the size of Zr (159 pm vs 160 pm) — option B.
                 Step 3: The shrinking Ln3+ ion also makes the hydroxides LESS basic along the series, so option C is backwards too.
                 Trap: every wrong option states a true-sounding trend in the wrong direction — the contraction is a decrease caused by weak 4f shielding.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_chem_30",
+            chapterId = "chem_ch_6",
+            subject = "Chemistry",
+            topic = "Crystal Field Theory — CFSE Calculation",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "The crystal field stabilisation energy (CFSE) of [Fe(CN)6]4- in an octahedral field is:",
+            optionA = "-0.4 delta o",
+            optionB = "-2.4 delta o",
+            optionC = "-1.2 delta o",
+            optionD = "-0.6 delta o",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Find the d count of the ION. The entity charge is 4-: x + 6(-1) = -4 gives Fe = +2, so Fe2+ is 3d6.
+                Step 2: CN- is a strong-field ligand, so the complex is low-spin: all six electrons pair into the lower t2g set, giving t2g6 eg0.
+                Step 3: CFSE = (-0.4 x 6) + (0.6 x 0) = -2.4 delta o (the pairing-energy correction is not included in this convention).
+                Trap: -0.4 delta o (option A) is the HIGH-SPIN value (t2g4 eg2) you would get with a weak ligand like H2O. The spin verdict must come before the arithmetic.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_31",
+            chapterId = "chem_ch_6",
+            subject = "Chemistry",
+            topic = "Valence Bond Theory — Magnetic Moment",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The spin-only magnetic moment of [CoF6]3- is:",
+            optionA = "0 BM",
+            optionB = "1.73 BM",
+            optionC = "4.90 BM",
+            optionD = "5.92 BM",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Co in [CoF6]3-: x + 6(-1) = -3 gives Co = +3, so Co3+ is 3d6.
+                Step 2: F- is a weak-field ligand and cannot force pairing, so the complex is high-spin (outer-orbital, sp3d2) with n = 4 unpaired electrons.
+                Step 3: mu = sqrt(n(n+2)) = sqrt(4 x 6) = sqrt(24) = 4.90 BM.
+                Trap: 0 BM (option A) describes [Co(NH3)6]3+, where NH3 pairs all six electrons (d2sp3). Same Co3+ ion — the ligand decides the magnetism.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_32",
+            chapterId = "chem_ch_6",
+            subject = "Chemistry",
+            topic = "Nomenclature of Coordination Compounds",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The IUPAC name of K4[Fe(CN)6] is:",
+            optionA = "potassium hexacyanidoferrate(II)",
+            optionB = "potassium hexacyanoferrate(II)",
+            optionC = "potassium hexacyanidoferrate(III)",
+            optionD = "potassium hexacyanidoiron(II)",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Oxidation state of Fe: 4(+1) + x + 6(-1) = 0 gives x = +2, so iron is Fe(II) — option C (ferrate(III)) is K3[Fe(CN)6], a different salt.
+                Step 2: The entity [Fe(CN)6]4- is ANIONIC, so the metal takes the -ate name from its Latin root: ferrate, not iron — option D fails here.
+                Step 3: The anionic ligand CN- is named cyanido in the current IUPAC/NCERT system, giving potassium hexacyanidoferrate(II).
+                Trap: option B uses the older cyano spelling; the -ido form (chlorido, cyanido, hydroxido) is the current NCERT convention.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_33",
+            chapterId = "chem_ch_6",
+            subject = "Chemistry",
+            topic = "Werner's Theory — Ionisation Sphere",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "One mole of the complex CoCl3.5NH3 is treated with excess AgNO3 solution. The number of moles of AgCl precipitated is:",
+            optionA = "1",
+            optionB = "2",
+            optionC = "3",
+            optionD = "0",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Apply Werner's theory: Co is +3 with coordination number 6, so the sphere takes 5 NH3 and 1 Cl: the formula is [Co(NH3)5Cl]Cl2.
+                Step 2: Only chloride ions in the IONISATION sphere (outside the brackets) are free to react with Ag+. The inner Cl is bound by a secondary valency and also satisfies one primary valency, so it cannot precipitate.
+                Step 3: Chlorides outside the sphere = 2, so 2 mol of AgCl precipitate per mole of complex.
+                Trap: 3 (option C) counts every chlorine in the formula. Precipitation counts only the ionisable chlorides — the whole point of Werner's primary/secondary valency split.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_34",
+            chapterId = "chem_ch_6",
+            subject = "Chemistry",
+            topic = "Optical Isomerism in Chelate Complexes",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "Which of the following complexes exists as a pair of optical isomers (enantiomers)?",
+            optionA = "trans-[Co(en)2Cl2]+",
+            optionB = "cis-[Co(en)2Cl2]+",
+            optionC = "[Cr(H2O)6]3+",
+            optionD = "[Ni(CO)4]",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Optical activity needs chirality — no plane of symmetry, so the mirror image is non-superimposable. Chelate rings (en) twist an octahedron into a propeller shape, which is the classic source of chirality in complexes.
+                Step 2: In cis-[Co(en)2Cl2]+ the two Cl ligands are adjacent and the en rings lock the ion into a chiral twist: it exists as d and l enantiomers.
+                Step 3: The trans isomer (option A) has a plane of symmetry through the Cl-Co-Cl axis, so it is achiral and optically inactive. [Cr(H2O)6]3+ (option C) is fully symmetric, and tetrahedral [Ni(CO)4] (option D) has four identical ligands — both are achiral.
+                Trap: geometrical isomerism and optical isomerism are independent checks. Of the cis/trans pair, it is the CIS form that is optically active here — the opposite of the guess most students make.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_chem_35",
+            chapterId = "chem_ch_7",
+            subject = "Chemistry",
+            topic = "Hess's Law — Formation Enthalpy from Combustion Data",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 120,
+            prompt = "The standard enthalpies of combustion of carbon, hydrogen and methane are -393.5, -285.8 and -890.3 kJ/mol respectively. The standard enthalpy of formation of methane is:",
+            optionA = "+74.8 kJ/mol",
+            optionB = "-74.8 kJ/mol",
+            optionC = "+211.0 kJ/mol",
+            optionD = "-1855.4 kJ/mol",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Hess's law — burn the elements and the compound to the same products (CO2 and H2O) and take the difference:
+                ΔfH(CH4) = ΔcH(C) + 2 x ΔcH(H2) - ΔcH(CH4).
+                Step 2: Substitute, honouring the coefficient 2 for hydrogen in CH4:
+                = -393.5 + 2 x (-285.8) - (-890.3) = -965.1 + 890.3 = -74.8 kJ/mol.
+                Trap: +211.0 kJ/mol (option C) comes from using only ONE mole of H2; +74.8 kJ/mol (option A) is the same calculation with the final sign flipped.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_36",
+            chapterId = "chem_ch_7",
+            subject = "Chemistry",
+            topic = "First Law — Chemistry Sign Convention",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "A system absorbs 500 J of heat from the surroundings and does 300 J of work on the surroundings. Using the chemistry sign convention, the change in internal energy of the system is:",
+            optionA = "+800 J",
+            optionB = "-200 J",
+            optionC = "+200 J",
+            optionD = "-800 J",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Assign signs by the chemistry convention (energy entering the system is positive):
+                q = +500 J (heat absorbed by the system).
+                Step 2: The system does work ON the surroundings, so work done ON the system is negative: w = -300 J.
+                Step 3: First law: ΔU = q + w = 500 - 300 = +200 J.
+                Trap: +800 J (option A) adds the magnitudes and ignores that the work stream flows OUT of the system. In the physics convention the same event reads ΔU = Q - W with W = +300 J — same answer, opposite bookkeeping.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_37",
+            chapterId = "chem_ch_7",
+            subject = "Chemistry",
+            topic = "Enthalpy — Converting ΔU to ΔH",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 90,
+            prompt = "For the reaction 2H2 (g) + O2 (g) gives 2H2O (l) at 298 K, the internal energy change is ΔU = -564.2 kJ for the reaction as written. The enthalpy change ΔH is:",
+            optionA = "-571.6 kJ",
+            optionB = "-564.2 kJ",
+            optionC = "-556.8 kJ",
+            optionD = "-566.7 kJ",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Count gaseous moles only: reactants 2 + 1 = 3 mol of gas; products are liquid water, 0 mol of gas. Δng = 0 - 3 = -3.
+                Step 2: Apply ΔH = ΔU + Δng RT with RT = 8.314 x 298 / 1000 = 2.48 kJ/mol:
+                ΔH = -564.2 + (-3)(2.48) = -564.2 - 7.4 = -571.6 kJ.
+                Trap: -556.8 kJ (option C) applies the correction with the wrong sign; -566.7 kJ (option D) comes from a miscounted Δng of -1. Gas moles fall, so ΔH must be MORE negative than ΔU.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_38",
+            chapterId = "chem_ch_7",
+            subject = "Chemistry",
+            topic = "Calorimetry — Bomb Calorimeter and ΔU",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 90,
+            prompt = "When 0.5 mol of a fuel is burned completely in a bomb calorimeter, the temperature rises by 4.0 K. The heat capacity of the calorimeter assembly is 12.0 kJ/K. The molar internal energy change of combustion of the fuel is:",
+            optionA = "-48 kJ/mol",
+            optionB = "+96 kJ/mol",
+            optionC = "-24 kJ/mol",
+            optionD = "-96 kJ/mol",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Heat absorbed by the calorimeter = C x ΔT = 12.0 x 4.0 = 48 kJ. This heat was released by burning 0.5 mol of fuel.
+                Step 2: Scale to one mole: 48 / 0.5 = 96 kJ released per mole.
+                Step 3: The bomb is rigid (constant volume), so no expansion work is done and the measured heat is qv = ΔU. Combustion releases energy, so the system's change is negative: ΔU = -96 kJ/mol.
+                Trap: -48 kJ/mol (option A) forgets the per-mole scaling; +96 kJ/mol (option B) drops the sign — a temperature RISE in the calorimeter means the reaction LOST energy.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_39",
+            chapterId = "chem_ch_7",
+            subject = "Chemistry",
+            topic = "Gibbs Energy and the Equilibrium Constant",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "For a reaction at 298 K, the standard Gibbs energy change is ΔG° = -11.4 kJ/mol. The equilibrium constant K is approximately:",
+            optionA = "1 x 10^-2",
+            optionB = "1 x 10^1",
+            optionC = "1 x 10^2",
+            optionD = "1 x 10^4",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Use ΔG° = -2.303 RT log K, rearranged as log K = -ΔG° / (2.303 RT).
+                Step 2: At 298 K, 2.303 RT = 2.303 x 8.314 x 298 / 1000 = 5.71 kJ/mol — each 5.71 kJ/mol of negative ΔG° is worth one power of ten in K.
+                Step 3: log K = 11.4 / 5.71 = 2.0, so K = 10^2 = 1 x 10^2. Products are favoured, as a negative ΔG° requires K > 1.
+                Trap: 1 x 10^-2 (option A) inverts the sign relation — a negative ΔG° can never give K < 1.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_chem_40",
+            chapterId = "chem_ch_8",
+            subject = "Chemistry",
+            topic = "Kp and Kc Conversion",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "For the reaction 2SO2(g) + O2(g) ⇌ 2SO3(g) at 1000 K, Kc = 3.5. The value of Kp (with pressures in atm) is:",
+            optionA = "0.0426",
+            optionB = "287",
+            optionC = "3.50",
+            optionD = "0.426",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Count dn, gases only: dn = 2 - (2 + 1) = -1.
+                Step 2: Kp = Kc (RT)^dn = 3.5 x (0.0821 x 1000)^-1 = 3.5 / 82.1 = 0.0426.
+                Trap: 287 (option B) comes from multiplying by RT instead of dividing — the sign of dn decides. 3.50 (option C) assumes Kp always equals Kc, which holds only when dn = 0.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_41",
+            chapterId = "chem_ch_8",
+            subject = "Chemistry",
+            topic = "ICE Table — Equilibrium Concentration",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "For H2(g) + I2(g) ⇌ 2HI(g), Kc = 64. A vessel starts with [H2] = [I2] = 0.50 mol/L and no HI. The equilibrium concentration of HI is:",
+            optionA = "0.40 mol/L",
+            optionB = "0.64 mol/L",
+            optionC = "0.80 mol/L",
+            optionD = "0.90 mol/L",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: ICE — equilibrium values are [H2] = [I2] = 0.50 - x and [HI] = 2x.
+                Step 2: Kc = (2x)^2 / (0.50 - x)^2 = 64. Take square roots: 2x / (0.50 - x) = 8, so 2x = 4 - 8x and x = 0.40.
+                Step 3: [HI] = 2x = 0.80 mol/L.
+                Trap: 0.40 (option A) is x, the amount CONSUMED of each reactant — the question asks for [HI], which is 2x. Always read off the species named, not the variable solved.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_42",
+            chapterId = "chem_ch_8",
+            subject = "Chemistry",
+            topic = "pH of a Salt of Weak Base and Strong Acid",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 90,
+            prompt = "The pH of a 0.10 mol/L solution of NH4Cl is: (Kb of NH3 = 1.8 x 10^-5)",
+            optionA = "8.87",
+            optionB = "7.00",
+            optionC = "4.74",
+            optionD = "5.13",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: NH4Cl is the salt of a weak base (NH3) and a strong acid (HCl), so the solution is acidic — NH4+ hydrolyses: NH4+ + H2O ⇌ NH3 + H3O+.
+                Step 2: Ka of NH4+ = Kw / Kb = 10^-14 / (1.8 x 10^-5) = 5.6 x 10^-10.
+                Step 3: [H3O+] = sqrt(Ka x C) = sqrt(5.6 x 10^-10 x 0.10) = sqrt(5.6 x 10^-11) = 7.5 x 10^-6, so pH = 5.13.
+                Trap: 8.87 (option A) is the mirror-image error, treating NH4Cl as a basic salt; 4.74 (option C) is just pKb of ammonia with no hydrolysis calculation behind it.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_43",
+            chapterId = "chem_ch_8",
+            subject = "Chemistry",
+            topic = "Solubility Product — Predicting Precipitation",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Equal volumes of 2.0 x 10^-4 mol/L AgNO3 and 2.0 x 10^-4 mol/L NaCl are mixed. Ksp of AgCl = 1.8 x 10^-10. What happens?",
+            optionA = "No precipitate forms, because Qsp is less than Ksp",
+            optionB = "A precipitate of AgCl forms, because Qsp exceeds Ksp",
+            optionC = "A precipitate forms only if the mixture is heated",
+            optionD = "The solution becomes exactly saturated, with no precipitate",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Mixing equal volumes halves each concentration: [Ag+] = [Cl-] = 1.0 x 10^-4 mol/L in the mixture.
+                Step 2: Qsp = [Ag+] [Cl-] = (1.0 x 10^-4)^2 = 1.0 x 10^-8.
+                Step 3: Qsp (10^-8) is greater than Ksp (1.8 x 10^-10), so the mixture is supersaturated and AgCl precipitates until Qsp falls to Ksp.
+                Trap: skipping the dilution step gives Qsp = 4 x 10^-8 — the verdict survives here, but in borderline questions the factor of 4 flips the answer. Dilute first, always.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_44",
+            chapterId = "chem_ch_8",
+            subject = "Chemistry",
+            topic = "Effect of a Catalyst on Equilibrium",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 45,
+            prompt = "A suitable catalyst is added to a gaseous reaction system that is already at equilibrium. The correct statement is:",
+            optionA = "The equilibrium shifts toward the products",
+            optionB = "The equilibrium constant K increases",
+            optionC = "Both forward and reverse rates increase equally; the equilibrium composition and K remain unchanged",
+            optionD = "The reverse reaction is slowed down by the catalyst",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: A catalyst lowers the activation energy of the forward and reverse reactions by the same amount, so both rate constants are multiplied by the same factor.
+                Step 2: K = kf / kr is therefore unchanged, and since the rates were already equal at equilibrium, the composition does not move. The catalyst only shortens the journey when the system is disturbed — it cannot move the destination.
+                Trap: options A and B fuse kinetics with thermodynamics. Speed is the catalyst's department; position and K belong to thermodynamics alone.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_chem_45",
+            chapterId = "chem_ch_9",
+            subject = "Chemistry",
+            topic = "Oxidation Number — the Peroxide Trap",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The oxidation number of sulphur in H2S2O8 (peroxodisulphuric acid, which contains one O-O peroxide linkage) is:",
+            optionA = "+7",
+            optionB = "+6",
+            optionC = "+8",
+            optionD = "+4",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: The blind method fails here: 2(+1) + 2x + 8(-2) = 0 gives x = +7, but sulphur can never exceed +6 — its group maximum. That impossible answer is the alarm that a peroxide bond is hiding in the structure.
+                Step 2: Score the two peroxide oxygens at -1 each and the other six at -2: 2(+1) + 2x + 6(-2) + 2(-1) = 0.
+                Step 3: 2 + 2x - 12 - 2 = 0, so 2x = 12 and x = +6.
+                Trap: +7 (option A) is exactly what the uncorrected algebra produces — always sanity-check an oxidation number against the element's maximum possible value.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_46",
+            chapterId = "chem_ch_9",
+            subject = "Chemistry",
+            topic = "Fractional Oxidation Number",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 45,
+            prompt = "The oxidation number of iron in Fe3O4 is:",
+            optionA = "+2",
+            optionB = "+3",
+            optionC = "+8/3",
+            optionD = "+4/3",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Apply the sum rule with oxygen at -2 and the compound neutral: 3x + 4(-2) = 0.
+                Step 2: 3x = 8, so x = +8/3.
+                Step 3: The fraction is an average, not a real charge: Fe3O4 is the mixed oxide FeO + Fe2O3, holding one Fe at +2 and two Fe at +3, and (2 + 3 + 3)/3 = 8/3.
+                Trap: +2 and +3 (options A and B) each describe only part of the crystal; when a question asks for THE oxidation number in Fe3O4, the keyed answer is the average, +8/3.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_47",
+            chapterId = "chem_ch_9",
+            subject = "Chemistry",
+            topic = "Types of Redox — Disproportionation",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Which of the following is a disproportionation reaction?",
+            optionA = "CH4 + 2O2 gives CO2 + 2H2O",
+            optionB = "2H2O2 gives 2H2O + O2",
+            optionC = "Zn + CuSO4 gives ZnSO4 + Cu",
+            optionD = "CaCO3 gives CaO + CO2",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Disproportionation needs ONE element in ONE reactant species splitting both ways — part oxidised, part reduced.
+                Step 2: In 2H2O2, oxygen starts at -1 and ends at -2 in H2O (reduced) and 0 in O2 (oxidised). Same element, same species, both directions — option B qualifies.
+                Step 3: Option A is combustion (two different elements change), option C is displacement, and option D is not redox at all — no oxidation number changes when CaCO3 decomposes.
+                Trap: a decomposition is not automatically a disproportionation; even 2KClO3 giving 2KCl + 3O2 fails the test because chlorine only falls while oxygen only rises.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_48",
+            chapterId = "chem_ch_9",
+            subject = "Chemistry",
+            topic = "Balancing — Electron Equality in Acid",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "In acidic medium, the number of Fe2+ ions oxidised by one MnO4- ion is:",
+            optionA = "1",
+            optionB = "3",
+            optionC = "5",
+            optionD = "10",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Reduction half in acid: MnO4- + 8H+ + 5e- gives Mn2+ + 4H2O. Manganese falls from +7 to +2, so one MnO4- consumes exactly 5 electrons.
+                Step 2: Oxidation half: Fe2+ gives Fe3+ + e-. Each Fe2+ supplies exactly 1 electron.
+                Step 3: Electrons lost must equal electrons gained, so 5 Fe2+ are needed per MnO4- — the full equation is MnO4- + 5Fe2+ + 8H+ gives Mn2+ + 5Fe3+ + 4H2O (charge audit: +17 on both sides).
+                Trap: 1 (option A) matches formula units instead of electrons — in redox stoichiometry the electron ledger, not the formula count, sets the ratio.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_49",
+            chapterId = "chem_ch_9",
+            subject = "Chemistry",
+            topic = "Balancing in Basic Medium",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "When the half-reaction MnO4- to MnO2 is balanced in basic medium, the correctly balanced half-equation is:",
+            optionA = "MnO4- + 4H+ + 3e- gives MnO2 + 2H2O",
+            optionB = "MnO4- + 2H2O + 3e- gives MnO2 + 4OH-",
+            optionC = "MnO4- + 2H2O gives MnO2 + 4OH- + 3e-",
+            optionD = "MnO4- + 4OH- gives MnO2 + 2H2O + 3e-",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Audit option B: atoms — Mn 1/1, O 4 + 2 = 6 on the left and 2 + 4 = 6 on the right, H 4/4. Charge — left: -1 + 0 - 3 = -4; right: -4. Atoms and charge both balance, and the electrons sit on the reactant side as a reduction demands.
+                Step 2: Option A is balanced too, but it is the ACID-medium form — it contains H+, which cannot survive in a basic solution.
+                Step 3: Options C and D place the electrons on the product side, which would describe an oxidation; MnO4- to MnO2 is a reduction (Mn falls +7 to +4), so electrons must be consumed, not produced.
+                Trap: in basic medium the permanganate half carries 3 electrons and stops at MnO2 — do not import the 5-electron, Mn2+ version from acidic titrations.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_chem_50",
+            chapterId = "chem_ch_10",
+            subject = "Chemistry",
+            topic = "Concentration — Molarity from Mass Percent and Density",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 90,
+            prompt = "An aqueous NaOH solution is 10% by mass and has a density of 1.11 g/mL. Its molarity is (molar mass of NaOH = 40 g/mol):",
+            optionA = "2.50 mol/L",
+            optionB = "2.25 mol/L",
+            optionC = "2.78 mol/L",
+            optionD = "3.11 mol/L",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Take a basis of 100 g of solution. It contains 10 g NaOH = 10/40 = 0.25 mol.
+                Step 2: Volume of 100 g of solution = mass/density = 100/1.11 = 90.1 mL = 0.0901 L.
+                Step 3: Molarity = 0.25 / 0.0901 = 2.78 mol/L.
+                (Shortcut check: M = (mass percent x density x 10) / molar mass = (10 x 1.11 x 10)/40 = 2.78 mol/L.)
+                Trap: 2.50 mol/L (option A) comes from treating 100 g of solution as 100 mL — ignoring the density. The density is given precisely because the mass-to-volume bridge is the heart of the question.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_51",
+            chapterId = "chem_ch_10",
+            subject = "Chemistry",
+            topic = "Henry's Law",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The Henry's law constant for CO2 in water at 298 K is 1.67 x 10^8 Pa. The mole fraction of CO2 in soda water packed under a CO2 pressure of 2.53 x 10^5 Pa is:",
+            optionA = "1.5 x 10^-3",
+            optionB = "1.5 x 10^-2",
+            optionC = "3.0 x 10^-3",
+            optionD = "6.6 x 10^-4",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Henry's law: p = K_H x, so x = p / K_H.
+                Step 2: x = (2.53 x 10^5) / (1.67 x 10^8) = 1.51 x 10^-3, about 1.5 x 10^-3.
+                Trap: a large K_H means LOW solubility, not high — the constant sits in the denominator when you solve for the dissolved fraction. Option B is the same digits with the power of ten slipped, the classic Henry's law distractor.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_52",
+            chapterId = "chem_ch_10",
+            subject = "Chemistry",
+            topic = "Freezing Point Depression with van't Hoff Factor",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "A 0.1 molal aqueous solution of KBr has a van't Hoff factor of 1.9. The depression in its freezing point is (K_f of water = 1.86 K kg/mol):",
+            optionA = "0.186 K",
+            optionB = "0.353 K",
+            optionC = "0.372 K",
+            optionD = "0.177 K",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: For an electrolyte, the modified formula is Delta T_f = i x K_f x m.
+                Step 2: Delta T_f = 1.9 x 1.86 x 0.1 = 0.353 K.
+                Trap: 0.186 K (option A) ignores the van't Hoff factor entirely, and 0.372 K (option C) uses the idealised i = 2 instead of the measured 1.9 given in the question. When a problem hands you an observed i, that value overrules the ideal ion count.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_53",
+            chapterId = "chem_ch_10",
+            subject = "Chemistry",
+            topic = "Molar Mass from Boiling Point Elevation",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 90,
+            prompt = "1.0 g of a non-volatile solute dissolved in 100 g of water raises the boiling point by 0.10 K. The molar mass of the solute is (K_b of water = 0.52 K kg/mol):",
+            optionA = "26 g/mol",
+            optionB = "52 g/mol",
+            optionC = "104 g/mol",
+            optionD = "5.2 g/mol",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Delta T_b = K_b x molality, and M_B = (K_b x w_B x 1000) / (Delta T_b x w_A) with masses in grams.
+                Step 2: M_B = (0.52 x 1.0 x 1000) / (0.10 x 100) = 520 / 10 = 52 g/mol.
+                Trap: 5.2 g/mol (option D) drops the factor of 1000 that converts the solvent mass from grams to kilograms; 104 g/mol (option C) doubles by using 200 g of solvent. The 1000 in the formula is not decoration.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_chem_54",
+            chapterId = "chem_ch_10",
+            subject = "Chemistry",
+            topic = "Ideal and Non-Ideal Solutions",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Which of the following liquid pairs forms an ideal solution (obeying Raoult's law over the whole composition range)?",
+            optionA = "Ethanol and water",
+            optionB = "Chloroform and acetone",
+            optionC = "Benzene and toluene",
+            optionD = "Water and hydrochloric acid",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: An ideal solution needs A-B attractions nearly equal to A-A and B-B attractions, giving Delta H_mix = 0 and Delta V_mix = 0.
+                Step 2: Benzene and toluene are near-identical molecules (toluene is benzene with one methyl group), so they mix ideally.
+                Trap: chloroform + acetone (option B) is the famous NEGATIVE deviation — a new hydrogen bond forms between them. Ethanol + water (option A) shows POSITIVE deviation, and water + HCl (option D) deviates negatively. Only the look-alike pair is ideal.
             """.trimIndent()
         ),
 

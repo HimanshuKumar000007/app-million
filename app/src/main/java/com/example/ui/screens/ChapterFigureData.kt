@@ -144,7 +144,22 @@ object ChapterFigureData {
         "fig_chem_4_4_lone_pair_angles" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271746/chemistry-ch04-fig-4-4-lone-pair-angles.png",
         "fig_chem_5_1_atomic_radii" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271454/chemistry-ch05-fig-5-1-atomic-radii.png",
         "fig_chem_5_2_octahedral_splitting" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271455/chemistry-ch05-fig-5-2-octahedral-splitting.png",
-        "fig_chem_5_3_lanthanoid_contraction" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271456/chemistry-ch05-fig-5-3-lanthanoid-contraction.png"
+        "fig_chem_5_3_lanthanoid_contraction" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271456/chemistry-ch05-fig-5-3-lanthanoid-contraction.png",
+        "fig_chem_6_1_crystal_field_splitting" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272436/chemistry-ch06-fig-6-1-crystal-field-splitting.png",
+        "fig_chem_6_2_geometrical_isomers" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272437/chemistry-ch06-fig-6-2-geometrical-isomers.png",
+        "fig_chem_6_3_spectrochemical_series" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272439/chemistry-ch06-fig-6-3-spectrochemical-series.png",
+        "fig_chem_7_1_enthalpy_profiles" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272148/chemistry-ch07-fig-7-1-enthalpy-profiles.png",
+        "fig_chem_7_2_hess_cycle" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272149/chemistry-ch07-fig-7-2-hess-cycle.png",
+        "fig_chem_7_3_bomb_calorimeter" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272151/chemistry-ch07-fig-7-3-bomb-calorimeter.png",
+        "fig_chem_8_1_equilibrium_approach" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272184/chemistry-ch08-fig-8-1-equilibrium-approach.png",
+        "fig_chem_8_2_haber_lechatelier" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272185/chemistry-ch08-fig-8-2-haber-lechatelier.png",
+        "fig_chem_8_3_buffer_action" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272186/chemistry-ch08-fig-8-3-buffer-action.png",
+        "fig_chem_9_1_sulphur_ladder" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272231/chemistry-ch09-fig-9-1-sulphur-ladder.png",
+        "fig_chem_9_2_daniell_cell" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272232/chemistry-ch09-fig-9-2-daniell-cell.png",
+        "fig_chem_9_3_electron_transfer" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272233/chemistry-ch09-fig-9-3-electron-transfer.png",
+        "fig_chem_10_1_raoult_ideal" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272168/chemistry-ch10-fig-10-1-raoult-ideal.png",
+        "fig_chem_10_2_deviations" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272169/chemistry-ch10-fig-10-2-deviations.png",
+        "fig_chem_10_3_osmosis" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272170/chemistry-ch10-fig-10-3-osmosis.png"
     )
 
     val images: Map<String, String> = mapOf(
