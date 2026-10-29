@@ -1302,6 +1302,118 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "bio_ch_11" -> when (sectionIndex) {
+
+            4 -> listOf("fig_bio_11_1_absorption_action")
+
+            6 -> listOf("fig_bio_11_2_z_scheme")
+
+            7 -> listOf("fig_bio_11_3_chemiosmosis")
+
+            9 -> listOf("fig_bio_11_4_calvin_cycle")
+
+            12 -> listOf("fig_bio_11_5_c4_kranz")
+
+            14 -> listOf("fig_bio_11_6_c3_c4_compare")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_12" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_12_1_glycolysis")
+
+            5 -> listOf("fig_bio_12_2_fermentation")
+
+            7 -> listOf("fig_bio_12_3_krebs_cycle")
+
+            9 -> listOf("fig_bio_12_4_ets")
+
+            11 -> listOf("fig_bio_12_5_atp_ledger")
+
+            12 -> listOf("fig_bio_12_6_rq_amphibolic")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_13" -> when (sectionIndex) {
+
+            3 -> listOf("fig_bio_13_1_growth_curves")
+
+            7 -> listOf("fig_bio_13_2_pgr_map")
+
+            8 -> listOf("fig_bio_13_3_auxin_effects")
+
+            13 -> listOf("fig_bio_13_4_photoperiodism")
+
+            14 -> listOf("fig_bio_13_5_phytochrome")
+
+            15 -> listOf("fig_bio_13_6_vernalisation_dormancy")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_14" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_14_1_respiratory_system")
+
+            4 -> listOf("fig_bio_14_2_breathing_mechanism")
+
+            7 -> listOf("fig_bio_14_3_volumes_capacities")
+
+            8 -> listOf("fig_bio_14_4_partial_pressures")
+
+            11 -> listOf("fig_bio_14_5_oxyhaemoglobin_curve")
+
+            12 -> listOf("fig_bio_14_6_co2_transport")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_15" -> when (sectionIndex) {
+
+            1 -> listOf("fig_bio_15_1_blood_composition")
+
+            3 -> listOf("fig_bio_15_2_blood_groups")
+
+            5 -> listOf("fig_bio_15_3_coagulation")
+
+            8 -> listOf("fig_bio_15_4_heart_anatomy")
+
+            10 -> listOf("fig_bio_15_5_conduction_system")
+
+            11 -> listOf("fig_bio_15_6_cardiac_cycle")
+
+            12 -> listOf("fig_bio_15_7_ecg")
+
+            14 -> listOf("fig_bio_15_8_double_circulation")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_16" -> when (sectionIndex) {
+
+            1 -> listOf("fig_bio_16_1_excretion_modes")
+
+            4 -> listOf("fig_bio_16_2_kidney_ls")
+
+            5 -> listOf("fig_bio_16_3_nephron")
+
+            8 -> listOf("fig_bio_16_4_filtration")
+
+            10 -> listOf("fig_bio_16_5_counter_current")
+
+            12 -> listOf("fig_bio_16_6_segment_functions")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -3423,6 +3535,311 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Mitosis: one division, two identical diploid cells for growth. Meiosis: two divisions, four different haploid cells for reproduction."
 
         )
+
+        "fig_bio_11_1_absorption_action" -> Pair(
+
+            "Fig. 11.1 — Absorption and Action Spectra",
+
+            "Chlorophyll absorbs strongest in blue and red; the action spectrum of photosynthesis follows the same peaks — the overlap that convicts chlorophyll."
+
+        )
+
+        "fig_bio_11_2_z_scheme" -> Pair(
+
+            "Fig. 11.2 — The Z Scheme",
+
+            "Electrons climb from water to NADPH through two photosystems in series — PS II first, then PS I — tracing a Z on the energy scale."
+
+        )
+
+        "fig_bio_11_3_chemiosmosis" -> Pair(
+
+            "Fig. 11.3 — Chemiosmosis in the Thylakoid",
+
+            "Protons pile up in the lumen from water splitting and the PQ shuttle; they pay for ATP as they stream back through the CF0-CF1 synthase."
+
+        )
+
+        "fig_bio_11_4_calvin_cycle" -> Pair(
+
+            "Fig. 11.4 — The Calvin Cycle",
+
+            "Three turns fix three CO2 into one net G3P: carboxylation, reduction and regeneration cost 9 ATP and 6 NADPH per three carbons fixed."
+
+        )
+
+        "fig_bio_11_5_c4_kranz" -> Pair(
+
+            "Fig. 11.5 — The C4 Pathway and Kranz Anatomy",
+
+            "Mesophyll cells pump CO2 as OAA into bundle-sheath cells arranged like a wreath — RuBisCO works in a CO2-rich room where oxygen cannot compete."
+
+        )
+
+        "fig_bio_11_6_c3_c4_compare" -> Pair(
+
+            "Fig. 11.6 — C3 versus C4 Plants",
+
+            "Same glucose goal, two strategies: C3 fixes carbon directly, C4 pays extra ATP to concentrate CO2 and shut down photorespiration."
+
+        )
+
+        "fig_bio_12_1_glycolysis" -> Pair(
+
+            "Fig. 12.1 — Glycolysis Step by Step",
+
+            "Glucose is split in the cytoplasm through ten steps: two ATP invested up front, four earned back, net two — plus two NADH."
+
+        )
+
+        "fig_bio_12_2_fermentation" -> Pair(
+
+            "Fig. 12.2 — Fermentation — Two Ways to Recycle NAD+",
+
+            "Without oxygen, pyruvate becomes lactate in muscle or ethanol and CO2 in yeast — the point is not energy but regenerating NAD+ so glycolysis can continue."
+
+        )
+
+        "fig_bio_12_3_krebs_cycle" -> Pair(
+
+            "Fig. 12.3 — The Krebs Cycle",
+
+            "Acetyl CoA enters, two CO2 leave, and each turn pays out 3 NADH, 1 FADH2 and 1 GTP — oxaloacetate is regenerated to run the wheel again."
+
+        )
+
+        "fig_bio_12_4_ets" -> Pair(
+
+            "Fig. 12.4 — The Electron Transport System",
+
+            "NADH and FADH2 hand electrons to complexes I to IV; the energy pumps protons out, and oxygen waits at the end as the final acceptor, forming water."
+
+        )
+
+        "fig_bio_12_5_atp_ledger" -> Pair(
+
+            "Fig. 12.5 — The ATP Balance Sheet",
+
+            "Adding every stage at 3 ATP per NADH and 2 per FADH2 gives 38 ATP in theory — 36 in most eukaryotes once the cytoplasmic NADH pays its shuttle fare."
+
+        )
+
+        "fig_bio_12_6_rq_amphibolic" -> Pair(
+
+            "Fig. 12.6 — RQ Values and the Amphibolic Pathway",
+
+            "RQ reads the fuel from the gases: 1 for carbohydrate, 0.7 for fat, 4 for organic acids — and respiration intermediates double as building blocks."
+
+        )
+
+        "fig_bio_13_1_growth_curves" -> Pair(
+
+            "Fig. 13.1 — Growth Curves — Arithmetic, Geometric, Sigmoid",
+
+            "Arithmetic growth adds a constant step; geometric growth multiplies; the sigmoid S-curve — lag, log, stationary — is how whole organs actually grow."
+
+        )
+
+        "fig_bio_13_2_pgr_map" -> Pair(
+
+            "Fig. 13.2 — The Five Plant Growth Regulators",
+
+            "Auxins, gibberellins, cytokinins, ethylene and ABA — five chemical messengers whose balance, not any single one, steers plant development."
+
+        )
+
+        "fig_bio_13_3_auxin_effects" -> Pair(
+
+            "Fig. 13.3 — Auxin Effects",
+
+            "One molecule, dose-dependent jobs: root and shoot growth, apical dominance, parthenocarpy — and at herbicide doses, the weed-killer 2,4-D."
+
+        )
+
+        "fig_bio_13_4_photoperiodism" -> Pair(
+
+            "Fig. 13.4 — Photoperiodism and the Night Break",
+
+            "Plants measure the night, not the day: a flash in a long night stops a short-day plant flowering and lets a long-day plant flower."
+
+        )
+
+        "fig_bio_13_5_phytochrome" -> Pair(
+
+            "Fig. 13.5 — Phytochrome — The Red/Far-Red Switch",
+
+            "Pr absorbs red light (660 nm) and becomes Pfr; far-red (730 nm) flips it back — the last flash wins, a fully reversible light switch."
+
+        )
+
+        "fig_bio_13_6_vernalisation_dormancy" -> Pair(
+
+            "Fig. 13.6 — Vernalisation and Seed Dormancy",
+
+            "Some plants flower only after winter cold is registered; seeds sleep through dormancy until water, light or cold breaks the block."
+
+        )
+
+        "fig_bio_14_1_respiratory_system" -> Pair(
+
+            "Fig. 14.1 — The Human Respiratory System",
+
+            "Nostrils to alveoli: the conducting part warms, filters and carries air; only the alveoli — thin-walled and capillary-wrapped — exchange gases."
+
+        )
+
+        "fig_bio_14_2_breathing_mechanism" -> Pair(
+
+            "Fig. 14.2 — The Mechanism of Breathing",
+
+            "Inspiration is active: the diaphragm contracts and flattens, ribs lift, thoracic volume rises and air rushes in. Expiration at rest is passive recoil."
+
+        )
+
+        "fig_bio_14_3_volumes_capacities" -> Pair(
+
+            "Fig. 14.3 — Respiratory Volumes and Capacities",
+
+            "TV 500 mL sits inside IC, EC, FRC and VC; residual volume (about 1100-1200 mL) can never be exhaled and never appears in vital capacity."
+
+        )
+
+        "fig_bio_14_4_partial_pressures" -> Pair(
+
+            "Fig. 14.4 — Partial Pressures Along the Path",
+
+            "pO2 falls 159 to 104 to 95 to 40 mm Hg from air to tissues while pCO2 climbs 0.3 to 40 to 45 — every gradient points the way gases diffuse."
+
+        )
+
+        "fig_bio_14_5_oxyhaemoglobin_curve" -> Pair(
+
+            "Fig. 14.5 — The Oxyhaemoglobin Dissociation Curve",
+
+            "The sigmoid curve: steep where tissues unload, flat where lungs load; heat, CO2 and low pH shift it right — the Bohr effect."
+
+        )
+
+        "fig_bio_14_6_co2_transport" -> Pair(
+
+            "Fig. 14.6 — Transport of Carbon Dioxide",
+
+            "About 70% of CO2 rides as bicarbonate (made by carbonic anhydrase, balanced by the chloride shift), 20-25% as carbamino compounds, about 7% dissolved."
+
+        )
+
+        "fig_bio_15_1_blood_composition" -> Pair(
+
+            "Fig. 15.1 — Composition of Blood",
+
+            "55% plasma, 45% formed elements: RBCs carry oxygen, WBCs defend, platelets seal — and plasma itself is 90-92% water."
+
+        )
+
+        "fig_bio_15_2_blood_groups" -> Pair(
+
+            "Fig. 15.2 — The ABO Blood Groups",
+
+            "Antigens on the RBC decide the group; antibodies in the plasma decide who can donate to whom — O negative gives to all, AB positive receives from all."
+
+        )
+
+        "fig_bio_15_3_coagulation" -> Pair(
+
+            "Fig. 15.3 — Coagulation of Blood",
+
+            "A cascade of inactive factors wakes in sequence until thrombin converts fibrinogen to fibrin threads that trap cells into a clot; calcium is essential."
+
+        )
+
+        "fig_bio_15_4_heart_anatomy" -> Pair(
+
+            "Fig. 15.4 — The Human Heart",
+
+            "Four chambers behind the pericardium: thin-walled atria receive, thick-walled ventricles pump — the left ventricle thickest of all, feeding the whole body."
+
+        )
+
+        "fig_bio_15_5_conduction_system" -> Pair(
+
+            "Fig. 15.5 — The Heart's Conduction System",
+
+            "SAN fires, AVN delays, the bundle of His and Purkinje fibres spread the wave — so atria contract first and ventricles squeeze from the apex up."
+
+        )
+
+        "fig_bio_15_6_cardiac_cycle" -> Pair(
+
+            "Fig. 15.6 — The Cardiac Cycle",
+
+            "0.8 seconds in three acts: atrial systole 0.1 s, ventricular systole 0.3 s, joint diastole 0.4 s — lubb and dupp mark the valves closing."
+
+        )
+
+        "fig_bio_15_7_ecg" -> Pair(
+
+            "Fig. 15.7 — The ECG",
+
+            "P wave: atria depolarise. QRS: ventricles depolarise. T wave: ventricles repolarise — one heartbeat, read as three deflections."
+
+        )
+
+        "fig_bio_15_8_double_circulation" -> Pair(
+
+            "Fig. 15.8 — Double Circulation",
+
+            "Two loops in series: pulmonary (heart-lungs-heart) and systemic (heart-body-heart) — oxygenated and deoxygenated blood never mix in a four-chambered heart."
+
+        )
+
+        "fig_bio_16_1_excretion_modes" -> Pair(
+
+            "Fig. 16.1 — Three Ways to Excrete Nitrogen",
+
+            "Ammonia is cheapest to make but toxic and water-hungry; urea costs energy but saves water; uric acid costs most and needs almost no water."
+
+        )
+
+        "fig_bio_16_2_kidney_ls" -> Pair(
+
+            "Fig. 16.2 — The Kidney in Longitudinal Section",
+
+            "Cortex outside, medulla inside with its pyramids; urine drains from papilla to pelvis to ureter — the hilum is the door for vessels and the ureter."
+
+        )
+
+        "fig_bio_16_3_nephron" -> Pair(
+
+            "Fig. 16.3 — The Nephron",
+
+            "One working unit: glomerulus and Bowman's capsule, PCT, loop of Henle, DCT and collecting duct — about a million per kidney."
+
+        )
+
+        "fig_bio_16_4_filtration" -> Pair(
+
+            "Fig. 16.4 — Glomerular Filtration",
+
+            "125 mL/min — 180 litres a day — forced through a three-layer sieve: endothelium, basement membrane, podocyte slits; cells and plasma proteins stay behind."
+
+        )
+
+        "fig_bio_16_5_counter_current" -> Pair(
+
+            "Fig. 16.5 — The Counter-Current Mechanism",
+
+            "The loop of Henle multiplies the gradient to 1200 mOsmol/L at the papilla; the vasa recta exchange without washing it away — together they concentrate urine."
+
+        )
+
+        "fig_bio_16_6_segment_functions" -> Pair(
+
+            "Fig. 16.6 — What Each Nephron Segment Does",
+
+            "PCT recovers the bulk, the loop builds the gradient, DCT and collecting duct fine-tune under hormonal orders — filtration, reabsorption and secretion by segment."
+
+        )
+
 
 
 
