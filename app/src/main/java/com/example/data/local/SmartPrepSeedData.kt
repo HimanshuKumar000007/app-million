@@ -11728,6 +11728,634 @@ QuestionEntity(
                 Methanogens cannot work in the aeration tank — they are anaerobes — and neither yeast fermentation nor denitrification is the digester process described by NCERT.
                 Hence option C is correct.
             """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_140",
+            chapterId = "bio_ch_28",
+            subject = "Biology",
+            topic = "Restriction Enzymes — Decoding the Name EcoRI",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "In the name of the restriction endonuclease EcoRI, the letter R is derived from",
+            optionA = "The restriction activity of the enzyme",
+            optionB = "The genus Escherichia",
+            optionC = "The strain RY13 of Escherichia coli",
+            optionD = "The order in which the enzyme was isolated",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Restriction enzyme names are built by one NCERT formula: first letter from the genus, next two letters from the species, then a letter from the strain, then a Roman numeral for the order of isolation from that strain.
+                Step 2: In EcoRI, E comes from Escherichia and co from coli — the genus and species. The letter R that follows comes from the strain, RY13.
+                Step 3: The order of isolation is carried by the Roman numeral I at the end, not by the letter R.
+                Trap: R does not stand for the word restriction — that is the guess the naming system is designed to catch.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_141",
+            chapterId = "bio_ch_28",
+            subject = "Biology",
+            topic = "Insertional Inactivation — BamHI Site in tetR",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Foreign DNA is ligated into the BamHI site of the cloning vector pBR322, and the mixture is used to transform Escherichia coli. The recombinant bacteria obtained will",
+            optionA = "Grow on ampicillin medium but not on tetracycline medium",
+            optionB = "Grow on both ampicillin and tetracycline media",
+            optionC = "Grow on tetracycline medium but not on ampicillin medium",
+            optionD = "Fail to grow on either antibiotic medium",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: On the pBR322 map, the BamHI site lies inside the tetracycline-resistance gene, tetR. Ligating foreign DNA there breaks that gene — insertional inactivation.
+                Step 2: The recombinant plasmid therefore loses tetracycline resistance, so the bacteria cannot grow on tetracycline medium.
+                Step 3: The ampicillin-resistance gene, ampR, is untouched and intact, so the same bacteria still grow on ampicillin medium — which is also how transformants are selected.
+                Trap: Growth on both media describes a non-recombinant transformant with an intact tetR gene, not a recombinant.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_142",
+            chapterId = "bio_ch_28",
+            subject = "Biology",
+            topic = "PCR — Cycles Needed for a Billion Copies",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "A polymerase chain reaction begins with a single molecule of the target DNA segment. Assuming perfect doubling in every cycle, the number of cycles needed for the copy count to first exceed one billion (10^9) is",
+            optionA = "20 cycles",
+            optionB = "30 cycles",
+            optionC = "40 cycles",
+            optionD = "10 cycles",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: With one starting molecule, the copy count after n cycles is 2 raised to the power n. The requirement is 2^n greater than 10^9.
+                Step 2: Walk the powers of two: 2^10 is about 10^3, 2^20 is about 10^6, and 2^29 is about 5.4 x 10^8 — still short of a billion. 2^30 is about 1.07 x 10^9, which crosses it.
+                Step 3: The count first exceeds one billion at 30 cycles — exactly the figure behind NCERT's statement that PCR can amplify a segment approximately a billion times.
+                Trap: The growth is a power of two, not a multiplication by the cycle number; 2 x 30 would give only 60 copies.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_143",
+            chapterId = "bio_ch_28",
+            subject = "Biology",
+            topic = "Gel Electrophoresis — Band Positions",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "A mixture of DNA fragments of 2000, 1200, 750 and 250 base pairs is separated by gel electrophoresis and stained with ethidium bromide. The band found farthest from the loading well will be the fragment of",
+            optionA = "2000 base pairs",
+            optionB = "1200 base pairs",
+            optionC = "750 base pairs",
+            optionD = "250 base pairs",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: DNA fragments are negatively charged, so all of them migrate through the agarose gel towards the anode, the positive electrode.
+                Step 2: The gel acts as a sieve: smaller fragments slip through its pores more easily and therefore travel farther in the same time, while larger fragments lag behind near the well.
+                Step 3: The smallest fragment in the mixture, 250 base pairs, travels the greatest distance and forms the band farthest from the loading well.
+                Trap: Distance ranks by smallness, not by size — the 2000 base-pair fragment stays closest to the well.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_144",
+            chapterId = "bio_ch_28",
+            subject = "Biology",
+            topic = "Selection Logic — PstI Site in ampR",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "A gene is cloned into the PstI site of pBR322. Which statement correctly describes the recombinant bacteria and their selection?",
+            optionA = "They grow on ampicillin medium but not on tetracycline medium",
+            optionB = "They grow on both ampicillin and tetracycline media",
+            optionC = "They grow on tetracycline medium but not on ampicillin medium, because the insert has inactivated ampR",
+            optionD = "They cannot be selected on antibiotic media because both marker genes are destroyed",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: The PstI site of pBR322 lies inside the ampicillin-resistance gene, ampR. Inserting foreign DNA at PstI therefore inactivates ampR by insertional inactivation.
+                Step 2: With ampR broken, the recombinant bacteria lose ampicillin resistance and cannot grow on ampicillin medium.
+                Step 3: The tetracycline-resistance gene, tetR, is untouched, so the recombinants still grow on tetracycline medium — and tetracycline becomes the medium on which they are selected, while non-transformants die there too.
+                Trap: The rule is positional, not memorised. Am selects the transformants only when ampR survives; whichever marker hosts the insertion site is always the one destroyed.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_145",
+            chapterId = "bio_ch_29",
+            subject = "Biology",
+            topic = "Bt Cotton and Cry Genes",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "The Bt toxin gene that controls the corn borer is",
+            optionA = "cryIAc",
+            optionB = "cryIIAb",
+            optionC = "cryIAb",
+            optionD = "cryIAc and cryIIAb together",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                NCERT's cry gene map assigns the cotton bollworms to the proteins encoded by cryIAc and cryIIAb.
+                The corn borer is controlled by the protein encoded by a different gene, cryIAb.
+                The map works because most Bt toxins are insect-group specific, so the gene is chosen according to the crop and the targeted pest.
+                Hence option C — cryIAb — is correct.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_146",
+            chapterId = "bio_ch_29",
+            subject = "Biology",
+            topic = "Gene Therapy for ADA Deficiency",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "In the first clinical gene therapy (1990), a four-year-old girl with ADA deficiency was given genetically engineered lymphocytes, yet she requires periodic infusions of such cells. This is because",
+            optionA = "the lymphocytes are not immortal and die after their lifespan",
+            optionB = "the retroviral vector gradually stops working inside the patient",
+            optionC = "the ADA cDNA is rejected as a foreign protein",
+            optionD = "the patient's body destroys the ADA enzyme within weeks",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                In the 1990 therapy, lymphocytes from the girl's blood were grown in culture, given a functional ADA cDNA using a retroviral vector, and returned to her.
+                NCERT states the reason for repetition directly: the patient requires periodic infusions of such genetically engineered lymphocytes because these cells are not immortal.
+                When the engineered lymphocytes die, their corrected gene copies die with them, so fresh corrected cells must be supplied.
+                A permanent cure would require introducing the gene into cells at the early embryonic stage.
+                Hence option A is correct.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_147",
+            chapterId = "bio_ch_29",
+            subject = "Biology",
+            topic = "Transgenic Animals and Biological Products",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Rosie, the first transgenic cow (1997), produced human protein-enriched milk. The protein and its concentration in the milk were",
+            optionA = "alpha-1-antitrypsin, 2.4 grams per litre",
+            optionB = "human alpha-lactalbumin, 2.4 grams per litre",
+            optionC = "human alpha-lactalbumin, 24 grams per litre",
+            optionD = "human insulin, 2.4 grams per litre",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                NCERT records that in 1997 the first transgenic cow, Rosie, produced human protein-enriched milk at 2.4 grams per litre.
+                The milk contained the human alpha-lactalbumin and was nutritionally a more balanced product for human babies than natural cow milk.
+                Alpha-1-antitrypsin is a different biological product — it is used to treat emphysema — and insulin is produced in E. coli, not in Rosie's milk.
+                Hence option B is correct.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_148",
+            chapterId = "bio_ch_29",
+            subject = "Biology",
+            topic = "Molecular Diagnosis",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "A radioactive single-stranded DNA probe is allowed to hybridise with the DNA in a set of cell clones, and the result is read by autoradiography. The clone carrying the mutated gene can be identified because it",
+            optionA = "appears brightest on the photographic film",
+            optionB = "appears twice, at two positions on the film",
+            optionC = "changes colour on the photographic film",
+            optionD = "does not appear on the photographic film",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                The probe hybridises only where it finds its complementary DNA sequence in a clone of cells.
+                A mutated gene has an altered sequence, so the probe has no complementarity with it and cannot hybridise there.
+                NCERT states the consequence directly: the clone having the mutated gene will not appear on the photographic film.
+                The finding is therefore an absence — the dark spots mark the normal clones, and the missing spot marks the mutant.
+                Hence option D is correct.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_149",
+            chapterId = "bio_ch_29",
+            subject = "Biology",
+            topic = "Genetically Engineered Insulin",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 75,
+            prompt = "Eli Lilly's 1983 production of human insulin in E. coli succeeded because the company",
+            optionA = "made E. coli remove the C peptide from proinsulin, like the human pancreas",
+            optionB = "produced chains A and B separately and combined them by creating disulfide bonds",
+            optionC = "extracted ready-made human insulin directly from bacterial cells",
+            optionD = "used yeast cells carrying the complete proinsulin gene",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                In mammals insulin is synthesised as proinsulin, which carries an extra C peptide that is removed during maturation; bacteria cannot run that maturation step.
+                Eli Lilly prepared two DNA sequences corresponding to chains A and B of human insulin and introduced them into plasmids of E. coli.
+                Chains A and B were produced separately, extracted, and combined by creating disulfide bonds to form human insulin — bypassing proinsulin entirely.
+                Getting insulin assembled into its mature form was the main challenge of the rDNA route, and the separate-chain design solved it.
+                Hence option B is correct.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_150",
+            chapterId = "bio_ch_30",
+            subject = "Biology",
+            topic = "Responses to Abiotic Factors — Conformers",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "An overwhelming majority of animals (99 per cent) and nearly all plants are unable to maintain a constant internal environment; their body temperature changes with the ambient temperature and the osmotic concentration of their body fluids follows the surroundings. Such organisms are called:",
+            optionA = "Regulators",
+            optionB = "Conformers",
+            optionC = "Migrators",
+            optionD = "Partial regulators over the full range",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: The stem describes an internal environment that changes with the external environment — no homeostasis is being maintained.
+                Step 2: Organisms whose body temperature and osmotic concentration follow ambient conditions are, by NCERT's definition, conformers — and they make up 99 per cent of animals and nearly all plants.
+                Step 3: Regulators (option A) do the exact opposite, holding the inside constant; migration (option C) is a change of place, not of internal state.
+                Trap: Option D invents a category — NCERT's partial regulators regulate only over a limited range and conform beyond it, so "over the full range" makes the statement false.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_151",
+            chapterId = "bio_ch_30",
+            subject = "Biology",
+            topic = "Population Density — the Four Processes",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "A population has 500 individuals at the start of a year. During the year there are 70 births, 40 deaths, 25 immigrants and 15 emigrants. The population at the start of the next year is:",
+            optionA = "500",
+            optionB = "580",
+            optionC = "540",
+            optionD = "460",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Apply the density bookkeeping equation: N(t+1) = N(t) + [(B + I) − (D + E)] — births and immigration enter, deaths and emigration leave.
+                Step 2: Entries = 70 + 25 = 95. Exits = 40 + 15 = 55. Net change = 95 − 55 = +40.
+                Step 3: N(t+1) = 500 + 40 = 540.
+                Trap: Option B (580) comes from adding all four numbers or forgetting that emigrants leave; option D (460) subtracts the net in the wrong direction.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_152",
+            chapterId = "bio_ch_30",
+            subject = "Biology",
+            topic = "Logistic Growth — Carrying Capacity",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "A population grows logistically with intrinsic rate r = 0.6 per year and carrying capacity K = 2000, following dN/dt = rN × (K − N)/K. Its growth rate dN/dt falls to zero when:",
+            optionA = "N reaches K = 2000",
+            optionB = "N reaches K/2 = 1000",
+            optionC = "N settles above K at about 2500",
+            optionD = "r decays to zero with time",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: In the Verhulst-Pearl equation, growth stops when either factor is zero. With individuals present (N > 0) and r constant, the deciding factor is the environmental resistance term (K − N)/K.
+                Step 2: (K − N)/K equals zero exactly when N = K. At N = 2000 the braking factor vanishes, so dN/dt = 0 and the curve flattens at its asymptote — the carrying capacity.
+                Step 3: Check the distractors against the equation: at N = K/2 the factor is 0.5 and absolute growth is actually at its maximum, not zero.
+                Trap: Option C violates the model's ceiling — a logistic population approaches K from below and does not settle above it; option D misreads r, which is a constant of the species, not a decaying quantity.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_153",
+            chapterId = "bio_ch_30",
+            subject = "Biology",
+            topic = "Mutualism — Fig and Wasp",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "A wasp species lays its eggs inside the fruit of one particular fig species; her larvae feed on some of the developing seeds, and in moving within the fruit she pollinates the fig — a service no other wasp species can perform for this fig. The interaction is:",
+            optionA = "Commensalism",
+            optionB = "Parasitism",
+            optionC = "Competition",
+            optionD = "Mutualism",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Score each partner. The wasp gains an egg-laying site and food for her larvae — a clear benefit (+).
+                Step 2: The fig gains pollination from the only species that can provide it — also a clear benefit (+). A (+, +) sign pair defines mutualism.
+                Step 3: The eaten seeds tempt students towards parasitism, but the fig's net account is positive: without the wasp it cannot reproduce at all. NCERT presents the fig-wasp pair as the flagship of tight, species-specific mutualism.
+                Trap: Commensalism (option A) needs a zero on one side; here both partners receive an essential service, so the zero does not exist.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_154",
+            chapterId = "bio_ch_30",
+            subject = "Biology",
+            topic = "Competition — Connell's Barnacles",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "On the Scottish coast, the smaller barnacle Chathamalus is found only in the upper intertidal zone. When the larger, competitively superior barnacle Balanus is experimentally removed from the lower zone, Chathamalus spreads down into it. This outcome is best described as:",
+            optionA = "Competitive exclusion",
+            optionB = "Resource partitioning",
+            optionC = "Competitive release",
+            optionD = "Brood parasitism",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Identify what changed. Abiotic conditions on the lower shore did not change; only the competitor was removed — and the restricted species immediately expanded its distribution.
+                Step 2: Expansion of a species' range following removal of a superior competitor is competitive release, demonstrated by Connell's field experiments on the rocky Scottish coast.
+                Step 3: The same study shows the other face of competition beforehand: with Balanus present, Chathamalus is excluded from the lower zone — but the question asks about the result of removal, which is release.
+                Trap: Option A names the state before the experiment, not the outcome after it; option B (MacArthur's warblers) requires species dividing a resource by behaviour, which no barnacle does here.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_155",
+            chapterId = "bio_ch_31",
+            subject = "Biology",
+            topic = "Primary Productivity — NPP from GPP and R",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "A grassland has a gross primary productivity (GPP) of 2500 g m-2 yr-1, and its producers lose 1000 g m-2 yr-1 in respiration (R). The net primary productivity (NPP) of this grassland is:",
+            optionA = "3500 g m-2 yr-1",
+            optionB = "2500 g m-2 yr-1",
+            optionC = "1500 g m-2 yr-1",
+            optionD = "1000 g m-2 yr-1",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Recall the defining relation — NPP is what remains of gross production after the producers' own respiratory losses: NPP = GPP − R.
+                Step 2: Substitute the given values: NPP = 2500 − 1000 = 1500 g m-2 yr-1.
+                Step 3: Check the meaning — this 1500 is the biomass actually available to heterotrophs (herbivores and decomposers), which is why NPP, not GPP, feeds the food chain.
+                Trap: Option A adds R instead of subtracting it, and option D simply reports R itself. Option B is GPP unchanged — NPP must always be smaller than GPP.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_156",
+            chapterId = "bio_ch_31",
+            subject = "Biology",
+            topic = "Energy Flow — PAR and the Capture Fraction",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "With reference to the flow of solar energy into an ecosystem, which statement is correct?",
+            optionA = "Plants capture 2 to 10 per cent of the total incident solar radiation",
+            optionB = "Less than 50 per cent of incident solar radiation is PAR, and plants capture only 2 to 10 per cent of the PAR",
+            optionC = "About 90 per cent of incident solar radiation is PAR, of which plants capture half",
+            optionD = "Plants capture 50 per cent of the PAR, which itself forms 2 to 10 per cent of incident radiation",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Fix the first filter — of the total incident solar radiation, less than 50 per cent is photosynthetically active radiation (PAR).
+                Step 2: Fix the second filter — plants capture only 2 to 10 per cent of that PAR, and this small fraction sustains the entire living world.
+                Step 3: Match the options — only option B states both filters with the correct bases: the capture percentage applies to PAR, not to total sunlight.
+                Trap: Option A applies the 2 to 10 per cent to the wrong base (total incident radiation), roughly doubling the true input. Option D swaps the two percentages, and option C invents a 90 per cent PAR share.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_157",
+            chapterId = "bio_ch_31",
+            subject = "Biology",
+            topic = "Decomposition — The Five Steps in Order",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "The processes of decomposition of detritus occur in the following order:",
+            optionA = "Fragmentation, leaching, catabolism, humification, mineralisation",
+            optionB = "Leaching, fragmentation, catabolism, mineralisation, humification",
+            optionC = "Fragmentation, catabolism, leaching, mineralisation, humification",
+            optionD = "Catabolism, fragmentation, leaching, humification, mineralisation",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Anchor the start — detritus is first broken into smaller particles by detritivores such as the earthworm: fragmentation comes first.
+                Step 2: Anchor the end — mineralisation, the release of inorganic nutrients from humus, is the final step; humification, which forms that humus, must come just before it.
+                Step 3: Fill the middle — leaching (water-soluble nutrients move down into the soil) and catabolism (enzymatic degradation) operate simultaneously with fragmentation on the detritus, giving fragmentation, leaching, catabolism, humification, mineralisation.
+                Trap: Options B and D misplace fragmentation, and option C swaps the humus pair — humification builds the resistant humus store, mineralisation spends it; reversing them reverses cause and effect.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_158",
+            chapterId = "bio_ch_31",
+            subject = "Biology",
+            topic = "Ten Per Cent Law — Energy at the Fourth Trophic Level",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "In a grassland food chain, the producers (T1) incorporate 100,000 kcal of energy. Applying Lindeman's ten per cent law, the energy available to the tertiary consumers at the fourth trophic level (T4) is:",
+            optionA = "10,000 kcal",
+            optionB = "1000 kcal",
+            optionC = "10 kcal",
+            optionD = "100 kcal",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Count the transfers, not the organisms — from producers (T1) to T4 there are three transfers: T1 to T2, T2 to T3, T3 to T4.
+                Step 2: Apply the ten per cent law once per transfer: T2 = 100,000 × 0.1 = 10,000 kcal; T3 = 10,000 × 0.1 = 1000 kcal; T4 = 1000 × 0.1 = 100 kcal.
+                Step 3: Sanity-check — three 90 per cent losses leave one-thousandth of the original energy, which is why food chains are short and top carnivores are scarce.
+                Trap: Option B stops one transfer early (that is T3), option A stops two early (T2), and option C applies a fourth transfer that does not exist — the exponent of 0.1 equals the number of arrows, not the trophic-level number.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_159",
+            chapterId = "bio_ch_31",
+            subject = "Biology",
+            topic = "Phosphorus Cycle — Contrast with the Carbon Cycle",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Which of the following correctly distinguishes the phosphorus cycle from the carbon cycle?",
+            optionA = "Phosphorus is released into the atmosphere during respiration, whereas carbon is not",
+            optionB = "Gaseous exchanges of phosphorus between organisms and the environment are negligible, and there is no respiratory release of phosphorus",
+            optionC = "The reservoir of phosphorus is the atmosphere, whereas that of carbon is rock",
+            optionD = "Atmospheric inputs of phosphorus through rainfall are much larger than those of carbon",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Recall the phosphorus basics — its natural reservoir is rock containing phosphates, and the cycle is sedimentary, with no gaseous phase.
+                Step 2: Apply NCERT's two stated differences: atmospheric inputs of phosphorus through rainfall are much smaller than carbon inputs, and gaseous exchanges of phosphorus between organism and environment are negligible.
+                Step 3: Therefore there is no respiratory release of phosphorus into the atmosphere — exactly what option B states. Carbon, by contrast, returns to the air through respiration.
+                Trap: Option A inverts the truth (respiratory release belongs to carbon). Option C swaps the reservoirs — rock is phosphorus's store, atmosphere and oceans are carbon's. Option D reverses the rainfall comparison.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_160",
+            chapterId = "bio_ch_32",
+            subject = "Biology",
+            topic = "How Many Species — Robert May's Estimate",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "According to Robert May, the global species diversity — the total number of species estimated to exist on earth — is about:",
+            optionA = "1.5 million",
+            optionB = "7 million",
+            optionC = "20 million",
+            optionD = "50 million",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Separate the two census numbers of this chapter. Slightly more than 1.5 million is the count of species described so far (IUCN, 2004) — a record of naming work, not of existence.
+                Step 2: Robert May's conservative, scientifically sound estimate of the species that actually exist is about 7 million, most of them still undescribed, largely in the tropics.
+                Step 3: The figures of 20 million and 50 million are the extreme estimates NCERT mentions only to set aside in favour of May's value, so option B is correct.
+                Trap: Option A is the planted swap — it answers the question "how many have been described" rather than the question asked, "how many are estimated to exist".
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_161",
+            chapterId = "bio_ch_32",
+            subject = "Biology",
+            topic = "Loss of Biodiversity — Alien Species Invasion",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The Nile perch introduced into Lake Victoria in East Africa eventually led to the extinction of an ecologically unique assemblage of more than 200 species of cichlid fish in the lake. In the Evil Quartet of causes of biodiversity loss, this extinction is an example of:",
+            optionA = "Over-exploitation",
+            optionB = "Habitat loss and fragmentation",
+            optionC = "Co-extinction",
+            optionD = "Alien species invasion",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Ask what exactly killed the victims. The cichlids were not harvested by humans and their lake habitat was not drained or split; they were eaten and out-competed by a newly arrived predator.
+                Step 2: When an alien species is introduced, intentionally or unintentionally, and turns invasive so that indigenous species decline or vanish, NCERT files the loss under alien species invasion — option D.
+                Step 3: The same chapter's companion examples confirm the pattern: Parthenium, Lantana and water hyacinth (Eichhornia) as invasive weeds, and the African catfish Clarias gariepinus threatening indigenous catfishes.
+                Trap: Option A tempts because humans released the perch, but over-exploitation means humans themselves harvested the victim species, as with Steller's sea cow and the passenger pigeon. The quartet sorts by the killing mechanism, and here the perch did the killing.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_162",
+            chapterId = "bio_ch_32",
+            subject = "Biology",
+            topic = "Species-Area Relationship — The Z Value",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "For frugivorous (fruit-eating) birds and mammals in the tropical forests of different continents, the value of Z (the slope of the line in log S = log C + Z log A) is:",
+            optionA = "1.15",
+            optionB = "0.15",
+            optionC = "0.2",
+            optionD = "11.5",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Recall the two Z bands. For relatively small areas studied within a region — plants in Britain, birds in California, molluscs in New York State — Z lies in the narrow range of 0.1 to 0.2, regardless of the taxonomic group or region.
+                Step 2: For very large areas, like entire continents, the slope becomes much steeper, and Z values lie in the range of 0.6 to 1.2.
+                Step 3: NCERT's worked example of that steep band is precisely the group named in the question: frugivorous birds and mammals across tropical forest continents, whose slope is 1.15 — option A.
+                Trap: Options B and C are the small-area band wearing a disguise. The question's words "different continents" are the trigger: continental scale always pulls Z out of the 0.1 to 0.2 band.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_163",
+            chapterId = "bio_ch_32",
+            subject = "Biology",
+            topic = "Conservation — Ex Situ Methods",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Which one of the following is an ex situ method of conserving biodiversity?",
+            optionA = "Declaring a national park",
+            optionB = "Protecting a sacred grove",
+            optionC = "Preserving gametes of threatened species by cryopreservation",
+            optionD = "Declaring a biosphere reserve",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Apply the dividing question: does the species stay in its natural habitat under protection (in situ), or is it kept outside that habitat under human care (ex situ)?
+                Step 2: National parks, biosphere reserves and sacred groves all protect species where they live, in place — they are the chapter's standard in situ addresses, so options A, B and D fall.
+                Step 3: Cryopreservation keeps gametes of threatened species viable and fertile for long periods in a facility — the organism's material is in human custody, away from the wild. That is NCERT's flagship modern ex situ technique: option C.
+                Trap: Option B tempts students who picture a forest and assume it must be the "advanced" answer, but sacred groves are purely protective in place — the purest in situ method in the chapter. The freezer, not the forest, is ex situ here.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_164",
+            chapterId = "bio_ch_32",
+            subject = "Biology",
+            topic = "Importance of Diversity — Tilman's Experiments",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "In David Tilman's long-term ecosystem experiments using outdoor plots, the plots with more species showed:",
+            optionA = "Greater year-to-year variation in total biomass",
+            optionB = "Less year-to-year variation in total biomass, and increased diversity contributed to higher productivity",
+            optionC = "Lower productivity than the species-poor plots",
+            optionD = "No change in total biomass across the years of the experiment",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Recall what Tilman actually measured over many years in outdoor plots: the total biomass of each plot, and how much that total swung from year to year as species richness changed.
+                Step 2: His two findings were that plots with more species showed less year-to-year variation in total biomass — the stability result — and that increased diversity contributed to higher productivity. Option B states both findings together.
+                Step 3: Option A inverts the stability result, option C inverts the productivity result, and option D confuses a steadier total with a frozen one — the totals still varied, just less.
+                Trap: The experiment belongs to Tilman and the plots; do not let the statement drift toward Paul Ehrlich, whose contribution to this chapter is the rivet popper hypothesis, an analogy rather than an experiment.
+            """.trimIndent()
         )
 
     )
