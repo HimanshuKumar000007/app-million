@@ -361,6 +361,20 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "phys_ch_3" -> when (sectionIndex) {
+
+            2 -> listOf("fig_3_1_vector_addition")
+
+            4 -> listOf("fig_3_2_resolution")
+
+            8 -> listOf("fig_3_3_projectile")
+
+            11 -> listOf("fig_3_4_circular")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }

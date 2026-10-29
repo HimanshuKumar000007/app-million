@@ -31,7 +31,11 @@ object ChapterFigureData {
         "fig_1_5_si_constants" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175518/physics-ch01-fig-1-5-si-constants.png",
         "fig_2_1_xt_graphs" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793245650/physics-ch02-fig-2-1-xt-graphs.png",
         "fig_2_2_vt_graph" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793245651/physics-ch02-fig-2-2-vt-graph.png",
-        "fig_2_3_free_fall" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793245652/physics-ch02-fig-2-3-free-fall.png"
+        "fig_2_3_free_fall" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793245652/physics-ch02-fig-2-3-free-fall.png",
+        "fig_3_1_vector_addition" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793246016/physics-ch03-fig-3-1-vector-addition.png",
+        "fig_3_2_resolution" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793246017/physics-ch03-fig-3-2-resolution.png",
+        "fig_3_3_projectile" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793246018/physics-ch03-fig-3-3-projectile.png",
+        "fig_3_4_circular" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793246020/physics-ch03-fig-3-4-circular-motion.png"
     )
 
     val images: Map<String, String> = mapOf(
