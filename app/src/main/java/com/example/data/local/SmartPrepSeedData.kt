@@ -10348,7 +10348,757 @@ QuestionEntity(
         optionD = "cannot cross the filtration membrane and never enters the filtrate",
         correctOptionIndex = 2,
         stepByStepExplanation = "Glucose is small enough to pass freely through the filtration membrane, so it IS present in the glomerular filtrate. Normally the PCT reabsorbs all of it — along with all amino acids and 70-80 percent of electrolytes and water — so healthy urine contains no glucose. Glucose appears in urine only when the PCT's transport capacity is exceeded (very high blood glucose) or the PCT is damaged. It is neither secreted by the DCT nor handled by the collecting duct, which fine-tunes water, not glucose."
-    )
+    ),
+
+QuestionEntity(
+            id = "q_bio_85",
+            chapterId = "bio_ch_17",
+            subject = "Biology",
+            topic = "Living World — Defining Features of Life",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "Which one of the following is a defining feature of living organisms, because it occurs in all of them without exception and in no non-living object?",
+            optionA = "Growth by increase in mass",
+            optionB = "Reproduction to produce progeny",
+            optionC = "Metabolism, the sum of all chemical reactions in the body",
+            optionD = "Increase in the number of individuals",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Apply the two-sided test. A defining feature must be present in every living organism and absent in every non-living thing.
+                Step 2: Growth fails both sides — mountains and sand mounds grow by accretion, and adult animals stop growing. Reproduction fails because mules, sterile worker bees and infertile couples are alive without it.
+                Step 3: Metabolism passes: every living organism carries on the sum total of chemical reactions in its body, and no non-living object exhibits metabolism at all.
+                Trap: Options A and D describe the same trait from two angles — increase in mass and increase in number are the two halves of growth, and growth is only a characteristic of life, not its definition.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_86",
+            chapterId = "bio_ch_17",
+            subject = "Biology",
+            topic = "Living World — Why Reproduction Is Not Defining",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "A mule is healthy, responsive and fully grown, yet it can never produce offspring. This single fact is used in NCERT to establish that:",
+            optionA = "Reproduction cannot be an all-inclusive defining characteristic of living organisms",
+            optionB = "Mules are not truly living organisms",
+            optionC = "Growth alone defines a living organism",
+            optionD = "Only sexually reproducing organisms are alive",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: The mule is obviously alive — it metabolises, senses and responds. Yet it is sterile, like worker bees and infertile human couples.
+                Step 2: If reproduction were a defining feature, every sterile organism would have to be non-living, which is absurd. Hence reproduction cannot be an all-inclusive defining characteristic.
+                Step 3: Option A states exactly this NCERT conclusion, worded carefully with "all-inclusive".
+                Trap: Option B reverses the logic — the mule is the evidence, not the exception to be discarded. Option C fails because non-living objects also grow, and option D contradicts the many asexually reproducing organisms.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_87",
+            chapterId = "bio_ch_17",
+            subject = "Biology",
+            topic = "Living World — Rules of Binomial Nomenclature",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "A student handwrites the name of the lion as a single word underlined once: panthera Leo. How many rules of binomial nomenclature has the student broken?",
+            optionA = "One — only the underlining is wrong",
+            optionB = "Two — the underlining and one case error",
+            optionC = "Four — word count, genus case, epithet case and underlining",
+            optionD = "Three — genus case, epithet case and underlining",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: List the rules that apply: the name has two words (a binomial), the genus starts with a capital letter, the specific epithet starts with a small letter, and handwritten names are underlined separately word by word.
+                Step 2: Count the violations in "panthera Leo": the genus is written with a small letter (error 1), the epithet Leo is capitalised (error 2), and the two words are underlined together instead of separately (error 3).
+                Step 3: The word count is fine — there are two words — so the total is three broken rules, option D.
+                Trap: Option C tempts students who also count "one word" — but panthera and Leo are two separate words; the fault lies in their case and in the single joined underline, not in their number.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_88",
+            chapterId = "bio_ch_17",
+            subject = "Biology",
+            topic = "Living World — Taxonomic Categories of the Housefly",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The housefly, Musca domestica, belongs to which family and order?",
+            optionA = "Family Diptera and order Muscidae",
+            optionB = "Family Muscidae and order Diptera",
+            optionC = "Family Muscidae and order Insecta",
+            optionD = "Family Hominidae and order Primata",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Pull up the NCERT table row for the housefly: genus Musca, family Muscidae, order Diptera, class Insecta, phylum Arthropoda.
+                Step 2: The family is Muscidae — built, as family names are, on the genus Musca. The order is Diptera, the two-winged flies.
+                Step 3: Only option B places Muscidae at family rank and Diptera at order rank.
+                Trap: Option A swaps the two ranks, the classic table-shuffle. Option C promotes Insecta, which is the class, not the order. Option D is the human row pasted onto the fly.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_89",
+            chapterId = "bio_ch_17",
+            subject = "Biology",
+            topic = "Living World — Taxonomic Aids",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "A researcher needs (i) a pressed specimen of a rare plant for reference, (ii) an account of the habitat and distribution of plants of her district, and (iii) paired contrasting statements to key out an unknown insect. The aids she should use, in order, are:",
+            optionA = "Museum, manual and flora",
+            optionB = "Botanical garden, flora and monograph",
+            optionC = "Herbarium, flora and key",
+            optionD = "Herbarium, monograph and key",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Match each need to its aid. A pressed, dried plant specimen preserved on a sheet for quick reference is the herbarium — not the museum, which is the general preserved-collection aid, and not a garden, which holds living plants.
+                Step 2: The account of habitat and distribution of plants of a given area is the definition of a flora. A manual serves identification of names, and a monograph treats one taxon — neither matches need (ii).
+                Step 3: Paired contrasting statements are couplets, and couplets build a key — the analytical identification aid.
+                Trap: Option D fails only at the middle need — the monograph is about one taxon, not about an area's plants and where they grow. Each distractor breaks exactly one link of the chain, so all three matches must be verified, not just the first.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_90",
+            chapterId = "bio_ch_18",
+            subject = "Biology",
+            topic = "Sarcomere — Band Changes in Contraction",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "When a skeletal muscle contracts, which of the following remains unchanged in length?",
+            optionA = "The I band",
+            optionB = "The H zone",
+            optionC = "The A band",
+            optionD = "The distance between two Z lines",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Apply the sliding filament theory. During contraction the thin actin filaments slide inward over the thick myosin filaments; neither filament shortens, only their overlap increases.
+                Step 2: The A band is defined by the length of the thick myosin filaments. Since the myosin filaments do not change length, the A band retains its length.
+                Step 3: Option C is therefore the unchanged quantity.
+                Trap: The I band is reduced and the H zone shrinks or disappears as actin advances, and the Z lines are pulled closer together — all three of the other options change. Students who picture the whole sarcomere shrinking uniformly pick the A band as shrinking too.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_91",
+            chapterId = "bio_ch_18",
+            subject = "Biology",
+            topic = "Skull Region — Composition of the 29 Bones",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The skull region of the human axial skeleton is counted as 29 bones. Which composition is correct?",
+            optionA = "Cranial 8, facial 14, ear ossicles 3 and hyoid 1",
+            optionB = "Cranial 8, facial 14, ear ossicles 6 and hyoid 1",
+            optionC = "Cranial 14, facial 8, ear ossicles 6 and hyoid 1",
+            optionD = "Cranial 8, facial 14, ear ossicles 6 and one vertebra",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Rebuild the skull-region total from its NCERT parts: cranial bones 8, facial bones 14, ear ossicles 6 (malleus, incus and stapes in each ear) and the single hyoid bone. Audit the sum: 8 plus 14 plus 6 plus 1 equals 29.
+                Step 2: Option B matches every component and the total.
+                Step 3: The answer is option B.
+                Trap: Option C also sums to 29 but swaps the cranial and facial counts — the total cannot rescue a swapped addend. Option A counts the ossicles of only one ear, giving 26. Option D reaches 29 with a vertebra, which belongs to the vertebral column, not the skull region.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_92",
+            chapterId = "bio_ch_18",
+            subject = "Biology",
+            topic = "Contraction Mechanism — Unmasking of Actin Sites",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "In a resting muscle fibre the active sites for myosin on the actin filaments are masked. These sites are exposed when:",
+            optionA = "Calcium ions bind to a subunit of troponin, shifting the cover off the sites",
+            optionB = "ATP binds to troponin and pulls it off the actin filament",
+            optionC = "Tropomyosin is broken down by calcium ions released into the sarcoplasm",
+            optionD = "The myosin head pulls the tropomyosin strand away by force",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: At rest, a subunit of troponin masks the active binding sites for myosin on the actin filament, with tropomyosin lying over the sites.
+                Step 2: When calcium ions flood the sarcoplasm from the sarcoplasmic reticulum, they bind to a subunit of troponin. This shifts the troponin-tropomyosin cover aside and exposes the active sites, so myosin heads can bind and form cross bridges.
+                Step 3: Option A states this mechanism exactly.
+                Trap: ATP never binds troponin — ATP binds the myosin head (option B). Tropomyosin is shifted, not broken down (option C). The unmasking is done by calcium acting on troponin before any head can bind, so the head cannot pull the cover away itself (option D).
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_93",
+            chapterId = "bio_ch_18",
+            subject = "Biology",
+            topic = "Contraction — Sequence of Events",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "Arrange the following events of muscle contraction in the correct sequence: (i) Ca2+ released from the sarcoplasmic reticulum binds troponin and the active sites on actin are exposed; (ii) acetylcholine is released at the motor-end plate; (iii) the myosin head binds actin, forms a cross bridge and pulls the actin filament; (iv) an action potential spreads over the sarcolemma.",
+            optionA = "(ii), (i), (iv), (iii)",
+            optionB = "(iv), (ii), (i), (iii)",
+            optionC = "(ii), (iv), (iii), (i)",
+            optionD = "(ii), (iv), (i), (iii)",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Anchor the chain at its two ends. The signal arrives from the nerve first, so acetylcholine release at the motor-end plate (ii) must be the opening event. The cross bridge (iii) can only form after the actin sites are exposed, so it must be last.
+                Step 2: Between them, the action potential spreads over the sarcolemma (iv) and triggers calcium release; calcium binding troponin and exposing the sites (i) follows.
+                Step 3: The full chain is (ii), (iv), (i), (iii) — option D.
+                Trap: Option A releases calcium before the action potential that triggers it. Option B starts with the action potential before the acetylcholine that generates it. Option C forms the cross bridge before the sites it needs are exposed.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_94",
+            chapterId = "bio_ch_18",
+            subject = "Biology",
+            topic = "Disorders — Tetany and Low Calcium",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "A patient shows rapid, wild spasms of the muscles, and blood tests reveal a very low level of calcium ions in the body fluid. The disorder is:",
+            optionA = "Myasthenia gravis",
+            optionB = "Tetany",
+            optionC = "Muscular dystrophy",
+            optionD = "Osteoporosis",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Match the trigger words in the stem. The two diagnostic clues are rapid spasms in the muscles and low calcium ions in the body fluid.
+                Step 2: Tetany is defined in NCERT by exactly this pairing — rapid spasms (wild contractions) in the muscles due to low calcium ions in body fluid.
+                Step 3: The answer is option B.
+                Trap: Myasthenia gravis is an autoimmune disorder of the neuromuscular junction causing fatigue and weakening, not spasms from low calcium (option A). Muscular dystrophy is genetic, with progressive degeneration of the muscle itself (option C). Osteoporosis is decreased bone mass with increased fracture risk — a skeletal disorder with no muscle spasms (option D).
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_95",
+            chapterId = "bio_ch_19",
+            subject = "Biology",
+            topic = "Neuron Structure — Nissl Granules",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "Nissl granules are characteristically ABSENT from which part of a neuron?",
+            optionA = "The cell body (soma)",
+            optionB = "The axon",
+            optionC = "The dendrites",
+            optionD = "The cytoplasm around the nucleus",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Nissl granules are the granular, protein-synthesising bodies of the neuron. NCERT places them in the cell body, whose cytoplasm contains the nucleus and these granules.
+                Step 2: Dendrites also contain Nissl granules — they are continuous with the cell body's cytoplasm. The axon, a pure transmission cable maintained from the soma, does not.
+                Step 3: The part without Nissl granules is the axon — option B.
+                Trap: Options A, C and D all describe the receiving end of the neuron (cell body and dendrites), which is exactly where the granules are found. The one-mark discriminator of this chapter is granule location: soma and dendrites yes, axon no.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_96",
+            chapterId = "bio_ch_19",
+            subject = "Biology",
+            topic = "Resting Potential — The Sodium-Potassium Pump",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "In one cycle, the sodium-potassium pump of a resting axon transports:",
+            optionA = "2 Na+ out of the axon and 3 K+ into the axon",
+            optionB = "3 Na+ into the axon and 2 K+ out of the axon",
+            optionC = "3 Na+ out of the axon and 2 K+ into the axon",
+            optionD = "2 Na+ into the axon and 3 K+ out of the axon",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Recall what the pump maintains: the axoplasm is rich in K+ and poor in Na+, while the fluid outside is rich in Na+. Leaks constantly erode this arrangement, so the pump must push Na+ out and pull K+ in.
+                Step 2: The stoichiometry is fixed: for each ATP consumed, 3 Na+ are transported out and 2 K+ are transported in — a net export of one positive charge per cycle, which also helps keep the inside negative.
+                Step 3: The matching statement is 3 Na+ out, 2 K+ in — option C.
+                Trap: Option B reverses both directions — that describes the channel flows of depolarisation, not the pump. Options A and D keep the 3-2 numbers but attach them to the wrong ions; the ratio and the directions must both be right.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_97",
+            chapterId = "bio_ch_19",
+            subject = "Biology",
+            topic = "Conduction — Saltatory Conduction",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Saltatory conduction in a myelinated fibre is fast mainly because the action potential is regenerated only at the:",
+            optionA = "Nodes of Ranvier, so the impulse leaps from one node to the next",
+            optionB = "Schwann cells, which actively carry the impulse along",
+            optionC = "Synaptic knobs at the branched end of the fibre",
+            optionD = "Axon hillock, from where it is re-sent repeatedly",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Myelin is insulation — beneath the sheath no ion exchange with the extracellular fluid is possible, so no regeneration can happen there.
+                Step 2: The gaps between two adjacent myelin sheaths are the nodes of Ranvier, where the axon membrane is exposed. Regeneration happens only at these nodes, so the impulse appears to jump node to node instead of being rebuilt at every patch.
+                Step 3: Fewer regenerations over the same length means a much faster journey — option A.
+                Trap: Option B makes the Schwann cell the conductor; Schwann cells only build the sheath (in the PNS) and never carry the impulse. Options C and D name real structures, but neither is a regeneration site along the fibre.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_98",
+            chapterId = "bio_ch_19",
+            subject = "Biology",
+            topic = "Synaptic Transmission — Sequence of Events",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "Arrange the events of chemical synaptic transmission in the correct order: (i) neurotransmitter binds to receptors on the post-synaptic membrane; (ii) synaptic vesicles fuse with the pre-synaptic membrane; (iii) an action potential arrives at the axon terminal; (iv) ion channels open in the post-synaptic membrane; (v) neurotransmitter diffuses across the synaptic cleft.",
+            optionA = "(iii), (v), (ii), (i), (iv)",
+            optionB = "(ii), (iii), (v), (iv), (i)",
+            optionC = "(iii), (ii), (i), (v), (iv)",
+            optionD = "(iii), (ii), (v), (i), (iv)",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Anchor the start. Nothing at a synapse begins until the impulse arrives, so (iii) must be first. This eliminates option B, which starts with vesicle fusion.
+                Step 2: Arrival triggers the vesicles to move and fuse with the pre-synaptic membrane, releasing neurotransmitter — (ii) second. The transmitter must then diffuse across the fluid-filled cleft (v) before it can bind receptors (i); option C wrongly binds before diffusing.
+                Step 3: Binding is what opens the post-synaptic ion channels, so (iv) is last. The full chain is (iii), (ii), (v), (i), (iv) — option D.
+                Trap: Option A releases the transmitter (placing diffusion before fusion) — vesicles cannot empty their contents across a cleft before they have fused with the membrane. In every ordering question, fix the two anchors first: arrival first, post-synaptic channel opening last.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_99",
+            chapterId = "bio_ch_19",
+            subject = "Biology",
+            topic = "Human Eye — The Blind Spot",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "A small object seems to vanish when its image falls exactly on the blind spot of the eye. This happens because that region of the retina:",
+            optionA = "Contains only cones, which cannot work without bright light",
+            optionB = "Contains no photoreceptor cells at all, since the optic nerve leaves the eye there",
+            optionC = "Is covered by the vitreous humour, which blocks the light",
+            optionD = "Contains rods whose rhodopsin is temporarily bleached",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: The blind spot is the optic disc — the point slightly above the posterior pole where the optic nerves leave the eye and the retinal blood vessels enter it.
+                Step 2: NCERT states that photoreceptor cells are not present in that region. With neither rods nor cones, no signal can be generated from that patch of the image, so the object is not seen.
+                Step 3: The correct explanation is the complete absence of photoreceptors — option B.
+                Trap: Option A describes the fovea (cones only, sharpest vision) — the functional opposite of the blind spot, and the pairing examiners love to swap. Option D fails because a region with no rods cannot have bleached rods, and option C fails because the vitreous humour fills the whole posterior cavity, not one small spot.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_100",
+            chapterId = "bio_ch_20",
+            subject = "Biology",
+            topic = "Pituitary — Site of Hormone Synthesis",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "Oxytocin and vasopressin (ADH), the hormones released from the posterior pituitary, are actually synthesised in the:",
+            optionA = "Anterior pituitary (pars distalis)",
+            optionB = "Posterior pituitary (neurohypophysis)",
+            optionC = "Hypothalamus",
+            optionD = "Pineal gland",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: The posterior pituitary is under the direct neural regulation of the hypothalamus. Its two hormones are made by neurosecretory cells of the hypothalamus.
+                Step 2: They travel down the axons of those neurons to the posterior lobe, which only stores them and releases them into the blood when signalled.
+                Step 3: The site of synthesis is therefore the hypothalamus — option C.
+                Trap: Option B is the release site, and released from is not made in. Option A makes the anterior pituitary's own six hormones (GH, PRL, TSH, ACTH, LH, FSH) — a different lobe with a different supply line, the portal blood.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_101",
+            chapterId = "bio_ch_20",
+            subject = "Biology",
+            topic = "Parathyroid — PTH and Blood Calcium",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "The hypercalcemic hormone, which increases the calcium level of the blood, is:",
+            optionA = "Parathyroid hormone (PTH)",
+            optionB = "Thyrocalcitonin (TCT)",
+            optionC = "Insulin",
+            optionD = "Aldosterone",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Hypercalcemic means calcium-raising. PTH from the four parathyroid glands raises blood calcium by three routes: resorption of bone, reabsorption of calcium by the renal tubules, and increased absorption of calcium from digested food.
+                Step 2: Its secretion is itself controlled by blood calcium — calcium falls, PTH is released; calcium rises, PTH switches off. A hormone secreted when calcium is low must be the one that raises it.
+                Step 3: The hypercalcemic hormone is PTH — option A.
+                Trap: Option B, thyrocalcitonin from the thyroid, does the exact opposite — it lowers blood calcium. Insulin (option C) regulates glucose, not calcium, and aldosterone (option D) manages sodium and water balance.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_102",
+            chapterId = "bio_ch_20",
+            subject = "Biology",
+            topic = "Diabetes Insipidus — ADH Deficiency",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "A patient passes very large volumes of dilute urine and feels constantly thirsty. Blood glucose is normal and the urine contains no glucose. The most likely cause is:",
+            optionA = "Deficiency of insulin from the beta cells of the pancreas",
+            optionB = "Excess of glucagon from the alpha cells of the pancreas",
+            optionC = "Deficiency of thyroxine from the thyroid gland",
+            optionD = "Deficiency of ADH (vasopressin), reducing water resorption in the kidney tubules",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Read the two normal results first. Normal blood glucose and glucose-free urine rule out diabetes mellitus, where insulin failure sends blood glucose high enough to spill into urine.
+                Step 2: What remains is a pure water problem: the kidney tubules are failing to reclaim water. ADH (vasopressin) is the hormone that stimulates resorption of water and electrolytes by the distal tubules, so its deficiency produces exactly this picture — diabetes insipidus.
+                Step 3: The cause is ADH deficiency — option D.
+                Trap: Options A and B are the pancreas pair and both disturb glucose, which this patient's reports exclude. Option C would slow metabolism (weight gain, cold intolerance), not flood the urine. The word diabetes names the urine volume in both diseases; the hormone and gland are completely different.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_103",
+            chapterId = "bio_ch_20",
+            subject = "Biology",
+            topic = "Adrenal Cortex — Zona Glomerulosa and Aldosterone",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Aldosterone, the chief mineralocorticoid, is secreted by which part of the adrenal gland?",
+            optionA = "Zona fasciculata of the adrenal cortex",
+            optionB = "Zona glomerulosa of the adrenal cortex",
+            optionC = "Zona reticularis of the adrenal cortex",
+            optionD = "Adrenal medulla",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: The adrenal cortex has three layers, outside to inside: glomerulosa, fasciculata, reticularis — G, F, R. Each layer makes one hormone family: salt, sugar, sex in the same order.
+                Step 2: Aldosterone is the salt hormone — a mineralocorticoid acting at the renal tubules to reabsorb sodium and water and excrete potassium and phosphate. Salt belongs to the outer layer, the zona glomerulosa.
+                Step 3: The answer is the zona glomerulosa — option B.
+                Trap: The fasciculata (option A) makes glucocorticoids such as cortisol, and the reticularis (option C) makes androgens. The medulla (option D) is not cortex at all — it secretes the catecholamines adrenaline and noradrenaline.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_104",
+            chapterId = "bio_ch_20",
+            subject = "Biology",
+            topic = "Thyroid Disorders — Exophthalmic Goitre",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "A patient shows an enlarged thyroid gland, protrusion of the eyeballs, loss of weight despite a good appetite and an increased basal metabolic rate. The diagnosis is:",
+            optionA = "Simple goitre, due to iodine deficiency in the diet",
+            optionB = "Myxoedema, also called Gull's disease",
+            optionC = "Exophthalmic goitre, also called Graves' disease",
+            optionD = "Cretinism, due to hypothyroidism during pregnancy",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Sort by direction first. Weight loss with a raised basal metabolic rate means the metabolic thermostat is turned up — this is hyperthyroidism, an excess of thyroid hormone, not a deficiency.
+                Step 2: That single step eliminates options A, B and D, which are all deficiency states: simple goitre (iodine deficiency, low output despite the enlarged gland), myxoedema (adult hypothyroidism — weight gain and slowness, the opposite picture) and cretinism (developmental hypothyroidism with stunted growth and low IQ).
+                Step 3: The protruding eyeballs — exophthalmos — are the signature that names the hyperthyroid condition: exophthalmic goitre, Graves' disease — option C.
+                Trap: The enlarged gland in option A tempts students who match on neck size alone. Always match on hormone direction first (fast symptoms mean excess), then use the eyes to confirm.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_105",
+            chapterId = "bio_ch_21",
+            subject = "Biology",
+            topic = "Testis — Leydig Cells and Androgens",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "Androgens in the human male are synthesised and secreted by:",
+            optionA = "Sertoli cells located inside the seminiferous tubules",
+            optionB = "Leydig cells located in the interstitial spaces outside the seminiferous tubules",
+            optionC = "Spermatogonia lining the wall of the seminiferous tubules",
+            optionD = "The prostate gland",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Fix the tubule map. Inside the seminiferous tubule are the male germ cells and the Sertoli cells, which provide nutrition to the developing germ cells. Outside the tubules, in the interstitial spaces, lie the Leydig cells, also called interstitial cells.
+                Step 2: NCERT assigns androgen production to exactly one address: the Leydig cells synthesise and secrete the androgens, acting under the pituitary hormone LH.
+                Step 3: Option B names the right cells in the right location.
+                Trap: Option A swaps the two cell teams — Sertoli cells nourish, they do not secrete androgens. Option C names the germ cells, which become sperms and secrete no hormones. Option D is a gland, but the prostate contributes seminal plasma, not androgens.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_106",
+            chapterId = "bio_ch_21",
+            subject = "Biology",
+            topic = "Oogenesis — Completion of Meiosis II",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "In human females, the second meiotic division of the oocyte is completed:",
+            optionA = "At the time of ovulation, inside the Graafian follicle",
+            optionB = "Before birth, during fetal development of the ovary",
+            optionC = "Only after a sperm enters the secondary oocyte, during fertilisation",
+            optionD = "At puberty, when the menstrual cycle begins",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Rebuild the oocyte's two arrests. The primary oocyte starts meiosis I in fetal life and arrests in prophase I; it completes meiosis I only in the tertiary follicle shortly before ovulation, producing the secondary oocyte and the first polar body.
+                Step 2: The secondary oocyte — the cell actually released at ovulation — begins meiosis II and arrests again. That division is completed only when a sperm enters it, producing the ovum and the second polar body.
+                Step 3: The completion of meiosis II is therefore tied to fertilisation, not to ovulation — option C.
+                Trap: Option A describes the completion of meiosis I, the division finished just before ovulation. Option B is when meiosis I merely begins (and arrests). Option D is when follicles resume development, not when any division completes.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_107",
+            chapterId = "bio_ch_21",
+            subject = "Biology",
+            topic = "Menstrual Cycle — The LH Surge and Ovulation",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "Ovulation in a regular 28-day menstrual cycle is directly triggered by:",
+            optionA = "The LH surge — a rapid mid-cycle rise in luteinising hormone that ruptures the Graafian follicle",
+            optionB = "A peak of progesterone secreted by the corpus luteum",
+            optionC = "The fall of estrogen levels at the end of the menstrual phase",
+            optionD = "FSH acting alone on a primary follicle",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Place the event. Ovulation falls mid-cycle, at about day 14, when the mature Graafian follicle ruptures and releases the secondary oocyte.
+                Step 2: Both LH and FSH peak at mid-cycle, but NCERT names the trigger precisely: rapid secretion of LH — the LH surge — induces the rupture of the Graafian follicle and the release of the oocyte.
+                Step 3: Option A gives the right hormone, the right event and the right mechanism.
+                Trap: Option B's progesterone belongs to the luteal phase, after ovulation, and comes from the corpus luteum — which does not even exist until the follicle has ruptured. Option C inverts estrogen's real pattern (it rises through the follicular phase and peaks just before ovulation). Option D forgets that FSH's job is follicle growth, not the rupture itself.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_108",
+            chapterId = "bio_ch_21",
+            subject = "Biology",
+            topic = "Placenta — The Hormone That Is Not Placental",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 60,
+            prompt = "Which of the following hormones is NOT secreted by the human placenta?",
+            optionA = "Human chorionic gonadotrophin (hCG)",
+            optionB = "Human placental lactogen (hPL)",
+            optionC = "Progestogens",
+            optionD = "Relaxin",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Write out the closed placental set from NCERT: the placenta acts as an endocrine tissue and secretes hCG, hPL, estrogens and progestogens. Membership in this set is the whole question.
+                Step 2: Check each option against the set. hCG is in it. hPL is in it. Progestogens are in it. Relaxin is not — NCERT assigns relaxin to the ovary, which secretes it in the later phase of pregnancy.
+                Step 3: The outsider is relaxin — option D.
+                Trap: Relaxin sounds like a pregnancy hormone, and it is one — the trap is the source, not the relevance. A second common outsider planted in such questions is oxytocin, which comes from the maternal pituitary, not the placenta.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_109",
+            chapterId = "bio_ch_21",
+            subject = "Biology",
+            topic = "Spermatogenesis — Ploidy and Yield",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "A primary spermatocyte carrying 46 chromosomes completes spermatogenesis normally. The final result is:",
+            optionA = "Two sperms, each carrying 46 chromosomes",
+            optionB = "Four sperms, each carrying 46 chromosomes",
+            optionC = "Four sperms, each carrying 23 chromosomes",
+            optionD = "Two sperms, each carrying 23 chromosomes",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Count the cells first. Meiosis I turns one primary spermatocyte into two secondary spermatocytes; meiosis II turns those into four spermatids; spermiogenesis converts each spermatid into one sperm. Yield: four sperms, which eliminates options A and D.
+                Step 2: Count the chromosomes next. The halving from 2n to n happens at meiosis I, so the secondary spermatocytes already carry 23, and meiosis II changes nothing in the number. Every sperm is haploid, carrying 23 chromosomes.
+                Step 3: Four sperms of 23 chromosomes each — option C.
+                Trap: Option B keeps the correct cell count but forgets reduction division entirely. Option D halves the chromosomes correctly but deletes meiosis II from the cell count. The two numbers are decided by two different steps, and each wrong option breaks exactly one of them.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_110",
+            chapterId = "bio_ch_22",
+            subject = "Biology",
+            topic = "Oral Pills — Saheli, the Weekly Pill",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "Saheli, the oral contraceptive for females developed by scientists at CDRI, Lucknow, is correctly described as:",
+            optionA = "A steroidal preparation taken daily for 21 days",
+            optionB = "A non-steroidal preparation taken only once a week",
+            optionC = "A hormone-releasing intra uterine device",
+            optionD = "A steroidal preparation taken once a month",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Recall Saheli's identity cards. It is an oral contraceptive pill, but it breaks the ordinary pill pattern in two ways: its preparation is non-steroidal, and it is taken once a week, not daily. It was developed by scientists at the Central Drug Research Institute (CDRI) in Lucknow and has very few side effects with high contraceptive value.
+                Step 2: Test each option against those cards. Option A is the ordinary steroidal daily pill, not Saheli. Option C describes an IUD such as LNG-20, a device, not a pill at all. Option D keeps the weekly rhythm wrong (monthly) and the chemistry wrong (steroidal).
+                Step 3: Only option B matches both identity cards — non-steroidal and once a week.
+                Trap: The daily 21-day rhythm belongs to the conventional progestogen or progestogen-estrogen pills. Saheli questions are lost by students who file every pill under that one schedule.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_111",
+            chapterId = "bio_ch_22",
+            subject = "Biology",
+            topic = "IUDs — How Copper Ions Work",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "The copper ions released by a copper-releasing IUD such as CuT prevent pregnancy mainly by:",
+            optionA = "Inhibiting ovulation in every menstrual cycle",
+            optionB = "Making the cervix hostile to the sperms",
+            optionC = "Suppressing sperm motility and the fertilising capacity of sperms",
+            optionD = "Physically blocking both fallopian tubes",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Sort the IUD family by what each kind releases. Non-medicated IUDs (Lippes loop) release nothing. Copper-releasing IUDs (CuT, Cu7, Multiload 375) release copper ions. Hormone-releasing IUDs (Progestasert, LNG-20) release hormones.
+                Step 2: Attach each mechanism to its owner. The copper ions suppress sperm motility and the fertilising capacity of sperms. Making the uterus unsuitable for implantation and the cervix hostile to sperms is the hormone-releasing pair's job. Inhibiting ovulation is the pills' mechanism, and blocking the tubes is tubectomy — a surgical method, not a device effect.
+                Step 3: The copper mechanism is option C.
+                Trap: Option B is a real mechanism of the wrong subgroup — it belongs to LNG-20 and Progestasert. Inside the IUD family, the released substance (ions versus hormones) decides the mechanism, and this question is engineered to swap them.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_112",
+            chapterId = "bio_ch_22",
+            subject = "Biology",
+            topic = "Natural Methods — Periodic Abstinence Window",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "A couple practising periodic abstinence must avoid coitus during the fertile period of the menstrual cycle, when ovulation can be expected. This period is:",
+            optionA = "Days 10 to 17 of the menstrual cycle",
+            optionB = "Days 1 to 7 of the menstrual cycle",
+            optionC = "Days 18 to 28 of the menstrual cycle",
+            optionD = "Only the single day of menstruation",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Periodic abstinence works on the principle of avoiding the chances of ovum and sperms meeting. The couple abstains from coitus during the fertile period, when ovulation could be expected and the chances of fertilisation are very high.
+                Step 2: The chapter fixes that window by day numbers counted from day 1 of the menstrual cycle: days 10 to 17. Days 1 to 7 include menstruation itself and precede the fertile window; days 18 to 28 come after it; a single day is far too narrow to cover the days on which sperms and ovum can meet.
+                Step 3: The window is days 10 to 17 — option A.
+                Trap: Students who anchor the count to the end of menstruation, or who shrink the window to the day of ovulation alone (about day 14), miss that the chapter's abstinence period is a full eight-day span, 10 to 17.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_113",
+            chapterId = "bio_ch_22",
+            subject = "Biology",
+            topic = "STIs — The Curability Exception List",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Which of the following sexually transmitted infections is NOT completely curable even when it is detected early and treated properly?",
+            optionA = "Gonorrhoea",
+            optionB = "Syphilis",
+            optionC = "Trichomoniasis",
+            optionD = "Genital herpes",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Apply the chapter's curability rule: except for hepatitis-B, genital herpes and HIV infections, all other sexually transmitted infections are completely curable if detected early and treated properly.
+                Step 2: Check the four options against the exception list. Gonorrhoea (bacterial) is not excepted — curable. Syphilis (bacterial) is not excepted — curable. Trichomoniasis (protozoan) is not excepted — curable. Genital herpes (viral) IS one of the three exceptions.
+                Step 3: The infection that is not completely curable is genital herpes — option D.
+                Trap: The exception list has exactly three members — hepatitis-B, genital herpes and HIV. Students often add the famous bacterial diseases (syphilis, gonorrhoea) to the incurable side out of fear, but the chapter places them firmly among the completely curable, provided treatment is early and complete.
+            """.trimIndent()
+        ),
+
+QuestionEntity(
+            id = "q_bio_114",
+            chapterId = "bio_ch_22",
+            subject = "Biology",
+            topic = "ART — ZIFT versus IUT by Blastomere Count",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "In an IVF laboratory, an embryo is allowed to develop beyond the 8-blastomere stage before transfer. The correct technique and the correct site of transfer for this embryo are:",
+            optionA = "ZIFT — transferred into the fallopian tube",
+            optionB = "GIFT — transferred into the fallopian tube",
+            optionC = "IUT — transferred into the uterus",
+            optionD = "ICSI — injected into the uterus",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Rebuild the routing rule. After in vitro fertilisation, the zygote or early embryos with up to 8 blastomeres are transferred into the fallopian tube — that is ZIFT, zygote intra fallopian transfer. Embryos with more than 8 blastomeres are transferred into the uterus — that is IUT, intra uterine transfer.
+                Step 2: The embryo in the question has crossed the boundary — it is beyond 8 blastomeres — so it fails the ZIFT criterion and matches the IUT criterion, with the uterus as its destination.
+                Step 3: Option C is correct. Option A uses the right organ family but the wrong side of the count. Option B fails twice: GIFT transfers a gamete (an ovum), not an embryo, and is not an embryo-transfer technique at all. Option D misuses ICSI, which is the laboratory injection of a single sperm into an ovum, not a transfer procedure.
+                Trap: The boundary is inclusive on the ZIFT side — exactly 8 blastomeres still goes to the fallopian tube. Only embryos with MORE than 8 blastomeres change both the technique's name and the destination organ.
+            """.trimIndent()
+        )
 
     )
 
