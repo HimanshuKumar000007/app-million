@@ -582,6 +582,70 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "phys_ch_19" -> when (sectionIndex) {
+
+            1 -> listOf("fig_19_1_field_lines")
+
+            6 -> listOf("fig_19_3_earth_elements")
+
+            12 -> listOf("fig_19_2_hysteresis_loop")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_20" -> when (sectionIndex) {
+
+            2 -> listOf("fig_20_2_flux_emf_graphs")
+
+            3 -> listOf("fig_20_1_lenz_situations")
+
+            12 -> listOf("fig_20_3_ac_generator")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_21" -> when (sectionIndex) {
+
+            6 -> listOf("fig_21_1_phasors_lc")
+
+            8 -> listOf("fig_21_2_lcr_phasor_impedance")
+
+            10 -> listOf("fig_21_3_resonance_curve")
+
+            14 -> listOf("fig_21_4_transformer")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_22" -> when (sectionIndex) {
+
+            1 -> listOf("fig_22_3_displacement_current")
+
+            5 -> listOf("fig_22_1_em_wave")
+
+            9 -> listOf("fig_22_2_em_spectrum")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_23" -> when (sectionIndex) {
+
+            3 -> listOf("fig_23_1_mirror_rays")
+
+            10 -> listOf("fig_23_2_lens_rays")
+
+            12 -> listOf("fig_23_3_prism_deviation")
+
+            15 -> listOf("fig_23_4_telescope")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -1093,6 +1157,142 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Fig. 18.4 — Field Inside and Outside a Wire",
 
             "B grows linearly inside a uniform-current wire, peaks at the surface, then falls as 1/r."
+
+        )
+
+        "fig_19_1_field_lines" -> Pair(
+
+            "Fig. 19.1 — Field Lines of a Bar Magnet",
+
+            "Outside, lines run north to south; inside the magnet they complete their loops — they never end."
+
+        )
+
+        "fig_19_2_hysteresis_loop" -> Pair(
+
+            "Fig. 19.2 — The Hysteresis Loop",
+
+            "Retentivity is what stays; coercivity is what it takes to erase it; the loop area is energy lost per cycle."
+
+        )
+
+        "fig_19_3_earth_elements" -> Pair(
+
+            "Fig. 19.3 — Earth's Magnetic Elements",
+
+            "Declination, dip and the horizontal component pin down Earth's field anywhere on the surface."
+
+        )
+
+        "fig_20_1_lenz_situations" -> Pair(
+
+            "Fig. 20.1 — Lenz's Law Situations",
+
+            "Induced current always fights the change: approach makes a repelling pole, retreat an attracting one."
+
+        )
+
+        "fig_20_2_flux_emf_graphs" -> Pair(
+
+            "Fig. 20.2 — EMF Is the Slope of Flux",
+
+            "The steepest flux change makes the biggest EMF — whatever the flux value itself happens to be."
+
+        )
+
+        "fig_20_3_ac_generator" -> Pair(
+
+            "Fig. 20.3 — The AC Generator",
+
+            "A coil spinning in a magnetic field trades flux sinusoidally — out comes alternating EMF."
+
+        )
+
+        "fig_21_1_phasors_lc" -> Pair(
+
+            "Fig. 21.1 — Phasors for Inductor and Capacitor",
+
+            "In an inductor the voltage leads; in a capacitor the current leads — ELI the ICE man."
+
+        )
+
+        "fig_21_2_lcr_phasor_impedance" -> Pair(
+
+            "Fig. 21.2 — The LCR Phasor Diagram",
+
+            "VR in phase, VL up, VC down: the supply voltage is the vector sum — a 3-4-5 triangle here."
+
+        )
+
+        "fig_21_3_resonance_curve" -> Pair(
+
+            "Fig. 21.3 — The Resonance Curve",
+
+            "At resonance the current peaks; smaller resistance makes the peak taller and sharper."
+
+        )
+
+        "fig_21_4_transformer" -> Pair(
+
+            "Fig. 21.4 — The Transformer",
+
+            "Two coils on one laminated core: the turns ratio sets the voltage ratio."
+
+        )
+
+        "fig_22_1_em_wave" -> Pair(
+
+            "Fig. 22.1 — Anatomy of an EM Wave",
+
+            "E and B oscillate in phase, mutually perpendicular, both transverse to the travel direction."
+
+        )
+
+        "fig_22_2_em_spectrum" -> Pair(
+
+            "Fig. 22.2 — The Electromagnetic Spectrum",
+
+            "One family across twenty orders of magnitude — radio to gamma, all moving at c."
+
+        )
+
+        "fig_22_3_displacement_current" -> Pair(
+
+            "Fig. 22.3 — Displacement Current",
+
+            "No charge crosses a charging capacitor's gap — yet the changing E field there acts exactly like a current."
+
+        )
+
+        "fig_23_1_mirror_rays" -> Pair(
+
+            "Fig. 23.1 — Concave Mirror Ray Diagrams",
+
+            "Parallel ray through the focus, focal ray out parallel: two standard rays fix every image."
+
+        )
+
+        "fig_23_2_lens_rays" -> Pair(
+
+            "Fig. 23.2 — Convex Lens Ray Diagrams",
+
+            "The same three standard rays build every lens image, real or virtual."
+
+        )
+
+        "fig_23_3_prism_deviation" -> Pair(
+
+            "Fig. 23.3 — Deviation Through a Prism",
+
+            "Deviation dips to a minimum at symmetric passage — that minimum measures the refractive index."
+
+        )
+
+        "fig_23_4_telescope" -> Pair(
+
+            "Fig. 23.4 — The Astronomical Telescope",
+
+            "The objective forms a real image at its focus; the eyepiece magnifies it for the eye."
 
         )
 

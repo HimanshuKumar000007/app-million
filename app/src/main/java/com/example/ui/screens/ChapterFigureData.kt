@@ -93,7 +93,24 @@ object ChapterFigureData {
         "fig_18_1_circular_helical" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268415/physics-ch18-fig-18-1-circular-helical.png",
         "fig_18_2_field_lines_wire_loop" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268417/physics-ch18-fig-18-2-field-lines-wire-loop.png",
         "fig_18_3_cyclotron" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268418/physics-ch18-fig-18-3-cyclotron.png",
-        "fig_18_4_b_vs_r_wire" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268420/physics-ch18-fig-18-4-b-versus-r-wire.png"
+        "fig_18_4_b_vs_r_wire" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268420/physics-ch18-fig-18-4-b-versus-r-wire.png",
+        "fig_19_1_field_lines" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269779/physics-ch19-fig-19-1-field-lines.png",
+        "fig_19_2_hysteresis_loop" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269781/physics-ch19-fig-19-2-hysteresis-loop.png",
+        "fig_19_3_earth_elements" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269782/physics-ch19-fig-19-3-earth-elements.png",
+        "fig_20_2_flux_emf_graphs" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269378/physics-ch20-fig-20-2-flux-emf-graphs.png",
+        "fig_20_1_lenz_situations" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269377/physics-ch20-fig-20-1-lenz-situations.png",
+        "fig_20_3_ac_generator" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269379/physics-ch20-fig-20-3-ac-generator.png",
+        "fig_21_1_phasors_lc" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269565/physics-ch21-fig-21-1-phasors-lc.png",
+        "fig_21_2_lcr_phasor_impedance" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269566/physics-ch21-fig-21-2-lcr-phasor-impedance.png",
+        "fig_21_3_resonance_curve" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269567/physics-ch21-fig-21-3-resonance-curve.png",
+        "fig_21_4_transformer" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269568/physics-ch21-fig-21-4-transformer.png",
+        "fig_22_3_displacement_current" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269778/physics-ch22-fig-22-3-displacement-current.png",
+        "fig_22_1_em_wave" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269775/physics-ch22-fig-22-1-em-wave.png",
+        "fig_22_2_em_spectrum" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269777/physics-ch22-fig-22-2-em-spectrum.png",
+        "fig_23_1_mirror_rays" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269693/physics-ch23-fig-23-1-concave-mirror-rays.png",
+        "fig_23_2_lens_rays" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269694/physics-ch23-fig-23-2-convex-lens-rays.png",
+        "fig_23_3_prism_deviation" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269696/physics-ch23-fig-23-3-prism-deviation-graph.png",
+        "fig_23_4_telescope" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269697/physics-ch23-fig-23-4-astronomical-telescope.png"
     )
 
     val images: Map<String, String> = mapOf(
