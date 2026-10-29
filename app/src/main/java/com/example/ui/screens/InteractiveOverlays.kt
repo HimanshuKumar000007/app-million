@@ -834,6 +834,68 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "chem_ch_11" -> when (sectionIndex) {
+
+            3 -> listOf("fig_chem_11_2_molar_conductance")
+
+            5 -> listOf("fig_chem_11_1_galvanic_cell")
+
+            10 -> listOf("fig_chem_11_3_electrolysis_setup")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_12" -> when (sectionIndex) {
+
+            5 -> listOf("fig_chem_12_1_integrated_plots")
+
+            10 -> listOf("fig_chem_12_2_arrhenius")
+
+            11 -> listOf("fig_chem_12_3_energy_profile")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_13" -> when (sectionIndex) {
+
+            5 -> listOf("fig_chem_13_1_stability_ladders")
+
+            6 -> listOf("fig_chem_13_2_electronic_effects")
+
+            8 -> listOf("fig_chem_13_4_purification")
+
+            9 -> listOf("fig_chem_13_3_lassaigne")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_14" -> when (sectionIndex) {
+
+            5 -> listOf("fig_chem_14_1_markovnikov")
+
+            6 -> listOf("fig_chem_14_3_ozonolysis")
+
+            10 -> listOf("fig_chem_14_2_sear_mechanism")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_15" -> when (sectionIndex) {
+
+            7 -> listOf("fig_chem_15_1_sn1_sn2_profiles")
+
+            9 -> listOf("fig_chem_15_2_stereochemistry")
+
+            14 -> listOf("fig_chem_15_3_aryl_resonance")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -1875,6 +1937,135 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Solvent flows through the semipermeable membrane towards the solution until the liquid head balances the osmotic pressure."
 
         )
+
+        "fig_chem_11_1_galvanic_cell" -> Pair(
+
+            "Fig. 11.1 — The Galvanic Cell",
+
+            "A Daniell cell: oxidation at the zinc anode, reduction at the copper cathode, electrons through the wire, ions through the salt bridge."
+
+        )
+
+        "fig_chem_11_2_molar_conductance" -> Pair(
+
+            "Fig. 11.2 — Molar Conductance against Concentration",
+
+            "Strong electrolytes rise gently and extrapolate cleanly; weak electrolytes stay low, then climb steeply on dilution."
+
+        )
+
+        "fig_chem_11_3_electrolysis_setup" -> Pair(
+
+            "Fig. 11.3 — The Electrolytic Cell",
+
+            "The battery drives a non-spontaneous change: cations move to the cathode, which here is the negative terminal — the sign trap of this chapter."
+
+        )
+
+        "fig_chem_12_1_integrated_plots" -> Pair(
+
+            "Fig. 12.1 — Integrated Rate Plots",
+
+            "Zero order is linear in concentration and first order is linear in log concentration — the straight line names the order."
+
+        )
+
+        "fig_chem_12_2_arrhenius" -> Pair(
+
+            "Fig. 12.2 — Temperature and the Arrhenius Equation",
+
+            "Plotting ln k against 1/T gives a straight line whose slope is minus Ea over R; warming moves more molecules past the barrier."
+
+        )
+
+        "fig_chem_12_3_energy_profile" -> Pair(
+
+            "Fig. 12.3 — Activation Energy and the Catalyst",
+
+            "A catalyst opens a lower-barrier path: same start, same finish, faster journey in both directions."
+
+        )
+
+        "fig_chem_13_1_stability_ladders" -> Pair(
+
+            "Fig. 13.1 — Stability Ladders of Reactive Intermediates",
+
+            "Carbocations and free radicals climb in the order 3 degree, 2 degree, 1 degree; carbanions run the ladder in reverse."
+
+        )
+
+        "fig_chem_13_2_electronic_effects" -> Pair(
+
+            "Fig. 13.2 — The Four Electronic Effects",
+
+            "Inductive pull fades along a chain, resonance delocalises charge, hyperconjugation donates from alpha C-H bonds, and the electromeric shift answers a reagent's approach."
+
+        )
+
+        "fig_chem_13_3_lassaigne" -> Pair(
+
+            "Fig. 13.3 — Lassaigne's Test",
+
+            "The sodium extract carries nitrogen, sulphur and halogens into simple colour tests: Prussian blue, black lead sulphide, silver halide precipitates."
+
+        )
+
+        "fig_chem_13_4_purification" -> Pair(
+
+            "Fig. 13.4 — Choosing a Purification Method",
+
+            "Match the method to the mixture: boiling-point gaps distil, solubility differences crystallise, and Rf differences separate on a plate."
+
+        )
+
+        "fig_chem_14_1_markovnikov" -> Pair(
+
+            "Fig. 14.1 — Markovnikov versus the Peroxide Effect",
+
+            "Plain HBr follows the stable carbocation to 2-bromopropane; peroxide switches the mechanism to radicals and gives 1-bromopropane."
+
+        )
+
+        "fig_chem_14_2_sear_mechanism" -> Pair(
+
+            "Fig. 14.2 — Electrophilic Aromatic Substitution",
+
+            "Electrophile attack forms the arenium ion — the expensive step — then loss of a proton restores the aromatic ring."
+
+        )
+
+        "fig_chem_14_3_ozonolysis" -> Pair(
+
+            "Fig. 14.3 — Ozonolysis: Cutting the Double Bond",
+
+            "Each alkene carbon becomes a carbonyl carbon: CH2 gives formaldehyde, CHR an aldehyde, and CR2 a ketone."
+
+        )
+
+        "fig_chem_15_1_sn1_sn2_profiles" -> Pair(
+
+            "Fig. 15.1 — SN1 versus SN2 Energy Profiles",
+
+            "SN2 crosses one hill in a single step; SN1 climbs two hills with a flat carbocation valley in between."
+
+        )
+
+        "fig_chem_15_2_stereochemistry" -> Pair(
+
+            "Fig. 15.2 — Stereochemistry: Inversion versus Racemisation",
+
+            "Backside attack flips the centre like an umbrella in the wind; a flat carbocation is attacked from both faces and racemises."
+
+        )
+
+        "fig_chem_15_3_aryl_resonance" -> Pair(
+
+            "Fig. 15.3 — Why Chlorobenzene's C-Cl Bond Is Different",
+
+            "Resonance gives the aryl C-Cl bond partial double-bond character: 169 pm against 178 pm in alkyl chlorides — shorter, stronger, slower to break."
+
+        )
+
 
 
 

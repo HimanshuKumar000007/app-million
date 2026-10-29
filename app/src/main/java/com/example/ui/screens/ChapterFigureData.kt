@@ -159,7 +159,23 @@ object ChapterFigureData {
         "fig_chem_9_3_electron_transfer" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272233/chemistry-ch09-fig-9-3-electron-transfer.png",
         "fig_chem_10_1_raoult_ideal" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272168/chemistry-ch10-fig-10-1-raoult-ideal.png",
         "fig_chem_10_2_deviations" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272169/chemistry-ch10-fig-10-2-deviations.png",
-        "fig_chem_10_3_osmosis" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272170/chemistry-ch10-fig-10-3-osmosis.png"
+        "fig_chem_10_3_osmosis" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793272170/chemistry-ch10-fig-10-3-osmosis.png",
+        "fig_chem_11_1_galvanic_cell" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273075/chemistry-ch11-fig-11-1-galvanic-cell.png",
+        "fig_chem_11_2_molar_conductance" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273076/chemistry-ch11-fig-11-2-molar-conductance.png",
+        "fig_chem_11_3_electrolysis_setup" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273077/chemistry-ch11-fig-11-3-electrolysis-setup.png",
+        "fig_chem_12_1_integrated_plots" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273061/chemistry-ch12-fig-12-1-integrated-plots.png",
+        "fig_chem_12_2_arrhenius" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273062/chemistry-ch12-fig-12-2-arrhenius.png",
+        "fig_chem_12_3_energy_profile" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273063/chemistry-ch12-fig-12-3-energy-profile.png",
+        "fig_chem_13_1_stability_ladders" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273095/chemistry-ch13-fig-13-1-stability-ladders.png",
+        "fig_chem_13_2_electronic_effects" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273096/chemistry-ch13-fig-13-2-electronic-effects.png",
+        "fig_chem_13_3_lassaigne" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273097/chemistry-ch13-fig-13-3-lassaigne.png",
+        "fig_chem_13_4_purification" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273099/chemistry-ch13-fig-13-4-purification.png",
+        "fig_chem_14_1_markovnikov" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273088/chemistry-ch14-fig-14-1-markovnikov.png",
+        "fig_chem_14_2_sear_mechanism" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273089/chemistry-ch14-fig-14-2-sear-mechanism.png",
+        "fig_chem_14_3_ozonolysis" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273090/chemistry-ch14-fig-14-3-ozonolysis.png",
+        "fig_chem_15_1_sn1_sn2_profiles" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273241/chemistry-ch15-fig-15-1-sn1-sn2-profiles.png",
+        "fig_chem_15_2_stereochemistry" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273242/chemistry-ch15-fig-15-2-stereochemistry.png",
+        "fig_chem_15_3_aryl_resonance" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273243/chemistry-ch15-fig-15-3-aryl-resonance.png"
     )
 
     val images: Map<String, String> = mapOf(
