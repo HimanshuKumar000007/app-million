@@ -444,6 +444,74 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "phys_ch_9" -> when (sectionIndex) {
+
+            5 -> listOf("fig_9_1_hydraulic_lift")
+
+            8 -> listOf("fig_9_2_venturi")
+
+            9 -> listOf("fig_9_3_viscous_profile")
+
+            15 -> listOf("fig_9_4_capillary_rise")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_10" -> when (sectionIndex) {
+
+            5 -> listOf("fig_10_2_bimetallic_strip")
+
+            10 -> listOf("fig_10_1_heating_curve")
+
+            12 -> listOf("fig_10_3_composite_slab")
+
+            15 -> listOf("fig_10_4_newton_cooling")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_11" -> when (sectionIndex) {
+
+            10 -> listOf("fig_11_1_isothermal_vs_adiabatic")
+
+            12 -> listOf("fig_11_3_cyclic_work_area")
+
+            14 -> listOf("fig_11_4_heat_engine_flow")
+
+            15 -> listOf("fig_11_2_carnot_cycle")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_12" -> when (sectionIndex) {
+
+            5 -> listOf("fig_12_2_kinetic_box")
+
+            7 -> listOf("fig_12_1_maxwell_distribution")
+
+            8 -> listOf("fig_12_3_degrees_of_freedom")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_13" -> when (sectionIndex) {
+
+            5 -> listOf("fig_13_2_reference_circle")
+
+            8 -> listOf("fig_13_1_xva_graphs")
+
+            12 -> listOf("fig_13_3_energy")
+
+            13 -> listOf("fig_13_4_simple_pendulum")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -643,6 +711,158 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Fig. 8.3 — Sagging of a Loaded Beam",
 
             "Central sag grows as L³ and shrinks as d³ — why girders are deep, not wide."
+
+        )
+
+        "fig_9_1_hydraulic_lift" -> Pair(
+
+            "Fig. 9.1 — The Hydraulic Lift",
+
+            "Pascal's law at work: a small force on the narrow piston lifts a car on the wide one."
+
+        )
+
+        "fig_9_2_venturi" -> Pair(
+
+            "Fig. 9.2 — The Venturi Meter",
+
+            "Where the tube narrows, the fluid speeds up and the pressure drops — Bernoulli in action."
+
+        )
+
+        "fig_9_3_viscous_profile" -> Pair(
+
+            "Fig. 9.3 — Velocity Profile in Viscous Flow",
+
+            "Fluid layers slide over each other: fastest at the centre line, at rest against the wall."
+
+        )
+
+        "fig_9_4_capillary_rise" -> Pair(
+
+            "Fig. 9.4 — Capillary Rise",
+
+            "Adhesion pulls the meniscus upward until the column's weight balances the surface pull."
+
+        )
+
+        "fig_10_1_heating_curve" -> Pair(
+
+            "Fig. 10.1 — The Heating Curve of Water",
+
+            "At melting and boiling the temperature pauses: heat breaks bonds instead of speeding molecules."
+
+        )
+
+        "fig_10_2_bimetallic_strip" -> Pair(
+
+            "Fig. 10.2 — The Bimetallic Strip",
+
+            "Two bonded metals expand unequally and the strip bends — the working heart of a thermostat."
+
+        )
+
+        "fig_10_3_composite_slab" -> Pair(
+
+            "Fig. 10.3 — Conduction Through a Composite Slab",
+
+            "In series the same heat current crosses both slabs; the temperature profile kinks at the joint."
+
+        )
+
+        "fig_10_4_newton_cooling" -> Pair(
+
+            "Fig. 10.4 — Newton's Law of Cooling",
+
+            "The temperature gap to the surroundings decays exponentially, fast at first, then slower."
+
+        )
+
+        "fig_11_1_isothermal_vs_adiabatic" -> Pair(
+
+            "Fig. 11.1 — Isothermal versus Adiabatic Expansion",
+
+            "From the same point the adiabatic falls steeper — exactly γ times steeper at the crossing."
+
+        )
+
+        "fig_11_2_carnot_cycle" -> Pair(
+
+            "Fig. 11.2 — The Carnot Cycle",
+
+            "Two isotherms and two adiabats: the most efficient loop physics allows between two reservoirs."
+
+        )
+
+        "fig_11_3_cyclic_work_area" -> Pair(
+
+            "Fig. 11.3 — Work Is the Area of the Loop",
+
+            "A cyclic process returns to its start state; the net work equals the enclosed P–V area."
+
+        )
+
+        "fig_11_4_heat_engine_flow" -> Pair(
+
+            "Fig. 11.4 — Heat Engine Energy Flow",
+
+            "Q1 enters from the hot reservoir, W leaves as work, Q2 is rejected to the cold reservoir."
+
+        )
+
+        "fig_12_1_maxwell_distribution" -> Pair(
+
+            "Fig. 12.1 — The Maxwell Speed Distribution",
+
+            "A hotter gas peaks lower and further right; the area — the molecule count — never changes."
+
+        )
+
+        "fig_12_2_kinetic_box" -> Pair(
+
+            "Fig. 12.2 — Pressure from Molecular Collisions",
+
+            "Each wall bounce hands over 2mvx of momentum; trillions of bounces feel like steady pressure."
+
+        )
+
+        "fig_12_3_degrees_of_freedom" -> Pair(
+
+            "Fig. 12.3 — Degrees of Freedom",
+
+            "Monatomic f = 3, rigid diatomic f = 5, vibrating diatomic f = 7 — equipartition counts them."
+
+        )
+
+        "fig_13_1_xva_graphs" -> Pair(
+
+            "Fig. 13.1 — Displacement, Velocity and Acceleration in SHM",
+
+            "Three waves a quarter-cycle apart: velocity leads displacement, acceleration opposes it exactly."
+
+        )
+
+        "fig_13_2_reference_circle" -> Pair(
+
+            "Fig. 13.2 — The Reference Circle",
+
+            "SHM is the shadow of uniform circular motion projected onto a diameter."
+
+        )
+
+        "fig_13_3_energy" -> Pair(
+
+            "Fig. 13.3 — Energy in SHM",
+
+            "Kinetic and potential energy trade places twice per cycle; their sum never changes."
+
+        )
+
+        "fig_13_4_simple_pendulum" -> Pair(
+
+            "Fig. 13.4 — The Simple Pendulum",
+
+            "Only the tangential component of weight restores the bob — for small angles, a perfect SHM force."
 
         )
 

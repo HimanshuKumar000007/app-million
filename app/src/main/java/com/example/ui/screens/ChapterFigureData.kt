@@ -54,7 +54,26 @@ object ChapterFigureData {
         "fig_7_4_satellite_orbit" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264179/physics-ch07-fig-7-4-satellite-orbit.png",
         "fig_8_2_deformation_modes" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264304/physics-ch08-fig-8-2-deformation-modes.png",
         "fig_8_1_stress_strain_curve" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264299/physics-ch08-fig-8-1-stress-strain-curve.png",
-        "fig_8_3_sagging_beam" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264305/physics-ch08-fig-8-3-sagging-beam.png"
+        "fig_8_3_sagging_beam" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264305/physics-ch08-fig-8-3-sagging-beam.png",
+        "fig_9_1_hydraulic_lift" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267902/physics-ch09-fig-9-1-hydraulic-lift.png",
+        "fig_9_2_venturi" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267903/physics-ch09-fig-9-2-venturi.png",
+        "fig_9_3_viscous_profile" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267904/physics-ch09-fig-9-3-viscous-profile.png",
+        "fig_9_4_capillary_rise" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267905/physics-ch09-fig-9-4-capillary-rise.png",
+        "fig_10_2_bimetallic_strip" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267892/physics-ch10-fig-10-2-bimetallic-strip.png",
+        "fig_10_1_heating_curve" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267890/physics-ch10-fig-10-1-heating-curve.png",
+        "fig_10_3_composite_slab" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267893/physics-ch10-fig-10-3-composite-slab.png",
+        "fig_10_4_newton_cooling" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267895/physics-ch10-fig-10-4-newton-cooling.png",
+        "fig_11_1_isothermal_vs_adiabatic" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267788/physics-ch11-fig-11-1-isothermal-vs-adiabatic.png",
+        "fig_11_2_carnot_cycle" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267789/physics-ch11-fig-11-2-carnot-cycle.png",
+        "fig_11_3_cyclic_work_area" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267791/physics-ch11-fig-11-3-cyclic-work-area.png",
+        "fig_11_4_heat_engine_flow" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267792/physics-ch11-fig-11-4-heat-engine-flow.png",
+        "fig_12_1_maxwell_distribution" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267807/physics-ch12-fig-12-1-maxwell-distribution.png",
+        "fig_12_2_kinetic_box" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267808/physics-ch12-fig-12-2-kinetic-box.png",
+        "fig_12_3_degrees_of_freedom" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267810/physics-ch12-fig-12-3-degrees-of-freedom.png",
+        "fig_13_2_reference_circle" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267774/physics-ch13-fig-13-2-reference-circle.png",
+        "fig_13_1_xva_graphs" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267773/physics-ch13-fig-13-1-xva-graphs.png",
+        "fig_13_3_energy" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267775/physics-ch13-fig-13-3-energy.png",
+        "fig_13_4_simple_pendulum" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267777/physics-ch13-fig-13-4-pendulum.png"
     )
 
     val images: Map<String, String> = mapOf(
