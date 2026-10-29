@@ -1208,6 +1208,100 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "bio_ch_6" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_6_1_tissue_types")
+
+            4 -> listOf("fig_bio_6_2_xylem_phloem")
+
+            9 -> listOf("fig_bio_6_3_stem_ts")
+
+            11 -> listOf("fig_bio_6_4_root_ts")
+
+            12 -> listOf("fig_bio_6_5_leaf_ts")
+
+            14 -> listOf("fig_bio_6_6_secondary_growth")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_7" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_7_1_epithelial_types")
+
+            5 -> listOf("fig_bio_7_5_cell_junctions")
+
+            6 -> listOf("fig_bio_7_2_connective_panel")
+
+            11 -> listOf("fig_bio_7_3_muscle_types")
+
+            12 -> listOf("fig_bio_7_4_neuron")
+
+            13 -> listOf("fig_bio_7_6_organism_anatomy")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_8" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_8_1_cell_overview")
+
+            3 -> listOf("fig_bio_8_2_prokaryotic_cell")
+
+            5 -> listOf("fig_bio_8_3_fluid_mosaic")
+
+            7 -> listOf("fig_bio_8_4_endomembrane")
+
+            10 -> listOf("fig_bio_8_5_mitochondrion")
+
+            11 -> listOf("fig_bio_8_6_chloroplast")
+
+            13 -> listOf("fig_bio_8_8_cilia_centriole")
+
+            14 -> listOf("fig_bio_8_7_nucleus_chromosomes")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_9" -> when (sectionIndex) {
+
+            4 -> listOf("fig_bio_9_1_amino_acid_peptide")
+
+            6 -> listOf("fig_bio_9_2_protein_levels")
+
+            7 -> listOf("fig_bio_9_3_polysaccharides")
+
+            10 -> listOf("fig_bio_9_4_nucleotide_dna")
+
+            11 -> listOf("fig_bio_9_6_lipid_family")
+
+            12 -> listOf("fig_bio_9_5_enzyme_energy")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_10" -> when (sectionIndex) {
+
+            1 -> listOf("fig_bio_10_1_cell_cycle_wheel")
+
+            5 -> listOf("fig_bio_10_2_mitosis_strip")
+
+            10 -> listOf("fig_bio_10_4_meiosis_outcome")
+
+            11 -> listOf("fig_bio_10_3_prophase1_substages")
+
+            12 -> listOf("fig_bio_10_5_crossing_over")
+
+            16 -> listOf("fig_bio_10_6_mitosis_vs_meiosis")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -3073,6 +3167,263 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Marginal (pea), axile (tomato), parietal (mustard), free central (Dianthus) and basal (sunflower) — where the ovules sit names the type."
 
         )
+
+        "fig_bio_6_1_tissue_types" -> Pair(
+
+            "Fig. 6.1 — Simple Tissues and Meristems",
+
+            "Parenchyma (thin walls, living), collenchyma (corner-thickened, flexible support) and sclerenchyma (dead, lignified) — plus the meristems that manufacture them all."
+
+        )
+
+        "fig_bio_6_2_xylem_phloem" -> Pair(
+
+            "Fig. 6.2 — Elements of Xylem and Phloem",
+
+            "Xylem moves water through dead vessels and tracheids; phloem moves food through living sieve tubes, each nursed by a companion cell."
+
+        )
+
+        "fig_bio_6_3_stem_ts" -> Pair(
+
+            "Fig. 6.3 — Dicot versus Monocot Stem",
+
+            "Dicot stem: open bundles in a ring with cambium. Monocot stem: closed bundles scattered in ground tissue — no ring, no secondary growth."
+
+        )
+
+        "fig_bio_6_4_root_ts" -> Pair(
+
+            "Fig. 6.4 — Dicot versus Monocot Root",
+
+            "Dicot root: few xylem strands (two to six) and a tiny pith. Monocot root: many strands (polyarch) around a large central pith."
+
+        )
+
+        "fig_bio_6_5_leaf_ts" -> Pair(
+
+            "Fig. 6.5 — Dorsiventral versus Isobilateral Leaf",
+
+            "Dicot leaf splits its mesophyll into palisade and spongy layers; the monocot leaf stays uniform, with bulliform cells to roll it in drought."
+
+        )
+
+        "fig_bio_6_6_secondary_growth" -> Pair(
+
+            "Fig. 6.6 — Secondary Growth in a Dicot Stem",
+
+            "The cambium ring lays down spring and autumn wood in annual rings; old xylem becomes dark heartwood, young xylem stays conducting sapwood, and cork seals the outside."
+
+        )
+
+        "fig_bio_7_1_epithelial_types" -> Pair(
+
+            "Fig. 7.1 — Epithelial Types",
+
+            "Squamous for diffusion, cuboidal for secretion, columnar for absorption, ciliated for moving mucus, stratified for war zones — shape follows the job."
+
+        )
+
+        "fig_bio_7_2_connective_panel" -> Pair(
+
+            "Fig. 7.2 — The Connective Tissue Family",
+
+            "Areolar packing, fat-storing adipose, tendon and ligament ropes, cartilage and bone scaffolds, and blood — the fluid member of the family."
+
+        )
+
+        "fig_bio_7_3_muscle_types" -> Pair(
+
+            "Fig. 7.3 — Three Muscle Types",
+
+            "Skeletal: striated, voluntary, multinucleate. Smooth: spindle-shaped and involuntary. Cardiac: branched, striated, stitched by intercalated discs."
+
+        )
+
+        "fig_bio_7_4_neuron" -> Pair(
+
+            "Fig. 7.4 — Anatomy of a Neuron",
+
+            "Dendrites collect signals, the cell body (with Nissl granules) runs the cell, and the myelinated axon delivers the impulse to its terminals."
+
+        )
+
+        "fig_bio_7_5_cell_junctions" -> Pair(
+
+            "Fig. 7.5 — Cell Junctions",
+
+            "Tight junctions seal, adhering junctions anchor, gap junctions connect cytoplasms — three ways neighbouring cells hold on and communicate."
+
+        )
+
+        "fig_bio_7_6_organism_anatomy" -> Pair(
+
+            "Fig. 7.6 — Three NCERT Organisms",
+
+            "Earthworm with its clitellum, cockroach in three body divisions, and the frog — the signature anatomy of the chapter's three model animals."
+
+        )
+
+        "fig_bio_8_1_cell_overview" -> Pair(
+
+            "Fig. 8.1 — Animal versus Plant Cell",
+
+            "Both share membrane, cytoplasm, nucleus and mitochondria; the plant cell adds a wall, chloroplasts and one large central vacuole."
+
+        )
+
+        "fig_bio_8_2_prokaryotic_cell" -> Pair(
+
+            "Fig. 8.2 — The Prokaryotic Cell",
+
+            "No nucleus: DNA floats as a nucleoid beside a plasmid, with ribosomes, mesosomes, pili and a flagellum inside a three-layer envelope."
+
+        )
+
+        "fig_bio_8_3_fluid_mosaic" -> Pair(
+
+            "Fig. 8.3 — The Fluid Mosaic Membrane",
+
+            "A phospholipid bilayer with proteins floating in it like icebergs — cholesterol stiffening the sea, sugar chains flying as ID flags."
+
+        )
+
+        "fig_bio_8_4_endomembrane" -> Pair(
+
+            "Fig. 8.4 — The Endomembrane System",
+
+            "One connected workshop: ER builds, vesicles carry, Golgi packs and labels, lysosomes digest, vacuoles store."
+
+        )
+
+        "fig_bio_8_5_mitochondrion" -> Pair(
+
+            "Fig. 8.5 — The Mitochondrion",
+
+            "A double membrane with folded cristae and its own DNA and 70S ribosomes in the matrix — a semi-autonomous powerhouse."
+
+        )
+
+        "fig_bio_8_6_chloroplast" -> Pair(
+
+            "Fig. 8.6 — The Chloroplast",
+
+            "Thylakoid stacks (grana) float in the stroma where the food is assembled — like the mitochondrion, it carries its own DNA and ribosomes."
+
+        )
+
+        "fig_bio_8_7_nucleus_chromosomes" -> Pair(
+
+            "Fig. 8.7 — Nucleus and Chromosome Types",
+
+            "The control room with its pore-studded envelope and nucleolus — and chromosomes sorted by centromere position: meta, submeta, acro and telocentric."
+
+        )
+
+        "fig_bio_8_8_cilia_centriole" -> Pair(
+
+            "Fig. 8.8 — Cilium and Centriole Cross-Sections",
+
+            "The cilium beats on a 9+2 axoneme; the centriole is built from nine triplets with no central pair — the two patterns examiners love to swap."
+
+        )
+
+        "fig_bio_9_1_amino_acid_peptide" -> Pair(
+
+            "Fig. 9.1 — Amino Acids and the Peptide Bond",
+
+            "One central carbon, four different groups — and the zwitterion that forms in solution. Join two amino acids, remove water, and a peptide bond is born."
+
+        )
+
+        "fig_bio_9_2_protein_levels" -> Pair(
+
+            "Fig. 9.2 — Four Levels of Protein Structure",
+
+            "Sequence, then helix and sheet, then the folded chain, then assemblies like haemoglobin's four subunits — each level built on the last."
+
+        )
+
+        "fig_bio_9_3_polysaccharides" -> Pair(
+
+            "Fig. 9.3 — Starch, Cellulose, Glycogen",
+
+            "Same glucose, three architectures: helical starch for storage, straight bundled cellulose for walls, and glycogen branched for quick release."
+
+        )
+
+        "fig_bio_9_4_nucleotide_dna" -> Pair(
+
+            "Fig. 9.4 — Nucleotide and the DNA Ladder",
+
+            "Phosphate, sugar, base make a nucleotide; two antiparallel strands pair A with T (two bonds) and G with C (three bonds)."
+
+        )
+
+        "fig_bio_9_5_enzyme_energy" -> Pair(
+
+            "Fig. 9.5 — Enzymes Lower the Barrier",
+
+            "Same start, same finish — the enzyme only lowers the activation-energy hill, so the reaction runs faster without being changed itself."
+
+        )
+
+        "fig_bio_9_6_lipid_family" -> Pair(
+
+            "Fig. 9.6 — The Lipid Family",
+
+            "Triglycerides store energy, saturated chains pack straight while unsaturated chains kink, and phospholipids build every membrane."
+
+        )
+
+        "fig_bio_10_1_cell_cycle_wheel" -> Pair(
+
+            "Fig. 10.1 — The Cell Cycle Wheel",
+
+            "Most of life is interphase: G1 grows, S copies the DNA (2C to 4C), G2 checks — then the small M slice divides; G0 is the exit door."
+
+        )
+
+        "fig_bio_10_2_mitosis_strip" -> Pair(
+
+            "Fig. 10.2 — Mitosis in Four Acts",
+
+            "Condense, align, split, rebuild — with chromosome counts tracked for a 2n = 4 cell: the daughter cells match the parent exactly."
+
+        )
+
+        "fig_bio_10_3_prophase1_substages" -> Pair(
+
+            "Fig. 10.3 — The Five Sub-Stages of Prophase I",
+
+            "Leptotene condenses, zygotene pairs, pachytene exchanges, diplotene reveals chiasmata, diakinesis prepares — the longest act of meiosis."
+
+        )
+
+        "fig_bio_10_4_meiosis_outcome" -> Pair(
+
+            "Fig. 10.4 — The Meiosis Outcome",
+
+            "One copying, two divisions: homologs part in meiosis I, sisters part in meiosis II — four haploid cells from one diploid parent."
+
+        )
+
+        "fig_bio_10_5_crossing_over" -> Pair(
+
+            "Fig. 10.5 — Crossing Over",
+
+            "Non-sister chromatids swap matching segments at a chiasma — the recombinant chromatids that make every gamete genetically new."
+
+        )
+
+        "fig_bio_10_6_mitosis_vs_meiosis" -> Pair(
+
+            "Fig. 10.6 — Mitosis versus Meiosis Outcomes",
+
+            "Mitosis: one division, two identical diploid cells for growth. Meiosis: two divisions, four different haploid cells for reproduction."
+
+        )
+
 
 
 
