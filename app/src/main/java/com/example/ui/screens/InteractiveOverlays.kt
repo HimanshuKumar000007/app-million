@@ -948,6 +948,66 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "math_ch_1" -> when (sectionIndex) {
+
+            4 -> listOf("fig_math_1_1_venn_three")
+
+            10 -> listOf("fig_math_1_2_function_types")
+
+            15 -> listOf("fig_math_1_3_logic_tables")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_2" -> when (sectionIndex) {
+
+            4 -> listOf("fig_math_2_1_block_gap")
+
+            5 -> listOf("fig_math_2_3_circular")
+
+            13 -> listOf("fig_math_2_2_pascal")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_3" -> when (sectionIndex) {
+
+            3 -> listOf("fig_math_3_1_argand")
+
+            6 -> listOf("fig_math_3_2_unity_roots")
+
+            14 -> listOf("fig_math_3_3_wavy_curve")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_4" -> when (sectionIndex) {
+
+            2 -> listOf("fig_math_4_1_unit_circle")
+
+            12 -> listOf("fig_math_4_2_inverse_graphs")
+
+            14 -> listOf("fig_math_4_3_tan_addition")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_5" -> when (sectionIndex) {
+
+            5 -> listOf("fig_math_5_1_addition")
+
+            8 -> listOf("fig_math_5_2_products")
+
+            9 -> listOf("fig_math_5_3_triple_product")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -2229,6 +2289,127 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Alpha links coil and branch for storage; beta links run straight and hydrogen-bond into fibres that we cannot digest."
 
         )
+
+        "fig_math_1_1_venn_three" -> Pair(
+
+            "Fig. 1.1 — The Three-Set Venn Diagram",
+
+            "Eight regions, one inclusion-exclusion formula: add the singles, subtract the pairs, add back the triple overlap."
+
+        )
+
+        "fig_math_1_2_function_types" -> Pair(
+
+            "Fig. 1.2 — The Four Function Types",
+
+            "One-one, onto, both (bijective) or neither — read the arrows: collisions kill one-one, uncovered targets kill onto."
+
+        )
+
+        "fig_math_1_3_logic_tables" -> Pair(
+
+            "Fig. 1.3 — The Implication Family",
+
+            "An implication and its contrapositive always share a truth table; the converse and the inverse share the other one."
+
+        )
+
+        "fig_math_2_1_block_gap" -> Pair(
+
+            "Fig. 2.1 — Block and Gap Methods",
+
+            "Glue what must stay together into one block; park separators first and drop the rest into the gaps when things must stay apart."
+
+        )
+
+        "fig_math_2_2_pascal" -> Pair(
+
+            "Fig. 2.2 — Pascal's Triangle",
+
+            "Every entry is the sum of the two above it; the sum of squares of row n is the central entry C(2n, n)."
+
+        )
+
+        "fig_math_2_3_circular" -> Pair(
+
+            "Fig. 2.3 — Circular Permutations",
+
+            "Rotations of the same round-table arrangement are identical, so n people can be seated in (n - 1)! ways."
+
+        )
+
+        "fig_math_3_1_argand" -> Pair(
+
+            "Fig. 3.1 — The Argand Plane",
+
+            "A complex number is a point and a vector: its modulus is the length, its argument the angle — and its loci are circles and bisectors."
+
+        )
+
+        "fig_math_3_2_unity_roots" -> Pair(
+
+            "Fig. 3.2 — Cube Roots of Unity",
+
+            "1, omega and omega squared sit 120 degrees apart on the unit circle, and their vectors sum to zero."
+
+        )
+
+        "fig_math_3_3_wavy_curve" -> Pair(
+
+            "Fig. 3.3 — The Wavy Curve Method",
+
+            "Cross the axis at odd-multiplicity roots and bounce at even ones — the sign chart reads off the solution intervals."
+
+        )
+
+        "fig_math_4_1_unit_circle" -> Pair(
+
+            "Fig. 4.1 — The Unit Circle and ASTC",
+
+            "All, Sin, Tan, Cos: which functions are positive in each quadrant, with degrees and radians around the rim."
+
+        )
+
+        "fig_math_4_2_inverse_graphs" -> Pair(
+
+            "Fig. 4.2 — Inverse Trigonometric Graphs",
+
+            "Each inverse function lives only on its principal branch — the bold arc is the function, the faint curve is what was discarded."
+
+        )
+
+        "fig_math_4_3_tan_addition" -> Pair(
+
+            "Fig. 4.3 — Adding Inverse Tangents: The xy Test",
+
+            "If xy < 1 the raw formula holds; if xy > 1, add pi for positive pairs and subtract pi for negative pairs."
+
+        )
+
+        "fig_math_5_1_addition" -> Pair(
+
+            "Fig. 5.1 — Vector Addition",
+
+            "The triangle law, the parallelogram law, and a 3D vector resolved into its i, j and k components."
+
+        )
+
+        "fig_math_5_2_products" -> Pair(
+
+            "Fig. 5.2 — Dot and Cross Products",
+
+            "The dot product measures the shadow one vector casts on another; the cross product's magnitude is the parallelogram's area."
+
+        )
+
+        "fig_math_5_3_triple_product" -> Pair(
+
+            "Fig. 5.3 — The Scalar Triple Product",
+
+            "Three edge vectors, one number: the volume of the parallelepiped they span — zero exactly when the vectors are coplanar."
+
+        )
+
 
 
 

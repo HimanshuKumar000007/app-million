@@ -58,61 +58,283 @@ object SmartPrepSeedData {
 
             completedLessons = 4,
 
-            studyNotesCount = 8,
+            studyNotesCount = 23,
 
-            practiceQuestionCount = 24,
+            practiceQuestionCount = 5,
 
             durationMinutes = 50,
 
-            formulaHighlight = "|A ∪ B| = |A| + |B| − |A ∩ B|  •  Equivalence: Reflexive, Symmetric & Transitive",
+            formulaHighlight = "✔ n(A ∪ B) = n(A) + n(B) - n(A ∩ B); n(A ∪ B ∪ C) = sum of singles - sum of pairs + n(A ∩ B ∩ C); only A = n(A) - n(A ∩ B) - n(A ∩ C) + n(A ∩ B ∩ C); n(A' ∩ B') = n(U) - n(A ∪ B)\n✔ Subsets of an n-set: 2^n in total, 2^n - 1 proper, 2^n - 1 non-empty, C(n, k) with exactly k elements; n(P(A)) = 2^n; De Morgan: (A ∪ B)' = A' ∩ B', (A ∩ B)' = A' ∪ B'; A - B = A ∩ B'\n✔ Relations on an n-set: total 2^(n^2); reflexive 2^(n^2 - n); symmetric 2^(n(n + 1)/2); reflexive and symmetric 2^(n(n - 1)/2); equivalence relations = partitions = Bell numbers 1, 2, 5, 15 for n = 1, 2, 3, 4\n✔ Functions from A (m elements) to B (n elements): total n^m; one-one n!/(n - m)! when m ≤ n; onto = n^m - C(n,1)(n-1)^m + C(n,2)(n-2)^m - ... when m ≥ n; onto a 2-set = 2^m - 2; bijective = n! when m = n\n✔ [x] ≤ x < [x] + 1; {x} = x - [x] ∈ [0, 1); |x| = x if x ≥ 0, -x if x < 0; range of signum = {-1, 0, 1}; (fog)(x) = f(g(x)); inverse exists if and only if the function is bijective\n✔ Logic: p → q is false only for (T, F); p → q ≡ ~q → ~p ≡ ~p ∨ q; ~(p → q) ≡ p ∧ ~q; ~(p ∧ q) ≡ ~p ∨ ~q; ~(p ∨ q) ≡ ~p ∧ ~q; ~(∀x P(x)) ≡ ∃x ~P(x); ~(∃x P(x)) ≡ ∀x ~P(x)",
 
-            keyConceptsSummary = "Power sets, Cartesian products, reflexive/symmetric/transitive relations, equivalence classes, one-one (injective) and onto (surjective) functions, composition of functions, and invertible mappings.",
+            keyConceptsSummary = "• A set is a well-defined collection of distinct objects: roster lists the elements, set-builder states the rule; an n-element set has 2^n subsets (each element votes in or out), so the power set P(A) has 2^n members, with 2^n - 1 proper and C(n, k) subsets of size exactly k\n• Overlaps are counted honestly by inclusion-exclusion: n(A ∪ B) = n(A) + n(B) - n(A ∩ B), and for three sets add the singles, subtract the pairs, add back the triple; complementing flips the operation — De Morgan: (A ∪ B)' = A' ∩ B' and (A ∩ B)' = A' ∪ B', and A - B = A ∩ B'\n• A relation is any subset of the Cartesian product A x B; its domain and range are the first and second entries that actually appear; three tests classify a relation on A — reflexive (every diagonal pair present), symmetric (every mirror present), transitive (every chain closed) — and the tests are independent\n• An equivalence relation passes all three tests, and its equivalence classes partition the set: two classes are equal or disjoint and together they cover everything; equivalence relations and partitions are the same objects, counted by the Bell numbers 1, 2, 5, 15 for n = 1, 2, 3, 4\n• Relation counts are powers of two priced by freedom: total 2^(n^2) on an n-set, reflexive 2^(n^2 - n) with the diagonal forced in, symmetric 2^(n(n + 1)/2) with mirror pairs glued, reflexive-and-symmetric 2^(n(n - 1)/2) — ask which pairs are forced and which are glued and the exponent writes itself\n• A function gives every input exactly one output; it is one-one when f(x1) = f(x2) forces x1 = x2 and onto when its range fills the codomain; from A (m elements) to B (n elements) there are n^m functions in total, n!/(n - m)! one-one, n! bijective, and the onto count comes from inclusion-exclusion (36 for 4 onto 3, 150 for 5 onto 3)\n• Logic runs on one sharp fact: p → q is false only when p is true and q false; every implication is equivalent to its contrapositive ~q → ~p (and to ~p ∨ q), the converse and inverse match only each other, and negation is mechanical — ~(p → q) ≡ p ∧ ~q, De Morgan flips connectives, and negating flips ∀ to ∃ and pushes the negation inside",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — The Language Under All of Mathematics
+• Every chapter that follows this one — counting, calculus, probability, vectors — is written in one grammar: sets, relations and functions. A set is how mathematics says "these objects, exactly these"; a relation is how it says "these two are connected"; a function is how it says "this machine turns inputs into outputs". Learn the grammar here and the rest of the syllabus stops looking like thirteen separate subjects.
+• The fourth block, mathematical logic, is special: the IAT tests it directly while most other entrance exams barely touch it. Truth tables, contrapositives and negations are short, mechanical topics where full marks are available to anyone who has practised the moves — treat them as guaranteed marks, not decoration.
+• EXAMPLE — Three questions that look unrelated are secretly the same question: "In a class, how many students play cricket or football?" (sets), "How many equivalence relations can a 4-element set carry?" (relations), "How many onto maps send 5 letters into 3 boxes?" (functions). All three are counting arguments built on this chapter's definitions, and the IAT recycles all three shapes relentlessly.
+• WHY this chapter is high-yield — the definitions are few, the formulas are short, and the traps are famous. Almost every mark lost here is lost to a misread definition (subset versus element, onto versus total, converse versus contrapositive), not to hard computation. Precision is the whole game.
+★ HIGHLIGHT — The chapter in one breath: sets are counted by inclusion-exclusion, relations are classified by three tests (reflexive, symmetric, transitive) and counted by powers of two, functions are classified by two tests (one-one, onto) and counted by powers, permutations and inclusion-exclusion — and every implication has exactly one twin that always matches it: the contrapositive.
 
-                1. Set Operations & Inclusion-Exclusion Principle
+Sets — Roster and Set-Builder Forms
+• DEFINITION — A set is a well-defined collection of distinct objects, called its elements or members. Well-defined means: given any object, it is decidable — without opinion — whether the object belongs or not. "Well-defined" is the load-bearing word: it is what separates a set from a vague crowd.
+• NOTATION — Sets are named with capital letters (A, B, U) and elements with small ones. We write a ∈ A for "a is an element of A" and a ∉ A for the opposite. The standard number families: N = natural numbers (1, 2, 3, ...), Z = integers, Q = rationals, R = reals, and Z+ / R+ for the positive members of each.
+• DEFINITION — The roster (tabular) form lists every element inside braces, separated by commas: A = {2, 3, 5, 7}. The set-builder form states the rule instead: A = {x : x is prime and x < 10} — read "the set of all x such that x is prime and x is less than 10". Both describe the same set; the exam loves making you translate between them.
+• EXAMPLE — Roster to rule: {1, 2, 3, 4, 5} = {x ∈ N : x ≤ 5}. Rule to roster: {x : x^2 - 3x + 2 = 0} — the equation factorises as (x - 1)(x - 2) = 0, so the set is {1, 2}. Two roots, two elements, done.
+• EXAMPLE — The letters of the word SCHOOL form the set {S, C, H, O, L} — five elements, not six. Repetition inside a roster adds nothing: a set records membership, not multiplicity, and the order of listing is irrelevant, so {1, 2, 3} and {3, 1, 2} are the same set.
+• WHY distinctness matters — because so much of this chapter is counting. If duplicates counted, "how many elements" would depend on spelling choices rather than on the collection itself. The rule "an element is either in or out, once" is what makes every counting formula in this chapter possible.
+• WORKED PATTERN — Translating a word description: (1) ask "can I decide membership for any candidate?" — if not, it is not a set at all; (2) if the collection is small, list it (roster); if it is large or infinite, capture the property (set-builder). "The set of all even integers" must be set-builder: {x ∈ Z : x = 2k for some integer k}.
+• YOUR TURN — Write in roster form: {x : x is a factor of 12}. Answer: {1, 2, 3, 4, 6, 12} — six elements, and note 12 itself is included.
+⚠ EXAM TRAP — "The collection of talented students" and "the set of large numbers" are NOT sets — talented and large are opinions, not tests. And the triple {0}, 0 and the empty set are three different objects: {0} has one element (the number zero); confusing them poisons subset questions later.
 
-                • De Morgan's Laws: (A ∪ B)' = A' ∩ B' and (A ∩ B)' = A' ∪ B'.
+Types of Sets, Subsets and the Power Set
+• DEFINITION — The empty set (null set), written ∅ or { }, contains no element at all; its cardinal number is 0. A singleton set contains exactly one element, like {7}. A set is finite if its elements can be counted to an end, and infinite otherwise (N, Z, the reals between 0 and 1). Two sets are equal when they have exactly the same elements.
+✔ KEY RESULT — {0} is not empty (it holds one element), {∅} is not empty either (it holds one element, namely the empty set itself), and ∅ has no elements. Options that swap these are planted in nearly every paper.
+• DEFINITION — A is a subset of B, written A ⊆ B, when every element of A is also an element of B. A is a proper subset, A ⊂ B, when A ⊆ B but A ≠ B. Two boundary facts to memorise: every set is a subset of itself (A ⊆ A), and the empty set is a subset of every set (∅ ⊆ A) — vacuously, because ∅ has no element that could fail the test.
+• DEFINITION — The power set P(A) is the set of ALL subsets of A. If A = {1, 2}, then P(A) = {∅, {1}, {2}, {1, 2}} — four members, and notice those members are themselves sets, so the braces nest.
+✔ KEY FORMULA — If n(A) = n, then n(P(A)) = 2^n. The number of proper subsets is 2^n - 1 (throw away A itself), and the number of non-empty subsets is also 2^n - 1 (throw away ∅ instead) — same count, different discard; check which one the question asks.
+• WHY the count is 2^n — build a subset element by element: for each of the n elements, decide IN or OUT. That is n independent two-way choices, giving 2 x 2 x ... x 2 = 2^n subsets. This "each element votes" picture is the engine behind half the counting in this chapter, including the relation counts later.
+• EXAMPLE — A = {a, b, c} has 2^3 = 8 subsets: ∅, {a}, {b}, {c}, {a, b}, {a, c}, {b, c}, {a, b, c}. Subsets with exactly two elements: 3 of them — in general exactly C(n, k) subsets have k elements, which is the bridge to the counting chapter.
+• INTERVALS as sets — on the real line, [a, b] = {x : a ≤ x ≤ b} (both ends in), (a, b) = {x : a < x < b} (both ends out), and [a, b), (a, b] mix the two. Set language for intervals is exactly how domains will be reported in a few sections.
+• YOUR TURN — A set has 64 subsets. How many elements does it have? Answer: 2^n = 64 gives n = 6. And one more: is ∅ an element of P(A)? Answer: yes — ∅ is a subset of A, so it sits inside P(A) as a member.
+⚠ EXAM TRAP — Element versus subset, the chapter's most expensive confusion: 1 ∈ {1, 2} (membership) but {1} ⊆ {1, 2} (inclusion). The symbol ∈ connects an object to a set; ⊆ connects a set to a set. Writing 1 ⊆ {1, 2} is a type error, and options exploit it constantly.
 
-                • For three finite sets: |A ∪ B ∪ C| = Σ|A| − Σ|A ∩ B| + |A ∩ B ∩ C|.
+Operations on Sets and De Morgan's Laws
+• DEFINITION — For sets A and B inside a universal set U (the agreed universe of everything under discussion): the union A ∪ B = {x : x ∈ A or x ∈ B} (the inclusive or — in at least one); the intersection A ∩ B = {x : x ∈ A and x ∈ B}; the difference A - B = {x : x ∈ A and x ∉ B}; and the complement A' = U - A = {x ∈ U : x ∉ A}. A and B are disjoint when A ∩ B = ∅.
+• The algebra laws, in one sweep — union and intersection are each commutative (A ∪ B = B ∪ A) and associative; each distributes over the other: A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) and A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C). Identity laws: A ∪ ∅ = A, A ∩ U = A, A ∪ A' = U, A ∩ A' = ∅, and (A')' = A.
+✔ KEY FORMULA (De Morgan's laws) — (A ∪ B)' = A' ∩ B' and (A ∩ B)' = A' ∪ B'. In words: the complement of a union is the intersection of the complements, and the complement of an intersection is the union of the complements. Complementing flips the operation — this same flip returns in logic, word for word.
+• WHY De Morgan works — x fails to be in A ∪ B exactly when x is in neither: not in A AND not in B. "Not (P or Q)" is "not P and not Q". De Morgan is not a trick to memorise; it is forced by what or and not mean, which is why it reappears for logical connectives later in this chapter.
+• EXAMPLE — U = {1, 2, ..., 10}, A = {2, 4, 6, 8, 10} (the evens), B = {3, 6, 9}. Then A ∪ B = {2, 3, 4, 6, 8, 9, 10}, A ∩ B = {6}, A - B = {2, 4, 8, 10}, A' = {1, 3, 5, 7, 9}. Check De Morgan on it: (A ∪ B)' = {1, 5, 7}, and A' ∩ B' = {1, 3, 5, 7, 9} ∩ {1, 2, 4, 5, 7, 8, 10} = {1, 5, 7}. Match.
+• WORKED PATTERN — Proving a set identity: either argue element-wise ("take x in the left side...") or convert to complements — especially A - B = A ∩ B', which turns every difference into an intersection and lets the laws above do the work. On exams, A - B = A ∩ B' is the single most useful rewrite.
+• YOUR TURN — With U = {1, ..., 8}, A = {1, 2, 3, 4}, B = {3, 4, 5, 6}: find (A ∩ B)'. Answer: A ∩ B = {3, 4}, so (A ∩ B)' = {1, 2, 5, 6, 7, 8}. Cross-check with De Morgan: A' ∪ B' = {5, 6, 7, 8} ∪ {1, 2, 7, 8} = {1, 2, 5, 6, 7, 8}. Same.
+⚠ EXAM TRAP — Difference is not symmetric: A - B ≠ B - A in general (in the worked numbers above, B - A = {5, 6}). And a complement is meaningless until U is fixed — "the complement of the evens" only makes sense once the universe (integers? reals? {1..10}?) is declared.
 
-                • Number of subsets of a set with n elements is 2ⁿ; number of proper subsets is 2ⁿ − 1.
+Venn Diagrams and Inclusion-Exclusion Counting
+• DEFINITION — A Venn diagram draws U as a rectangle and each set as a closed curve inside it; overlapping regions display the intersections directly. Two sets make 4 regions, three sets make 8 regions — and every counting question is, underneath, a question about how the regions fill.
+✔ KEY FORMULA — n(A ∪ B) = n(A) + n(B) - n(A ∩ B). For three sets: n(A ∪ B ∪ C) = n(A) + n(B) + n(C) - n(A ∩ B) - n(B ∩ C) - n(C ∩ A) + n(A ∩ B ∩ C). The pattern: add the singles, subtract the pairs, add back the triple — alternating signs as the overlap depth grows. This is the inclusion-exclusion principle, and the figure with this section maps each term to its regions.
+• WHY the subtraction is needed — n(A) + n(B) counts the overlap region twice, once for each set. Subtracting n(A ∩ B) once restores a single count. With three sets the triple overlap is counted 3 times, subtracted 3 times by the pairs, and must be added back once — inclusion-exclusion is just obsessive honest bookkeeping.
+• REGION READING — the numbers exams actually ask: only A = n(A) - n(A ∩ B) - n(A ∩ C) + n(A ∩ B ∩ C); exactly two sets = (sum of pairwise intersections) - 3 x n(A ∩ B ∩ C); none of the three = n(U) - n(A ∪ B ∪ C); at least one = n(A ∪ B ∪ C) itself. Fill the Venn from the centre (the triple overlap) outwards and every region falls out by subtraction.
+• EXAMPLE — In a class of 40, 25 play cricket, 20 play football and 12 play both. At least one game: 25 + 20 - 12 = 33. Neither game: 40 - 33 = 7. Only cricket: 25 - 12 = 13. Three answers from one formula and a subtraction each.
+• WORKED PATTERN — Word problems: (1) identify the sets and underline the numbers; "both" means intersection, "or" means union, "only" means a region; (2) place the innermost overlap number first; (3) peel outwards; (4) answer the EXACT phrasing asked — at least one, exactly one, only one and none are four different regions.
+• YOUR TURN — n(U) = 50, n(A) = 18, n(B) = 24, n(A ∩ B) = 6. Find n(A' ∩ B') — the elements in neither set. Answer: n(A ∪ B) = 18 + 24 - 6 = 36, and by De Morgan A' ∩ B' = (A ∪ B)', so the count is 50 - 36 = 14.
+⚠ EXAM TRAP — "And" in everyday English is not "and" in sets: "students who study physics and chemistry" in a survey report usually means the two subject totals separately, while "physics and chemistry" as a group means the intersection. Read for regions, not grammar. Second trap: the 3-set formula's triple term is ADDED — the sign alternates, ending in + for three sets.
 
+Relations — Cartesian Product, Domain and Range
+• DEFINITION — An ordered pair (a, b) packages two objects with a first and a second position, so (a, b) ≠ (b, a) unless a = b. The Cartesian product A x B is the set of all ordered pairs with first entry from A and second from B: A x B = {(a, b) : a ∈ A, b ∈ B}. Its size is n(A x B) = n(A) x n(B) — every first entry pairs with every second entry.
+• DEFINITION — A relation R from A to B is any subset of A x B. If (a, b) ∈ R we say a is related to b and write aRb. A relation on A means a relation from A to A, i.e. a subset of A x A. No rule, formula or pattern is required — any selection of pairs is a relation, which is exactly why relations are so countable.
+• DEFINITION — The domain of R is the set of first entries that actually appear; the range is the set of second entries that appear; the codomain is B, the declared target set. Domain and range are read off the chosen pairs, so they can be smaller than A and B — the mirror image of the function story coming later, where domain will be forced to be all of A.
+• EXAMPLE — A = {1, 2, 3}, B = {a, b}: A x B has 6 pairs, from (1, a) to (3, b). The relation "is less than" on {1, 2, 3, 4} is R = {(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)} — domain {1, 2, 3} (4 relates to nothing) and range {2, 3, 4} (nothing relates to 1). The inverse relation R^-1 simply swaps every pair: R^-1 = {(b, a) : (a, b) ∈ R}.
+• EXAMPLE — A relation needs no pattern: S = {(1, b), (3, a)} from A to B above is a perfectly good relation. Because a relation is just a subset, the number of possible relations is a power-set count — hold that thought for the counting section.
+• WORKED PATTERN — Representing a relation: (1) roster of pairs — exact, best for small sets; (2) arrow diagram — dots for A on the left, B on the right, arrows for pairs, best for spotting properties; (3) set-builder rule like {(x, y) : x + y = 5} — best for infinite sets. Switch representations freely; the relation is the same object.
+• YOUR TURN — A has 2 elements and B has 3. How many relations from A to B exist? Answer: A x B has 6 pairs, each pair in or out, so 2^6 = 64 relations. You have just used the master key of the next three sections.
+⚠ EXAM TRAP — A x B ≠ B x A in general (the pairs flip), and a relation "on" a set with 3 elements lives inside a product of 9 pairs, not 3 or 6. The size of the product is always the product of the sizes — that one multiplication drives every count that follows.
 
+Types of Relations — Reflexive, Symmetric, Transitive
+• DEFINITION — A relation R on a set A is reflexive when every element relates to itself: (a, a) ∈ R for all a ∈ A. It is symmetric when every arrow reverses: (a, b) ∈ R implies (b, a) ∈ R. It is transitive when chains close: (a, b) ∈ R and (b, c) ∈ R together imply (a, c) ∈ R. Three independent tests — a relation can pass any combination of them.
+• EXAMPLE — On Z, "divides" is reflexive (a divides a) and transitive, but not symmetric (2 divides 4, yet 4 does not divide 2) — it is antisymmetric-flavoured instead. "Is less than" is transitive only. "Has the same parity as" passes all three tests (it returns as an equivalence below). The empty relation on a non-empty set is symmetric and transitive (both tests are vacuous — no counterexample can exist) but NOT reflexive, because (a, a) is missing.
+• WORKED PATTERN — Testing a small relation fast: reflexivity — scan the diagonal pairs (a, a) for every a; one missing diagonal kills it. Symmetry — check every off-diagonal pair has its mirror. Transitivity — hunt for a two-step chain (a, b), (b, c) whose shortcut (a, c) is absent; one broken chain kills it. Always test in this order: diagonal, mirrors, chains.
+• EXAMPLE — R = {(1, 1), (2, 2), (1, 2)} on {1, 2}: reflexive — both diagonal pairs present. Symmetric — no, (1, 2) has no mirror (2, 1). Transitive — the chains are (1, 1) then (1, 2), needing (1, 2), present; and (1, 2) then (2, 2), needing (1, 2), present. So R is reflexive and transitive but not symmetric: the three properties really are independent switches.
+• YOUR TURN — On {1, 2, 3}, let R = {(1, 1), (2, 2), (3, 3), (1, 2), (2, 1), (2, 3), (3, 2)}. Which properties hold? Answer: reflexive (full diagonal) and symmetric (every mirror present), but NOT transitive: (1, 2) and (2, 3) demand (1, 3), which is absent. This is the standard counterexample — keep it.
+★ HIGHLIGHT — Symmetric plus transitive does NOT imply reflexive. The empty relation, and subtler ones like {(1, 1)} on {1, 2} (element 2 never appears), pass symmetry and transitivity while failing reflexivity. To prove reflexivity you must touch every element — implications about pairs that exist can never force a pair to exist.
+⚠ EXAM TRAP — "Not symmetric" is not "antisymmetric", and a relation can be both symmetric and antisymmetric at once (the identity relation is). Also: reflexivity is the only one of the three that talks about ALL elements — checking two diagonal pairs out of three proves nothing.
 
-                2. Relations & Equivalence Classes
+Equivalence Relations, Classes and Partitions
+• DEFINITION — An equivalence relation is a relation that is reflexive, symmetric and transitive all at once. Equivalence relations are the mathematics of "counts as the same": equal, congruent, parallel, same remainder, same sign — sameness with a rule attached.
+• DEFINITION — For an equivalence relation R on A, the equivalence class of a is [a] = {x ∈ A : xRa} — everything equivalent to a. Three facts run the whole topic: (1) a ∈ [a] always (reflexivity guarantees you keep yourself); (2) any two classes are either identical or disjoint — if they share one element, they are the same class; (3) the classes together cover all of A. Facts (2) and (3) say the classes form a partition of A: a slicing into non-overlapping blocks that use every element exactly once.
+✔ KEY RESULT — Equivalence relations on A and partitions of A are the same thing counted two ways: every equivalence relation chops A into its classes, and every partition defines an equivalence (declare two elements related when they share a block). So counting equivalence relations = counting partitions: for n = 1, 2, 3, 4 the counts are 1, 2, 5, 15 (the Bell numbers) — no formula, just small values to know.
+• EXAMPLE — On Z, let aRb mean 3 divides a - b. Reflexive, symmetric, transitive — check quickly — and the classes are the three remainder families: [0] = {..., -3, 0, 3, 6, ...}, [1] = {..., -2, 1, 4, 7, ...}, [2] = {..., -1, 2, 5, 8, ...}. Three classes partition all of Z. Note [0] = [3] = [-3]: a class has many names, one per member.
+• WORKED PATTERN — Listing all classes: pick any unused element, collect everything related to it — that is one class; cross those elements off; repeat with any survivor until none remain. The crossing-off works precisely because classes never overlap.
+• YOUR TURN — On {1, 2, 3, 4}, define aRb when a + b is even. Find the classes. Answer: 1 relates to 1 and 3 (odd + odd = even), never to 2 or 4; so the classes are {1, 3} and {2, 4} — odds with odds, evens with evens: same-parity in disguise.
+⚠ EXAM TRAP — Classes are counted without repetition: on a 3-element set there are only 5 equivalence relations in total, so any option claiming 6 different class-systems is wrong before you check it. And a relation like "a - b is even" on a set mixing parities needs the reflexivity check first — it passes, but only because a - a = 0 is even.
 
-                • A relation R on set A is an Equivalence Relation iff it is:
+Counting Relations — Powers of Two with a Meaning
+✔ KEY FORMULA — On an n-element set there are n^2 ordered pairs, each independently in or out of the relation, so the total number of relations is 2^(n^2). From A (m elements) to B (n elements) the count is 2^(mn) — the same in/out vote on mn pairs.
+✔ KEY FORMULA — Reflexive relations: the n diagonal pairs are forced IN, the other n^2 - n pairs are free, giving 2^(n^2 - n). Symmetric relations: the n diagonal pairs are free, and the n(n - 1)/2 mirror-pairs above the diagonal each force their twin, so the free choices number n + n(n - 1)/2 = n(n + 1)/2, giving 2^(n(n + 1)/2). Reflexive and symmetric together: 2^(n(n - 1)/2).
+• WHY these exponents are what they are — every count here is "free binary choices". Forced pairs (the reflexive diagonal) contribute nothing to the exponent; glued pairs (symmetric mirrors) count once, not twice. When a counting formula for relations appears, ask two questions — which pairs are forced, which are glued — and the exponent writes itself.
+• EXAMPLE — n = 3: total relations 2^9 = 512; reflexive 2^6 = 64; symmetric 2^6 = 64 (a coincidence of n = 3 — the exponents 9 - 3 and 3 x 4/2 agree here and nowhere else); reflexive-and-symmetric 2^3 = 8. n = 4: total 2^16 = 65536; reflexive 2^12 = 4096; symmetric 2^10 = 1024. These are the exact numbers exam options are built from.
+• WORKED PATTERN — Reading the question's demand precisely: "relations on A" means pairs from A x A; "reflexive relations" forces the diagonal; "equivalence relations" is NOT a power of two at all — it is a Bell number (5 for n = 3, 15 for n = 4). The three demands look similar and have utterly different answer shapes.
+• YOUR TURN — How many reflexive relations can be defined on a 2-element set? Answer: 2^(4 - 2) = 2^2 = 4. (Pairs: diagonal (1, 1), (2, 2) forced in; (1, 2) and (2, 1) free.)
+⚠ EXAM TRAP — The symmetric count traps students into n^2/2 or 2^(n^2/2) — wrong shapes entirely: the diagonal pairs are free singles, not half of anything. And never answer an equivalence-count question with a power of two: partitions do not decompose into independent pair choices, which is why no such formula exists.
 
-                  - Reflexive: (a, a) ∈ R ∀ a ∈ A
+Functions — The Machine Picture
+• DEFINITION — A function f from A to B, written f : A → B, is a relation that obeys two laws: every element of A is used (no input left without an output), and no element of A is used twice with different outputs (no input splits). Each a ∈ A gets exactly one f(a) ∈ B. A is the domain, B is the codomain, and the range is the set of outputs actually produced, {f(a) : a ∈ A} — always a subset of the codomain.
+• The machine picture — feed in x, the machine returns exactly one f(x). It may return the same output for different inputs (that is allowed — it is what many-one means), but it may never hesitate or split. On an arrow diagram a function is a relation where every left dot has exactly one arrow leaving it; on a graph it is a curve passing the vertical-line test — every vertical line meets it at most once.
+• EXAMPLE — f(x) = x^2 from R to R is a function. The relation x^2 + y^2 = 25 is not a function of x: at x = 3 it offers y = 4 and y = -4, two outputs for one input, and a vertical line cuts the circle twice. Squared relations almost always fail the test — solve for y and the ± sign is the giveaway.
+• EXAMPLE — Domain is part of the function, not a footnote: f(x) = (x^2 - 1)/(x - 1) and g(x) = x + 1 agree at every x except x = 1, where f is undefined and g equals 2. Different domains, different functions. Two functions are equal only when domains match AND all values match.
+• WORKED PATTERN — Checking "is it a function": (1) is every input covered? (2) could any input give two values — look for ±, even roots, circles, and piecewise definitions that disagree at the joins. Checking "is it equal to this other function": domains first, values second.
+• YOUR TURN — Is the relation {(1, 2), (2, 3), (3, 2)} a function from {1, 2, 3} to {2, 3}? Answer: yes — every input appears, each exactly once; the fact that 2 appears as an output twice (for inputs 1 and 3) is irrelevant. Outputs may repeat; inputs may not.
+⚠ EXAM TRAP — Range versus codomain: for f(x) = x^2 with codomain R, the range is only [0, ∞) — half the codomain is never reached. Questions that ask "is f onto" are secretly asking whether range = codomain; students who report the codomain as the range walk straight into it.
 
-                  - Symmetric: (a, b) ∈ R ⇒ (b, a) ∈ R
+Types of Functions — One-One, Onto and Bijective
+• DEFINITION — f : A → B is one-one (injective) when different inputs always give different outputs: f(x1) = f(x2) forces x1 = x2. It is onto (surjective) when the range fills the codomain: every b ∈ B has at least one a ∈ A with f(a) = b. It is bijective when both hold — a perfect pairing. Otherwise it is many-one (some output is hit twice or more) or into (some codomain element is never hit).
+• The graph tests — on a graph, one-one is the horizontal-line test: every horizontal line meets the graph at most once. A strictly increasing or strictly decreasing function (on an interval) is automatically one-one — monotonicity is the fastest one-one certificate in the chapter.
+• WORKED PATTERN — The algebraic tests: one-one — assume f(x1) = f(x2), then fight through the algebra to x1 = x2; if you instead find a concrete collision (two inputs, one output), many-one is proved by that single exhibit. Onto — take an arbitrary y in the codomain, solve y = f(x) for x, and check the solution lands inside the domain; if some y has no pre-image, exhibit it and into is proved.
+• EXAMPLE — f(x) = x^2, R → R: many-one (f(2) = f(-2) = 4) and into (negative codomain values unreachable). Restrict the domain to [0, ∞) and it becomes one-one but still into. Restrict codomain to [0, ∞) as well and it becomes bijective. Same formula, three verdicts — the sets A and B are part of the verdict.
+• EXAMPLE — f(x) = 2x, R → R is bijective: f(x1) = f(x2) gives x1 = x2 directly, and any y is hit by x = y/2. f(x) = x^3 - x, R → R is onto (every cubic with positive leading coefficient sweeps all of R) but many-one: f(0) = f(1) = f(-1) = 0. The figure with this section draws the four arrow-diagram archetypes behind these verdicts.
+• YOUR TURN — f : R → R, f(x) = |x|. One-one? Onto? Answer: neither fully — many-one (|2| = |-2|) and into (range [0, ∞) misses every negative). Now restrict the codomain to [0, ∞): onto yes, one-one still no.
+⚠ EXAM TRAP — Never declare a verdict from the formula alone: state it for the given domain and codomain. The same x^2 is many-one/into on R → R and bijective on [0, ∞) → [0, ∞). Options deliberately pair the right formula-story with the wrong sets.
 
-                  - Transitive: (a, b) ∈ R and (b, c) ∈ R ⇒ (a, c) ∈ R
+Counting Functions — Total, One-One, Onto, Bijective
+✔ KEY FORMULA — If n(A) = m and n(B) = n: total functions A → B = n^m (each of the m inputs independently chooses among n outputs — the codomain size is the base, the domain size is the exponent). One-one functions (possible only when m ≤ n): n x (n - 1) x ... x (n - m + 1) = n! / (n - m)!. Bijective functions (possible only when m = n): n!.
+✔ KEY FORMULA — Onto functions A → B (possible only when m ≥ n): n^m - C(n, 1)(n - 1)^m + C(n, 2)(n - 2)^m - ... with alternating signs — inclusion-exclusion again, subtracting the maps that miss at least one codomain element, adding back those that miss two, and so on.
+• EXAMPLE — Onto counts worth recognising on sight: from a 4-set onto a 3-set: 3^4 - 3 x 2^4 + 3 x 1^4 = 81 - 48 + 3 = 36. From a 5-set onto a 3-set: 3^5 - 3 x 2^5 + 3 = 243 - 96 + 3 = 150. Onto a 2-set the formula collapses beautifully: 2^m - 2 (all maps minus the two constant ones).
+• WHY onto needs inclusion-exclusion — "onto" says every codomain element is hit, a condition about all elements at once. Counting maps that MISS a chosen element is easy (they are just functions into the rest), so we count the complement with the union formula from Section 4 — the very same alternating bookkeeping, now wearing a functions costume.
+• WORKED PATTERN — Match the ask to the tool: any function — pure power n^m. Distinct outputs — falling product nPm. Onto a 2-set — 2^m - 2 instantly. Onto a 3-set — expand the three-term inclusion-exclusion. And sanity-check feasibility first: one-one needs m ≤ n, onto needs m ≥ n, bijective needs m = n; a violated condition means the count is 0, which is itself a favourite option.
+• YOUR TURN — How many bijective functions map a 4-element set onto itself? Answer: 4! = 24. And how many functions in total map it to itself? 4^4 = 256 — the bijections are a thin slice of all maps.
+⚠ EXAM TRAP — The exponent direction: functions A → B number n^m (codomain raised to domain), never m^n. Anchor it physically: the domain elements are the choosers, the codomain supplies the choices. Swapping them is the most common counting error in this whole chapter.
 
-                • Total number of reflexive relations on an n-element set is 2^(n²−n); symmetric relations is 2^(n(n+1)/2).
+Domain, Range and the Standard Graphs
+• DEFINITION — For a real function given by a formula with no domain declared, the domain is the largest set of real x for which the formula produces a real value. The range is the set of values actually taken. Domain questions are really three checks: denominators must not vanish, even roots need their inside ≥ 0 (and > 0 when the root sits in a denominator), and nothing else in standard formulas objects.
+• EXAMPLE — f(x) = 1 / sqrt(x^2 - 3x + 2). The root is in a denominator, so we need x^2 - 3x + 2 > 0 strictly: (x - 1)(x - 2) > 0, true when x < 1 or x > 2. Domain: (-∞, 1) ∪ (2, ∞). The two classic slips — allowing equality (the root would be 0 in a denominator) and reversing the inequality regions — are both planted in the options every time.
+• WORKED PATTERN — Finding a range: method 1, invert — write y = f(x), solve for x in terms of y, and ask which y values give an admissible x. Method 2, recognise the shape — squares are ≥ 0, so build the range by tracking inequalities step by step. Example: f(x) = 1/(1 + x^2): x^2 ≥ 0 gives 1 + x^2 ≥ 1, and taking reciprocals flips to 0 < f(x) ≤ 1; range (0, 1]. The flip when taking reciprocals is the step students forget.
+• The standard cast — identity f(x) = x: the diagonal line, domain and range both R. Constant f(x) = c: a horizontal line, range the single point {c}. Modulus f(x) = |x|: the V-shape, |x| = x when x ≥ 0 and -x when x < 0, domain R, range [0, ∞); |x - a| is the same V shifted right by a, and |x| questions are solved by splitting at the corner.
+• The standard cast, continued — signum: sgn(x) = 1 if x > 0, 0 if x = 0, -1 if x < 0; domain R, range exactly {-1, 0, 1}; its graph is two horizontal rays and one dot. Greatest integer function [x] (also written floor): the greatest integer ≤ x; [2.7] = 2, [5] = 5, and [-1.3] = -2 — floor always steps DOWN the number line, never towards zero. Its graph is a staircase with domain R and range Z, and [x] ≤ x < [x] + 1 always.
+• The standard cast, completed — fractional part {x} = x - [x], the sawtooth: {2.7} = 0.7, {-1.3} = -1.3 - (-2) = 0.7 — the fractional part is never negative; range is always [0, 1). Reciprocal 1/x: domain and range both R - {0}, branches in the first and third quadrants. Memorising this cast pays off across the entire calculus sequence that follows.
+• YOUR TURN — Find the domain of f(x) = sqrt(9 - x^2). Answer: need 9 - x^2 ≥ 0, i.e. x^2 ≤ 9, so the domain is [-3, 3] — and the graph is the upper half of a circle of radius 3, which is why the range is [0, 3].
+⚠ EXAM TRAP — [-1.3] is -2, not -1: truncation (chopping the decimal) is not floor. Test yourself with money: if [x] meant "chop", negative values would misbehave — floor moves towards negative infinity, always. Second trap: the range of a constant function is a singleton set {c}, not the number c.
 
+Composition of Functions and Inverse Functions
+• DEFINITION — The composition fog ("f of g") means apply g first, then f: (fog)(x) = f(g(x)). Read it right to left, inside out. Its domain is the part of g's domain whose outputs land inside f's domain. Composition is associative — (fog)oh = fo(goh) — but it is NOT commutative: fog and gof are usually different functions.
+• EXAMPLE — Let f(x) = x^2 + 1 and g(x) = 2x - 3. Then fog(2) = f(g(2)) = f(1) = 2, while gof(2) = g(f(2)) = g(5) = 7. Same two functions, same input, answers 2 and 7 — order is not a detail, it is the question.
+• DEFINITION — f : A → B has an inverse f^-1 : B → A exactly when f is bijective: injectivity guarantees the reversed arrows never split, surjectivity guarantees every element of B has an arrow to reverse. The inverse undoes f: f^-1(f(x)) = x and f(f^-1(y)) = y. On graphs, f^-1 is the reflection of f in the line y = x — swap the axes, swap the function.
+• WORKED PATTERN — Finding an inverse: write y = f(x), solve for x in terms of y, then rename the variables. Verified example: f(x) = (3x - 5)/(2x + 1). From y(2x + 1) = 3x - 5, collect x: x(2y - 3) = -5 - y, so x = (y + 5)/(3 - 2y), giving f^-1(x) = (x + 5)/(3 - 2x). Check the domains rhyme: f excludes x = -1/2, and f^-1 excludes x = 3/2 — each function's forbidden point is the other's limiting value.
+★ HIGHLIGHT — IAT functional equations, the chapter's signature question family: f(x + y) = f(x) + f(y) (with any regularity like continuity or monotonicity) forces f(x) = cx — the linear family. f(x + y) = f(x) f(y) forces f(x) = a^x — the exponential family. Recognising the shape of the equation names the family of the answer before any computation starts.
+• YOUR TURN — f(x) = 2x + 1, g(x) = x^2 - 1. Compute fog(3) and gof(3). Answer: g(3) = 8, so fog(3) = f(8) = 17. f(3) = 7, so gof(3) = g(7) = 48. Two different numbers from one pair of functions, as promised.
+⚠ EXAM TRAP — fog(x) is f(g(x)), not g(f(x)) and never f(x) x g(x). When in doubt, substitute a number and track it physically through the inner machine first. Second trap: an inverse exists only for a bijection — |x| and x^2 on R have no inverse until the domain is restricted.
 
+Statements, Connectives and Truth Tables
+• DEFINITION — A statement (proposition) is a declarative sentence that is either true or false — definitely one of them, even if we do not yet know which. "7 is prime" is a statement (true). "The year 2100 will see a lunar colony" is a statement (its truth is unknown today, but it has one). Questions, commands, exclamations and sentences with free variables are NOT statements: "Close the door" has no truth value, and "x + 2 = 5" becomes a statement only once x is fixed — such a sentence is called an open sentence.
+• DEFINITION — The connectives build compound statements from simple ones, with p and q standing for statements: negation ~p ("not p" — flips the truth value); conjunction p ∧ q ("p and q" — true only when both are true); disjunction p ∨ q ("p or q" — false only when both are false; this or is INCLUSIVE, so p ∨ q is true when both hold); implication p → q ("if p then q"); biconditional p ↔ q ("p if and only if q" — true when p and q share the same truth value).
+✔ KEY RESULT — Implication is false in exactly ONE row: p true and q false. In every other row — including both rows where p is false — p → q is true. A false hypothesis makes an implication automatically, vacuously true: "if 2 = 3, then the moon is cheese" is a true statement of logic, however it sounds.
+• The language of implication, translated once and for all: "p only if q" means p → q (q is required for p). "p is sufficient for q" means p → q (p alone guarantees q). "q is necessary for p" also means p → q (p cannot hold without q). And "p if q" means q → p — the if attaches to the hypothesis, wherever it sits in the sentence.
+• WORKED PATTERN — Building a truth table: (1) list all 2^n truth assignments for n simple statements (2 statements = 4 rows); (2) compute the innermost brackets first, one column per step; (3) read the final column — all T means tautology, all F means contradiction, mixed means contingency (next sections use exactly this reading).
+• EXAMPLE — Let p: "2 is even" (T) and q: "3 is odd" (T). Then p → q is T → T = T. Change q to "3 is even" (F): p → q becomes T → F = F — the unique false row, with a true hypothesis and a false conclusion. Every implication question is, at bottom, a hunt for whether that row can occur.
+• YOUR TURN — p is true, q is false. Evaluate: p ∧ ~q, and p → q. Answer: ~q is true, so p ∧ ~q is true. p → q is the T → F row: false. The two compound forms built from the same ingredients disagree completely — the connective IS the meaning.
+⚠ EXAM TRAP — Everyday "or" is usually exclusive ("tea or coffee?" expects one), but mathematical ∨ is inclusive unless "either... but not both" is stated. And watch open sentences in disguise: "He is a good player" is not a statement until "he" is pinned down.
 
-                3. Functions, Bijections & Functional Equations
+The Implication Family — Converse, Inverse, Contrapositive
+• DEFINITION — Start from the implication p → q (call p the hypothesis, q the conclusion). Its three relatives: the converse q → p (swap the two); the inverse ~p → ~q (negate both, keep the order); the contrapositive ~q → ~p (negate both AND swap). Four statements, one family — and exactly two equivalence pairs inside it.
+✔ KEY RESULT — An implication is ALWAYS logically equivalent to its contrapositive: p → q ≡ ~q → ~p, in every row of the truth table. The converse and the inverse are equivalent to EACH OTHER (each is the other's contrapositive) but NOT to the original. The figure with this section lays the four truth tables side by side so the matching columns are visible.
+• WHY the contrapositive works — p → q fails only in the row "p true, q false". The contrapositive ~q → ~p fails only when ~q is true and ~p is false — that is, q false and p true — the very same row. Two statements that fail in exactly the same single situation are true in exactly the same situations: identical, as logic counts identity. This is also why proof by contrapositive is legitimate mathematics, used constantly in later chapters.
+• EXAMPLE — The contrapositive of "If a number is divisible by 6, then it is divisible by 3" is "If a number is not divisible by 3, then it is not divisible by 6" — true, necessarily, because the original is. The converse, "If a number is divisible by 3, then it is divisible by 6", is false (9 convicts it). The inverse, "If a number is not divisible by 6, then it is not divisible by 3", is the same falsehood in a wig.
+• WORKED PATTERN — Mechanically safe method: (1) write p and q as explicit statements, keeping any "not" that is already inside them; (2) contrapositive = negate q, negate p, in that order, joined by →; (3) converse = swap only; inverse = negate only. Students who do step (1) on paper almost never confuse the three; students who do it in their head almost always do, eventually.
+• YOUR TURN — Write the contrapositive of p → ~q. Answer: negate the conclusion to get q, negate the hypothesis to get ~p, swap: q → ~p. (The double negation of ~q is q — the step everyone drops.)
+⚠ EXAM TRAP — The negation of p → q is NOT any member of this family: ~(p → q) ≡ p ∧ ~q — "the hypothesis happened and the conclusion failed". Options offering ~p → ~q or ~p → q as "the negation of the implication" are testing exactly this. Memorise the shape: a negated implication is a conjunction, never an implication.
 
-                • If |A| = m and |B| = n:
+Tautologies, Quantifiers and Negation
+• DEFINITION — A compound statement that is true in every row of its truth table is a tautology; false in every row, a contradiction; true in some rows and false in others, a contingency. Workhorse examples: p ∨ ~p is a tautology (the law of the excluded middle), p ∧ ~p is a contradiction, and p → q ≡ ~p ∨ q — the single most useful equivalence in this topic, since it converts every implication into an or-statement.
+✔ KEY RESULT — A genuinely surprising tautology: (p → q) ∨ (q → p) is true in ALL four rows. Whatever two statements you pick, at least one direction of implication between them must hold — check the row p = T, q = F: q → p is F → T, which is true, rescuing the disjunction. Tautologies are not always obvious; that is why we compute tables instead of trusting instincts.
+• De Morgan returns — ~(p ∧ q) ≡ ~p ∨ ~q and ~(p ∨ q) ≡ ~p ∧ ~q: negating flips the connective, exactly as complementing flipped union and intersection in Section 3. One principle, two costumes. Also bank these: ~(p → q) ≡ p ∧ ~q, and ~~p ≡ p.
+• DEFINITION — Quantifiers turn open sentences into statements: ∀x P(x), "for all x, P(x)", claims the property holds universally — one counterexample destroys it. ∃x P(x), "there exists x with P(x)", claims at least one instance — one example proves it. Domain matters: "∀x, x^2 ≥ 0" is true over R and meaningless-to-false if x ranges over complex numbers.
+✔ KEY FORMULA — Negating quantified statements: ~(∀x P(x)) ≡ ∃x ~P(x), and ~(∃x P(x)) ≡ ∀x ~P(x). The quantifier flips and the negation moves inside. With an implication inside: ~(∀x (P(x) → Q(x))) ≡ ∃x (P(x) ∧ ~Q(x)) — flip the quantifier, then negate the implication by the conjunction rule.
+• EXAMPLE — The negation of "Every student in the class passed" is "Some student in the class did not pass" (∃ with negation inside) — NOT "No student passed", which is far stronger and would only be the negation if it were also true that... it never is: "not all" means "at least one not", nothing more. The negation of "There is a prime that is even" is "Every prime is odd" (∀ with negation inside) — which happens to be false, since 2 exists; negations flip truth, they do not preserve comfort.
+• YOUR TURN — Negate: "x is even and x is prime". Answer: "x is not even or x is not prime" — De Morgan flipped the and to or, and each part was negated. Verify on x = 2: original is true (even and prime), negation must be false: "not even or not prime" = F or F = F. Correct.
+⚠ EXAM TRAP — Two negation disasters recur yearly: negating "all" as "none" (it is "some... not"), and negating an implication by negating its parts (it is p ∧ ~q). Both live in this section's rules — the exam is testing mechanical care, not insight.
 
-                  - Total functions A → B: nᵐ
+Formula Sheet — Every Result on One Screen
+✔ n(A ∪ B) = n(A) + n(B) - n(A ∩ B); n(A ∪ B ∪ C) = sum of singles - sum of pairs + n(A ∩ B ∩ C); only A = n(A) - n(A ∩ B) - n(A ∩ C) + n(A ∩ B ∩ C); n(A' ∩ B') = n(U) - n(A ∪ B)
+✔ Subsets of an n-set: 2^n in total, 2^n - 1 proper, 2^n - 1 non-empty, C(n, k) with exactly k elements; n(P(A)) = 2^n; De Morgan: (A ∪ B)' = A' ∩ B', (A ∩ B)' = A' ∪ B'; A - B = A ∩ B'
+✔ Relations on an n-set: total 2^(n^2); reflexive 2^(n^2 - n); symmetric 2^(n(n + 1)/2); reflexive and symmetric 2^(n(n - 1)/2); equivalence relations = partitions = Bell numbers 1, 2, 5, 15 for n = 1, 2, 3, 4
+✔ Functions from A (m elements) to B (n elements): total n^m; one-one n!/(n - m)! when m ≤ n; onto = n^m - C(n,1)(n-1)^m + C(n,2)(n-2)^m - ... when m ≥ n; onto a 2-set = 2^m - 2; bijective = n! when m = n
+✔ [x] ≤ x < [x] + 1; {x} = x - [x] ∈ [0, 1); |x| = x if x ≥ 0, -x if x < 0; range of signum = {-1, 0, 1}; (fog)(x) = f(g(x)); inverse exists if and only if the function is bijective
+✔ Logic: p → q is false only for (T, F); p → q ≡ ~q → ~p ≡ ~p ∨ q; ~(p → q) ≡ p ∧ ~q; ~(p ∧ q) ≡ ~p ∨ ~q; ~(p ∨ q) ≡ ~p ∧ ~q; ~(∀x P(x)) ≡ ∃x ~P(x); ~(∃x P(x)) ≡ ∀x ~P(x)
 
-                  - Injective (one-one) functions (when m ≤ n): ⁿPₘ
+Common Mistakes and Exam Traps
+• Mistake 1 — Writing 1 ⊆ {1, 2} or {1} ∈ {1, 2} as if membership and inclusion were interchangeable. Why it fails: ∈ links an element to a set; ⊆ links a set to a set. Correct principle: 1 ∈ {1, 2} and {1} ⊆ {1, 2}; before using a symbol, ask whether the left side is an element or a set.
+• Mistake 2 — Answering "only A" with n(A). Why it fails: n(A) includes everyone in the overlaps; "only" is a region, not a set total. Correct principle: only A = n(A) - n(A ∩ B) - n(A ∩ C) + n(A ∩ B ∩ C) — peel the overlaps off, then add the triple back because it was removed twice.
+• Mistake 3 — Writing the three-set union formula with a minus on the triple term. Why it fails: the triple overlap is added 3 times by the singles and subtracted 3 times by the pairs, netting zero unless restored. Correct principle: signs alternate with depth — +, -, + — and the deepest term takes the sign (-1)^(sets - 1) pattern: for three sets, plus.
+• Mistake 4 — Declaring a relation an equivalence after checking symmetry and transitivity alone. Why it fails: those two cannot force any pair to exist — the empty relation passes both. Correct principle: reflexivity is an independent, element-by-element check; all three must be verified, diagonal first.
+• Mistake 5 — Counting functions A → B as m^n. Why it fails: the exponent counts choosers (inputs), the base counts choices per chooser (outputs). Correct principle: total = (codomain size)^(domain size) = n^m; picture one input picking its output and repeat.
+• Mistake 6 — Answering an onto question with n^m. Why it fails: n^m counts maps that miss codomain elements too — for 4 → 3 it gives 81 when the truth is 36. Correct principle: onto means subtract the missers with inclusion-exclusion; if your onto count equals your total count, you have certainly erred (unless n = 1).
+• Mistake 7 — Evaluating [-1.3] as -1 by "chopping the decimal". Why it fails: chopping is truncation towards zero; the greatest integer function is a floor, moving towards negative infinity. Correct principle: [x] is the first integer at or to the LEFT of x on the number line: [-1.3] = -2, and {-1.3} = 0.7.
+• Mistake 8 — Computing fog by applying f first. Why it fails: notation is inside-out; (fog)(x) = f(g(x)) and g is the inner machine. Correct principle: substitute a concrete number, push it through the inner function first, and only then through the outer.
+• Mistake 9 — Offering the inverse (~p → ~q) when the contrapositive is asked, or vice versa. Why it fails: the inverse keeps the order; the contrapositive swaps. Correct principle: contrapositive = negate AND swap; inverse = negate ONLY; converse = swap ONLY. Write p and q down before transforming.
+• Mistake 10 — Negating "for all" statements as "for none", and negating p → q as an implication. Why it fails: negating a universal claim needs only one failure, and a failed implication is an event (hypothesis true, conclusion false), not another implication. Correct principle: ~(∀x P(x)) ≡ ∃x ~P(x), and ~(p → q) ≡ p ∧ ~q.
 
-                  - Bijective functions (when m = n): n!
+Worked Examples — Basic to Challenging
+• Example 1 (three-set survey). Problem: In a class of 60, 35 study Physics, 30 Chemistry, 25 Biology; 15 study Physics and Chemistry, 12 Chemistry and Biology, 10 Physics and Biology, and 5 study all three. Find how many study at least one subject, how many study none, and how many study exactly one.
+• Given: the three set sizes, the three pairwise intersections, the triple intersection, and n(U) = 60.
+• Principle: inclusion-exclusion for three sets, then region subtraction for "exactly one".
+• Steps: union = 35 + 30 + 25 - 15 - 12 - 10 + 5 = 58. None = 60 - 58 = 2. Only Physics = 35 - 15 - 10 + 5 = 15; only Chemistry = 30 - 15 - 12 + 5 = 8; only Biology = 25 - 12 - 10 + 5 = 8.
+• Answer: at least one = 58, none = 2, exactly one = 15 + 8 + 8 = 31.
+• Reasoning: the "only" regions each subtract both pairwise overlaps and add the triple back once, because it was subtracted twice. Sanity check: exactly two = (15 - 5) + (12 - 5) + (10 - 5) = 22, and 31 + 22 + 5 = 58 = the union. The regions tile the union perfectly.
+• Mistake to avoid: answering "exactly one" with 58 - 5 = 53 (that is "one or two") or forgetting the +5 in the union formula, which would give 53 for the union itself.
+• Example 2 (subsets with a condition). Problem: How many subsets of a 6-element set have at least two elements?
+• Given: n = 6, total subsets 2^6 = 64.
+• Principle: count the complement — subsets with 0 or 1 elements are the easiest sets in the world to count.
+• Steps: subsets with 0 elements: 1 (the empty set). Subsets with 1 element: 6. Wanted = 64 - 1 - 6 = 57.
+• Answer: 57.
+• Reasoning: "at least" phrasing is the bat-signal for complementary counting; direct counting would need C(6,2) + C(6,3) + C(6,4) + C(6,5) + C(6,6) — the same 57, at five times the effort.
+• Mistake to avoid: subtracting only the empty set and forgetting the 6 singletons.
+• Example 3 (counting reflexive relations). Problem: A set A has 4 elements. How many relations on A are there in total, and how many of them are reflexive?
+• Given: n = 4, so A x A has 16 ordered pairs.
+• Principle: total relations = 2^(number of pairs); reflexive relations fix the 4 diagonal pairs IN and free the rest.
+• Steps: total = 2^16 = 65536. Reflexive = 2^(16 - 4) = 2^12 = 4096.
+• Answer: 65536 relations, 4096 of them reflexive.
+• Reasoning: the exponent is always "free binary choices": 16 pairs free in total; reflexivity removes 4 choices by forcing them.
+• Mistake to avoid: answering 2^4 or 4^2 for the total — the pair count is n^2 = 16, and every pair votes in or out.
+• Example 4 (onto functions). Problem: In how many ways can 5 distinct letters be posted into 3 distinct mailboxes so that no mailbox stays empty?
+• Given: functions from a 5-set (letters) to a 3-set (boxes), onto required.
+• Principle: inclusion-exclusion over the boxes that stay empty.
+• Steps: all maps 3^5 = 243. Subtract maps missing a chosen box: C(3, 1) x 2^5 = 3 x 32 = 96. Add back maps missing two chosen boxes: C(3, 2) x 1^5 = 3. Missing all three is impossible. Total = 243 - 96 + 3 = 150.
+• Answer: 150.
+• Reasoning: each letter chooses a box, but the "no empty box" condition is a condition on all boxes at once — exactly the situation inclusion-exclusion exists for. (Verified by brute force: exactly 150 of the 243 maps use all three boxes.)
+• Mistake to avoid: answering 243 (forgot the condition) or 3^5 - 2^5 = 211 (subtracted only one missing-box case, and without the C(3, 1) factor or the add-back).
+• Example 5 (inverse and composition). Problem: For f(x) = (3x - 5)/(2x + 1) and g(x) = 2x - 3, find f^-1(x), and show fog ≠ gof using h(x) = x^2 + 1 in place of f for the composition part.
+• Given: rational f; the composition pair f2(x) = x^2 + 1 and g(x) = 2x - 3.
+• Principle: inverse — set y = f(x), solve for x; composition — inner function first.
+• Steps: y(2x + 1) = 3x - 5 gives 2xy - 3x = -5 - y, so x(2y - 3) = -(5 + y) and x = (y + 5)/(3 - 2y). So f^-1(x) = (x + 5)/(3 - 2x). Composition: fog with f2: f2(g(2)) = f2(1) = 2; g(f2(2)) = g(5) = 7; 2 ≠ 7.
+• Answer: f^-1(x) = (x + 5)/(3 - 2x); fog(2) = 2 but gof(2) = 7.
+• Reasoning: the inverse of a fractional-linear map is again fractional-linear with the coefficients reshuffled — a pattern worth recognising; and one numeric pair where fog and gof differ is a complete proof that composition is not commutative.
+• Mistake to avoid: "inverting" by flipping the fraction — (2x + 1)/(3x - 5) is not the inverse function, just the reciprocal.
+• Example 6 (domain of a nested condition). Problem: Find the domain of f(x) = 1 / sqrt(x^2 - 3x + 2).
+• Given: an even root inside a denominator — the strictest address in town.
+• Principle: the radicand must be > 0 (≥ 0 for a root, and ≠ 0 for the denominator; combined: strictly positive).
+• Steps: x^2 - 3x + 2 = (x - 1)(x - 2). The product is positive when both factors share a sign: both positive (x > 2) or both negative (x < 1). At x = 1 and x = 2 the radicand is 0 — excluded.
+• Answer: domain = (-∞, 1) ∪ (2, ∞).
+• Reasoning: draw the parabola mentally: it opens upwards with roots 1 and 2, so it is positive outside the roots and negative between them. The sign chart, not guesswork, decides.
+• Mistake to avoid: writing [1, 2] (the region where the radicand is NEGATIVE — the exact opposite) or including 1 and 2 out of root-habit, forgetting the denominator.
+• Example 7 (a tautology verdict). Problem: Determine, using a truth table, whether (p → q) ∨ (q → p) is a tautology, a contradiction or a contingency.
+• Given: two simple statements, four rows to check.
+• Principle: a tautology needs TRUE in every row; one false row demotes it.
+• Steps: Row (T, T): p → q is T, done — the or is T. Row (T, F): p → q is F, but q → p is F → T = T, so the or is T. Row (F, T): p → q is F → T = T, so the or is T. Row (F, F): p → q is T. Final column: T, T, T, T.
+• Answer: a tautology.
+• Reasoning: whenever one direction fails (only possible as T → F), the reverse direction has a false hypothesis and succeeds vacuously. The two implications insure each other — a neat, provable piece of logic, not a curiosity.
+• Mistake to avoid: stopping at the (T, F) row, seeing one false implication, and declaring the compound "sometimes false" — the connective is or; BOTH branches must fail in a row to sink it.
 
-                • Classic IAT Functional Equations:
+Practice Questions — Self-Test Set
+• Q1. n(U) = 100, n(A) = 45, n(B) = 40, n(A ∩ B) = 15. Then n(A' ∩ B') equals: (A) 30 (B) 25 (C) 15 (D) 70.
+• Q2. The number of subsets of an 8-element set having exactly 3 elements is: (A) 336 (B) 56 (C) 24 (D) 8.
+• Q3. On {1, 2, 3}, R = {(1, 1), (2, 2), (3, 3), (1, 2), (2, 1), (2, 3), (3, 2)}. R is: (A) an equivalence relation (B) reflexive and symmetric but not transitive (C) symmetric and transitive but not reflexive (D) reflexive and transitive but not symmetric.
+• Q4. The number of reflexive relations on a set with 3 elements is: (A) 512 (B) 256 (C) 64 (D) 8.
+• Q5. f : R → R defined by f(x) = x^3 - x is: (A) one-one and onto (B) one-one but not onto (C) onto but not one-one (D) neither one-one nor onto.
+• Q6. The domain of f(x) = sqrt(x - 1)/(x - 4) is: (A) [1, ∞) (B) [1, 4) ∪ (4, ∞) (C) (1, 4) ∪ (4, ∞) (D) [1, 4].
+• Q7. If f(x) = 3x + 2 and g(x) = x^2, then fog(1) equals: (A) 25 (B) 9 (C) 5 (D) 11.
+• Q8. Which of the following is a tautology? (A) p ∧ ~p (B) (p → q) ∨ (q → p) (C) p → q (D) ~(p ∨ ~p).
 
-                  - f(x + y) = f(x) + f(y) ⇒ f(x) = cx (for continuous/monotonic f)
+▸ Answer Key with Explanations
+• Q1: (A) 30. n(A ∪ B) = 45 + 40 - 15 = 70, and by De Morgan A' ∩ B' = (A ∪ B)', so 100 - 70 = 30. Misconception targeted: computing A' ∩ B' as (A ∩ B)' = 85, the wrong De Morgan flip.
+• Q2: (B) 56. Exactly-k subsets are counted by C(8, 3) = 56. Misconception targeted: 336 = P(8, 3) counts arrangements — subsets do not care about order.
+• Q3: (B). The diagonal is complete and every mirror is present, but (1, 2) and (2, 3) would need (1, 3), which is missing. Misconception targeted: assuming reflexive + symmetric is "close enough" to equivalence — transitivity is a separate gate.
+• Q4: (C) 64. 2^(9 - 3) = 2^6 = 64: the 3 diagonal pairs are forced, 6 pairs stay free. Misconception targeted: 512 counts ALL relations; 8 is the reflexive-and-symmetric count, not reflexive alone.
+• Q5: (C). f(0) = f(1) = f(-1) = 0 kills one-one; a cubic with positive leading coefficient ranges over all of R, giving onto. Misconception targeted: assuming a polynomial with an x^3 term is automatically one-one — odd degree gives onto, not injective.
+• Q6: (B). The root needs x ≥ 1; the denominator excludes x = 4. Misconception targeted: option (A) forgets the denominator; option (C) wrongly excludes x = 1, where the function is a healthy 0.
+• Q7: (C) 5. fog(1) = f(g(1)) = f(1) = 5. Misconception targeted: 25 is gof(1) = g(f(1)) = g(5) — the order swap, again.
+• Q8: (B). In every row at least one of p → q, q → p holds (see Worked Example 7). (A) and (D) are contradictions, (C) is a contingency. Misconception targeted: rejecting (B) because "an implication can be false" — the or only needs one survivor per row.
 
-                  - f(x + y) = f(x)f(y) ⇒ f(x) = aˣ
-
-                  - f(x) + f(1/x) = f(x)f(1/x) ⇒ f(x) = 1 ± xⁿ
-
-            """.trimIndent(),
+Chapter Summary and Revision Checklist
+• The set half of the chapter in one paragraph: a set is a well-defined collection; subsets are counted by binary votes (2^n); overlaps are counted honestly by inclusion-exclusion, whose signs alternate; and complementing flips unions and intersections (De Morgan).
+• The relation half in one paragraph: a relation is any subset of a Cartesian product; three tests — reflexive, symmetric, transitive — classify it; passing all three makes it an equivalence, whose classes partition the set; counts are powers of two with forced or glued pairs, except equivalence counts, which are Bell numbers.
+• The function half in one paragraph: a function is a relation where every input fires exactly once; two tests — one-one and onto — classify it; counts run n^m in total, fall for one-one, include-exclude for onto, and n! for bijective; domain is found by exclusions, range by inversion or shape, and inverses exist exactly for bijections.
+• The logic half in one paragraph: statements have truth values; implication fails only at (T, F); every implication has one exact twin, its contrapositive; negation flips quantifiers and connectives, and negates an implication into a conjunction p ∧ ~q.
+• Revision checklist — I can: translate between roster and set-builder forms without hesitating.
+• Revision checklist — I can: fill a three-set Venn from the centre out and read exactly-one / exactly-two / none regions.
+• Revision checklist — I can: test any small relation for all three properties and name a counterexample pair when one fails.
+• Revision checklist — I can: write down every relation and function counting formula and explain its exponent in one sentence.
+• Revision checklist — I can: find domains involving roots over denominators, and state [x] and {x} for negative numbers without error.
+• Revision checklist — I can: compute fog and gof in the right order, and invert a fractional-linear function.
+• Revision checklist — I can: produce converse, inverse and contrapositive on demand, and negate quantified statements mechanically.
+• Self-assessment — score the practice set: 7-8 correct, exam-ready; 5-6, revisit the sections behind your two weakest questions; below 5, re-read Sections 3-4 and 10-11 and redo Worked Examples 1, 4 and 5 before retesting.
+★ HIGHLIGHT — If you remember nothing else: inclusion-exclusion alternates its signs, forced pairs leave the exponent, onto means subtract the missers, fog reads right-to-left, and the contrapositive never lies.""".trimIndent(),
 
             videoTitle = "Equivalence Relations, Surjections & IAT Functional Equations",
 
@@ -146,51 +368,269 @@ object SmartPrepSeedData {
 
             completedLessons = 3,
 
-            studyNotesCount = 9,
+            studyNotesCount = 21,
 
-            practiceQuestionCount = 26,
+            practiceQuestionCount = 5,
 
             durationMinutes = 55,
 
-            formulaHighlight = "(x + y)ⁿ = Σ ⁿCᵣ xⁿ⁻ʳ yʳ  •  Derangements Dₙ = n! Σ (−1)ᵏ / k!",
+            formulaHighlight = "nPr = n! / (n - r)! | nCr = n! / (r! (n - r)!) = nC(n - r) | identical items: n! / (p! q! ...) | circular: (n - 1)!, necklace: (n - 1)! / 2 | T(r + 1) = C(n, r) x^(n - r) y^r | sum of C(n, r) = 2^n, alternating sum = 0, sum of squares = C(2n, n) | diagonals of n-gon: n(n - 3) / 2",
 
-            keyConceptsSummary = "Fundamental principle of counting, circular permutations, distribution of identical/distinct objects (beggar's method), Pigeonhole Principle, general and middle terms in binomial expansion, and Vandermonde's identity.",
+            keyConceptsSummary = "• Counting starts with the fundamental principle: stages in sequence multiply, exclusive alternatives for one decision add — the words \"and then\" versus \"or instead\" choose the operation\n• Permutations count ordered arrangements: nPr = n! / (n - r)!; identical objects divide by p! q!; restrictions fall to the block method (together) and the gap method (no two together)\n• Circular arrangements divide out the rotations: (n - 1)! at a round table, and (n - 1)! / 2 for necklaces that can also flip\n• Combinations count unordered selections: nCr = n! / (r! (n - r)!); committees are case-split by exact composition (or complemented), never by fixing required members first\n• The general term T(r + 1) = C(n, r) x^(n - r) y^r answers every single-expansion question: set the power of x as a function of r, solve, evaluate — middle term is position, greatest term is value at a given x\n• The coefficient of x^k in a product is built by splitting k across the factors in every legal way and adding the products of coefficients — the IAT signature problem\n• Coefficient identities come from (1 + x)^n: sums give 2^n, alternating sums give 0, squares sum to C(2n, n); and truncating the series for small x gives fast approximations like (1.02)^8 = 1.1712",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — Why Counting Decides IAT Ranks
+• Counting problems look like the lightest part of the paper — no calculus, no graphs, just "in how many ways?" — and they quietly decide ranks, because they punish guesswork and reward clean thinking. One wrong assumption about order or repetition and the answer is not slightly wrong, it is a different number entirely, usually sitting in the options waiting for you.
+• DEFINITION — Combinatorics is the art of counting arrangements and selections exactly, without listing them. This chapter builds the whole toolkit: the fundamental principle, permutations, combinations, and the binomial theorem — which turns out to be a counting theorem in disguise.
+• WHY two halves, one chapter — counting (permutations and combinations) is the engine of probability later in this course: probability is just favourable counts divided by total counts. The binomial theorem is the algebra of the same coefficients C(n, r), and it powers coefficient questions and approximations, two IAT factories.
+• EXAMPLE — A 4-digit PIN uses any of 10 digits in each of 4 slots, repeats allowed: 10^4 = 10,000 possibilities. You already believe this number. By the end of the chapter you will be able to prove it, vary it, and trap-proof it.
+• The map: first the fundamental principle (multiply versus add), then permutations (arrangements), the two meanings of repetition, the block and gap methods for restrictions, circular arrangements, combinations (selections), committees, groups and geometry — then the binomial theorem: general term, middle and greatest terms, coefficient hunting in products, coefficient identities, and approximations.
+★ HIGHLIGHT — Every counting problem on Earth is four questions in a trench coat: Am I arranging or selecting? Is repetition allowed? Are there restrictions? Does order matter? Answer those four honestly and the formula chooses itself.
 
-                1. Permutations & Combinations
+The Fundamental Principle of Counting — AND Multiplies, OR Adds
+• DEFINITION — The fundamental principle of counting: if a task can be split into stage 1 (doable in m ways) AND stage 2 (doable in n ways, for every outcome of stage 1), the combined task can be done in m x n ways. If instead a job can be done by method A (m ways) OR by method B (n ways), the exclusive alternatives giving no overlap, the job can be done in m + n ways.
+• WHY multiply — multiplication is pairing. Each of the m first-stage outcomes can be paired with each of the n second-stage outcomes, so the total is the full grid m x n. Adding would count only one stage or the other; multiplying counts completed journeys through both.
+• EXAMPLE — A canteen offers 3 starters, 5 main courses and 4 desserts. A full meal (starter AND main AND dessert) can be chosen in 3 x 5 x 4 = 60 ways.
+• EXAMPLE — A number plate with 2 letters followed by 4 digits: 26 x 26 x 10 x 10 x 10 x 10 = 6,760,000 possible plates. Five slots, each filled independently, so five factors multiply.
+• WORKED PATTERN — Translate the English before touching numbers: "and then", "followed by", "together with" mean stages, so multiply. "Or instead", "either ... or" for the same single decision mean alternatives, so add.
+⚠ EXAM TRAP — The classic blunder is adding when the choices fill different slots in sequence. Two shirts and three trousers make 2 x 3 = 6 outfits, not 5: the shirt AND the trousers are both worn. Add only when you pick one option INSTEAD of another for the same slot.
+• YOUR TURN — There are 4 roads from home to city A and 3 roads from A to city B. How many routes run from home to B via A? Separately, a traveller can take any of 5 trains OR any of 7 buses to make one trip — how many travel options? (Answers: 4 x 3 = 12 routes, because road 1 AND road 2 are both travelled. And 5 + 7 = 12 options, because the train replaces the bus. Same answer 12, opposite logic — the words decide.)
 
-                • Arrangement of n items with p alike of one kind, q alike of second kind: n! / (p! q!).
+Permutations — Arranging Distinct Objects in a Row
+• DEFINITION — A permutation is an ordered arrangement. The number of ways to arrange r objects chosen from n distinct objects, where the order of the chosen ones matters, is written nPr = n! / (n - r)!.
+• DEFINITION — The factorial: n! = n x (n - 1) x (n - 2) x ... x 2 x 1, the number of ways to arrange all n distinct objects in a row. By convention 0! = 1: there is exactly one way to arrange nothing at all, and the convention keeps every formula in this chapter working.
+✔ KEY FORMULA — nPr = n! / (n - r)!. Filling r ordered slots from n distinct objects: n choices, then n - 1, down to n - r + 1. Arranging all n objects is the special case nPn = n!.
+• WHY the formula has that shape — the first slot can take any of n objects, the second any of the remaining n - 1, and so on; the fundamental principle multiplies the r factors n x (n - 1) x ... x (n - r + 1), which is exactly n! with the tail (n - r)! cancelled away.
+• EXAMPLE — Signals: how many different signals can 6 distinct flags make using exactly 4 flags in a column? Order matters (red over blue differs from blue over red), so 6P4 = 6 x 5 x 4 x 3 = 360 signals.
+• EXAMPLE — Seven distinct books on a shelf: 7! = 5040 arrangements. Four distinct prizes (gold, silver, bronze, and a consolation) awarded among 10 students: 10P4 = 5040. Identical arithmetic — both are "fill 4 ordered slots from 10" or "fill 7 slots from 7". Always translate the story into slots.
+⚠ EXAM TRAP — Order matters only when the positions are distinguishable: 1st versus 2nd, president versus secretary, gold versus silver. The moment the positions become interchangeable (a committee, a hand of cards), you are in combination territory and this formula overcounts by exactly r!.
+• YOUR TURN — Eight sprinters run a final. In how many ways can the gold and silver medals be awarded? (Answer: two ordered slots from 8 athletes: 8P2 = 8 x 7 = 56.)
 
-                • Circular permutations of n distinct objects: (n − 1)! (or (n − 1)!/2 if clockwise and anticlockwise are indistinguishable).
+▸ Repetition in Permutations — Repeats Allowed, Twins Identical
+• The word "repetition" hides two completely different situations, and exams profit from the confusion. Situation one: slots may reuse objects. Situation two: the objects themselves include identical copies. Different diseases, different medicines.
+• DEFINITION — Repetition allowed: if each of r slots can be filled by any of n objects with reuse permitted, the number of arrangements is n^r. Every slot independently has n choices, and the fundamental principle raises n to the power r.
+• EXAMPLE — Three-letter codes from the letters A, B, C, D, E, letters reusable: 5^3 = 125 codes. The PIN from the introduction is the same shape: 10^4 = 10,000. Reuse is why short PINs are weak — the count grows only as a power, and 4 slots is not many.
+• DEFINITION — Identical items: the number of distinct arrangements of n objects, of which p are alike of one kind, q are alike of another kind, and the rest are distinct, is n! / (p! q! ...). Start with n! as if all were distinct, then divide by the internal rearrangements of each family of copies, because swapping identical copies produces nothing new.
+✔ KEY FORMULA — Distinct arrangements with repeats among the objects: n! divided by (p! x q! x ...) over all identical families. No identical families, no division: the formula politely reduces to n!.
+• EXAMPLE — BANANA has 6 letters with A repeated 3 times and N repeated 2 times: 6! / (3! x 2!) = 720 / 12 = 60 distinct arrangements. A computer brute-forcing every distinct ordering of B, A, N, A, N, A counts exactly 60 — the division is real.
+• EXAMPLE — MISSISSIPPI: 11 letters with I four times, S four times, P twice: 11! / (4! x 4! x 2!) = 34,650 distinct arrangements. The factorials in the denominator are doing heavy lifting: the raw 11! is nearly 40 million.
+⚠ EXAM TRAP — Divide by p! only for copies that are truly interchangeable — the same letter printed twice. Two brothers in a photo are distinct people even if they are twins; two letter A's in BANANA are not. If swapping two items produces a visibly different outcome, they are distinct and no division happens.
+• YOUR TURN — How many distinct arrangements does the word ARRANGE have? (Answer: 7 letters with A twice and R twice: 7! / (2! x 2!) = 5040 / 4 = 1260.)
 
-                • Number of non-negative integral solutions to x₁ + x₂ + ... + xᵣ = n is ⁿ⁺ʳ⁻¹Cᵣ₋₁.
+Restrictions — Block Method for Together, Gap Method for Apart
+• Most real problems carry a condition: these two must sit together, those two must never touch. Two master tools handle almost every restriction ever set, and Figure 1 draws both. Learn to reach for them by keyword.
+• DEFINITION — The block method (for "together"): glue the objects that must stay together into a single super-object. Arrange all the units (loose objects plus the block), then multiply by the number of ways the objects inside the block can be arranged among themselves.
+• WORKED PATTERN — The letters of COMPUTER (all distinct) with the vowels O, U, E together: the consonants C, M, P, T, R are 5 loose letters, and the vowel block is 1 unit, giving 6 units to arrange in 6! ways. Inside the block the 3 vowels shuffle in 3! ways. Total 6! x 3! = 720 x 6 = 4320.
+• EXAMPLE — Five boys and three girls line up with all three girls together: 5 boys plus 1 girl-block make 6 units, 6! arrangements, times 3! inside the block: 4320 again. Same skeleton, new story — that is what a "method" means.
+• DEFINITION — The gap method (for "never together" / "no two adjacent"): arrange the unrestricted objects first. They create gaps — one before the first, one between each pair, one after the last. Place the restricted objects into distinct gaps, at most one per gap, so two restricted objects can never end up adjacent.
+• WHY the gap count is objects plus one — a row of n objects has n - 1 internal spaces, plus the two ends: n + 1 gaps in total. This innocent-looking plus one is where gap-method answers live or die.
+• WORKED PATTERN — Five boys and three girls in a row, no two girls adjacent: arrange the boys in 5! = 120 ways. The boys create 6 gaps. Choose 3 of the 6 gaps for the girls: C(6, 3) = 20. Arrange the 3 girls in their chosen gaps: 3! = 6. Total 120 x 20 x 6 = 14,400. A brute-force check over all 8! = 40,320 line-ups counts exactly 14,400 — the method is exact.
+★ HIGHLIGHT — Figure 1 is this whole section in one frame: left, the block — vowels glued into a super-letter; right, the gap method — the X slots around arranged objects are the only legal homes for the items that must stay apart.
+⚠ EXAM TRAP — "No two together" is NOT the complement of "all together". Between them live the arrangements where exactly one pair is together and the third is separate; subtracting the block count from the total leaves those behind and overcounts nothing — it simply answers a different question. Subtraction works for "not all together"; the gap method is the tool for "no two together".
+• YOUR TURN — The letters of NUMBER (all distinct) are arranged with the vowels U and E together. How many arrangements? (Answer: 4 consonants plus the vowel block make 5 units: 5! x 2! = 120 x 2 = 240.)
 
+Circular Permutations — The Round Table Rules
+• DEFINITION — A circular permutation arranges objects around a circle, where arrangements that differ only by a rotation are considered the same — there is no "first seat" at a round table. The number of circular arrangements of n distinct objects is (n - 1)!.
+• WHY (n - 1)! and not n! — every circular arrangement can be rotated into n different line arrangements (one per starting seat), so the n! line arrangements collapse in groups of n: n! / n = (n - 1)!. Equivalent view: seat one person first to break the symmetry — their seat is just a reference point — then arrange the remaining n - 1 people in (n - 1)! ways.
+✔ KEY FORMULA — Round table, distinct people: (n - 1)!. Necklace or garland, which can also be flipped over: (n - 1)! / 2. The extra division by 2 is ONLY for flippable rings.
+• EXAMPLE — Six friends around a round table: (6 - 1)! = 120 seatings. With 6 distinct beads on a necklace: 120 / 2 = 60, because a necklace turned over shows the same arrangement in mirror order, while chairs around a table cannot be flipped.
+• Restrictions survive the move to circles: two particular people insist on sitting together at a round table of 6 — block them into one unit, giving 5 units around the circle: (5 - 1)! x 2! = 24 x 2 = 48 seatings.
+• "Never together" at a table uses subtraction, carefully: 8 people at a round table with one specified pair never adjacent: total (8 - 1)! = 5040, minus the together count (7 - 1)! x 2! = 1440, giving 3600.
+★ HIGHLIGHT — Figure 3 shows the whole idea: one party, photographed twice with everyone rotated by one seat. Same neighbours, same arrangement — that identification is exactly why we divide by n.
+⚠ EXAM TRAP — Two of them: using the line formula n! for a table (forgetting rotations collapse), and dividing by 2 for seated people (forgetting that a table, unlike a necklace, has an up side and cannot flip). Ask "can this arrangement be picked up and turned over?" — yes means divide, no means do not.
+• YOUR TURN — How many different necklaces can be made from 8 distinct beads? (Answer: (8 - 1)! / 2 = 5040 / 2 = 2520.)
 
+Combinations — Selection Where Order Does Not Matter
+• DEFINITION — A combination is a selection: a set of objects chosen from a larger set, where the order in which they were chosen is irrelevant. The number of ways to choose r objects from n distinct objects is nCr = C(n, r) = n! / (r! (n - r)!).
+• WHY combinations are permutations with the order divided out — take any selection of r objects; it can be arranged in r! orders, and each arrangement was counted separately in nPr. So nPr = nCr x r!, and dividing gives the formula. Selections are always the smaller count — a useful sanity check on every answer.
+✔ KEY FORMULA — nCr = n! / (r! (n - r)!). Symmetry: nCr = nC(n - r) — choosing the r who go is the same act as choosing the n - r who stay. Pascal's identity: C(n, r) = C(n - 1, r - 1) + C(n - 1, r).
+• EXAMPLE — Handshakes: 8 people at a meeting, every pair shakes hands once. A handshake is an unordered pair: C(8, 2) = 28 handshakes.
+• EXAMPLE — Choosing 3 books from 10 to take on a trip: C(10, 3) = 120. Compare with 10P3 = 720 if the three slots (hand, bag, pocket) were distinct — the ratio is exactly 3! = 6, the price of caring about order. Whenever a problem changes only in whether order matters, the answers differ by exactly r!.
+• EXAMPLE — A lottery asking you to pick 6 numbers from 49: C(49, 6) = 13,983,816 possible tickets. That is why the jackpot keeps rolling over — combinations grow brutally fast, and this number is worth remembering as a scale anchor.
+• The symmetry trick in action: C(12, 9) looks heavy until you flip it: C(12, 3) = 220. Always compute whichever of r and n - r is smaller. Pascal's identity example: C(9, 4) = C(8, 3) + C(8, 4) = 56 + 70 = 126 — each coefficient is built from the two above it, which is literally how Pascal's triangle grows in Figure 2.
+⚠ EXAM TRAP — Let the verbs decide the tool. "Arrange, line up, rank, award (distinct prizes), appoint president and secretary" are permutation words. "Choose, select, committee, team, delegation, hand of cards" are combination words. When a problem does both — select a team, then arrange it — multiply nCr by the arrangement count for the second stage.
+• YOUR TURN — A class of 12 must send a delegation of 9 students. Compute the count the easy way. (Answer: C(12, 9) = C(12, 3) = 220 — choosing the 9 who go equals choosing the 3 who stay, and 3 is cheaper to compute.)
 
-                2. Derangements & Inclusion-Exclusion
+▸ Committees and Conditions — At-Least and At-Most Done Right
+• DEFINITION — The committee pattern: the pool is split into categories (men and women, teachers and students, bowlers and batsmen). Choose the required number from each category with combinations, multiply across categories (fundamental principle), and add across the separate cases that satisfy the condition.
+• WORKED PATTERN — A committee of 5 from 6 men and 4 women must contain at least 2 women. Split by exact composition: 2 women and 3 men: C(4, 2) x C(6, 3) = 6 x 20 = 120. Three women and 2 men: C(4, 3) x C(6, 2) = 4 x 15 = 60. Four women and 1 man: C(4, 4) x C(6, 1) = 1 x 6 = 6. Add the cases: 120 + 60 + 6 = 186 committees.
+• The complement shortcut: "at least one" almost always collapses to total minus none. Committee of 4 from 5 men and 5 women with at least one woman: C(10, 4) - C(5, 4) = 210 - 5 = 205. One subtraction replaces three cases — reach for the complement whenever the forbidden side has fewer cases.
+• "At most" works the same way: count the small side. At most 2 women in a team of 5 means cases with 0, 1 or 2 women — or total minus the cases with 3, 4 or 5 women, whichever list is shorter. Here both lists have three entries; with "at most 1" the direct side wins easily.
+⚠ EXAM TRAP — The most seductive error in the chapter: for "at least 2 women", students fix 2 women in the committee first and then choose the remaining 3 people freely from the other 8. That counts many committees several times — a committee with 4 women is generated once for every pair of its women you might have "fixed" first. Exact-composition case splits never double count; the fixing shortcut almost always does.
+• YOUR TURN — A committee of 6 is chosen from 8 boys and 6 girls and must contain at least 3 girls. Count it. (Answer: split exactly — 3 girls: C(6, 3) x C(8, 3) = 1120; 4 girls: C(6, 4) x C(8, 2) = 420; 5 girls: C(6, 5) x C(8, 1) = 48; 6 girls: 1. Total 1120 + 420 + 48 + 1 = 1589.)
 
-                • Number of ways in which n items leave their original positions:
+▸ Groups and Geometry — Dividing Teams, Counting Triangles
+• DEFINITION — Division into groups: splitting mn distinct objects into n groups of m each. If the groups are unlabelled (just "three groups"), the count is (mn)! / ((m!)^n x n!). If the groups are labelled or have different jobs, the final division by n! is dropped.
+• WHY two divisions — dividing by (m!)^n removes the order inside each group (a group is a set). Dividing by n! removes the order among the groups themselves: forming group {A, B, C, D} first and {E, F, G, H} second is the same split as the reverse order when the groups carry no labels.
+• EXAMPLE — Twelve students split into 3 groups of 4 for the same project: C(12, 4) x C(8, 4) x C(4, 4) / 3! = 495 x 70 x 1 / 6 = 5775 splits. Send the three groups to three different laboratories instead, and the groups become distinguishable: no division by 3!, giving 34,650. The word "different" in the problem statement is worth a factor of 6.
+• EXAMPLE — The smallest case keeps you honest: 6 students into two unnamed groups of 3: C(6, 3) / 2 = 10. Choosing {A, B, C} first or choosing its complement first produces the same split, hence the division by 2 = 2!.
+• Geometry counting runs on the same engine: any 3 non-collinear points determine a triangle, any 2 points determine a segment.
+• EXAMPLE — Twelve points in a plane, exactly 4 of them on one straight line and no other three collinear. Triangles: C(12, 3) - C(4, 3) = 220 - 4 = 216. The subtraction removes only the 4 "triangles" that collapse onto the line; triples using 1 or 2 of the collinear points with outside points are perfectly good triangles.
+✔ KEY FORMULA — Diagonals of an n-sided polygon: C(n, 2) - n = n(n - 3) / 2. All segments between vertices, minus the n sides. Octagon: 8 x 5 / 2 = 20 diagonals.
+⚠ EXAM TRAP — Two traps guard this section. In division: dividing by n! when the groups are labelled, or forgetting it when they are not. In geometry: subtracting too much for collinear points — only triples lying entirely on the line fail to form triangles.
+• YOUR TURN — How many diagonals does a decagon have? (Answer: C(10, 2) - 10 = 45 - 10 = 35, matching 10 x 7 / 2.)
 
-                  Dₙ = n! [1 − 1/1! + 1/2! − 1/3! + ... + (−1)ⁿ/n!].
+The Binomial Theorem — The Expansion Machine
+• DEFINITION — The binomial theorem: for any positive integer n, (x + y)^n = C(n, 0) x^n + C(n, 1) x^(n - 1) y + C(n, 2) x^(n - 2) y^2 + ... + C(n, n) y^n. In one line: (x + y)^n is the sum over r = 0 to n of C(n, r) x^(n - r) y^r.
+• Read the anatomy of the expansion: there are n + 1 terms. The power of x falls from n to 0 while the power of y climbs from 0 to n, and in every single term the two powers add to exactly n. If a term you compute breaks the sum-to-n rule, it is wrong before you even check the coefficient.
+• WHY it is true — and why it lives in the counting chapter. Expanding (x + y)(x + y) ... (x + y) means choosing, from each bracket, either x or y. A term with y chosen exactly r times and x the other n - r times arises in C(n, r) ways — choose which brackets donate the y. The coefficients are combinations because expansion IS selection.
+★ HIGHLIGHT — Hold onto that: C(n, r) counts committees AND coefficients for the same reason. Pascal's triangle (Figure 2) is simultaneously a table of selections and a table of expansion coefficients — one object, two jobs.
+• EXAMPLE — In (x + 2)^5, find the x^3 term: x^3 needs y-part power r = 2, so the term is C(5, 2) x^3 x 2^2 = 10 x 4 x^3 = 40 x^3. Notice the 2 is inside the second part and gets raised to r = 2 along with it.
+⚠ EXAM TRAP — Forgetting that the constant in the second bracket is part of the term. In (x + 2)^5 the second "part" is 2, so its contribution is 2^r, not 1. Dropping those powers is the single most common binomial error in IAT papers — the options always include the value you get by making it.
+• YOUR TURN — What is the coefficient of x^3 in (1 + 2x)^5? (Answer: the x^3 term has r = 3: C(5, 3) x (2)^3 = 10 x 8 = 80.)
 
-                  Quick values: D₂ = 1, D₃ = 2, D₄ = 9, D₅ = 44.
+▸ The General Term — Dial Any Term You Want
+✔ KEY FORMULA — The general term of (x + y)^n: T(r + 1) = C(n, r) x^(n - r) y^r. The index r counts the power of the SECOND part, and r starts at 0 — the first term is T(1) with r = 0, the fifth term has r = 4.
+• This one formula answers every single-expansion question type: the coefficient of a given power, the term independent of x, the value of a named term, the ratio of consecutive terms. The method is always: write the power of x in T(r + 1) as a function of r, set it equal to the target, solve for r, then evaluate.
+• WORKED PATTERN — The term independent of x in (x + 1/x^2)^9: the general term is C(9, r) x^(9 - r) x (1/x^2)^r = C(9, r) x^(9 - 3r). Independent of x means the power is zero: 9 - 3r = 0, so r = 3. The term is C(9, 3) = 84 — just a number, as promised.
+• Read the pattern of the power: each step of r cost the x-power 1 (because x^(9 - r)) and another 2 (because (1/x^2)^r divides): total slope -3 per step. In (x^2 + 1/x)^15 the power runs 30 - 3r; in (2x - 1/x)^n it runs n - 2r. Find the slope and every question of this family is arithmetic.
+• A legitimate twist: if the target power gives a non-integer r, that power simply never occurs and its coefficient is 0. For x^7 in (x - 1/x^2)^12, the power equation 12 - 3r = 7 gives r = 5/3 — no such term exists. Exams do set this, and "0" sits quietly among the options.
+⚠ EXAM TRAP — The double off-by-one: T(r + 1) uses C(n, r), and r is the power of the second part, not the first. In (2x + 3)^n the second part is 3, so 3^r appears and r counts the constant's power — students who track the x-power in r end up with the mirror term. Decide what r counts BEFORE writing anything.
+• YOUR TURN — Which term of (x + 1/x^2)^9 contains x^3, and what is it? (Answer: 9 - 3r = 3 gives r = 2, so it is T(3), with value C(9, 2) x^3 = 36 x^3.)
 
+▸ Middle Terms and the Greatest Term
+• DEFINITION — Middle term(s) of (x + y)^n: if n is even there is exactly one middle term, T(n/2 + 1). If n is odd there are two, T((n + 1)/2) and T((n + 3)/2). The middle is a position — it depends only on n, never on x.
+• EXAMPLE — The middle term of (x/3 + 9y)^10: n = 10 is even, so the middle term is T(6), with r = 5: C(10, 5) x (x/3)^5 x (9y)^5 = 252 x (x^5 / 243) x 59049 y^5. Since 59049 / 243 = 243, the term is 252 x 243 x^5 y^5 = 61,236 x^5 y^5.
+• EXAMPLE — (x + a)^7 has n odd, so two middle terms: T(4) = C(7, 3) x^4 a^3 = 35 x^4 a^3 and T(5) = C(7, 4) x^3 a^4 = 35 x^3 a^4. Symmetric, as the triangle promises.
+• Now a different animal. DEFINITION — The greatest term of an expansion is the term with the largest absolute value once x has been fixed at a specific number. Unlike the middle term, it depends on x — change x and a different term takes the crown.
+• The neighbour test finds it: terms grow while the ratio of consecutive terms T(r + 2) / T(r + 1) = ((n - r) / (r + 1)) x (second part value / first part value) stays above 1, and shrink once it drops below 1. The greatest term sits exactly where the ratio crosses 1.
+• EXAMPLE — (3 + 2x)^7 at x = 1: the terms are 2187, 10206, 20412, 22680, 15120, 6048, 1344, 128. Check the ratios: at r = 2 the ratio is (5/3) x (2/3) = 10/9, still above 1, so T(4) beats T(3); at r = 3 the ratio is (4/4) x (2/3) = 2/3, below 1, so T(5) falls. The greatest term is T(4) = 22,680.
+⚠ EXAM TRAP — Never confuse the three crowns: greatest COEFFICIENT (for (1 + x)^n it is the middle coefficient C(n, n/2)), middle TERM (a position), and greatest TERM (a value at a given x). An option offering C(7, 3) = 35 for the greatest term of (3 + 2x)^7 is harvesting exactly this confusion.
+• YOUR TURN — How many middle terms does the expansion of (x + 2)^13 have, and which terms are they? (Answer: n = 13 is odd, so two middle terms: T(7) and T(8).)
 
+Coefficient Hunting — Finding the Coefficient of x^k
+• Here is the IAT signature problem of this chapter: the coefficient of a power of x in a PRODUCT of two expansions, like (1 + x)^6 (1 + x^2)^3. Neither expansion alone contains the answer — the target power is built by teamwork between the factors.
+• WORKED PATTERN — Coefficient of x^6 in (1 + x)^5 (1 + x^2)^2. The x^6 must be split across the factors: x^a from the first times x^(2b) from the second, with a + 2b = 6, a at most 5, b at most 2. The legal splits: b = 1, a = 4: C(5, 4) x C(2, 1) = 5 x 2 = 10. And b = 2, a = 2: C(5, 2) x C(2, 2) = 10 x 1 = 10. Split b = 0 would need a = 6, more than the first factor can give — illegal. Total coefficient: 10 + 10 = 20.
+• The method, distilled: list every split of the target power that respects each factor's step size (x^2 jumps in twos) and maximum power, multiply the two coefficients in each split, and add over splits. A small table of splits, written before computing, is what separates a 20-second solve from a mess.
+• The same discipline runs single expansions with negative powers: in (x^2 + 1/x)^15 the power of x in T(r + 1) is 30 - 3r; a target like x^15 gives r = 5 and coefficient C(15, 5) = 3003. Worked Example 5 does this one in full.
+⚠ EXAM TRAP — Two failure modes: missing a legal split (the most common — the b = 2 split above is the one everyone drops), and inventing an illegal one (a exceeds its factor's n, or the parity fails — with an x^2 factor, odd leftover powers cannot be completed). Sweep b from its minimum to maximum systematically, never by inspiration.
+• YOUR TURN — Find the coefficient of x^2 in (1 + x)^4 (1 - 2x)^3. (Answer: splits (a, b) with a + b = 2: (0, 2): 1 x C(3, 2) x 4 = 12; (1, 1): 4 x (3 x -2) = -24; (2, 0): 6 x 1 = 6. Total 12 - 24 + 6 = -6. Yes, coefficients can be negative — the minus signs inside a factor are real.)
 
-                3. Binomial Theorem & Series Identities
+Properties of Binomial Coefficients — Sums and Identities
+✔ KEY FORMULA — Putting x = 1 in (1 + x)^n: C(n, 0) + C(n, 1) + ... + C(n, n) = 2^n. The full row of Pascal's triangle sums to a power of 2.
+✔ KEY FORMULA — Putting x = -1: C(n, 0) - C(n, 1) + C(n, 2) - ... = 0. The alternating sum vanishes, which forces the odd-position coefficients and the even-position coefficients to have equal sums, each 2^(n - 1).
+✔ KEY FORMULA — Sum of squares: C(n, 0)^2 + C(n, 1)^2 + ... + C(n, n)^2 = C(2n, n). This is Vandermonde's identity in its most useful dress: the coefficient of x^n in (1 + x)^n (1 + x)^n = (1 + x)^(2n), read off by splitting n as r + (n - r).
+• EXAMPLE — Row 10 does all three tricks at once: the coefficients sum to 2^10 = 1024; the odd positions sum to 2^9 = 512, matching the even positions; and the squares sum to C(20, 10) = 184,756. Three identities, one row — if a question asks for any of these shapes, the answer is a lookup, not a computation.
+• Pascal's identity builds the triangle: C(n, r) = C(n - 1, r - 1) + C(n - 1, r) — every entry is the sum of its two parents. Figure 2 draws rows 0 to 8: read any coefficient in under a second once the triangle's shape is in your fingers.
+• The hockey-stick identity hides in the same triangle: C(2, 2) + C(3, 2) + C(4, 2) + C(5, 2) = 1 + 3 + 6 + 10 = 20 = C(6, 3). A diagonal of the triangle adds up to the entry just below its last term — the "stick" bends at the end, hence the name. Figure 2 circles this exact diagonal.
+• One more workhorse: r x C(n, r) = n x C(n - 1, r - 1) (both sides count "choose a committee of r and then its captain, two ways"). Summing gives the sum of r C(n, r) over r = n x 2^(n - 1): for n = 10 that is 10 x 512 = 5120, a classic one-mark gift.
+★ HIGHLIGHT — Look at Figure 2 again: the shaded central column 1, 2, 6, 20, 70 is C(2n, n) for n = 0, 1, 2, 3, 4 — exactly the sum-of-squares answers. The triangle is not decoration; it is a compressed answer key for this whole section.
+⚠ EXAM TRAP — The clean identities belong to (1 + x)^n exactly. Put x = 1 in (2 + 3x)^n and you get 5^n = the sum of C(n, r) 2^(n - r) 3^r — a weighted sum, not 2^n. Check the brackets before quoting an identity; the constants inside ride along into every term.
+• YOUR TURN — Evaluate C(6, 0)^2 + C(6, 1)^2 + ... + C(6, 6)^2 without squaring six numbers. (Answer: it is the sum of squares for n = 6, so C(12, 6) = 924.)
 
-                • General term in (a + b)ⁿ: Tᵣ₊₁ = ⁿCᵣ aⁿ⁻ʳ bʳ.
+▸ Binomial Approximation — (1 + x)^n When x Is Tiny
+• DEFINITION — The binomial series: for |x| less than 1, (1 + x)^n = 1 + nx + n(n - 1) x^2 / 2 + n(n - 1)(n - 2) x^3 / 6 + ... . For positive integer n the series stops after n + 1 terms and is exact; for fractional or negative n it runs forever but still converges when |x| is less than 1 — and when x is small, two or three terms give exam-grade accuracy.
+• WHY the terms die so fast — each successive term picks up roughly another factor of x. At x = 0.02, every new term is about fifty times smaller than the one before, so the third term is already down at the 10^-4 level and the fourth is invisible at exam precision.
+• EXAMPLE — (1.02)^8: write it as (1 + 0.02)^8 with n = 8, x = 0.02: 1 + 8 x 0.02 + 28 x (0.02)^2 = 1 + 0.16 + 0.0112 = 1.1712. The true value is 1.17166 — three terms land within 0.05 percent. In a multiple-choice hall, that is a bullseye.
+• EXAMPLE — Square root of 0.98 = (1 - 0.02)^(1/2): with n = 1/2 and x = -0.02: 1 + (1/2)(-0.02) + (1/2)(-1/2)/2 x (-0.02)^2 = 1 - 0.01 - 0.00005 = 0.98995. The true root is 0.989949... — the approximation is right to five decimal places. Note how the second-order coefficient for n = 1/2 is (1/2) x (-1/2) / 2 = -1/8, negative even before x speaks.
+⚠ EXAM TRAP — The series only accepts the "1 plus small thing" shape. Rewrite 0.98 as 1 - 0.02 and 1.02 as 1 + 0.02 BEFORE expanding. If the base is (2 + x)^n, factor out the 2 first: (2 + x)^n = 2^n (1 + x/2)^n. Expanding with x = 0.98 directly converges so slowly that two terms are nowhere near the answer.
+• YOUR TURN — Approximate (0.99)^6 using three terms of the series. (Answer: 1 - 6 x 0.01 + 15 x (0.01)^2 - 20 x (0.01)^3 = 1 - 0.06 + 0.0015 - 0.00002 = 0.94148 — the true value is 0.94148 to five places.)
 
-                • Properties of Binomial Coefficients:
+Formula Sheet — Every Result on One Screen
+✔ Fundamental principle: sequential stages multiply; exclusive alternatives for one decision add.
+✔ nPr = n! / (n - r)!; arranging all n distinct objects: n!. Factorial: n! = n x (n - 1) x ... x 1, with 0! = 1.
+✔ Repetition allowed in r slots from n objects: n^r. Identical objects: n! / (p! q! ...) over the alike families.
+✔ Together: block method — arrange the units, multiply by the block's internal arrangements. No two together: gap method — arrange the free objects, choose gaps among the (objects + 1) gaps, place the restricted ones.
+✔ Circular arrangements of n distinct objects: (n - 1)!. Necklaces that can flip: (n - 1)! / 2.
+✔ nCr = n! / (r! (n - r)!) = nC(n - r). Pascal: C(n, r) = C(n - 1, r - 1) + C(n - 1, r).
+✔ Division into n unlabelled groups of m: (mn)! / ((m!)^n x n!). Diagonals of an n-gon: n(n - 3) / 2. Triangles from n points with k collinear: C(n, 3) - C(k, 3).
+✔ (x + y)^n = the sum over r of C(n, r) x^(n - r) y^r. General term: T(r + 1) = C(n, r) x^(n - r) y^r.
+✔ Middle term: n even, T(n/2 + 1); n odd, T((n + 1)/2) and T((n + 3)/2). Greatest term: where the ratio of consecutive terms crosses 1.
+✔ Sum of C(n, r) over all r = 2^n; alternating sum = 0; odd-position sum = even-position sum = 2^(n - 1); sum of squares = C(2n, n); sum of r C(n, r) = n 2^(n - 1).
+✔ Approximation for small x: (1 + x)^n = 1 + nx + n(n - 1) x^2 / 2 + n(n - 1)(n - 2) x^3 / 6 + ..., valid for |x| less than 1, any n.
 
-                  - Σ ⁿCᵣ = 2ⁿ  |  Σ (−1)ʳ ⁿCᵣ = 0
+Common Mistakes and Exam Traps
+• Mistake 1: Adding when the story multiplies. "Two shirts and three trousers make 5 outfits" — why it is wrong: the shirt AND the trousers are both chosen, so the choices pair up into a grid. Correct principle: stages in sequence multiply; only alternatives for the same single decision add.
+• Mistake 2: Counting a committee with permutations. "Choose a president-team of 3 from 10 in 10P3 = 720 ways" — why it is wrong: a team has no internal order, so each team was counted 3! = 6 times. Correct principle: if swapping two selected people changes nothing, the tool is nCr and the count is 120.
+• Mistake 3: Forgetting the block's internal arrangements. "Vowels together in COMPUTER: 6! = 720" — why it is wrong: the block is not a single frozen letter; O, U, E shuffle inside it. Correct principle: block method always has two factors — arrange the units, then multiply by the inside arrangements (here 3!, giving 4320).
+• Mistake 4: Answering "no two together" by subtracting "all together" from the total. Why it is wrong: arrangements with exactly one pair together are neither "all together" nor "no two together", and subtraction silently claims them for the wrong side. Correct principle: use the gap method for no-two-together; reserve subtraction for "not all together".
+• Mistake 5: Round-table answers of n!, or necklace answers without the flip division. Why they are wrong: rotations of a seating are the same seating (divide by n), and a necklace has no front or back (divide by 2 more) — but a table of people cannot flip, so the /2 stops at necklaces. Correct principle: ask what identifications the physical object allows, then divide by exactly those.
+• Mistake 6: Dividing by p! for objects that are merely similar, not identical. "Two brothers in a row of 5: 5! / 2!" — why it is wrong: the brothers are distinct people; swapping them gives a different photo. Correct principle: the identical-items division applies only when swapping the copies produces literally the same outcome, like repeated letters.
+• Mistake 7: The at-least overcount — fixing the required members first. "At least 2 women: choose 2 women, then any 3 of the remaining 8 people" — why it is wrong: committees with 3 or 4 women are generated multiple times, once per choice of which women were "fixed". Correct principle: split by exact composition and add, or use the complement when it is shorter.
+• Mistake 8: General-term off-by-ones. "The 5th term of (x + 2)^n uses C(n, 5) and 2^4..." — why it is wrong twice over: T(5) has r = 4, and r is the power of the second part, so it is C(n, 4) with 2^4 — the two halves of the error cancel just often enough to keep the habit alive. Correct principle: T(r + 1) = C(n, r) x^(n - r) y^r; name what r counts before writing.
+• Mistake 9: Missing or illegal splits in coefficient products. "Coefficient of x^6 in (1 + x)^5 (1 + x^2)^2 is C(5, 4) x C(2, 1) = 10" — why it is wrong: the b = 2, a = 2 split also builds x^6 and adds another 10. Correct principle: sweep the step-size factor through all its legal values and add every split; check each factor's maximum power.
+• Mistake 10: Quoting (1 + x)^n identities for other brackets. "The coefficients of (2 + 3x)^n sum to 2^n" — why it is wrong: setting x = 1 gives (2 + 3)^n = 5^n, and the sum carries the weights 2^(n - r) 3^r. Correct principle: the clean identities 2^n, 0 and C(2n, n) belong to (1 + x)^n alone; other brackets give weighted versions.
 
-                  - Σ r · ⁿCᵣ = n · 2ⁿ⁻¹
+Worked Examples — Basic to Challenging
+• Example 1 — Problem: How many 4-digit numbers have all their digits different?
+• Given: A 4-digit number cannot start with 0; digits may not repeat.
+• Principle: Fill the slots left to right with the fundamental principle, handling the restricted slot (thousands) first.
+• Steps: Thousands digit: 9 choices (1 to 9). Hundreds digit: 9 choices (0 is now allowed, one digit used). Tens: 8 choices. Units: 7 choices. Multiply: 9 x 9 x 8 x 7.
+• Answer: 4536 numbers.
+• Reasoning: The thousands slot is filled first precisely because its restriction (no zero) interacts with the others; after it, each slot simply loses one option. A computer checking every number from 1000 to 9999 confirms 4536.
+• Mistake: Computing 10 x 9 x 8 x 7 = 5040 treats the number as a 4-permutation of digits and silently counts 504 "numbers" that begin with 0 and are really 3-digit numbers.
+• Example 2 — Problem: In how many ways can the letters of the word STATISTICS be arranged?
+• Given: STATISTICS has 10 letters: S three times, T three times, I twice, A once, C once.
+• Principle: Identical items — start from 10! and divide by the factorials of each repeated family.
+• Steps: Total letters 10. Denominator: 3! for S, 3! for T, 2! for I. Compute 10! / (3! x 3! x 2!) = 3,628,800 / 72.
+• Answer: 50,400 arrangements.
+• Reasoning: Every distinct arrangement corresponds to exactly 3! x 3! x 2! raw permutations of the labelled copies, so the division restores the count of genuinely different words.
+• Mistake: Answering 10! forgets that swapping the three S's among themselves changes nothing — the raw count is 72 times too big.
+• Example 3 — Problem: A committee of 5 is to be formed from 6 men and 4 women, with at least 2 women on it. In how many ways?
+• Given: Pool split: 6 men, 4 women; committee size 5; condition: women at least 2.
+• Principle: Case-split by exact composition; combinations within each category, multiply across categories, add across cases.
+• Steps: 2 women, 3 men: C(4, 2) x C(6, 3) = 6 x 20 = 120. Three women, 2 men: C(4, 3) x C(6, 2) = 4 x 15 = 60. Four women, 1 man: C(4, 4) x C(6, 1) = 6. Sum: 120 + 60 + 6.
+• Answer: 186 committees.
+• Reasoning: The cases are exact compositions, so no committee appears twice and none satisfying the condition is missed — a brute-force enumeration of all C(10, 5) = 252 committees counts exactly 186 with at least 2 women.
+• Mistake: Fixing 2 women first and choosing any 3 of the remaining 8 people gives C(4, 2) x C(8, 3) = 336 — bigger than the total number of committees with any women at all, because multi-women committees were counted once per pair of women inside them.
+• Example 4 — Problem: Twelve points lie in a plane, exactly 4 of them on one straight line, no other three collinear. How many triangles do the points determine?
+• Given: Any 3 non-collinear points form a triangle; the only obstruction is triples entirely on the line.
+• Principle: Total triples minus degenerate triples: C(n, 3) - C(k, 3).
+• Steps: All triples: C(12, 3) = 220. Triples on the line: C(4, 3) = 4. Subtract: 220 - 4.
+• Answer: 216 triangles.
+• Reasoning: A triple containing exactly 1 or 2 of the collinear points plus outside points still spans a genuine triangle, so only the 4 fully-collinear triples are removed.
+• Mistake: Refusing to use the 4 collinear points at all throws away hundreds of valid triangles; the correction is surgical, subtracting 4, not 4 points.
+• Example 5 — Problem: Find the coefficient of x^15 in the expansion of (x^2 + 1/x)^15.
+• Given: General term T(r + 1) = C(15, r) (x^2)^(15 - r) (1/x)^r.
+• Principle: The power of x in the general term is a linear function of r; set it equal to the target and solve.
+• Steps: Power of x: 2(15 - r) - r = 30 - 3r. Set 30 - 3r = 15, so 3r = 15 and r = 5. Coefficient: C(15, 5) = 3003.
+• Answer: 3003.
+• Reasoning: Only one value of r can produce x^15 because the power falls by exactly 3 at every step; r = 5 lands precisely on 15, so a single combination gives the whole coefficient.
+• Mistake: Setting the x^2 part's power 2(15 - r) = 15 ignores the 1/x factor entirely and has no integer solution anyway — both parts of the bracket always contribute to the final power.
+• Example 6 — Problem: Find the coefficient of x^5 in (2 + 3x)^4 (1 - x)^3.
+• Given: First factor gives powers x^0 to x^4 with coefficients C(4, a) 2^(4 - a) 3^a; second gives x^0 to x^3 with coefficients C(3, b) (-1)^b.
+• Principle: Product coefficients — split the target power 5 as a + b across the two factors in every legal way and add the products.
+• Steps: Split (a, b) = (2, 3): C(4, 2) x 2^2 x 3^2 = 216, times C(3, 3) x (-1) = -1: contribution -216. Split (3, 2): C(4, 3) x 2 x 27 = 216, times C(3, 2) = 3: contribution 648. Split (4, 1): C(4, 4) x 81 = 81, times C(3, 1) x (-1) = -3: contribution -243. Add: -216 + 648 - 243.
+• Answer: 189.
+• Reasoning: a cannot exceed 4 and b cannot exceed 3, so (2, 3), (3, 2) and (4, 1) are all the splits there are; the negative contributions come honestly from the minus sign in (1 - x)^3.
+• Mistake: Dropping the (4, 1) split or losing a sign: each error shifts the total by hundreds, and the options are built from exactly these slips.
+• Example 7 — Problem: Find the greatest term in the expansion of (3 + 2x)^7 when x = 1.
+• Given: Terms T(r + 1) = C(7, r) 3^(7 - r) (2x)^r with x = 1.
+• Principle: Greatest term, not greatest coefficient — compare consecutive terms; the champion is where the growth ratio crosses 1.
+• Steps: Compute the terms: T(1) = 2187, T(2) = 10206, T(3) = 20412, T(4) = 22680, T(5) = 15120, and falling after. Ratio check: at r = 2 the ratio T(4)/T(3) = (5/3) x (2/3) = 10/9 > 1, still growing; at r = 3 the ratio is 2/3 < 1, shrinking. So the peak is T(4).
+• Answer: The greatest term is T(4) = 22,680.
+• Reasoning: The terms rise while each new term beats its predecessor and fall forever after the ratio drops below 1 — one crossing, one peak. Here the peak sits at r = 3, not at the middle coefficient's home by coincidence but because the ratio test put it there.
+• Mistake: Answering with the greatest coefficient C(7, 3) = 35 — that is the largest multiplier in (1 + x)^7, a different question about a different expansion.
 
-                  - Σ (ⁿCᵣ)² = ²ⁿCₙ (Vandermonde's Identity)
+Practice Questions — Self-Test Set
+• Q1. How many 5-digit numbers can be formed with all digits different? (Digits may not repeat, and the number may not begin with 0.)
+• Q2. In how many ways can the letters of the word PARALLEL be arranged if the three L's must always stay together?
+• Q3. A committee of 4 is chosen from 7 teachers and 5 students. In how many ways can it be formed with at least 2 students?
+• Q4. How many diagonals does a polygon with 15 sides have?
+• Q5. Find the coefficient of x^3 in the expansion of (1 + x)^3 (2 - x)^2.
+• Q6. Find the middle term of the expansion of (x + 1/x)^10.
+• Q7. Seven people sit around a round table. In how many ways can they be seated if two particular people never sit next to each other?
+• Q8. If C(n, 4) = C(n, 6) for some n, find n and hence the value of C(n, 2).
 
-            """.trimIndent(),
+▸ Answer Key with Explanations
+• A1 — 27,216. Fill the ten-thousands slot first: 9 choices (no zero), then 9, 8, 7, 6: 9 x 9 x 8 x 7 x 6 = 27,216. Misconception caught: 10P5 = 30,240 counts strings that start with 0, which are not 5-digit numbers at all.
+• A2 — 360. Glue LLL into one block: the units are P, A, R, A, E and the block — 6 units with A repeated twice: 6! / 2! = 360. The block contributes no internal factor because the three L's are identical. Misconception caught: multiplying by 3! for the L's inside the block treats identical letters as distinct people.
+• A3 — 285. Exact splits: 2 students: C(5, 2) x C(7, 2) = 210; 3 students: C(5, 3) x C(7, 1) = 70; 4 students: C(5, 4) = 5. Total 210 + 70 + 5 = 285. Misconception caught: fixing 2 students and choosing any 2 of the remaining 10 counts the 3- and 4-student committees repeatedly.
+• A4 — 90. Diagonals = n(n - 3) / 2 = 15 x 12 / 2 = 90. Misconception caught: C(15, 2) = 105 counts every segment between vertices, including the 15 sides, which are not diagonals.
+• A5 — -5. Split x^3 across the factors: (1, 2): C(3, 1) x 1 = 3, using the x^2 coefficient 1 of (2 - x)^2; (2, 1): C(3, 2) x (-4) = -12; (3, 0): 1 x 4 = 4. Total 3 - 12 + 4 = -5. Misconception caught: forgetting that (2 - x)^2 carries a negative x coefficient — sign blindness turns this into +19.
+• A6 — 252. n = 10 is even, so the middle term is T(6) with r = 5: C(10, 5) x^5 (1/x)^5 = 252, a constant. Misconception caught: reaching for T(5) — the middle of 11 terms is the 6th, because counting starts at T(1).
+• A7 — 480. Total seatings (7 - 1)! = 720; the pair together counts as (6 - 1)! x 2! = 240; never together: 720 - 240 = 480. Misconception caught: using the row formulas 7! - 6! x 2 = 3600 — around a table every count is divided by the rotations first.
+• A8 — n = 10 and C(10, 2) = 45. When C(n, a) = C(n, b) with a not equal to b, the symmetry nCr = nC(n - r) forces a + b = n: here 4 + 6 = 10. Misconception caught: trying to solve 4 = 6, or assuming no such n exists.
+
+Chapter Summary and Revision Checklist
+• Summary — Counting is four questions: arrange or select, repetition or not, restrictions or not, order or not. Permutations count ordered arrangements (nPr, with n!/(p! q!) for identical items); the block and gap methods domesticate restrictions; circles divide by the rotations, necklaces by flips as well; combinations count sets (nCr) and run committees, groups and geometry. The binomial theorem is the same coefficients at work in algebra: the general term T(r + 1) = C(n, r) x^(n - r) y^r answers term and coefficient questions, splits across products answer the IAT signature question, the identities 2^n, 0 and C(2n, n) answer sum questions, and the truncated series answers approximations.
+• Revision checklist — I can state when to add and when to multiply, and defend it with the pairing argument.
+• Revision checklist — I can move between nPr and nCr fluently and explain the factor of r! between them.
+• Revision checklist — I reach for the block method on "together", the gap method on "no two together", and subtraction only on "not all together" — without mixing them.
+• Revision checklist — I case-split at-least problems by exact composition, or deliberately choose the complement, and never fix required members first.
+• Revision checklist — I write the x-power of the general term as a function of r before solving any term or coefficient question.
+• Revision checklist — In product coefficients, I list every legal split of the target power first, respecting step sizes and maximum powers, and only then compute.
+• Revision checklist — I can produce 2^n, the alternating sum 0, and the sum of squares C(2n, n) from (1 + x)^n on demand, and I know they fail for other brackets.
+• Self-assessment — Rate yourself 1 to 5: Can I classify a new counting problem into the four questions within ten seconds? Can I do a committee problem two ways (cases and complement) and make the answers agree? Can I find a coefficient in a product of two expansions without dropping a split? Below 4 on any of these, redo that section's YOUR TURN and the matching practice question before moving on.""".trimIndent(),
 
             videoTitle = "Combinatorial Proofs, Stars & Bars, and Binomial Series",
 
@@ -224,49 +664,303 @@ object SmartPrepSeedData {
 
             completedLessons = 5,
 
-            studyNotesCount = 10,
+            studyNotesCount = 23,
 
-            practiceQuestionCount = 28,
+            practiceQuestionCount = 6,
 
             durationMinutes = 60,
 
-            formulaHighlight = "e^(iθ) = cos θ + i sin θ  •  1 + ω + ω² = 0  •  x = [−b ± √(b²−4ac)] / 2a",
+            formulaHighlight = "Polar and Euler form: z = r(cos theta + i sin theta) = r e^(i theta), where r = |z| and theta = arg z in (-pi, pi] | Powers cycle: i repeats every 4 (reduce mod 4), omega repeats every 3 (reduce mod 3); omega^3 = 1 and 1 + omega + omega^2 = 0 | De Moivre: (cos theta + i sin theta)^n = cos(n theta) + i sin(n theta); nth roots have arguments (theta + 2kpi)/n | Quadratic formula: x = (-b +/- sqrt(b^2 - 4ac)) / 2a, with D = b^2 - 4ac deciding the nature of roots | Vieta: alpha + beta = -b/a and alpha beta = c/a; alpha^2 + beta^2 = (alpha + beta)^2 - 2 alpha beta; alpha^3 + beta^3 = (alpha + beta)^3 - 3 alpha beta (alpha + beta) | Wavy curve: sign flips only at odd-multiplicity critical points, and denominator zeros are never included in the solution",
 
-            keyConceptsSummary = "Algebra of complex numbers, modulus and conjugate properties, De Moivre's theorem, nth roots of unity, geometric loci in the Argand plane, location of quadratic roots, and rational linear inequalities.",
+            keyConceptsSummary = "• Complex arithmetic runs on one law, i^2 = -1: powers of i cycle with period 4, and division is done by the conjugate because z x conj(z) = |z|^2 turns any denominator real\n• Modulus is distance and argument is direction: |z| = sqrt(a^2 + b^2), and the principal argument lives in (-pi, pi] — never trust arctan alone, place the reference angle alpha = arctan(|b/a|) with the quadrant recipe or third-quadrant answers come out wrong by pi\n• The Argand dictionary turns algebra into shapes instantly: |z - z0| = r is a circle, |z - z1| = |z - z2| is a perpendicular bisector, and |z - z1| + |z - z2| = 2a is an ellipse with foci z1 and z2\n• Polar form separates size from turning — moduli multiply, arguments add — so De Moivre makes powers a single angle multiplication and the n roots of any number sit equally spaced on a circle\n• omega, the non-real cube root of unity, obeys omega^3 = 1 and 1 + omega + omega^2 = 0; reduce its powers modulo 3 and merge pairs (1 + omega = -omega^2) before ever expanding — omega and omega^2 are also the roots of x^2 + x + 1 = 0\n• Quadratics are read, not solved: D = b^2 - 4ac classifies the roots, Vieta's sum -b/a and product c/a unlock every symmetric function, and location problems need the triple check of discriminant, axis position and a f(k) — common roots fall out by subtracting the equations\n• Inequalities are solved by signs, not by force: flip on multiplying by a negative, run products and quotients through the wavy curve (odd multiplicity flips, even bounces, denominator zeros excluded), read modulus as distance, and optimise linear objectives over two-variable regions at their corners",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — Three Toolkits in One Chapter
+• This chapter hands you three toolkits that look unrelated and turn out to be one story. Complex numbers extend arithmetic so that every equation gets its roots. Quadratic equations are where those roots are studied, priced and located. Inequalities stop asking "what is x exactly" and start asking "which x are allowed" — the question behind optimisation, feasibility and half of applied maths.
+• DEFINITION — A complex number is a number of the form z = a + ib, where a and b are real numbers and i is a new unit obeying i^2 = -1. The toolkit exists because x^2 + 1 = 0 has no real solution, and mathematics refused to leave it unsolved.
+• DEFINITION — A quadratic equation is a polynomial equation of degree 2, ax^2 + bx + c = 0 with a not equal to 0. Its two roots always exist once complex numbers are allowed — that is the first toolkit paying rent inside the second.
+• DEFINITION — An inequality is a statement that one expression is smaller or larger than another, and solving it means finding the whole set of x values that make it true — usually an interval, not a point.
+• Here is the map. We build complex arithmetic first (i, conjugate, modulus, argument), give it geometry on the Argand plane, then compress it into polar form and De Moivre's theorem, ending with the cube roots of unity — an IAT favourite. Then quadratics: discriminant, Vieta's relations, common roots, sign of the expression, and pinning roots to a location. Finally inequalities: the sign-flip rule, the wavy curve machine, modulus as distance, and two-variable regions whose corners secretly run the Linear Programming of Chapter 14.
+★ HIGHLIGHT — The one-breath summary: i lets every quadratic have roots, the discriminant and Vieta's relations describe those roots without computing them, and the wavy curve turns any product or quotient inequality into a picture of signs. Master the argument quadrant check, the sum-product read-off, and the sign-flip rule, and this chapter is yours.
 
-                1. Complex Numbers & Euler's Representation
+Complex Numbers — the Number i and Its Algebra
+• DEFINITION — The imaginary unit i is defined by i^2 = -1, equivalently i = sqrt(-1). It is not a real number and it is not a trick; it is an extension of the number system, accepted because it is consistent — every computation with it follows the usual rules of algebra plus this one new law.
+• DEFINITION — In z = a + ib, a is the real part, written Re(z), and b is the imaginary part, written Im(z). Note that Im(z) is the real number b, not ib. Two complex numbers are equal exactly when their real parts are equal AND their imaginary parts are equal — one complex equation is secretly two real equations, a fact IAT loves to exploit.
+• Powers of i run in a cycle of four — i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1, and then the wheel turns again: i^5 = i, i^6 = -1, and so on forever.
+✔ KEY FORMULA — To evaluate i^n, divide n by 4 and keep only the remainder: remainder 0 gives 1, remainder 1 gives i, remainder 2 gives -1, remainder 3 gives -i. Four consecutive powers always cancel: i^n + i^(n+1) + i^(n+2) + i^(n+3) = 0.
+• EXAMPLE — i^2027: divide 2027 by 4 — 2027 = 4 x 506 + 3, remainder 3, so i^2027 = i^3 = -i. Three seconds, no expansion.
+• Addition and subtraction are componentwise: (a + ib) + (c + id) = (a + c) + i(b + d). Multiplication is FOIL with the law i^2 = -1 applied at the end.
+• EXAMPLE — (3 + 2i)(1 - i) = 3 - 3i + 2i - 2i^2 = 3 - i - 2(-1) = 5 - i. Watch the last step: the term -2i^2 is +2, and forgetting that flip is the most common algebra slip in this unit.
+• Two special shapes recur constantly: (1 + i)^2 = 2i and (1 - i)^2 = -2i, so (1 + i)^4 = (2i)^2 = -4 and (1 + i)^8 = 16 — pure real numbers hiding inside complex powers, and the seed of several exam questions.
+• A complex number is purely real when its imaginary part is 0, and purely imaginary when its real part is 0 (and the imaginary part is not). Setting the unwanted part to zero is the standard move in "find x and y" problems.
+⚠ EXAM TRAP — sqrt(-4) x sqrt(-9) is NOT sqrt(36) = 6. The rule sqrt(p) x sqrt(q) = sqrt(pq) is valid only for non-negative p and q. Compute honestly: sqrt(-4) = 2i and sqrt(-9) = 3i, so the product is 6i^2 = -6. The minus sign is the entire question.
+• YOUR TURN — Evaluate i^57 and i^100 + i^101 + i^102 + i^103. Answer: 57 = 4 x 14 + 1, remainder 1, so i^57 = i. The four powers are consecutive, so they cancel in one block: the sum is 0.
+• YOUR TURN — Find the real numbers x and y if (x + iy)(1 + i) = 4 + 2i. Answer: expand the left side: (x - y) + i(x + y). Equate parts: x - y = 4 and x + y = 2, so x = 3 and y = -1, i.e. x + iy = 3 - i. Check: (3 - i)(1 + i) = 3 + 3i - i - i^2 = 4 + 2i. Correct.
 
-                • Polar & Euler Form: z = r(cos θ + i sin θ) = r e^(iθ), where r = |z| and θ = arg(z) ∈ (−π, π].
+Conjugate, Modulus and Argument
+• DEFINITION — The conjugate of z = a + ib is conj(z) = a - ib: same real part, flipped imaginary part. On the Argand plane it is the mirror image of z in the real axis, and algebraically it is the master key to division.
+• DEFINITION — The modulus of z is |z| = sqrt(a^2 + b^2), the distance of the point (a, b) from the origin. Modulus is always a non-negative real number, and |z| = 0 only when z = 0.
+✔ KEY FORMULA — z x conj(z) = |z|^2 = a^2 + b^2, a plain positive real. This is why division works: to divide by a + ib, multiply top and bottom by its conjugate and the denominator becomes the real number a^2 + b^2.
+• EXAMPLE — 1/(1 + i): multiply top and bottom by conj(1 + i) = 1 - i. Denominator: 1 + 1 = 2. So 1/(1 + i) = (1 - i)/2. Every complex division in the exam is this one move.
+• Modulus behaves beautifully under multiplication and division: |z1 z2| = |z1| x |z2| and |z1 / z2| = |z1| / |z2|. Conjugate also respects everything: conj(z1 + z2) = conj(z1) + conj(z2), conj(z1 z2) = conj(z1) conj(z2), and conj(conj(z)) = z. And the triangle inequality frames all distances: | |z1| - |z2| | ≤ |z1 + z2| ≤ |z1| + |z2|.
+• DEFINITION — The argument of z, written arg z, is the angle the line from the origin to z makes with the positive real axis, measured anticlockwise. The principal value of the argument is the unique value in the range -pi < arg z ≤ pi, and every formula sheet answer is expected in this range.
+• The calculator trap lives here. arctan(b/a) only ever returns an angle between -pi/2 and pi/2 — the right half of the plane. For the left half you must correct by pi. The reliable recipe uses the acute reference angle alpha = arctan(|b/a|), always between 0 and pi/2, and then reads the quadrant.
+• Quadrant recipe — Quadrant I (a > 0, b > 0): arg z = alpha. Quadrant II (a < 0, b > 0): arg z = pi - alpha. Quadrant III (a < 0, b < 0): arg z = -(pi - alpha). Quadrant IV (a > 0, b < 0): arg z = -alpha. On the axes read directly: positive real axis gives 0, positive imaginary axis gives pi/2, negative real axis gives pi, negative imaginary axis gives -pi/2.
+• EXAMPLE — z = 3 + 4i: |z| = sqrt(9 + 16) = 5, quadrant I, arg z = arctan(4/3), about 0.93 radians (53.13 degrees). This 3-4-5 triangle returns in Figure 1.
+• EXAMPLE — z = -1 + i sqrt(3): |z| = sqrt(1 + 3) = 2. alpha = arctan(sqrt(3)/1) = pi/3, quadrant II, so arg z = pi - pi/3 = 2pi/3.
+• EXAMPLE — z = -1 - i: |z| = sqrt(2). alpha = arctan(1) = pi/4, quadrant III, so arg z = -(pi - pi/4) = -3pi/4.
+• EXAMPLE — z = 1 - i sqrt(3): |z| = 2, quadrant IV, arg z = -pi/3. Same modulus as the -1 + i sqrt(3) example, argument of the opposite sign and different size — the quadrant, not the modulus, carries the information.
+⚠ EXAM TRAP — arg(-1 - i) is -3pi/4. The answer pi/4 comes from blindly trusting arctan, and 5pi/4 — though it points the same way — is illegal because it sits outside the principal range -pi < arg ≤ pi. Always finish with the quadrant recipe and a range check.
+• YOUR TURN — Find |z| and arg z for z = -2 - 2i and for z = -sqrt(3) + i. Answer: for -2 - 2i, |z| = 2 sqrt(2), alpha = pi/4, quadrant III, arg z = -3pi/4. For -sqrt(3) + i, |z| = 2, alpha = arctan(1/sqrt(3)) = pi/6, quadrant II, arg z = pi - pi/6 = 5pi/6.
 
-                • Triangle Inequality: ||z₁| − |z₂|| ≤ |z₁ ± z₂| ≤ |z₁| + |z₂|.
+The Argand Plane — Geometry You Can See
+• DEFINITION — The Argand plane is the ordinary coordinate plane with a job change: the x-axis is the real axis, the y-axis is the imaginary axis, and z = a + ib is the point (a, b) — equivalently, the tip of the vector from the origin to (a, b). Every algebraic condition on z becomes a geometric shape, and Figure 1 draws the three shapes IAT asks about most.
+• Distance is modulus of a difference: |z1 - z2| is the distance between the points z1 and z2. So |z - z0| measures the distance from the moving point z to the fixed point z0, and every locus below is just a distance sentence read aloud.
+✔ KEY FORMULA — The locus dictionary: |z - z0| = r is the circle with centre z0 and radius r. |z - z0| < r is the open disc inside it. |z - z1| = |z - z2| is the perpendicular bisector of the segment joining z1 and z2. |z - z1| + |z - z2| = 2a (with 2a greater than the distance between z1 and z2) is an ellipse with foci z1 and z2. arg(z - z0) = theta is a ray from z0 at angle theta.
+• EXAMPLE — |z - 1 - i| = 2: read it as |z - (1 + i)| = 2, distance from z to the point 1 + i fixed at 2 — a circle with centre (1, 1) and radius 2. One rewrite, one picture, done.
+• EXAMPLE — |z| = |z - 2|: z is equidistant from 0 and from 2, so z lies on the perpendicular bisector of the segment from (0, 0) to (2, 0), which is the vertical line x = 1, written Re(z) = 1.
+• EXAMPLE — |z - 1| + |z + 1| = 4: sum of distances to the two foci -1 and +1 is constantly 4, an ellipse. Here 2a = 4 so a = 2, the focal distance gives c = 1, and b^2 = a^2 - c^2 = 3, so in coordinates the curve is x^2/4 + y^2/3 = 1.
+• WHY this dictionary matters — locus questions award the mark for naming the shape and its data (centre, radius, foci, line), not for pages of algebra with x and y. Translate first, compute second. If you do expand, |z - z0| = r squares into a circle equation and |z - z1| = |z - z2| collapses into a straight line — the dictionary is just those expansions memorised.
+⚠ EXAM TRAP — In |z - 3 + 2i| = 1 the centre is 3 - 2i, not 3 + 2i, because the pattern is z MINUS centre: z - 3 + 2i = z - (3 - 2i). The radius is 1. Sign slips inside loci are the cheapest marks lost in this chapter.
+• YOUR TURN — Describe |z + 1 - 2i| ≤ 3 and |z - 2| = |z + 2|. Answer: z + 1 - 2i = z - (-1 + 2i), so it is the closed disc with centre -1 + 2i and radius 3. The second says z is equidistant from 2 and -2: the perpendicular bisector is the imaginary axis, Re(z) = 0.
 
-                • De Moivre's Theorem: (cos θ + i sin θ)ⁿ = cos(nθ) + i sin(nθ).
+Polar Form and Euler's Form
+• DEFINITION — The polar form of z writes the point by its distance and direction instead of its coordinates: z = r(cos theta + i sin theta), where r = |z| and theta = arg z. Converting is always the same two steps — compute r, then find theta with the quadrant recipe from the previous section.
+• DEFINITION — Euler's form compresses the same information using the identity e^(i theta) = cos theta + i sin theta, so z = r e^(i theta). Nothing new is claimed — it is a notation — but it is the notation in which multiplication becomes effortless.
+✔ KEY FORMULA — Multiplication in polar form: moduli multiply, arguments add. If z1 = r1 e^(i theta1) and z2 = r2 e^(i theta2), then z1 z2 = r1 r2 e^(i (theta1 + theta2)), and z1 / z2 = (r1 / r2) e^(i (theta1 - theta2)). In words: multiplying by a complex number scales by its modulus and rotates by its argument.
+• WHY this is the form that matters — in rectangular form, multiplication mixes all four components and hides the geometry. In polar form the two effects separate cleanly: size from r, turning from theta. Powers, roots and rotations — the rest of this unit — are all one-line consequences of "arguments add".
+• EXAMPLE — Write 1 + i sqrt(3) in polar and Euler form. r = 2, quadrant I, theta = arctan(sqrt(3)) = pi/3. So 1 + i sqrt(3) = 2(cos(pi/3) + i sin(pi/3)) = 2 e^(i pi/3).
+• WORKED PATTERN — Powers preview: (1 + i)^8. Here r = sqrt(2) and theta = pi/4, so (1 + i)^8 has modulus (sqrt(2))^8 = 16 and argument 8 x pi/4 = 2pi, which is the full turn back to the positive real axis. Answer: 16 — matching the rectangular computation (1 + i)^2 = 2i, (1 + i)^4 = -4, (1 + i)^8 = 16 exactly.
+• Note the argument bookkeeping: arguments may wander outside (-pi, pi] during a calculation — that is allowed mid-flight. Only the FINAL stated arg z must be folded back into the principal range by adding or subtracting 2pi.
+• YOUR TURN — Write z = -2 - 2i in polar form. Answer: r = 2 sqrt(2), and from the quadrant recipe arg z = -3pi/4, so z = 2 sqrt(2) (cos(-3pi/4) + i sin(-3pi/4)) = 2 sqrt(2) e^(-3 pi i / 4).
 
-                • Cube Roots of Unity (1, ω, ω²): ω³ = 1 and 1 + ω + ω² = 0.
+De Moivre's Theorem — Powers and Roots
+• DEFINITION — De Moivre's theorem states that for any integer n, (cos theta + i sin theta)^n = cos(n theta) + i sin(n theta). It is the "arguments add" rule applied n times, and it turns raising to a power — agony in rectangular form — into a single multiplication of the angle.
+• WORKED PATTERN — (1 + i sqrt(3))^6: polar form is 2(cos(pi/3) + i sin(pi/3)), so the sixth power is 2^6 (cos(6 x pi/3) + i sin(6 x pi/3)) = 64(cos 2pi + i sin 2pi) = 64. A purely real answer from a heavily complex base — the signature of a well-chosen exam number.
+• WORKED PATTERN — Simplify ((1 + i)/(1 - i))^n. First the base: (1 + i)/(1 - i) = (1 + i)^2 / ((1 - i)(1 + i)) = 2i / 2 = i. So the expression is i^n, and the smallest positive integer n making it equal to 1 is n = 4. Two tools from earlier sections — conjugate division and the i-cycle — did all the work.
+• DEFINITION — The n-th roots of a complex number z = r(cos theta + i sin theta) are n in number: each has modulus r^(1/n), and their arguments are (theta + 2kpi)/n for k = 0, 1, 2, ..., n-1. On the Argand plane they sit equally spaced on a circle — the vertices of a regular n-gon.
+• EXAMPLE — Square roots of i: i = cos(pi/2) + i sin(pi/2), modulus 1. The roots have modulus 1 and arguments pi/4 and pi/4 + pi = 5pi/4, giving (1 + i)/sqrt(2) and its negative -(1 + i)/sqrt(2). Check the first: ((1 + i)/sqrt(2))^2 = 2i/2 = i. Correct.
+⚠ EXAM TRAP — For fractional powers De Moivre gives ALL the values, not one: (cos theta + i sin theta)^(1/2) has two square roots, differing by a sign. Quoting only the k = 0 root in a "find all values" question earns half the marks for full work.
+• YOUR TURN — Evaluate (cos(pi/6) + i sin(pi/6))^12. Answer: by De Moivre it is cos(12 x pi/6) + i sin(12 x pi/6) = cos 2pi + i sin 2pi = 1.
 
+Cube Roots of Unity — omega and Its Powers
+• DEFINITION — The cube roots of unity are the three solutions of x^3 = 1: the real root 1 and the two complex roots omega and omega^2, where omega = cos(2pi/3) + i sin(2pi/3) = -1/2 + i sqrt(3)/2. Figure 2 draws them: three points on the unit circle, 120 degrees apart, forming an equilateral triangle.
+• The two facts that run every omega question: omega^3 = 1 (it is a cube root of 1) and 1 + omega + omega^2 = 0 (the three roots sum to zero — they are also the roots of x^2 + x + 1 = 0, and Vieta's relations from Section 9 will show the sum is the negative of the x-coefficient).
+✔ KEY FORMULA — omega toolkit: omega^3 = 1; 1 + omega + omega^2 = 0, so 1 + omega = -omega^2, 1 + omega^2 = -omega and omega + omega^2 = -1; omega^2 = conj(omega) = 1/omega; and powers reduce modulo 3 — omega^n depends only on the remainder when n is divided by 3 (remainder 0 gives 1, remainder 1 gives omega, remainder 2 gives omega^2).
+• EXAMPLE — omega^99 + omega^100: 99 is divisible by 3, so omega^99 = (omega^3)^33 = 1, and omega^100 = omega^99 x omega = omega. Sum: 1 + omega = -omega^2. Notice the final step used the sum-to-zero fact, not expansion — that is the exam-speed route.
+• WORKED PATTERN — (1 + omega^2)^4: first 1 + omega^2 = -omega, so the expression is (-omega)^4 = omega^4 = omega^3 x omega = omega. Three facts chained, no coordinates touched.
+• WORKED PATTERN — (1 - omega + omega^2)(1 + omega - omega^2) = 4: in the first bracket, 1 + omega^2 = -omega, so the bracket is -omega - omega = -2 omega. In the second, 1 + omega = -omega^2, so it is -omega^2 - omega^2 = -2 omega^2. Product: 4 omega^3 = 4. This factor-to-double trick is a recurring IAT pattern — when you see 1 ± omega ± omega^2, always merge two of the terms first.
+• WHY the geometry explains the algebra — Figure 2 shows the three roots as arrows from the origin. Tip-to-tail, the arrow 1 followed by the arrow omega followed by the arrow omega^2 returns exactly to the origin: the vector sum is zero, which is precisely 1 + omega + omega^2 = 0 wearing geometric clothes.
+⚠ EXAM TRAP — Two cycles, two moduli: powers of i reduce modulo 4, powers of omega reduce modulo 3. Writing omega^100 = omega^0 = 1 because "100 is divisible by 4-ish" is the classic slip. Check which unit you are holding before choosing the cycle.
+• YOUR TURN — Evaluate (1 - omega)(1 - omega^2) and omega^105 + omega^210. Answer: expand the first: 1 - omega - omega^2 + omega^3 = 1 - (omega + omega^2) + 1 = 1 + 1 + 1 = 3. For the second, 105 and 210 are both divisible by 3, so both terms equal 1 and the sum is 2.
 
+Rotation in the Argand Plane
+• DEFINITION — Multiplying z by e^(i theta) rotates the point z about the origin through angle theta, anticlockwise for positive theta. The most used special case: multiplying by i rotates by pi/2 (90 degrees anticlockwise), by -i rotates by -pi/2 (clockwise), and by -1 rotates by pi (a half turn).
+• WORKED PATTERN — Rotate z = 1 + i by 90 degrees anticlockwise about the origin: multiply by i — i(1 + i) = i + i^2 = -1 + i. The point (1, 1) moves to (-1, 1), exactly a quarter turn, and |z| is unchanged: rotation never changes modulus.
+✔ KEY FORMULA — Rotation about a general centre z0: translate, rotate, translate back. The image of z after rotation through theta about z0 is z' = z0 + (z - z0) e^(i theta). Forgetting the translate-back step is the only way this formula goes wrong.
+• EXAMPLE — Rotate z = 2 (the point (2, 0)) by pi/2 about the centre z0 = 1 + i. Translate: z - z0 = 1 - i. Rotate by i: i(1 - i) = 1 + i. Translate back: z' = (1 + i) + (1 + i) = 2 + 2i. Sanity check by distances: |z - z0| = |1 - i| = sqrt(2) and |z' - z0| = |1 + i| = sqrt(2) — preserved, as a rotation demands.
+• WHY examiners care — rotation converts geometry problems (squares and equilateral triangles built on segments, a Class 12 and IAT staple) into one multiplication. If P and Q are adjacent vertices of a square or triangle built on a segment, the next vertex is z_P + (z_Q - z_P) x (the rotation factor for the shape's angle).
+• YOUR TURN — The point z = 3 + i is rotated 90 degrees anticlockwise about the origin. Find its image. Answer: i(3 + i) = 3i + i^2 = -1 + 3i.
 
-                2. Geometry in the Argand Plane
+Quadratic Equations — the Discriminant Decides
+• DEFINITION — For ax^2 + bx + c = 0 with a not equal to 0, the discriminant is D = b^2 - 4ac. It is the expression under the square root in the quadratic formula x = (-b ± sqrt(D)) / (2a), and its sign alone classifies the roots before any root is computed.
+✔ KEY FORMULA — The discriminant table: D > 0 gives two distinct real roots. D = 0 gives two equal real roots, both -b/(2a). D < 0 gives two non-real complex roots that are conjugates of each other. When a, b, c are rational, one refinement: D a perfect square gives rational roots, D positive but not a perfect square gives irrational roots in a conjugate pair p ± sqrt(q).
+• EXAMPLE — x^2 - 5x + 6 = 0: D = 25 - 24 = 1 > 0, roots real and distinct — indeed 2 and 3.
+• EXAMPLE — x^2 + x + 1 = 0: D = 1 - 4 = -3 < 0, roots non-real — and they are exactly omega and omega^2 from Section 6. The two toolkits shake hands: the quadratic with discriminant -3 manufactures the cube roots of unity.
+• EXAMPLE — x^2 - 4x + 4 = 0: D = 16 - 16 = 0, one repeated root x = 4/2 = 2, and the left side is the perfect square (x - 2)^2.
+• WORKED PATTERN — Parameter for equal roots: find k so that 3x^2 - kx + 12 = 0 has equal roots. Set D = 0: k^2 - 4 x 3 x 12 = k^2 - 144 = 0, so k = 12 or k = -12. Both signs count — D involves k^2, and dropping the negative value is a standard lost mark.
+⚠ EXAM TRAP — D < 0 means no REAL roots, never "no roots". With complex numbers admitted, every quadratic has exactly two roots counting multiplicity — the Fundamental Theorem of Algebra in its smallest case. An option saying a D < 0 quadratic "has no solution" is false.
+• YOUR TURN — Classify the roots of 2x^2 - 3x + 5 = 0 and of x^2 - 6x + 9 = 0. Answer: D = 9 - 40 = -31 < 0, a non-real conjugate pair. And D = 36 - 36 = 0, equal roots x = 3.
 
-                • |z − z₀| = R represents a circle centered at z₀ with radius R.
+Vieta's Relations — Sum and Product of Roots
+• DEFINITION — Vieta's relations connect the coefficients of a quadratic to symmetric data about its roots without ever solving it. If alpha and beta are the roots of ax^2 + bx + c = 0, then the sum alpha + beta = -b/a and the product alpha beta = c/a.
+✔ KEY FORMULA — The Vieta toolkit: alpha + beta = -b/a; alpha beta = c/a; alpha^2 + beta^2 = (alpha + beta)^2 - 2 alpha beta; (alpha - beta)^2 = (alpha + beta)^2 - 4 alpha beta, so |alpha - beta| = sqrt(D)/|a|; 1/alpha + 1/beta = (alpha + beta)/(alpha beta); alpha^3 + beta^3 = (alpha + beta)^3 - 3 alpha beta (alpha + beta). Every symmetric expression in alpha and beta reduces to sum and product — that is the whole game.
+• WORKED PATTERN — Building an equation from roots: roots 2 and -3 have sum -1 and product -6, so the monic equation is x^2 - (sum) x + (product) = x^2 + x - 6 = 0. The template x^2 - Sx + P = 0 is worth memorising as a single object.
+• EXAMPLE — x^2 - 5x + 6 = 0: sum 5, product 6, so alpha^2 + beta^2 = 25 - 12 = 13 (check against the roots 2 and 3: 4 + 9 = 13) and |alpha - beta| = sqrt(1)/1 = 1.
+• EXAMPLE — 2x^2 - 8x + 3 = 0: divide by a first — sum = 8/2 = 4, product = 3/2. Then alpha^2 + beta^2 = 16 - 2 x (3/2) = 13. Coincidence of answers, completely different route.
+• EXAMPLE — x^2 - 3x + 1 = 0: sum 3, product 1, so alpha^3 + beta^3 = 27 - 3 x 1 x 3 = 18, computed without ever meeting the irrational roots (3 ± sqrt(5))/2.
+• WHY symmetric functions are the examiners' favourite — the roots themselves may be ugly surds or complex numbers, yet symmetric combinations are clean rationals, because the surd parts cancel. When a problem asks for alpha^2 + beta^2, alpha^3 + beta^3, 1/alpha + 1/beta or alpha/beta + beta/alpha, it is begging you NOT to solve the quadratic.
+⚠ EXAM TRAP — The sum is -b/a, with the minus sign, and both relations need division by a. For 2x^2 - 8x + 3 the sum is 4, not 8 and not -8. Read the coefficients off only after mentally dividing through by a.
+• YOUR TURN — For the roots of x^2 - 7x + 3 = 0, find alpha^2 + beta^2 and 1/alpha + 1/beta. Answer: sum 7, product 3, so alpha^2 + beta^2 = 49 - 6 = 43, and 1/alpha + 1/beta = 7/3.
 
-                • |z − z₁| = |z − z₂| represents the perpendicular bisector of segment joining z₁ and z₂.
+Common Roots — When Two Quadratics Share
+• DEFINITION — A common root of two quadratic equations is an x-value satisfying both. The practical consequence: any common root also satisfies any combination of the two equations — in particular their difference, which is at most linear and therefore hands you the candidate on a plate.
+• WORKED PATTERN — x^2 - 3x + 2 = 0 (roots 1, 2) and x^2 - 4x + 3 = 0 (roots 1, 3): subtract the equations and the x^2 terms cancel, leaving x - 1 = 0, so the only possible common root is x = 1. Verify in either original: 1 - 3 + 2 = 0. Confirmed — subtraction proposes, substitution disposes.
+• WORKED PATTERN — Parameter version: find k such that x^2 - 3x + k = 0 and x^2 - 4x + 3 = 0 share a root. The shared root must be a root of the second equation, so it is 1 or 3. Try x = 1 in the first: 1 - 3 + k = 0 gives k = 2. Try x = 3: 9 - 9 + k = 0 gives k = 0. So k = 0 or k = 2 — two answers, and a single-answer attempt loses half the problem.
+✔ KEY FORMULA — The bookkeeping condition: a1 x^2 + b1 x + c1 = 0 and a2 x^2 + b2 x + c2 = 0 have a common root exactly when (c1 a2 - c2 a1)^2 = (a1 b2 - a2 b1)(b1 c2 - b2 c1). And they have BOTH roots common exactly when the coefficients are proportional: a1/a2 = b1/b2 = c1/c2. In the exam hall the subtraction method is faster and safer than the formula; keep the formula for verification.
+• WHY subtraction works — if alpha satisfies both equations, it satisfies (equation 1) - (equation 2) = 0, a linear equation whose single solution is the only possible common root. If that candidate then fails in the originals, the quadratics simply share nothing.
+⚠ EXAM TRAP — When a1 = a2 and b1 = b2, subtraction leaves only a constant: then the equations share a root only if also c1 = c2 (identical equations). Subtracting and getting "5 = 0" is the equations telling you there is no common root — believe them.
+• YOUR TURN — Do x^2 - 5x + 6 = 0 and x^2 - 7x + 12 = 0 share a root? Answer: subtract — 2x - 6 = 0, candidate x = 3. Check: 9 - 15 + 6 = 0. Yes, x = 3 is common (the root sets are {2, 3} and {3, 4}).
 
-                • Rotation Theorem: (z₃ − z₁)/(z₂ − z₁) = (|z₃ − z₁|/|z₂ − z₁|) e^(iα).
+The Quadratic Expression — Sign and Extremum
+• DEFINITION — The quadratic expression f(x) = ax^2 + bx + c is a parabola: opening upwards when a > 0, downwards when a < 0. Beyond solving f(x) = 0, the examinable questions are: what sign does f keep, and what is its extreme value?
+✔ KEY FORMULA — Sign rules for a > 0: if D < 0, f(x) > 0 for every real x (the parabola floats above the axis). If D = 0, f(x) ≥ 0, touching zero at the double root. If D > 0 with roots alpha < beta, f(x) > 0 outside the roots (x < alpha or x > beta) and f(x) < 0 strictly between them. For a < 0 every inequality reverses. Compressed: f keeps the sign of a everywhere except between two distinct real roots, where it flips.
+• The always-positive test: f(x) > 0 for all real x exactly when a > 0 AND D < 0 — two conditions, both essential. Always negative is the mirror: a < 0 AND D < 0.
+• EXAMPLE — x^2 + 2x + 5: D = 4 - 20 = -16 < 0 and a = 1 > 0, so it is positive for all x. Its smallest value is at the vertex.
+✔ KEY FORMULA — The vertex: f has its extreme value at x = -b/(2a), and the extreme value is (4ac - b^2)/(4a). It is a minimum when a > 0 and a maximum when a < 0.
+• EXAMPLE — For x^2 + 2x + 5 the vertex sits at x = -1 and the minimum value is (20 - 4)/4 = 4. Direct check: f(-1) = 1 - 2 + 5 = 4. So x^2 + 2x + 5 ≥ 4 always — stronger than mere positivity, and exactly the kind of bound inequality problems feed on.
+• WORKED PATTERN — Find all k with kx^2 + 4x + 1 > 0 for every x. Two conditions: k > 0, and D = 16 - 4k < 0, i.e. k > 4. Combined answer: k > 4. The k > 0 condition is not decoration: at k = 0 the expression degenerates to the linear 4x + 1, which dives negative for small x.
+⚠ EXAM TRAP — In "always positive" problems, students routinely enforce D < 0 and forget a > 0. With a < 0 and D < 0 the expression is always NEGATIVE — the conditions are a package deal, and the question is designed so the missing condition is the answer.
+• YOUR TURN — Is x^2 - 2x + 3 always positive? What is its minimum value? Answer: D = 4 - 12 = -8 < 0 with a > 0, so yes. Vertex at x = 1, minimum value f(1) = 1 - 2 + 3 = 2.
 
+Location of Roots — Pinning Roots Down
+• DEFINITION — Location problems ask not for the roots but for their address: both roots greater than k, both less than k, or k trapped between them. The toolkit always combines three witnesses — the discriminant (roots are real), the axis of symmetry (which side they lean to), and the sign of f(k) (where k stands relative to the curve).
+✔ KEY FORMULA — Both roots exceed k exactly when D ≥ 0, the axis -b/(2a) > k, and a x f(k) > 0 (f(k) has the sign of a, since k lies outside the root interval on the far side). Both roots are below k with the axis condition flipped. And k lies strictly between the roots exactly when a x f(k) < 0 — in that case D > 0 comes free, no separate check needed.
+• WORKED PATTERN — Find m so that both roots of x^2 - 6x + m = 0 exceed 2. Discriminant: 36 - 4m ≥ 0 gives m ≤ 9. Axis: -(-6)/2 = 3 > 2, automatically satisfied. End check: f(2) = 4 - 12 + m = m - 8 > 0 gives m > 8. Combined: 8 < m ≤ 9. Audit the ends: m = 9 gives the double root 3, which does exceed 2; m = 8.5 gives roots about 2.29 and 3.71, both above 2; m = 8 gives roots 2 and 4 — the root AT 2 fails "exceed", so 8 is correctly excluded.
+• EXAMPLE — A number between the roots: 1 lies between the roots of x^2 - 3x + m exactly when f(1) = m - 2 < 0 (a = 1 > 0), i.e. m < 2. At m = 1 the roots are about 0.38 and 2.62, and 1 indeed sits between them.
+• A structural curiosity worth one line: if the coefficients are palindromic, a = c, then the product of roots c/a = 1, so the roots are a reciprocal pair. EXAMPLE — 2x^2 - 5x + 2 = 0 has roots 2 and 1/2. Spot the palindrome, halve the work.
+⚠ EXAM TRAP — D ≥ 0 alone locates nothing: it promises real roots but says nothing about where they live. Every location condition is a conjunction of checks, and omitting the axis or the f(k) check admits impostor configurations — roots straddling k can pass a discriminant-only test.
+• YOUR TURN — Find k so that both roots of x^2 - 4x + k = 0 are less than 5. Answer: D ≥ 0 gives k ≤ 4; axis is 2 < 5, automatic; f(5) = 25 - 20 + k = k + 5 > 0 gives k > -5. Combined: -5 < k ≤ 4.
 
+Linear Inequalities — Rules of the Game
+• DEFINITION — A linear inequality in one variable has the form ax + b < 0 (or with ≤, >, ≥), and solving it means describing all x that satisfy it — an interval drawn on the number line, with an open circle for a strict end and a closed circle for an included end.
+✔ KEY FORMULA — The legal moves: adding or subtracting the same quantity on both sides never changes an inequality. Multiplying or dividing by a POSITIVE number keeps the direction. Multiplying or dividing by a NEGATIVE number REVERSES the direction — the single most punished rule in this unit.
+• EXAMPLE — 3x - 7 > 5 - x: gather terms, 4x > 12, so x > 3. On the number line: open circle at 3, shading to the right.
+• EXAMPLE — The flip in action: -2x < 6. Divide by -2 and reverse: x > -3. Sanity check with a test value, x = 0: -0 < 6 is true, and 0 > -3 is consistent; the flipped answer contains the values that actually work.
+• Compound inequalities are processed at every part simultaneously: -3 < 2x + 1 ≤ 5. Subtract 1 throughout: -4 < 2x ≤ 4. Halve (positive, no flip): -2 < x ≤ 2. The left end is excluded, the right end included — mixed circles on the number line.
+• WORKED PATTERN — Always close with a test value. Pick any point inside your claimed solution and one outside it, and substitute into the ORIGINAL inequality. Ten seconds of testing has rescued more inequality answers than any theorem in this chapter.
+⚠ EXAM TRAP — Squaring both sides of an inequality is not a legal move: from x < 2 you cannot conclude x^2 < 4 (try x = -5). Operations that are safe for equations routinely break inequalities; the legal machine for products and quotients is the wavy curve of the next section, never blanket squaring or cross-multiplication.
+• YOUR TURN — Solve 4 - 2x ≥ 10. Answer: -2x ≥ 6, divide by -2 and flip: x ≤ -3.
 
-                3. Quadratic Equations & Linear Inequalities
+The Wavy Curve Method — Sign Schemes
+• DEFINITION — The wavy curve (sign scheme) method solves inequalities built from products and quotients of linear factors, like (x - 1)(x - 4)(x + 2) ≥ 0 or (x - 1)/(x + 2) ≤ 0, by tracking the SIGN of the whole expression interval by interval instead of expanding anything.
+✔ KEY FORMULA — The algorithm: (1) Move everything to one side so the other side is 0, and factor completely. (2) Mark the critical points: the zero of every numerator factor and every denominator factor. (3) The expression is positive for very large x (adjust if the overall leading sign is negative). (4) Walk leftwards across the number line: the sign FLIPS at a critical point of odd multiplicity and STAYS at one of even multiplicity (a squared factor). (5) Read off the intervals matching the inequality; numerator zeros may be included for ≤ or ≥, denominator zeros are NEVER included, whatever the inequality says.
+• Figure 3 works the flagship example: f(x) = (x + 1)(x - 2)^2 (x - 3) ≥ 0. Critical points: -1 (single), 2 (double — the curve touches the axis and bounces), 3 (single). Sign chart: positive left of -1, negative from -1 to 3 (the bounce at 2 changes nothing), positive beyond 3. Solution: x ≤ -1, or x ≥ 3, or the isolated point x = 2 — a double root still makes f equal to 0, so it satisfies ≥ 0 all by itself even though it sits inside a negative region.
+• EXAMPLE — A rational case: (x - 1)/(x + 2) ≤ 0. Critical points 1 (numerator) and -2 (denominator). Signs: positive for x > 1, negative between -2 and 1, positive for x < -2. We need ≤ 0: the interval (-2, 1], opening at -2 because the denominator zero is excluded absolutely, closing at 1 because the numerator zero is allowed.
+• WHY the bounce happens — near a double root like (x - 2)^2 the factor is a square: non-negative on both sides, so it cannot drag the product across zero. Near a simple root the factor itself changes sign, and the product follows it across. Multiplicity is destiny.
+⚠ EXAM TRAP — Never clear a denominator by multiplying both sides by (x + 2): its sign is unknown, so the flip-or-not decision is unknowable, and the method collapses. The wavy curve exists precisely to handle denominators honestly. Second trap: including a denominator zero in a ≤ answer — division by zero is not "equal to zero", it is undefined.
+• YOUR TURN — Solve (x + 3)(x - 2) ≥ 0 and (x - 4)(x + 1) < 0. Answer: critical points -3 and 2 split the line into positive-negative-positive, so the first gives x ≤ -3 or x ≥ 2. The second is negative strictly between its roots: -1 < x < 4.
 
-                • For ax² + bx + c = 0 (a ≠ 0), roots α, β satisfy α + β = −b/a and αβ = c/a.
+Modulus Inequalities — Distance in Disguise
+• DEFINITION — |x - a| is the distance between x and a on the number line. Every modulus inequality is a distance sentence: |x - a| < b says "x lies within b of a", and |x - a| > b says "x is farther than b from a". Read them as distances and the answers draw themselves.
+✔ KEY FORMULA — The four translations, for a > 0: |x| < a means -a < x < a. |x| ≤ a means -a ≤ x ≤ a. |x| > a means x > a OR x < -a — two separate rays, never one interval. |x| ≥ a means x ≥ a OR x ≤ -a. Shifted versions: |x - a| < b means a - b < x < a + b.
+• EXAMPLE — |x - 3| < 2: x is within 2 of 3, so 1 < x < 5. One line, no case-splitting.
+• EXAMPLE — |2x - 1| ≥ 5: strip the inner expression as a single object: 2x - 1 ≥ 5 or 2x - 1 ≤ -5, giving x ≥ 3 or x ≤ -2. Two rays, reported with "or" — that word is part of the answer.
+• Edge cases examiners plant: |x| < -2 has NO solution, because a modulus is never negative. |x| ≤ 0 forces x = 0 exactly. |x| > -1 holds for every real x. If the right side is not positive, stop and think before reaching for the template.
+⚠ EXAM TRAP — Writing the answer to |x| > 3 as the chained inequality -3 > x > 3. That chain asserts x is simultaneously less than -3 and greater than 3 — impossible. The solution is a UNION of two rays, x < -3 or x > 3, and the "or" cannot be compressed into a chain.
+• YOUR TURN — Solve |x + 4| ≤ 3. Answer: distance reading — x within 3 of -4, so -7 ≤ x ≤ -1.
 
-                • Nature of roots via Discriminant D = b² − 4ac: real & distinct (D > 0), coincident (D = 0), complex conjugate (D < 0).
+Inequalities in Two Variables — Half-Planes and Corners
+• DEFINITION — A linear inequality in two variables, like 2x + 3y ≤ 6, has solutions that are points of the plane, and its solution set is a HALF-PLANE: one entire side of the boundary line 2x + 3y = 6, including the line itself when the inequality is non-strict.
+• WORKED PATTERN — Graph 2x + 3y ≤ 6: draw the line through its intercepts (3, 0) and (0, 2), solid because ≤ includes equality. Then test one point off the line — the origin is the laziest: 0 ≤ 6 is true, so the origin's side is the solution side. Shade it. If the test point fails, shade the other side; the line is never re-examined, only the side is in question.
+• A system of such inequalities intersects the half-planes into a feasible region, usually a polygon. Its corners are the intersection points of pairs of boundary lines, found by solving the pairs as simultaneous equations.
+✔ KEY FORMULA — The corner principle: a linear expression ax + by evaluated over a polygonal feasible region attains its maximum and minimum at CORNERS of the region. So optimising means: list the corners, evaluate, compare. This is the entire engine of Linear Programming in the Statistics and Probability chapter — this section is its foundation stone.
+• EXAMPLE — Region: x + y ≤ 4, x ≥ 0, y ≥ 0. A triangle with corners (0, 0), (4, 0), (0, 4). Maximise Z = x + 2y: at the corners Z equals 0, 4 and 8 respectively, so the maximum is 8 at (0, 4) — no calculus, no scanning of the interior, just three evaluations.
+• Boundary etiquette: strict inequalities (<, >) draw DASHED boundary lines whose points are excluded; non-strict (≤, ≥) draw SOLID lines whose points count. In a system, a corner lying on a dashed line is not itself feasible — check before crowning it the optimum.
+⚠ EXAM TRAP — Testing the origin fails silently when the boundary line passes through the origin (then 0 ≤ 0 tells you nothing about sides). Pick another test point, like (1, 0), whenever the origin lies on the line.
+• YOUR TURN — Does the point (2, 2) satisfy both x + y ≤ 4 and 3x + 2y ≤ 6? Answer: x + y = 4 ≤ 4, yes — boundary points count for ≤. But 3x + 2y = 10 > 6, no. Both must hold, so (2, 2) is not in the system's region.
 
-                • Wavy Curve Method for rational inequalities P(x)/Q(x) ≥ 0: factor into linear terms, mark critical points, and alternate signs according to odd/even multiplicity.
+Formula Sheet
+✔ |z| = sqrt(a^2 + b^2) for z = a + ib; conj(z) = a - ib; z x conj(z) = |z|^2; |z1 z2| = |z1| |z2|; |z1 + z2| ≤ |z1| + |z2|
+✔ Powers of i cycle with period 4: i, -1, -i, 1 — reduce the exponent modulo 4. Powers of omega cycle with period 3 — reduce modulo 3
+✔ Principal argument: -pi < arg z ≤ pi; alpha = arctan(|b/a|); quadrants give alpha, pi - alpha, -(pi - alpha), -alpha
+✔ Polar and Euler forms: z = r(cos theta + i sin theta) = r e^(i theta); products add arguments, quotients subtract them
+✔ De Moivre: (cos theta + i sin theta)^n = cos(n theta) + i sin(n theta); the n roots of z have modulus |z|^(1/n) and arguments (theta + 2kpi)/n
+✔ omega: omega = -1/2 + i sqrt(3)/2; omega^3 = 1; 1 + omega + omega^2 = 0; omega and omega^2 are the roots of x^2 + x + 1 = 0
+✔ Loci: |z - z0| = r circle; |z - z1| = |z - z2| perpendicular bisector; |z - z1| + |z - z2| = 2a ellipse with foci z1, z2
+✔ Rotation: multiply by i for 90 degrees anticlockwise about the origin; about centre z0 use z' = z0 + (z - z0) e^(i theta)
+✔ Quadratic formula x = (-b ± sqrt(D)) / (2a) with D = b^2 - 4ac: D > 0 distinct real roots, D = 0 equal roots, D < 0 conjugate complex pair
+✔ Vieta: alpha + beta = -b/a; alpha beta = c/a; alpha^2 + beta^2 = (alpha + beta)^2 - 2 alpha beta; |alpha - beta| = sqrt(D)/|a|; alpha^3 + beta^3 = (alpha + beta)^3 - 3 alpha beta (alpha + beta)
+✔ Sign of ax^2 + bx + c: positive for all x exactly when a > 0 and D < 0; vertex at x = -b/(2a), extreme value (4ac - b^2)/(4a)
+✔ Location: both roots > k needs D ≥ 0, axis > k, a f(k) > 0; k between the roots exactly when a f(k) < 0
+✔ Wavy curve: sign flips at odd-multiplicity critical points, survives even ones; numerator zeros includable for ≤ and ≥, denominator zeros never
+✔ Modulus: |x| < a is -a < x < a; |x| > a is x > a or x < -a; |x - a| < b is a - b < x < a + b
 
-            """.trimIndent(),
+Common Mistakes and Exam Traps
+• MISTAKE 1 — Reading the argument straight off arctan(b/a). Why it fails: arctan only sees the right half of the plane; for a < 0 its answer is wrong by pi, and it never warns you. Correct principle: compute the reference angle alpha = arctan(|b/a|), then place it with the quadrant recipe, and confirm the final value lies in (-pi, pi].
+• MISTAKE 2 — Using sqrt(p) x sqrt(q) = sqrt(pq) on negative numbers. Why it fails: the rule is a theorem about non-negative reals only; sqrt(-4) x sqrt(-9) = (2i)(3i) = -6, not +6. Correct principle: convert every sqrt of a negative into i-form first, then multiply with i^2 = -1.
+• MISTAKE 3 — Losing the i^2 flip in expansions. Why it fails: in (3 + 2i)(1 - i), the term (2i)(-i) = -2i^2 = +2; treating it as -2 turns the answer 5 - i into 1 - i. Correct principle: after every expansion, hunt down each i^2 and replace it with -1 before collecting terms.
+• MISTAKE 4 — Reducing powers with the wrong cycle. Why it fails: i repeats every 4 powers, omega every 3; omega^100 reduced modulo 4 gives a confident wrong answer. Correct principle: name the unit first — i means mod 4, omega means mod 3.
+• MISTAKE 5 — Misquoting 1 + omega + omega^2 = 0. Why it fails: students remember a zero and attach it to the wrong pair, claiming omega + omega^2 = 0 or 1 + omega = omega^2. Correct principle: the three pair-sums are 1 + omega = -omega^2, 1 + omega^2 = -omega, omega + omega^2 = -1. Only the full triple sums to zero.
+• MISTAKE 6 — Vieta read off raw coefficients. Why it fails: for 2x^2 - 8x + 3 = 0 the sum of roots is 4, not 8 — the relations are -b/a and c/a, division included, and the sum carries a minus sign. Correct principle: divide through by a mentally before reading anything.
+• MISTAKE 7 — Clearing denominators in inequalities by multiplication. Why it fails: multiplying (x - 1)/(x + 2) ≤ 0 by (x + 2) gambles on its sign; half the number line then gets the wrong direction. Correct principle: one side zero, factor, wavy curve — never multiply by an expression of unknown sign.
+• MISTAKE 8 — Dividing an inequality by a negative without flipping. Why it fails: -2x ≥ 6 divided carelessly gives x ≥ -3, but x = 0 then "satisfies" it while 0 ≥ 6 is false in the original. Correct principle: negative multiplier or divisor flips the sign, every time, and a test value confirms it.
+• MISTAKE 9 — Chaining a modulus union. Why it fails: |x| > 3 written as -3 > x > 3 claims x is both below -3 and above 3. Correct principle: "greater than" modulus answers are two rays joined by OR; "less than" answers are one interval joined by AND.
+• MISTAKE 10 — Locating roots with the discriminant alone. Why it fails: D ≥ 0 certifies real roots but is silent about their position; roots at -5 and 5 pass D ≥ 0 for a "both roots exceed 2" demand. Correct principle: location needs the triple check — discriminant, axis position, and sign of a x f(k).
+
+Worked Examples — Basic to Challenging
+• EXAMPLE 1 — Problem: Evaluate (1 + i)^8 + (1 - i)^8.
+• Given: The two bases are conjugates; (1 + i)^2 = 2i and (1 - i)^2 = -2i.
+• Principle: Repeated squaring beats eight multiplications; conjugate powers give conjugate results.
+• Steps: (1 + i)^2 = 2i, so (1 + i)^4 = (2i)^2 = -4 and (1 + i)^8 = (-4)^2 = 16. Similarly (1 - i)^8 = 16.
+• Answer: 16 + 16 = 32.
+• Reasoning: Each squaring is one line, and the cross-check via polar form agrees: modulus (sqrt(2))^8 = 16 with argument 8 x (pi/4) = 2pi, landing on 16.
+• Mistake to avoid: Expanding with the binomial theorem term by term — eight chances to drop an i^2 sign for a result obtainable in three squarings.
+• EXAMPLE 2 — Problem: Find the modulus and principal argument of z = -1 - sqrt(3) i, and write z in polar form.
+• Given: a = -1, b = -sqrt(3): third quadrant.
+• Principle: |z| = sqrt(a^2 + b^2); argument from the reference angle plus the quadrant recipe.
+• Steps: |z| = sqrt(1 + 3) = 2. alpha = arctan(sqrt(3)/1) = pi/3. Quadrant III: arg z = -(pi - alpha) = -(pi - pi/3) = -2pi/3.
+• Answer: |z| = 2, arg z = -2pi/3, and z = 2(cos(-2pi/3) + i sin(-2pi/3)).
+• Reasoning: Verify by expansion: 2 cos(-2pi/3) = 2 x (-1/2) = -1 and 2 sin(-2pi/3) = 2 x (-sqrt(3)/2) = -sqrt(3). The polar form rebuilds the original number.
+• Mistake to avoid: Answering 2pi/3 or 4pi/3 — the first has the wrong sign for a third-quadrant point below the axis, the second is outside the principal range.
+• EXAMPLE 3 — Problem: If omega is a non-real cube root of unity, evaluate (1 - omega + omega^2)(1 + omega - omega^2).
+• Given: The only facts available: omega^3 = 1 and 1 + omega + omega^2 = 0.
+• Principle: Merge pairs first — in each bracket, two of the three terms combine via the sum-to-zero identity.
+• Steps: First bracket: 1 + omega^2 = -omega, so it equals -omega - omega = -2 omega. Second bracket: 1 + omega = -omega^2, so it equals -omega^2 - omega^2 = -2 omega^2. Multiply: (-2 omega)(-2 omega^2) = 4 omega^3 = 4 x 1 = 4.
+• Answer: 4.
+• Reasoning: The problem is engineered so each bracket collapses to a single term; expanding into coordinates (-1/2 ± i sqrt(3)/2) also works but takes five times longer.
+• Mistake to avoid: Expanding the product blindly into six terms and then drowning — if a cube-root expression does not collapse within two moves, you have missed a pair-merge.
+• EXAMPLE 4 — Problem: alpha and beta are roots of x^2 - 3x + 1 = 0. Find alpha^3 + beta^3 without solving the equation.
+• Given: Vieta data: alpha + beta = 3, alpha beta = 1.
+• Principle: alpha^3 + beta^3 = (alpha + beta)^3 - 3 alpha beta (alpha + beta) — symmetric, so Vieta suffices.
+• Steps: (3)^3 - 3 x 1 x 3 = 27 - 9 = 18.
+• Answer: 18.
+• Reasoning: The actual roots are (3 ± sqrt(5))/2, whose cubes involve nested surds — yet their sum is the clean integer 18, because the surd parts cancel in any symmetric combination.
+• Mistake to avoid: Solving for the roots and cubing them — the problem is a Vieta test wearing a cube costume.
+• EXAMPLE 5 — Problem: Find all m for which both roots of x^2 - 6x + m = 0 are greater than 2.
+• Given: a = 1, b = -6, c = m; target location k = 2.
+• Principle: The location triple check: D ≥ 0, axis > k, a f(k) > 0.
+• Steps: D = 36 - 4m ≥ 0 gives m ≤ 9. Axis = 3 > 2, automatic. f(2) = 4 - 12 + m = m - 8 > 0 gives m > 8. Intersect: 8 < m ≤ 9.
+• Answer: 8 < m ≤ 9.
+• Reasoning: Boundary audit: m = 9 gives the double root 3 (allowed — it exceeds 2); m = 8 gives roots 2 and 4, and the root equal to 2 is not GREATER than 2, so 8 is excluded. The asymmetry of the interval (open at 8, closed at 9) is the problem's whole point.
+• Mistake to avoid: Reporting m < 9 from the discriminant alone, which admits m = 0 — roots 0 and 6, nowhere near the demand.
+• EXAMPLE 6 — Problem: Solve (2x - 3)/(x + 1) ≥ 1.
+• Given: A rational inequality with a non-zero right side.
+• Principle: Never multiply out the denominator. Bring everything to one side, combine into a single fraction, then wavy curve.
+• Steps: Subtract 1: (2x - 3)/(x + 1) - 1 = (2x - 3 - x - 1)/(x + 1) = (x - 4)/(x + 1) ≥ 0. Critical points: 4 (numerator, includable) and -1 (denominator, never includable). Sign chart: positive for x > 4, negative between -1 and 4, positive for x < -1.
+• Answer: x < -1 or x ≥ 4.
+• Reasoning: Test all three regions in the original: x = 5 gives 7/6 ≥ 1, true. x = 0 gives -3 ≥ 1, false. x = -2 gives 7 ≥ 1, true. The solution set matches every test.
+• Mistake to avoid: Cross-multiplying by (x + 1) — it produces x ≥ 4 only and silently murders the entire x < -1 ray.
+• EXAMPLE 7 — Problem: The feasible region is x + y ≤ 4, x ≥ 0, y ≥ 0. Find the maximum and minimum of Z = x + 2y on it.
+• Given: A triangular region with corners at pairwise intersections of the boundary lines.
+• Principle: The corner principle — a linear objective on a polygon peaks at a corner.
+• Steps: Corners: (0, 0) from the two axes; (4, 0) from y = 0 with x + y = 4; (0, 4) from x = 0 with x + y = 4. Evaluate Z: 0, 4, and 8.
+• Answer: Maximum 8 at (0, 4); minimum 0 at (0, 0).
+• Reasoning: Z rewards y twice as much as x, so the optimum slides to the corner richest in y — intuition and the corner computation agree, but the computation is the proof.
+• Mistake to avoid: Testing the centre of the region or a random interior point — no interior point of a polygon ever beats the best corner for a linear objective.
+
+Practice Questions — Self-Test Set
+• Q1 — Evaluate i^2025 + i^2026 + i^2027 + i^2028.
+• Q2 — For z = 1 - i sqrt(3), state |z| and the principal value of arg z.
+• Q3 — If omega is a non-real cube root of unity, evaluate (1 + omega^2)^5.
+• Q4 — alpha and beta are roots of x^2 - 7x + 3 = 0. Find alpha^2 + beta^2.
+• Q5 — Find all k for which 3x^2 - kx + 12 = 0 has equal roots.
+• Q6 — Solve (x - 5)(x + 2) ≤ 0.
+• Q7 — Solve |x + 1| > 4.
+• Q8 — Describe the locus of points z satisfying |z - 2| = |z + 2|.
+
+▸ Answer Key with Explanations
+• A1 — 0. The four exponents are consecutive, and any four consecutive powers of i sum to zero: i + (-1) + (-i) + 1 in some rotation. Misconception: computing each power separately via mod 4 also gives i - 1 - i + 1 = 0 — correct but slower; the block cancellation is the pattern to internalise.
+• A2 — |z| = 2 and arg z = -pi/3. Misconception: answering pi/3 (forgetting the point is BELOW the axis, quadrant IV) or 5pi/3 (outside the principal range). The sign of b decides the sign of the argument in the right half-plane.
+• A3 — -omega^2. Since 1 + omega^2 = -omega, the expression is (-omega)^5 = -omega^5 = -omega^2 (omega^5 = omega^3 x omega^2). Misconception: answering omega^2 by dropping the minus sign, or expanding omega = -1/2 + i sqrt(3)/2 into a binomial slog.
+• A4 — 43. Sum 7, product 3, so alpha^2 + beta^2 = 49 - 2 x 3 = 43. Misconception: 49 - 3 = 46, from forgetting the factor 2 in (alpha + beta)^2 = alpha^2 + beta^2 + 2 alpha beta.
+• A5 — k = 12 or k = -12. Equal roots need D = k^2 - 144 = 0. Misconception: reporting only k = 12 — D is quadratic in k, and both square roots are legitimate parameters.
+• A6 — -2 ≤ x ≤ 5. The product of two linear factors is ≤ 0 between its roots, endpoints included since the factors vanish there. Misconception: flipping to the outside intervals, which is the answer for ≥ 0, not ≤ 0.
+• A7 — x > 3 or x < -5. Distance from -1 exceeding 4 gives two rays. Misconception: writing -5 > x > 3 as a chain, or answering with a single interval — a "greater than" modulus never produces one interval.
+• A8 — The imaginary axis, Re(z) = 0. The points are equidistant from 2 and -2, so the locus is their perpendicular bisector — the y-axis of the Argand plane. Misconception: calling it a circle; equal distances to two fixed points always give a straight line, never a curve.
+
+Chapter Summary, Revision Checklist and Self-Assessment
+• SUMMARY — Complex numbers begin with one audacious definition, i^2 = -1, and everything else is bookkeeping: the i-cycle of period 4, division by conjugates, modulus as distance, and argument as direction with its principal range -pi < arg z ≤ pi. Polar form turns multiplication into scaling-plus-rotation, De Moivre turns powers into angle multiplication, and the cube roots of unity — 1, omega, omega^2 with omega^3 = 1 and 1 + omega + omega^2 = 0 — are the recurring special case IAT cannot resist.
+• SUMMARY — Quadratics are governed by two instruments: the discriminant D = b^2 - 4ac, which classifies roots and powers the always-positive test and location problems, and Vieta's relations, which extract symmetric information about roots without solving. Add the location triple check (D, axis, a f(k)) and the common-root subtraction trick, and the unit is complete.
+• SUMMARY — Inequalities trade points for intervals. The sign flips under multiplication by a negative; products and quotients fall to the wavy curve, with its multiplicity rule and its absolute ban on including denominator zeros; modulus is distance on the number line; and two-variable systems carve out polygons whose corners optimise any linear objective — the doorway to Linear Programming.
+• REVISION CHECKLIST — I can reduce any i^n in under five seconds using mod 4, and any omega^n using mod 3.
+• REVISION CHECKLIST — I can divide two complex numbers by the conjugate method and state |z| and arg z for points in all four quadrants without touching a calculator's arctan blindly.
+• REVISION CHECKLIST — I can translate |z - z0| = r, |z - z1| = |z - z2| and |z - z1| + |z - z2| = 2a into their shapes instantly, centres and radii included.
+• REVISION CHECKLIST — I can write any complex number in polar form and use De Moivre for powers and for listing all n-th roots.
+• REVISION CHECKLIST — I can classify roots from D, build a quadratic from given roots, and reduce symmetric expressions in alpha and beta to sum and product.
+• REVISION CHECKLIST — I can run the location triple check and justify each of its three parts, including why k between the roots needs only a f(k) < 0.
+• REVISION CHECKLIST — I can solve product, quotient and modulus inequalities with the wavy curve and distance readings, and I never multiply through by a denominator.
+• REVISION CHECKLIST — I can graph a two-variable system, list its corners, and optimise a linear objective by corner evaluation.
+• SELF-ASSESSMENT — Score yourself honestly: 8 of 8 checklist items secure means exam-ready. 5 to 7 means drill the practice set again after re-reading the weak sections. Below 5 means rebuild in order — Sections 1 to 2 for complex arithmetic, Section 9 for Vieta, Section 14 for the wavy curve — then return to the worked examples and try each with the solution covered.""".trimIndent(),
 
             videoTitle = "Argand Plane Loci, Roots of Unity & Location of Quadratic Roots",
 
@@ -300,49 +994,312 @@ object SmartPrepSeedData {
 
             completedLessons = 3,
 
-            studyNotesCount = 8,
+            studyNotesCount = 23,
 
-            practiceQuestionCount = 22,
+            practiceQuestionCount = 5,
 
             durationMinutes = 50,
 
-            formulaHighlight = "tan⁻¹x + tan⁻¹y = tan⁻¹((x+y)/(1−xy)) (xy < 1)  •  R = √(a² + b²)",
+            formulaHighlight = "sin(A + B) = sin A cos B + cos A sin B and cos(A + B) = cos A cos B - sin A sin B • sin 2A = 2 sin A cos A; cos 2A = 2 cos^2 A - 1 = 1 - 2 sin^2 A; sin 3A = 3 sin A - 4 sin^3 A • sin C + sin D = 2 sin((C + D)/2) cos((C - D)/2) • a sin x + b cos x lies between -sqrt(a^2 + b^2) and +sqrt(a^2 + b^2) • if A + B + C = pi then tan A + tan B + tan C = tan A tan B tan C • general solutions: sin x = sin a gives x = n pi + (-1)^n a; cos x = cos a gives x = 2n pi +/- a; tan x = tan a gives x = n pi + a • branches: sin^-1 in [-pi/2, pi/2], cos^-1 in [0, pi], tan^-1 in (-pi/2, pi/2), cot^-1 in (0, pi) • sin^-1 x + cos^-1 x = pi/2 and tan^-1 x + cot^-1 x = pi/2 • tan^-1 x + tan^-1 y = tan^-1((x + y)/(1 - xy)) if xy < 1; add pi if xy > 1 with x, y > 0; subtract pi if xy > 1 with x, y < 0 • 2 tan^-1 x = tan^-1(2x/(1 - x^2)) for |x| < 1 = sin^-1(2x/(1 + x^2)) for |x| at most 1",
 
-            keyConceptsSummary = "Domain, range, and periodicity of trigonometric functions, sum-to-product transformations, extreme values of a cos θ + b sin θ, principal domains of inverse trigonometric functions, and telescoping arctan series.",
+            keyConceptsSummary = "Angles come in two languages — degrees and radians (180 degrees = pi rad) — and s = r theta speaks only radians; on the unit circle the point at angle x is (cos x, sin x), periods are 2pi for sin and cos and pi for tan, and the ASTC rule (All, Sin, Tan, Cos) fixes every sign by quadrant, with allied angles changing name at pi/2 partners and keeping it at pi partners\nThe standard table is one pattern — sin of 0, 30, 45, 60, 90 degrees is sqrt(0)/2 up to sqrt(4)/2, cosine is the same row reversed — and the golden angles extend it: sin 18 degrees = (sqrt(5) - 1)/4 from the quadratic 4s^2 + 2s - 1 = 0, cos 36 degrees = (sqrt(5) + 1)/4, sin 75 degrees = (sqrt(6) + sqrt(2))/4, tan 15 degrees = 2 - sqrt(3)\nCompound formulas generate everything forward: sin(A + B) and cos(A + B) (sine keeps the sign, cosine flips it), double angles (sin 2A = 2 sin A cos A; cos 2A in four forms — pick the one matching the given function), triple angles (3, -4 for sine; 4, -3 for cosine), and the C-D system converting sums to products and back via A = (C + D)/2, B = (C - D)/2, with cos C - cos D carrying the treacherous minus sign\nEvery mixture a sin x + b cos x is one wave in disguise: R sin(x + alpha) with R = sqrt(a^2 + b^2), so its extreme values are exactly plus and minus sqrt(a^2 + b^2) — the bound that kills impossible equations and wrong options on sight, and solves reachable ones by phase\nConditional identities switch on only when A + B + C = pi: tan A + tan B + tan C = tan A tan B tan C (derived in three lines from tan(A + B) = -tan C), sin 2A + sin 2B + sin 2C = 4 sin A sin B sin C, and cos^2 A + cos^2 B + cos^2 C + 2 cos A cos B cos C = 1; trigonometric equations fall to one-function conversion, factorising (never dividing by a possibly-zero function), the general solutions n pi + (-1)^n a for sine, 2n pi plus-or-minus a for cosine, n pi + a for tangent, and a mandatory audit after squaring\nInverse functions exist only inside principal branches — sine-type [-pi/2, pi/2] for sin^-1, tan^-1 and cosec^-1, cosine-type inside [0, pi] for cos^-1, sec^-1 and cot^-1 — and every property is the table in disguise: the first family is odd under negation, the second mirrors via pi minus, complementary pairs sum to pi/2, and f^-1(f(x)) folds any outside angle back home (sin^-1(sin(2pi/3)) = pi/3)\nThe addition formula tan^-1 x + tan^-1 y = tan^-1((x + y)/(1 - xy)) holds raw only when xy < 1; xy > 1 adds pi for positive pairs and subtracts pi for negative pairs (tan^-1 2 + tan^-1 3 = 3pi/4, never -pi/4); the 2 tan^-1 x conversions carry |x| guards, the series tan^-1(1/(1 + n + n^2)) = tan^-1(n + 1) - tan^-1(n) telescopes, and every inverse equation ends with candidates verified in the original — x = 1/6 survives tan^-1(2x) + tan^-1(3x) = pi/4 while x = -1 is hanged by it",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — One Chapter, Two Directions
+• Trigonometry runs in two directions, and the IAT tests both in the same paper. The forward direction takes an angle and returns a number: sin 75°, tan 2x, the maximum of 3 sin x + 4 cos x. The reverse direction takes a number and returns an angle: sin^-1(1/2), tan^-1 2 + tan^-1 3, the principal value of cos^-1(cos(7pi/6)). Students usually master the forward direction and bleed marks in the reverse one — this chapter is built to fix exactly that imbalance.
+• DEFINITION — The trigonometric functions assign to every angle x the ratios sin x, cos x, tan x and their reciprocals cosec x, sec x, cot x. The inverse trigonometric functions undo them: sin^-1 t is the angle whose sine is t — but only after we agree WHICH angle, because infinitely many angles share the same sine.
+• WHY the forward direction is a fluency game — compound angles, multiple angles and the sum-to-product system are a closed toolkit: about twenty formulas generate every value, identity and equation in the syllabus. The marks go to whoever can pick the right formula in under ten seconds, not to whoever can derive it from scratch in the exam hall.
+• WHY the reverse direction is a discipline game — an inverse function is only honest inside its principal value branch. Almost every inverse-trig error is the same error: a correct-looking formula applied outside its branch, producing an angle that lives in the wrong interval. The formula tan^-1 x + tan^-1 y = tan^-1((x + y)/(1 - xy)) is true only when xy < 1, and the correction cases around it are among the most repeated traps in the IAT.
+• EXAMPLE — The two directions in one breath: forward, sin(7pi/12) = (sqrt(6) + sqrt(2))/4 by a compound-angle expansion. Reverse, tan^-1 2 + tan^-1 3 = 3pi/4 — not the -pi/4 the raw formula blurts out, because 2 x 3 = 6 > 1 forces a + pi correction. Both answers are verified in this chapter, step by step.
+• The map of the chapter: angles and the sign map first, then standard values including the golden angles 18° and 36°. Then the forward engine room — compound, multiple and C-D formulas, the R-method for extremes, conditional identities for triangles, and trigonometric equations. Then the reverse gear — branches, properties, the tan^-1 addition correction, the 2 tan^-1 x family, telescoping series and inverse equations.
+★ HIGHLIGHT — The whole chapter in one breath: forward trigonometry is formula fluency (twenty formulas, endlessly recombined), and inverse trigonometry is branch discipline (every answer must live inside its principal interval, and the xy test guards the door).
 
-                1. Trigonometric Transformations & Bounds
+Angles, Degrees and Radians — Two Languages for Turning
+• DEFINITION — A degree is 1/360 of a full revolution. A radian is the angle at the centre of a circle that cuts off an arc exactly as long as the radius: when arc length s equals radius r, the angle is exactly 1 radian.
+✔ KEY FORMULA — Arc length s = r x theta, with theta in RADIANS, always. One full revolution is 360° = 2pi radians, so 180° = pi radians and 1 radian = 180/pi ≈ 57.3°.
+• WORKED PATTERN — Converting: degrees to radians, multiply by pi/180; radians to degrees, multiply by 180/pi. Anchor pairs worth memorising cold: 30° = pi/6, 45° = pi/4, 60° = pi/3, 90° = pi/2, 120° = 2pi/3, 135° = 3pi/4, 150° = 5pi/6, 180° = pi, 270° = 3pi/2, 360° = 2pi.
+• EXAMPLE — A wheel of radius 6 m rolls through an angle of 2.5 rad. The contact arc is s = 6 x 2.5 = 15 m. In degrees that angle is 2.5 x 180/pi ≈ 143.2° — same turning, two languages, and the formula only speaks radians.
+• DEFINITION — Angles measured anticlockwise from the positive x-axis are positive; clockwise angles are negative. Angles differing by a full turn (2pi or 360°) are coterminal — they point the same way and every trigonometric function gives them the same value.
+• EXAMPLE — cos(-300°) = cos(300°) because cosine is an even function, and 300° is coterminal with -60°, so cos(-300°) = cos 60° = 1/2. Two facts — evenness and coterminality — chain together constantly in this chapter.
+• YOUR TURN — (a) Convert 7pi/6 to degrees. (b) Convert 150° to radians. (c) A circle of radius 10 cm subtends an arc of 15 cm at the centre; find the angle in radians. Answers: (a) 210°, (b) 5pi/6, (c) theta = s/r = 15/10 = 1.5 rad.
+⚠ EXAM TRAP — s = r theta with theta in degrees is silently wrong: the formula is built on the radian definition. The second trap is your calculator's MODE — a radian question answered in degree mode returns garbage that looks like a number. Check the mode before the first question, not after the last.
 
-                • Sum-to-Product:
+The Six Functions and the ASTC Sign Map
+• DEFINITION — On the unit circle, the point at angle x is (cos x, sin x). Then tan x = sin x / cos x, and the reciprocals are cosec x = 1/sin x, sec x = 1/cos x, cot x = 1/tan x = cos x / sin x. Every sign question in trigonometry is answered by asking where that point sits.
+✔ KEY FORMULA — Periods: sin x, cos x, sec x and cosec x repeat every 2pi; tan x and cot x repeat every pi. Even and odd: cos(-x) = cos x and sec(-x) = sec x, while sin, tan, cosec and cot all flip sign with a negative angle.
+• DEFINITION — The ASTC rule names the positive function in each quadrant: Quadrant I (0 to pi/2) — All positive. Quadrant II (pi/2 to pi) — Sin (and cosec) positive. Quadrant III (pi to 3pi/2) — Tan (and cot) positive. Quadrant IV (3pi/2 to 2pi) — Cos (and sec) positive. Read it as All, Sin, Tan, Cos going anticlockwise.
+• WORKED PATTERN — Allied angles, the machine behind every reduction: to evaluate a function of pi/2 ± x or pi ± x, do two things. First the name: for pi/2 ± x the function CHANGES to its co-function (sin to cos, tan to cot, sec to cosec); for pi ± x and 2pi - x it STAYS. Second the sign: give the ORIGINAL function the sign it has in that quadrant by ASTC. Example: sin(pi + x): stays sin, quadrant III where sin is negative, so sin(pi + x) = -sin x. And cos(pi/2 - x): changes to sin, quadrant I all positive, so cos(pi/2 - x) = sin x — the co-function identity itself.
+• EXAMPLE — sin 200° sits in quadrant III, where sine is negative, and 200° = 180° + 20°, so sin 200° = -sin 20° ≈ -0.342. The reference angle (distance to the nearest x-axis) is what survives; ASTC supplies the sign.
+• YOUR TURN — (a) Evaluate tan(7pi/4). (b) Give the sign of tan 100° without a calculator. Answers: (a) 7pi/4 is quadrant IV, tan(7pi/4) = -tan(pi/4) = -1. (b) 100° is quadrant II, where only sin is positive, so tan 100° is negative.
+★ HIGHLIGHT — Figure 4.1 draws this whole section: one circle, a sample angle with its reference angle, the ASTC label in each quadrant, and degrees with radians around the rim. If you can reproduce that picture from memory, sign questions stop costing marks.
+⚠ EXAM TRAP — The allied-angle name change happens for pi/2 and 3pi/2 partners only. sin(3pi/2 - x) = -cos x (changes name, quadrant III sign for sine is negative), but sin(pi - x) = +sin x (same name, quadrant II sign positive). Mixing the two rules is the standard allied-angle blunder.
 
-                  - sin C + sin D = 2 sin((C+D)/2) cos((C−D)/2)
+Standard Values — and the Golden Angles 18° and 36°
+• DEFINITION — The standard values are the exact sine, cosine and tangent of 0°, 30°, 45°, 60° and 90°. They are the bricks every other exact value in this chapter is built from.
+✔ KEY FORMULA — The sine row is a pattern, not a list: sin 0°, 30°, 45°, 60°, 90° = sqrt(0)/2, sqrt(1)/2, sqrt(2)/2, sqrt(3)/2, sqrt(4)/2 = 0, 1/2, 1/sqrt(2), sqrt(3)/2, 1. The cosine row is the same list read backwards. The tangent row is sin over cos: 0, 1/sqrt(3), 1, sqrt(3), and undefined at 90°.
+• WORKED PATTERN — Any forgotten value is ten seconds away: need cos 30°? The cosine row is the sine row reversed, so cos 30° = sin 60° = sqrt(3)/2. Need tan 60°? sin 60° / cos 60° = (sqrt(3)/2) / (1/2) = sqrt(3). Never memorise 15 values when one pattern regenerates them.
+• DEFINITION — The golden angles come from the pentagon and the golden ratio: sin 18° = (sqrt(5) - 1)/4 ≈ 0.309 and cos 36° = (sqrt(5) + 1)/4 ≈ 0.809 — note cos 36° is exactly half the golden ratio (1 + sqrt(5))/2. Completing the family: cos 18° = sqrt(10 + 2 sqrt(5))/4 ≈ 0.951 and sin 36° = sqrt(10 - 2 sqrt(5))/4 ≈ 0.588.
+• WHY 18° has an exact value at all — 18° is special because 2 x 18° = 90° - 3 x 18°, which turns into a quadratic equation in sin 18°: 4s^2 + 2s - 1 = 0. Worked Example 2 solves it in full. No such luck exists for 1° or 20° — their exact forms need cubics, which is why the syllabus stops at 18°.
+• EXAMPLE — Complementary pairs halve the memorising: sin 54° = cos 36° = (sqrt(5) + 1)/4 ≈ 0.809, because sin(90° - x) = cos x. Every golden value does double duty at its complement.
+• YOUR TURN — Write down sin 72° exactly. Answer: sin 72° = cos 18° = sqrt(10 + 2 sqrt(5))/4 ≈ 0.951 — complement first, then the golden table.
+⚠ EXAM TRAP — Do not swap the golden pair: sin 18° ≈ 0.309 is the SMALL one (a small angle has a small sine), cos 36° ≈ 0.809 is the big one. If your recalled value makes sin 18° bigger than sin 30° = 0.5, you have swapped them. And tan 90° is undefined — "infinity" is not an option value, it is the absence of one.
+Compound Angles — sin, cos and tan of A + B and A - B
+• DEFINITION — A compound angle is a sum or difference of two angles, A + B or A - B. The compound-angle formulas expand a function of the sum into functions of the parts — they are the engine that manufactures every non-standard exact value.
+✔ KEY FORMULA — sin(A + B) = sin A cos B + cos A sin B, and sin(A - B) = sin A cos B - cos A sin B. cos(A + B) = cos A cos B - sin A sin B, and cos(A - B) = cos A cos B + sin A sin B. tan(A + B) = (tan A + tan B)/(1 - tan A tan B), and tan(A - B) = (tan A - tan B)/(1 + tan A tan B).
+• WHY cos(A - B) is the mother formula — place two points on the unit circle at angles A and B; the distance between them, computed two ways, gives cos(A - B) = cos A cos B + sin A sin B. Every other formula in this section is a child of it: replace B by -B for cos(A + B), use the co-function sin x = cos(pi/2 - x) for the sine pair, and divide sine by cosine for the tangent pair. One derivation, six formulas.
+• Sign discipline — sine keeps its sign pattern (sin(A + B) has + between terms, matching the + in the angle); cosine REVERSES it (cos(A + B) has - between the terms). For tangent, the numerator copies the angle's sign and the denominator flips it. Say it as: sin same, cos contrary, tan top-same-bottom-flipped.
+• WORKED PATTERN — sin 75° = sin(45° + 30°) = sin 45° cos 30° + cos 45° sin 30° = (1/sqrt(2))(sqrt(3)/2) + (1/sqrt(2))(1/2) = (sqrt(3) + 1)/(2 sqrt(2)) = (sqrt(6) + sqrt(2))/4 ≈ 0.966. The recipe is always: split into standard angles, expand, substitute the table.
+• EXAMPLE — tan 105° = tan(60° + 45°) = (sqrt(3) + 1)/(1 - sqrt(3)) — rationalise by multiplying top and bottom by (1 + sqrt(3)): ((sqrt(3) + 1)(1 + sqrt(3)))/(1 - 3) = (4 + 2 sqrt(3))/(-2) = -(2 + sqrt(3)) ≈ -3.73. Negative, as a quadrant II tangent must be — ASTC audits the answer for free.
+• YOUR TURN — Evaluate cos 15°. Answer: cos(45° - 30°) = cos 45° cos 30° + sin 45° sin 30° = (sqrt(6) + sqrt(2))/4 ≈ 0.966 — the same value as sin 75°, as the co-function identity promised.
+⚠ EXAM TRAP — sin(A + B) is NOT sin A + sin B. Test it: A = B = 30° gives sin 60° = sqrt(3)/2 ≈ 0.866 on the left, but sin 30° + sin 30° = 1 on the right. Functions of sums never distribute over the sum — the expansion formulas exist precisely because the naive split fails.
 
-                  - cos C + cos D = 2 cos((C+D)/2) cos((C−D)/2)
+Multiple Angles — Double and Triple Angle Formulas
+• DEFINITION — Multiple-angle formulas are the compound formulas with B set equal to A: functions of 2A and 3A expressed through functions of A alone. They convert between an angle and its double or triple in both directions.
+✔ KEY FORMULA — sin 2A = 2 sin A cos A = 2 tan A/(1 + tan^2 A). cos 2A = cos^2 A - sin^2 A = 2 cos^2 A - 1 = 1 - 2 sin^2 A = (1 - tan^2 A)/(1 + tan^2 A). tan 2A = 2 tan A/(1 - tan^2 A).
+✔ KEY FORMULA — sin 3A = 3 sin A - 4 sin^3 A. cos 3A = 4 cos^3 A - 3 cos A. tan 3A = (3 tan A - tan^3 A)/(1 - 3 tan^2 A). Memory hook: the 3-formulas are 3-and-4 patterns — sine reads 3, -4; cosine reads 4, -3.
+• WHY cos 2A owns four forms — each form trades in a different currency: cos^2 - sin^2 is symmetric, 2cos^2 - 1 is pure cosine, 1 - 2sin^2 is pure sine, and the tan form needs no roots. Given sin A, reach for 1 - 2 sin^2 A; given cos A, reach for 2 cos^2 A - 1. Choosing the form that matches the given data is worth more than knowing all four.
+• WORKED PATTERN — If sin A = 3/5 with A acute, then cos A = 4/5, so sin 2A = 2 x (3/5) x (4/5) = 24/25 and cos 2A = 1 - 2 x (9/25) = 7/25. Notice 7-24-25: double-angle answers on a 3-4-5 triangle land on the next Pythagorean triple — a pattern worth recognising on sight.
+• EXAMPLE — The half-angle children: rearranging cos 2A gives sin^2(A/2) = (1 - cos A)/2 and cos^2(A/2) = (1 + cos A)/2. With A = 60°: cos^2 30° = (1 + 1/2)/2 = 3/4, matching the table. The square root at the end carries a ± that only the quadrant of A/2 can settle.
+• YOUR TURN — If tan A = 1/3, find tan 2A. Answer: tan 2A = (2/3)/(1 - 1/9) = (2/3)/(8/9) = 3/4.
+★ HIGHLIGHT — The factorisation pair 1 + cos 2A = 2 cos^2 A and 1 - cos 2A = 2 sin^2 A are the hardest-working lines in equation solving: they turn sums into products, and products are what let you set factors to zero.
+⚠ EXAM TRAP — cos 2A = 2 cos^2 A - 1, not 2 cos A - 1, and not cos^2 A - sin^2 A with the terms swapped in the pure forms: 1 - 2 sin^2 A (sine form) versus 2 cos^2 A - 1 (cosine form). Swapping them flips the sign of every downstream answer.
 
-                • Cosine Product Series: cos θ · cos 2θ · cos 4θ ... cos(2ⁿ⁻¹θ) = sin(2ⁿθ) / (2ⁿ sin θ).
+Sum to Product, Product to Sum — the C-D System
+• DEFINITION — The C-D system converts sums of sines and cosines into products, and products back into sums. It is named for the substitution C = A + B, D = A - B, which gives A = (C + D)/2 and B = (C - D)/2 — the half-sum and half-difference that appear in every line.
+✔ KEY FORMULA — Product to sum: 2 sin A cos B = sin(A + B) + sin(A - B). 2 cos A sin B = sin(A + B) - sin(A - B). 2 cos A cos B = cos(A + B) + cos(A - B). 2 sin A sin B = cos(A - B) - cos(A + B).
+✔ KEY FORMULA — Sum to product: sin C + sin D = 2 sin((C + D)/2) cos((C - D)/2). sin C - sin D = 2 cos((C + D)/2) sin((C - D)/2). cos C + cos D = 2 cos((C + D)/2) cos((C - D)/2). cos C - cos D = -2 sin((C + D)/2) sin((C - D)/2), also written 2 sin((C + D)/2) sin((D - C)/2).
+• WHY you never need to memorise these cold — set A = (C + D)/2 and B = (C - D)/2 in any product-to-sum line and the sum-to-product line falls out. Learn one direction and the substitution; the other direction is a thirty-second derivation, and deriving beats mis-remembering a sign.
+• WORKED PATTERN — sin 75° - sin 15° = 2 cos((75° + 15°)/2) sin((75° - 15°)/2) = 2 cos 45° sin 30° = 2 x (1/sqrt(2)) x (1/2) = 1/sqrt(2) ≈ 0.707. Cross-check from the table: 0.966 - 0.259 = 0.707. Two routes, one answer — the habit of cross-checking is the real skill here.
+• EXAMPLE — Product chains collapse with one extra factor: sin 20° sin 40° sin 60° sin 80° = 3/16, a classical result built by pairing sin 20° sin 80°-type products into sums repeatedly. Dividing by sin 60° = sqrt(3)/2 gives sin 20° sin 40° sin 80° = (3/16)/(sqrt(3)/2) = sqrt(3)/8 ≈ 0.217 — a favourite exact-value question (Practice Question 2).
+• YOUR TURN — Evaluate cos 105° + cos 15°. Answer: 2 cos 60° cos 45° = 2 x (1/2) x (1/sqrt(2)) = 1/sqrt(2) = sqrt(2)/2 ≈ 0.707.
+⚠ EXAM TRAP — cos C - cos D is the sign trap of the system: the answer carries a MINUS, -2 sin((C + D)/2) sin((C - D)/2). Writing it as 2 sin((C + D)/2) sin((D - C)/2) keeps every factor in the comfortable order and the sign positive — pick one convention and never improvise mid-paper.
 
-                • Extreme values: −√(a² + b²) ≤ a cos θ + b sin θ ≤ √(a² + b²).
+The R-Method — a sin x + b cos x and Extreme Values
+• DEFINITION — The R-method rewrites any combination a sin x + b cos x as a single sine wave, R sin(x + alpha). A combination that looks like two waves is secretly one wave with a bigger amplitude and a phase shift.
+✔ KEY FORMULA — a sin x + b cos x = R sin(x + alpha), where R = sqrt(a^2 + b^2), cos alpha = a/R and sin alpha = b/R (so tan alpha = b/a, with the quadrant of alpha fixed by the two signs). Therefore -R ≤ a sin x + b cos x ≤ R for every x: the extreme values are exactly ± sqrt(a^2 + b^2).
+• WHY it works — expanding R sin(x + alpha) = R sin x cos alpha + R cos x sin alpha and matching coefficients gives a = R cos alpha and b = R sin alpha; squaring and adding gives R^2 = a^2 + b^2. The amplitude of the combined wave is forced by Pythagoras — the two components can never peak at the same instant, and R is exactly what survives of their tug.
+• WORKED PATTERN — 3 sin x + 4 cos x: R = sqrt(9 + 16) = 5, so the maximum is 5 and the minimum is -5, no calculus, no graph. The maximum occurs when x + alpha = pi/2 with alpha = tan^-1(4/3) ≈ 53.1°, i.e. near x ≈ 36.9° — recognisably the 3-4-5 triangle wearing a phase shift.
+• EXAMPLE — Solvability by inspection: sin x + cos x has R = sqrt(2) ≈ 1.414. So the equation sin x + cos x = 1.5 has NO solution — the left side can never reach 1.5 — while sin x + cos x = sqrt(2) has the single family x = pi/4 + 2n pi, where the wave touches its ceiling. Half of equation questions are secretly this test.
+• EXAMPLE — Solving with the R-method: sin x + cos x = 1 on [0, 2pi] becomes sqrt(2) sin(x + pi/4) = 1, so sin(x + pi/4) = 1/sqrt(2), giving x + pi/4 = pi/4 or 3pi/4 in range, hence x = 0 or x = pi/2 (with 2pi the same point as 0). Worked Example 4 revisits this.
+• YOUR TURN — Find the range of 3 sin x - 4 cos x. Answer: R = sqrt(9 + 16) = 5, so the expression lives in [-5, 5] — the minus sign changes the phase alpha, never the amplitude.
+★ HIGHLIGHT — The twin form a cos x + b sin x obeys the same bound ± sqrt(a^2 + b^2) (this app's chapter card quotes exactly this R). Whenever an option list offers extremes for a sine-cosine mix, compute sqrt(a^2 + b^2) before anything else — it eliminates half the options instantly.
+⚠ EXAM TRAP — alpha from tan alpha = b/a alone can land in the wrong quadrant when a is negative: tan repeats every pi, so tan^-1( b/a ) may be off by pi. Always pin alpha with BOTH cos alpha = a/R and sin alpha = b/R. The extremes ±R are quadrant-proof; the phase is not.
 
+Conditional Identities — When A + B + C = pi
+• DEFINITION — A conditional identity is an identity that holds only under a condition — here, A, B and C are the angles of a triangle, so A + B + C = pi and A + B = pi - C. That single fact rewires the compound formulas: sin(A + B) = sin C, cos(A + B) = -cos C, tan(A + B) = -tan C.
+✔ KEY FORMULA — If A + B + C = pi, then tan A + tan B + tan C = tan A tan B tan C.
+✔ KEY FORMULA — If A + B + C = pi, then sin 2A + sin 2B + sin 2C = 4 sin A sin B sin C, and cos 2A + cos 2B + cos 2C = -1 - 4 cos A cos B cos C.
+✔ KEY FORMULA — If A + B + C = pi, then cos^2 A + cos^2 B + cos^2 C + 2 cos A cos B cos C = 1.
+• WHY the tangent identity works — tan(A + B) = -tan C means (tan A + tan B)/(1 - tan A tan B) = -tan C. Cross-multiplying: tan A + tan B = -tan C + tan A tan B tan C, and moving -tan C across gives the identity. Three lines — this is a derivation to own, not a formula to borrow, because the same three lines adapt to any variant the paper invents.
+• WORKED PATTERN — Numerical audit with A = 50°, B = 60°, C = 70°: tan 50° + tan 60° + tan 70° ≈ 1.192 + 1.732 + 2.747 = 5.671, and tan 50° tan 60° tan 70° ≈ 5.671. Both sides agree — run this audit mentally whenever you are unsure whether the condition is being used correctly.
+• EXAMPLE — The identity as an equation-solver: in a triangle, if tan A = 1 and tan B = 2, find tan C. The identity says 1 + 2 + tan C = 1 x 2 x tan C, so 3 + tan C = 2 tan C and tan C = 3. (Indeed the angles are 45°, about 63.4° and about 71.6°, summing to 180°.)
+• YOUR TURN — State sin(A + B) and cos(A + B) in terms of C alone when A + B + C = pi. Answer: sin(A + B) = sin(pi - C) = sin C, and cos(A + B) = cos(pi - C) = -cos C. These two lines are the seed from which every conditional identity in this section grows.
+⚠ EXAM TRAP — Two warnings. First, the tangent identity needs all three tangents to exist: in a right triangle tan 90° is undefined, so switch to the sine or cosine conditional forms. Second, the condition is essential — for arbitrary A, B, C the identity simply fails (try A = B = C = 45°: the tangent sum is 3 but the product is 1). Never apply a conditional identity to angles that do not sum to pi.
 
+Trigonometric Equations — Principal and General Solutions
+• DEFINITION — A solution of a trigonometric equation in [0, 2pi) is called a principal solution. The general solution is the formula, in terms of an integer n, that generates every solution everywhere — because trig functions repeat, every equation that has one solution has infinitely many.
+✔ KEY FORMULA — General solutions: sin x = sin a gives x = n pi + (-1)^n a. cos x = cos a gives x = 2n pi ± a. tan x = tan a gives x = n pi + a. And the unified square form: sin^2 x = sin^2 a, cos^2 x = cos^2 a or tan^2 x = tan^2 a each give x = n pi ± a.
+✔ KEY FORMULA — Special values: sin x = 0 gives x = n pi. cos x = 0 gives x = (2n + 1) pi/2. tan x = 0 gives x = n pi. sin x = 1 gives x = 2n pi + pi/2. sin x = -1 gives x = 2n pi - pi/2. cos x = 1 gives x = 2n pi. cos x = -1 gives x = (2n + 1) pi.
+• WHY sine's formula alternates — sine hits the same value once while rising and once while falling in each period, and the (-1)^n factor encodes exactly that alternation: even n gives the a-family, odd n gives the (pi - a)-family. Cosine's two families split symmetrically as ±a, and tangent, with its shorter period pi, needs only one family.
+• WORKED PATTERN — sin x = 1/2: here a = pi/6, so x = n pi + (-1)^n (pi/6). The principal solutions inside [0, 2pi) are pi/6 and 5pi/6 — read off by taking n = 0 (gives pi/6) and n = 1 (gives pi - pi/6 = 5pi/6). When a question asks only for principal solutions, this two-step read-off is the whole method.
+• WORKED PATTERN — The three-move method for harder equations: (1) convert everything to ONE function using the identities (usually sin or cos, via sin^2 + cos^2 = 1 or a double-angle form); (2) factorise or solve the resulting polynomial; (3) write the general solution for each root family and reject any root with |value| > 1 for sine or cosine.
+• EXAMPLE — 2 cos^2 x + 3 sin x = 0 becomes 2(1 - sin^2 x) + 3 sin x = 0, i.e. 2 sin^2 x - 3 sin x - 2 = 0, i.e. (2 sin x + 1)(sin x - 2) = 0. So sin x = -1/2 or sin x = 2 — the second is impossible and dies on the spot. From sin x = -1/2, the solutions in [0, 2pi) are 7pi/6 and 11pi/6 (Question q_math_21 tests exactly this).
+• YOUR TURN — Find the principal solutions of sin x = -sqrt(3)/2 in [0, 2pi). Answer: sine is negative in quadrants III and IV, with reference angle pi/3, giving x = 4pi/3 and x = 5pi/3.
+⚠ EXAM TRAP — Never divide both sides of an equation by sin x or cos x: you silently delete every solution where that factor is zero. Factorise instead — bring everything to one side and set each factor to zero. And if you square both sides anywhere, every candidate must be re-checked in the original equation, because squaring manufactures fakes (the next section shows one being caught).
 
-                2. Principal Value Branches of ITF
+▸ Equation Patterns — Factorising, Squaring and Bounding
+• DEFINITION — Most exam equations are one of four patterns wearing a disguise: factorisable, homogeneous in sin and cos, bounded by an extreme value, or solvable only after squaring. Naming the pattern is half the solution.
+• WORKED PATTERN — Factorising pattern: cos 2x = sin x. Convert cos 2x = 1 - 2 sin^2 x, giving 2 sin^2 x + sin x - 1 = 0 = (2 sin x - 1)(sin x + 1). So sin x = 1/2 or sin x = -1, and the general solution is x = n pi + (-1)^n (pi/6) together with x = 2n pi - pi/2. Worked Example 5 runs this in full.
+• WORKED PATTERN — Bounding pattern: an equation like sin x + cos x = sqrt(2) can hold only where the R-method wave touches its maximum sqrt(2), which happens at the single phase x + pi/4 = pi/2. Hence x = pi/4 + 2n pi — one family, not two. Sums of squares work the same way: if an equation reduces to (something)^2 + (something else)^2 = 0, each bracket must vanish separately.
+• WORKED PATTERN — Squaring pattern, with its health warning: solve sin x + cos x = 1 on [0, 2pi]. Squaring gives 1 + sin 2x = 1, so sin 2x = 0 and x = 0, pi/2, pi, 3pi/2 (and 2pi). Now the audit: x = pi gives -1 + 0 = -1, not 1 — REJECT. x = 3pi/2 gives -1 — REJECT. Only x = 0, pi/2 (and 2pi) survive, matching the R-method answer from the earlier section. Squaring proposed four candidates; the original equation hanged two of them.
+• EXAMPLE — Homogeneous pattern: 2 sin x cos x = cos x. Do NOT cancel cos x. Factorise: cos x (2 sin x - 1) = 0, giving cos x = 0 (x = (2n + 1) pi/2) or sin x = 1/2 (x = n pi + (-1)^n pi/6). Cancelling would have thrown away the entire first family — half the answer.
+• YOUR TURN — Solve tan^2 x - 3 = 0 in [0, 2pi). Answer: tan x = ± sqrt(3), giving x = pi/3, 2pi/3, 4pi/3, 5pi/3 — four solutions, because tangent's pi-period packs two families into one revolution.
+★ HIGHLIGHT — The equation checklist: one function, factorise, bound-check with R, audit after squaring. Run those four words over any equation and the pattern announces itself.
+⚠ EXAM TRAP — An answer like sin x = 2 or cos x = -1.5 in your working is not a family to report — it is an impossibility to discard. Options in the paper sometimes include a "solution" built on such a root; the bound |sin x| ≤ 1 and |cos x| ≤ 1 is a free elimination tool.
 
-                • sin⁻¹x : [−1, 1] → [−π/2, π/2]
+Inverse Functions — Why Branches Must Exist
+• DEFINITION — The sine function on all of R is many-to-one: sin 0 = sin pi = sin 2pi = 0. A many-to-one function has no inverse, so to define sin^-1 we first RESTRICT sine to an interval where it is one-one and still covers its full range [-1, 1]. On [-pi/2, pi/2] sine rises from -1 to 1 exactly once — that interval becomes the principal value branch of sin^-1.
+• DEFINITION — The principal value of an inverse trigonometric expression is the value that lies inside the chosen branch. sin^-1 t answers: "the angle in [-pi/2, pi/2] whose sine is t". Every inverse question is secretly asking whether you know which interval the answer must live in.
+• WHY the branches are chosen the way they are — each branch is the "home interval" nearest the origin that captures the full range: sine and cosecant hug 0 inside [-pi/2, pi/2], while cosine, secant and cotangent live in [0, pi] because cosine is not one-one on any interval symmetric about 0. Tangent uses (-pi/2, pi/2). These are the NCERT conventions, and the IAT follows NCERT.
+• WORKED PATTERN — Folding an angle home: sin^-1(sin(2pi/3)) is NOT 2pi/3, because 2pi/3 lies outside [-pi/2, pi/2]. Compute inside-out: sin(2pi/3) = sqrt(3)/2, and the angle in [-pi/2, pi/2] with that sine is pi/3. So sin^-1(sin(2pi/3)) = pi/3. The inverse function folds every angle back into its branch.
+• EXAMPLE — cos^-1(cos(7pi/6)): cos(7pi/6) = -sqrt(3)/2, and the angle in [0, pi] with cosine -sqrt(3)/2 is 5pi/6. So cos^-1(cos(7pi/6)) = 5pi/6 — folded from quadrant III up into quadrant II, the branch's home.
+• YOUR TURN — Evaluate sin^-1(sin(5pi/6)). Answer: sin(5pi/6) = 1/2, and the home angle in [-pi/2, pi/2] with sine 1/2 is pi/6 — so the value is pi/6, not 5pi/6.
+★ HIGHLIGHT — f^-1(f(x)) = x ONLY when x already lives in the branch. Outside the branch, f^-1(f(x)) is the folded twin of x, and finding that twin is a guaranteed exam question every year.
+⚠ EXAM TRAP — sin^-1 x is an angle, not 1/sin x. The -1 is function notation (inverse), not an exponent: sin^-1(1/2) = pi/6, while (sin(1/2))^-1 would be a completely different, much uglier number. Similarly tan^-1 x has nothing to do with 1/tan x = cot x — though tan^-1(1/x) does connect to cot^-1 x, with a catch handled in the properties section.
 
-                • cos⁻¹x : [−1, 1] → [0, π]
+Domains and Principal Value Branches — the Master Table
+• DEFINITION — sin^-1 x: domain [-1, 1], principal branch [-pi/2, pi/2]. cos^-1 x: domain [-1, 1], principal branch [0, pi]. These two branches are the most tested lines in the chapter.
+• DEFINITION — tan^-1 x: domain all real numbers, principal branch (-pi/2, pi/2) — open, because tangent explodes at the endpoints. cot^-1 x: domain all real numbers, principal branch (0, pi).
+• DEFINITION — sec^-1 x: domain (-infinity, -1] union [1, infinity), principal branch [0, pi] with pi/2 removed. cosec^-1 x: same domain, principal branch [-pi/2, pi/2] with 0 removed. The removals exist because sec pi/2 and cosec 0 do not exist.
+• WORKED PATTERN — Reading principal values off the table: cos^-1(-1/2) = 2pi/3 (the [0, pi] angle with cosine -1/2). sin^-1(-1/2) = -pi/6 (negative output allowed — the sine branch straddles 0). tan^-1(-1) = -pi/4. But cot^-1(-1) = 3pi/4, never -pi/4, because the cotangent branch (0, pi) contains no negative angles at all. sec^-1(-2) = 2pi/3 and cosec^-1(-2) = -pi/6.
+• WHY the two families behave differently — the [-pi/2, pi/2] family (sin^-1, tan^-1, cosec^-1) is odd-friendly: negative inputs give negative outputs. The [0, pi] family (cos^-1, sec^-1, cot^-1) folds negatives upward: a negative input gives an obtuse output between pi/2 and pi. Sorting the six functions into these two families organises every property in the next section.
+• EXAMPLE — The graphs make the table visible: Figure 4.2 plots all three workhorses — sin^-1 climbing from (-1, -pi/2) to (1, pi/2), cos^-1 falling from (-1, pi) to (1, 0), tan^-1 sweeping between its horizontal asymptotes at ±pi/2. In each panel the original function is faint, its principal-branch segment is bold, and the inverse is that bold segment reflected in the line y = x.
+• YOUR TURN — Evaluate cos^-1(cos(10pi/9)). Answer: 10pi/9 is outside [0, pi]; cos(10pi/9) = -cos(pi/9), and the angle in [0, pi] with that cosine is pi - pi/9 = 8pi/9. (Practice Question 5 re-tests this fold.)
+★ HIGHLIGHT — Memorise the table as two rows, not six facts: "sine-type" branches [-pi/2, pi/2] for sin^-1, tan^-1, cosec^-1; "cosine-type" branches inside [0, pi] for cos^-1, sec^-1, cot^-1. Domain split: sin^-1 and cos^-1 eat [-1, 1]; tan^-1 and cot^-1 eat everything; sec^-1 and cosec^-1 eat |x| ≥ 1.
+⚠ EXAM TRAP — Asking for sin^-1(2) or cos^-1(-3/2) is a domain violation — no such angle exists, and "does not exist" style options feed on students who start computing anyway. Check the domain before the branch, and the branch before the formula.
 
-                • tan⁻¹x : ℝ → (−π/2, π/2)
+First Properties — Negatives, Reciprocals and Complementary Pairs
+✔ KEY FORMULA — Negative inputs, odd family: sin^-1(-x) = -sin^-1 x, tan^-1(-x) = -tan^-1 x, cosec^-1(-x) = -cosec^-1 x. Negative inputs, mirror family: cos^-1(-x) = pi - cos^-1 x, sec^-1(-x) = pi - sec^-1 x, cot^-1(-x) = pi - cot^-1 x.
+✔ KEY FORMULA — Complementary pairs: sin^-1 x + cos^-1 x = pi/2 for |x| ≤ 1. tan^-1 x + cot^-1 x = pi/2 for every real x. sec^-1 x + cosec^-1 x = pi/2 for |x| ≥ 1. Each pair is two branches that tile a right angle.
+✔ KEY FORMULA — Reciprocals: sin^-1(1/x) = cosec^-1 x and cos^-1(1/x) = sec^-1 x for |x| ≥ 1. And the delicate one: tan^-1(1/x) = cot^-1 x when x > 0, but tan^-1(1/x) = cot^-1 x - pi when x < 0.
+• WHY the mirror family mirrors — an angle in [0, pi] whose cosine is -x is the supplement of the angle whose cosine is x, because cos(pi - theta) = -cos theta. The odd family instead uses sin(-theta) = -sin theta directly. Same chapter, two geometries — the branch decides which.
+• WORKED PATTERN — Complementary pairs as a shortcut: if cos^-1 x = pi/3 then sin^-1 x = pi/2 - pi/3 = pi/6 without touching a triangle. Whenever a problem hands you one member of a pair and asks for the other, the answer is pi/2 minus what you were given.
+• EXAMPLE — The two faces of a negative: tan^-1(-1/sqrt(3)) = -pi/6 (odd family, negative in, negative out), while cot^-1(-1/sqrt(3)) = 2pi/3 (mirror family — the angle in (0, pi) whose cotangent is -1/sqrt(3)). Same input, opposite instincts; the options in the paper will contain both values, and only the branch can separate them.
+• YOUR TURN — Given cos^-1(3/5) is some angle theta, what is sin^-1(3/5) in terms of theta? Answer: pi/2 - theta, instantly, by the complementary pair — no computation of theta required.
+★ HIGHLIGHT — These three property groups — negatives, reciprocals, complementary pairs — are pure branch consequences. If a "property" you half-remember contradicts the branch table, the table wins: re-derive the property from the branch in fifteen seconds rather than trusting the memory.
+⚠ EXAM TRAP — cot^-1(-x) = -cot^-1 x is FALSE; the truth is pi - cot^-1 x. This single line is responsible for a steady stream of lost marks, because cot^-1 feels like it should behave like tan^-1. It cannot: its branch (0, pi) has no negative territory to answer from.
 
-                • Fundamental Identities: sin⁻¹x + cos⁻¹x = π/2 for x ∈ [−1, 1]; tan⁻¹x + cot⁻¹x = π/2 for x ∈ ℝ.
+Adding Inverse Tangents — the xy Correction
+• DEFINITION — The most used and most abused formula of the chapter: tan^-1 x + tan^-1 y = tan^-1((x + y)/(1 - xy)) — valid exactly as written ONLY when xy < 1 (and, as always, the result then automatically sits in the branch). The number xy is the gatekeeper: compute it before you touch the formula.
+✔ KEY FORMULA — The three cases: if xy < 1, use the formula directly. If xy > 1 and x, y are both positive, the answer is pi + tan^-1((x + y)/(1 - xy)). If xy > 1 and x, y are both negative, the answer is -pi + tan^-1((x + y)/(1 - xy)) (equivalently, the raw value minus pi). Mixed signs give xy < 0 < 1, so no correction ever arises there.
+• WHY the correction exists — the raw formula always reports an angle in (-pi/2, pi/2), because that is all tan^-1 can say. But when x, y > 0 with xy > 1, each angle exceeds... their sum genuinely lives in (pi/2, pi): tangent there is negative, and indeed (x + y)/(1 - xy) is negative, so the raw formula hands back a negative angle in (-pi/2, 0). Adding pi walks that answer across to its true home in (pi/2, pi) without changing its tangent — tangent has period pi, so the walk is legal. Figure 4.3 draws the three cases on one number line.
+• WORKED PATTERN — tan^-1 2 + tan^-1 3: first the gatekeeper — xy = 6 > 1, both positive, correction armed. Raw: (2 + 3)/(1 - 6) = -1, and tan^-1(-1) = -pi/4. Corrected: -pi/4 + pi = 3pi/4. Sanity check: tan^-1 2 ≈ 63.4° and tan^-1 3 ≈ 71.6° sum to 135° = 3pi/4 — the raw -45° was never plausible for two large positive angles.
+• EXAMPLE — No correction needed: tan^-1(1/2) + tan^-1(1/3) has xy = 1/6 < 1, so directly tan^-1((1/2 + 1/3)/(1 - 1/6)) = tan^-1((5/6)/(5/6)) = tan^-1 1 = pi/4. And the negative mirror: tan^-1(-2) + tan^-1(-3) has xy = 6 > 1 with both negative: raw value tan^-1((-5)/(1 - 6)) = tan^-1 1 = pi/4, corrected to pi/4 - pi = -3pi/4, matching -(tan^-1 2 + tan^-1 3).
+• EXAMPLE — The difference form is the sum form in disguise: tan^-1 x - tan^-1 y = tan^-1 x + tan^-1(-y), and since the product x(-y) = -xy, the correction triggers when -xy > 1, i.e. xy < -1. In the common case xy > -1 it is simply tan^-1((x - y)/(1 + xy)).
+• YOUR TURN — Evaluate tan^-1 1 + tan^-1 2 + tan^-1 3. Answer: group the last two first — tan^-1 2 + tan^-1 3 = 3pi/4 (the worked pattern above) — then add tan^-1 1 = pi/4 to get exactly pi. A famous identity hiding inside a routine exercise.
+★ HIGHLIGHT — The ritual that protects every inverse-tangent sum: (1) compute xy, (2) announce the case, (3) only then use the formula. Three seconds of ritual, one guaranteed mark protected — Question q_math_20 in this chapter's practice bank tests nothing else.
+⚠ EXAM TRAP — THE trap of the chapter: answering -pi/4 for tan^-1 2 + tan^-1 3. The raw formula's output is a tangent value's home angle, not the sum. If x and y are both positive and your sum comes out negative, the paper is telling you the correction was skipped — two positive acute angles cannot add to a negative number.
 
+The 2 tan^-1 x Family and Telescoping Series
+✔ KEY FORMULA — Doubling conversions: 2 tan^-1 x = tan^-1(2x/(1 - x^2)) when |x| < 1. 2 tan^-1 x = sin^-1(2x/(1 + x^2)) when |x| ≤ 1. 2 tan^-1 x = cos^-1((1 - x^2)/(1 + x^2)) when x ≥ 0. And 3 tan^-1 x = tan^-1((3x - x^3)/(1 - 3x^2)) when |x| < 1/sqrt(3).
+• WHY three costumes for one angle — substituting x = tan theta turns 2x/(1 + x^2) into sin 2theta and (1 - x^2)/(1 + x^2) into cos 2theta: the three formulas are the double-angle formulas read backwards. The side conditions are branch guards — each costume fits only while 2 tan^-1 x stays within the target function's branch.
+• WORKED PATTERN — Euler's gem: 2 tan^-1(1/3) + tan^-1(1/7) = pi/4. Step 1, double: 2 tan^-1(1/3) = tan^-1((2/3)/(1 - 1/9)) = tan^-1(3/4). Step 2, add: tan^-1(3/4) + tan^-1(1/7) = tan^-1((3/4 + 1/7)/(1 - 3/28)) = tan^-1((25/28)/(25/28)) = tan^-1 1 = pi/4. The fractions were designed to cancel — spotting designed numbers is a transferable exam instinct.
+• DEFINITION — A telescoping arctan series writes each term as a difference of consecutive inverse tangents: tan^-1(1/(1 + n + n^2)) = tan^-1(n + 1) - tan^-1(n), because (n + 1 - n)/(1 + n(n + 1)) = 1/(1 + n + n^2) and the product n(n + 1) is positive with the difference landing inside the branch, so no correction intrudes.
+• WORKED PATTERN — Sum the telescope: the sum from n = 1 to N of tan^-1(1/(1 + n + n^2)) collapses to tan^-1(N + 1) - tan^-1(1) = tan^-1(N + 1) - pi/4, every middle term cancelling with its neighbour. Let N run to infinity: tan^-1(N + 1) tends to pi/2, so the infinite sum is pi/2 - pi/4 = pi/4. This telescoping arctan series is a signature IAT pattern — it is named on this chapter's own subtitle card.
+• EXAMPLE — The sine-sum cousin: sin^-1 x + sin^-1 y = sin^-1(x sqrt(1 - y^2) + y sqrt(1 - x^2)) when x^2 + y^2 ≤ 1 (or xy ≤ 0); when x, y are both positive with x^2 + y^2 > 1, the sum exceeds pi/2 and the answer becomes pi minus that expression. You will use the safe case in Worked Example 7.
+• YOUR TURN — Sum tan^-1(1/3) + tan^-1(1/7) + tan^-1(1/13) (the n = 1, 2, 3 telescope terms, since 1 + n + n^2 gives 3, 7, 13). Answer: tan^-1 4 - tan^-1 1 = tan^-1 4 - pi/4 ≈ 1.326 - 0.785 = 0.540 rad.
+⚠ EXAM TRAP — The |x| guards are load-bearing: 2 tan^-1 2 is NOT tan^-1(4/(1 - 4)) = tan^-1(-4/3). Since 2 lies outside |x| < 1, the correct statement is 2 tan^-1 2 = pi + tan^-1(-4/3) = pi - tan^-1(4/3) ≈ 2.21 rad. Dropping the guard turns a second-quadrant answer into a fourth-quadrant one.
 
+Solving Inverse-Trig Equations
+• DEFINITION — An inverse-trig equation mixes inverse functions and constants, like tan^-1(2x) + tan^-1(3x) = pi/4. The method has four moves: combine everything into ONE inverse function using the properties, respect the branch conditions while combining, solve the resulting ordinary equation, and then VERIFY every candidate in the original equation.
+• WHY verification is not optional here — combining formulas applies branch-sensitive identities to unknown quantities: you do not yet know whether xy < 1 held for the true solution. The algebra therefore proposes candidates under assumptions the candidates themselves may violate. Substitution back into the original is the only court of appeal.
+• WORKED PATTERN — Solve tan^-1(2x) + tan^-1(3x) = pi/4. Combine: (2x + 3x)/(1 - 6x^2) must have inverse tangent pi/4, so 5x/(1 - 6x^2) = 1, giving 6x^2 + 5x - 1 = 0, so x = 1/6 or x = -1. Verify: x = 1/6 gives tan^-1(1/3) + tan^-1(1/2) = pi/4 (the no-correction example from the addition section) — KEEP. x = -1 gives tan^-1(-2) + tan^-1(-3) = -3pi/4, not pi/4 — REJECT. One candidate was born from the wrong branch case.
+• WORKED PATTERN — Solve sin^-1(1 - x) - 2 sin^-1 x = pi/2 (a classical NCERT equation). Move terms: sin^-1(1 - x) = pi/2 + 2 sin^-1 x; take sine of both sides, using sin(pi/2 + t) = cos t with t = 2 sin^-1 x: 1 - x = cos(2 sin^-1 x) = 1 - 2x^2. Hence 2x^2 = x, so x = 0 or x = 1/2. Verify: x = 0 gives sin^-1 1 - 0 = pi/2 — KEEP. x = 1/2 gives sin^-1(1/2) - 2 sin^-1(1/2) = -pi/6 — REJECT. Answer: x = 0 alone.
+• EXAMPLE — The complementary pair as an equation-solver: sin^-1 x = cos^-1 x. But cos^-1 x = pi/2 - sin^-1 x, so sin^-1 x = pi/4 and x = sin(pi/4) = 1/sqrt(2). (Practice Question 8 re-tests this; the domain |x| ≤ 1 is satisfied.)
+• YOUR TURN — The equation tan^-1 x + cot^-1 x = pi/2 has what solution set? Answer: EVERY real x — it is the complementary-pair identity, not an equation to solve. Recognising an identity disguised as an equation is itself a scored skill, and "all real numbers" is an option examiners love to offer and students love to distrust.
+★ HIGHLIGHT — Inverse equations are the chapter in miniature: properties to combine, branches to respect, candidates to verify. If your final answer was never substituted back, it is a draft, not an answer.
+⚠ EXAM TRAP — Rejecting nothing is the classic failure: the pair x = 1/6 and x = -1 above appears in options as "1/6 or -1" and it is wrong. The second classic failure is the opposite — rejecting a valid root because a mid-step formula needed a correction case; if a candidate fails only under one case assumption, retest it under the other case before discarding.
 
-                3. Telescoping Inverse Tan Series
+Formula Sheet — the Identity Bank
+✔ sin^2 x + cos^2 x = 1; 1 + tan^2 x = sec^2 x; 1 + cot^2 x = cosec^2 x
+✔ sin(A ± B) = sin A cos B ± cos A sin B; cos(A ± B) = cos A cos B ∓ sin A sin B; tan(A ± B) = (tan A ± tan B)/(1 ∓ tan A tan B)
+✔ sin 2A = 2 sin A cos A = 2 tan A/(1 + tan^2 A); cos 2A = 2 cos^2 A - 1 = 1 - 2 sin^2 A; tan 2A = 2 tan A/(1 - tan^2 A)
+✔ sin 3A = 3 sin A - 4 sin^3 A; cos 3A = 4 cos^3 A - 3 cos A; tan 3A = (3 tan A - tan^3 A)/(1 - 3 tan^2 A)
+✔ sin C + sin D = 2 sin((C + D)/2) cos((C - D)/2); cos C + cos D = 2 cos((C + D)/2) cos((C - D)/2); cos C - cos D = -2 sin((C + D)/2) sin((C - D)/2)
+✔ 2 sin A cos B = sin(A + B) + sin(A - B); 2 cos A cos B = cos(A + B) + cos(A - B); 2 sin A sin B = cos(A - B) - cos(A + B)
+✔ a sin x + b cos x lies between -sqrt(a^2 + b^2) and +sqrt(a^2 + b^2); equality when the phase hits pi/2 or -pi/2
+✔ sin 18° = (sqrt(5) - 1)/4; cos 36° = (sqrt(5) + 1)/4; sin 75° = (sqrt(6) + sqrt(2))/4; tan 75° = 2 + sqrt(3); tan 15° = 2 - sqrt(3)
+✔ If A + B + C = pi: tan A + tan B + tan C = tan A tan B tan C; sin 2A + sin 2B + sin 2C = 4 sin A sin B sin C; cos^2 A + cos^2 B + cos^2 C + 2 cos A cos B cos C = 1
+✔ General solutions: sin x = sin a gives x = n pi + (-1)^n a; cos x = cos a gives x = 2n pi ± a; tan x = tan a gives x = n pi + a
+✔ Branches: sin^-1 in [-pi/2, pi/2]; cos^-1 in [0, pi]; tan^-1 in (-pi/2, pi/2); cot^-1 in (0, pi); sec^-1 in [0, pi] minus pi/2; cosec^-1 in [-pi/2, pi/2] minus 0
+✔ sin^-1 x + cos^-1 x = pi/2; tan^-1 x + cot^-1 x = pi/2; sec^-1 x + cosec^-1 x = pi/2; cos^-1(-x) = pi - cos^-1 x; sin^-1(-x) = -sin^-1 x
+✔ tan^-1 x + tan^-1 y = tan^-1((x + y)/(1 - xy)) if xy < 1; add pi if xy > 1 with x, y > 0; subtract pi if xy > 1 with x, y < 0
+✔ 2 tan^-1 x = tan^-1(2x/(1 - x^2)) for |x| < 1; = sin^-1(2x/(1 + x^2)) for |x| ≤ 1; = cos^-1((1 - x^2)/(1 + x^2)) for x ≥ 0
+✔ tan^-1(1/(1 + n + n^2)) = tan^-1(n + 1) - tan^-1(n), so the series telescopes to tan^-1(N + 1) - pi/4 and to pi/4 at infinity
+✔ s = r theta (theta in radians); 180° = pi rad; periods: sin and cos 2pi, tan pi; ASTC — All, Sin, Tan, Cos positive in quadrants I, II, III, IV
 
-                • Express general term as tan⁻¹((aᵣ₊₁ − aᵣ) / (1 + aᵣ₊₁ aᵣ)) = tan⁻¹(aᵣ₊₁) − tan⁻¹(aᵣ) to sum finite and infinite series in IAT.
+Common Mistakes and Exam Traps
+• Mistake 1: Writing sin(A + B) = sin A + sin B. Why it is wrong: functions do not distribute over sums — sin 60° is 0.866, but sin 30° + sin 30° is 1. Correct principle: expand with the compound formulas, always.
+• Mistake 2: Applying tan^-1 x + tan^-1 y = tan^-1((x + y)/(1 - xy)) when xy > 1. Why it is wrong: the raw output is trapped in (-pi/2, pi/2) while the true sum sits outside it (tan^-1 2 + tan^-1 3 = 3pi/4, not -pi/4). Correct principle: compute xy first; add or subtract pi when xy > 1, by the signs of x and y.
+• Mistake 3: Cancelling an inverse with its function outside the branch: sin^-1(sin(2pi/3)) = 2pi/3. Why it is wrong: 2pi/3 is not in [-pi/2, pi/2], so the inverse returns the folded value pi/3. Correct principle: f^-1(f(x)) = x only inside the branch; otherwise evaluate the inner function and re-enter the branch.
+• Mistake 4: Writing cot^-1(-x) = -cot^-1 x by analogy with tan^-1. Why it is wrong: the cot^-1 branch (0, pi) contains no negative numbers, so the output cannot be negative; cot^-1(-1) = 3pi/4. Correct principle: the [0, pi] family mirrors — f^-1(-x) = pi - f^-1(x) for cos^-1, sec^-1, cot^-1.
+• Mistake 5: Dividing a trigonometric equation through by sin x or cos x. Why it is wrong: every root of the cancelled factor is silently deleted (cancelling cos x in 2 sin x cos x = cos x loses x = (2n + 1) pi/2). Correct principle: bring everything to one side and factorise.
+• Mistake 6: Squaring an equation and reporting every algebraic root. Why it is wrong: squaring cannot distinguish u = v from u = -v, so it proposes both families (sin x + cos x = 1 "gains" x = pi and 3pi/2). Correct principle: squaring is a proposal mechanism — the original equation disposes.
+• Mistake 7: Reaching for the wrong cos 2A form, e.g. using 2 sin^2 A - 1 or feeding sin data into the cosine form. Why it is wrong: 2 sin^2 A - 1 equals -cos 2A, flipping every sign downstream. Correct principle: the pure forms are 1 - 2 sin^2 A and 2 cos^2 A - 1; choose the one matching the function you are given.
+• Mistake 8: Using a conditional identity without the condition — e.g. tan A + tan B + tan C = tan A tan B tan C for angles that do not sum to pi. Why it is wrong: at A = B = C = 45° the two sides are 3 and 1. Correct principle: conditional identities are contracts; check A + B + C = pi before signing.
+• Mistake 9: Mixing degrees and radians inside one computation — s = r theta with theta in degrees, or a general solution like n x 180 + (-1)^n x 30 next to pi-based options. Why it is wrong: the formulas of this chapter (arc length, general solutions, branches) are stated in radians. Correct principle: convert everything to radians at the door; keep degrees only for intuition and final geometry answers.
+• Mistake 10: Writing tan^-1(1/x) = cot^-1 x for negative x. Why it is wrong: for x < 0 the equality needs a -pi correction (tan^-1(1/x) = cot^-1 x - pi), because tan^-1 answers negatively while cot^-1 answers in (0, pi). Correct principle: reciprocal swaps between the two families always deserve a branch check on negative inputs.
 
-            """.trimIndent(),
+Worked Examples — Basic to Challenging
+• Example 1 — Problem: Find the exact values of sin 75° and tan 15°.
+• Given: Only the standard table for 30°, 45°, 60° may be used.
+• Principle: Compound-angle expansions with 75° = 45° + 30° and 15° = 45° - 30°.
+• Steps: sin 75° = sin 45° cos 30° + cos 45° sin 30° = (1/sqrt(2))(sqrt(3)/2) + (1/sqrt(2))(1/2) = (sqrt(3) + 1)/(2 sqrt(2)); rationalise to (sqrt(6) + sqrt(2))/4. tan 15° = (tan 45° - tan 30°)/(1 + tan 45° tan 30°) = (1 - 1/sqrt(3))/(1 + 1/sqrt(3)) = (sqrt(3) - 1)/(sqrt(3) + 1) = 2 - sqrt(3) after rationalising.
+• Answer: sin 75° = (sqrt(6) + sqrt(2))/4 ≈ 0.966; tan 15° = 2 - sqrt(3) ≈ 0.268.
+• Reasoning: Both splits use only table angles, and the decimal checks agree with quadrant sense: sin 75° is near 1, tan 15° is small and positive.
+• Mistake to avoid: Splitting 75° as 90° - 15° is circular (it needs the very values being found); split into two KNOWN angles.
+• Example 2 — Problem: Prove that sin 18° = (sqrt(5) - 1)/4.
+• Given: Let theta = 18°, so 2 theta = 36° and 3 theta = 54° = 90° - 36°.
+• Principle: sin 2 theta = cos 3 theta (complementary angles), then the double- and triple-angle formulas turn this into a quadratic in sin theta.
+• Steps: sin 2 theta = cos 3 theta gives 2 sin theta cos theta = 4 cos^3 theta - 3 cos theta. Divide by cos theta (nonzero): 2 sin theta = 4 cos^2 theta - 3 = 4(1 - sin^2 theta) - 3 = 1 - 4 sin^2 theta. Set s = sin theta: 4s^2 + 2s - 1 = 0, so s = (-2 ± sqrt(4 + 16))/8 = (-1 ± sqrt(5))/4.
+• Answer: sin 18° = (sqrt(5) - 1)/4 ≈ 0.309, taking the positive root.
+• Reasoning: sin 18° is positive and less than sin 30° = 0.5; (-1 + sqrt(5))/4 ≈ 0.309 fits, while (-1 - sqrt(5))/4 ≈ -0.809 is impossible for this angle.
+• Mistake to avoid: Reporting both quadratic roots — a sine of an acute angle is a specific positive number under 0.5 here, and the extraneous root is the trap the problem was built around.
+• Example 3 — Problem: Show that sin 75° - sin 15° = 1/sqrt(2).
+• Given: A difference of sines with angles symmetric about 45°.
+• Principle: Sum-to-product: sin C - sin D = 2 cos((C + D)/2) sin((C - D)/2).
+• Steps: (75° + 15°)/2 = 45° and (75° - 15°)/2 = 30°, so the difference equals 2 cos 45° sin 30° = 2 x (1/sqrt(2)) x (1/2) = 1/sqrt(2).
+• Answer: 1/sqrt(2) = sqrt(2)/2 ≈ 0.707, confirmed directly: 0.966 - 0.259 = 0.707.
+• Reasoning: The C-D formula converted two non-table values into one product of table values — that conversion is the entire point of the system.
+• Mistake to avoid: Reaching for compound expansions of both angles separately — it works but costs four terms and two rationalisations where the C-D route costs one line.
+• Example 4 — Problem: Solve sin x + cos x = 1 for x in [0, 2pi].
+• Given: A sine-cosine mixture set equal to a constant inside its range.
+• Principle: The R-method: sin x + cos x = sqrt(2) sin(x + pi/4), and sqrt(2) ≥ 1 so solutions exist.
+• Steps: sqrt(2) sin(x + pi/4) = 1 gives sin(x + pi/4) = 1/sqrt(2). With x + pi/4 in [pi/4, 2pi + pi/4], the solutions are x + pi/4 = pi/4, 3pi/4 (and 2pi + pi/4). Hence x = 0, pi/2 (and 2pi, the same point as 0).
+• Answer: x = 0 and x = pi/2 within [0, 2pi), with 2pi closing the interval.
+• Reasoning: Direct check: sin 0 + cos 0 = 1 and sin(pi/2) + cos(pi/2) = 1. The squaring route of the patterns section proposes pi and 3pi/2 as well — both fail this same check, which is why the check exists.
+• Mistake to avoid: Using the phase shift with alpha in the wrong quadrant — here both coefficients are positive so alpha = pi/4 is safe, but the habit of pinning alpha by both its sine and cosine is what survives harder problems.
+• Example 5 — Problem: Find the general solution of cos 2x = sin x.
+• Given: An equation mixing a double angle with a single angle.
+• Principle: Convert cos 2x into the sine currency: cos 2x = 1 - 2 sin^2 x, then factorise.
+• Steps: 1 - 2 sin^2 x = sin x gives 2 sin^2 x + sin x - 1 = 0 = (2 sin x - 1)(sin x + 1). So sin x = 1/2 or sin x = -1. The first gives x = n pi + (-1)^n (pi/6); the second gives x = 2n pi - pi/2 (equivalently 2n pi + 3pi/2).
+• Answer: x = n pi + (-1)^n (pi/6) or x = 2n pi - pi/2, for integer n.
+• Reasoning: Both families are genuine: at x = pi/6, cos(pi/3) = 1/2 = sin(pi/6); at x = 3pi/2, cos 3pi = -1 = sin(3pi/2).
+• Mistake to avoid: Using cos 2x = 2 cos^2 x - 1 here forces a mixed sin-cos quadratic that will not factorise — choose the double-angle form that matches the other side's function.
+• Example 6 — Problem: Prove that tan^-1 1 + tan^-1 2 + tan^-1 3 = pi.
+• Given: Three inverse tangents with arguments 1, 2, 3.
+• Principle: Pairwise addition with the xy correction — the pair (2, 3) has xy = 6 > 1.
+• Steps: tan^-1 2 + tan^-1 3 = pi + tan^-1((2 + 3)/(1 - 6)) = pi + tan^-1(-1) = pi - pi/4 = 3pi/4. Then add tan^-1 1 = pi/4: total = 3pi/4 + pi/4 = pi.
+• Answer: pi, exactly.
+• Reasoning: Decimal audit: 45° + 63.43° + 71.57° = 180°. The correction step was not decoration — without it the "proof" collapses to 0, an obviously false claim about three positive angles.
+• Mistake to avoid: Adding all three rawly in one step; the formula is binary, and the correction belongs to the specific pair whose product exceeds 1.
+• Example 7 — Problem: Simplify sin^-1(3/5) + sin^-1(8/17) to a single inverse function.
+• Given: Two inverse sines with x^2 + y^2 = 9/25 + 64/289 = (153 + 64)/... precisely 0.36 + 0.221 = 0.581 ≤ 1, so the safe case of the sine-sum formula applies.
+• Principle: sin^-1 x + sin^-1 y = sin^-1(x sqrt(1 - y^2) + y sqrt(1 - x^2)) in the safe case.
+• Steps: sqrt(1 - (8/17)^2) = 15/17 and sqrt(1 - (3/5)^2) = 4/5. So the sum is sin^-1((3/5)(15/17) + (8/17)(4/5)) = sin^-1(45/85 + 32/85) = sin^-1(77/85).
+• Answer: sin^-1(77/85) ≈ sin^-1(0.906) ≈ 1.13 rad.
+• Reasoning: The 3-4-5 and 8-15-17 triangles supplied both square roots for free — exam numbers are chosen so the radicals collapse, and noticing the triples before computing is the speed skill.
+• Mistake to avoid: Reporting cos^-1(36/85) as a different answer — it is actually the SAME angle in disguise (cos of the sum is 36/85), so if an option list holds both, the question wants the sin^-1 form the question's shape implies; check which function the question asks to end with.
+• Example 8 — Problem: Solve tan^-1(2x) + tan^-1(3x) = pi/4.
+• Given: An inverse equation whose combined product (2x)(3x) = 6x^2 has unknown sign status until x is known.
+• Principle: Combine with the addition formula, solve the algebra, then verify each candidate in the ORIGINAL equation.
+• Steps: (5x)/(1 - 6x^2) = tan(pi/4) = 1, so 6x^2 + 5x - 1 = 0 = (6x - 1)(x + 1), giving x = 1/6 or x = -1. Verify x = 1/6: tan^-1(1/3) + tan^-1(1/2) = pi/4 (product 1/6 < 1, direct case) — valid. Verify x = -1: tan^-1(-2) + tan^-1(-3) = -3pi/4 — invalid.
+• Answer: x = 1/6 only.
+• Reasoning: The rejected root satisfied the combined equation under the wrong branch case (for x = -1 the true combination needs the -pi correction, changing the equation it solves).
+• Mistake to avoid: Presenting "x = 1/6 or -1" — the two-root answer is the designed trap of this problem type, and it is wrong.
+
+Practice Questions — Self-Test Set
+• Q1. Evaluate tan 105° exactly.
+• Q2. Evaluate sin 20° sin 40° sin 80° exactly.
+• Q3. Write the general solution of tan x = -1.
+• Q4. Find the maximum and minimum values of 5 sin x - 12 cos x.
+• Q5. Evaluate cos^-1(cos(10pi/9)) as a principal value.
+• Q6. Evaluate tan^-1(1/2) + tan^-1(1/5) + tan^-1(1/8).
+• Q7. If A + B + C = pi, express cos 2A + cos 2B + cos 2C in terms of cos A, cos B, cos C.
+• Q8. Solve sin^-1 x = cos^-1 x for x in the common domain.
+
+▸ Answer Key with Explanations
+• A1. tan 105° = -(2 + sqrt(3)) ≈ -3.73. Misconception watch: the sign — 105° is in quadrant II where tangent is negative; answers of +(2 + sqrt(3)) forgot ASTC, and 2 - sqrt(3) is tan 15° wearing the wrong angle.
+• A2. sin 20° sin 40° sin 80° = sqrt(3)/8 ≈ 0.217. Route: multiply by sin 60° to use the classical product sin 20° sin 40° sin 60° sin 80° = 3/16, then divide by sqrt(3)/2. Misconception watch: reaching for a calculator identity per factor instead of the product-to-sum chain.
+• A3. x = n pi + 3pi/4 (equivalently n pi - pi/4), n any integer. Misconception watch: writing 2n pi ± 3pi/4 — that is the cosine pattern; tangent repeats every pi, so one family with step pi covers everything.
+• A4. Maximum 13, minimum -13, by the R-method with R = sqrt(25 + 144) = 13. Misconception watch: answering 17 (adding the coefficients) or sqrt(119) (subtracting the squares) — the amplitude is the hypotenuse of the coefficient pair.
+• A5. 8pi/9. The angle 10pi/9 folds into [0, pi] as pi - pi/9 because cos(10pi/9) = -cos(pi/9). Misconception watch: answering 10pi/9 itself — a principal value must live in the branch, and 10pi/9 does not.
+• A6. pi/4. Route: tan^-1(1/2) + tan^-1(1/5) = tan^-1(7/9) (product 1/10 < 1), then tan^-1(7/9) + tan^-1(1/8) = tan^-1((65/72)/(65/72)) = tan^-1 1. Misconception watch: this is Euler's identity — the fractions are engineered; if your arithmetic produces ugly numbers, an arithmetic slip has occurred, not a hard problem.
+• A7. cos 2A + cos 2B + cos 2C = -1 - 4 cos A cos B cos C. Misconception watch: the sign of the product term is negative here, unlike the tangent identity's clean equality — verify with an equilateral triangle: each cos 2A = cos 120° = -1/2, sum -3/2; right side -1 - 4 x (1/8) = -3/2. Correct.
+• A8. x = 1/sqrt(2). Route: cos^-1 x = pi/2 - sin^-1 x forces sin^-1 x = pi/4. Misconception watch: x = 0 is NOT a solution (sin^-1 0 = 0 but cos^-1 0 = pi/2); the equality needs the two branches to meet exactly at their shared midpoint pi/4.
+
+Chapter Summary, Revision Checklist and Self-Assessment
+• Summary: Forward trigonometry is a closed toolkit — compound formulas generate multiple-angle and C-D formulas, the R-method bounds every sine-cosine mixture by sqrt(a^2 + b^2), conditional identities switch on exactly when A + B + C = pi, and equations fall to a four-word checklist: one function, factorise, bound-check, audit.
+• Summary: Inverse trigonometry is branch discipline — six functions, two branch families, and every property (negatives, reciprocals, complementary pairs) is the branch table in disguise. The tan^-1 addition formula is guarded by the xy test, the 2 tan^-1 x conversions carry |x| guards, telescoping series collapse by design, and inverse equations are not finished until every candidate has been substituted back.
+• Revision checklist — I can convert degrees and radians both ways and use s = r theta without a mode error.
+• Revision checklist — I can regenerate the standard table from the sqrt(n)/2 pattern and quote sin 18° and cos 36° exactly.
+• Revision checklist — I can expand any compound, double or triple angle and choose the cos 2A form that matches the data.
+• Revision checklist — I can move between sums and products with the C-D system and I know the cos C - cos D sign cold.
+• Revision checklist — I can bound a sin x + b cos x instantly and use the bound to kill impossible equations and options.
+• Revision checklist — I can derive tan A + tan B + tan C = tan A tan B tan C from tan(A + B) = -tan C in three lines.
+• Revision checklist — I can write all three general solutions and never divide an equation by a function that might be zero.
+• Revision checklist — I can state all six branches and domains, sort the six functions into the odd family and the mirror family, and fold any f^-1(f(x)) back home.
+• Revision checklist — I run the xy test before every inverse-tangent addition and I verify every candidate root of an inverse equation.
+• Self-assessment: Score your practice set. 7-8 correct: exam-ready — move on and revisit in a week. 5-6: the toolkit is there; drill the sections behind your two misses. 3-4: rebuild from the Formula Sheet, one family of formulas per day, re-testing after each. Below 3: restart from the ASTC section and work forward slowly — this chapter rewards sequence, and every later section leans on the earlier ones.""".trimIndent(),
 
             videoTitle = "Inverse Trigonometric Graphs, Piece-wise Branches & Telescoping Sums",
 
@@ -374,47 +1331,293 @@ object SmartPrepSeedData {
 
             completedLessons = 3,
 
-            studyNotesCount = 7,
+            studyNotesCount = 19,
 
-            practiceQuestionCount = 20,
+            practiceQuestionCount = 5,
 
             durationMinutes = 45,
 
-            formulaHighlight = "[a b c] = a · (b × c)  •  a × (b × c) = (a · c)b − (a · b)c",
+            formulaHighlight = "✔ |a| = sqrt(a1^2 + a2^2 + a3^2); a-hat = a / |a|; the vector of magnitude M along a is M a / |a|\n✔ Direction cosines l = a1/|a|, m = a2/|a|, n = a3/|a| with l^2 + m^2 + n^2 = 1; section formula: internal (m b + n a)/(m + n), external (m b - n a)/(m - n), midpoint (a + b)/2, centroid (a + b + c)/3\n✔ a.b = a1 b1 + a2 b2 + a3 b3 = |a||b| cos theta; perpendicular exactly when a.b = 0; scalar projection of a on b = (a.b)/|b|, projection vector = ((a.b)/|b|^2) b\n✔ a x b = determinant with rows (i, j, k), (a1, a2, a3), (b1, b2, b3), j term negative; b x a = -(a x b); i x j = k, j x k = i, k x i = j\n✔ |a x b| = area of parallelogram on a and b; triangle area = (1/2)|a x b|; unit normal = (a x b)/|a x b|; a x b = 0 exactly when a and b are parallel\n✔ [a b c] = a.(b x c) = component determinant; parallelepiped volume = |[a b c]|; tetrahedron volume = (1/6)|[a b c]|; [a b c] = [b c a] = [c a b]; coplanar exactly when [a b c] = 0\n✔ a x (b x c) = (a.c) b - (a.b) c (BAC-CAB); Lagrange: |a x b|^2 + (a.b)^2 = |a|^2 |b|^2; |a + b|^2 = |a|^2 + |b|^2 + 2 a.b; AB = b - a",
 
-            keyConceptsSummary = "Collinearity and coplanarity of vectors, orthogonal projection, geometrical meaning of cross product, volume of parallelepiped and tetrahedron via scalar triple product, and Lagrange's vector triple product identity.",
+            keyConceptsSummary = "• A vector is magnitude plus direction, written a = a1 i + a2 j + a3 k; components are born from head-minus-tail subtraction between points, |a| = sqrt(a1^2 + a2^2 + a3^2), and direction cosines are the components divided by |a|, obeying l^2 + m^2 + n^2 = 1 — direction ratios are not cosines until that normalisation is done\n• Addition is the triangle law head-to-tail, equivalently the parallelogram diagonal, and is component-wise; scalar multiplication stretches and can flip a vector, a-hat = a / |a| normalises it, and the section formula (m b + n a)/(m + n) weights each endpoint by the OTHER segment's share, with midpoint (a + b)/2 and centroid (a + b + c)/3 as its famous special cases\n• The dot product a.b = |a||b| cos theta = a1 b1 + a2 b2 + a3 b3 is a SCALAR measuring alignment: positive, zero or negative reads acute, right or obtuse; zero is the perpendicularity test; and the scalar projection of a on b, (a.b)/|b|, divides by the magnitude of the vector named after the word on — swapping the divisor is the chapter's most planted error\n• The cross product a x b is a VECTOR perpendicular to both parents (right-hand rule), with |a x b| equal to the area of the parallelogram on a and b and half of that for the triangle; it anti-commutes, its determinant expansion carries a negative j term, and the professional audit is to dot the result with both parents and demand zero twice\n• The scalar triple product [a b c] = a.(b x c) is the determinant of the component rows: the signed volume of the parallelepiped on a, b, c (the tetrahedron takes one-sixth of the absolute value); it survives cyclic permutations, flips sign on any single swap, and vanishes exactly when the three vectors are coplanar — a flat box has no volume\n• The lambda tests turn geometry into one linear equation: three points are collinear when their joining vectors are proportional, three vectors are coplanar when [a b c] = 0, and four points are coplanar when [AB AC AD] = 0 with edge vectors built from one vertex — never from raw position vectors\n• Position vectors prove theorems: the midpoint formula alone delivers the midpoint theorem, the bisecting diagonals of a parallelogram and the concurrency of the medians at (a + b + c)/3; and the same subtraction-first recipe — edge vectors from one vertex — feeds triangle areas (1/2)|AB x AC| and tetrahedron volumes (1/6)|[AB AC AD]| without measuring a base or a height",
 
-            detailedStudyNotes = """
+            detailedStudyNotes = """Introduction — Vectors with a Sense of Direction
+• In Physics you met vectors as arrows with jobs: velocity, force, displacement. This chapter strips the physics away and studies the arrows themselves — how they are written, added, multiplied and turned into proofs. The reward is a machine that solves geometry without needing a single clever diagram.
+• DEFINITION — A vector is a quantity that has both magnitude and direction, represented by an arrow whose length is the magnitude and whose sense is the direction. A quantity with magnitude alone, like mass, temperature or speed, is a scalar.
+• NOTATION used throughout this chapter — a vector is written as a = a1 i + a2 j + a3 k, where i, j and k are the unit vectors along the x, y and z axes. The magnitude of a is written |a|. The dot product is written a.b, the cross product is written a x b, and a-hat means the unit vector in the direction of a.
+• WHY the algebra matters — once a direction becomes three numbers, geometry questions turn into arithmetic: angles become a dot product, areas become a cross product, volumes become one determinant, and "prove these points are collinear" becomes "solve for lambda". The IAT loves exactly these translations.
+• EXAMPLE — The displacement from P(1, 2, 3) to Q(4, 6, 3) is the vector PQ = (4 - 1) i + (6 - 2) j + (3 - 3) k = 3i + 4j, and its magnitude is sqrt(9 + 16) = 5. One subtraction produced the arrow; one Pythagoras produced its length.
+★ HIGHLIGHT — The chapter in one breath: components turn directions into numbers; the dot product extracts angles and projections; the cross product extracts areas and normals; the scalar triple product extracts volumes and detects flatness. Four tools, four geometric questions answered.
+• A roadmap warning — Physics used these products as tools. Here you must also know their algebraic personalities: the dot product commutes, the cross product anti-commutes, and confusing the two personalities is where most marks quietly leak away.
 
-                1. Scalar (Dot) & Vector (Cross) Products
+Types of Vectors — Meet the Cast
+• DEFINITION — The zero vector, written 0, has magnitude zero and no defined direction; it is the only vector whose start and end coincide, and a + 0 = a for every vector a.
+• DEFINITION — A unit vector has magnitude exactly 1 and carries pure direction with no size. The vectors i, j, k are unit vectors, and for any nonzero a, the vector a-hat = a / |a| is the unit vector along a.
+• DEFINITION — Equal vectors have the same magnitude and the same direction, wherever they happen to start. A vector is a free arrow: it can be slid parallel to itself anywhere in space without changing what it is.
+• DEFINITION — Collinear (parallel) vectors point along the same line or along parallel lines: b is collinear with a exactly when b = lambda a for some scalar lambda. Like vectors have the same direction; unlike vectors are collinear with opposite directions.
+• DEFINITION — Coplanar vectors lie in, or are parallel to, one common plane. Any two vectors are always coplanar, because two arrows through one point always define a plane; three or more vectors may fail to be coplanar.
+• DEFINITION — The negative of a, written -a, has the same magnitude as a and the opposite direction, so a + (-a) = 0. Coinitial vectors share an initial point; coterminous vectors share a terminal point.
+• EXAMPLE — The vectors 2i + 4j and i + 2j are collinear because the second is exactly half the first (lambda = 1/2). The vectors 3i and -5i are unlike collinear vectors: same line, opposite senses, different lengths.
+⚠ EXAM TRAP — "Equal" is stricter than "collinear": equality demands the same magnitude AND the same direction. And parallel does not require equal lengths — any option that rejects 2a as "not parallel to a" is simply wrong.
+• YOUR TURN — Is the vector (6i - 8j) / 10 a unit vector? Answer — yes: its magnitude is sqrt(36 + 64) / 10 = 10 / 10 = 1. It is exactly the unit vector along 6i - 8j.
 
-                • Dot Product: a · b = |a||b| cos θ; projection of a on b is (a · b)/|b|.
+Components — a Vector Is Its Coordinates
+• DEFINITION — The components of a = a1 i + a2 j + a3 k are the signed lengths of its projections on the three axes. Geometrically, a is the diagonal of the rectangular box whose three edges, starting at its tail, are a1, a2 and a3 along the axes.
+✔ KEY FORMULA — Magnitude: |a| = sqrt(a1^2 + a2^2 + a3^2); in two dimensions the same formula simply drops the third term. Components behave component-wise: the first component of a + b is a1 + b1, and the first component of lambda a is lambda a1, and so on for every axis.
+• WORKED PATTERN — The vector between two points is always "head minus tail": for P(x1, y1, z1) and Q(x2, y2, z2), the vector PQ = (x2 - x1) i + (y2 - y1) j + (z2 - z1) k. Almost every component you will ever need is born from one such subtraction.
+• EXAMPLE — a = 2i - 3j + 6k has magnitude sqrt(4 + 9 + 36) = sqrt 49 = 7 — a dressed-up 2-3-6 Pythagorean pattern worth recognising on sight, because examiners reuse it constantly.
+• WHY components beat pictures — a diagram can only suggest that two vectors are perpendicular; components prove it with one line of arithmetic. Every test in this chapter — angle, area, volume, collinearity — is a component computation wearing a geometric costume.
+• EXAMPLE — The vector from A(1, 0, 2) to B(4, 4, 2) is 3i + 4j + 0k. Its z-component is 0, which tells you instantly that AB runs parallel to the xy plane. Components narrate geometry if you read them.
+★ HIGHLIGHT — Two numbers in 2D, three numbers in 3D: that is the entire vector. If a problem hands you points, your first move is always the same — subtract to get components, then let the products of the coming sections do the heavy lifting.
+⚠ EXAM TRAP — The magnitude is the root of the SUM OF SQUARES, never the sum of the components: |3i + 4j| is 5, not 7. And a negative component like -3j still contributes +9 to the squared magnitude.
+• YOUR TURN — Find |a| for a = i - 2j + 2k. Answer — sqrt(1 + 4 + 4) = sqrt 9 = 3.
 
-                • Cross Product: |a × b| = |a||b| sin θ = area of parallelogram with adjacent sides a and b.
+Direction Cosines and Direction Ratios
+• DEFINITION — If a vector makes angles alpha, beta and gamma with the positive x, y and z axes, then l = cos alpha, m = cos beta and n = cos gamma are its direction cosines. They are exactly the three components of the unit vector a-hat.
+✔ KEY FORMULA — l^2 + m^2 + n^2 = 1. For a = a1 i + a2 j + a3 k, the cosines are l = a1 / |a|, m = a2 / |a| and n = a3 / |a| — the components, each divided by the magnitude.
+• DEFINITION — Direction ratios are any three numbers proportional to the direction cosines — most conveniently the components a1, a2, a3 themselves. Ratios describe the direction, but only the cosines are actual cosines of actual angles.
+• EXAMPLE — For a = 2i + 3j + 6k with |a| = 7, the direction cosines are 2/7, 3/7 and 6/7. Audit: 4/49 + 9/49 + 36/49 = 49/49 = 1, exactly as the identity demands.
+• WORKED PATTERN — Given two of the three axis angles, the third falls out of the identity: cos^2 gamma = 1 - cos^2 alpha - cos^2 beta. The square root leaves a genuine plus-or-minus sign: two mirror-image directions both satisfy the same data, and both are legitimate answers.
+• EXAMPLE — A line equally inclined to all three axes has l = m = n, so 3l^2 = 1 and l = 1 / sqrt 3: the angle with each axis is the angle whose cosine is 1 / sqrt 3, about 54.74 degrees. This is the direction of a cube's body diagonal — keep it in mind for the geometry section.
+⚠ EXAM TRAP — Direction ratios are NOT cosines until they are divided by the magnitude. Writing cos alpha = 2 for the vector 2i + 3j + 6k is a classic blunder: a cosine can never exceed 1, so the normalisation step can never be skipped.
+• YOUR TURN — Find the direction cosines of i + 2j + 2k. Answer — |a| = 3, so l = 1/3, m = 2/3 and n = 2/3.
 
-                • Lagrange's Identity: |a × b|² + (a · b)² = |a|² |b|².
+Position Vectors and the Section Formula
+• DEFINITION — The position vector of a point P is the vector OP from the origin to P; the point (x, y, z) has position vector x i + y j + z k. Position vectors turn every point into a vector, so all of point geometry becomes vector algebra.
+✔ KEY FORMULA — Section formula, internal division: the point P dividing AB in the ratio m : n, meaning AP : PB = m : n, has position vector (m b + n a) / (m + n), where a and b are the position vectors of A and B. The midpoint is the case m = n, giving (a + b) / 2.
+✔ KEY FORMULA — Section formula, external division: the point dividing AB externally in the ratio m : n has position vector (m b - n a) / (m - n). The centroid of a triangle with position vectors a, b, c is (a + b + c) / 3 — the plain average of the three.
+• WHY the weights cross — the larger m is, the closer P sits to B, and the formula indeed weights b more heavily. The weight attached to an endpoint is proportional to the segment at the OTHER end. If your computed point lands closer to the wrong endpoint, you have crossed the weights the wrong way.
+• EXAMPLE — A has position vector 2i + 3j and B has position vector 5i + 7j. The midpoint is (7/2) i + 5j. The point dividing AB internally in the ratio 2 : 1 is (2(5i + 7j) + 1(2i + 3j)) / 3 = 4i + (17/3) j.
+• EXAMPLE — Dividing the same AB externally in the ratio 3 : 1 gives (3(5i + 7j) - (2i + 3j)) / (3 - 1) = (13/2) i + 9j, which lies beyond B on the line from A through B. External points always sit outside the segment — if yours lands between A and B, a sign has gone wrong.
+⚠ EXAM TRAP — Ratio order is a loaded gun: "divides AB in the ratio 2 : 1" means AP : PB = 2 : 1, measured from A. Read which endpoint the ratio starts from before touching the formula, then sanity-check that your point sits closer to the end carrying the larger share.
+• YOUR TURN — Find the midpoint of the segment joining the points with position vectors 3i - j + 2k and i + 5j - 4k. Answer — ((3 + 1) / 2) i + ((-1 + 5) / 2) j + ((2 - 4) / 2) k = 2i + 2j - k.
 
+Vector Addition — Triangle and Parallelogram Laws
+• DEFINITION — Triangle law: if two vectors are drawn head-to-tail, their sum is the vector from the tail of the first to the head of the second. In symbols, AB + BC = AC — the middle point cancels, a pattern worth memorising in itself.
+• DEFINITION — Parallelogram law: if two vectors drawn from one point are adjacent sides of a parallelogram, their sum is the diagonal drawn from that same point. It is the triangle law drawn twice; the two laws are one fact in two costumes.
+✔ KEY FORMULA — Addition is component-wise, commutative and associative: a + b = b + a and (a + b) + c = a + (b + c). The bridge identity |a + b|^2 = |a|^2 + |b|^2 + 2 a.b connects addition to the dot product of the next sections.
+• EXAMPLE — Walk 3 km east, then 4 km north: your displacement is 3i + 4j with magnitude 5 km, even though you walked 7 km. Distance walked is a scalar sum; displacement is a vector sum — that difference is the entire point of this chapter.
+• EXAMPLE — a = 2i + 3j and b = i - 2j give a + b = 3i + j, with |a + b| = sqrt 10. Notice |a| = sqrt 13 and |b| = sqrt 5: magnitudes never add the way components do.
+• Subtraction is addition in disguise: a - b = a + (-b), and geometrically it is the vector from the tip of b to the tip of a when both start at the same point. The workhorse formula AB = b - a for position vectors is exactly this move.
+★ HIGHLIGHT — The polygon rule scales everything up: a chain of vectors placed head-to-tail sums to the single vector from the first tail to the last head, and a closed polygon sums to zero. Around any triangle, AB + BC + CA = 0.
+⚠ EXAM TRAP — |a + b| equals |a| + |b| only when a and b are like collinear vectors. In general the triangle inequality rules: |a + b| is at most |a| + |b|, with equality reserved for same-direction vectors.
+• YOUR TURN — If a = i - 2j + k and b = 2i + j - 3k, find a - b. Answer — (1 - 2) i + (-2 - 1) j + (1 + 3) k = -i - 3j + 4k.
 
+Scalar Multiplication and Unit Vectors
+• DEFINITION — Multiplying a vector by a scalar lambda stretches it: lambda a has magnitude |lambda| times |a|, the same direction as a when lambda is positive, the opposite direction when lambda is negative, and 0 a = 0. The components simply scale: lambda (a1 i + a2 j + a3 k) = (lambda a1) i + (lambda a2) j + (lambda a3) k.
+✔ KEY FORMULA — The unit vector along a is a-hat = a / |a|, and the vector of magnitude M in the direction of a is M a / |a|. Dividing by the magnitude — once, with the root-sum-of-squares value — is the only normalising move in this chapter.
+• WORKED PATTERN — To build a vector of a given length along a given direction, use two moves in this order: first normalise (divide by the length), then scale (multiply by the target length).
+• EXAMPLE — a = 3i + 4j - 12k has |a| = sqrt(9 + 16 + 144) = 13, so a-hat = (3i + 4j - 12k) / 13, and the vector of magnitude 26 along a is simply twice a: 6i + 8j - 24k.
+• EXAMPLE — The vector of magnitude 5 along i - 2j + 2k is (5/3)(i - 2j + 2k), because |i - 2j + 2k| = 3. Fractions like 5/3 are normal in these answers; do not try to "fix" them.
+• Finding an unknown component from a magnitude: if a = 2i + x j + k has |a| = 3, then 4 + x^2 + 1 = 9, so x^2 = 4 and x = 2 or x = -2. Magnitudes always leave a sign ambiguity, and both answers describe genuine vectors.
+⚠ EXAM TRAP — A unit vector is not made by dividing each component by the number of components, nor by dividing by |a|^2. It is a / |a|, exactly once. Options showing unnormalised or doubly-divided vectors are planted bait.
+• YOUR TURN — Write the vector of magnitude 5 in the direction of 6i - 8j. Answer — |6i - 8j| = 10, so the unit vector is (3i - 4j) / 5 and scaling by 5 gives 3i - 4j.
 
-                2. Scalar Triple Product (Box Product)
+The Dot Product — Measuring Alignment
+• DEFINITION — The dot product of a and b is the SCALAR a.b = |a| |b| cos theta, where theta is the angle between the vectors placed tail to tail, always taken between 0 and 180 degrees. It measures how much the two vectors point the same way.
+✔ KEY FORMULA — In components: a.b = a1 b1 + a2 b2 + a3 b3. The angle follows from cos theta = (a.b) / (|a| |b|). The perpendicular test is the sharpest special case: a and b are perpendicular exactly when a.b = 0.
+✔ KEY FORMULA — The scalar projection of a on b is (a.b) / |b|: the signed length of the shadow a casts on the b direction. The projection VECTOR is ((a.b) / |b|^2) b. A length versus a vector — the exam tests the difference deliberately.
+• The dot product is polite algebra: it commutes (a.b = b.a), it distributes over addition, and a.a = |a|^2. The axis facts i.i = j.j = k.k = 1 and i.j = j.k = k.i = 0 are exactly why the component formula works.
+• EXAMPLE — a = 2i + 3j - k and b = i - j + 2k give a.b = 2 - 3 - 2 = -3. The negative sign announces an obtuse angle before any magnitude is computed. The scalar projection of a on b is -3 / sqrt 6, about -1.22: the shadow of a on the b line points opposite to b itself.
+• WHY the sign is a diagnosis — a.b positive means an acute angle, zero means a right angle, negative means an obtuse angle. Half of all dot-product questions are settled by the sign alone.
+• WORKED PATTERN — The standard three steps: (1) compute a.b from components, (2) compute |a| and |b|, (3) divide to get cos theta. If only perpendicularity is asked, stop after step one — zero or not zero is the whole answer.
+• The physicist's souvenir: work is a dot product, W = F.d. For F = 3i + 4j newtons and displacement d = 2i + j metres, W = 6 + 4 = 10 joules. Only the component of force along the motion earns its keep — the projection idea, cashed.
+★ HIGHLIGHT — a.b is a number, not a vector. It has no direction, cannot be drawn as an arrow, and an expression like (a.b) x c is meaningless because there is nothing left to cross. Examiners probe exactly this with "which of the following is a vector" questions.
+⚠ EXAM TRAP — Projection direction matters: the projection of a on b divides by |b| — the magnitude of the vector you project ONTO — never by |a|. Swapping them is the single most common dot-product error, and the options always include the swapped value.
+• YOUR TURN — Find the scalar projection of a = i - j on b = i + j. Answer — a.b = 1 - 1 = 0, so the projection is 0: the vectors are perpendicular, and a casts no shadow on b at all.
 
-                • [a b c] = (a × b) · c represents the signed volume of the parallelepiped formed by a, b, c.
+The Cross Product — Area with a Direction
+• DEFINITION — The cross product a x b is the VECTOR whose magnitude is |a| |b| sin theta and whose direction is perpendicular to both a and b, fixed by the right-hand rule: curl the fingers of your right hand from a toward b, and your thumb points along a x b.
+✔ KEY FORMULA — In components, a x b is the determinant with rows (i, j, k), (a1, a2, a3), (b1, b2, b3): it equals (a2 b3 - a3 b2) i - (a1 b3 - a3 b1) j + (a1 b2 - a2 b1) k. The j component carries the minus sign — tattoo it.
+✔ KEY FORMULA — |a x b| is the area of the parallelogram with adjacent sides a and b; the area of the triangle on the same two sides is (1/2) |a x b|. The unit normal to both vectors is n-hat = (a x b) / |a x b|.
+• The cross product is rude algebra: it ANTI-commutes, b x a = -(a x b), and a x a = 0 for every a. The cyclic trio i x j = k, j x k = i, k x i = j — with the sign flipping whenever a pair is reversed — is the multiplication table to memorise cold.
+• EXAMPLE — For a = 2i + 3j - k and b = i - j + 2k, the determinant gives a x b = (3 x 2 - (-1)(-1)) i - (2 x 2 - (-1)(1)) j + (2(-1) - 3 x 1) k = 5i - 5j - 5k. Audit it: (5i - 5j - 5k).a = 10 - 15 + 5 = 0 and (5i - 5j - 5k).b = 5 + 5 - 10 = 0. A cross product must be perpendicular to both parents; this two-second check catches most determinant slips.
+• EXAMPLE — The parallelogram on those two sides has area |a x b| = sqrt(25 + 25 + 25) = 5 sqrt 3, the triangle on the same sides has area (5 sqrt 3) / 2, and the unit normal is (i - j - k) / sqrt 3.
+• Collinearity test: for nonzero vectors, a x b = 0 exactly when a and b are parallel. Witness the 2D pair 2i + 4j and i + 2j: the k-component of their cross product is 2 x 2 - 4 x 1 = 0, and indeed one vector is twice the other.
+• The physicist's souvenir: torque, the moment of a force, is r x F. That is why a door is easiest to push at its far edge, at right angles to the door: sin theta is at its maximum there and collapses to zero when you push along the door's own plane.
+★ HIGHLIGHT — Dot and cross are complementary twins. The dot product extracts the parallel part of the relationship — projection and alignment; the cross product extracts the perpendicular part — area and turning. When |a.b| is at its largest, |a x b| vanishes, and vice versa.
+⚠ EXAM TRAP — Three recurring cross-product wounds: forgetting the minus sign on the j component of the determinant; reporting the parallelogram area when the triangle was asked, dropping the half; and assuming a x b equals b x a. All three are planted as options every single year.
+• YOUR TURN — Find the area of the triangle with adjacent sides a = i + 2j and b = 2i - j. Answer — the k-component of a x b is 1 x (-1) - 2 x 2 = -5, so |a x b| = 5 and the area is 5/2.
 
-                • Volume of a tetrahedron with coterminous edges a, b, c is (1/6)|[a b c]|.
+The Scalar Triple Product — Volume in One Number
+• DEFINITION — The scalar triple product [a b c] = a.(b x c) blends the two products into one scalar: the signed volume of the parallelepiped — the slanted box — built on the three coterminous edges a, b, c. Its sign reports the handedness of the trio: positive for a right-handed set.
+✔ KEY FORMULA — [a b c] equals the determinant of the three component rows. The volume of the parallelepiped is |[a b c]|; the volume of the tetrahedron on the same three edges is (1/6) |[a b c]|.
+✔ KEY FORMULA — Coplanarity test: a, b and c are coplanar exactly when [a b c] = 0 — a flat parallelepiped has no volume. Four points A, B, C, D are coplanar exactly when [AB AC AD] = 0, using edge vectors from one vertex.
+• The product is cyclically tame: [a b c] = [b c a] = [c a b], but swapping any two vectors flips the sign, so [b a c] = -[a b c]. And [i j k] = 1, the volume of the unit cube, as it must be.
+• EXAMPLE — For a = i + j, b = j + k and c = k + i, the determinant of the rows (1, 1, 0), (0, 1, 1), (1, 0, 1) is 1(1 - 0) - 1(0 - 1) + 0 = 2. The parallelepiped has volume 2, and the tetrahedron on the same edges has volume 2/6 = 1/3.
+• A scaling identity worth its mark: [a + b, b + c, c + a] = 2 [a b c]. Expand the determinant and every one of a, b, c ends up counted exactly twice — a two-minute row-operation exercise that the IAT has recycled in several costumes.
+• WORKED PATTERN — Every triple-product question has one of three shapes: (1) compute a volume — evaluate the determinant, take the absolute value, and divide by 6 only for a tetrahedron; (2) test coplanarity — ask whether the determinant is zero; (3) find lambda — put lambda in one component, expand, set the determinant to zero and solve the LINEAR equation that results.
+★ HIGHLIGHT — Volume zero is geometry's flatness alarm. Whenever a problem whispers "coplanar", "lies in the same plane" or "four points", reach for [a b c] = 0 before reaching for anything else.
+⚠ EXAM TRAP — Volume is never negative: a determinant of -12 means a volume of 12, and the tetrahedron on those edges has volume 2, not -2. And the division by 6 belongs to tetrahedra alone; the parallelepiped takes |[a b c]| whole.
+• YOUR TURN — Find the volume of the parallelepiped with edges 2i, 3j and 4k. Answer — [2i, 3j, 4k] = 2 x 3 x 4 x [i j k] = 24.
 
-                • Three vectors are coplanar iff [a b c] = 0.
+▸ Vector Triple Product and Lagrange's Identity
+• DEFINITION — The vector triple product a x (b x c) expands by the BAC-CAB rule: a x (b x c) = (a.c) b - (a.b) c. Notice the result is built from b and c alone, so it always lies in the plane of b and c — never along a.
+• EXAMPLE — Take a = i, b = i + j and c = k. Then b x c = i - j, and a x (b x c) = i x (i - j) = -k. The formula agrees: (a.c) b - (a.b) c = 0 x b - 1 x k = -k. Two routes, one answer.
+✔ KEY FORMULA — Lagrange's identity: |a x b|^2 + (a.b)^2 = |a|^2 |b|^2. It is the statement cos^2 theta + sin^2 theta = 1 wearing vector clothes, and it converts between the two products without ever finding the angle.
+• EXAMPLE — For the running pair a = 2i + 3j - k and b = i - j + 2k: |a x b|^2 = 75 and (a.b)^2 = 9, totalling 84, while |a|^2 |b|^2 = 14 x 6 = 84. Identity verified — use it whenever a question hands you one product and demands the other.
+• Vector equations in one breath: an unknown vector r is pinned down by combining a cross condition like r x a = b with a dot condition like r.c = lambda. Dot or cross the given equation with carefully chosen vectors, expand with BAC-CAB, and r isolates itself. The technique is always: expand first, solve second.
+⚠ EXAM TRAP — a x (b x c) is NOT (a x b) x c in general: the cross product is not associative, and the two sides are genuinely different vectors. The brackets inside a triple product are load-bearing, not decorative.
 
-                • [a+b  b+c  c+a] = 2[a b c] and [a×b  b×c  c×a] = [a b c]².
+Collinearity and Coplanarity — the Lambda Tests
+• The pattern of this section: an unknown lambda sits inside a vector, a geometric condition is imposed, and one clean equation drops out. Three conditions, three tests — the skill is matching the right test to the right condition.
+✔ KEY FORMULA — Three points with position vectors a, b, c are collinear exactly when the joining vectors are parallel: AB = lambda AC for some lambda. Equivalently, the middle point's position vector is a weighted average of the other two with weights summing to 1 — the section formula run in reverse.
+• WORKED PATTERN — Collinear points: build two joining vectors from the same point, demand that their components be proportional, and read lambda off the ratios. Every ratio must agree; the component you did not use becomes your free verification.
+• EXAMPLE — Points A, B, C have position vectors i + j, 2i + 3j and 4i + lambda j. Then AB = i + 2j and AC = 3i + (lambda - 1) j. The i-components fix the ratio at 3, so proportionality demands lambda - 1 = 3 x 2 = 6, giving lambda = 7.
+✔ KEY FORMULA — Coplanarity of three vectors: a, b, c are coplanar exactly when [a b c] = 0. With lambda inside one component, expand the determinant, set it to zero and solve: a determinant is always LINEAR in any single component, so the equation never fights back.
+• EXAMPLE — The vectors a = 2i + j, b = i - j + 2k and c = 3i + lambda k have component rows (2, 1, 0), (1, -1, 2), (3, 0, lambda), and the determinant expands to -2 lambda - (lambda - 6) = 6 - 3 lambda. Setting it to zero gives lambda = 2.
+• For four points, the same alarm: D lies in the plane of ABC exactly when [AB AC AD] = 0. Build the three edge vectors out of one vertex and test those — never feed raw position vectors into the determinant.
+⚠ EXAM TRAP — Two vectors are ALWAYS coplanar, so "show that a and b are coplanar" is a free statement, not a task; the test only bites for three vectors. And collinearity of points is a claim about joining vectors: testing whether the position vectors themselves are proportional tests whether the points lie on one line through the ORIGIN — a different claim entirely.
+• YOUR TURN — The vectors a = lambda i + 2j and b = 4i - j are collinear. Find lambda. Answer — component proportionality gives lambda / 4 = 2 / (-1) = -2, so lambda = -8.
 
+Vectors Prove Geometry — Midpoints and Diagonals
+• The method of this section: give every point a position vector, translate the geometric claim into algebra, and watch it prove itself. No constructions, no auxiliary lines, no diagram luck — the vectors are the proof.
+• PROOF — Midpoint theorem. In triangle OAB, let A and B have position vectors a and b. The midpoints M of OA and N of OB have position vectors a/2 and b/2, so the vector MN = b/2 - a/2 = (b - a) / 2 = (1/2) AB. That single line says MN is parallel to AB and half its length. Proved.
+• PROOF — Diagonals of a parallelogram bisect each other. Let one corner be the origin and the adjacent vertices have position vectors a and b; the fourth vertex is then a + b. The diagonal from the origin ends at a + b and has midpoint (a + b) / 2. The other diagonal joins the points a and b and has midpoint (a + b) / 2. The midpoints coincide, so each diagonal cuts the other in half. Proved.
+• PROOF — The medians concur at the centroid. The point two-thirds of the way from vertex A to the midpoint of BC is (a + 2 x ((b + c) / 2)) / 3 = (a + b + c) / 3. Running the same computation from vertex B or C lands on the identical point — and that coincidence is precisely the concurrency of the medians, with the meeting point at the centroid (a + b + c) / 3.
+• EXAMPLE — The angle between a cube's diagonals. Two body diagonals of a unit cube are d1 = i + j + k and d2 = i + j - k. Their dot product is 1 + 1 - 1 = 1, each has magnitude sqrt 3, so cos theta = 1 / 3 and theta is about 70.53 degrees — the famous fixed angle between any two body diagonals of a cube.
+• EXAMPLE — Triangle area straight from vertices. The vertices have position vectors i + 2j + 3k, 2i - j + k and 3i + j - k. From the first vertex: AB = i - 3j - 2k and AC = 2i - j - 4k, and AB x AC = 10i + 0j + 5k with magnitude 5 sqrt 5. The area is (5 sqrt 5) / 2 — position vectors in, area out, with no base and no height ever measured.
+★ HIGHLIGHT — The universal recipe for area and volume questions: pick one vertex as a local origin, subtract to get the edge vectors, then take (1/2) |AB x AC| for a triangle's area or (1/6) |[AB AC AD]| for a tetrahedron's volume.
+⚠ EXAM TRAP — The area formula eats EDGE vectors from ONE vertex. Feeding raw position vectors into the cross product silently computes the area of the triangle those points make with the origin — a different triangle. The subtraction step is where this question is won or lost.
+• YOUR TURN — The position vectors of P and Q are 3i + 2j - k and i - 2j + 3k. Find PQ and |PQ|. Answer — PQ = -2i - 4j + 4k, and |PQ| = sqrt(4 + 16 + 16) = 6.
 
+High-Yield Formula Sheet
+✔ |a| = sqrt(a1^2 + a2^2 + a3^2); a-hat = a / |a|; the vector of magnitude M along a is M a / |a|
+✔ Direction cosines: l = a1 / |a|, m = a2 / |a|, n = a3 / |a|, and l^2 + m^2 + n^2 = 1 always
+✔ Section formula: internal division (m b + n a) / (m + n); external division (m b - n a) / (m - n); midpoint (a + b) / 2; centroid (a + b + c) / 3
+✔ a.b = a1 b1 + a2 b2 + a3 b3 = |a| |b| cos theta; a and b are perpendicular exactly when a.b = 0
+✔ Scalar projection of a on b = (a.b) / |b|; the projection vector of a on b = ((a.b) / |b|^2) b
+✔ a x b = the determinant with rows (i, j, k), (a1, a2, a3), (b1, b2, b3); b x a = -(a x b); i x j = k, j x k = i, k x i = j
+✔ |a x b| = area of the parallelogram on a and b; the triangle on a and b has area (1/2) |a x b|; unit normal = (a x b) / |a x b|
+✔ [a b c] = a.(b x c) = the component determinant; parallelepiped volume = |[a b c]|; tetrahedron volume = (1/6) |[a b c]|
+✔ Coplanarity of a, b, c: [a b c] = 0; collinearity of a, b: a x b = 0, equivalently components proportional
+✔ a x (b x c) = (a.c) b - (a.b) c (BAC-CAB); Lagrange: |a x b|^2 + (a.b)^2 = |a|^2 |b|^2
+✔ |a + b|^2 = |a|^2 + |b|^2 + 2 a.b; for position vectors, AB = b - a
 
-                3. Vector Triple Product & Reciprocal System
+Common Mistakes and Exam Traps
+• MISTAKE 1 — Projecting a onto b but dividing by |a|
+• Why it fails — The projection is a length measured along b, so its scale is set by b alone; dividing by |a| computes the projection of b on a instead, a different number
+• Correct principle — Projection of a on b is (a.b) / |b|; the divisor is always the magnitude of the vector named after the word "on"
+• MISTAKE 2 — Treating a.b as a vector, or writing (a.b) x c
+• Why it fails — The dot product is a scalar, and a scalar cannot be crossed with anything; the expression (a.b) x c is not wrong arithmetic, it is meaningless
+• Correct principle — a.b is a number; a x b is a vector; (a.b) c is a vector again only because a scalar multiplies the vector c
+• MISTAKE 3 — Losing the minus sign on the j component of a x b
+• Why it fails — The determinant's checkerboard of signs (+, -, + across the top row) makes the middle cofactor negative; expanding all three terms with plus signs flips the j component
+• Correct principle — Write a x b = (a2 b3 - a3 b2) i - (a1 b3 - a3 b1) j + (a1 b2 - a2 b1) k and audit the answer by dotting it with a and b — both must give zero
+• MISTAKE 4 — Reporting the parallelogram area when the triangle was asked
+• Why it fails — |a x b| is the area of the full parallelogram, which is two copies of the triangle
+• Correct principle — Triangle area = (1/2) |a x b|; parallelogram area = |a x b|; read the shape named in the question before answering
+• MISTAKE 5 — Reporting a negative volume from a negative determinant
+• Why it fails — The sign of [a b c] records only the handedness of the trio; volume is a size and cannot be negative
+• Correct principle — Volume of the parallelepiped is |[a b c]|, and of the tetrahedron (1/6) |[a b c]| — absolute value first, then divide
+• MISTAKE 6 — Quoting direction ratios as direction cosines
+• Why it fails — Ratios like 2, 3, 6 are proportional to the cosines but are not cosines; a "cosine" of 2 or 6 is impossible on its face
+• Correct principle — Divide each component by |a| first; the results must satisfy l^2 + m^2 + n^2 = 1, which is a free check
+• MISTAKE 7 — Uncrossing the weights in the section formula
+• Why it fails — Writing (n b + m a) / (m + n) for a division in the ratio m : n puts the point closer to the wrong endpoint
+• Correct principle — The weight of an endpoint equals the OTHER segment's ratio share: (m b + n a) / (m + n), then verify the point sits nearer the endpoint with the bigger share
+• MISTAKE 8 — Concluding from a x b = 0 that one of the vectors must be zero
+• Why it fails — sin theta is also zero when theta is 0 or 180 degrees, so any two parallel nonzero vectors have a zero cross product
+• Correct principle — For nonzero vectors, a x b = 0 is exactly the parallel test; it says nothing about either vector vanishing
+• MISTAKE 9 — Writing |a + b| = |a| + |b| as a general rule
+• Why it fails — That equality is the degenerate case of two vectors pointing the same way; in general the resultant is shorter than the sum of the lengths
+• Correct principle — Use |a + b|^2 = |a|^2 + |b|^2 + 2 a.b, or add the components and take the magnitude of the sum
+• MISTAKE 10 — Hunting for the angle with sin, or rejecting a negative cos theta
+• Why it fails — The dot product is built on cos theta, and a negative cosine simply means the angle is obtuse; it is an answer, not an error flag
+• Correct principle — cos theta = (a.b) / (|a| |b|), with theta read between 0 and 180 degrees; reserve sin theta for the cross product's magnitude
 
-                • a × (b × c) = (a · c)b − (a · b)c (lies in the plane of b and c).
+Worked Examples — Basic to Challenging
+• EXAMPLE 1 — SEVEN IN DISGUISE
+• Problem — For a = 2i - 3j + 6k, find |a|, the unit vector a-hat, and the direction cosines of a
+• Given — Components a1 = 2, a2 = -3, a3 = 6
+• Principle — Magnitude is the root of the sum of squares; the unit vector and the direction cosines are the components each divided by that magnitude
+• Steps — |a| = sqrt(4 + 9 + 36) = sqrt 49 = 7; a-hat = (2i - 3j + 6k) / 7; direction cosines are 2/7, -3/7 and 6/7
+• Answer — |a| = 7, a-hat = (2i - 3j + 6k) / 7, direction cosines 2/7, -3/7, 6/7
+• Reasoning — One magnitude computation feeds three answers; the direction cosines are just the unit vector's components read aloud, and 4/49 + 9/49 + 36/49 = 1 audits them
+• Mistake to avoid — Dropping the minus sign on the y direction cosine, or announcing the direction cosines as 2, -3, 6 without dividing by 7
+• EXAMPLE 2 — THE TWO-TO-ONE POINT
+• Problem — A and B have position vectors i + 2j - k and 3i - 4j + 2k. Find the position vector of the point P dividing AB internally in the ratio 2 : 1
+• Given — a = i + 2j - k, b = 3i - 4j + 2k, ratio m : n = 2 : 1 measured from A
+• Principle — Internal section formula: p = (m b + n a) / (m + n)
+• Steps — p = (2(3i - 4j + 2k) + 1(i + 2j - k)) / 3 = ((6 + 1) i + (-8 + 2) j + (4 - 1) k) / 3 = (7/3) i - 2j + k
+• Answer — p = (7/3) i - 2j + k
+• Reasoning — P is twice as far from A as from B, so B's coordinates dominate the weighted average — the j component lands at -2, far closer to B's -4 than to A's +2, exactly as the geometry demands
+• Mistake to avoid — Uncrossing the weights to (2a + b) / 3, which gives (5/3) i — the point that divides AB in the ratio 1 : 2 instead
+• EXAMPLE 3 — ANGLE AND SHADOW
+• Problem — For a = i + j + k and b = 2i - j + k, find the angle between them and the scalar projection of a on b
+• Given — Two component triples; both the angle and the projection flow from the single number a.b
+• Principle — a.b = |a| |b| cos theta for the angle; scalar projection of a on b = (a.b) / |b|
+• Steps — a.b = 2 - 1 + 1 = 2; |a| = sqrt 3 and |b| = sqrt 6; cos theta = 2 / (sqrt 3 x sqrt 6) = 2 / sqrt 18 = sqrt 2 / 3, so theta is about 61.87 degrees; projection = 2 / sqrt 6 = sqrt 6 / 3, about 0.82
+• Answer — theta is about 61.87 degrees; the scalar projection of a on b is sqrt 6 / 3
+• Reasoning — One dot product, two geometric facts: the angle reads how aligned the vectors are, and the projection reads how much of a lives along b — the twin outputs of the same computation
+• Mistake to avoid — Dividing a.b by |a| for the projection and reporting 2 / sqrt 3: that is the projection of b on a, the swapped shadow
+• EXAMPLE 4 — THE PERPENDICULAR PARAMETER
+• Problem — Find p so that a = 2i + p j + k is perpendicular to b = i - 2j + 3k
+• Given — One unknown component, one geometric condition: perpendicularity
+• Principle — Perpendicular vectors have a zero dot product, so the condition a.b = 0 is a linear equation in p
+• Steps — a.b = (2)(1) + (p)(-2) + (1)(3) = 2 - 2p + 3 = 5 - 2p; setting 5 - 2p = 0 gives p = 5/2
+• Answer — p = 5/2
+• Reasoning — Every "find the parameter for perpendicularity" problem in existence is this shape: dot, expand, set to zero, solve one linear equation
+• Mistake to avoid — Reaching for the cross product, whose zero would impose parallelism instead; or losing the sign of the -2p term and reporting p = -5/2
+• EXAMPLE 5 — AREA AND NORMAL IN ONE DETERMINANT
+• Problem — For a = 2i + 3j - k and b = i - j + 2k, find the area of the parallelogram and of the triangle on a and b as adjacent sides, and a unit vector normal to both
+• Given — The running pair of the chapter; one cross product answers all three parts
+• Principle — a x b gives the normal direction; its magnitude is the parallelogram area; halve for the triangle; divide by the magnitude for the unit normal
+• Steps — a x b = (3 x 2 - (-1)(-1)) i - (2 x 2 - (-1)(1)) j + (2(-1) - 3 x 1) k = 5i - 5j - 5k; |a x b| = sqrt 75 = 5 sqrt 3; triangle area = (5 sqrt 3) / 2; unit normal = (5i - 5j - 5k) / (5 sqrt 3) = (i - j - k) / sqrt 3
+• Answer — Parallelogram area 5 sqrt 3, triangle area (5 sqrt 3) / 2, unit normal (i - j - k) / sqrt 3 (or its negative)
+• Reasoning — The audit from the cross-product section still applies: the answer dotted with a gives 10 - 15 + 5 = 0 and with b gives 5 + 5 - 10 = 0, so the normal really is normal
+• Mistake to avoid — The j-component sign: without the determinant's built-in minus, you get 5i + 5j - 5k, which fails the perpendicular audit instantly — run the audit, always
+• EXAMPLE 6 — FLAT BY A HAIR
+• Problem — Find lambda so that a = i - j + 2k, b = 2i + j - k and c = lambda i + 3j + k are coplanar
+• Given — Three vectors, one unknown component, one condition: coplanarity
+• Principle — Coplanarity is exactly [a b c] = 0; the determinant is linear in lambda
+• Steps — Expanding the determinant of the rows (1, -1, 2), (2, 1, -1), (lambda, 3, 1): 1(1 x 1 - (-1) x 3) + 1(2 x 1 - (-1) lambda) + 2(2 x 3 - 1 x lambda) = 4 + (2 + lambda) + (12 - 2 lambda) = 18 - lambda; setting 18 - lambda = 0 gives lambda = 18
+• Answer — lambda = 18
+• Reasoning — The large answer is fine: lambda is a component, not a probability. At lambda = 18 the slanted box on a, b, c collapses to zero volume, which is the geometric meaning of the three vectors sharing a plane
+• Mistake to avoid — Testing the vectors pairwise — any two are automatically coplanar, so pairwise tests prove nothing; the triple product is the only honest test for three
+• EXAMPLE 7 — A PROOF: DIAGONALS OF A PARALLELOGRAM BISECT EACH OTHER
+• Problem — Using vectors, prove that the diagonals of a parallelogram bisect each other
+• Given — A parallelogram with one corner at the origin O and adjacent vertices A and B with position vectors a and b; the fourth vertex C is a + b
+• Principle — Two segments bisect each other exactly when they share the same midpoint; compute both midpoints independently and compare
+• Steps — Diagonal OC runs from 0 to a + b, so its midpoint is (a + b) / 2; diagonal AB runs from a to b, so its midpoint is (a + b) / 2; the two midpoints are the same point
+• Answer — Both diagonals pass through (a + b) / 2, so each is cut in half by the other — proved
+• Reasoning — Notice what the proof never did: it never assumed the diagonals meet, never drew a line, and never used a length. Position vectors plus the midpoint formula carried the entire theorem
+• Mistake to avoid — Begging the question by starting "let the diagonals meet at their midpoint M" — that assumes the conclusion. Compute each midpoint separately and let equality do the proving
 
-                • Solving r × a = b with r · c = λ using vector triple product expansion.
+Practice Questions — Self-Test Set
+• Q1 — If a = 4i - 2j + 4k, then |a| equals: (A) 2 (B) 6 (C) 8 (D) 36
+• Q2 — The unit vector in the direction opposite to 3i + 4j is: (A) (3i + 4j) / 5 (B) -(3i + 4j) / 5 (C) (4i + 3j) / 5 (D) (3i + 4j) / 25
+• Q3 — The vectors a = p i + 2j - k and b = 3i - j + 2k are perpendicular when p equals: (A) 4/3 (B) -4/3 (C) 3/4 (D) 4
+• Q4 — The scalar projection of a = 2i + 3j - 6k on b = i + j + k is: (A) -1 (B) 1 / sqrt 3 (C) -1 / sqrt 3 (D) -sqrt 3
+• Q5 — The area of the parallelogram with adjacent sides 3i + j and i + 2j is: (A) 5 (B) 5/2 (C) sqrt 5 (D) 7
+• Q6 — The volume of the parallelepiped with coterminous edges i + k, j + k and i + j is: (A) 0 (B) 1 (C) 2 (D) 3
+• Q7 — The vectors lambda i + 2j and 4i - j are collinear when lambda equals: (A) 8 (B) -8 (C) 2 (D) -2
+• Q8 — A vector makes angles of 60 degrees and 60 degrees with the x-axis and the y-axis. Its angle with the z-axis can be: (A) 30 degrees (B) 45 degrees (C) 60 degrees (D) 90 degrees
 
-            """.trimIndent(),
+▸ Answer Key with Explanations
+• Q1 — Answer (B), 6: |a| = sqrt(16 + 4 + 16) = sqrt 36 = 6. Misconception — option (D) 36 is the sum of squares before the root is taken; the magnitude is the root, not the radicand
+• Q2 — Answer (B): |3i + 4j| = 5, the unit vector along it is (3i + 4j) / 5, and "opposite" flips the sign of the whole vector. Misconception — option (D) divides by 25, the squared magnitude; normalising divides by the magnitude once
+• Q3 — Answer (A), 4/3: a.b = 3p - 2 - 2 = 3p - 4 = 0 gives p = 4/3. Misconception — option (C) 3/4 inverts the fraction at the final step; write the equation 3p = 4 and divide carefully
+• Q4 — Answer (C): a.b = 2 + 3 - 6 = -1 and |b| = sqrt 3, so the projection is -1 / sqrt 3; the negative sign is real information — a leans against b. Misconception — option (A) -1 is the dot product itself, before the division by |b| that turns it into a length
+• Q5 — Answer (A), 5: the k-component of the cross product is 3 x 2 - 1 x 1 = 5, and the parallelogram takes |a x b| whole. Misconception — option (B) 5/2 halves it out of triangle habit; check which shape the question names
+• Q6 — Answer (C), 2: the determinant of the rows (1, 0, 1), (0, 1, 1), (1, 1, 0) is -2, and the volume is its absolute value, 2. Misconception — reporting -2, or hunting for a zero because the vectors "look symmetric"; symmetry is not coplanarity
+• Q7 — Answer (B), -8: collinearity needs the cross product's k-component, lambda x (-1) - 2 x 4 = -lambda - 8, to vanish, giving lambda = -8. Misconception — option (A) 8 drops the sign that the negative j-component of b forces
+• Q8 — Answer (B), 45 degrees: cos^2 gamma = 1 - cos^2 60 - cos^2 60 = 1 - 1/4 - 1/4 = 1/2, so cos gamma = 1 / sqrt 2 (the other root gives 135 degrees). Misconception — assuming the three axis angles must add to 180 degrees; they obey the squares identity, not a sum
+
+Chapter Summary and Revision Checklist
+• The whole chapter is four translations: points become components by subtraction; alignment becomes the dot product; area and turning become the cross product; volume and flatness become the scalar triple product
+• Components first, always: |a| = sqrt(a1^2 + a2^2 + a3^2), direction cosines are components over |a| with squares summing to 1, and the section formula weights each endpoint by the other segment's share
+• Dot product audit trail: a.b positive, zero or negative reads acute, right or obtuse; the projection of a on b divides by |b|; a.b is a scalar and can never be crossed with anything
+• Cross product audit trail: anti-commutative, j component negative in the determinant, perpendicular to both parents (dot-check it), magnitude equal to the parallelogram's area — halve for the triangle
+• Triple product audit trail: cyclic swaps are free, single swaps flip the sign, volume takes the absolute value, the tetrahedron takes a sixth, and zero volume means coplanar
+• Self-check: I can state the definitions of collinear, coplanar, unit vector and position vector without notes
+• Self-check: I can find a unit vector, a vector of given magnitude along a direction, and the direction cosines of any given vector
+• Self-check: I can apply the section formula internally and externally and say why the weights cross
+• Self-check: I can compute an angle, test perpendicularity and find a projection from components without hesitation
+• Self-check: I can compute an area or a unit normal from a cross product and audit it with two dot products
+• Self-check: I can compute a volume, divide by 6 for a tetrahedron, and solve a lambda problem for coplanarity or collinearity
+• Self-check: I can reproduce the midpoint theorem and parallelogram-diagonal proofs in position-vector language
+• Self-assessment: score the Practice Set out of 8. 7-8: move on, this chapter is yours. 5-6: rework the sections behind your two misses, then retry. Below 5: rebuild from the Dot Product section, redo every Worked Example with the book closed, and only then retest""".trimIndent(),
 
             videoTitle = "Mastering Box Products, Vector Triple Product & Geometric Vectors",
 
@@ -6884,7 +8087,7 @@ Chapter Summary and Revision Checklist
 
             formulaHighlight = "I_d = ε₀ dΦ_E/dt • c = 1/√(μ₀ε₀) = 3 × 10⁸ m/s • v = c/√(ε_rμ_r) • E₀ = cB₀ • u = ε₀E² • I = ½ε₀cE₀² = u_avg c • p = U/c • P = I/c (absorber), 2I/c (reflector)",
 
-            keyConceptsSummary = "• Maxwell's fix: a changing electric field makes a magnetic field just as a current does — the displacement current I_d = ε₀ dΦ_E/dt keeps the total current continuous across a charging capacitor's gap\\n• Maxwell's four equations in words: charges source E, magnetic monopoles do not exist, a changing B creates E, and currents plus changing E create B\\n• An EM wave is self-propagating: transverse E and B oscillate in phase, mutually perpendicular and perpendicular to the direction of travel — no medium is needed\\n• Its speed is a property of empty space: c = 1/√(μ₀ε₀) = 3 × 10⁸ m/s, with E₀ = cB₀ at every instant; in a medium v = c/√(ε_rμ_r) and the frequency never changes\\n• The wave's energy is shared equally between its E and B fields (u = ε₀E²) and flows at intensity I = u_avg × c — sunlight delivers about 1.4 × 10³ W/m²\\n• EM waves carry momentum p = U/c and exert radiation pressure I/c on an absorber and 2I/c on a mirror — the push behind comet tails and solar sails\\n• The spectrum is one family — radio, microwave, infrared, visible, ultraviolet, X-ray, gamma — rising in frequency; only the wavelength changes, never the vacuum speed",
+            keyConceptsSummary = "• Maxwell's fix: a changing electric field makes a magnetic field just as a current does — the displacement current I_d = ε₀ dΦ_E/dt keeps the total current continuous across a charging capacitor's gap\n• Maxwell's four equations in words: charges source E, magnetic monopoles do not exist, a changing B creates E, and currents plus changing E create B\n• An EM wave is self-propagating: transverse E and B oscillate in phase, mutually perpendicular and perpendicular to the direction of travel — no medium is needed\n• Its speed is a property of empty space: c = 1/√(μ₀ε₀) = 3 × 10⁸ m/s, with E₀ = cB₀ at every instant; in a medium v = c/√(ε_rμ_r) and the frequency never changes\n• The wave's energy is shared equally between its E and B fields (u = ε₀E²) and flows at intensity I = u_avg × c — sunlight delivers about 1.4 × 10³ W/m²\n• EM waves carry momentum p = U/c and exert radiation pressure I/c on an absorber and 2I/c on a mirror — the push behind comet tails and solar sails\n• The spectrum is one family — radio, microwave, infrared, visible, ultraviolet, X-ray, gamma — rising in frequency; only the wavelength changes, never the vacuum speed",
 
             detailedStudyNotes = """
 Introduction — A Wave That Travels Through Nothing
@@ -8888,7 +10091,7 @@ Chapter Summary and Revision Checklist
 
             formulaHighlight = "n = m / M = N / NA = V / 22.4 (gases at STP) • NA = 6.022 x 10^23 per mole • molar mass in g/mol = atomic or molecular mass in u • average atomic mass = sum of (isotope mass x fractional abundance) • mass percent = (element mass in 1 mol / molar mass) x 100 • molecular formula = empirical x n, n = M / empirical mass • limiting reagent = smallest (moles / coefficient) • molarity = moles of solute / litres of solution",
 
-            keyConceptsSummary = "Matter sorts by composition: elements and compounds are pure substances with fixed composition, mixtures are not — alloys are homogeneous mixtures, and the fixed-composition test (the law of definite proportions) is what separates a compound from a mixture\\nDalton's atoms combine in simple whole-number ratios, which explains definite and multiple proportions (CO versus CO2: 16 g versus 32 g of oxygen per 12 g of carbon, a 1 : 2 ratio) and conservation of mass; isotopes repair his identical-mass postulate, and Avogadro separated atoms from molecules to make sense of Gay-Lussac's combining volumes\\nOne mole is exactly 6.022 x 10^23 particles (the Avogadro constant), and the molar mass in grams per mole is numerically the atomic, molecular or formula-unit mass in u — so weighing a sample counts its particles; chlorine's 35.5 u is an abundance-weighted isotope average, not a plain mean\\nEvery conversion crosses the mole bridge: n = mass / molar mass = particles / 6.022 x 10^23 = gas volume at STP / 22.4 L — with the 22.4 L pier valid only for gases at 0 degrees C and 1 atm\\nPercentage composition is a mass fraction (H2SO4: H 2.04 percent, S 32.65 percent, O 65.31 percent — the three must sum to 100), and the empirical-formula route runs percent to grams per 100 g to moles to divide-by-the-smallest to fraction repair (a ratio of 1.33 orders multiply-by-3); molecular formula = empirical formula x n, where n = molar mass / empirical formula mass\\nA balanced equation is a mole-ratio recipe: convert the known quantity to moles, cross by the coefficient ratio, convert out — coefficients are never mass ratios, and for gases at the same temperature and pressure, volume ratios can stand in for mole ratios directly\\nThe limiting reagent — the reactant with the smallest (moles / coefficient) quotient, which is not necessarily the one with the smallest mass — alone fixes the yield (13 g of Zn with 7.3 g of HCl is limited by the acid and gives 0.1 mol of H2); molarity extends the same counting into solutions as moles per litre of finished solution",
+            keyConceptsSummary = "Matter sorts by composition: elements and compounds are pure substances with fixed composition, mixtures are not — alloys are homogeneous mixtures, and the fixed-composition test (the law of definite proportions) is what separates a compound from a mixture\nDalton's atoms combine in simple whole-number ratios, which explains definite and multiple proportions (CO versus CO2: 16 g versus 32 g of oxygen per 12 g of carbon, a 1 : 2 ratio) and conservation of mass; isotopes repair his identical-mass postulate, and Avogadro separated atoms from molecules to make sense of Gay-Lussac's combining volumes\nOne mole is exactly 6.022 x 10^23 particles (the Avogadro constant), and the molar mass in grams per mole is numerically the atomic, molecular or formula-unit mass in u — so weighing a sample counts its particles; chlorine's 35.5 u is an abundance-weighted isotope average, not a plain mean\nEvery conversion crosses the mole bridge: n = mass / molar mass = particles / 6.022 x 10^23 = gas volume at STP / 22.4 L — with the 22.4 L pier valid only for gases at 0 degrees C and 1 atm\nPercentage composition is a mass fraction (H2SO4: H 2.04 percent, S 32.65 percent, O 65.31 percent — the three must sum to 100), and the empirical-formula route runs percent to grams per 100 g to moles to divide-by-the-smallest to fraction repair (a ratio of 1.33 orders multiply-by-3); molecular formula = empirical formula x n, where n = molar mass / empirical formula mass\nA balanced equation is a mole-ratio recipe: convert the known quantity to moles, cross by the coefficient ratio, convert out — coefficients are never mass ratios, and for gases at the same temperature and pressure, volume ratios can stand in for mole ratios directly\nThe limiting reagent — the reactant with the smallest (moles / coefficient) quotient, which is not necessarily the one with the smallest mass — alone fixes the yield (13 g of Zn with 7.3 g of HCl is limited by the acid and gives 0.1 mol of H2); molarity extends the same counting into solutions as moles per litre of finished solution",
 
             detailedStudyNotes = """Introduction — Why Every Chemistry Mark Starts Here
 • Here is a secret your seniors will confirm: chemistry is not really about colourful reactions. It is about counting things you cannot see. Every mark you will ever score in equilibrium, electrochemistry, kinetics or solutions is paid out of one account — the mole — and this chapter is where that account is opened.
@@ -10685,7 +11888,7 @@ Chapter Summary, Checklist and Self-Assessment
 
             formulaHighlight = "ΔU = q + w (chemistry convention: heat absorbed +, work done ON the system +; physics writes ΔU = Q - W for work done BY the system) • w = -P_ext ΔV, free expansion w = 0, reversible isothermal w = -2.303 nRT log (V2/V1), 1 L atm = 101.325 J • ΔH = qp at constant pressure and ΔU = qv at constant volume • ΔH = ΔU + Δng RT with Δng = gaseous product moles - gaseous reactant moles (RT = 2.48 kJ/mol at 298 K) • ΔrH° = sum ΔfH° (products) - sum ΔfH° (reactants); ΔfH° of an element in its reference state = 0 • ΔfH° from combustion data = sum ΔcH° of elements - ΔcH° of compound • bond enthalpy estimate: ΔrH = bonds broken - bonds formed • Kirchhoff: ΔH(T2) = ΔH(T1) + ΔCp (T2 - T1) • ΔG = ΔH - TΔS (ΔS in kJ per kelvin, T in kelvin) and ΔG° = -RT ln K; at 298 K every -5.71 kJ/mol of ΔG° multiplies K by 10 • neutralisation of strong acid by strong base = -57.1 kJ/mol",
 
-            keyConceptsSummary = "Thermodynamics starts with a boundary: the system is what you study, everything else is surroundings, and open, closed and isolated systems differ by what may cross — matter, energy, or neither; U, H, S, G, P, V and T are state functions fixed by the state alone, while heat q and work w are path functions, and properties split into extensive (amount-dependent: U, H, V) and intensive (amount-free: T, P, density)\\nThe first law in CHEMISTRY bookkeeping is ΔU = q + w, with q positive when heat is absorbed BY the system and w positive when work is done ON the system — the mirror image of the physics form ΔU = Q - W, where W is work done BY the system; expansion work is w = -P_ext ΔV (free expansion gives w = 0, reversible isothermal work is -2.303 nRT log (V2/V1)), and the special cases fall out instantly: adiabatic ΔU = w, isochoric ΔU = qv, isothermal ideal gas q = -w\\nEnthalpy H = U + PV is built for the open bench: at constant pressure ΔH = qp, while a rigid bomb calorimeter measures qv = ΔU, and the two are bridged by ΔH = ΔU + Δng RT with Δng counting GASEOUS moles only (water liquid versus gas changes the count); calorimetry itself is one bookkeeping sentence — heat absorbed by the calorimeter (C ΔT, or m c ΔT) is the negative of the reaction's heat, scaled per mole, as in the neutralisation measurement that gives about -56.8 kJ/mol against the standard -57.1\\nStandard states (1 bar, specified temperature, 1 mol per litre for solutes) anchor all tables; ΔfH° is the enthalpy of forming one mole of a compound from its elements in reference states, elements in reference form score exactly zero (graphite, not diamond, for carbon), and any reaction enthalpy follows from ΔrH° = sum of ΔfH° (products) - sum of ΔfH° (reactants), with coefficients honoured and the value belonging to the equation as written\\nHess's law — ΔH is route-independent because H is a state function — runs on four moves (write the target, reverse to flip signs or scale to multiply, cancel, add) and unlocks what cannot be measured directly: formation of CO (-110.5 kJ/mol) from combustion data, formation of methane (-74.8 kJ/mol) from the combustion values of C, H2 and CH4, and lattice enthalpies through Born-Haber cycles\\nA named enthalpy exists for every standard event — combustion (always negative), atomisation (always positive), solution (NaCl about +3.9 kJ/mol), lattice (breaking one mole of ionic solid into gaseous ions, +788 kJ/mol for NaCl in the dissociation convention), neutralisation (-57.1 kJ/mol for any strong acid with any strong base); bond enthalpies estimate ΔrH as bonds BROKEN minus bonds FORMED (gas phase, averages — H2 + Cl2 gives -184 kJ), and Kirchhoff's equation ΔH(T2) = ΔH(T1) + ΔCp (T2 - T1) corrects enthalpy changes to other temperatures\\nDirection is judged by entropy and Gibbs energy, not by heat: entropy S (joules per kelvin) grows with microstates, ΔS is usually positive when gas moles increase, and the second law demands ΔS of the universe be positive for any spontaneous process; at constant T and P the verdict compresses into ΔG = ΔH - TΔS (negative spontaneous, zero equilibrium, positive reverse-spontaneous), the four sign cases make temperature the referee when ΔH and ΔS compete (ice melts spontaneously only above 273 K), and ΔG° = -RT ln K ties the standard verdict to equilibrium — at 298 K every -5.71 kJ/mol of ΔG° multiplies K by ten",
+            keyConceptsSummary = "Thermodynamics starts with a boundary: the system is what you study, everything else is surroundings, and open, closed and isolated systems differ by what may cross — matter, energy, or neither; U, H, S, G, P, V and T are state functions fixed by the state alone, while heat q and work w are path functions, and properties split into extensive (amount-dependent: U, H, V) and intensive (amount-free: T, P, density)\nThe first law in CHEMISTRY bookkeeping is ΔU = q + w, with q positive when heat is absorbed BY the system and w positive when work is done ON the system — the mirror image of the physics form ΔU = Q - W, where W is work done BY the system; expansion work is w = -P_ext ΔV (free expansion gives w = 0, reversible isothermal work is -2.303 nRT log (V2/V1)), and the special cases fall out instantly: adiabatic ΔU = w, isochoric ΔU = qv, isothermal ideal gas q = -w\nEnthalpy H = U + PV is built for the open bench: at constant pressure ΔH = qp, while a rigid bomb calorimeter measures qv = ΔU, and the two are bridged by ΔH = ΔU + Δng RT with Δng counting GASEOUS moles only (water liquid versus gas changes the count); calorimetry itself is one bookkeeping sentence — heat absorbed by the calorimeter (C ΔT, or m c ΔT) is the negative of the reaction's heat, scaled per mole, as in the neutralisation measurement that gives about -56.8 kJ/mol against the standard -57.1\nStandard states (1 bar, specified temperature, 1 mol per litre for solutes) anchor all tables; ΔfH° is the enthalpy of forming one mole of a compound from its elements in reference states, elements in reference form score exactly zero (graphite, not diamond, for carbon), and any reaction enthalpy follows from ΔrH° = sum of ΔfH° (products) - sum of ΔfH° (reactants), with coefficients honoured and the value belonging to the equation as written\nHess's law — ΔH is route-independent because H is a state function — runs on four moves (write the target, reverse to flip signs or scale to multiply, cancel, add) and unlocks what cannot be measured directly: formation of CO (-110.5 kJ/mol) from combustion data, formation of methane (-74.8 kJ/mol) from the combustion values of C, H2 and CH4, and lattice enthalpies through Born-Haber cycles\nA named enthalpy exists for every standard event — combustion (always negative), atomisation (always positive), solution (NaCl about +3.9 kJ/mol), lattice (breaking one mole of ionic solid into gaseous ions, +788 kJ/mol for NaCl in the dissociation convention), neutralisation (-57.1 kJ/mol for any strong acid with any strong base); bond enthalpies estimate ΔrH as bonds BROKEN minus bonds FORMED (gas phase, averages — H2 + Cl2 gives -184 kJ), and Kirchhoff's equation ΔH(T2) = ΔH(T1) + ΔCp (T2 - T1) corrects enthalpy changes to other temperatures\nDirection is judged by entropy and Gibbs energy, not by heat: entropy S (joules per kelvin) grows with microstates, ΔS is usually positive when gas moles increase, and the second law demands ΔS of the universe be positive for any spontaneous process; at constant T and P the verdict compresses into ΔG = ΔH - TΔS (negative spontaneous, zero equilibrium, positive reverse-spontaneous), the four sign cases make temperature the referee when ΔH and ΔS compete (ice melts spontaneously only above 273 K), and ΔG° = -RT ln K ties the standard verdict to equilibrium — at 298 K every -5.71 kJ/mol of ΔG° multiplies K by ten",
 
             detailedStudyNotes = """Introduction — Why Thermodynamics Decides Whether a Reaction Runs
 • Here is an uncomfortable truth about chemistry: knowing that a reaction CAN be written on paper tells you nothing about whether it will actually happen. Diamond should, by every energy calculation, slowly turn into graphite — yet your diamond ring is in no hurry. Thermodynamics is the branch of science that separates reactions that merely look good on paper from reactions that genuinely run.
@@ -13068,9 +14271,9 @@ Chapter Summary and Revision Checklist
 
             durationMinutes = 50,
 
-            formulaHighlight = "✔ Leaving-group order (both SN1 and SN2): R-I > R-Br > R-Cl >> R-F, mirroring bond weakness and base weakness of the halide ion\\n✔ SN1 substrate order: benzylic, allylic, 3 degree > 2 degree > 1 degree > methyl; rate = k [R-X]; racemisation; rearrangements possible; favoured by polar protic solvents and weak nucleophiles\\n✔ SN2 substrate order: methyl > 1 degree > 2 degree > 3 degree; rate = k [R-X] [Nu-]; complete inversion (Walden); no rearrangement; favoured by strong nucleophiles and polar aprotic solvents (acetone, DMF, DMSO)\\n✔ Reagent switches: aqueous KOH -> substitution (alcohol); alcoholic KOH -> elimination (alkene); heat favours elimination\\n✔ Ambident forks: KCN -> R-CN (nitrile); AgCN -> R-NC (isocyanide); KNO2 -> R-O-N=O (alkyl nitrite); AgNO2 -> R-NO2 (nitroalkane)\\n✔ Exchange reactions: NaI in dry acetone -> alkyl iodide (Finkelstein, driven by NaCl precipitation); AgF, Hg2F2, CoF2 or SbF3 -> alkyl fluoride (Swarts)\\n✔ Preparation anchors: HX reactivity HI > HBr > HCl; alcohol reactivity 3 > 2 > 1 degree; Lucas reagent (conc. HCl + ZnCl2) timings — 3 degree instant, 2 degree about 5 min, 1 degree only on heating; SOCl2 alone -> retention (SNi), SOCl2 + pyridine -> inversion\\n✔ Organometallic lines: Mg in dry ether -> Grignard R-MgX (reactivity RI > RBr > RCl); R-MgX + H2O -> R-H (quenched); R-MgX + CO2 then H3O+ -> R-COOH (one extra carbon); 2 R-X + 2 Na in dry ether -> R-R (Wurtz, symmetrical only); R2CuLi + R'-X -> R-R' (Corey-House, unsymmetrical)\\n✔ Saytzeff: ordinary base -> more substituted alkene (major); Hofmann: bulky base (tert-butoxide) or F leaving group -> less substituted alkene\\n✔ Haloarene numbers: C-Cl in chlorobenzene about 169 pm versus about 178 pm in CH3Cl; Dow process 623 K, 300 atm aqueous NaOH; NO2 at ortho/para activates nucleophilic substitution, meta does not; KNH2 in liquid ammonia -> aniline via benzyne; halogen on a ring is deactivating but ortho/para directing for electrophilic substitution",
+            formulaHighlight = "✔ Leaving-group order (both SN1 and SN2): R-I > R-Br > R-Cl >> R-F, mirroring bond weakness and base weakness of the halide ion\n✔ SN1 substrate order: benzylic, allylic, 3 degree > 2 degree > 1 degree > methyl; rate = k [R-X]; racemisation; rearrangements possible; favoured by polar protic solvents and weak nucleophiles\n✔ SN2 substrate order: methyl > 1 degree > 2 degree > 3 degree; rate = k [R-X] [Nu-]; complete inversion (Walden); no rearrangement; favoured by strong nucleophiles and polar aprotic solvents (acetone, DMF, DMSO)\n✔ Reagent switches: aqueous KOH -> substitution (alcohol); alcoholic KOH -> elimination (alkene); heat favours elimination\n✔ Ambident forks: KCN -> R-CN (nitrile); AgCN -> R-NC (isocyanide); KNO2 -> R-O-N=O (alkyl nitrite); AgNO2 -> R-NO2 (nitroalkane)\n✔ Exchange reactions: NaI in dry acetone -> alkyl iodide (Finkelstein, driven by NaCl precipitation); AgF, Hg2F2, CoF2 or SbF3 -> alkyl fluoride (Swarts)\n✔ Preparation anchors: HX reactivity HI > HBr > HCl; alcohol reactivity 3 > 2 > 1 degree; Lucas reagent (conc. HCl + ZnCl2) timings — 3 degree instant, 2 degree about 5 min, 1 degree only on heating; SOCl2 alone -> retention (SNi), SOCl2 + pyridine -> inversion\n✔ Organometallic lines: Mg in dry ether -> Grignard R-MgX (reactivity RI > RBr > RCl); R-MgX + H2O -> R-H (quenched); R-MgX + CO2 then H3O+ -> R-COOH (one extra carbon); 2 R-X + 2 Na in dry ether -> R-R (Wurtz, symmetrical only); R2CuLi + R'-X -> R-R' (Corey-House, unsymmetrical)\n✔ Saytzeff: ordinary base -> more substituted alkene (major); Hofmann: bulky base (tert-butoxide) or F leaving group -> less substituted alkene\n✔ Haloarene numbers: C-Cl in chlorobenzene about 169 pm versus about 178 pm in CH3Cl; Dow process 623 K, 300 atm aqueous NaOH; NO2 at ortho/para activates nucleophilic substitution, meta does not; KNH2 in liquid ammonia -> aniline via benzyne; halogen on a ring is deactivating but ortho/para directing for electrophilic substitution",
 
-            keyConceptsSummary = "Everything in this chapter is decided by the carbon holding the halogen: classify it as methyl, primary, secondary or tertiary, flag it allylic or benzylic (sp3 carbon beside a pi system — hyper-reactive both ways), and stop entirely if the halogen sits directly on an sp2 carbon (vinylic or aryl — resonance strengthens the C-X bond and substitution shuts down); benzyl chloride is benzylic, not aryl, and chlorobenzene is aryl, not benzylic\\nPreparation runs on four families: from alcohols, where HX reactivity is HI > HBr > HCl, alcohol reactivity is 3 > 2 > 1 degree, the Lucas reagent (conc. HCl + ZnCl2) times the classes (tertiary instant, secondary about 5 minutes, primary only on heating), and SOCl2 is preferred because SO2 and HCl escape as gases — with retention alone (internal SNi return) but inversion when pyridine frees chloride for backside attack; free-radical halogenation, statistical for chlorine but fiercely selective for bromine (per-hydrogen rates about 1 : 80 : 1600 for 1, 2, 3 degree); halide exchange — Finkelstein (NaI in dry acetone, driven by NaCl precipitating) and Swarts (AgF, Hg2F2, CoF2, SbF3) for fluorides; and ring routes — FeCl3-catalysed halogenation, or Sandmeyer chemistry through diazonium salts for positional control plus F and I\\nPhysical properties are two forces bookkeeping: boiling points rise RI > RBr > RCl > RF and with alkyl size, but branching lowers them (n-butyl > isobutyl > sec-butyl > tert-butyl chloride) by shrinking surface contact; density follows halogen mass (RI > RBr > RCl), with bromides, iodides and polychlorinated liquids sinking in water; haloalkanes are practically insoluble in water because they cannot repay the cost of breaking its hydrogen-bond network; para-dichlorobenzene melts far above its ortho and meta isomers through crystal symmetry, and CH3Cl (about 1.9 D) out-dips CH3F (about 1.85 D) because dipole is charge separation times bond length\\nSN1 and SN2 are mirror-image mechanisms: SN2 is one concerted backside-attack step, rate = k [R-X] [Nu-], substrate order methyl > 1 > 2 > 3 degree (steric access), driven by strong nucleophiles in polar aprotic solvents (acetone, DMF, DMSO); SN1 is ionisation first, rate = k [R-X] only, substrate order 3 > 2 > 1 degree > methyl (carbocation stability, with benzylic and allylic jumping the queue), helped by polar protic solvents and indifferent to nucleophile strength; both share the leaving-group order I > Br > Cl >> F, and only SN1 can rearrange (hydride or methyl shifts upgrade the cation) — secondary substrates sit on the border and must be judged by nucleophile, solvent and temperature, and neopentyl halides defy their primary label in both mechanisms\\nStereochemistry is the mechanisms' signature: SN2 inverts the spatial arrangement every time (Walden inversion — the R/S letter flips only if the priority ranking is unchanged, as in (R)-2-bromobutane giving (S)-butan-2-ol), while SN1 passes through a planar sp2 carbocation attacked equally from both faces, racemising an optically active halide to an inactive 50:50 mixture; elimination competes throughout — aqueous KOH substitutes, hot alcoholic KOH eliminates, heat favours elimination, E2 is concerted with a strong base, E1 shares SN1's cation, Saytzeff's rule gives the more substituted alkene with ordinary bases (count substituents on the double bond), and Hofmann's rule flips to the less substituted alkene with bulky bases like tert-butoxide or a fluoride leaving group\\nAmbident nucleophiles and organometallics are the synthesis toolkit: ionic KCN attacks through carbon (nitrile R-CN, a one-carbon chain extension towards acids and amines) while covalent AgCN attacks through nitrogen (isocyanide R-NC); KNO2 attacks through oxygen (alkyl nitrite) while AgNO2 attacks through nitrogen (nitroalkane) — silver flips both forks; Grignard reagents R-MgX form from Mg in perfectly dry ether (reactivity RI > RBr > RCl), behave as carbanions, are quenched by any proton source to R-H (the moisture trap), and convert CO2 into a carboxylic acid with one extra carbon; Wurtz coupling (Na, dry ether) joins two identical halides to symmetrical alkanes only, and Corey-House (R2CuLi + R'-X) delivers the unsymmetrical alkanes Wurtz cannot\\nHaloarenes stand behind four walls — resonance gives C-Cl partial double-bond character (169 pm in chlorobenzene versus 178 pm in CH3Cl), the sp2 ring carbon grips the bond tighter, the phenyl cation is too unstable for SN1, and the pi cloud blocks the SN2 backside — so they yield only to force (Dow process: aqueous NaOH at 623 K and 300 atm to phenol), to activation (ortho/para NO2 groups stabilise the Meisenheimer intermediate, meta does not; picryl chloride reacts even with water), or to the benzyne route (KNH2 in liquid ammonia to aniline, proven by carbon-14 labelling and cine substitution); the ring itself still does electrophilic substitution with the halogen deactivating yet ortho/para directing, plus Fittig (biphenyl) and Wurtz-Fittig (alkylbenzene) couplings — and the chapter closes on DDT (chloral + chlorobenzene) and BHC (benzene + Cl2 under UV, gamma isomer is lindane), effective insecticides whose persistence made them ecological warnings",
+            keyConceptsSummary = "Everything in this chapter is decided by the carbon holding the halogen: classify it as methyl, primary, secondary or tertiary, flag it allylic or benzylic (sp3 carbon beside a pi system — hyper-reactive both ways), and stop entirely if the halogen sits directly on an sp2 carbon (vinylic or aryl — resonance strengthens the C-X bond and substitution shuts down); benzyl chloride is benzylic, not aryl, and chlorobenzene is aryl, not benzylic\nPreparation runs on four families: from alcohols, where HX reactivity is HI > HBr > HCl, alcohol reactivity is 3 > 2 > 1 degree, the Lucas reagent (conc. HCl + ZnCl2) times the classes (tertiary instant, secondary about 5 minutes, primary only on heating), and SOCl2 is preferred because SO2 and HCl escape as gases — with retention alone (internal SNi return) but inversion when pyridine frees chloride for backside attack; free-radical halogenation, statistical for chlorine but fiercely selective for bromine (per-hydrogen rates about 1 : 80 : 1600 for 1, 2, 3 degree); halide exchange — Finkelstein (NaI in dry acetone, driven by NaCl precipitating) and Swarts (AgF, Hg2F2, CoF2, SbF3) for fluorides; and ring routes — FeCl3-catalysed halogenation, or Sandmeyer chemistry through diazonium salts for positional control plus F and I\nPhysical properties are two forces bookkeeping: boiling points rise RI > RBr > RCl > RF and with alkyl size, but branching lowers them (n-butyl > isobutyl > sec-butyl > tert-butyl chloride) by shrinking surface contact; density follows halogen mass (RI > RBr > RCl), with bromides, iodides and polychlorinated liquids sinking in water; haloalkanes are practically insoluble in water because they cannot repay the cost of breaking its hydrogen-bond network; para-dichlorobenzene melts far above its ortho and meta isomers through crystal symmetry, and CH3Cl (about 1.9 D) out-dips CH3F (about 1.85 D) because dipole is charge separation times bond length\nSN1 and SN2 are mirror-image mechanisms: SN2 is one concerted backside-attack step, rate = k [R-X] [Nu-], substrate order methyl > 1 > 2 > 3 degree (steric access), driven by strong nucleophiles in polar aprotic solvents (acetone, DMF, DMSO); SN1 is ionisation first, rate = k [R-X] only, substrate order 3 > 2 > 1 degree > methyl (carbocation stability, with benzylic and allylic jumping the queue), helped by polar protic solvents and indifferent to nucleophile strength; both share the leaving-group order I > Br > Cl >> F, and only SN1 can rearrange (hydride or methyl shifts upgrade the cation) — secondary substrates sit on the border and must be judged by nucleophile, solvent and temperature, and neopentyl halides defy their primary label in both mechanisms\nStereochemistry is the mechanisms' signature: SN2 inverts the spatial arrangement every time (Walden inversion — the R/S letter flips only if the priority ranking is unchanged, as in (R)-2-bromobutane giving (S)-butan-2-ol), while SN1 passes through a planar sp2 carbocation attacked equally from both faces, racemising an optically active halide to an inactive 50:50 mixture; elimination competes throughout — aqueous KOH substitutes, hot alcoholic KOH eliminates, heat favours elimination, E2 is concerted with a strong base, E1 shares SN1's cation, Saytzeff's rule gives the more substituted alkene with ordinary bases (count substituents on the double bond), and Hofmann's rule flips to the less substituted alkene with bulky bases like tert-butoxide or a fluoride leaving group\nAmbident nucleophiles and organometallics are the synthesis toolkit: ionic KCN attacks through carbon (nitrile R-CN, a one-carbon chain extension towards acids and amines) while covalent AgCN attacks through nitrogen (isocyanide R-NC); KNO2 attacks through oxygen (alkyl nitrite) while AgNO2 attacks through nitrogen (nitroalkane) — silver flips both forks; Grignard reagents R-MgX form from Mg in perfectly dry ether (reactivity RI > RBr > RCl), behave as carbanions, are quenched by any proton source to R-H (the moisture trap), and convert CO2 into a carboxylic acid with one extra carbon; Wurtz coupling (Na, dry ether) joins two identical halides to symmetrical alkanes only, and Corey-House (R2CuLi + R'-X) delivers the unsymmetrical alkanes Wurtz cannot\nHaloarenes stand behind four walls — resonance gives C-Cl partial double-bond character (169 pm in chlorobenzene versus 178 pm in CH3Cl), the sp2 ring carbon grips the bond tighter, the phenyl cation is too unstable for SN1, and the pi cloud blocks the SN2 backside — so they yield only to force (Dow process: aqueous NaOH at 623 K and 300 atm to phenol), to activation (ortho/para NO2 groups stabilise the Meisenheimer intermediate, meta does not; picryl chloride reacts even with water), or to the benzyne route (KNH2 in liquid ammonia to aniline, proven by carbon-14 labelling and cine substitution); the ring itself still does electrophilic substitution with the halogen deactivating yet ortho/para directing, plus Fittig (biphenyl) and Wurtz-Fittig (alkylbenzene) couplings — and the chapter closes on DDT (chloral + chlorobenzene) and BHC (benzene + Cl2 under UV, gamma isomer is lindane), effective insecticides whose persistence made them ecological warnings",
 
             detailedStudyNotes = """Introduction — Why This Chapter Runs on Orders
 • Here is the puzzle this whole chapter solves: take one compound, 2-bromopropane, and treat it with potassium hydroxide. Dissolve the KOH in water and you get propan-2-ol. Dissolve it in alcohol instead and you get propene. Same flask, same halide, same reagent — only the conditions changed, and the reaction completely changed with them. Haloalkane chemistry is the art of predicting which of several competing pathways wins.
@@ -16006,6 +17209,608 @@ Chapter Summary, Revision Checklist and Self-Assessment
 
             """.trimIndent()
 
+        ),
+QuestionEntity(
+            id = "q_math_5",
+            chapterId = "math_ch_1",
+            subject = "Mathematics",
+            topic = "Inclusion-Exclusion — Three Sets",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 75,
+            prompt = "In a group of 120 students, 70 like Mathematics, 60 like Physics and 50 like Chemistry. Also, 30 like both Mathematics and Physics, 25 like both Physics and Chemistry, 20 like both Mathematics and Chemistry, and 10 like all three subjects. The number of students who like none of the three subjects is:",
+            optionA = "5",
+            optionB = "10",
+            optionC = "15",
+            optionD = "115",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Apply inclusion-exclusion for three sets: n(M union P union C) = (70 + 60 + 50) - (30 + 25 + 20) + 10 = 180 - 75 + 10 = 115.
+                Step 2: The triple intersection is ADDED back at the end: the singles counted it 3 times, the pairs subtracted it 3 times, so without the +10 the centre would be counted zero times.
+                Step 3: Students liking none = 120 - 115 = 5.
+                Trap: 15 (option C) comes from forgetting the +10 add-back (180 - 75 - 10 = 95, then 120 - 95 = 25 is not even listed — but omitting the sign flip the other way gives union 105 and none = 15). The alternating signs +, -, + are the whole formula.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_6",
+            chapterId = "math_ch_1",
+            subject = "Mathematics",
+            topic = "Counting Reflexive Relations",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 45,
+            prompt = "The number of reflexive relations that can be defined on a set containing 4 elements is:",
+            optionA = "256",
+            optionB = "65536",
+            optionC = "4096",
+            optionD = "1024",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: A relation on a 4-element set is a subset of A x A, which has 4 x 4 = 16 ordered pairs.
+                Step 2: Reflexivity forces the 4 diagonal pairs (a, a) to be IN — they make no choice. The remaining 16 - 4 = 12 pairs are free, each in or out.
+                Step 3: Number of reflexive relations = 2^12 = 4096.
+                Trap: 65536 (option B) is 2^16, the count of ALL relations with nothing forced; 1024 (option D) is 2^10, the count of SYMMETRIC relations on 4 elements — a different condition with a different exponent.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_7",
+            chapterId = "math_ch_1",
+            subject = "Mathematics",
+            topic = "Counting Onto Functions",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "The number of onto (surjective) functions from a set A with 4 elements to a set B with 3 elements is:",
+            optionA = "81",
+            optionB = "36",
+            optionC = "24",
+            optionD = "64",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Count all functions, then remove those that miss part of B, using inclusion-exclusion: onto = 3^4 - C(3,1) x 2^4 + C(3,2) x 1^4.
+                Step 2: 3^4 = 81 counts every map; C(3,1) x 2^4 = 3 x 16 = 48 removes maps missing a chosen element of B; C(3,2) x 1^4 = 3 adds back maps missing two chosen elements (subtracted twice).
+                Step 3: 81 - 48 + 3 = 36.
+                Trap: 81 (option A) forgets the onto condition entirely; 24 (option C) is 4! — the count of BIJECTIONS, which cannot exist here because the two sets have different sizes.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_8",
+            chapterId = "math_ch_1",
+            subject = "Mathematics",
+            topic = "Contrapositive of an Implication",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "The contrapositive of the statement 'If a number is divisible by 6, then it is divisible by 3' is:",
+            optionA = "If a number is divisible by 3, then it is divisible by 6",
+            optionB = "If a number is not divisible by 6, then it is not divisible by 3",
+            optionC = "A number is divisible by 6 and it is not divisible by 3",
+            optionD = "If a number is not divisible by 3, then it is not divisible by 6",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Identify p: 'a number is divisible by 6' (hypothesis) and q: 'it is divisible by 3' (conclusion). The contrapositive is (not q) implies (not p): negate both AND swap them.
+                Step 2: Not q is 'not divisible by 3'; not p is 'not divisible by 6'. Assembled: 'If a number is not divisible by 3, then it is not divisible by 6' — option D. The contrapositive is always equivalent to the original, and indeed both are true.
+                Step 3: Option A is the converse (swap only) — false, since 9 is divisible by 3 but not by 6. Option B is the inverse (negate only) — the same falsehood. Option C is the NEGATION of the original implication (p and not q), not a member of the implication family.
+                Trap: swapping without negating, or negating without swapping — the contrapositive demands both operations, in one move.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_9",
+            chapterId = "math_ch_1",
+            subject = "Mathematics",
+            topic = "Domain of a Real Function",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The domain of the function f(x) = sqrt(4 - x^2) / (x - 1) is:",
+            optionA = "[-2, 2]",
+            optionB = "(-2, 2)",
+            optionC = "[-2, 1) union (1, 2]",
+            optionD = "[-2, 1) union (1, 2)",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: The square root needs 4 - x^2 >= 0, i.e. x^2 <= 4, giving -2 <= x <= 2.
+                Step 2: The denominator needs x - 1 not equal to 0, so x = 1 is removed from that interval.
+                Step 3: Domain = [-2, 1) union (1, 2]. The endpoints -2 and 2 STAY: there the root is 0, and 0 divided by a non-zero denominator is a perfectly good value (f(-2) = 0, f(2) = 0).
+                Trap: option D drops the endpoints by treating the root as if it were in a denominator (strict inequality); option A forgets the denominator hole at x = 1 entirely.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_math_10",
+            chapterId = "math_ch_2",
+            subject = "Mathematics",
+            topic = "Gap Method — No Two Vowels Together",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 90,
+            prompt = "The letters of the word ORANGE are arranged in a row. In how many of these arrangements are no two vowels adjacent to each other?",
+            optionA = "720",
+            optionB = "144",
+            optionC = "288",
+            optionD = "96",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Use the gap method. Arrange the consonants R, N, G first: 3! = 6 ways.
+                Step 2: The 3 consonants create 4 gaps (before, between, after). Choose 3 of the 4 gaps for the vowels: C(4, 3) = 4.
+                Step 3: Arrange the vowels O, A, E in the chosen gaps: 3! = 6. Total = 6 x 4 x 6 = 144.
+                Trap: 720 (option A) is the total number of arrangements with the condition ignored. 288 (option C) comes from inventing extra gaps or double-counting placements — 3 consonants make exactly 4 gaps, never more.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_11",
+            chapterId = "math_ch_2",
+            subject = "Mathematics",
+            topic = "Combinations — At-Least Condition in a Committee",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 90,
+            prompt = "A committee of 5 is to be formed from 7 men and 5 women. In how many ways can this be done if the committee must contain at least 3 women?",
+            optionA = "246",
+            optionB = "210",
+            optionC = "231",
+            optionD = "792",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Split by exact composition. Exactly 3 women and 2 men: C(5, 3) x C(7, 2) = 10 x 21 = 210.
+                Step 2: Exactly 4 women and 1 man: C(5, 4) x C(7, 1) = 5 x 7 = 35. Exactly 5 women: C(5, 5) = 1.
+                Step 3: Add the cases: 210 + 35 + 1 = 246.
+                Trap: 210 (option B) counts only the exactly-3-women case and forgets that "at least 3" includes 4 and 5. 792 (option D) is C(12, 5), the total with no condition at all.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_12",
+            chapterId = "math_ch_2",
+            subject = "Mathematics",
+            topic = "Binomial Theorem — Coefficient in a Product of Expansions",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 120,
+            prompt = "The coefficient of x^8 in the expansion of (1 + x)^6 (1 + x^2)^3 is:",
+            optionA = "48",
+            optionB = "45",
+            optionC = "63",
+            optionD = "78",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: x^8 must be split as x^a from (1 + x)^6 times x^(2b) from (1 + x^2)^3, with a + 2b = 8, a at most 6 and b at most 3.
+                Step 2: The legal splits: b = 1, a = 6: C(6, 6) x C(3, 1) = 1 x 3 = 3. b = 2, a = 4: C(6, 4) x C(3, 2) = 15 x 3 = 45. b = 3, a = 2: C(6, 2) x C(3, 3) = 15 x 1 = 15.
+                Step 3: Add the splits: 3 + 45 + 15 = 63.
+                Trap: 45 (option B) is only the largest single split. Product questions are lost by stopping early — every legal split contributes, and missing one is the designed error.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_13",
+            chapterId = "math_ch_2",
+            subject = "Mathematics",
+            topic = "Binomial Theorem — Middle Term",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "The coefficient of the middle term in the expansion of (1 + x)^10 is:",
+            optionA = "120",
+            optionB = "210",
+            optionC = "462",
+            optionD = "252",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: The expansion has 11 terms. With n = 10 even, there is one middle term, T(6), which means r = 5.
+                Step 2: The middle term is C(10, 5) x^5, and C(10, 5) = 252.
+                Trap: 210 (option B) is C(10, 4), the neighbour coefficient — the classic off-by-one from taking r = 4. The middle of 11 terms is the 6th term, and T(6) always carries r = 5.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_14",
+            chapterId = "math_ch_2",
+            subject = "Mathematics",
+            topic = "Circular Permutations — Adjacent Pair",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "Eight people sit around a round table. In how many ways can they be seated if two particular people always sit next to each other?",
+            optionA = "720",
+            optionB = "1440",
+            optionC = "5040",
+            optionD = "10080",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Glue the two particular people into one block. Now 7 units (the block plus 6 others) sit around a circle: (7 - 1)! = 720 ways.
+                Step 2: The two people inside the block can swap seats: multiply by 2! = 2. Total = 720 x 2 = 1440.
+                Trap: 5040 (option C) is 7!, the answer for a straight row — around a table, rotations of the same seating are identical, so the count is (units - 1)!, not units!. 720 (option A) forgets the internal swap of the pair.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_math_15",
+            chapterId = "math_ch_3",
+            subject = "Mathematics",
+            topic = "Cube Roots of Unity — Power Reduction",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "If omega is a non-real cube root of unity, then omega^99 + omega^100 equals:",
+            optionA = "1",
+            optionB = "-omega^2",
+            optionC = "omega^2",
+            optionD = "0",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Powers of omega repeat with period 3, because omega^3 = 1. Reduce each exponent modulo 3: 99 is divisible by 3, so omega^99 = (omega^3)^33 = 1.
+                Step 2: omega^100 = omega^99 x omega = omega. So the sum is 1 + omega.
+                Step 3: Use 1 + omega + omega^2 = 0, which gives 1 + omega = -omega^2.
+                Trap: 0 (option D) is the value of omega^99 + omega^100 + omega^101 — the full triple. With only two terms, one piece of the cancelling triple is missing.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_16",
+            chapterId = "math_ch_3",
+            subject = "Mathematics",
+            topic = "Principal Argument — Quadrant Trap",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "The principal argument of z = -sqrt(3) - i is:",
+            optionA = "5pi/6",
+            optionB = "-pi/6",
+            optionC = "-5pi/6",
+            optionD = "2pi/3",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Locate the point: a = -sqrt(3) < 0 and b = -1 < 0, so z sits in the third quadrant.
+                Step 2: The reference angle is alpha = arctan(|b/a|) = arctan(1/sqrt(3)) = pi/6.
+                Step 3: Quadrant III rule: arg z = -(pi - alpha) = -(pi - pi/6) = -5pi/6, which lies inside the principal range -pi < arg z ≤ pi.
+                Trap: 5pi/6 (option A) is the argument of -sqrt(3) + i — the mirror point above the axis. -pi/6 (option B) is the raw reference angle with a sign guessed on; arctan alone can never see the third quadrant.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_17",
+            chapterId = "math_ch_3",
+            subject = "Mathematics",
+            topic = "Vieta's Relations — Symmetric Functions",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 75,
+            prompt = "If alpha and beta are the roots of x^2 - 5x + 3 = 0, then alpha^3 + beta^3 equals:",
+            optionA = "45",
+            optionB = "65",
+            optionC = "98",
+            optionD = "80",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Read off Vieta's data: alpha + beta = 5 and alpha beta = 3.
+                Step 2: Use the identity alpha^3 + beta^3 = (alpha + beta)^3 - 3 alpha beta (alpha + beta).
+                Step 3: Substitute: 5^3 - 3 x 3 x 5 = 125 - 45 = 80.
+                Trap: 65 (option B) comes from 125 - 60, i.e. subtracting 3 x (alpha beta) x (something wrong); and solving for the roots first wastes minutes — their cubes involve surds that only cancel at the very end.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_18",
+            chapterId = "math_ch_3",
+            subject = "Mathematics",
+            topic = "Wavy Curve — Rational Inequality",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "The solution set of (x - 1)(x - 3)/(x + 2) ≤ 0 is:",
+            optionA = "x < -2, or 1 ≤ x ≤ 3",
+            optionB = "-2 < x ≤ 1, or x ≥ 3",
+            optionC = "x ≤ -2, or 1 ≤ x ≤ 3",
+            optionD = "-2 ≤ x ≤ 1, or x ≥ 3",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Critical points: 1 and 3 from the numerator, -2 from the denominator. All have odd multiplicity, so the sign flips at each one.
+                Step 2: For x > 3 all three factors are positive, sign +. Walking left: negative on (1, 3), positive on (-2, 1), negative for x < -2.
+                Step 3: We need ≤ 0: the negative regions x < -2 and 1 ≤ x ≤ 3. The numerator zeros 1 and 3 are included; -2 is excluded absolutely because the expression is undefined there.
+                Trap: option C includes x = -2, where the left side does not exist. Option B is the answer to the ≥ 0 version of the same inequality.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_19",
+            chapterId = "math_ch_3",
+            subject = "Mathematics",
+            topic = "Discriminant — Equal Roots Condition",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "The values of k for which 2x^2 - kx + 8 = 0 has equal roots are:",
+            optionA = "k = 8 only",
+            optionB = "k = -8 only",
+            optionC = "k = 8 or k = -8",
+            optionD = "k = 4 or k = -4",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Equal roots means the discriminant is zero: D = b^2 - 4ac = 0.
+                Step 2: Here b = -k, a = 2, c = 8, so D = k^2 - 4 x 2 x 8 = k^2 - 64.
+                Step 3: k^2 - 64 = 0 gives k^2 = 64, hence k = 8 or k = -8.
+                Trap: options A and B each drop one sign — D depends on k^2, so a parameter under a square always produces both values. Option D halves 64 incorrectly.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_math_20",
+            chapterId = "math_ch_4",
+            subject = "Mathematics",
+            topic = "Inverse Tangents — the xy Correction",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 90,
+            prompt = "The value of tan^-1 2 + tan^-1 3 is:",
+            optionA = "-pi/4",
+            optionB = "3pi/4",
+            optionC = "pi/4",
+            optionD = "5pi/4",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Run the gatekeeper test first: xy = 2 x 3 = 6 > 1, with both x and y positive, so the raw addition formula needs a + pi correction.
+                Step 2: Raw formula: (2 + 3)/(1 - 2 x 3) = 5/(-5) = -1, and tan^-1(-1) = -pi/4.
+                Step 3: Correct it: -pi/4 + pi = 3pi/4.
+                Audit: tan^-1 2 is about 63.4 degrees and tan^-1 3 is about 71.6 degrees; two positive acute angles sum to about 135 degrees = 3pi/4, never to a negative angle.
+                Trap: -pi/4 (option A) is the uncorrected formula output — the single most common inverse-trig error. 5pi/4 (option D) exceeds pi, impossible for a sum of two angles each below pi/2.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_21",
+            chapterId = "math_ch_4",
+            subject = "Mathematics",
+            topic = "Trigonometric Equations — Converting to One Function",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 90,
+            prompt = "The solutions of 2 cos^2 x + 3 sin x = 0 in the interval [0, 2pi] are:",
+            optionA = "pi/6 and 5pi/6",
+            optionB = "7pi/6 only",
+            optionC = "7pi/6 and 11pi/6",
+            optionD = "5pi/6 and 7pi/6",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Convert everything to sine using cos^2 x = 1 - sin^2 x:
+                2(1 - sin^2 x) + 3 sin x = 0, i.e. 2 sin^2 x - 3 sin x - 2 = 0.
+                Step 2: Factorise: (2 sin x + 1)(sin x - 2) = 0, so sin x = -1/2 or sin x = 2.
+                Step 3: Reject sin x = 2 outright — sine never exceeds 1. From sin x = -1/2, sine is negative in quadrants III and IV with reference angle pi/6.
+                Step 4: x = pi + pi/6 = 7pi/6 and x = 2pi - pi/6 = 11pi/6.
+                Trap: pi/6 and 5pi/6 (option A) solve sin x = +1/2 — the sign slip in the quadratic. 7pi/6 only (option B) forgets the second quadrant family member.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_22",
+            chapterId = "math_ch_4",
+            subject = "Mathematics",
+            topic = "Compound Angles — sin(A + B)",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 60,
+            prompt = "If A and B are acute angles with sin A = 3/5 and cos B = 5/13, then sin(A + B) equals:",
+            optionA = "63/65",
+            optionB = "56/65",
+            optionC = "-16/65",
+            optionD = "33/65",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Complete the two triangles. A is acute with sin A = 3/5, so cos A = 4/5 (3-4-5 triangle). B is acute with cos B = 5/13, so sin B = 12/13 (5-12-13 triangle).
+                Step 2: Expand: sin(A + B) = sin A cos B + cos A sin B.
+                Step 3: Substitute: (3/5)(5/13) + (4/5)(12/13) = 15/65 + 48/65 = 63/65.
+                Trap: 56/65 (option B) is cos(A - B) = (4/5)(5/13) + (3/5)(12/13) — the cosine expansion with the wrong pairing. -16/65 (option C) is cos(A + B). 33/65 (option D) comes from subtracting the products instead of adding them.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_23",
+            chapterId = "math_ch_4",
+            subject = "Mathematics",
+            topic = "Conditional Identities — Angles of a Triangle",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 60,
+            prompt = "If A, B and C are the angles of a triangle, none of them a right angle, then tan A + tan B + tan C equals:",
+            optionA = "0",
+            optionB = "tan(A + B + C)",
+            optionC = "-(tan A tan B tan C)",
+            optionD = "tan A tan B tan C",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: Use the condition: A + B = pi - C, so tan(A + B) = tan(pi - C) = -tan C.
+                Step 2: Expand the left side: (tan A + tan B)/(1 - tan A tan B) = -tan C.
+                Step 3: Cross-multiply: tan A + tan B = -tan C + tan A tan B tan C. Moving -tan C to the left gives tan A + tan B + tan C = tan A tan B tan C.
+                Audit with A = 45, B = 60, C = 75 degrees: the sum is 1 + 1.732 + 3.732 = 6.464, and the product is 1 x 1.732 x 3.732 = 6.464.
+                Trap: option B collapses to tan pi = 0, the same wrong value as option A. The identity is conditional — it holds only because A + B + C = pi, and it needs all three tangents to exist, hence no right angle.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_24",
+            chapterId = "math_ch_4",
+            subject = "Mathematics",
+            topic = "Inverse Sine — Combining Two Angles",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 120,
+            prompt = "The value of sin^-1(3/5) + sin^-1(8/17) is:",
+            optionA = "sin^-1(13/85)",
+            optionB = "pi/2",
+            optionC = "sin^-1(77/85)",
+            optionD = "sin^-1(84/85)",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Check the safe case: (3/5)^2 + (8/17)^2 = 0.36 + 0.22 = 0.58, which is at most 1, so sin^-1 x + sin^-1 y = sin^-1(x sqrt(1 - y^2) + y sqrt(1 - x^2)) applies directly.
+                Step 2: Get the cosines from the Pythagorean triples: for 3/5 the partner is 4/5 (3-4-5); for 8/17 the partner is 15/17 (8-15-17).
+                Step 3: Combine: (3/5)(15/17) + (8/17)(4/5) = 45/85 + 32/85 = 77/85. The sum is sin^-1(77/85).
+                Trap: 13/85 (option A) is 45/85 - 32/85 — the sine of the DIFFERENCE of the two angles. pi/2 (option B) would need the angles to be complementary; they are about 36.9 and 28.1 degrees, summing to about 65 degrees, not 90.
+            """.trimIndent()
+        ),
+QuestionEntity(
+            id = "q_math_25",
+            chapterId = "math_ch_5",
+            subject = "Mathematics",
+            topic = "Dot Product — Scalar Projection",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Moderate",
+            estimatedSeconds = 90,
+            prompt = "The scalar projection of a = i - 2j + 2k on b = 3i + 4k is:",
+            optionA = "11/5",
+            optionB = "11",
+            optionC = "11/3",
+            optionD = "5/11",
+            correctOptionIndex = 0,
+            stepByStepExplanation = """
+                Step 1: Compute the dot product from components: a.b = (1)(3) + (-2)(0) + (2)(4) = 3 + 0 + 8 = 11.
+                Step 2: The magnitude of the vector projected onto is |b| = sqrt(9 + 0 + 16) = sqrt 25 = 5.
+                Step 3: Scalar projection of a on b = (a.b) / |b| = 11 / 5.
+                Trap: 11/3 (option C) divides by |a| = 3 instead — that computes the projection of b on a. The divisor is always the magnitude of the vector named after the word "on". 11 (option B) is the raw dot product, which is not yet a length.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_26",
+            chapterId = "math_ch_5",
+            subject = "Mathematics",
+            topic = "Scalar Triple Product — Coplanarity Condition",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 120,
+            prompt = "The vectors a = 2i + j, b = i - j + 2k and c = 3i + lambda k are coplanar when lambda equals:",
+            optionA = "-2",
+            optionB = "2",
+            optionC = "0",
+            optionD = "6",
+            correctOptionIndex = 1,
+            stepByStepExplanation = """
+                Step 1: Three vectors are coplanar exactly when their scalar triple product vanishes: [a b c] = 0.
+                Step 2: Expand the determinant of the rows (2, 1, 0), (1, -1, 2), (3, 0, lambda): 2((-1)(lambda) - (2)(0)) - 1((1)(lambda) - (2)(3)) + 0 = -2 lambda - lambda + 6 = 6 - 3 lambda.
+                Step 3: Set 6 - 3 lambda = 0, giving lambda = 2.
+                Trap: 6 (option D) is only the constant term of the expansion — the equation still has to be solved. A sign slip in the middle cofactor produces -2 (option A); expand the determinant slowly, one cofactor at a time.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_27",
+            chapterId = "math_ch_5",
+            subject = "Mathematics",
+            topic = "Cross Product — Area of a Triangle from Position Vectors",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Analytical",
+            estimatedSeconds = 120,
+            prompt = "The area of the triangle whose vertices have position vectors i + 2j + 3k, 2i - j + k and 3i + j - k is:",
+            optionA = "10√5",
+            optionB = "5√5",
+            optionC = "(5√5)/2",
+            optionD = "√5/2",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: Build edge vectors from the first vertex: AB = (2i - j + k) - (i + 2j + 3k) = i - 3j - 2k, and AC = (3i + j - k) - (i + 2j + 3k) = 2i - j - 4k.
+                Step 2: AB x AC = ((-3)(-4) - (-2)(-1)) i - ((1)(-4) - (-2)(2)) j + ((1)(-1) - (-3)(2)) k = 10i + 0j + 5k, whose magnitude is sqrt(100 + 0 + 25) = sqrt 125 = 5√5.
+                Step 3: The triangle's area is half the parallelogram: (1/2)(5√5) = (5√5)/2.
+                Trap: 5√5 (option B) forgets the half — it is the area of the parallelogram on AB and AC. Feeding the raw position vectors into the cross product instead of the edge vectors computes the area of a triangle involving the origin, a different triangle altogether.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_28",
+            chapterId = "math_ch_5",
+            subject = "Mathematics",
+            topic = "Dot Product — Angle Between Two Vectors",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 60,
+            prompt = "The angle between the vectors a = i + j and b = i + k is:",
+            optionA = "30 degrees",
+            optionB = "45 degrees",
+            optionC = "60 degrees",
+            optionD = "90 degrees",
+            correctOptionIndex = 2,
+            stepByStepExplanation = """
+                Step 1: a.b = (1)(1) + (1)(0) + (0)(1) = 1.
+                Step 2: |a| = sqrt(1 + 1) = sqrt 2 and |b| = sqrt(1 + 1) = sqrt 2.
+                Step 3: cos theta = (a.b) / (|a| |b|) = 1 / 2, so theta = 60 degrees.
+                Trap: 30 degrees (option A) comes from feeding 1/2 into the inverse sine; the dot product is built on the cosine. 90 degrees (option D) would need a.b = 0 — sharing one component is not perpendicularity.
+            """.trimIndent()
+        ),
+        QuestionEntity(
+            id = "q_math_29",
+            chapterId = "math_ch_5",
+            subject = "Mathematics",
+            topic = "Unit Vectors and Direction Cosines",
+            examSource = "IISER IAT",
+            examYear = null,
+            isImportantQuestion = true,
+            isPyq = false,
+            difficulty = "Easy",
+            estimatedSeconds = 45,
+            prompt = "The unit vector in the direction of a = 2i - j + 2k is:",
+            optionA = "(2i - j + 2k)/9",
+            optionB = "(2i + j + 2k)/3",
+            optionC = "2i - j + 2k",
+            optionD = "(2i - j + 2k)/3",
+            correctOptionIndex = 3,
+            stepByStepExplanation = """
+                Step 1: |a| = sqrt(4 + 1 + 4) = sqrt 9 = 3.
+                Step 2: The unit vector is a divided by its own magnitude: a-hat = a / |a| = (2i - j + 2k) / 3.
+                Step 3: Audit: |(2i - j + 2k)/3| = 3/3 = 1, a genuine unit vector pointing the same way as a.
+                Trap: dividing by 9 (option A) uses |a|^2 in place of |a| and shrinks the vector to magnitude 1/3. Option C never normalises at all, and option B flips the sign of the j component, changing the direction.
+            """.trimIndent()
         ),
 
         QuestionEntity(

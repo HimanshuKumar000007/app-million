@@ -189,7 +189,22 @@ object ChapterFigureData {
         "fig_chem_19_1_glucose_forms" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273880/chemistry-ch19-fig-19-1-glucose-forms.png",
         "fig_chem_19_2_protein_levels" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273881/chemistry-ch19-fig-19-2-protein-levels.png",
         "fig_chem_19_3_dna_helix" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273883/chemistry-ch19-fig-19-3-dna-helix.png",
-        "fig_chem_19_4_polysaccharides" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273885/chemistry-ch19-fig-19-4-polysaccharides.png"
+        "fig_chem_19_4_polysaccharides" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273885/chemistry-ch19-fig-19-4-polysaccharides.png",
+        "fig_math_1_1_venn_three" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275268/mathematics-ch01-fig-1-1-venn-three.png",
+        "fig_math_1_2_function_types" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275269/mathematics-ch01-fig-1-2-function-types.png",
+        "fig_math_1_3_logic_tables" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275270/mathematics-ch01-fig-1-3-logic-tables.png",
+        "fig_math_2_1_block_gap" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275470/mathematics-ch02-fig-2-1-block-gap-v2.png",
+        "fig_math_2_2_pascal" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275471/mathematics-ch02-fig-2-2-pascal-v2.png",
+        "fig_math_2_3_circular" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275473/mathematics-ch02-fig-2-3-circular-v2.png",
+        "fig_math_3_1_argand" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275356/mathematics-ch03-fig-3-1-argand.png",
+        "fig_math_3_2_unity_roots" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275358/mathematics-ch03-fig-3-2-unity-roots.png",
+        "fig_math_3_3_wavy_curve" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275360/mathematics-ch03-fig-3-3-wavy-curve.png",
+        "fig_math_4_1_unit_circle" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275533/mathematics-ch04-fig-4-1-unit-circle-v2.png",
+        "fig_math_4_2_inverse_graphs" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275535/mathematics-ch04-fig-4-2-inverse-graphs-v2.png",
+        "fig_math_4_3_tan_addition" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275536/mathematics-ch04-fig-4-3-tan-addition-v2.png",
+        "fig_math_5_1_addition" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275384/mathematics-ch05-fig-5-1-addition.png",
+        "fig_math_5_2_products" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275374/mathematics-ch05-fig-5-2-products.png",
+        "fig_math_5_3_triple_product" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275376/mathematics-ch05-fig-5-3-triple-product.png"
     )
 
     val images: Map<String, String> = mapOf(
