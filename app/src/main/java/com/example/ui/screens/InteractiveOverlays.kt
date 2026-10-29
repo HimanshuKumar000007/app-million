@@ -1526,6 +1526,96 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "bio_ch_23" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_23_1_monohybrid")
+
+            6 -> listOf("fig_bio_23_3_dominance_types")
+
+            9 -> listOf("fig_bio_23_2_dihybrid")
+
+            12 -> listOf("fig_bio_23_4_linkage")
+
+            15 -> listOf("fig_bio_23_5_pedigree")
+
+            19 -> listOf("fig_bio_23_6_disorders")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_24" -> when (sectionIndex) {
+
+            1 -> listOf("fig_bio_24_1_double_helix")
+
+            3 -> listOf("fig_bio_24_2_nucleosome")
+
+            8 -> listOf("fig_bio_24_3_meselson_stahl")
+
+            9 -> listOf("fig_bio_24_4_replication_fork")
+
+            10 -> listOf("fig_bio_24_5_central_dogma")
+
+            15 -> listOf("fig_bio_24_6_lac_operon")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_25" -> when (sectionIndex) {
+
+            3 -> listOf("fig_bio_25_1_miller")
+
+            7 -> listOf("fig_bio_25_2_homology_analogy")
+
+            9 -> listOf("fig_bio_25_3_radiation")
+
+            11 -> listOf("fig_bio_25_4_melanism")
+
+            16 -> listOf("fig_bio_25_5_hardy_weinberg")
+
+            21 -> listOf("fig_bio_25_6_human_evolution")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_26" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_26_2_disease_table")
+
+            7 -> listOf("fig_bio_26_1_malaria_cycle")
+
+            11 -> listOf("fig_bio_26_3_innate_barriers")
+
+            12 -> listOf("fig_bio_26_5_immune_response")
+
+            13 -> listOf("fig_bio_26_4_antibody")
+
+            17 -> listOf("fig_bio_26_6_hiv")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_27" -> when (sectionIndex) {
+
+            3 -> listOf("fig_bio_27_1_household")
+
+            7 -> listOf("fig_bio_27_2_industry_map")
+
+            10 -> listOf("fig_bio_27_3_sewage")
+
+            11 -> listOf("fig_bio_27_4_biogas")
+
+            14 -> listOf("fig_bio_27_5_biocontrol")
+
+            15 -> listOf("fig_bio_27_6_biofertiliser")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -4255,6 +4345,247 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "IVF with ZIFT up to 8 blastomeres, IUT beyond 8, GIFT for gametes, ICSI for one sperm — the decision paths when nature needs help."
 
         )
+
+        "fig_bio_23_1_monohybrid" -> Pair(
+
+            "Fig. 23.1 — The Monohybrid Cross",
+
+            "Tall crossed with dwarf: F1 all tall, F2 three tall to one dwarf — and the test cross that exposes a hidden recessive."
+
+        )
+
+        "fig_bio_23_2_dihybrid" -> Pair(
+
+            "Fig. 23.2 — The Dihybrid Cross",
+
+            "Sixteen boxes, four phenotypes, one famous ratio: 9:3:3:1 — independent assortment made visible."
+
+        )
+
+        "fig_bio_23_3_dominance_types" -> Pair(
+
+            "Fig. 23.3 — Three Kinds of Dominance",
+
+            "Complete dominance hides the recessive; incomplete blends; codominance shows both — the ABO blood groups carry all the logic."
+
+        )
+
+        "fig_bio_23_4_linkage" -> Pair(
+
+            "Fig. 23.4 — Linkage and Recombination",
+
+            "Genes on one chromosome travel together; crossing over separates them — 1.3 percent for yellow-white in Morgan's flies."
+
+        )
+
+        "fig_bio_23_5_pedigree" -> Pair(
+
+            "Fig. 23.5 — Reading a Pedigree",
+
+            "Squares, circles and shaded symbols: how three generations reveal whether a trait is dominant, recessive or sex-linked."
+
+        )
+
+        "fig_bio_23_6_disorders" -> Pair(
+
+            "Fig. 23.6 — Genetic Disorders at a Glance",
+
+            "Haemophilia, sickle-cell, thalassemia and the chromosome trio — trisomy 21, Turner and Klinefelter — with their signatures."
+
+        )
+
+        "fig_bio_24_1_double_helix" -> Pair(
+
+            "Fig. 24.1 — The DNA Double Helix",
+
+            "Antiparallel strands, A pairs T with two bonds, G pairs C with three — one turn every 3.4 nanometres holding ten base pairs."
+
+        )
+
+        "fig_bio_24_2_nucleosome" -> Pair(
+
+            "Fig. 24.2 — Packaging the Genome",
+
+            "Two hundred base pairs wrapped on a histone octamer, bead after bead, coiling up from chromatin fibre to chromosome."
+
+        )
+
+        "fig_bio_24_3_meselson_stahl" -> Pair(
+
+            "Fig. 24.3 — Meselson and Stahl",
+
+            "Heavy nitrogen to hybrid to hybrid-plus-light: the band pattern that proved replication is semiconservative."
+
+        )
+
+        "fig_bio_24_4_replication_fork" -> Pair(
+
+            "Fig. 24.4 — The Replication Fork",
+
+            "One strand built continuously, the other in Okazaki fragments — because polymerase can only build 5 prime to 3 prime."
+
+        )
+
+        "fig_bio_24_5_central_dogma" -> Pair(
+
+            "Fig. 24.5 — The Central Dogma",
+
+            "DNA copies itself, DNA is transcribed to RNA, RNA is translated to protein — with Pol I, II and III dividing the transcription work."
+
+        )
+
+        "fig_bio_24_6_lac_operon" -> Pair(
+
+            "Fig. 24.6 — The Lac Operon",
+
+            "No lactose: the repressor sits on the operator and the genes stay off. Lactose present: the repressor is lifted and the enzymes are made."
+
+        )
+
+        "fig_bio_25_1_miller" -> Pair(
+
+            "Fig. 25.1 — Miller's Experiment",
+
+            "Methane, ammonia, hydrogen and water vapour, sparked for a week — amino acids appeared in the flask."
+
+        )
+
+        "fig_bio_25_2_homology_analogy" -> Pair(
+
+            "Fig. 25.2 — Homology versus Analogy",
+
+            "Same blueprint with different jobs means common ancestry; different blueprints with the same job means convergence."
+
+        )
+
+        "fig_bio_25_3_radiation" -> Pair(
+
+            "Fig. 25.3 — Adaptive Radiation",
+
+            "One ancestor, many niches: Darwin's finches and the marsupial-placental parallels on two continents."
+
+        )
+
+        "fig_bio_25_4_melanism" -> Pair(
+
+            "Fig. 25.4 — Industrial Melanism",
+
+            "Peppered moths flipped from light to dark as soot darkened the trees — natural selection watched in real time."
+
+        )
+
+        "fig_bio_25_5_hardy_weinberg" -> Pair(
+
+            "Fig. 25.5 — Hardy-Weinberg Equilibrium",
+
+            "p squared plus 2pq plus q squared equals 1 — and the five disturbers that push a population off balance."
+
+        )
+
+        "fig_bio_25_6_human_evolution" -> Pair(
+
+            "Fig. 25.6 — The Human Story",
+
+            "From Dryopithecus to Homo sapiens: brain capacity climbs 650 to 1400 cubic centimetres across the line."
+
+        )
+
+        "fig_bio_26_1_malaria_cycle" -> Pair(
+
+            "Fig. 26.1 — The Plasmodium Life Cycle",
+
+            "Sporozoites to liver, merozoites to red cells, haemozoin to fever — then gametocytes ride the mosquito back."
+
+        )
+
+        "fig_bio_26_2_disease_table" -> Pair(
+
+            "Fig. 26.2 — Common Diseases Panel",
+
+            "Typhoid, pneumonia, cold, malaria, ringworm and more: pathogen, type and the test or sign that names each."
+
+        )
+
+        "fig_bio_26_3_innate_barriers" -> Pair(
+
+            "Fig. 26.3 — The Four Barriers",
+
+            "Physical, physiological, cellular and cytokine barriers: the immunity you are born with, on guard before any invader is named."
+
+        )
+
+        "fig_bio_26_4_antibody" -> Pair(
+
+            "Fig. 26.4 — The Antibody",
+
+            "Two heavy and two light chains in a Y: variable tips that grip the antigen, constant stem that calls for help."
+
+        )
+
+        "fig_bio_26_5_immune_response" -> Pair(
+
+            "Fig. 26.5 — Primary versus Secondary Response",
+
+            "The first encounter is slow and small; memory makes the second fast and intense — the whole principle of vaccination."
+
+        )
+
+        "fig_bio_26_6_hiv" -> Pair(
+
+            "Fig. 26.6 — HIV Replication",
+
+            "A retrovirus running its RNA backwards into DNA, turning macrophages into virus factories while helper T cells fall."
+
+        )
+
+        "fig_bio_27_1_household" -> Pair(
+
+            "Fig. 27.1 — Microbes in the Kitchen",
+
+            "LAB sour the curd and raise B12, yeast puffs the dough, Propionibacterium blows the holes in Swiss cheese."
+
+        )
+
+        "fig_bio_27_2_industry_map" -> Pair(
+
+            "Fig. 27.2 — The Industry Map",
+
+            "Which microbe makes what: citric acid, penicillin, streptokinase, cyclosporin A and the statins, pairing by pairing."
+
+        )
+
+        "fig_bio_27_3_sewage" -> Pair(
+
+            "Fig. 27.3 — Sewage Treatment",
+
+            "Filter and settle, then let flocs breathe and eat: BOD falls as the water clears, sludge feeds the digester."
+
+        )
+
+        "fig_bio_27_4_biogas" -> Pair(
+
+            "Fig. 27.4 — The Biogas Plant",
+
+            "Slurry in, methane-rich gas out: methanogens digest anaerobically and the spent sludge returns as manure."
+
+        )
+
+        "fig_bio_27_5_biocontrol" -> Pair(
+
+            "Fig. 27.5 — Biocontrol Agents",
+
+            "Bt toxin with an address, Trichoderma guarding roots, baculoviruses striking one species only — war without poison."
+
+        )
+
+        "fig_bio_27_6_biofertiliser" -> Pair(
+
+            "Fig. 27.6 — Biofertilisers",
+
+            "Rhizobium in the nodules, cyanobacteria in the paddy, mycorrhiza at the root tip: feeding the soil, not just the plant."
+
+        )
+
 
 
 
