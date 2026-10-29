@@ -175,7 +175,21 @@ object ChapterFigureData {
         "fig_chem_14_3_ozonolysis" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273090/chemistry-ch14-fig-14-3-ozonolysis.png",
         "fig_chem_15_1_sn1_sn2_profiles" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273241/chemistry-ch15-fig-15-1-sn1-sn2-profiles.png",
         "fig_chem_15_2_stereochemistry" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273242/chemistry-ch15-fig-15-2-stereochemistry.png",
-        "fig_chem_15_3_aryl_resonance" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273243/chemistry-ch15-fig-15-3-aryl-resonance.png"
+        "fig_chem_15_3_aryl_resonance" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273243/chemistry-ch15-fig-15-3-aryl-resonance.png",
+        "fig_chem_16_1_oxidation_ladder" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273881/chemistry-ch16-fig-16-1-oxidation-ladder.png",
+        "fig_chem_16_2_acidity_ladder" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273883/chemistry-ch16-fig-16-2-acidity-ladder.png",
+        "fig_chem_16_3_cumene_process" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273884/chemistry-ch16-fig-16-3-cumene-process.png",
+        "fig_chem_17_1_addition_mechanism" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273973/chemistry-ch17-fig-17-1-addition-mechanism.png",
+        "fig_chem_17_2_test_matrix" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273975/chemistry-ch17-fig-17-2-test-matrix.png",
+        "fig_chem_17_3_aldol_cannizzaro" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273976/chemistry-ch17-fig-17-3-aldol-cannizzaro.png",
+        "fig_chem_17_4_acidity_ladder" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273978/chemistry-ch17-fig-17-4-acidity-ladder.png",
+        "fig_chem_18_1_basicity_orders" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273835/chemistry-ch18-fig-18-1-basicity-orders-v2.png",
+        "fig_chem_18_2_hinsberg" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273837/chemistry-ch18-fig-18-2-hinsberg-v2.png",
+        "fig_chem_18_3_diazonium_map" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273838/chemistry-ch18-fig-18-3-diazonium-map-v2.png",
+        "fig_chem_19_1_glucose_forms" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273880/chemistry-ch19-fig-19-1-glucose-forms.png",
+        "fig_chem_19_2_protein_levels" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273881/chemistry-ch19-fig-19-2-protein-levels.png",
+        "fig_chem_19_3_dna_helix" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273883/chemistry-ch19-fig-19-3-dna-helix.png",
+        "fig_chem_19_4_polysaccharides" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793273885/chemistry-ch19-fig-19-4-polysaccharides.png"
     )
 
     val images: Map<String, String> = mapOf(

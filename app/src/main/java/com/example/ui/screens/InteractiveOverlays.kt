@@ -896,6 +896,58 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "chem_ch_16" -> when (sectionIndex) {
+
+            6 -> listOf("fig_chem_16_1_oxidation_ladder")
+
+            7 -> listOf("fig_chem_16_3_cumene_process")
+
+            8 -> listOf("fig_chem_16_2_acidity_ladder")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_17" -> when (sectionIndex) {
+
+            5 -> listOf("fig_chem_17_1_addition_mechanism")
+
+            8 -> listOf("fig_chem_17_3_aldol_cannizzaro")
+
+            10 -> listOf("fig_chem_17_2_test_matrix")
+
+            14 -> listOf("fig_chem_17_4_acidity_ladder")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_18" -> when (sectionIndex) {
+
+            5 -> listOf("fig_chem_18_1_basicity_orders")
+
+            8 -> listOf("fig_chem_18_2_hinsberg")
+
+            11 -> listOf("fig_chem_18_3_diazonium_map")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_19" -> when (sectionIndex) {
+
+            3 -> listOf("fig_chem_19_1_glucose_forms")
+
+            6 -> listOf("fig_chem_19_4_polysaccharides")
+
+            10 -> listOf("fig_chem_19_2_protein_levels")
+
+            14 -> listOf("fig_chem_19_3_dna_helix")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -2065,6 +2117,119 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Resonance gives the aryl C-Cl bond partial double-bond character: 169 pm against 178 pm in alkyl chlorides — shorter, stronger, slower to break."
 
         )
+
+        "fig_chem_16_1_oxidation_ladder" -> Pair(
+
+            "Fig. 16.1 — The Oxidation Ladder",
+
+            "Primary alcohols climb two rungs to the carboxylic acid, secondary alcohols stop at the ketone, and tertiary alcohols refuse mild oxidation entirely."
+
+        )
+
+        "fig_chem_16_2_acidity_ladder" -> Pair(
+
+            "Fig. 16.2 — The Phenol Acidity Ladder",
+
+            "Each nitro group drags the pKa down; picric acid at 0.38 is nearly a mineral acid, while ethanol near 16 barely counts as an acid."
+
+        )
+
+        "fig_chem_16_3_cumene_process" -> Pair(
+
+            "Fig. 16.3 — The Cumene Process",
+
+            "Industry makes phenol from benzene and propene — and the acetone byproduct is valuable enough to share the economics."
+
+        )
+
+        "fig_chem_17_1_addition_mechanism" -> Pair(
+
+            "Fig. 17.1 — Nucleophilic Addition to the Carbonyl",
+
+            "The nucleophile attacks the planar carbonyl carbon, the pi bond breaks onto oxygen, and protonation completes the tetrahedral product."
+
+        )
+
+        "fig_chem_17_2_test_matrix" -> Pair(
+
+            "Fig. 17.2 — The Distinguishing-Test Matrix",
+
+            "Four classic tests against common carbonyl compounds — the star cell is Fehling's solution ignoring benzaldehyde."
+
+        )
+
+        "fig_chem_17_3_aldol_cannizzaro" -> Pair(
+
+            "Fig. 17.3 — Aldol versus Cannizzaro: The Alpha-Hydrogen Fork",
+
+            "Aldehydes with an alpha-hydrogen take the aldol path; without one, concentrated base forces Cannizzaro disproportionation."
+
+        )
+
+        "fig_chem_17_4_acidity_ladder" -> Pair(
+
+            "Fig. 17.4 — The Carboxylic Acid pKa Ladder",
+
+            "Each chlorine pulls electron density away and stabilises the anion: trichloroacetic 0.65 down to acetic 4.76, with phenol near 10 for scale."
+
+        )
+
+        "fig_chem_18_1_basicity_orders" -> Pair(
+
+            "Fig. 18.1 — Basicity Orders in Water",
+
+            "In water the 2-degree amines win for both the methyl and ethyl sets — inductive donation, solvation and steric crowding in balance; aniline trails far behind."
+
+        )
+
+        "fig_chem_18_2_hinsberg" -> Pair(
+
+            "Fig. 18.2 — Hinsberg's Test",
+
+            "Benzenesulphonyl chloride separates the three amine classes: the 1-degree sulphonamide dissolves in alkali, the 2-degree one does not, and the 3-degree amine does not react."
+
+        )
+
+        "fig_chem_18_3_diazonium_map" -> Pair(
+
+            "Fig. 18.3 — The Diazonium Reaction Map",
+
+            "One diazonium salt, eight exits: halides, a nitrile, phenol, the plain arene, or a coupled azo dye — the most useful intermediate in aromatic chemistry."
+
+        )
+
+        "fig_chem_19_1_glucose_forms" -> Pair(
+
+            "Fig. 19.1 — Glucose: Open Chain to Ring",
+
+            "The C5 hydroxyl closes onto C1 to give the Haworth ring; the new C1 hydroxyl points down in alpha-glucose and up in beta-glucose."
+
+        )
+
+        "fig_chem_19_2_protein_levels" -> Pair(
+
+            "Fig. 19.2 — The Four Levels of Protein Structure",
+
+            "Sequence, local folds, the whole chain's three-dimensional shape, and subunit assemblies — each level held together by its own bonds."
+
+        )
+
+        "fig_chem_19_3_dna_helix" -> Pair(
+
+            "Fig. 19.3 — The DNA Double Helix",
+
+            "Antiparallel sugar-phosphate backbones with the base pairs inside: A with T by two hydrogen bonds, G with C by three."
+
+        )
+
+        "fig_chem_19_4_polysaccharides" -> Pair(
+
+            "Fig. 19.4 — Starch, Glycogen and Cellulose",
+
+            "Alpha links coil and branch for storage; beta links run straight and hydrogen-bond into fibres that we cannot digest."
+
+        )
+
 
 
 
