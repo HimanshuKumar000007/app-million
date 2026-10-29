@@ -1527,130 +1527,140 @@ object SmartPrepSeedData {
             detailedStudyNotes = """
 
                 Position, Path Length and Displacement
-                • Motion is always described relative to a frame of reference — an origin, an axis and a clock. In one dimension the position of a body is a single coordinate x, with a sign fixed by the chosen positive direction.
-                • Path length (distance travelled) is the total length of the actual route: a scalar, always positive, and it can never decrease as time passes.
-                • Displacement Δx = x₂ − x₁ is a vector fixed only by the starting and finishing points — the route taken does not matter at all.
-                ✔ KEY FORMULA — Δx = x₂ − x₁ • |Displacement| ≤ path length always, with equality only when the body moves in one direction without ever turning back.
-                • Worked pattern: an athlete completing one full round of a 400 m track has path length 400 m but displacement exactly 0.
-                ⚠ EXAM TRAP — Displacement can be zero or negative while path length is always positive; read the question word by word — "distance" asks for path length, "displacement" asks for Δx.
+                • Let's start with a scene you know. You walk 4 m east to the gate, realise you forgot your phone, and walk 4 m back west. Quick question — how far are you from where you started? Zero. But your legs definitely travelled 8 m. That gap between "how much ground you covered" and "where you finally ended up" is the whole game of this chapter.
+                • Path length (distance) is the total ground covered, added up step by step, ignoring direction. It only ever grows. In the scene above it is 8 m.
+                • Displacement is the straight-line jump from start point to end point, WITH direction: Δx = x₂ − x₁. Round trip back home? Displacement = 0, even after a marathon of walking.
+                ✔ KEY FORMULA — Displacement Δx = x₂ − x₁ • Always |displacement| ≤ path length. They become equal only when the motion is in a straight line with no U-turn.
+                • YOUR TURN — A runner completes exactly one lap of a 400 m circular track. Distance? Displacement? (Answer: distance = 400 m, displacement = 0 — she ends where she started. This exact idea returns in Chapter 3, so lock it in.)
+                • Signs do the talking in 1D: pick one direction as positive (say, right or upward) and stick to it for the entire problem. A displacement of −5 m simply means "5 m in the opposite direction" — the minus is information, not an error.
+                ⚠ EXAM TRAP — Never write "displacement = −8 m, so path length is also 8 m covered backwards". Path length has no sign and no direction. Mixing these two is the single most common silly mistake in kinematics.
 
                 Average Velocity and Average Speed
-                • Average velocity v̄ = Δx/Δt measures how fast the position changes overall; it carries a direction and is zero for any trip that ends where it started.
-                • Average speed = total path length ÷ total time; it is always positive and is what a trip odometer divided by journey time would give.
-                ✔ KEY FORMULA — Journey split into EQUAL DISTANCES at speeds v₁ and v₂: average speed = 2v₁v₂/(v₁ + v₂) (the harmonic mean) • Split into EQUAL TIMES: average speed = (v₁ + v₂)/2 (the ordinary mean).
-                • Worked pattern: half the journey at 40 km/h and half at 60 km/h gives average speed = 2 × 40 × 60 / 100 = 48 km/h — not 50 km/h.
-                • In general |average velocity| ≤ average speed, with equality only for motion in a single direction.
-                ⚠ EXAM TRAP — Averaging two speeds directly is correct only when the two legs take equal time; distance-based legs always pull the average closer to the slower speed.
+                • Average velocity answers: "overall, how fast did the position change?" Average speed answers a different question: "overall, how fast did the body actually move?" Examiners love that these two answers can differ wildly.
+                ✔ KEY FORMULA — Average velocity = Δx / Δt (displacement ÷ time; it carries a sign) • Average speed = total path length ÷ total time (always ≥ 0, never negative).
+                • Picture a delivery rider: showroom to your house is 6 km east, he rides 8 km of winding streets in 30 minutes. His average velocity is 6 km / 0.5 h = 12 km/h east — but his average speed is 8 / 0.5 = 16 km/h. Same trip, two honest answers.
+                • Now the classic exam trap, live: a car covers HALF the distance at 40 km/h and the other half at 60 km/h. Your gut says 50 km/h. Your gut is wrong.
+                ✔ KEY FORMULA — For equal DISTANCES at speeds v₁ and v₂: average speed = 2v₁v₂ / (v₁ + v₂) — the harmonic mean — always LESS than the plain average. Here: 2 × 40 × 60 / 100 = 48 km/h. (For equal TIMES, the plain average (v₁ + v₂)/2 is correct — read the question's wording like a lawyer.)
+                • Why is it less? Because the car spends MORE time crawling at 40 than flying at 60, so the slow speed gets more "votes" in the average.
+                ⚠ EXAM TRAP — If a body returns to its starting point, average velocity is exactly ZERO no matter how fast it moved. Average speed is not zero. Questions swap these two on purpose.
 
                 ▸ Instantaneous Velocity and Speed — Velocity at a Moment
-                • Shrink the interval Δt towards zero around an instant: average velocity over that shrinking interval settles to the instantaneous velocity v = dx/dt.
-                • On a position–time graph, instantaneous velocity is the slope of the TANGENT drawn to the curve at that instant — not the slope of a chord between two far points.
-                • The sign of v gives the direction of travel (+ forward, − backward); instantaneous speed = |v| is the magnitude, and it is what a vehicle speedometer actually shows.
-                ✔ KEY FORMULA — v = dx/dt = limit of Δx/Δt as Δt → 0 • For x = at² + bt + c, differentiate term by term: v = 2at + b.
-                • Worked pattern: x = 3t² + 2t (in metres) gives v = 6t + 2, so at t = 2 s the velocity is 14 m/s in the + direction.
-                ⚠ EXAM TRAP — A body can have v = 0 at an instant without being "at rest" in any lasting sense — a ball at the top of its flight has zero velocity yet is about to fall back.
+                • "Average" velocity is a blunt instrument — it hides everything that happened in between. What you really want is the velocity at one exact moment: that is what a speedometer shows (as speed), and what calculus gives us precisely.
+                ✔ KEY FORMULA — Instantaneous velocity v = dx/dt — the slope of the TANGENT to the position–time graph at that instant. Instantaneous speed = |v|, always the positive size of it.
+                • THINK OF IT LIKE THIS — Shrink the time window Δt smaller and smaller around the moment you care about. The average velocity over that tiny window settles down to one number: the instantaneous velocity. dx/dt is just that idea written in symbols.
+                • WORKED PATTERN — Given x = 3t² + 2t, differentiate: v = dx/dt = 6t + 2. At t = 2 s, v = 14 m/s. Differentiate once more: a = dv/dt = 6 m/s², constant. Whenever a problem hands you x(t), this two-step is your entire job.
+                • YOUR TURN — If x = 5t − t², at what time is the body momentarily at rest? Set v = 5 − 2t = 0 → t = 2.5 s. (Notice: "momentarily at rest" is code for v = 0 — it does NOT mean the acceleration is zero there. Hold that thought; gravity will prove it soon.)
+                • On a curved position–time graph, draw the tangent at your point and measure its slope — steep tangent means fast, flat tangent means instant rest, downward tangent means moving backwards.
+                ★ HIGHLIGHT — Velocity can be read three ways and they are the same statement: v = dx/dt = slope of x–t graph = the limit of Δx/Δt. If one route is blocked in a problem, take another.
 
                 Position–Time Graphs — Reading Motion from Slope
-                • The x–t graph plots position against time; the body itself still moves along a straight line however curved this graph appears.
-                • A straight x–t line means uniform velocity equal to its slope; a horizontal line means the body is at rest; the steeper the line, the faster the motion.
-                • A curve whose slope grows with time means the body is speeding up in the + direction; a curve whose slope shrinks means it is slowing down; a negative slope means motion in the − direction.
-                • Where the x–t lines of two bodies cross, the bodies are at the same position at that instant — that crossing is their meeting point.
-                • The tangent at any point of a curved x–t graph gives the instantaneous velocity at that moment.
-                ⚠ EXAM TRAP — A curved x–t graph does NOT mean a curved path, and the area under an x–t graph has no physical meaning — areas become meaningful only for v–t and a–t graphs.
+                • Before you look at the figure, predict: what should the x–t graph of a parked car look like? A car cruising at steady speed? A car speeding away? Now scroll to Fig. 2.1 and check yourself — that prediction habit is worth more than re-reading.
+                • The one rule that runs everything here: SLOPE = VELOCITY. Horizontal line → at rest. Straight slanted line → uniform velocity. Curve getting steeper → speeding up. Curve flattening out → slowing down. Line going downhill → moving in the negative direction.
+                • Two bodies on the same x–t graph: where their lines CROSS, they are at the same place at the same time — a meeting. The steeper line at any moment is the faster body at that moment.
+                • STOP & THINK — Can an x–t graph ever loop back over itself, like a circle? Never. That would mean the body is at two positions at the same time — impossible. If an option shows it, reject it instantly.
+                • WORKED PATTERN — A straight x–t line climbs from x = 2 m at t = 0 to x = 14 m at t = 4 s. Slope = (14 − 2)/4 = 3 m/s — that IS the velocity, uniform throughout.
+                ⚠ EXAM TRAP — The x–t graph is NOT a picture of the road. A curved x–t graph still describes motion along a straight line — the curve lives in the graph, not in the street.
 
                 Acceleration — the Rate of Change of Velocity
-                • Average acceleration ā = Δv/Δt; instantaneous acceleration a = dv/dt = d²x/dt². Acceleration is a vector with unit m/s², and it exists whenever velocity changes in magnitude OR direction.
-                • When acceleration is given as a function of position, use the chain-rule form a = v (dv/dx) — it removes time from the problem entirely.
-                ✔ KEY FORMULA — a = dv/dt = d²x/dt² = v (dv/dx) • A body speeds up exactly when v and a have the SAME sign, and slows down exactly when they have OPPOSITE signs.
-                • Everyday scale: a freely falling body has a = g ≈ 9.8 m/s²; a car reaching 100 km/h (27.8 m/s) in 10 s accelerates at only about 2.8 m/s².
-                • Uniform (constant) acceleration is the special case this chapter's kinematic equations handle; zero acceleration means uniform velocity, not necessarily rest.
-                ⚠ EXAM TRAP — "Negative acceleration" is not a synonym for slowing down: a body moving in the − direction with negative acceleration is speeding up. Retardation means only one thing — the speed |v| is decreasing.
+                • Velocity tells you how position changes. Acceleration tells you how VELOCITY changes — and "changes" includes slowing down and turning, not just speeding up. That wider meaning is where most students slip.
+                ✔ KEY FORMULA — Average acceleration = Δv / Δt • Instantaneous acceleration a = dv/dt = d²x/dt² • Unit: m/s². On a velocity–time graph, acceleration is the SLOPE.
+                • The sign rule that saves careers: if v and a have the SAME sign, the body speeds up. If they have OPPOSITE signs, it slows down. Acceleration negative does NOT automatically mean slowing down — a body moving in the negative direction with negative acceleration is speeding up (in reverse).
+                • WORKED PATTERN — A car moving at −20 m/s (say, towards the left) brakes with acceleration +5 m/s². Opposite signs → it slows: after 4 s its velocity is −20 + 5 × 4 = 0. It stops, it does not "decelerate into positive speed" unless the force keeps pushing.
+                • YOUR TURN — A ball thrown straight up: on the way up, what are the signs of v and a (taking up as positive)? (Answer: v is +, a is −9.8 the whole flight — even at the top, even on the way down where v turns −. Gravity never takes a break.)
+                • Zero velocity does not imply zero acceleration — at the top of a throw, v = 0 but a = −g in full force. Zero acceleration DOES imply velocity is constant (which includes staying at rest).
+                ★ HIGHLIGHT — Memorise the chain: position → (differentiate) → velocity → (differentiate) → acceleration. Integration runs the same chain backwards. Almost every calculus question in this chapter is one of these two directions.
 
                 ▸ Velocity–Time Graphs — Slope Gives Acceleration, Area Gives Displacement
-                • The slope of a v–t graph at any point equals the instantaneous acceleration there; a straight v–t line therefore means uniform acceleration, and a horizontal line means uniform velocity.
-                ✔ KEY FORMULA — Displacement = AREA under the v–t graph, counted positive above the time axis and negative below it • Total distance travelled = sum of the absolute areas • Change in velocity Δv = area under the a–t graph.
-                • Worked pattern: a triangular v–t graph with base 10 s and peak velocity 20 m/s encloses area ½ × 10 × 20 = 100, so the displacement is 100 m.
-                • A v–t graph can never be vertical (that would need infinite acceleration) and never folds back in time (time only increases).
-                • Reading a v–t graph together with its slope signs tells the whole story: direction of motion from the sign of v, speeding up or slowing from slope and sign together.
-                ⚠ EXAM TRAP — The single most common graph error in IAT and JEE papers: area below the time axis must be SUBTRACTED for displacement but ADDED for distance. Decide which quantity the question wants before touching the areas.
+                • The v–t graph is the most information-packed picture in the chapter: slope hands you acceleration, area hands you displacement. Look at Fig. 2.2 and find both before reading on.
+                ✔ KEY FORMULA — Slope of v–t graph = acceleration • Signed area under the v–t graph = displacement Δx. Area ABOVE the time axis counts positive; area BELOW it counts negative — they can cancel.
+                • WORKED PATTERN — A v–t graph forms a triangle of base 10 s and height 20 m/s. Displacement = ½ × 10 × 20 = 100 m. No formula sheet needed — just geometry.
+                • But if they ask for DISTANCE, add the absolute areas (below-axis area counts as positive distance). Displacement vs distance, one graph, two questions — the paper-setter's favourite pair.
+                • A horizontal v–t line means uniform velocity (a = 0). A v–t line hugging the axis means the body is barely moving. A v–t line CROSSING the axis means the body changed direction at that instant.
+                • YOUR TURN — A v–t line falls steadily from +10 m/s at t = 0 to −10 m/s at t = 20 s. What is the displacement over the 20 s? (Answer: the + area and − area cancel → displacement = 0. But the distance travelled is 100 m — check by the two triangles, ½ × 10 × 10 each.)
+                ⚠ EXAM TRAP — Never read the VALUE of the v–t graph as acceleration. The value is velocity; the SLOPE is acceleration; the AREA is displacement. Write V-S-A on your rough sheet for every graph question.
 
                 Kinematic Equations for Uniformly Accelerated Motion
-                • The three equations connect the five quantities u (initial velocity), v (final velocity), a (acceleration), s (displacement) and t (time) — and they are valid ONLY when a is constant.
-                ✔ KEY FORMULA — v = u + at • s = ut + ½at² • v² = u² + 2as • Two useful partners: s = vt − ½at² and s = ½(u + v)t.
-                • Where they come from: a = (v − u)/t rearranges to v = u + at; displacement is average velocity × time = ½(u + v)t; eliminating t between them gives v² = u² + 2as, and eliminating v gives s = ut + ½at².
-                • Sign discipline decides everything: choose one direction as positive at the start, then u, v, a and s all carry that sign consistently through the whole problem.
-                • Every quantity is a vector in disguise — if a body returns to its start, s = 0 even though the distance travelled is not.
-                ⚠ EXAM TRAP — Never apply these equations when acceleration varies with time (for example a proportional to t, or a mass on a spring). Then only the calculus definitions v = dx/dt, a = dv/dt — or graph areas — are legal.
+                • Here is the good news: when acceleration is constant, ALL of straight-line motion collapses into three equations. Here is the discipline: they work ONLY when acceleration is constant. Tattoo that condition on the inside of your eyelids.
+                ✔ KEY FORMULA — (1) v = u + at • (2) s = ut + ½at² • (3) v² = u² + 2as. Plus the bonus: s = ½(u + v)t, and average velocity = (u + v)/2 for uniform acceleration.
+                • Where do they come from? Not magic: acceleration constant means the v–t graph is a straight line; its slope gives equation (1) and the trapezium area under it gives (2); eliminating t between them gives (3). Knowing this, a forgotten formula can be rebuilt from a sketch in 30 seconds.
+                • Each equation is missing exactly one variable — that is the selection secret. (1) has no s. (2) has no v. (3) has no t. (Bonus has no a.) The variable the problem neither gives nor asks for tells you which equation to pick. Next section turns this into a 10-second drill.
+                • SYMBOL DISCIPLINE — u = velocity at the START of the interval you are analysing, v = at the END of that same interval, s = displacement during it, t = its duration, a = constant throughout. Most "formula errors" are actually interval errors: students feed in numbers from different intervals.
+                • WORKED PATTERN — A train starts from rest, accelerates at 2 m/s² for 10 s. v = 0 + 2 × 10 = 20 m/s. s = 0 + ½ × 2 × 100 = 100 m. Cross-check with the bonus: s = ½(0 + 20) × 10 = 100 m ✓. Two routes agreeing is how toppers verify under pressure.
+                ⚠ EXAM TRAP — Braking is just negative a. Pick your positive direction, then let the signs flow: if motion is forward-positive, braking means a is negative. Never flip signs mid-problem.
 
                 ▸ Distance Travelled in the nth Second
-                • The distance covered during one particular second — say the 3rd second, from t = 2 s to t = 3 s — is s(3) − s(2); the general result is worth memorising directly.
-                ✔ KEY FORMULA — sₙ = u + (a/2)(2n − 1) • Starting from rest (u = 0), the distances in successive seconds stand in the ratio 1 : 3 : 5 : 7 … — Galileo's odd-number rule — while the totals grow as 1 : 4 : 9 …
-                • Worked pattern: from rest with a = 2 m/s², the distance in the 3rd second is 0 + (2/2)(2 × 3 − 1) = 5 m, while the total distance in 3 s is ½ × 2 × 9 = 9 m.
-                • For an interval that is not a full second, never use sₙ — subtract displacements: distance between t₁ and t₂ = s(t₂) − s(t₁).
-                ⚠ EXAM TRAP — "Distance in the nth second" and "distance in n seconds" are different quantities with different formulas; examiners place both in the options of the same question.
+                • Subtle question, classic exam bait: "distance in the 3rd second" is NOT "distance in 3 seconds". The 3rd second is just the one-second slice between t = 2 and t = 3 — and there is a one-line formula for any such slice.
+                ✔ KEY FORMULA — sₙ = u + (a/2)(2n − 1) = distance in first n seconds − distance in first (n − 1) seconds.
+                • WORKED PATTERN — From rest with a = 2 m/s²: the 3rd second gives s₃ = 0 + 1 × (2×3 − 1) = 5 m. Compare: distance in 3 seconds total is 9 m. The options in the exam will contain BOTH 5 and 9 — they are hunting students who misread.
+                • From rest, the distances in successive seconds follow the odd numbers 1 : 3 : 5 : 7 (times ½a) — Galileo's pattern. So with a = 2, the seconds give 1 m, 3 m, 5 m, 7 m… and cumulative totals are perfect squares × ½a: 1, 4, 9, 16.
+                • YOUR TURN — A body starts from rest with a = 4 m/s². Distance in the 2nd second? (Answer: ½ × 4 × 3 = 6 m. And in the first 2 seconds: 8 m. See how the slice and the total differ?)
+                ★ HIGHLIGHT — Ratio questions are free marks here: from rest, s₂/s₁ = 3, s₃/s₁ = 5, and distance in n seconds ∝ n². If a question asks "in what ratio are distances in the 1st, 2nd, 3rd seconds", the answer 1 : 3 : 5 should be out before you reach for the pen.
 
                 Choosing the Right Equation — a Ten-Second Method
-                • Write down the five quantities s, u, v, a, t. Mark the three you know, the one you want, and the one that is neither known nor wanted — the missing variable.
-                • Now pick the equation that does NOT contain the missing variable: no t → v² = u² + 2as • no s → v = u + at • no v → s = ut + ½at² • no a → s = ½(u + v)t • no u → s = vt − ½at².
-                ★ HIGHLIGHT — Every uniformly accelerated motion problem is one of these five choices. Identify the absent variable first and the problem is already half solved — this single habit removes most silly errors under time pressure.
-                • Two-stage motion (accelerate, then brake): solve each stage separately; the final velocity of the first stage is the initial velocity of the second, and any turning point is simply where v = 0.
-                • If two bodies are involved, write one equation set per body and let the meeting condition (same position, same time) connect them.
+                • In the exam hall, nobody has time to try all three equations. Use this drill instead — it turns equation-hunting into a reflex.
+                • Step 1: List the five players — u, v, a, s, t — and tick which three the problem GIVES you. Step 2: Name the one it ASKS for. Step 3: The fifth player, neither given nor asked, is "missing" — pick the equation that does not contain it. No s → v = u + at. No v → s = ut + ½at². No t → v² = u² + 2as. No a → s = ½(u + v)t.
+                • TRY THE DRILL — "A bus moving at 15 m/s brakes with deceleration 3 m/s². How far before it stops?" Given: u, a, and v = 0 (hidden in the word "stops" — always translate "stops" into v = 0). Asked: s. Missing: t. So v² = u² + 2as → 0 = 225 − 6s → s = 37.5 m. Ten seconds, no drama.
+                • Read for hidden givens: "starts from rest" = u = 0. "Dropped" = u = 0. "Stops" = v = 0. "Falls freely" = a = g ≈ 10 m/s² (or 9.8). Half the problem is translation; the algebra is the easy half.
+                • Units check before you compute: convert km/h to m/s by multiplying by 5/18 the moment you see it. Do it in the first line, every time — mid-solution conversions are where factors of 3.6 go to die.
+                ⚠ EXAM TRAP — If the problem gives you FOUR of the five players, any equation works — but the asked quantity might need two steps (find t first, then use it). Don't force one equation to do two jobs.
 
                 Motion Under Gravity — Free Fall
-                • Near the Earth's surface every unsupported body accelerates downward at g ≈ 9.8 m/s² (use g = 10 m/s² when the question allows), whatever its mass — as long as air resistance is neglected.
-                • Take upward as positive and a becomes −g in all three kinematic equations; take downward as positive and a becomes +g. Either convention works — mixing the two inside one problem does not.
-                ✔ KEY FORMULA — Thrown straight up with speed u: time to reach the top = u/g • Maximum height H = u²/(2g) • Total time of flight back to the launch level = 2u/g • It returns to the launch height with speed u again, direction reversed.
-                ✔ KEY FORMULA — Dropped from rest at height h: impact speed v = √(2gh) • Time to fall t = √(2h/g) • A body thrown DOWNWARD from h starts with u ≠ 0 — use the full equations, not the dropped-body shortcuts.
-                • Symmetry of the flight: time going up equals time coming down between the same two levels, and the speed at any height is the same on the way up and on the way down.
-                • Distances fallen in successive seconds follow Galileo's odd numbers 1 : 3 : 5 : 7 (scaled by g/2), so the LAST second of a long fall always covers the greatest distance.
-                ⚠ EXAM TRAP — At the very top of the flight v = 0 but a = −g, not zero; and in vacuum a heavy and a light body dropped together land together — mass cancels out of every free-fall formula.
+                • Now the star application. Near Earth's surface, every freely falling body — coin, cricket ball, carelessly dropped phone — accelerates downward at g ≈ 9.8 m/s² (use 10 when the problem says so). Mass does not matter. Shape does not matter (once we ignore air). Galileo's tower story, in one line: gravity treats everyone equally.
+                • Free fall is just the three kinematic equations with a replaced by −g (taking upward as positive) — nothing new to memorise, one substitution to make. v = u − gt • s = ut − ½gt² • v² = u² − 2gs.
+                ✔ KEY FORMULA — Dropped from rest at height h: fall time t = √(2h/g) • Impact speed v = √(2gh). Thrown UP at u: max height H = u²/(2g) • Time to top = u/g • Total flight time (back to launch level) = 2u/g.
+                • WORKED PATTERN — A stone is dropped from an 80 m tower, g = 10. Fall time = √(160/10) = 4 s. Distance in the first 3 s = ½ × 10 × 9 = 45 m — so the LAST second alone covers 80 − 45 = 35 m. Falling bodies feast late: most of the distance comes in the final moments because speed keeps building.
+                • Symmetry to exploit: for a projectile returning to launch level, time up = time down, and it passes each height with the same speed going up and coming down (directions flipped). Half of all free-fall MCQs collapse if you spot the symmetry first.
+                • YOUR TURN — A ball is thrown up at 30 m/s (g = 10). Maximum height? Time to return to the hand? (Answer: H = 900/20 = 45 m; total time = 2 × 30/10 = 6 s.)
+                ⚠ EXAM TRAP — At maximum height, v = 0 but a = −g, NOT zero. If a were zero at the top, the ball would just stay there. Any option claiming "acceleration is zero at the highest point" is bait — take the free mark.
 
                 ▸ Dropped, Thrown Down, Projected Up — One Family, Three Starts
-                • The three situations differ ONLY in the value and sign of u: dropped → u = 0; thrown down → u in the direction of fall; projected up → u opposite to g, so v passes through zero at the top.
-                • A ball thrown up from a tower combines both acts: rise to H above the tower, then a fall from that full height; solve the fall from the top point with u = 0 and total height (tower + H).
-                • Worked pattern: a stone dropped from 80 m with g = 10 m/s² falls for t = √(2 × 80/10) = 4 s; in the first 3 s it covers 45 m, so the last second alone accounts for 35 m.
-                • Height ratios shortcut: for falls from rest, distances scale as t² — double the fall time means four times the height.
-                ★ HIGHLIGHT — Whatever the story — lift, tower, balloon, well — rewrite it as u, a = ±g, s and t. The story changes every year in the papers; the equation set never does.
+                • Three problem costumes, one body: the only difference between them is the starting velocity u you feed into the same three equations. Learn to see through the costume.
+                • DROPPED: u = 0. The equations shrink: s = ½gt², v = gt, v² = 2gs. THROWN DOWN at u: everything is the dropped case plus a head start — it lands sooner AND faster: v² = u² + 2gh. PROJECTED UP at u: it rises for u/g seconds, gains u²/2g of height, then becomes — mid-air — a dropped body. Split every upward problem at the top; the second half is always a simple drop.
+                • WORKED PATTERN — From a 45 m roof (g = 10): dropped, a stone takes √(2×45/10) = 3 s. Thrown down at 10 m/s: 45 = 10t + 5t² → t² + 2t − 9 = 0 → t ≈ 2.16 s. Thrown UP at 10 m/s: it returns to roof level after 2 s moving down at 10 m/s, then needs the same 2.16 s → total ≈ 4.16 s. Same roof, three stories, one method.
+                • A beautiful check: thrown up or thrown down at the same speed from the same height, the IMPACT speed is identical √(u² + 2gh) — the up-thrown ball wastes time, not speed.
+                ★ HIGHLIGHT — When a problem feels complicated, ask: "at which instant does this become a simple drop?" Almost every hard free-fall question is an easy drop wearing a disguise for its first act.
 
                 ▸ Stopping Distance and Reaction Time
-                • Between seeing a hazard and the brakes biting, the vehicle travels at full speed for the driver's reaction time tᵣ (about 0.5–1 s): reaction distance = u × tᵣ, with no slowing at all.
-                ✔ KEY FORMULA — Total stopping distance = u·tᵣ + u²/(2a) where a is the braking deceleration • Double the speed and the reaction part only doubles, but the braking part becomes FOUR times larger — stopping distance is dominated by the u² term.
-                • Worked pattern: u = 20 m/s, tᵣ = 0.5 s, braking deceleration 5 m/s² → reaction distance 10 m + braking distance 40 m = 50 m in total.
-                • The same square law governs safe following distance and is the physics behind speed limits near schools and crossings.
-                ★ HIGHLIGHT — This is a favourite application in IAT and NEET papers because it tests the v² = u² + 2as equation with v = 0 — recognise "stopping" and immediately write u² = 2as.
+                • This section is physics you will literally use on the road. A driver sees danger. Two things must happen before the car stops: the driver's brain reacts (during which the car cruises on, untouched), then the brakes bite. Total stopping distance = reaction distance + braking distance.
+                ✔ KEY FORMULA — Reaction distance = u × t_reaction • Braking distance = u² / (2a) • Stopping distance = u·tᵣ + u²/(2a).
+                • WORKED PATTERN — Car at 20 m/s, reaction time 0.5 s, braking deceleration 5 m/s²: reaction distance = 10 m, braking distance = 400/10 = 40 m, total = 50 m. That is half a football field — at city speed.
+                • Feel the scaling: double the speed and the reaction distance doubles, but the braking distance QUADRUPLES (it carries u²). This is why highway speeds are unforgiving, and why "speed doubled, stopping distance doubled" is always a wrong option.
+                • YOUR TURN — Same car, same driver, but speed is now 40 m/s. Stopping distance? (Answer: 40 × 0.5 + 1600/10 = 20 + 160 = 180 m. Speed ×2, stopping distance ×3.6 — nowhere near double.)
+                ⚠ EXAM TRAP — Forgetting the reaction distance is the designed error — the braking-only number (40 m above) will always be sitting in the options, smiling at you. Add both parts, every time.
 
                 Relative Velocity in One Dimension
-                • The velocity of A as measured by an observer riding with B is v_AB = v_A − v_B, where both velocities on the right are measured from the ground. Always v_BA = −v_AB.
-                • Two bodies moving in the SAME direction: relative speed = |v_A − v_B| — this governs chasing and overtaking. Moving in OPPOSITE directions: relative speed = v_A + v_B — this governs approaching and meeting.
-                ✔ KEY FORMULA — Meeting time = initial separation ÷ relative speed of approach • Overtaking time = initial gap ÷ (v_faster − v_slower) • For two trains to cross completely, the relative displacement must equal the SUM of their lengths; a train crossing a pole needs only its own length.
-                • Worked pattern: two cars 100 m apart approaching at 20 m/s and 30 m/s meet after 100/(20 + 30) = 2 s.
-                • Rain, river and moving-walkway problems in later chapters are this same subtraction in two dimensions — master the 1D signs now.
-                ⚠ EXAM TRAP — Relative velocity errors are almost always sign errors: compute (velocity of the object) − (velocity of the observer) in a fixed positive direction, and let the sign of the answer tell you the direction — never force it positive midway.
+                • Velocity is meaningless until you say "measured by whom". A passenger walks forward inside a train at 2 m/s; the train does 30 m/s past the platform. The platform sees the passenger at 32 m/s. Both numbers are correct — in different frames. Relative velocity is how we translate between frames.
+                ✔ KEY FORMULA — v of A as seen by B: v_AB = v_A − v_B (velocities signed along the line, both measured in the ground frame).
+                • Same direction: subtract — a car at 30 chasing a car at 25 gains at only 5 m/s. Opposite directions: the signs do the work — two trains approaching at 30 and 20 close at 30 − (−20) = 50 m/s. "Closing speed" is just relative velocity wearing a name tag.
+                • WORKED PATTERN — Two cars 100 m apart drive towards each other at 20 m/s and 30 m/s. Closing speed = 50 m/s, so they meet in 100/50 = 2 s. Meeting problems are one division once you think relatively: freeze one car, let the other come at the combined speed.
+                • The rain-on-a-train-window effect, in 1D dress: hold your hand out of a moving car and the still air hits you like wind — because relative to you, the air rushes backwards at the car's speed. Chapter 3 lifts this exact idea into two dimensions with rain and rivers.
+                • YOUR TURN — A truck at 25 m/s is ahead of a car at 30 m/s, 40 m apart, same direction. When does the car catch up? (Answer: relative speed 5 m/s → 40/5 = 8 s.)
+                ⚠ EXAM TRAP — v_AB = −v_BA, always. And v_AB means "A as seen FROM B" — swapping the order flips the sign. Write the sentence in words before touching numbers.
 
                 When Acceleration Is Not Uniform — the Calculus Toolkit
-                • The definitions never change: v = dx/dt and a = dv/dt hold at every instant of every motion, uniform or not. The kinematic equations are merely their constant-acceleration shortcuts.
-                • Run in reverse, the definitions become integrals: v = ∫a dt + u and x = ∫v dt + x₀ — the initial values are part of the answer, not decoration.
-                • Match the tool to the form given: a as a function of t → integrate directly • a as a function of v → write dt = dv/a(v) • a as a function of x → use a = v (dv/dx) and integrate over x.
-                • Worked pattern: a = 2t with the body starting from rest gives v = t² and x = t³/3, so at t = 3 s, v = 9 m/s and x = 9 m.
-                ★ HIGHLIGHT — IAT's favourite pattern in this chapter: given x(t), differentiate twice for v and a; given a(t), integrate twice with the initial conditions. Practise x = t³ − 6t² + 9t until questions like "when is the body momentarily at rest?" (v = 0) and "when does it turn?" become free marks.
-                ⚠ EXAM TRAP — With non-uniform acceleration the "average velocity = (u + v)/2" shortcut is ILLEGAL — that mean works only for constant a. Use total displacement ÷ total time instead.
+                • Real motion is messier than constant a — engines surge, springs oscillate. The three kinematic equations retire here, but calculus does not break a sweat. Four tools handle everything.
+                ✔ KEY FORMULA — v = dx/dt • a = dv/dt = d²x/dt² • a = v (dv/dx) when time is not in the story • And backwards: v = ∫a dt, x = ∫v dt (with the starting values as constants — never drop them).
+                • Choosing the tool: given x(t) → differentiate down the chain. Given a(t) → integrate up the chain. Given a in terms of x, or v in terms of x → the chain-rule form a = v dv/dx is the only door. Given a graph → slope/area thinking from earlier sections.
+                • WORKED PATTERN — A particle starts from rest with a = 2t. Integrate: v = t² + C, and rest at t = 0 gives C = 0. Integrate again: x = t³/3. At t = 3 s: v = 9 m/s, x = 9 m. Clean numbers are the examiner telling you you're on the right path.
+                • WORKED PATTERN 2 — Velocity depends on position: v = 2√x. Find a. Use a = v dv/dx: dv/dx = 1/√x, so a = 2√x × 1/√x = 2 m/s² — a constant hiding inside a messy-looking motion. Beautiful, and a known IAT flavour.
+                ★ HIGHLIGHT — IAT's signature move in this area: hand you something like x(t) or a(t) with clean numbers and ask for the OTHER quantity at a specific instant. Differentiate or integrate, substitute, done. Students who reach for v = u + at here are bringing a knife to a calculus fight.
+                ⚠ EXAM TRAP — Integration constants are not decoration: "starts from rest" and "starts at the origin" are the clues that fix them. An answer missing the constant is an answer missing the initial condition.
 
                 Formula Sheet — One-Glance Recap
                 ✔ KEY FORMULA — v = u + at • s = ut + ½at² • v² = u² + 2as • s = ½(u + v)t • sₙ = u + (a/2)(2n − 1).
-                ✔ KEY FORMULA — Free fall: H = u²/(2g) • t_top = u/g • t_flight = 2u/g • v_impact = √(2gh) • t_fall = √(2h/g).
-                ✔ KEY FORMULA — Stopping distance = u·tᵣ + u²/(2a) • Average speed, equal distances = 2v₁v₂/(v₁ + v₂) • Relative velocity v_AB = v_A − v_B.
-                • Graph rules, complete set: slope of x–t = velocity • slope of v–t = acceleration • area under v–t = displacement • area under a–t = change in velocity.
-                • Calculus rules, complete set: v = dx/dt • a = dv/dt = d²x/dt² = v(dv/dx) • x = ∫v dt • v = ∫a dt.
+                ✔ KEY FORMULA — v = dx/dt • a = dv/dt = v dv/dx • Free fall: t = √(2h/g), v = √(2gh), H = u²/2g • Stopping: u·tᵣ + u²/2a.
+                ✔ KEY FORMULA — Equal-distance average speed = 2v₁v₂/(v₁ + v₂) • Relative velocity v_AB = v_A − v_B • v–t area = displacement, v–t slope = acceleration.
+                • The five-second self-test before any problem: Is a constant? Which three variables do I have? Which one is missing? — then write the equation.
 
                 Final Rapid Check — the Traps That Cost Marks
-                ⚠ EXAM TRAP — Distance in the nth second (sₙ) versus distance in n seconds (s): different formulas, both present in the options.
-                ⚠ EXAM TRAP — Area under v–t below the axis: subtract for displacement, add for distance.
-                ⚠ EXAM TRAP — At the top of a vertical throw: v = 0, a = g downward — acceleration does not vanish.
-                ⚠ EXAM TRAP — Negative acceleration is not automatically retardation; check whether |v| is shrinking.
-                ⚠ EXAM TRAP — Kinematic equations and (u + v)/2 both demand constant acceleration.
-                ⚠ EXAM TRAP — Average of two speeds is the harmonic mean when distances are equal, arithmetic when times are equal.
-                ⚠ EXAM TRAP — A curved x–t graph is still straight-line motion; the graph is a chart, not a photograph of the path.
-                ★ HIGHLIGHT — Before submitting any numerical: check the sign convention was consistent, the units are SI (convert km/h by × 5/18), and the answer's size is physically sane — a car stopping in 0.5 m from 100 km/h is a red flag, not a result.
+                ⚠ EXAM TRAP — Distance in the nth second ≠ distance in n seconds (5 m vs 9 m in our worked case — both will be options).
+                ⚠ EXAM TRAP — Average speed over equal distances is the harmonic mean (48, not 50). Over equal times it is the plain mean.
+                ⚠ EXAM TRAP — At the top of a throw: v = 0, a = −g. Not both zero. Never both zero.
+                ⚠ EXAM TRAP — The kinematic equations demand constant a. If a varies, switch to calculus without a second thought.
+                ⚠ EXAM TRAP — Negative acceleration is not a synonym for slowing down — compare the SIGNS of v and a.
+                ⚠ EXAM TRAP — On graphs: value, slope and area are three different quantities. Label which one the question wants before computing.
+                ⚠ EXAM TRAP — Stopping distance has TWO parts; "stops" means v = 0; km/h converts with 5/18 in line one.
+                ★ HIGHLIGHT — You now own the full straight-line toolkit: describe it (graphs), average it, differentiate it, integrate it, and pick the right equation in ten seconds. Chapter 3 takes every one of these ideas off the line and into the plane — vectors are next, and they are friendlier than they look.
 
             """.trimIndent(),
 
@@ -1697,127 +1707,147 @@ object SmartPrepSeedData {
             detailedStudyNotes = """
 
                 Scalars and Vectors — the Two Kinds of Quantity
-                • A scalar has magnitude only: mass, time, speed, energy, distance. Scalars add like ordinary numbers and need no direction to be fully described.
-                • A vector has magnitude AND direction, and obeys the vector laws of addition: displacement, velocity, acceleration, force, momentum. A vector is drawn as an arrow — its length is the magnitude, its head gives the direction.
-                • Notation: a vector is written A⃗ or in bold A; its magnitude is |A⃗| or plain A. The magnitude of a vector is always ≥ 0 — it can never be negative.
-                • Two vectors are EQUAL only if both magnitude and direction match; where the arrow starts (its position) does not matter — a vector can be shifted parallel to itself freely.
-                • The null (zero) vector has zero magnitude and no definite direction; it appears naturally, e.g. the displacement after a closed round trip.
-                ⚠ EXAM TRAP — Current and pressure are NOT vectors even though they have an associated direction sense — they do not obey vector addition (current adds algebraically at a junction). And speed is a scalar while velocity is its vector partner — the Ch. 2 distinction returns here in two dimensions.
+                • Imagine two instructions. First: "the water is 40 °C". Complete — nothing more to ask. Second: "walk 40 metres". Your instant reply: "in which direction?" That itch you feel with the second one is the scalar–vector divide, and this chapter lives on the vector side.
+                • A scalar has magnitude only: mass, time, temperature, speed, energy, distance. Scalars add like money — 3 + 4 is just 7, finished.
+                • A vector has magnitude AND direction, and follows its own addition rules (3 + 4 might give 7, 5, 1, or anything between — this chapter explains why). Displacement, velocity, acceleration, force and momentum are vectors. We draw a vector as an arrow: the LENGTH is the magnitude, the HEAD points the way.
+                • Notation to read fluently: A⃗ (or bold A) is the vector; |A⃗| or plain A is its magnitude. A magnitude is a length-like quantity — it can be zero, it can be huge, it can NEVER be negative.
+                • Two vectors are EQUAL when magnitude and direction both match — where the arrow sits does not matter. Slide an arrow anywhere parallel to itself and it is still the same vector. That freedom is what makes the graphical methods below legal.
+                • The null vector (0⃗) has zero length and no direction worth naming. It sounds useless; it is actually the referee: whenever vector changes cancel out completely — like the displacement after any closed round trip — the null vector is the verdict.
+                • YOUR TURN — Which of these are vectors: 5 kg, 5 m north, 5 m/s² downward, 5 seconds, 5 joules? (Answer: the northward 5 m and the downward 5 m/s². The rest are scalars wearing numbers.)
+                ⚠ EXAM TRAP — Electric current has a direction in a wire, yet it is NOT a vector — currents at a junction add like scalars (3 A + 4 A = 7 A, no angle involved). Direction alone does not make a vector; obeying vector addition does.
 
                 ▸ Multiplying a Vector by a Real Number — and Unit Vectors
-                • Multiplying A⃗ by a positive number λ stretches it: |λA⃗| = λ|A⃗|, direction unchanged. Multiplying by a negative number also REVERSES the direction: −A⃗ has the same magnitude as A⃗ and points exactly opposite.
-                • Dividing by the magnitude gives a UNIT vector: Â = A⃗/|A⃗| — magnitude exactly 1, no unit, direction of A⃗. Unit vectors carry direction information and nothing else.
-                • The Cartesian unit vectors î, ĵ, k̂ point along the +x, +y, +z axes and are mutually perpendicular; any vector in the plane can be built from them: A⃗ = A_x î + A_y ĵ.
-                ✔ KEY FORMULA — Â = A⃗/|A⃗| • A⃗ = A_x î + A_y ĵ • |A⃗| = √(A_x² + A_y²).
-                • Worked pattern: A⃗ = 3î + 4ĵ has magnitude 5 and unit vector Â = (3î + 4ĵ)/5 = 0.6î + 0.8ĵ.
-                ⚠ EXAM TRAP — A vector divided by a scalar is still a vector; a vector can never be divided BY another vector — "A⃗/B⃗" is meaningless in this course.
+                • Push a trolley with force F⃗ and it responds a certain way. Push twice as hard in the same line — that is 2F⃗: same direction, double length. Pull instead of push — that is −F⃗: same size, flipped direction. Multiplying a vector by a number stretches or flips it; it never rotates it to a new angle (unless the number is negative, which turns it exactly 180°).
+                ✔ KEY FORMULA — |λA⃗| = |λ| × |A⃗| • λ > 0 keeps the direction, λ < 0 reverses it • λ = 0 gives the null vector.
+                • Now the most useful trick in the chapter: divide a vector by its own magnitude and you get a UNIT vector — pure direction, size exactly 1, no unit attached. Â = A⃗/|A⃗| reads as "the direction of A, and nothing else".
+                • The celebrity unit vectors are î, ĵ, k̂ — arrows of length 1 along the x, y and z axes. With them, ANY vector in the plane can be written as a shopping list: A⃗ = A_x î + A_y ĵ ("this much east, this much north").
+                • WORKED PATTERN — A⃗ = 3î + 4ĵ. Its magnitude: √(3² + 4²) = 5. Its unit vector: Â = (3î + 4ĵ)/5 = 0.6î + 0.8ĵ. Check: √(0.6² + 0.8²) = 1 ✓. The 3-4-5 triangle will follow you all through physics — become friends now.
+                • YOUR TURN — What is the unit vector along 6î − 8ĵ? (Answer: magnitude is 10, so Â = 0.6î − 0.8ĵ. Notice the minus survives — direction is the whole point.)
+                ⚠ EXAM TRAP — You can divide a vector by a NUMBER, never by another vector. "A⃗ ÷ B⃗" is not physics, it is a typo. If you catch yourself writing it in the exam, stop and rethink.
 
                 Addition and Subtraction of Vectors — the Graphical Method
-                • Triangle law: place the tail of B⃗ on the head of A⃗; the arrow from the tail of A⃗ to the head of B⃗ is the resultant R⃗ = A⃗ + B⃗. For several vectors, repeat head-to-tail (polygon law); the resultant runs from the first tail to the last head.
-                • Parallelogram law: place A⃗ and B⃗ tail-to-tail; complete the parallelogram — its diagonal from the common tail is R⃗. The two laws always agree, as they must.
-                • Subtraction is addition of the negative: A⃗ − B⃗ = A⃗ + (−B⃗). Graphically, when A⃗ and B⃗ stand tail-to-tail, A⃗ − B⃗ is the arrow from the head of B⃗ to the head of A⃗ — "the difference points to the first vector".
-                • Displacement is the model example: two successive displacements add by exactly these laws, never by adding the two distances.
-                ★ HIGHLIGHT — If the polygon of vectors closes (head of the last meets tail of the first), the resultant is the NULL vector — the graphical test for equilibrium of displacements, velocities or forces.
+                • Here is the puzzle that starts it all: walk 3 m east, then 4 m north. How far from the start? Not 7 (that would be your path length), not 1. Draw it — you have built a right triangle, and the straight-line answer is 5 m, pointing north-east-ish. Vector addition is that drawing, formalised.
+                • TRIANGLE LAW — Draw A⃗. From its HEAD, draw B⃗. The arrow from the START of A⃗ to the END of B⃗ is R⃗ = A⃗ + B⃗. Head-to-tail, close the triangle, read the resultant. For three or more vectors, keep chaining head-to-tail (the polygon law) — the resultant always runs from the first tail to the last head.
+                • PARALLELOGRAM LAW — Draw A⃗ and B⃗ from the SAME tail, complete the parallelogram, and the diagonal from that tail is the same R⃗. Two drawings, one answer — Fig. 3.1 shows both side by side. Use whichever the diagram in front of you suggests.
+                • SUBTRACTION, without tears: A⃗ − B⃗ means A⃗ + (−B⃗) — flip B⃗ and add as usual. There is also a picture worth memorising: with A⃗ and B⃗ standing tail-to-tail, A⃗ − B⃗ is the arrow from the head of B⃗ to the head of A⃗ — "the difference points to the first-named vector".
+                • STOP & THINK — If chained vectors form a closed polygon (last head lands back on the first tail), what is the resultant? Zero — the null vector. That closed-polygon picture is exactly what "balanced" will mean when forces arrive in Chapter 4.
+                • YOUR TURN — Displacement A⃗ is 5 m east; B⃗ is 5 m north. Draw the triangle: what is |A⃗ + B⃗| and |A⃗ − B⃗|? (Answer: both are √50 ≈ 7.07 m — sum points north-east, difference points south-east. Same size, different story.)
+                ★ HIGHLIGHT — Every analytical formula later in this chapter is one of these two pictures translated into algebra. If a vector problem ever feels abstract, go back to the drawing — the triangle never lies.
 
                 ▸ The Resultant — How Large Can It Be?
-                • The magnitude of the resultant is trapped between two limits set by the angle θ between the vectors.
-                ✔ KEY FORMULA — |A − B| ≤ R ≤ A + B • R is maximum (A + B) at θ = 0° (parallel) and minimum |A − B| at θ = 180° (antiparallel); at θ = 90°, R = √(A² + B²).
-                • Vector addition is commutative (A⃗ + B⃗ = B⃗ + A⃗) and associative ((A⃗ + B⃗) + C⃗ = A⃗ + (B⃗ + C⃗)) — order and grouping never change the resultant.
-                • Equal vectors shortcut: two vectors of equal magnitude A at angle θ give R = 2A cos(θ/2), directed exactly along the bisector of the angle between them.
-                • Worked pattern: two displacements of 5 m at 60° to each other give R = 2 × 5 × cos30° = 8.66 m along the bisector.
-                ⚠ EXAM TRAP — The resultant of two vectors of magnitudes 3 and 4 can be anything from 1 to 7 depending on angle — it is 5 ONLY at 90°. Questions that hide the angle are testing exactly this range.
+                • Two vectors of 3 and 4 units walk into an exam. What is their resultant? The honest answer is "it depends" — and the dependence is a favourite examiner toy, so let's master it.
+                ✔ KEY FORMULA — As the angle θ between the vectors swings from 0° to 180°, the resultant slides between two walls: A + B (parallel, maximum) and |A − B| (antiparallel, minimum). |A − B| ≤ R ≤ A + B, always.
+                • At the famous middle stop, θ = 90°: R = √(A² + B²) — Pythagoras, which is why 3 and 4 give 5 only there. At any other angle you need the full formula of the next-but-one section; there are no other shortcuts.
+                • Addition is FRIENDLY: A⃗ + B⃗ = B⃗ + A⃗ (commutative — walk east-then-north or north-then-east, same destination) and grouping never matters (associative). Rearrange chains freely to make the drawing easy.
+                • EQUAL-VECTOR SHORTCUT — Two vectors of the SAME magnitude A with angle θ between them: the resultant is R = 2A cos(θ/2), and it points exactly along the bisector — the "average direction". Raindrops, symmetric forces, rhombus diagonals: this pattern recurs everywhere.
+                • WORKED PATTERN — Two 5-unit vectors at 60°: R = 2 × 5 × cos30° = 8.66 units along the bisector. (Sanity: it sits between 5 and 10, closer to the top because 60° is a "friendly" angle. Always sanity-check against the walls.)
+                • YOUR TURN — Vectors of 6 and 8 units: can their resultant be 15? Can it be 2? Can it be 10? (Answer: No — the ceiling is 14. Yes — 2 is the floor, at 180°. Yes — 10 happens at exactly 90°, the 6-8-10 triangle.)
+                ⚠ EXAM TRAP — If a question gives two magnitudes but NO angle and asks for THE resultant, the only defensible answer is a range — or the angle is hiding in words like "perpendicular" (90°) or "opposite" (180°). Hunt for it before computing.
 
                 Resolution of Vectors — Splitting into Components
-                • Any vector in the plane can be replaced by two perpendicular components along chosen axes: this is resolution, the exact reverse of addition.
-                ✔ KEY FORMULA — If A⃗ makes angle θ with the +x axis: A_x = A cosθ (adjacent component) and A_y = A sinθ (opposite component) • Recover the vector with A = √(A_x² + A_y²) and tanθ = A_y/A_x.
-                • The component along an axis is the shadow (projection) of the arrow on that axis — a component can be positive, negative or zero depending on which quadrant the vector points into.
-                • Worked pattern: a velocity of 10 m/s at 60° above the horizontal has v_x = 10 cos60° = 5 m/s and v_y = 10 sin60° = 8.66 m/s.
-                • Resolution is the master key of this chapter: projectile motion, inclined planes and relative motion all reduce to "resolve, treat each axis separately, recombine".
-                ⚠ EXAM TRAP — A component can never exceed the magnitude of the vector itself, and tanθ = A_y/A_x alone does not fix the direction — check the signs of A_x and A_y to place the vector in the correct quadrant (a vector with A_x < 0, A_y > 0 points into the second quadrant, not the fourth).
+                • Time to learn the chapter's master key. A vector pointing diagonally is awkward to work with — so we replace it with two perpendicular partners along the axes that add up to exactly the same thing. That splitting is RESOLUTION, and Fig. 3.2 is its portrait.
+                ✔ KEY FORMULA — If A⃗ makes angle θ with the x-axis: A_x = A cosθ (the component NEXT to the angle) and A_y = A sinθ (the one across from it) • Rebuild anytime: A = √(A_x² + A_y²), tanθ = A_y/A_x.
+                • PICTURE IT — The components are the vector's SHADOWS on the two axes. A torch shining straight down casts the arrow's shadow on the ground (x-shadow = A_x); shine from the side and the wall shows A_y. A shadow can never be longer than the object — so |A_x| and |A_y| can never exceed A.
+                • WORKED PATTERN — A velocity of 10 m/s at 60° above horizontal: v_x = 10 cos60° = 5 m/s, v_y = 10 sin60° = 8.66 m/s. The body glides forward at 5 while climbing at 8.66 — two simple stories replacing one diagonal one.
+                • Signs carry the quadrant: a vector pointing up-left has A_x < 0, A_y > 0. Never drop a minus sign "because lengths are positive" — components are signed, and the sign IS the direction information.
+                • YOUR TURN — Resolve 20 N at 30° above the horizontal. (Answer: F_x = 20 cos30° ≈ 17.3 N, F_y = 20 sin30° = 10 N. Rebuild check: √(17.3² + 10²) = 20 ✓. Build the rebuild-check into your routine; it takes five seconds.)
+                ⚠ EXAM TRAP — tanθ = A_y/A_x gives an angle, but calculators report it in the first quadrant. If A_x is negative, the true direction is 180° away from the calculator's answer. Always sketch the quadrant — your eyes are the error-check your calculator lacks.
 
                 Vector Addition — the Analytical Method
-                • Resolve every vector into x and y components, add all x components together and all y components together: R_x = A_x + B_x + …, R_y = A_y + B_y + … Then R⃗ = R_x î + R_y ĵ.
-                ✔ KEY FORMULA — For two vectors with angle θ between them: R = √(A² + B² + 2AB cosθ) • The resultant makes angle α with A⃗, where tanα = B sinθ / (A + B cosθ).
-                • Sanity anchors: θ = 0° gives R = A + B; θ = 180° gives R = |A − B|; θ = 90° gives R = √(A² + B²) — the general formula must (and does) reproduce all three.
-                • Worked pattern: A = 3, B = 4 at 90° → R = √(9 + 16) = 5, at α = tan⁻¹(4/3) ≈ 53° from the 3-unit vector.
-                • Three or more vectors: never chain the two-vector formula pairwise under time pressure — components are faster and far less error-prone.
-                ⚠ EXAM TRAP — In R = √(A² + B² + 2AB cosθ), θ is the angle between the vectors when placed TAIL TO TAIL. If a diagram gives the angle for a head-to-tail arrangement (as in a triangle of displacements), the interior angle of the triangle is 180° − θ — the most-missed subtlety in this topic.
+                • Graphical addition is beautiful and slow. The analytical method is its industrial version: resolve EVERYTHING into components, add the x-parts, add the y-parts, rebuild once at the end. This is how multi-vector problems are actually won.
+                ✔ KEY FORMULA — For two vectors with tail-to-tail angle θ: R = √(A² + B² + 2AB cosθ) • Direction from A⃗: tanα = B sinθ / (A + B cosθ). For three or more vectors, use components: R_x = ΣA_x, R_y = ΣA_y, R = √(R_x² + R_y²).
+                • Verify the formula against old friends: θ = 0° → cosθ = 1 → R = A + B ✓. θ = 180° → R = |A − B| ✓. θ = 90° → R = √(A² + B²) ✓. A formula that reproduces all three walls is a formula you can trust mid-exam.
+                • WORKED PATTERN — A = 3, B = 4, θ = 90°: R = √(9 + 16 + 0) = 5, and tanα = 4/3 → α ≈ 53° from the 3-vector. The complete answer is "5 units at 53°" — magnitude AND direction. Half an answer is half the marks.
+                • STOP & PREDICT — Before computing R for A = 5, B = 5, θ = 120°, guess a bracket. (The walls are 0 and 10; 120° is "unfriendly", so expect the lower half. Formula: √(25 + 25 + 50 × (−½)) = √25 = 5. Spot the cross-check: the equal-vector shortcut gives 2 × 5 × cos60° = 5 ✓ — two methods, one answer.)
+                • YOUR TURN — Add A⃗ = 2î + 3ĵ and B⃗ = 4î − ĵ by components. (Answer: R⃗ = 6î + 2ĵ, |R| = √40 ≈ 6.32. Thirty seconds, no diagram needed. THIS is the method's power.)
+                ⚠ EXAM TRAP — The θ in the resultant formula is the angle when the vectors stand TAIL TO TAIL. If your diagram (like a displacement triangle) shows them head-to-tail, the angle inside that triangle is 180° − θ. Feeding the triangle's angle into the formula is the most common vector error in Indian entrance exams — you have been warned by name.
 
                 Motion in a Plane — Position, Velocity and Acceleration Vectors
-                • Position is now a vector from the origin: r⃗ = x î + y ĵ. Displacement between two instants is Δr⃗ = r⃗₂ − r⃗₁ — again independent of the path actually taken.
-                • Velocity v⃗ = Δr⃗/Δt (average) and v⃗ = dr⃗/dt (instantaneous) always points along the tangent to the path, in the direction of motion. Its components are v_x = dx/dt and v_y = dy/dt, with speed = √(v_x² + v_y²).
-                • Acceleration a⃗ = dv⃗/dt has components a_x = dv_x/dt, a_y = dv_y/dt. Crucially, a⃗ need NOT point along v⃗: it points along Δv⃗, the change in velocity — that is why circular motion can accelerate at constant speed.
-                ✔ KEY FORMULA — r⃗ = x î + y ĵ • v⃗ = v_x î + v_y ĵ • a⃗ = a_x î + a_y ĵ • |v⃗| = √(v_x² + v_y²) and |a⃗| = √(a_x² + a_y²).
-                • Worked pattern: r⃗ = (3t) î + (4t) ĵ describes straight-line uniform motion with v⃗ = 3î + 4ĵ, speed 5 units, and zero acceleration.
-                ⚠ EXAM TRAP — In two dimensions, "speed is constant" does NOT imply "acceleration is zero" — direction change alone creates acceleration. This one idea is the bridge to circular motion at the end of the chapter.
+                • Chapter 2 chained motion to a line. Cut the chain: a body in a plane needs TWO coordinates, and every quantity from Chapter 2 grows a second component. Position becomes r⃗ = x î + y ĵ — one arrow from the origin to the body.
+                ✔ KEY FORMULA — Displacement Δr⃗ = r⃗₂ − r⃗₁ • Average velocity = Δr⃗/Δt • Instantaneous velocity v⃗ = dr⃗/dt, with v_x = dx/dt and v_y = dy/dt • Speed = √(v_x² + v_y²) • Acceleration a⃗ = dv⃗/dt with components a_x = dv_x/dt, a_y = dv_y/dt.
+                • The velocity vector has a picture worth a thousand formulas: it always points along the TANGENT to the path, in the direction of travel. Watch a car on a curved road — its velocity arrow is forever glued to the road's direction at that point, never pointing at some future destination.
+                • Acceleration gets interesting: a⃗ points along Δv⃗, the CHANGE in velocity — which need not be anywhere near v⃗. Slowing down on a curve, speeding up on a curve, turning at steady speed: each bends a⃗ a different way.
+                • WORKED PATTERN — r⃗ = (3t)î + (4t)ĵ. Differentiate: v⃗ = 3î + 4ĵ — constant. Speed = 5 units, a⃗ = 0. Straight-line uniform motion wearing vector clothes: notice the path is the line y = (4/3)x.
+                • YOUR TURN — A particle has v_x = 6 m/s and v_y = 8 m/s. Its speed? Its direction? (Answer: speed = 10 m/s at tan⁻¹(8/6) ≈ 53° above the x-axis. Another 6-8-10 — the examiners reuse this triangle shamelessly.)
+                ⚠ EXAM TRAP — "Constant speed" in a plane does NOT mean "zero acceleration" — turning alone creates a⃗. That single sentence is the seed of circular motion at the end of this chapter, and an examiner favourite every single year.
 
                 Motion in a Plane with Constant Acceleration
-                • When a⃗ is constant, the vector kinematic equations mirror the 1D ones: v⃗ = u⃗ + a⃗t and r⃗ = r⃗₀ + u⃗t + ½a⃗t².
-                • The working method is always the same: split into two independent 1D motions — the x-motion with (u_x, a_x) and the y-motion with (u_y, a_y) — solve each with Ch. 2 equations, then recombine.
-                • The two axes share only the clock: t is the same in both component equations, and it is the link that connects them (eliminating t gives the trajectory).
-                • The great special case is gravity: a_x = 0, a_y = −g. Horizontal motion then runs at constant velocity while vertical motion free-falls — projectile motion is nothing but Ch. 2 applied twice.
-                ★ HIGHLIGHT — Independence of perpendicular motions is the single most powerful idea in this chapter: the horizontal and vertical stories of a projectile never interfere with each other. Every projectile formula below is just that sentence, expanded.
+                • Suppose a⃗ is constant — one unchanging arrow. Then Chapter 2's equations return, wearing vector form, and a beautifully simple working method appears alongside them.
+                ✔ KEY FORMULA — v⃗ = u⃗ + a⃗t • r⃗ = r⃗₀ + u⃗t + ½a⃗t². In practice, never wrestle the vectors whole: split into two independent 1D problems — the x-story (u_x, a_x) and the y-story (u_y, a_y) — solve each with Chapter 2 tools, recombine at the end.
+                • The two stories share exactly ONE thing: the clock. The same t flows through both, and eliminating t between the stories is how trajectory equations (the path's shape) are born.
+                • The royal special case: gravity. Set a_x = 0 and a_y = −g. The x-story becomes "cruise forever at u cosθ", the y-story becomes Chapter 2's free fall. Fireworks in the next section — but notice, nothing conceptually new is coming: just independence, applied.
+                • WORKED PATTERN — A particle starts with u⃗ = 4î + 3ĵ under constant a⃗ = −ĵ (units SI). At t = 2 s: v⃗ = 4î + 3ĵ − 2ĵ = 4î + ĵ, so speed = √17 ≈ 4.12 m/s. Component-wise arithmetic, one line per component.
+                ★ HIGHLIGHT — INDEPENDENCE OF PERPENDICULAR MOTIONS — underline it, star it, tattoo it next to the constant-acceleration condition from Chapter 2. One motion never reaches across and disturbs the perpendicular one. Every projectile, every river crossing, every rain problem below is this sentence in costume.
 
                 Projectile Motion — Range, Height and Time of Flight
-                • Launch speed u at angle θ above the horizontal, ground level to ground level, air resistance neglected: u_x = u cosθ (constant forever), u_y = u sinθ (decelerated by g).
+                • Launch a ball at speed u, angle θ above the horizontal, over level ground, air ignored. You already own every tool needed: horizontally it cruises (a_x = 0), vertically it free-falls (a_y = −g). Run both movies at once and you get the three most-asked formulas in kinematics.
                 ✔ KEY FORMULA — Time of flight T = 2u sinθ / g • Maximum height H = u² sin²θ / (2g) • Range R = u² sin2θ / g = 2u² sinθ cosθ / g.
-                • Range is maximum at θ = 45°, where R_max = u²/g. For every other range there are TWO launch angles, θ and 90° − θ (complementary angles), giving the same range but different heights and flight times.
-                • At the top of the trajectory the velocity is not zero — it is purely horizontal, v = u cosθ; only v_y vanishes there. Half the flight time is spent rising, half falling (for level launch and landing).
-                • Worked pattern: u = 20 m/s at 45° with g = 10 m/s² gives R = 400 × 1 / 10 = 40 m, H = 400 × 0.5 / 20 = 10 m, T = 2 × 20 × 0.707 / 10 ≈ 2.83 s.
-                ⚠ EXAM TRAP — The range formula R = u² sin2θ/g is valid ONLY when launch and landing are at the same height. For a projectile landing lower or higher (cliff, rooftop), solve the vertical equation for T first, then multiply by u cosθ — never force the shortcut.
+                • See where each is born: T is the free-fall clock — the vertical story goes up (u sinθ worth) and returns, taking 2u sinθ/g. H is just "how high does the vertical story climb": u_y²/2g. R is the horizontal cruise: distance = (u cosθ) × T. No memorisation needed if you see the parents.
+                • Range peaks at θ = 45° with R_max = u²/g. And for any smaller range, TWO angles work — θ and its complement 90° − θ (a flat fast throw or a high lob, same landing spot, different flights: the lob stays airborne longer and climbs higher).
+                • At the top, the ball does NOT stop: v_y dies to zero but v_x = u cosθ cruises on untouched. "Velocity at the highest point" = u cosθ, horizontal — a gift of a question when it appears.
+                • WORKED PATTERN — u = 20 m/s, θ = 45°, g = 10: R = 400 × sin90°/10 = 40 m; H = 400 × ½ /20 = 10 m; T = 2 × 20 × 0.707/10 ≈ 2.83 s. (Fig. 3.3 is exactly this flight — check the parabola peaks at x = 20, mid-range, as symmetry demands.)
+                • YOUR TURN — Same launch speed 20 m/s but θ = 30°. What happens to R and H? (Answer: R = 400 × sin60°/10 ≈ 34.6 m — less, as expected off-45°; H = 400 × ¼ /20 = 5 m — halved, because sin²30° is a quarter. And θ = 60° gives the SAME range 34.6 m with H = 15 m — complements share range, never height.)
+                ⚠ EXAM TRAP — R = u² sin2θ/g is licensed for LEVEL launch-and-landing only. Cliff, rooftop or valley in the problem? That licence is void — solve the vertical story for T, then multiply by u cosθ. (Next section does exactly this.)
 
                 ▸ The Trajectory Is a Parabola — Velocity at Any Instant
-                ✔ KEY FORMULA — Eliminating t between x = (u cosθ)t and y = (u sinθ)t − ½gt² gives the path: y = x tanθ − gx² / (2u² cos²θ), equivalently y = x tanθ (1 − x/R). A quadratic in x — the trajectory is a parabola.
-                • At time t the velocity components are v_x = u cosθ and v_y = u sinθ − gt; the speed is √(v_x² + v_y²) and the direction satisfies tanφ = v_y / v_x, with φ measured from the horizontal.
-                • At the landing point (level ground) the speed equals the launch speed u again, with the direction mirrored: φ = −θ.
-                • The trajectory equation answers point-check questions directly: "does the projectile clear a wall of height h at distance d?" — substitute x = d and compare y with h.
-                ★ HIGHLIGHT — Notice the family resemblance: v_y at any instant, the height at any x, and the impact angle all come from the same two component equations. Memorise the components, and every projectile result can be rebuilt in under a minute if forgotten.
+                • What shape does the projectile actually trace? Eliminate the clock: from x = (u cosθ)t get t = x/(u cosθ), feed it into the y-story, and a quadratic in x falls out — the signature of a parabola.
+                ✔ KEY FORMULA — y = x tanθ − gx²/(2u²cos²θ), which factorises beautifully as y = x tanθ (1 − x/R). At any time t: v_x = u cosθ, v_y = u sinθ − gt, speed = √(v_x² + v_y²), direction tanφ = v_y/v_x.
+                • The factorised form is a lie-detector: it shows y = 0 exactly at x = 0 and x = R (launch and landing) without any solving. When a problem asks "does the ball clear a 3 m wall standing 15 m away?" — put x = 15 into the trajectory, compare y with 3. Direct hit, no time calculations.
+                • Direction along the flight: φ starts at +θ, flattens to 0 at the top, and deepens negative on the way down, landing at exactly −θ (level ground) with the launch SPEED fully restored. The flight is a palindrome in speed, mirrored in angle.
+                • WORKED PATTERN — For our 45°, 20 m/s flight: at x = 10 m, y = 10 × 1 × (1 − 10/40) = 7.5 m. The ball is 7.5 m up a quarter of the way across — comfortably over a 5 m building at that spot.
+                • YOUR TURN — In the same flight, what is v_y at t = 1 s, and the speed then? (Answer: v_y = 20 × 0.707 − 10 × 1 ≈ 4.14 m/s; speed = √(14.14² + 4.14²) ≈ 14.7 m/s. Notice v_x stayed 14.14 — it always does.)
+                ★ HIGHLIGHT — Exam questions disguise the trajectory equation as "the path of a projectile is y = ax − bx², find the range/height". Compare coefficients: the x-coefficient is tanθ, the roots give R = a/b instantly. Pattern-recognition like this is what separates ranks.
 
                 ▸ Projectile Variations — Horizontal Launch and Inclined Planes
-                • Horizontal projection from height h (θ = 0): the vertical story is pure free fall, so T = √(2h/g) and the horizontal range is u√(2h/g); impact speed = √(u² + 2gh), directed below the horizontal.
-                ✔ KEY FORMULA — For a projectile launched at angle θ to the horizontal up a plane inclined at α: time of flight T = 2u sin(θ − α) / (g cosα) • Range along the plane R_plane = 2u² cosθ sin(θ − α) / (g cos²α), maximised when θ = 45° + α/2.
-                • Worked pattern: a ball projected horizontally at 10 m/s from a 45 m tower (g = 10) lands after √(2 × 45/10) = 3 s, at a horizontal distance of 30 m from the base.
-                • For projectiles landing on a slope, always measure range ALONG the plane and time from the vertical equation in tilted axes (resolve g into g sinα along and g cosα perpendicular to the plane).
-                ⚠ EXAM TRAP — In the incline formulas θ is measured from the HORIZONTAL, while (θ − α) is the launch angle above the PLANE's surface. Confusing these two angles is the standard error in incline-projectile questions.
+                • Two variations complete the projectile family, and both are older favourites of paper-setters.
+                • HORIZONTAL LAUNCH from height h (θ = 0): the vertical story is a pure drop, so T = √(2h/g); the horizontal story cruises, so range = u√(2h/g); impact speed = √(u² + 2gh) — launch speed and fall speed combined by Pythagoras, aimed below the horizontal.
+                • WORKED PATTERN — A ball rolls off a 45 m tower at 10 m/s horizontally (g = 10): T = √(90/10) = 3 s, range = 30 m from the base, impact speed = √(100 + 900) ≈ 31.6 m/s. Three answers, three one-liners — that is why this variation is beloved.
+                ✔ KEY FORMULA — INCLINED PLANE — Launch at θ to the horizontal, up a plane sloping at α: flight time T = 2u sin(θ − α)/(g cosα) • Range measured ALONG the plane: R_plane = 2u² cosθ sin(θ − α)/(g cos²α). Longest when θ = 45° + α/2 — aim halfway between the plane's perpendicular logic and 45°, tilted by the slope.
+                • The incline trick that unlocks derivations: rotate your axes — x along the plane, y perpendicular to it. Gravity then splits into g sinα (along, pulling the body down-slope) and g cosα (perpendicular, deciding the flight). Tilted axes turn an incline problem back into a level problem.
+                • YOUR TURN — A projectile is fired horizontally at 15 m/s from a cliff 80 m high (g = 10). Time to land and distance from the cliff base? (Answer: T = √(160/10) = 4 s; range = 15 × 4 = 60 m.)
+                ⚠ EXAM TRAP — In incline formulas, θ is measured from the HORIZONTAL while (θ − α) is the angle above the PLANE. Two angles, two references — write both on your diagram before substituting anything.
 
                 Uniform Circular Motion — Speeding Without Speeding Up
-                • A body moving on a circle of radius r at constant speed is in uniform circular motion. The angle swept is θ = s/r (arc ÷ radius), measured in radians.
-                ✔ KEY FORMULA — Angular velocity ω = dθ/dt = 2π/T = 2πν • Linear speed v = ωr • Centripetal acceleration a_c = v²/r = ω²r = 4π²r/T², directed towards the centre at every instant.
-                • Velocity is tangent to the circle; acceleration is perpendicular to it, pointing inwards. Because direction changes continuously, the body accelerates even though its speed never changes.
-                • One revolution: θ grows by 2π, time taken is the period T; frequency ν = 1/T counts revolutions per second (unit: hertz).
-                • Worked pattern: a stone on a 2 m string whirled at 6 m/s has ω = v/r = 3 rad/s and a_c = 36/2 = 18 m/s² towards the centre.
-                ⚠ EXAM TRAP — Centripetal acceleration is not a new kind of acceleration added on top — it IS the acceleration of the body, fully accounted by the rate of direction change. And "centrifugal force" does not appear in an inertial-frame analysis at all.
+                • A body rounds a circle at perfectly steady speed. Speedometer: frozen. And yet it accelerates every single instant — because velocity is a vector, and the vector is rotating. This section is Chapter 2's "v = 0 at the top" lesson grown into a whole topic.
+                ✔ KEY FORMULA — Angle in radians: θ = arc/radius • Angular velocity ω = dθ/dt = 2π/T = 2πν • Linear speed v = ωr • Centripetal acceleration a_c = v²/r = ω²r = 4π²r/T² — aimed at the centre, always.
+                • Learn the triangle of relations as one object: T (period, seconds per round) and ν (frequency, rounds per second) are reciprocals; ω converts rounds into radians per second; v = ωr converts rotation into road speed. Bigger radius at the same ω means faster road speed — the outside of a merry-go-round rushes, the centre dawdles.
+                • Direction discipline: v⃗ is TANGENT (along the motion), a⃗_c is RADIAL-INWARD (along the string, towards the hub). Fig. 3.4 fixes the geometry — if the body were released, it would fly off along v⃗, the tangent, never "outwards". Remember feeling that on a merry-go-round? You were feeling your own inertia, not an outward force.
+                • WORKED PATTERN — A stone on a 2 m string whirled at 6 m/s: ω = 6/2 = 3 rad/s, a_c = 36/2 = 18 m/s², period = 2π/3 ≈ 2.1 s. Four quantities, three formulas, one minute.
+                • YOUR TURN — A fan blade tip moves on a circle of radius 0.5 m, completing 10 rounds per second. Its speed and centripetal acceleration? (Answer: ω = 2π × 10 = 62.8 rad/s; v = ωr ≈ 31.4 m/s; a_c = v²/r ≈ 1972 m/s² — about 200 g. Spinning things live violent lives.)
+                ⚠ EXAM TRAP — "Centripetal" names a DIRECTION (towards the centre), not a new force of nature, and "centrifugal force" makes no appearance in an inertial-frame solution. If an option invents an outward force balancing things in the ground frame, cross it out.
 
                 ▸ Centripetal Acceleration — Where v²/r Comes From
-                • In a small time Δt the body moves through angle Δθ = ωΔt; its velocity vector rotates by the same Δθ, so the change in velocity has magnitude |Δv⃗| ≈ v Δθ (the tip of the velocity arrow travels an arc of radius v).
-                • Dividing by Δt: a = v Δθ/Δt = vω = v²/r. The direction of Δv⃗, as Δt → 0, is perpendicular to v⃗ — pointing straight at the centre.
-                • Because a⃗ ⊥ v⃗ at every instant, the acceleration can change only the direction of velocity, never its magnitude — which is exactly why the speed stays constant.
-                • If the speed ALSO changes (non-uniform circular motion), a second component appears: tangential acceleration a_t = dv/dt along the tangent, and the total acceleration is √(a_c² + a_t²).
-                ★ HIGHLIGHT — Read a_c = ω²r both ways: for a fixed ω, outer points accelerate more (a_c ∝ r); for a fixed v, tighter circles demand more acceleration (a_c ∝ 1/r). Examiners test both readings.
+                • Formulas you can derive are formulas you can trust, so here is v²/r in four honest steps. Freeze two snapshots of the velocity arrow, a tiny time Δt apart. In that time the body sweeps angle Δθ = ωΔt — and the velocity arrow, glued to the tangent, rotates by the SAME Δθ.
+                • The change Δv⃗ is the little arrow joining the two velocity tips; for small Δθ its length is |Δv⃗| ≈ v Δθ (arc of a circle of radius v). Divide by Δt: a = v Δθ/Δt = vω — and with ω = v/r, a = v²/r. No hand-waving anywhere.
+                • Direction: as Δt shrinks, Δv⃗ settles perpendicular to v⃗ — pointing straight at the centre. An acceleration permanently perpendicular to velocity can rotate the velocity endlessly while never changing its length: that is WHY uniform circular motion keeps its speed. The geometry and the definition agree, as they must.
+                • Two readings to keep separate: at fixed ω, a_c = ω²r grows with r (outer = more). At fixed v, a_c = v²/r grows as r shrinks (tighter = more). Exam questions toggle between the two readings — ask yourself "what is being held constant here?" before choosing.
+                • When speed ALSO changes (non-uniform circular motion), a second player enters: tangential acceleration a_t = dv/dt along the tangent, and the total acceleration is √(a_c² + a_t²), tilted between centre and tangent. One line now; it becomes the backbone of rotational dynamics later.
+                ★ HIGHLIGHT — Derive it once on paper today — snapshots, Δθ, |Δv| ≈ vΔθ, divide. A derived formula survives exam panic; a merely-read one often does not.
 
                 Relative Motion in a Plane — Rain and River Problems
-                • The 1D rule grows up: v⃗_AB = v⃗_A − v⃗_B as a VECTOR subtraction — draw A⃗ and the reversed B⃗, then add (or subtract components directly).
-                • Rain–man: rain falls vertically at v_r while a man runs horizontally at v_m. Relative to the man, rain gains a horizontal component −v_m, so it appears to slant at angle tan⁻¹(v_m/v_r) from the vertical — the umbrella tilts forward by exactly this angle.
-                • River–boat, shortest TIME: aim the boat straight across (perpendicular to the banks). Crossing time = width / v_boat, and the current simply adds drift = v_river × that time downstream.
-                ✔ KEY FORMULA — River–boat, shortest PATH (land exactly opposite): aim upstream at angle sin⁻¹(v_river/v_boat) from the straight-across direction — possible only if v_boat > v_river • Resulting crossing speed = √(v_boat² − v_river²), so time = width / √(v_boat² − v_river²).
-                • Worked pattern: river 100 m wide, boat 5 m/s, current 3 m/s — fastest crossing takes 100/5 = 20 s (with 60 m drift); the no-drift crossing aims sin⁻¹(3/5) ≈ 37° upstream and takes 100/4 = 25 s.
-                ⚠ EXAM TRAP — "Shortest time" and "shortest path" are different strategies with different answers, and the shortest path takes LONGER. Also, every speed in these formulas is measured relative to the water or ground as labelled — mixing the two frames mid-solution is fatal.
+                • Chapter 2's relative velocity takes off its training wheels: in a plane, v⃗_AB = v⃗_A − v⃗_B is a VECTOR subtraction — components subtract, or draw A⃗ plus the flipped B⃗. Two classic theatres follow, and both are pure pattern once seen clearly.
+                • RAIN & THE RUNNER — Rain falls vertically at v_r; you run horizontally at v_m. Relative to you, the rain picks up a horizontal piece −v_m (the world rushes backwards at your speed), so it appears to slant towards you at angle tan⁻¹(v_m/v_r) from the vertical. That is why your umbrella tilts FORWARD when you run, and why rain streaks diagonally on a moving train's window.
+                • RIVER & BOAT — the boat's engine gives it speed v_b relative to the WATER; the water itself slides at v_r relative to the bank. The bank sees the vector sum. Two classic asks, two different strategies:
+                ✔ KEY FORMULA — SHORTEST TIME: aim straight across. Time = width / v_b (the current cannot rush or delay your crossing — it only drags you downstream: drift = v_r × time). SHORTEST PATH: aim upstream at sin⁻¹(v_r/v_b) from the straight-across line so the drift cancels; crossing speed becomes √(v_b² − v_r²) and the time is width / √(v_b² − v_r²) — needs v_b > v_r, and it takes LONGER.
+                • WORKED PATTERN — River 100 m wide, boat 5 m/s, current 3 m/s. Fastest crossing: aim across, 100/5 = 20 s, landing 3 × 20 = 60 m downstream. No-drift crossing: aim sin⁻¹(3/5) ≈ 37° upstream, cross at √(25 − 9) = 4 m/s, taking 25 s. Faster arrival or straighter arrival — pick per the question, they are never the same answer.
+                • YOUR TURN — Rain falls at 10 m/s vertically. You cycle at 10 m/s. At what angle from the vertical does the rain seem to fall, and how should you tilt the umbrella? (Answer: tan⁻¹(10/10) = 45° — tilt the umbrella 45° forward. Equal speeds, diagonal rain.)
+                ⚠ EXAM TRAP — Every speed in these problems wears a frame label: "of the boat relative to water" is not "of the boat relative to bank". Underline the labels in the question. Then remember: shortest-time ≠ shortest-path, and the no-drift route is impossible if the current outruns the boat.
 
                 Formula Sheet — One-Glance Recap
-                ✔ KEY FORMULA — Resultant: R = √(A² + B² + 2AB cosθ) • tanα = B sinθ / (A + B cosθ) • |A − B| ≤ R ≤ A + B • Components: A_x = A cosθ, A_y = A sinθ.
-                ✔ KEY FORMULA — Projectile: T = 2u sinθ/g • H = u² sin²θ/(2g) • R = u² sin2θ/g • y = x tanθ (1 − x/R) • Horizontal launch: T = √(2h/g).
-                ✔ KEY FORMULA — Circular: v = ωr • ω = 2π/T = 2πν • a_c = v²/r = ω²r towards the centre • Relative velocity: v⃗_AB = v⃗_A − v⃗_B.
-                • Method reminders: resolve first, work axis by axis, recombine last • The clock t is the only link between the x and y stories.
+                ✔ KEY FORMULA — Resultant: R = √(A² + B² + 2AB cosθ), tanα = B sinθ/(A + B cosθ) • |A − B| ≤ R ≤ A + B • Equal vectors: R = 2A cos(θ/2) • Components: A_x = A cosθ, A_y = A sinθ.
+                ✔ KEY FORMULA — Projectile: T = 2u sinθ/g • H = u² sin²θ/2g • R = u² sin2θ/g • y = x tanθ (1 − x/R) • Horizontal launch from h: T = √(2h/g).
+                ✔ KEY FORMULA — Circular: v = ωr • ω = 2π/T = 2πν • a_c = v²/r = ω²r, towards the centre • v⃗_AB = v⃗_A − v⃗_B.
+                • The ritual that runs the whole chapter: resolve → work each axis alone → recombine → state magnitude AND direction. Four steps, in order, every time.
 
                 Final Rapid Check — the Traps That Cost Marks
-                ⚠ EXAM TRAP — Resultant of two vectors is A + B only at 0° and |A − B| only at 180°; at any other angle, use the full formula or components.
-                ⚠ EXAM TRAP — The cosθ in the resultant formula needs the tail-to-tail angle; a head-to-tail triangle diagram shows 180° − θ.
-                ⚠ EXAM TRAP — At the top of a projectile's flight, velocity is u cosθ (horizontal), not zero — only v_y is zero.
-                ⚠ EXAM TRAP — Range R = u² sin2θ/g fails when landing height ≠ launch height; fall back to component equations.
-                ⚠ EXAM TRAP — Constant speed with changing direction still means acceleration — circular motion is the standing example.
-                ⚠ EXAM TRAP — A component of a vector can be negative and can be zero, but never larger than the vector's own magnitude.
-                ⚠ EXAM TRAP — Shortest-time river crossing ≠ shortest-path crossing; the no-drift route needs v_boat > v_river and takes more time.
-                ★ HIGHLIGHT — Final sanity habit for this chapter: every vector answer needs a magnitude AND a direction. If your result has only a number, the answer is half finished.
+                ⚠ EXAM TRAP — The resultant of 3 and 4 is 5 ONLY at 90°. No angle given → answer is a range between |A − B| and A + B.
+                ⚠ EXAM TRAP — The cosθ formula wants the TAIL-TO-TAIL angle; head-to-tail diagrams hide 180° − θ.
+                ⚠ EXAM TRAP — At the projectile's top: velocity = u cosθ horizontal, not zero; acceleration = g, as always.
+                ⚠ EXAM TRAP — R = u² sin2θ/g dies when landing height ≠ launch height. Vertical story first, then range.
+                ⚠ EXAM TRAP — Constant speed + changing direction = acceleration. Circular motion is the proof, not the exception.
+                ⚠ EXAM TRAP — Components can be negative or zero, but never bigger than the vector itself — use it as a free error-check.
+                ⚠ EXAM TRAP — Shortest-time and shortest-path river crossings are different strategies with different answers; the straight route takes longer and needs v_boat > v_river.
+                ★ HIGHLIGHT — Final habit, worth more than any single formula: a vector answer is a magnitude AND a direction. If your pen stops after just a number, you have answered half the question. You now think in components — and from here, forces (Chapter 4) are just vectors with a job to do.
 
             """.trimIndent(),
 
