@@ -1,73 +1,4 @@
-package 
-
-        "phys_ch_4" -> when (sectionIndex) {
-
-            8 -> listOf("fig_4_2_atwood_machine")
-
-            10 -> listOf("fig_4_1_incline_fbd")
-
-            12 -> listOf("fig_4_4_momentum_collision")
-
-            14 -> listOf("fig_4_3_banked_road")
-
-            else -> emptyList()
-
-        }
-
-        "phys_ch_5" -> when (sectionIndex) {
-
-            1 -> listOf("fig_5_4_force_angle")
-
-            5 -> listOf("fig_5_1_fx_graph")
-
-            11 -> listOf("fig_5_2_spring_energy")
-
-            14 -> listOf("fig_5_3_collisions")
-
-            else -> emptyList()
-
-        }
-
-        "phys_ch_6" -> when (sectionIndex) {
-
-            1 -> listOf("fig_6_1_com_lamina")
-
-            8 -> listOf("fig_6_2_torque")
-
-            13 -> listOf("fig_6_3_moi")
-
-            16 -> listOf("fig_6_4_rolling")
-
-            else -> emptyList()
-
-        }
-
-        "phys_ch_7" -> when (sectionIndex) {
-
-            1 -> listOf("fig_7_1_kepler_ellipse")
-
-            7 -> listOf("fig_7_2_g_vs_distance")
-
-            8 -> listOf("fig_7_3_potential_energy")
-
-            10 -> listOf("fig_7_4_satellite_orbit")
-
-            else -> emptyList()
-
-        }
-
-        "phys_ch_8" -> when (sectionIndex) {
-
-            2 -> listOf("fig_8_2_deformation_modes")
-
-            5 -> listOf("fig_8_1_stress_strain_curve")
-
-            14 -> listOf("fig_8_3_sagging_beam")
-
-            else -> emptyList()
-
-        }
-com.example.ui.screens
+package com.example.ui.screens
 
 
 
@@ -440,6 +371,74 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
             8 -> listOf("fig_3_3_projectile")
 
             11 -> listOf("fig_3_4_circular")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_4" -> when (sectionIndex) {
+
+            8 -> listOf("fig_4_2_atwood_machine")
+
+            10 -> listOf("fig_4_1_incline_fbd")
+
+            12 -> listOf("fig_4_4_momentum_collision")
+
+            14 -> listOf("fig_4_3_banked_road")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_5" -> when (sectionIndex) {
+
+            1 -> listOf("fig_5_4_force_angle")
+
+            5 -> listOf("fig_5_1_fx_graph")
+
+            11 -> listOf("fig_5_2_spring_energy")
+
+            14 -> listOf("fig_5_3_collisions")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_6" -> when (sectionIndex) {
+
+            1 -> listOf("fig_6_1_com_lamina")
+
+            8 -> listOf("fig_6_2_torque")
+
+            13 -> listOf("fig_6_3_moi")
+
+            16 -> listOf("fig_6_4_rolling")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_7" -> when (sectionIndex) {
+
+            1 -> listOf("fig_7_1_kepler_ellipse")
+
+            7 -> listOf("fig_7_2_g_vs_distance")
+
+            8 -> listOf("fig_7_3_potential_energy")
+
+            10 -> listOf("fig_7_4_satellite_orbit")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_8" -> when (sectionIndex) {
+
+            2 -> listOf("fig_8_2_deformation_modes")
+
+            5 -> listOf("fig_8_1_stress_strain_curve")
+
+            14 -> listOf("fig_8_3_sagging_beam")
 
             else -> emptyList()
 
