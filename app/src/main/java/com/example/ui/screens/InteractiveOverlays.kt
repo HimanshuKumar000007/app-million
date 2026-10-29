@@ -1,4 +1,73 @@
-package com.example.ui.screens
+package 
+
+        "phys_ch_4" -> when (sectionIndex) {
+
+            8 -> listOf("fig_4_2_atwood_machine")
+
+            10 -> listOf("fig_4_1_incline_fbd")
+
+            12 -> listOf("fig_4_4_momentum_collision")
+
+            14 -> listOf("fig_4_3_banked_road")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_5" -> when (sectionIndex) {
+
+            1 -> listOf("fig_5_4_force_angle")
+
+            5 -> listOf("fig_5_1_fx_graph")
+
+            11 -> listOf("fig_5_2_spring_energy")
+
+            14 -> listOf("fig_5_3_collisions")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_6" -> when (sectionIndex) {
+
+            1 -> listOf("fig_6_1_com_lamina")
+
+            8 -> listOf("fig_6_2_torque")
+
+            13 -> listOf("fig_6_3_moi")
+
+            16 -> listOf("fig_6_4_rolling")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_7" -> when (sectionIndex) {
+
+            1 -> listOf("fig_7_1_kepler_ellipse")
+
+            7 -> listOf("fig_7_2_g_vs_distance")
+
+            8 -> listOf("fig_7_3_potential_energy")
+
+            10 -> listOf("fig_7_4_satellite_orbit")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_8" -> when (sectionIndex) {
+
+            2 -> listOf("fig_8_2_deformation_modes")
+
+            5 -> listOf("fig_8_1_stress_strain_curve")
+
+            14 -> listOf("fig_8_3_sagging_beam")
+
+            else -> emptyList()
+
+        }
+com.example.ui.screens
 
 
 
@@ -423,6 +492,158 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Fig. 1.5 — The 2019 SI System Architecture",
 
             "All 7 base units (m, kg, s, A, K, mol, cd) anchored to 7 fundamental invariant constants of nature."
+
+        )
+
+        "fig_4_1_incline_fbd" -> Pair(
+
+            "Fig. 4.1 — Free-Body Diagram on a Rough Incline",
+
+            "Weight resolved into mg sinθ along and mg cosθ into the plane; friction opposes the impending motion."
+
+        )
+
+        "fig_4_2_atwood_machine" -> Pair(
+
+            "Fig. 4.2 — The Atwood Machine",
+
+            "Two masses, one light pulley: a single tension and a single acceleration magnitude."
+
+        )
+
+        "fig_4_3_banked_road" -> Pair(
+
+            "Fig. 4.3 — Banking of Roads",
+
+            "On a banked curve the tilted normal reaction supplies the centripetal force."
+
+        )
+
+        "fig_4_4_momentum_collision" -> Pair(
+
+            "Fig. 4.4 — Conservation of Momentum",
+
+            "With negligible external impulse, total momentum after a collision equals total momentum before."
+
+        )
+
+        "fig_5_4_force_angle" -> Pair(
+
+            "Fig. 5.1 — Work by a Force at an Angle",
+
+            "Only the component of force along the displacement does work: W = Fs cosθ."
+
+        )
+
+        "fig_5_1_fx_graph" -> Pair(
+
+            "Fig. 5.2 — Work from an F–x Graph",
+
+            "The area under a force–position graph equals the work done by a variable force."
+
+        )
+
+        "fig_5_2_spring_energy" -> Pair(
+
+            "Fig. 5.3 — Energy of a Spring",
+
+            "Elastic potential energy U = ½kx² trades with kinetic energy as the spring oscillates."
+
+        )
+
+        "fig_5_3_collisions" -> Pair(
+
+            "Fig. 5.4 — Elastic versus Inelastic Collisions",
+
+            "Momentum is conserved in every collision; kinetic energy survives only in elastic ones."
+
+        )
+
+        "fig_6_1_com_lamina" -> Pair(
+
+            "Fig. 6.1 — Centre of Mass of an L-Shaped Lamina",
+
+            "Split the lamina into rectangles; the COM lies on the line joining their individual centres."
+
+        )
+
+        "fig_6_2_torque" -> Pair(
+
+            "Fig. 6.2 — Torque and Angular Momentum",
+
+            "τ = r × F and L = r × p — directions fixed by the right-hand rule."
+
+        )
+
+        "fig_6_3_moi" -> Pair(
+
+            "Fig. 6.3 — Moments of Inertia of Standard Bodies",
+
+            "Ring, disc, rod and solid sphere about standard axes, linked by the parallel-axis theorem."
+
+        )
+
+        "fig_6_4_rolling" -> Pair(
+
+            "Fig. 6.4 — Rolling Without Slipping",
+
+            "Pure rolling: v_cm = ωR and the contact point is instantaneously at rest."
+
+        )
+
+        "fig_7_1_kepler_ellipse" -> Pair(
+
+            "Fig. 7.1 — Kepler's Laws of Planetary Motion",
+
+            "Elliptical orbit, Sun at one focus; the radius vector sweeps equal areas in equal times."
+
+        )
+
+        "fig_7_2_g_vs_distance" -> Pair(
+
+            "Fig. 7.2 — How g Varies with Distance",
+
+            "Inside the Earth g grows in proportion to r; outside, it falls as 1/r²."
+
+        )
+
+        "fig_7_3_potential_energy" -> Pair(
+
+            "Fig. 7.3 — Gravitational Potential Energy",
+
+            "U(r) = −GMm/r; escape speed is the launch speed that just reaches U = 0."
+
+        )
+
+        "fig_7_4_satellite_orbit" -> Pair(
+
+            "Fig. 7.4 — Energy of an Orbiting Satellite",
+
+            "Circular orbit: KE = +GMm/2r, PE = −GMm/r, total energy E = −GMm/2r."
+
+        )
+
+        "fig_8_1_stress_strain_curve" -> Pair(
+
+            "Fig. 8.1 — The Stress–Strain Curve",
+
+            "Proportional limit, elastic limit, yield, ultimate strength and fracture — a material's biography."
+
+        )
+
+        "fig_8_2_deformation_modes" -> Pair(
+
+            "Fig. 8.2 — Three Modes of Deformation",
+
+            "Longitudinal, shearing and volume deformation — one for each elastic modulus."
+
+        )
+
+        "fig_8_3_sagging_beam" -> Pair(
+
+            "Fig. 8.3 — Sagging of a Loaded Beam",
+
+            "Central sag grows as L³ and shrinks as d³ — why girders are deep, not wide."
 
         )
 

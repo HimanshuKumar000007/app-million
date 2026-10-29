@@ -35,7 +35,26 @@ object ChapterFigureData {
         "fig_3_1_vector_addition" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793246016/physics-ch03-fig-3-1-vector-addition.png",
         "fig_3_2_resolution" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793246017/physics-ch03-fig-3-2-resolution.png",
         "fig_3_3_projectile" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793246018/physics-ch03-fig-3-3-projectile.png",
-        "fig_3_4_circular" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793246020/physics-ch03-fig-3-4-circular-motion.png"
+        "fig_3_4_circular" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793246020/physics-ch03-fig-3-4-circular-motion.png",
+        "fig_4_1_incline_fbd" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264277/physics-ch04-fig-4-1-incline-fbd.png",
+        "fig_4_2_atwood_machine" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264278/physics-ch04-fig-4-2-atwood-machine.png",
+        "fig_4_3_banked_road" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264279/physics-ch04-fig-4-3-banked-road.png",
+        "fig_4_4_momentum_collision" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264280/physics-ch04-fig-4-4-momentum-collision.png",
+        "fig_5_4_force_angle" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264184/physics-ch05-fig-5-4-force-angle.png",
+        "fig_5_1_fx_graph" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264180/physics-ch05-fig-5-1-fx-graph.png",
+        "fig_5_2_spring_energy" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264182/physics-ch05-fig-5-2-spring-energy.png",
+        "fig_5_3_collisions" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264183/physics-ch05-fig-5-3-collisions.png",
+        "fig_6_1_com_lamina" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264260/physics-ch06-fig-6-1-com-lamina.png",
+        "fig_6_2_torque" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264261/physics-ch06-fig-6-2-torque-angular-momentum.png",
+        "fig_6_3_moi" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264262/physics-ch06-fig-6-3-moment-of-inertia.png",
+        "fig_6_4_rolling" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264263/physics-ch06-fig-6-4-rolling-motion.png",
+        "fig_7_1_kepler_ellipse" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264175/physics-ch07-fig-7-1-kepler-ellipse.png",
+        "fig_7_2_g_vs_distance" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264176/physics-ch07-fig-7-2-g-vs-distance.png",
+        "fig_7_3_potential_energy" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264178/physics-ch07-fig-7-3-potential-energy.png",
+        "fig_7_4_satellite_orbit" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264179/physics-ch07-fig-7-4-satellite-orbit.png",
+        "fig_8_2_deformation_modes" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264304/physics-ch08-fig-8-2-deformation-modes.png",
+        "fig_8_1_stress_strain_curve" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264299/physics-ch08-fig-8-1-stress-strain-curve.png",
+        "fig_8_3_sagging_beam" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793264305/physics-ch08-fig-8-3-sagging-beam.png"
     )
 
     val images: Map<String, String> = mapOf(
