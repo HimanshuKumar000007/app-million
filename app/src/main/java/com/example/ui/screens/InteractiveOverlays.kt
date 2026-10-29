@@ -1118,6 +1118,96 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "bio_ch_1" -> when (sectionIndex) {
+
+            1 -> listOf("fig_bio_1_1_flower_anatomy")
+
+            2 -> listOf("fig_bio_1_2_anther_pollen")
+
+            6 -> listOf("fig_bio_1_3_embryo_sac")
+
+            8 -> listOf("fig_bio_1_4_pollination_agents")
+
+            11 -> listOf("fig_bio_1_5_double_fertilisation")
+
+            13 -> listOf("fig_bio_1_6_seed_development")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_2" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_2_1_five_kingdoms")
+
+            4 -> listOf("fig_bio_2_2_bacteria_shapes")
+
+            8 -> listOf("fig_bio_2_3_protista_gallery")
+
+            13 -> listOf("fig_bio_2_4_fungi_classes")
+
+            14 -> listOf("fig_bio_2_6_lichen_types")
+
+            15 -> listOf("fig_bio_2_5_virus_structures")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_3" -> when (sectionIndex) {
+
+            6 -> listOf("fig_bio_3_1_algae_classes")
+
+            9 -> listOf("fig_bio_3_2_moss_life_cycle")
+
+            11 -> listOf("fig_bio_3_3_fern_life_cycle")
+
+            14 -> listOf("fig_bio_3_4_gymnosperm_cones")
+
+            16 -> listOf("fig_bio_3_5_life_cycle_patterns")
+
+            17 -> listOf("fig_bio_3_6_group_ladder")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_4" -> when (sectionIndex) {
+
+            1 -> listOf("fig_bio_4_3_organisation_ladder")
+
+            2 -> listOf("fig_bio_4_2_symmetry_types")
+
+            4 -> listOf("fig_bio_4_1_coelom_types")
+
+            6 -> listOf("fig_bio_4_4_phyla_gallery")
+
+            14 -> listOf("fig_bio_4_5_chordate_blueprint")
+
+            16 -> listOf("fig_bio_4_6_vertebrate_classes")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_5" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_5_1_root_modifications")
+
+            4 -> listOf("fig_bio_5_2_stem_modifications")
+
+            6 -> listOf("fig_bio_5_3_leaf_types")
+
+            8 -> listOf("fig_bio_5_4_inflorescence")
+
+            10 -> listOf("fig_bio_5_6_ovary_positions_aestivation")
+
+            12 -> listOf("fig_bio_5_5_placentation")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -2743,6 +2833,247 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "The feasible region is a polygon, and the optimum of a linear objective always sits at a corner — evaluate the objective at each corner and pick the best."
 
         )
+
+        "fig_bio_1_1_flower_anatomy" -> Pair(
+
+            "Fig. 1.1 — Anatomy of a Flower",
+
+            "A flower in longitudinal section: the thalamus bearing sepals, petals, stamens and the carpel — the four whorls of a modified shoot."
+
+        )
+
+        "fig_bio_1_2_anther_pollen" -> Pair(
+
+            "Fig. 1.2 — The Anther and Microsporogenesis",
+
+            "Four pollen sacs behind four wall layers; inside, each microspore mother cell divides by meiosis into a tetrad of pollen grains."
+
+        )
+
+        "fig_bio_1_3_embryo_sac" -> Pair(
+
+            "Fig. 1.3 — The Mature Embryo Sac",
+
+            "Seven cells, eight nuclei: the egg and two synergids at the micropylar end, three antipodals at the chalazal end, and two polar nuclei in the central cell."
+
+        )
+
+        "fig_bio_1_4_pollination_agents" -> Pair(
+
+            "Fig. 1.4 — Pollination Agents and Their Flowers",
+
+            "Wind flowers carry light pollen and feathery stigmas, insect flowers advertise with colour and nectar, water flowers meet at the surface — form follows the courier."
+
+        )
+
+        "fig_bio_1_5_double_fertilisation" -> Pair(
+
+            "Fig. 1.5 — Double Fertilisation",
+
+            "One pollen tube, two fusions: one male gamete with the egg makes the 2n zygote; the other with the polar nuclei makes the 3n primary endosperm cell."
+
+        )
+
+        "fig_bio_1_6_seed_development" -> Pair(
+
+            "Fig. 1.6 — Development of the Dicot Embryo",
+
+            "Zygote to proembryo to globular and heart stages, ending in a mature embryo with two cotyledons, a plumule and a radicle inside the seed."
+
+        )
+
+        "fig_bio_2_1_five_kingdoms" -> Pair(
+
+            "Fig. 2.1 — Whittaker's Five Kingdoms",
+
+            "Monera, Protista, Fungi, Plantae and Animalia — sorted by cell structure, body organisation, nutrition, reproduction and evolutionary relationships."
+
+        )
+
+        "fig_bio_2_2_bacteria_shapes" -> Pair(
+
+            "Fig. 2.2 — Bacterial Shapes and Body Plan",
+
+            "Coccus, bacillus, spirillum and vibrio — and inside every bacterium: nucleoid DNA, a plasmid and ribosomes, with no membrane-bound nucleus."
+
+        )
+
+        "fig_bio_2_3_protista_gallery" -> Pair(
+
+            "Fig. 2.3 — The Protista Gallery",
+
+            "Diatoms in glass houses, red-tide dinoflagellates, two-faced Euglena, wandering slime moulds and hunter protozoans — the unruly middle kingdom."
+
+        )
+
+        "fig_bio_2_4_fungi_classes" -> Pair(
+
+            "Fig. 2.4 — The Four Classes of Fungi",
+
+            "Spores are identity cards: coenocytic Phycomycetes, sac-spored Ascomycetes, club-spored Basidiomycetes and the Deuteromycetes with no sexual stage on record."
+
+        )
+
+        "fig_bio_2_5_virus_structures" -> Pair(
+
+            "Fig. 2.5 — Virus Structures",
+
+            "TMV is a protein rod around RNA; a bacteriophage carries DNA in a head with a syringe tail; a viroid is smaller still — naked RNA with no coat at all."
+
+        )
+
+        "fig_bio_2_6_lichen_types" -> Pair(
+
+            "Fig. 2.6 — Lichen Body Types",
+
+            "Crustose (a crust), foliose (leafy) and fruticose (shrubby) thalli — every lichen is two organisms: an alga feeding a fungus that shelters it."
+
+        )
+
+        "fig_bio_3_1_algae_classes" -> Pair(
+
+            "Fig. 3.1 — The Three Algae Classes",
+
+            "Green (chlorophyll a and b, starch), brown (fucoxanthin, laminarin) and red (r-phycoerythrin, floridean starch) — pigment plus storage names the class."
+
+        )
+
+        "fig_bio_3_2_moss_life_cycle" -> Pair(
+
+            "Fig. 3.2 — The Moss Life Cycle",
+
+            "The green moss plant is the gametophyte (n); the sporophyte (2n) grows out of it, lives on it, and rains spores from its capsule."
+
+        )
+
+        "fig_bio_3_3_fern_life_cycle" -> Pair(
+
+            "Fig. 3.3 — The Fern Life Cycle",
+
+            "The fern plant is the sporophyte; its spores grow into a tiny heart-shaped prothallus gametophyte that still needs water for fertilisation."
+
+        )
+
+        "fig_bio_3_4_gymnosperm_cones" -> Pair(
+
+            "Fig. 3.4 — Pinus Cones",
+
+            "Male cones shower pollen; female cones carry naked ovules on megasporophylls — seeds exposed, never enclosed in a fruit."
+
+        )
+
+        "fig_bio_3_5_life_cycle_patterns" -> Pair(
+
+            "Fig. 3.5 — Three Life-Cycle Patterns",
+
+            "Haplontic (main phase n), diplontic (main phase 2n) and haplo-diplobiontic (both phases substantial) — locate meiosis in the loop to name the pattern."
+
+        )
+
+        "fig_bio_3_6_group_ladder" -> Pair(
+
+            "Fig. 3.6 — The Plant Kingdom Ladder",
+
+            "Algae to bryophytes to pteridophytes to gymnosperms to angiosperms: vascular tissue, then seeds, then flowers — and the sporophyte takes over."
+
+        )
+
+        "fig_bio_4_1_coelom_types" -> Pair(
+
+            "Fig. 4.1 — The Three Coelom Plans",
+
+            "Acoelomate: no cavity. Pseudocoelomate: a cavity not lined by mesoderm. Coelomate: a true coelom lined by mesoderm on both sides."
+
+        )
+
+        "fig_bio_4_2_symmetry_types" -> Pair(
+
+            "Fig. 4.2 — Symmetry Plans",
+
+            "Asymmetrical (no mirror cut exists), radial (many cuts through one axis) and bilateral (one cut, two mirror halves) — symmetry predicts lifestyle."
+
+        )
+
+        "fig_bio_4_3_organisation_ladder" -> Pair(
+
+            "Fig. 4.3 — Levels of Organisation",
+
+            "Cellular (sponges), tissue (cnidarians), organ (flatworms) and organ-system (most phyla) — each rung delegates more work to specialist structures."
+
+        )
+
+        "fig_bio_4_4_phyla_gallery" -> Pair(
+
+            "Fig. 4.4 — The Non-Chordate Phyla Gallery",
+
+            "Ten phyla at a glance, each with its signature: canal systems, cnidoblasts, comb plates, flame cells, parapodia, jointed legs, a radula and the water vascular system."
+
+        )
+
+        "fig_bio_4_5_chordate_blueprint" -> Pair(
+
+            "Fig. 4.5 — The Chordate Blueprint",
+
+            "Four signatures present at some life stage: notochord, dorsal hollow nerve cord, pharyngeal gill slits and a post-anal tail."
+
+        )
+
+        "fig_bio_4_6_vertebrate_classes" -> Pair(
+
+            "Fig. 4.6 — The Seven Vertebrate Classes",
+
+            "Jawless fish to mammals: watch the heart grow from two chambers to four and the body covering change from class to class."
+
+        )
+
+        "fig_bio_5_1_root_modifications" -> Pair(
+
+            "Fig. 5.1 — Root Modifications",
+
+            "Storage (carrot), support (banyan prop roots, maize stilt roots) and breathing (Rhizophora pneumatophores) — one organ, many second jobs."
+
+        )
+
+        "fig_bio_5_2_stem_modifications" -> Pair(
+
+            "Fig. 5.2 — Underground Stem Modifications",
+
+            "Potato tuber with eyes, ginger rhizome, onion bulb — all stems: each carries nodes, buds or scale leaves, which roots never do."
+
+        )
+
+        "fig_bio_5_3_leaf_types" -> Pair(
+
+            "Fig. 5.3 — Leaf Anatomy and Types",
+
+            "Lamina, petiole, stipules and midrib; reticulate against parallel venation; pinnate against palmate compound leaves."
+
+        )
+
+        "fig_bio_5_4_inflorescence" -> Pair(
+
+            "Fig. 5.4 — Racemose versus Cymose",
+
+            "Racemose: the axis keeps growing and the youngest flowers sit nearest the tip. Cymose: the axis ends in a flower, so the oldest flower is the central or topmost one."
+
+        )
+
+        "fig_bio_5_6_ovary_positions_aestivation" -> Pair(
+
+            "Fig. 5.6 — Ovary Positions and Aestivation",
+
+            "Hypogynous, perigynous and epigynous flowers told apart by the thalamus; valvate, twisted, imbricate and vexillary packing inside the bud."
+
+        )
+
+        "fig_bio_5_5_placentation" -> Pair(
+
+            "Fig. 5.5 — Five Placentation Types",
+
+            "Marginal (pea), axile (tomato), parietal (mustard), free central (Dianthus) and basal (sunflower) — where the ovules sit names the type."
+
+        )
+
 
 
 
