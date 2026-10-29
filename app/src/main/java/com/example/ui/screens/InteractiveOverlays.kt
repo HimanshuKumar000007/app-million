@@ -65,6 +65,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 
 import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.offset
 
 import androidx.compose.foundation.layout.padding
@@ -96,25 +100,20 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 
 import androidx.compose.material.icons.filled.AddPhotoAlternate
-
 import androidx.compose.material.icons.filled.AutoAwesome
-
 import androidx.compose.material.icons.filled.Bookmark
-
 import androidx.compose.material.icons.filled.BookmarkBorder
-
-import androidx.compose.material.icons.filled.CheckCircle
-
 import androidx.compose.material.icons.filled.Cancel
-
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Edit
-
+import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Pause
-
 import androidx.compose.material.icons.filled.PlayArrow
-
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Timer
-
 import androidx.compose.material.icons.filled.Tune
 
 import androidx.compose.material3.Button
@@ -126,6 +125,8 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 
 import androidx.compose.material3.CircularProgressIndicator
+
+import androidx.compose.material3.HorizontalDivider
 
 import androidx.compose.material3.Icon
 
@@ -1628,107 +1629,524 @@ private fun FormulaBlock(
 /** Worked Example / Solved Numerical card. */
 
 @Composable
-
 private fun WorkedExampleCard(
-
     line: String,
-
-    textSizeScale: Float
-
+    textSizeScale: Float,
+    onAskAi: ((String) -> Unit)? = null
 ) {
+    var isExpanded by remember { mutableStateOf(false) }
+    var selfRating by remember { mutableStateOf<Boolean?>(null) }
 
     val cleanLine = line.removePrefix("•").trim()
-
     val badgeLabel = when {
-
         cleanLine.startsWith("Numerical", ignoreCase = true) -> "SOLVED NUMERICAL"
-
         cleanLine.startsWith("Example", ignoreCase = true) -> "EXAM EXAMPLE"
-
         cleanLine.startsWith("Worked example", ignoreCase = true) -> "WORKED CALCULATION"
-
         cleanLine.startsWith("Derivation", ignoreCase = true) -> "DERIVATION"
-
         cleanLine.startsWith("Check", ignoreCase = true) -> "HOMOGENEITY CHECK"
-
         else -> "WORKED PATTERN"
-
     }
 
-
-
     Surface(
-
         shape = RoundedCornerShape(14.dp),
-
         color = Color(0xFFF8FAFC),
-
-        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
-
+        border = BorderStroke(1.dp, if (isExpanded) Color(0xFF818CF8) else Color(0xFFE2E8F0)),
+        shadowElevation = 0.5.dp,
         modifier = Modifier
-
             .fillMaxWidth()
-
             .padding(vertical = 5.dp)
-
     ) {
-
         Column(modifier = Modifier.padding(14.dp)) {
-
-            Surface(
-
-                shape = RoundedCornerShape(6.dp),
-
-                color = Color(0xFFE0E7FF)
-
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
+                Surface(
+                    shape = RoundedCornerShape(6.dp),
+                    color = Color(0xFFE0E7FF)
+                ) {
+                    Text(
+                        text = badgeLabel,
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 9.5.sp,
+                        letterSpacing = 0.5.sp,
+                        color = Color(0xFF4338CA),
+                        modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                    )
+                }
 
-                Text(
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    if (onAskAi != null) {
+                        Surface(
+                            onClick = { onAskAi("Explain this worked example step-by-step for IISER exam: $cleanLine") },
+                            shape = RoundedCornerShape(50),
+                            color = Color(0xFFEEF2FF)
+                        ) {
+                            Text(
+                                text = "✨ AI Hint",
+                                fontFamily = InterFontFamily,
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 10.sp,
+                                color = Color(0xFF4338CA),
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                            )
+                        }
+                    }
 
-                    text = badgeLabel,
-
-                    fontFamily = InterFontFamily,
-
-                    fontWeight = FontWeight.Bold,
-
-                    fontSize = 9.5.sp,
-
-                    letterSpacing = 0.5.sp,
-
-                    color = Color(0xFF4338CA),
-
-                    modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
-
-                )
-
+                    Surface(
+                        onClick = { isExpanded = !isExpanded },
+                        shape = RoundedCornerShape(50),
+                        color = if (isExpanded) Color(0xFF4338CA) else Color.White,
+                        border = BorderStroke(1.dp, Color(0xFFC7D2FE))
+                    ) {
+                        Text(
+                            text = if (isExpanded) "Hide Solution ▲" else "Tap to Reveal ▼",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 10.5.sp,
+                            color = if (isExpanded) Color.White else Color(0xFF4338CA),
+                            modifier = Modifier.padding(horizontal = 9.dp, vertical = 4.dp)
+                        )
+                    }
+                }
             }
-
-
 
             Spacer(modifier = Modifier.height(8.dp))
 
-
-
             Text(
-
                 text = noteAnnotated(cleanLine),
-
                 fontFamily = InterFontFamily,
-
                 fontWeight = FontWeight.Normal,
-
                 fontSize = (13.5.sp * textSizeScale),
-
                 lineHeight = (20.5.sp * textSizeScale),
-
                 color = Color(0xFF1E293B)
-
             )
 
-        }
+            if (isExpanded) {
+                Spacer(modifier = Modifier.height(10.dp))
+                HorizontalDivider(color = Color(0xFFE0E7FF), thickness = 1.dp)
+                Spacer(modifier = Modifier.height(10.dp))
 
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = Color(0xFFEEF2FF),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(12.dp)) {
+                        Text(
+                            text = "💡 KEY STEP & REASONING",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 10.sp,
+                            color = Color(0xFF3730A3)
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = "Identify given quantities, set up dimensional balance [M^a L^b T^c], substitute SI base values, and check unit consistency.",
+                            fontFamily = InterFontFamily,
+                            fontSize = 12.sp,
+                            color = Color(0xFF1E1B4B)
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = "Self-Check:",
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 11.sp,
+                        color = Color(0xFF64748B)
+                    )
+
+                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        Surface(
+                            onClick = { selfRating = true },
+                            shape = RoundedCornerShape(50),
+                            color = if (selfRating == true) Color(0xFFDCFCE7) else Color.White,
+                            border = BorderStroke(1.dp, if (selfRating == true) Color(0xFF16A34A) else Color(0xFFCBD5E1))
+                        ) {
+                            Text(
+                                text = "Got It! ✓",
+                                fontFamily = InterFontFamily,
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 10.5.sp,
+                                color = if (selfRating == true) Color(0xFF15803D) else Color(0xFF475569),
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                            )
+                        }
+
+                        Surface(
+                            onClick = { selfRating = false },
+                            shape = RoundedCornerShape(50),
+                            color = if (selfRating == false) Color(0xFFFEE2E2) else Color.White,
+                            border = BorderStroke(1.dp, if (selfRating == false) Color(0xFFDC2626) else Color(0xFFCBD5E1))
+                        ) {
+                            Text(
+                                text = "Need Practice ↺",
+                                fontFamily = InterFontFamily,
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 10.5.sp,
+                                color = if (selfRating == false) Color(0xFFB91C1C) else Color(0xFF475569),
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** Interactive Unit & Dimensional Analysis Calculator Tool */
+@Composable
+fun InteractiveUnitAndDimensionConverter() {
+    var activeSubTab by remember { mutableStateOf("Dimensions") }
+
+    val quantities = remember {
+        listOf(
+            Triple("Velocity / Speed", "m/s", "[L T⁻¹]"),
+            Triple("Acceleration", "m/s²", "[L T⁻²]"),
+            Triple("Force", "N (kg·m/s²)", "[M L T⁻²]"),
+            Triple("Work / Energy", "J (N·m)", "[M L² T⁻²]"),
+            Triple("Power", "W (J/s)", "[M L² T⁻³]"),
+            Triple("Pressure / Stress", "Pa (N/m²)", "[M L⁻¹ T⁻²]"),
+            Triple("Density", "kg/m³", "[M L⁻³]"),
+            Triple("Frequency", "Hz (s⁻¹)", "[T⁻¹]"),
+            Triple("Electric Charge", "C (A·s)", "[I T]"),
+            Triple("Electric Potential", "V (J/C)", "[M L² T⁻³ I⁻¹]"),
+            Triple("Resistance", "Ω (V/A)", "[M L² T⁻³ I⁻²]"),
+            Triple("Specific Heat", "J/(kg·K)", "[L² T⁻² K⁻¹]"),
+            Triple("Planck Constant", "J·s", "[M L² T⁻¹]"),
+            Triple("Gravitational Constant G", "N·m²/kg²", "[M⁻¹ L³ T⁻²]")
+        )
+    }
+    var selectedQuantityIndex by remember { mutableIntStateOf(2) }
+    var dimensionalSearch by remember { mutableStateOf("") }
+
+    val filteredQuantities = remember(dimensionalSearch) {
+        if (dimensionalSearch.isBlank()) quantities
+        else quantities.filter { it.first.contains(dimensionalSearch, ignoreCase = true) || it.third.contains(dimensionalSearch, ignoreCase = true) }
     }
 
+    var inputValueText by remember { mutableStateOf("1.0") }
+    val lengthUnits = listOf("kilometre (km)", "metre (m)", "centimetre (cm)", "millimetre (mm)", "micrometre (μm)", "nanometre (nm)", "angstrom (Å)")
+    var fromLengthUnit by remember { mutableStateOf("kilometre (km)") }
+    var toLengthUnit by remember { mutableStateOf("metre (m)") }
+
+    val conversionResult = remember(inputValueText, fromLengthUnit, toLengthUnit) {
+        val valDouble = inputValueText.toDoubleOrNull() ?: 0.0
+        val inMetres = when (fromLengthUnit) {
+            "kilometre (km)" -> valDouble * 1e3
+            "metre (m)" -> valDouble
+            "centimetre (cm)" -> valDouble * 1e-2
+            "millimetre (mm)" -> valDouble * 1e-3
+            "micrometre (μm)" -> valDouble * 1e-6
+            "nanometre (nm)" -> valDouble * 1e-9
+            "angstrom (Å)" -> valDouble * 1e-10
+            else -> valDouble
+        }
+        val converted = when (toLengthUnit) {
+            "kilometre (km)" -> inMetres / 1e3
+            "metre (m)" -> inMetres
+            "centimetre (cm)" -> inMetres / 1e-2
+            "millimetre (mm)" -> inMetres / 1e-3
+            "micrometre (μm)" -> inMetres / 1e-6
+            "nanometre (nm)" -> inMetres / 1e-9
+            "angstrom (Å)" -> inMetres / 1e-10
+            else -> inMetres
+        }
+        if (converted == 0.0) "0"
+        else if (converted >= 1e4 || (converted <= 1e-3 && converted > 0)) String.format("%.3e", converted)
+        else String.format("%.4f", converted).trimEnd('0').trimEnd('.')
+    }
+
+    Surface(
+        shape = RoundedCornerShape(16.dp),
+        color = Color(0xFFF8FAFC),
+        border = BorderStroke(1.dp, Color(0xFFCBD5E1)),
+        shadowElevation = 1.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 10.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            // Header
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Surface(
+                        shape = RoundedCornerShape(6.dp),
+                        color = Color(0xFF2563EB)
+                    ) {
+                        Text(
+                            text = "INTERACTIVE TOOL",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 9.5.sp,
+                            letterSpacing = 0.6.sp,
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                        )
+                    }
+                    Text(
+                        text = "Dimensions & Unit Converter",
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 13.sp,
+                        color = Color(0xFF1E293B)
+                    )
+                }
+
+                // Sub-tabs
+                Surface(
+                    shape = RoundedCornerShape(50),
+                    color = Color(0xFFE2E8F0),
+                    modifier = Modifier.padding(2.dp)
+                ) {
+                    Row(modifier = Modifier.padding(2.dp)) {
+                        listOf("Dimensions", "Unit Converter").forEach { tab ->
+                            val isSel = activeSubTab == tab
+                            Surface(
+                                onClick = { activeSubTab = tab },
+                                shape = RoundedCornerShape(50),
+                                color = if (isSel) Color.White else Color.Transparent,
+                                shadowElevation = if (isSel) 0.5.dp else 0.dp
+                            ) {
+                                Text(
+                                    text = tab,
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = if (isSel) FontWeight.Bold else FontWeight.Medium,
+                                    fontSize = 10.5.sp,
+                                    color = if (isSel) Color(0xFF1E293B) else Color(0xFF64748B),
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            if (activeSubTab == "Dimensions") {
+                Column {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color.White, shape = RoundedCornerShape(8.dp))
+                            .border(1.dp, Color(0xFFE2E8F0), RoundedCornerShape(8.dp))
+                            .padding(horizontal = 10.dp, vertical = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = null,
+                            tint = Color(0xFF64748B),
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        BasicTextField(
+                            value = dimensionalSearch,
+                            onValueChange = { dimensionalSearch = it },
+                            textStyle = androidx.compose.ui.text.TextStyle(fontFamily = InterFontFamily, fontSize = 12.sp, color = Color(0xFF0F172A)),
+                            singleLine = true,
+                            modifier = Modifier.weight(1f),
+                            decorationBox = { inner ->
+                                if (dimensionalSearch.isEmpty()) {
+                                    Text(text = "Search physical quantity or formula...", fontFamily = InterFontFamily, fontSize = 12.sp, color = Color(0xFF94A3B8))
+                                }
+                                inner()
+                            }
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    LazyRow(
+                        horizontalArrangement = Arrangement.spacedBy(6.dp),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        itemsIndexed(filteredQuantities) { idx, item ->
+                            val isSel = selectedQuantityIndex == idx
+                            Surface(
+                                onClick = { selectedQuantityIndex = idx },
+                                shape = RoundedCornerShape(8.dp),
+                                color = if (isSel) Color(0xFF2563EB) else Color.White,
+                                border = BorderStroke(1.dp, if (isSel) Color(0xFF2563EB) else Color(0xFFE2E8F0))
+                            ) {
+                                Text(
+                                    text = item.first,
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = if (isSel) FontWeight.Bold else FontWeight.Medium,
+                                    fontSize = 11.5.sp,
+                                    color = if (isSel) Color.White else Color(0xFF334155),
+                                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp)
+                                )
+                            }
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    val activeItem = filteredQuantities.getOrElse(selectedQuantityIndex) { filteredQuantities.first() }
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = Color.White,
+                        border = BorderStroke(1.dp, Color(0xFFBFDBFE))
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(12.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = activeItem.first.uppercase(),
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 11.sp,
+                                    color = Color(0xFF1E40AF)
+                                )
+                                Spacer(modifier = Modifier.height(2.dp))
+                                Text(
+                                    text = "SI Unit: ${activeItem.second}",
+                                    fontFamily = InterFontFamily,
+                                    fontSize = 12.sp,
+                                    color = Color(0xFF475569)
+                                )
+                            }
+
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = Color(0xFFEFF6FF),
+                                border = BorderStroke(1.dp, Color(0xFF93C5FD))
+                            ) {
+                                Text(
+                                    text = activeItem.third,
+                                    fontFamily = JetBrainsMonoFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 15.sp,
+                                    color = Color(0xFF1D4ED8),
+                                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                                )
+                            }
+                        }
+                    }
+                }
+            } else {
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(text = "VALUE", fontFamily = InterFontFamily, fontWeight = FontWeight.Bold, fontSize = 9.5.sp, color = Color(0xFF64748B))
+                            Spacer(modifier = Modifier.height(3.dp))
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = Color.White,
+                                border = BorderStroke(1.dp, Color(0xFFCBD5E1))
+                            ) {
+                                BasicTextField(
+                                    value = inputValueText,
+                                    onValueChange = { inputValueText = it },
+                                    textStyle = androidx.compose.ui.text.TextStyle(fontFamily = JetBrainsMonoFamily, fontWeight = FontWeight.Bold, fontSize = 14.sp, color = Color(0xFF0F172A)),
+                                    singleLine = true,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 10.dp, vertical = 8.dp)
+                                )
+                            }
+                        }
+
+                        Column(modifier = Modifier.weight(1.2f)) {
+                            Text(text = "FROM", fontFamily = InterFontFamily, fontWeight = FontWeight.Bold, fontSize = 9.5.sp, color = Color(0xFF64748B))
+                            Spacer(modifier = Modifier.height(3.dp))
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = Color.White,
+                                border = BorderStroke(1.dp, Color(0xFFCBD5E1))
+                            ) {
+                                Text(
+                                    text = fromLengthUnit,
+                                    fontFamily = InterFontFamily,
+                                    fontSize = 11.5.sp,
+                                    color = Color(0xFF0F172A),
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 8.dp, vertical = 9.dp)
+                                )
+                            }
+                        }
+
+                        Column(modifier = Modifier.weight(1.2f)) {
+                            Text(text = "TO", fontFamily = InterFontFamily, fontWeight = FontWeight.Bold, fontSize = 9.5.sp, color = Color(0xFF64748B))
+                            Spacer(modifier = Modifier.height(3.dp))
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = Color.White,
+                                border = BorderStroke(1.dp, Color(0xFFCBD5E1))
+                            ) {
+                                Text(
+                                    text = toLengthUnit,
+                                    fontFamily = InterFontFamily,
+                                    fontSize = 11.5.sp,
+                                    color = Color(0xFF0F172A),
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 8.dp, vertical = 9.dp)
+                                )
+                            }
+                        }
+                    }
+
+                    Surface(
+                        shape = RoundedCornerShape(10.dp),
+                        color = Color(0xFFF0FDF4),
+                        border = BorderStroke(1.dp, Color(0xFF86EFAC))
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(12.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(text = "CONVERTED RESULT", fontFamily = InterFontFamily, fontWeight = FontWeight.Bold, fontSize = 10.sp, color = Color(0xFF166534))
+                            Text(
+                                text = "$conversionResult ${toLengthUnit.substringAfter("(").removeSuffix(")")}",
+                                fontFamily = JetBrainsMonoFamily,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 16.sp,
+                                color = Color(0xFF15803D)
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -2211,10 +2629,774 @@ private fun PrefixReferenceTable() {
 
 
 
-/** One body line of the Read tab, styled by its marker prefix. */
-
+/** Reusable horizontally-scrollable scientific table component with interactive search, sorting, and view modes */
 @Composable
+fun ReusableScientificTable(
+    markdownTableText: String,
+    title: String = "DATA MATRIX & COMPARISON",
+    onAskAi: ((String) -> Unit)? = null
+) {
+    val context = LocalContext.current
+    val clipboardManager = LocalClipboardManager.current
 
+    val rawRows = remember(markdownTableText) {
+        markdownTableText.lines()
+            .map { it.trim() }
+            .filter { it.startsWith("|") && !it.replace("-", "").replace("|", "").replace(":", "").isBlank() }
+            .map { row ->
+                row.removePrefix("|").removeSuffix("|")
+                    .split("|")
+                    .map { it.trim() }
+            }
+    }
+    if (rawRows.isEmpty()) return
+
+    val headers = rawRows.firstOrNull() ?: emptyList()
+    val initialDataRows = rawRows.drop(1)
+
+    // Interactive State
+    var searchQuery by remember { mutableStateOf("") }
+    var sortColumnIndex by remember { mutableIntStateOf(-1) }
+    var isSortAscending by remember { mutableStateOf(true) }
+    var isCardView by remember { mutableStateOf(false) }
+    var selectedRowIndex by remember { mutableIntStateOf(-1) }
+    var showSearchField by remember { mutableStateOf(false) }
+
+    // Filter & Sort Data Rows
+    val filteredDataRows = remember(initialDataRows, searchQuery, sortColumnIndex, isSortAscending) {
+        var result = if (searchQuery.isBlank()) {
+            initialDataRows
+        } else {
+            initialDataRows.filter { row ->
+                row.any { cell -> cell.contains(searchQuery, ignoreCase = true) }
+            }
+        }
+
+        if (sortColumnIndex in headers.indices) {
+            result = result.sortedWith { rowA, rowB ->
+                val cellA = rowA.getOrElse(sortColumnIndex) { "" }
+                val cellB = rowB.getOrElse(sortColumnIndex) { "" }
+                val numA = cellA.toDoubleOrNull()
+                val numB = cellB.toDoubleOrNull()
+                val comparison = if (numA != null && numB != null) {
+                    numA.compareTo(numB)
+                } else {
+                    cellA.compareTo(cellB, ignoreCase = true)
+                }
+                if (isSortAscending) comparison else -comparison
+            }
+        }
+        result
+    }
+
+    Surface(
+        shape = RoundedCornerShape(16.dp),
+        color = Color.White,
+        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+        shadowElevation = 0.5.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp)
+    ) {
+        Column {
+            // Header Bar
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Color(0xFFF8FAFC))
+                    .padding(horizontal = 14.dp, vertical = 9.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Surface(
+                        shape = RoundedCornerShape(5.dp),
+                        color = Color(0xFF168A9B)
+                    ) {
+                        Text(
+                            text = "TABLE",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 9.sp,
+                            letterSpacing = 0.6.sp,
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                        )
+                    }
+                    Text(
+                        text = title,
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 11.5.sp,
+                        letterSpacing = 0.3.sp,
+                        color = Color(0xFF334155)
+                    )
+                }
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    // Search toggle button
+                    IconButton(
+                        onClick = { showSearchField = !showSearchField },
+                        modifier = Modifier.size(28.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Search,
+                            contentDescription = "Search table",
+                            tint = if (showSearchField || searchQuery.isNotEmpty()) Color(0xFF168A9B) else Color(0xFF64748B),
+                            modifier = Modifier.size(16.dp)
+                        )
+                    }
+
+                    // Card/Grid view toggle button
+                    IconButton(
+                        onClick = { isCardView = !isCardView },
+                        modifier = Modifier.size(28.dp)
+                    ) {
+                        Icon(
+                            imageVector = if (isCardView) Icons.Default.Menu else Icons.Default.List,
+                            contentDescription = "Toggle view",
+                            tint = if (isCardView) Color(0xFF168A9B) else Color(0xFF64748B),
+                            modifier = Modifier.size(16.dp)
+                        )
+                    }
+
+                    // Copy entire table button
+                    IconButton(
+                        onClick = {
+                            val tableCopy = markdownTableText.trim()
+                            clipboardManager.setText(AnnotatedString(tableCopy))
+                            Toast.makeText(context, "Table copied to clipboard", Toast.LENGTH_SHORT).show()
+                        },
+                        modifier = Modifier.size(28.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.ContentCopy,
+                            contentDescription = "Copy table",
+                            tint = Color(0xFF64748B),
+                            modifier = Modifier.size(16.dp)
+                        )
+                    }
+
+                    if (onAskAi != null) {
+                        Surface(
+                            onClick = { onAskAi("Explain this table in detail for IISER exam:\n$markdownTableText") },
+                            shape = RoundedCornerShape(50),
+                            color = Color(0xFFEEF2FF),
+                            border = BorderStroke(0.5.dp, Color(0xFFC7D2FE))
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(horizontal = 7.dp, vertical = 2.5.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(3.dp)
+                            ) {
+                                Text(
+                                    text = "✨ AI",
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 10.sp,
+                                    color = Color(0xFF4338CA)
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Expandable Search Bar
+            if (showSearchField) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color(0xFFF1F5F9))
+                        .padding(horizontal = 12.dp, vertical = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Search,
+                        contentDescription = null,
+                        tint = Color(0xFF64748B),
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
+                    BasicTextField(
+                        value = searchQuery,
+                        onValueChange = { searchQuery = it },
+                        textStyle = androidx.compose.ui.text.TextStyle(
+                            fontFamily = InterFontFamily,
+                            fontSize = 12.sp,
+                            color = Color(0xFF0F172A)
+                        ),
+                        singleLine = true,
+                        modifier = Modifier.weight(1f),
+                        decorationBox = { inner ->
+                            if (searchQuery.isEmpty()) {
+                                Text(
+                                    text = "Filter table rows...",
+                                    fontFamily = InterFontFamily,
+                                    fontSize = 12.sp,
+                                    color = Color(0xFF94A3B8)
+                                )
+                            }
+                            inner()
+                        }
+                    )
+                    if (searchQuery.isNotEmpty()) {
+                        IconButton(
+                            onClick = { searchQuery = "" },
+                            modifier = Modifier.size(22.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Clear,
+                                contentDescription = "Clear search",
+                                tint = Color(0xFF64748B),
+                                modifier = Modifier.size(14.dp)
+                            )
+                        }
+                    }
+                }
+            }
+
+            HorizontalDivider(color = Color(0xFFE2E8F0), thickness = 1.dp)
+
+            if (!isCardView) {
+                // Horizontally Scrollable Table
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .horizontalScroll(rememberScrollState())
+                ) {
+                    Column(modifier = Modifier.padding(bottom = 4.dp)) {
+                        // Column Headers Row (Click to sort)
+                        Row(
+                            modifier = Modifier
+                                .background(Color(0xFFF1F5F9))
+                                .padding(vertical = 8.dp)
+                        ) {
+                            headers.forEachIndexed { cIdx, header ->
+                                val isSorted = sortColumnIndex == cIdx
+                                Row(
+                                    modifier = Modifier
+                                        .widthIn(min = 96.dp)
+                                        .clickable {
+                                            if (sortColumnIndex == cIdx) {
+                                                if (isSortAscending) {
+                                                    isSortAscending = false
+                                                } else {
+                                                    sortColumnIndex = -1
+                                                    isSortAscending = true
+                                                }
+                                            } else {
+                                                sortColumnIndex = cIdx
+                                                isSortAscending = true
+                                            }
+                                        }
+                                        .padding(horizontal = 12.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(4.dp)
+                                ) {
+                                    Text(
+                                        text = header.uppercase(),
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 11.5.sp,
+                                        letterSpacing = 0.3.sp,
+                                        color = if (isSorted) Color(0xFF168A9B) else Color(0xFF475569)
+                                    )
+                                    if (isSorted) {
+                                        Text(
+                                            text = if (isSortAscending) "▲" else "▼",
+                                            fontSize = 9.sp,
+                                            color = Color(0xFF168A9B)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        HorizontalDivider(color = Color(0xFFE2E8F0), thickness = 1.dp)
+
+                        // Data Rows
+                        filteredDataRows.forEachIndexed { rIdx, rowCells ->
+                            val isSelected = selectedRowIndex == rIdx
+                            val isEven = rIdx % 2 == 0
+                            Row(
+                                modifier = Modifier
+                                    .background(
+                                        when {
+                                            isSelected -> Color(0xFFE0F2FE)
+                                            isEven -> Color.White
+                                            else -> Color(0xFFF8FAFC)
+                                        }
+                                    )
+                                    .clickable {
+                                        selectedRowIndex = if (isSelected) -1 else rIdx
+                                        val rowText = rowCells.joinToString(" | ")
+                                        clipboardManager.setText(AnnotatedString(rowText))
+                                        Toast.makeText(context, "Row copied: $rowText", Toast.LENGTH_SHORT).show()
+                                    }
+                                    .padding(vertical = 9.dp),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                rowCells.forEachIndexed { cIdx, cell ->
+                                    val isFirstCol = cIdx == 0
+                                    Text(
+                                        text = noteAnnotated(cell),
+                                        fontFamily = if (cell.contains("[") || cell.contains("=") || cell.contains("×") || cell.contains("10")) JetBrainsMonoFamily else InterFontFamily,
+                                        fontWeight = if (isFirstCol) FontWeight.SemiBold else FontWeight.Normal,
+                                        fontSize = 12.5.sp,
+                                        lineHeight = 17.sp,
+                                        color = if (isFirstCol) Color(0xFF0F172A) else Color(0xFF334155),
+                                        modifier = Modifier
+                                            .widthIn(min = 96.dp)
+                                            .padding(horizontal = 12.dp)
+                                    )
+                                }
+                            }
+                            if (rIdx < filteredDataRows.size - 1) {
+                                HorizontalDivider(color = Color(0xFFF1F5F9), thickness = 0.8.dp)
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Card View Mode for mobile ease of reading
+                Column(
+                    modifier = Modifier.padding(10.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    filteredDataRows.forEachIndexed { rIdx, rowCells ->
+                        Surface(
+                            shape = RoundedCornerShape(10.dp),
+                            color = Color(0xFFF8FAFC),
+                            border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Column(modifier = Modifier.padding(10.dp)) {
+                                rowCells.forEachIndexed { cIdx, cell ->
+                                    val headerLabel = headers.getOrElse(cIdx) { "Col ${cIdx + 1}" }
+                                    Row(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(vertical = 2.dp),
+                                        horizontalArrangement = Arrangement.SpaceBetween,
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Text(
+                                            text = headerLabel.uppercase(),
+                                            fontFamily = InterFontFamily,
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 10.sp,
+                                            color = Color(0xFF64748B)
+                                        )
+                                        Text(
+                                            text = noteAnnotated(cell),
+                                            fontFamily = if (cell.contains("[") || cell.contains("=")) JetBrainsMonoFamily else InterFontFamily,
+                                            fontWeight = FontWeight.SemiBold,
+                                            fontSize = 12.sp,
+                                            color = Color(0xFF0F172A)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** Reusable process flow / algorithm step sequence card */
+@Composable
+fun ProcessFlowCard(
+    line: String,
+    onAskAi: (String) -> Unit
+) {
+    val cleanLine = line.removePrefix("•").trim()
+    val hasColon = cleanLine.contains(":")
+    val flowTitle = if (hasColon) cleanLine.substringBefore(":").trim() else "METHOD & PROCESS FLOW"
+    val flowContent = if (hasColon) cleanLine.substringAfter(":").trim() else cleanLine
+
+    val steps = remember(flowContent) {
+        flowContent.split(Regex("""\s*(?:→|->)\s*""")).map { it.trim() }.filter { it.isNotEmpty() }
+    }
+
+    if (steps.size <= 1) {
+        Text(
+            text = noteAnnotated(line),
+            fontFamily = AcademicSerifFamily,
+            fontSize = 17.sp,
+            lineHeight = 27.sp,
+            color = Color(0xFF17213A),
+            modifier = Modifier.padding(vertical = 6.dp)
+        )
+        return
+    }
+
+    Surface(
+        shape = RoundedCornerShape(16.dp),
+        color = Color(0xFFF8FAFC),
+        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+        shadowElevation = 0.5.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            // Header Bar
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    Surface(
+                        shape = RoundedCornerShape(5.dp),
+                        color = Color(0xFF3569F6)
+                    ) {
+                        Text(
+                            text = "PROCESS FLOW",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 9.sp,
+                            letterSpacing = 0.6.sp,
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                        )
+                    }
+                    Text(
+                        text = flowTitle,
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 12.sp,
+                        color = Color(0xFF1E293B)
+                    )
+                }
+
+                Surface(
+                    onClick = { onAskAi("Explain this process step-by-step: $cleanLine") },
+                    shape = RoundedCornerShape(50),
+                    color = Color.White,
+                    border = BorderStroke(1.dp, Color(0xFFCBD5E1))
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(3.dp)
+                    ) {
+                        Text(
+                            text = "✨ Ask AI",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 10.5.sp,
+                            color = Color(0xFF3569F6)
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            // Connected Step Nodes
+            steps.forEachIndexed { sIdx, stepText ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.Top,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                ) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Surface(
+                            shape = CircleShape,
+                            color = Color(0xFF3569F6),
+                            modifier = Modifier.size(24.dp)
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Text(
+                                    text = "${sIdx + 1}",
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 11.sp,
+                                    color = Color.White
+                                )
+                            }
+                        }
+
+                        if (sIdx < steps.size - 1) {
+                            Box(
+                                modifier = Modifier
+                                    .width(2.dp)
+                                    .height(28.dp)
+                                    .background(Color(0xFFCBD5E1))
+                            )
+                        }
+                    }
+
+                    Surface(
+                        shape = RoundedCornerShape(10.dp),
+                        color = Color.White,
+                        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(bottom = if (sIdx < steps.size - 1) 6.dp else 0.dp)
+                    ) {
+                        Text(
+                            text = noteAnnotated(stepText),
+                            fontFamily = AcademicSerifFamily,
+                            fontWeight = FontWeight.Normal,
+                            fontSize = 14.5.sp,
+                            lineHeight = 21.sp,
+                            color = Color(0xFF1E293B),
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** Reusable comparison matrix card (A versus B) */
+@Composable
+fun ComparisonMatrixCard(
+    line: String,
+    onAskAi: (String) -> Unit
+) {
+    val cleanLine = line.removePrefix("•").trim()
+    val hasColon = cleanLine.contains(":")
+    val titlePart = if (hasColon) cleanLine.substringBefore(":").trim() else cleanLine
+    val descPart = if (hasColon) cleanLine.substringAfter(":").trim() else ""
+
+    val delimiter = if (titlePart.contains(" versus ", ignoreCase = true)) Regex("(?i)\\s+versus\\s+") else Regex("(?i)\\s+vs\\.?\\s+")
+    val concepts = titlePart.split(delimiter).map { it.trim() }
+
+    val leftConcept = concepts.firstOrNull() ?: "Concept A"
+    val rightConcept = if (concepts.size > 1) concepts[1] else "Concept B"
+
+    Surface(
+        shape = RoundedCornerShape(16.dp),
+        color = Color.White,
+        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+        shadowElevation = 0.5.dp,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp)
+    ) {
+        Column(modifier = Modifier.padding(14.dp)) {
+            // Header
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(5.dp),
+                    color = Color(0xFF7C3AED)
+                ) {
+                    Text(
+                        text = "COMPARISON MATRIX",
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 9.sp,
+                        letterSpacing = 0.6.sp,
+                        color = Color.White,
+                        modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                    )
+                }
+
+                Surface(
+                    onClick = { onAskAi("Compare and contrast $leftConcept vs $rightConcept for IISER exam: $cleanLine") },
+                    shape = RoundedCornerShape(50),
+                    color = Color(0xFFF3E8FF),
+                    border = BorderStroke(0.5.dp, Color(0xFFD8B4FE))
+                ) {
+                    Text(
+                        text = "✨ Compare in AI",
+                        fontFamily = InterFontFamily,
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 10.5.sp,
+                        color = Color(0xFF7C3AED),
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // Two-column side-by-side cards
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = Color(0xFFF0F9FF),
+                    border = BorderStroke(1.dp, Color(0xFFBAE6FD)),
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Column(modifier = Modifier.padding(10.dp)) {
+                        Text(
+                            text = leftConcept.uppercase(),
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 11.5.sp,
+                            color = Color(0xFF0369A1)
+                        )
+                    }
+                }
+
+                Surface(
+                    shape = CircleShape,
+                    color = Color(0xFFF1F5F9),
+                    border = BorderStroke(1.dp, Color(0xFFCBD5E1)),
+                    modifier = Modifier.size(24.dp)
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Text(
+                            text = "VS",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 9.sp,
+                            color = Color(0xFF64748B)
+                        )
+                    }
+                }
+
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = Color(0xFFFAF5FF),
+                    border = BorderStroke(1.dp, Color(0xFFE9D5FF)),
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Column(modifier = Modifier.padding(10.dp)) {
+                        Text(
+                            text = rightConcept.uppercase(),
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 11.5.sp,
+                            color = Color(0xFF6D28D9)
+                        )
+                    }
+                }
+            }
+
+            if (descPart.isNotBlank()) {
+                Spacer(modifier = Modifier.height(10.dp))
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = Color(0xFFF8FAFC),
+                    border = BorderStroke(0.5.dp, Color(0xFFE2E8F0)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = noteAnnotated(descPart),
+                        fontFamily = AcademicSerifFamily,
+                        fontSize = 14.5.sp,
+                        lineHeight = 22.sp,
+                        color = Color(0xFF1E293B),
+                        modifier = Modifier.padding(10.dp)
+                    )
+                }
+            }
+        }
+    }
+}
+
+/** Reusable property / dimension grid card */
+@Composable
+fun PropertyGridCard(
+    line: String
+) {
+    val cleanLine = line.removePrefix("•").trim()
+    val parts = remember(cleanLine) {
+        cleanLine.split(Regex("""\s*•\s*""")).map { it.trim() }.filter { it.isNotEmpty() }
+    }
+
+    Surface(
+        shape = RoundedCornerShape(14.dp),
+        color = Color(0xFFF8FAFC),
+        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 6.dp)
+    ) {
+        Column(modifier = Modifier.padding(12.dp)) {
+            Text(
+                text = "PHYSICAL PROPERTIES & DIMENSIONS",
+                fontFamily = InterFontFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = 10.sp,
+                letterSpacing = 0.5.sp,
+                color = Color(0xFF64748B)
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                parts.chunked(2).forEach { rowPair ->
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    ) {
+                        rowPair.forEach { item ->
+                            val name = item.substringBefore("[").trim()
+                            val dim = if (item.contains("[")) "[" + item.substringAfter("[").trim() else ""
+
+                            Surface(
+                                shape = RoundedCornerShape(8.dp),
+                                color = Color.White,
+                                border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(horizontal = 9.dp, vertical = 6.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Text(
+                                        text = name,
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.Medium,
+                                        fontSize = 12.sp,
+                                        color = Color(0xFF1E293B),
+                                        modifier = Modifier.weight(1f, fill = false),
+                                        maxLines = 1,
+                                        overflow = TextOverflow.Ellipsis
+                                    )
+                                    if (dim.isNotBlank()) {
+                                        Text(
+                                            text = dim,
+                                            fontFamily = JetBrainsMonoFamily,
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 10.5.sp,
+                                            color = Color(0xFF2563EB),
+                                            modifier = Modifier.padding(start = 4.dp)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                        if (rowPair.size == 1) {
+                            Spacer(modifier = Modifier.weight(1f))
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/** One body line of the Read tab, styled by its marker prefix. */
+@Composable
 private fun NoteBodyLine(
 
     line: String,
@@ -2226,6 +3408,8 @@ private fun NoteBodyLine(
     onAskAi: (String) -> Unit
 
 ) {
+
+    val cleanLine = line.removePrefix("•").trim()
 
     when {
 
@@ -2244,6 +3428,30 @@ private fun NoteBodyLine(
         line.startsWith("⚠") -> {
 
             ExamTrapCard(text = line, textSizeScale = textSizeScale, onAskAi = onAskAi)
+
+        }
+
+        line.trim().startsWith("|") && line.trim().endsWith("|") -> {
+
+            ReusableScientificTable(markdownTableText = line, onAskAi = onAskAi)
+
+        }
+
+        (cleanLine.contains(" versus ", ignoreCase = true) || cleanLine.contains(" vs ", ignoreCase = true) || cleanLine.contains(" vs. ", ignoreCase = true)) && !cleanLine.startsWith("Worked", ignoreCase = true) -> {
+
+            ComparisonMatrixCard(line = line, onAskAi = onAskAi)
+
+        }
+
+        (cleanLine.contains(" → ") || cleanLine.contains(" -> ")) && !cleanLine.startsWith("Worked", ignoreCase = true) && !cleanLine.startsWith("Numerical", ignoreCase = true) -> {
+
+            ProcessFlowCard(line = line, onAskAi = onAskAi)
+
+        }
+
+        cleanLine.count { it == '•' } >= 2 && cleanLine.contains("[") && cleanLine.contains("]") -> {
+
+            PropertyGridCard(line = line)
 
         }
 
@@ -2291,7 +3499,7 @@ private fun NoteBodyLine(
 
         line.startsWith("• Check ") -> {
 
-            WorkedExampleCard(line = line, textSizeScale = textSizeScale)
+            WorkedExampleCard(line = line, textSizeScale = textSizeScale, onAskAi = onAskAi)
 
         }
 
@@ -2995,6 +4203,7 @@ fun ChapterReaderOverlay(
     var zoomFigureKey by remember { mutableStateOf<String?>(null) }
 
     // Interactive Talk to AI Concept Sheet State
+    var showInteractiveToolsSheet by remember { mutableStateOf(false) }
     var showTalkToAiSheet by remember { mutableStateOf(false) }
     var aiPromptMode by remember { mutableStateOf("explain") }
     var customAiQuestion by remember { mutableStateOf("") }
@@ -3249,45 +4458,47 @@ fun ChapterReaderOverlay(
             ) {
                 // ==================== TAB 1: "Read" — INTERACTIVE SCIENCE TEXTBOOK ====================
                 if (selectedTab == "Read") {
-                    // Item 0: Chapter Introduction Header (Matching Screenshots 1, 2, 3)
-                    item(key = "chapter_intro") {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 22.dp, vertical = 14.dp)
-                        ) {
-                            Text(
-                                text = "CHAPTER ${chapter.chapterNumber}".uppercase(),
-                                fontFamily = InterFontFamily,
-                                fontWeight = FontWeight.SemiBold,
-                                fontSize = 11.5.sp,
-                                letterSpacing = 1.2.sp,
-                                color = Color(0xFF747982)
-                            )
-
-                            Spacer(modifier = Modifier.height(4.dp))
-
-                            Text(
-                                text = chapter.title,
-                                fontFamily = OutfitDisplayFamily,
-                                fontWeight = FontWeight.SemiBold,
-                                fontSize = 26.5.sp,
-                                lineHeight = 34.sp,
-                                letterSpacing = (-0.4).sp,
-                                color = Color(0xFF171A23)
-                            )
-
-                            if (chapter.subtitle.isNotBlank() && !chapter.subtitle.startsWith("Flower Morphology")) {
-                                Spacer(modifier = Modifier.height(6.dp))
+                    // Item 0: Chapter Introduction Header (Only shown on Section 0 / First Page)
+                    if (currentSectionIndex == 0) {
+                        item(key = "chapter_intro") {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 22.dp, vertical = 14.dp)
+                            ) {
                                 Text(
-                                    text = chapter.subtitle,
-                                    fontFamily = AcademicSerifFamily,
-                                    fontWeight = FontWeight.Normal,
-                                    fontStyle = FontStyle.Italic,
-                                    fontSize = (16.sp * textSizeScale),
-                                    lineHeight = (25.sp * textSizeScale),
-                                    color = Color(0xFF4B5563)
+                                    text = "CHAPTER ${chapter.chapterNumber}".uppercase(),
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = FontWeight.SemiBold,
+                                    fontSize = 11.5.sp,
+                                    letterSpacing = 1.2.sp,
+                                    color = Color(0xFF747982)
                                 )
+
+                                Spacer(modifier = Modifier.height(4.dp))
+
+                                Text(
+                                    text = chapter.title,
+                                    fontFamily = OutfitDisplayFamily,
+                                    fontWeight = FontWeight.SemiBold,
+                                    fontSize = 26.5.sp,
+                                    lineHeight = 34.sp,
+                                    letterSpacing = (-0.4).sp,
+                                    color = Color(0xFF171A23)
+                                )
+
+                                if (chapter.subtitle.isNotBlank() && !chapter.subtitle.startsWith("Flower Morphology")) {
+                                    Spacer(modifier = Modifier.height(6.dp))
+                                    Text(
+                                        text = chapter.subtitle,
+                                        fontFamily = AcademicSerifFamily,
+                                        fontWeight = FontWeight.Normal,
+                                        fontStyle = FontStyle.Italic,
+                                        fontSize = (16.sp * textSizeScale),
+                                        lineHeight = (25.sp * textSizeScale),
+                                        color = Color(0xFF4B5563)
+                                    )
+                                }
                             }
                         }
                     }
@@ -3372,13 +4583,35 @@ fun ChapterReaderOverlay(
                                     ScientificDiagramCard(figKey = figKey, onZoom = { zoomFigureKey = it })
                                 }
 
-                                // Interactive Grid for SI Base Units in Section 1 (if physics chapter 1)
+                                // Interactive Grid for SI Base Units & Interactive Tools in Section 1 (if physics chapter 1)
                                 if (chapter.chapterNumber == 1 && chapter.subject.equals("Physics", ignoreCase = true) && idx == 1) {
                                     SiBaseUnitsGrid()
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    InteractiveUnitAndDimensionConverter()
                                 }
 
-                                // Body Lines — plain textbook reading
-                                sectionLines.forEach { line ->
+                                // Body Lines — plain textbook reading with table batching
+                                val processedNoteLines = remember(sectionLines) {
+                                    val result = mutableListOf<String>()
+                                    var lineIdx = 0
+                                    while (lineIdx < sectionLines.size) {
+                                        val curLine = sectionLines[lineIdx]
+                                        if (curLine.trim().startsWith("|") && curLine.trim().endsWith("|")) {
+                                            val tableLines = mutableListOf<String>()
+                                            while (lineIdx < sectionLines.size && sectionLines[lineIdx].trim().startsWith("|") && sectionLines[lineIdx].trim().endsWith("|")) {
+                                                tableLines.add(sectionLines[lineIdx].trim())
+                                                lineIdx++
+                                            }
+                                            result.add(tableLines.joinToString("\n"))
+                                        } else {
+                                            result.add(curLine)
+                                            lineIdx++
+                                        }
+                                    }
+                                    result
+                                }
+
+                                processedNoteLines.forEach { line ->
                                     NoteBodyLine(
                                         line = line,
                                         textSizeScale = textSizeScale,
@@ -4353,6 +5586,196 @@ fun ChapterReaderOverlay(
                                     }
                                 }
                             }
+
+                            // Interactive Dimensions & Converter Tool Embedded in Notes
+                            InteractiveUnitAndDimensionConverter()
+                        }
+                    }
+                }
+            }
+        }
+
+        // Floating Interactive Tools Pill (Bottom Right)
+        if (selectedTab == "Read" || selectedTab == "Notes") {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(end = 20.dp, bottom = 80.dp),
+                contentAlignment = Alignment.BottomEnd
+            ) {
+                Surface(
+                    onClick = { showInteractiveToolsSheet = true },
+                    shape = RoundedCornerShape(50),
+                    color = Color(0xFF168A9B),
+                    shadowElevation = 6.dp
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 14.dp, vertical = 9.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Tune,
+                            contentDescription = "Interactive Tools",
+                            tint = Color.White,
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Text(
+                            text = "Interactive Tools",
+                            fontFamily = InterFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 12.sp,
+                            color = Color.White
+                        )
+                    }
+                }
+            }
+        }
+
+        // Interactive Tools Bottom Sheet Drawer
+        if (showInteractiveToolsSheet) {
+            Surface(
+                color = Color.Black.copy(alpha = 0.5f),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .zIndex(100f)
+                    .clickable { showInteractiveToolsSheet = false }
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp),
+                    contentAlignment = Alignment.BottomCenter
+                ) {
+                    Surface(
+                        shape = RoundedCornerShape(26.dp),
+                        color = Color.White,
+                        shadowElevation = 18.dp,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable(enabled = false) {}
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .padding(20.dp)
+                                .verticalScroll(rememberScrollState())
+                        ) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    Surface(
+                                        shape = CircleShape,
+                                        color = Color(0xFFE0F2FE),
+                                        modifier = Modifier.size(36.dp)
+                                    ) {
+                                        Box(contentAlignment = Alignment.Center) {
+                                            Icon(
+                                                imageVector = Icons.Default.Tune,
+                                                contentDescription = null,
+                                                tint = Color(0xFF0284C7),
+                                                modifier = Modifier.size(20.dp)
+                                            )
+                                        }
+                                    }
+                                    Text(
+                                        text = "Interactive Study Tools",
+                                        fontFamily = OutfitDisplayFamily,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 18.sp,
+                                        color = Color(0xFF0F172A)
+                                    )
+                                }
+
+                                IconButton(onClick = { showInteractiveToolsSheet = false }) {
+                                    Icon(
+                                        imageVector = Icons.Default.Close,
+                                        contentDescription = "Close",
+                                        tint = Color(0xFF64748B)
+                                    )
+                                }
+                            }
+
+                            Spacer(modifier = Modifier.height(14.dp))
+
+                            // Text Size Adjuster Row
+                            Surface(
+                                shape = RoundedCornerShape(14.dp),
+                                color = Color(0xFFF8FAFC),
+                                border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(12.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Text(
+                                        text = "Reading Text Size",
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.SemiBold,
+                                        fontSize = 13.sp,
+                                        color = Color(0xFF334155)
+                                    )
+
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                    ) {
+                                        Surface(
+                                            onClick = { textSizeScale = (textSizeScale - 0.1f).coerceAtLeast(0.8f) },
+                                            shape = CircleShape,
+                                            color = Color.White,
+                                            border = BorderStroke(1.dp, Color(0xFFCBD5E1))
+                                        ) {
+                                            Text(
+                                                text = "A-",
+                                                fontFamily = InterFontFamily,
+                                                fontWeight = FontWeight.Bold,
+                                                fontSize = 12.sp,
+                                                color = Color(0xFF0F172A),
+                                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
+                                            )
+                                        }
+
+                                        Text(
+                                            text = "${(textSizeScale * 100).toInt()}%",
+                                            fontFamily = JetBrainsMonoFamily,
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 13.sp,
+                                            color = Color(0xFF0284C7)
+                                        )
+
+                                        Surface(
+                                            onClick = { textSizeScale = (textSizeScale + 0.1f).coerceAtMost(1.5f) },
+                                            shape = CircleShape,
+                                            color = Color.White,
+                                            border = BorderStroke(1.dp, Color(0xFFCBD5E1))
+                                        ) {
+                                            Text(
+                                                text = "A+",
+                                                fontFamily = InterFontFamily,
+                                                fontWeight = FontWeight.Bold,
+                                                fontSize = 12.sp,
+                                                color = Color(0xFF0F172A),
+                                                modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+
+                            Spacer(modifier = Modifier.height(14.dp))
+
+                            // Interactive Dimensions & Unit Converter
+                            InteractiveUnitAndDimensionConverter()
                         }
                     }
                 }

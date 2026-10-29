@@ -29,7 +29,7 @@ private val LightColorScheme = lightColorScheme(
     outline = BorderColor,
     outlineVariant = Color(0xFFD5D9E8),
     error = WarningCoral,
-    onError = Color.White
+    onError = Color.White,
 )
 
 private val DarkColorScheme = darkColorScheme(
@@ -54,27 +54,27 @@ private val DarkColorScheme = darkColorScheme(
     outline = DarkBorderColor,
     outlineVariant = Color(0xFF333D63),
     error = Color(0xFFF87171),
-    onError = Color(0xFF450A0A)
+    onError = Color(0xFF450A0A),
 )
 
 @Composable
 fun IISERSmartPrepTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
 
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        content = content
+        content = content,
     )
 }
 
 @Composable
 fun MyApplicationTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     IISERSmartPrepTheme(darkTheme = darkTheme, content = content)
 }

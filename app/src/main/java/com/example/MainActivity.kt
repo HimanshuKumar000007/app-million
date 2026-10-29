@@ -9,11 +9,11 @@ import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
 fun IISERSmartPrepApp() {
     val context = LocalContext.current
     val viewModel: SmartPrepViewModel = viewModel(
-        factory = SmartPrepViewModel.provideFactory(context)
+        factory = SmartPrepViewModel.provideFactory(context),
     )
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -62,8 +62,8 @@ fun IISERSmartPrepApp() {
     }
 
     // Handle Android back button when on non-Home bottom navigation tabs
-    BackHandler(enabled = activeOverlay == null && currentTab != BottomNavTab.HOME) {
-        if (currentTab == BottomNavTab.LEARN && notesFocusedSubject != "All") {
+    BackHandler(enabled = (activeOverlay == null) && (currentTab != BottomNavTab.HOME)) {
+        if ((currentTab == BottomNavTab.LEARN) && (notesFocusedSubject != "All")) {
             viewModel.setNotesFocusedSubject("All")
         } else {
             viewModel.navigateToTab(BottomNavTab.HOME)
@@ -78,22 +78,29 @@ fun IISERSmartPrepApp() {
                 if (activeOverlay == null) {
                     SmartPrepBottomNavigation(
                         currentTab = currentTab,
-                        onSelectTab = { viewModel.navigateToTab(it) }
+                        onSelectTab = { viewModel.navigateToTab(it) },
                     )
                 }
-            }
-        ) { _ ->
-            Box(modifier = Modifier.fillMaxSize()) {
+            },
+        ) { innerPadding ->
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+            ) {
                 val overlay = activeOverlay
                 if (overlay != null) {
                     when (overlay) {
                         is OverlayScreen.ChapterReader -> {
-                            val chapter = uiState.allChapters.find { it.id == overlay.chapterId }
+                            val (chapterId, startWithVideo) = overlay
+                            val chapter = uiState.allChapters.find { it.id == chapterId }
                                 ?: uiState.allChapters.firstOrNull()
                             if (chapter != null) {
                                 val siblingChapters = uiState.allChapters
+                                    .asSequence()
                                     .filter { it.subject.equals(chapter.subject, ignoreCase = true) }
                                     .sortedBy { it.chapterNumber }
+                                    .toList()
                                 val chapterQs = uiState.allQuestions
                                     .filter { it.chapterId == chapter.id }
                                     .ifEmpty {
@@ -103,7 +110,7 @@ fun IISERSmartPrepApp() {
                                     }
                                 ChapterReaderOverlay(
                                     chapter = chapter,
-                                    startWithVideo = overlay.startWithVideo,
+                                    startWithVideo = startWithVideo,
                                     onBack = { viewModel.closeOverlay() },
                                     onMarkCompleted = { videoDone ->
                                         viewModel.markChapterCompleted(chapter, videoDone)
@@ -113,32 +120,34 @@ fun IISERSmartPrepApp() {
                                     },
                                     siblingChapters = siblingChapters,
                                     onSelectSiblingChapter = { nextChapter ->
-                                        viewModel.openChapter(nextChapter, false)
+                                        viewModel.openChapter(nextChapter, startWithVideo = false)
                                     },
                                     chapterQuestions = chapterQs,
                                     onOpenAiTutor = {
                                         viewModel.openSnapSolve(chapter.subject)
-                                    }
+                                    },
                                 )
                             }
                         }
 
                         is OverlayScreen.QuestionSession -> {
-                            val sessionQs = uiState.allQuestions.filter { it.id in overlay.questionIds }
+                            val (title, subtitle, questionIds, isTimed) = overlay
+                            val sessionQs = uiState.allQuestions.filter { it.id in questionIds }
                                 .ifEmpty { uiState.subjectQuestions }
                             QuestionSessionOverlay(
-                                title = overlay.title,
-                                subtitle = overlay.subtitle,
+                                title = title,
+                                subtitle = subtitle,
                                 questions = sessionQs,
-                                isTimed = overlay.isTimed,
+                                isTimed = isTimed,
                                 onBack = { viewModel.closeOverlay() },
                                 onSubmitAnswer = { q, opt -> viewModel.submitQuestionAnswer(q, opt) },
-                                onToggleBookmark = { q -> viewModel.toggleQuestionBookmark(q) }
+                                onToggleBookmark = { q -> viewModel.toggleQuestionBookmark(q) },
                             )
                         }
 
                         is OverlayScreen.MockTestSession -> {
-                            val mock = uiState.mockTests.find { it.id == overlay.mockTestId }
+                            val (mockTestId) = overlay
+                            val mock = uiState.mockTests.find { it.id == mockTestId }
                                 ?: uiState.mockTests.firstOrNull()
                             if (mock != null) {
                                 val ids = mock.questionIdsCsv.split(",").map { it.trim() }
@@ -150,20 +159,21 @@ fun IISERSmartPrepApp() {
                                     onBack = { viewModel.closeOverlay() },
                                     onSubmitMockTest = { score, acc, mins ->
                                         viewModel.submitMockTest(mock.id, score, acc, mins)
-                                    }
+                                    },
                                 )
                             }
                         }
 
                         is OverlayScreen.SnapSolveSheet -> {
+                            val (initialSubject) = overlay
                             SnapSolveOverlay(
-                                initialSubject = overlay.initialSubject,
+                                initialSubject = initialSubject,
                                 isSolving = isSnapSolving,
                                 solutionOutput = snapSolveOutput,
                                 onBack = { viewModel.closeOverlay() },
                                 onSolveRequest = { text, subj, bmp ->
                                     viewModel.runSnapAndSolve(text, subj, bmp)
-                                }
+                                },
                             )
                         }
                     }
@@ -185,7 +195,7 @@ fun IISERSmartPrepApp() {
                                 },
                                 onOpenQuestionSession = { title, subtitle, ids, timed ->
                                     viewModel.openOverlay(
-                                        OverlayScreen.QuestionSession(title, subtitle, ids, timed)
+                                        OverlayScreen.QuestionSession(title, subtitle, ids, timed),
                                     )
                                 },
                                 onStartMockTest = { mock -> viewModel.startMockTest(mock) },
@@ -197,7 +207,7 @@ fun IISERSmartPrepApp() {
                                 onDeleteStudyTask = { id -> viewModel.deleteStudyTask(id) },
                                 onNavigateToTab = { dest -> viewModel.navigateToTab(dest) },
                                 onRetryNetworkCheck = { viewModel.refreshConnectivity(context) },
-                                onOpenSubjectNotes = { subj -> viewModel.openSubjectNotes(subj) }
+                                onOpenSubjectNotes = { subj -> viewModel.openSubjectNotes(subj) },
                             )
 
                             BottomNavTab.LEARN -> LearnTabScreen(
@@ -207,7 +217,7 @@ fun IISERSmartPrepApp() {
                                 onSelectSubject = { viewModel.selectSubject(it) },
                                 onSelectExamFilter = { viewModel.selectExamFilter(it) },
                                 onOpenChapter = { ch, vid -> viewModel.openChapter(ch, vid) },
-                                onStartImportantSet = { ch -> viewModel.startImportantQuestionSet(ch) }
+                                onStartImportantSet = { ch -> viewModel.startImportantQuestionSet(ch) },
                             )
 
                             BottomNavTab.PRACTICE -> PracticeTabScreen(
@@ -219,23 +229,23 @@ fun IISERSmartPrepApp() {
                                 },
                                 onOpenQuestionSession = { title, subtitle, ids, timed ->
                                     viewModel.openOverlay(
-                                        OverlayScreen.QuestionSession(title, subtitle, ids, timed)
+                                        OverlayScreen.QuestionSession(title, subtitle, ids, timed),
                                     )
                                 },
                                 onStartMockTest = { mock -> viewModel.startMockTest(mock) },
                                 onToggleBookmark = { q -> viewModel.toggleQuestionBookmark(q) },
                                 onResetSubjectAttempts = { subj -> viewModel.resetSubjectPractice(subj) },
-                                onOpenSnapSolve = { viewModel.openSnapSolve() }
+                                onOpenSnapSolve = { viewModel.openSnapSolve() },
                             )
 
                             BottomNavTab.PYQS -> PyqsTabScreen(
                                 state = uiState,
                                 onOpenQuestionSession = { title, subtitle, ids, timed ->
                                     viewModel.openOverlay(
-                                        OverlayScreen.QuestionSession(title, subtitle, ids, timed)
+                                        OverlayScreen.QuestionSession(title, subtitle, ids, timed),
                                     )
                                 },
-                                onToggleBookmark = { q -> viewModel.toggleQuestionBookmark(q) }
+                                onToggleBookmark = { q -> viewModel.toggleQuestionBookmark(q) },
                             )
 
                             BottomNavTab.PROFILE -> ProfileTabScreen(
@@ -244,7 +254,7 @@ fun IISERSmartPrepApp() {
                                 onUpdateSession = { loggedIn, name, email, exam ->
                                     viewModel.updateProfileSession(loggedIn, name, email, exam)
                                 },
-                                onUpdateSubscription = { tier -> viewModel.updateSubscriptionTier(tier) }
+                                onUpdateSubscription = { tier -> viewModel.updateSubscriptionTier(tier) },
                             )
                         }
                     }
