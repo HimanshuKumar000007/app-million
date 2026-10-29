@@ -710,6 +710,70 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "chem_ch_1" -> when (sectionIndex) {
+
+            6 -> listOf("fig_chem_1_2_multiple_proportions")
+
+            11 -> listOf("fig_chem_1_1_mole_bridge")
+
+            13 -> listOf("fig_chem_1_3_empirical_flowchart")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_2" -> when (sectionIndex) {
+
+            3 -> listOf("fig_chem_2_4_rutherford")
+
+            10 -> listOf("fig_chem_2_1_bohr_levels")
+
+            14 -> listOf("fig_chem_2_2_orbital_shapes")
+
+            15 -> listOf("fig_chem_2_3_aufbau")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_3" -> when (sectionIndex) {
+
+            5 -> listOf("fig_chem_3_1_block_map")
+
+            8 -> listOf("fig_chem_3_3_ionisation_dips")
+
+            14 -> listOf("fig_chem_3_2_trend_arrows")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_4" -> when (sectionIndex) {
+
+            7 -> listOf("fig_chem_4_1_vsepr_gallery")
+
+            8 -> listOf("fig_chem_4_4_lone_pair_angles")
+
+            10 -> listOf("fig_chem_4_2_hybridisation")
+
+            14 -> listOf("fig_chem_4_3_o2_mo_diagram")
+
+            else -> emptyList()
+
+        }
+
+        "chem_ch_5" -> when (sectionIndex) {
+
+            3 -> listOf("fig_chem_5_1_atomic_radii")
+
+            7 -> listOf("fig_chem_5_2_octahedral_splitting")
+
+            12 -> listOf("fig_chem_5_3_lanthanoid_contraction")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -1495,6 +1559,143 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Both half-cycles of the alternating input are folded into one direction in the output."
 
         )
+
+        "fig_chem_1_1_mole_bridge" -> Pair(
+
+            "Fig. 1.1 — The Mole Bridge",
+
+            "One mole connects three measures: 6.022 x 10^23 particles, the molar mass in grams, and 22.4 L for a gas at STP."
+
+        )
+
+        "fig_chem_1_2_multiple_proportions" -> Pair(
+
+            "Fig. 1.2 — Law of Multiple Proportions",
+
+            "For a fixed mass of carbon, the oxygen masses in CO and CO2 stand in the simple ratio 1 : 2."
+
+        )
+
+        "fig_chem_1_3_empirical_flowchart" -> Pair(
+
+            "Fig. 1.3 — Finding the Empirical Formula",
+
+            "Percentage composition to moles, moles to the simplest whole-number ratio, ratio to the empirical formula."
+
+        )
+
+        "fig_chem_2_1_bohr_levels" -> Pair(
+
+            "Fig. 2.1 — Bohr Energy Levels of Hydrogen",
+
+            "Falling electrons release photons: Lyman in the ultraviolet, Balmer in the visible, Paschen in the infrared."
+
+        )
+
+        "fig_chem_2_2_orbital_shapes" -> Pair(
+
+            "Fig. 2.2 — Shapes of s, p and d Orbitals",
+
+            "The s orbital is a sphere, p orbitals are dumbbells along the axes, and d orbitals are mostly four-lobed."
+
+        )
+
+        "fig_chem_2_3_aufbau" -> Pair(
+
+            "Fig. 2.3 — The Aufbau Filling Order",
+
+            "Orbitals fill in order of increasing (n + l): follow the diagonals from 1s upwards."
+
+        )
+
+        "fig_chem_2_4_rutherford" -> Pair(
+
+            "Fig. 2.4 — Rutherford's Scattering Experiment",
+
+            "Most alpha particles pass straight through the foil, a few deflect, and about 1 in 8000 rebounds — the nucleus is tiny and dense."
+
+        )
+
+        "fig_chem_3_1_block_map" -> Pair(
+
+            "Fig. 3.1 — The Four Blocks of the Periodic Table",
+
+            "Where the differentiating electron enters decides the block: s on the left, p on the right, d in the middle, f below."
+
+        )
+
+        "fig_chem_3_2_trend_arrows" -> Pair(
+
+            "Fig. 3.2 — Periodic Trends at a Glance",
+
+            "Across a period and down a group: how atomic radius, ionisation enthalpy, electron gain enthalpy and electronegativity move."
+
+        )
+
+        "fig_chem_3_3_ionisation_dips" -> Pair(
+
+            "Fig. 3.3 — Ionisation Enthalpy and Its Famous Dips",
+
+            "Ionisation enthalpy rises across the period with two dips — at boron after beryllium, and at oxygen after nitrogen."
+
+        )
+
+        "fig_chem_4_1_vsepr_gallery" -> Pair(
+
+            "Fig. 4.1 — VSEPR Geometry Gallery",
+
+            "Electron-pair geometries from linear to octahedral: the shapes pairs choose to stay farthest apart."
+
+        )
+
+        "fig_chem_4_2_hybridisation" -> Pair(
+
+            "Fig. 4.2 — Hybridisation in BeCl2, BF3 and CH4",
+
+            "sp gives linear, sp2 trigonal planar and sp3 tetrahedral arrangements of the hybrid orbitals."
+
+        )
+
+        "fig_chem_4_3_o2_mo_diagram" -> Pair(
+
+            "Fig. 4.3 — Molecular Orbital Diagram of O2",
+
+            "Two unpaired electrons in the pi-star orbitals make oxygen paramagnetic — and give it bond order 2."
+
+        )
+
+        "fig_chem_4_4_lone_pair_angles" -> Pair(
+
+            "Fig. 4.4 — Lone Pairs Squeeze Bond Angles",
+
+            "CH4 at 109.5 degrees, NH3 at 107, H2O at 104.5: each lone pair pushes the bonds closer together."
+
+        )
+
+        "fig_chem_5_1_atomic_radii" -> Pair(
+
+            "Fig. 5.1 — Atomic Radii Across the 3d Series",
+
+            "Radii fall from scandium to about chromium, stay nearly flat through the middle, then rise slightly at copper and zinc."
+
+        )
+
+        "fig_chem_5_2_octahedral_splitting" -> Pair(
+
+            "Fig. 5.2 — d-Orbital Splitting in an Octahedral Field",
+
+            "The five d orbitals split into a lower t2g set of three and an upper eg set of two, separated by the splitting energy."
+
+        )
+
+        "fig_chem_5_3_lanthanoid_contraction" -> Pair(
+
+            "Fig. 5.3 — Lanthanoid Contraction",
+
+            "Ionic radii of the trivalent lanthanoid ions shrink steadily from lanthanum to lutetium as the poorly shielding 4f shell fills."
+
+        )
+
 
 
         else -> Pair("Scientific Diagram", "Textbook precision illustration.")

@@ -127,7 +127,24 @@ object ChapterFigureData {
         "fig_28_1_energy_bands" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270726/physics-ch28-fig-28-1-energy-bands.png",
         "fig_28_2_pn_junction" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270727/physics-ch28-fig-28-2-pn-junction.png",
         "fig_28_3_diode_vi" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270728/physics-ch28-fig-28-3-diode-vi.png",
-        "fig_28_4_full_wave_rectifier" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270729/physics-ch28-fig-28-4-full-wave-rectifier.png"
+        "fig_28_4_full_wave_rectifier" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270729/physics-ch28-fig-28-4-full-wave-rectifier.png",
+        "fig_chem_1_1_mole_bridge" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271468/chemistry-ch01-fig-1-1-mole-bridge.png",
+        "fig_chem_1_2_multiple_proportions" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271469/chemistry-ch01-fig-1-2-multiple-proportions.png",
+        "fig_chem_1_3_empirical_flowchart" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271469/chemistry-ch01-fig-1-3-empirical-flowchart.png",
+        "fig_chem_2_1_bohr_levels" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271588/chemistry-ch02-fig-2-1-bohr-energy-levels.png",
+        "fig_chem_2_2_orbital_shapes" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271589/chemistry-ch02-fig-2-2-orbital-shapes.png",
+        "fig_chem_2_3_aufbau" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271590/chemistry-ch02-fig-2-3-aufbau-diagram.png",
+        "fig_chem_2_4_rutherford" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271591/chemistry-ch02-fig-2-4-rutherford-scattering.png",
+        "fig_chem_3_1_block_map" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271679/chemistry-ch03-fig-3-1-block-map.png",
+        "fig_chem_3_2_trend_arrows" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271681/chemistry-ch03-fig-3-2-trend-arrows.png",
+        "fig_chem_3_3_ionisation_dips" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271682/chemistry-ch03-fig-3-3-ionisation-dips.png",
+        "fig_chem_4_1_vsepr_gallery" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271743/chemistry-ch04-fig-4-1-vsepr-gallery.png",
+        "fig_chem_4_2_hybridisation" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271744/chemistry-ch04-fig-4-2-hybridisation.png",
+        "fig_chem_4_3_o2_mo_diagram" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271745/chemistry-ch04-fig-4-3-o2-mo-diagram.png",
+        "fig_chem_4_4_lone_pair_angles" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271746/chemistry-ch04-fig-4-4-lone-pair-angles.png",
+        "fig_chem_5_1_atomic_radii" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271454/chemistry-ch05-fig-5-1-atomic-radii.png",
+        "fig_chem_5_2_octahedral_splitting" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271455/chemistry-ch05-fig-5-2-octahedral-splitting.png",
+        "fig_chem_5_3_lanthanoid_contraction" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271456/chemistry-ch05-fig-5-3-lanthanoid-contraction.png"
     )
 
     val images: Map<String, String> = mapOf(
