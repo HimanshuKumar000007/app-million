@@ -512,6 +512,76 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "phys_ch_14" -> when (sectionIndex) {
+
+            2 -> listOf("fig_14_1_transverse_vs_longitudinal")
+
+            12 -> listOf("fig_14_2_string_harmonics")
+
+            13 -> listOf("fig_14_3_organ_pipes")
+
+            14 -> listOf("fig_14_4_beats")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_15" -> when (sectionIndex) {
+
+            7 -> listOf("fig_15_1_field_lines")
+
+            10 -> listOf("fig_15_3_dipole_geometry")
+
+            13 -> listOf("fig_15_4_flux_gauss")
+
+            15 -> listOf("fig_15_2_shell_field_graph")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_16" -> when (sectionIndex) {
+
+            5 -> listOf("fig_16_1_equipotential_surfaces")
+
+            8 -> listOf("fig_16_3_v_versus_r")
+
+            12 -> listOf("fig_16_2_dielectric_slab")
+
+            13 -> listOf("fig_16_4_series_parallel")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_17" -> when (sectionIndex) {
+
+            4 -> listOf("fig_17_1_iv_characteristics")
+
+            9 -> listOf("fig_17_2_cell_internal_resistance")
+
+            13 -> listOf("fig_17_3_wheatstone_bridge")
+
+            15 -> listOf("fig_17_4_potentiometer")
+
+            else -> emptyList()
+
+        }
+
+        "phys_ch_18" -> when (sectionIndex) {
+
+            3 -> listOf("fig_18_1_circular_helical")
+
+            6 -> listOf("fig_18_3_cyclotron")
+
+            8 -> listOf("fig_18_2_field_lines_wire_loop")
+
+            9 -> listOf("fig_18_4_b_vs_r_wire")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -863,6 +933,166 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Fig. 13.4 — The Simple Pendulum",
 
             "Only the tangential component of weight restores the bob — for small angles, a perfect SHM force."
+
+        )
+
+        "fig_14_1_transverse_vs_longitudinal" -> Pair(
+
+            "Fig. 14.1 — Transverse versus Longitudinal Waves",
+
+            "Transverse: the medium vibrates across the direction of travel. Longitudinal: along it — compressions and rarefactions."
+
+        )
+
+        "fig_14_2_string_harmonics" -> Pair(
+
+            "Fig. 14.2 — Standing Waves on a String",
+
+            "Fundamental, second and third harmonics: nodes stay still while antinodes swing widest."
+
+        )
+
+        "fig_14_3_organ_pipes" -> Pair(
+
+            "Fig. 14.3 — Organ Pipe Modes",
+
+            "A closed pipe sounds odd harmonics only; an open pipe sounds the complete series."
+
+        )
+
+        "fig_14_4_beats" -> Pair(
+
+            "Fig. 14.4 — Beats",
+
+            "Two close frequencies swell and fade together; the beat rate equals the frequency gap."
+
+        )
+
+        "fig_15_1_field_lines" -> Pair(
+
+            "Fig. 15.1 — Electric Field Lines",
+
+            "Lines leave positive charge and enter negative charge; their density maps the field strength."
+
+        )
+
+        "fig_15_2_shell_field_graph" -> Pair(
+
+            "Fig. 15.2 — Field of a Charged Shell",
+
+            "Inside a charged shell the field is exactly zero; outside, the shell acts like a point charge."
+
+        )
+
+        "fig_15_3_dipole_geometry" -> Pair(
+
+            "Fig. 15.3 — The Dipole: Axis and Equator",
+
+            "On the axis the field is twice the equatorial value at the same distance — and points the other way."
+
+        )
+
+        "fig_15_4_flux_gauss" -> Pair(
+
+            "Fig. 15.4 — Electric Flux and Gauss's Law",
+
+            "Flux counts the field through a surface; Gauss's law ties it to the charge enclosed."
+
+        )
+
+        "fig_16_1_equipotential_surfaces" -> Pair(
+
+            "Fig. 16.1 — Equipotential Surfaces",
+
+            "Field lines cross equipotential surfaces at right angles; moving along one costs no work."
+
+        )
+
+        "fig_16_2_dielectric_slab" -> Pair(
+
+            "Fig. 16.2 — Dielectric Inside a Capacitor",
+
+            "A dielectric multiplies capacitance — but the charge and voltage story depends on the battery."
+
+        )
+
+        "fig_16_3_v_versus_r" -> Pair(
+
+            "Fig. 16.3 — Potential of a Charged Conductor",
+
+            "Potential stays constant throughout the conductor, then falls off as 1/r outside."
+
+        )
+
+        "fig_16_4_series_parallel" -> Pair(
+
+            "Fig. 16.4 — Capacitors in Series and Parallel",
+
+            "Parallel capacitances add; series capacitances add as reciprocals — the smallest one rules."
+
+        )
+
+        "fig_17_1_iv_characteristics" -> Pair(
+
+            "Fig. 17.1 — I–V Characteristics",
+
+            "An ohmic resistor draws a straight line; a non-ohmic device curves."
+
+        )
+
+        "fig_17_2_cell_internal_resistance" -> Pair(
+
+            "Fig. 17.2 — A Cell's Internal Resistance",
+
+            "Terminal voltage sags as current rises: V = E − Ir, the signature of internal resistance."
+
+        )
+
+        "fig_17_3_wheatstone_bridge" -> Pair(
+
+            "Fig. 17.3 — The Wheatstone Bridge",
+
+            "At balance the galvanometer reads zero and P/Q = R/S — four resistors, one exact ratio."
+
+        )
+
+        "fig_17_4_potentiometer" -> Pair(
+
+            "Fig. 17.4 — The Potentiometer",
+
+            "EMFs are compared by balance lengths on a uniform wire — at balance, no current is drawn."
+
+        )
+
+        "fig_18_1_circular_helical" -> Pair(
+
+            "Fig. 18.1 — Circular and Helical Paths in a B Field",
+
+            "Perpendicular velocity makes a circle; a parallel component stretches it into a helix."
+
+        )
+
+        "fig_18_2_field_lines_wire_loop" -> Pair(
+
+            "Fig. 18.2 — Field Lines of Wire and Loop",
+
+            "Circles wrap a straight wire; through a loop, the field threads along its axis."
+
+        )
+
+        "fig_18_3_cyclotron" -> Pair(
+
+            "Fig. 18.3 — The Cyclotron",
+
+            "Two dees, one magnetic field, an alternating push every half-turn — resonance does the rest."
+
+        )
+
+        "fig_18_4_b_vs_r_wire" -> Pair(
+
+            "Fig. 18.4 — Field Inside and Outside a Wire",
+
+            "B grows linearly inside a uniform-current wire, peaks at the surface, then falls as 1/r."
 
         )
 

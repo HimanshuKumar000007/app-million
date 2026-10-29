@@ -73,7 +73,27 @@ object ChapterFigureData {
         "fig_13_2_reference_circle" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267774/physics-ch13-fig-13-2-reference-circle.png",
         "fig_13_1_xva_graphs" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267773/physics-ch13-fig-13-1-xva-graphs.png",
         "fig_13_3_energy" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267775/physics-ch13-fig-13-3-energy.png",
-        "fig_13_4_simple_pendulum" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267777/physics-ch13-fig-13-4-pendulum.png"
+        "fig_13_4_simple_pendulum" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793267777/physics-ch13-fig-13-4-pendulum.png",
+        "fig_14_1_transverse_vs_longitudinal" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268329/physics-ch14-fig-14-1-transverse-vs-longitudinal.png",
+        "fig_14_2_string_harmonics" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268330/physics-ch14-fig-14-2-string-harmonics.png",
+        "fig_14_3_organ_pipes" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268332/physics-ch14-fig-14-3-organ-pipes.png",
+        "fig_14_4_beats" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268332/physics-ch14-fig-14-4-beats.png",
+        "fig_15_1_field_lines" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268390/physics-ch15-fig-15-1-field-lines.png",
+        "fig_15_3_dipole_geometry" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268393/physics-ch15-fig-15-3-dipole-geometry.png",
+        "fig_15_4_flux_gauss" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268394/physics-ch15-fig-15-4-flux-gauss.png",
+        "fig_15_2_shell_field_graph" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268391/physics-ch15-fig-15-2-shell-field-graph.png",
+        "fig_16_1_equipotential_surfaces" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268346/physics-ch16-fig-16-1-equipotential-surfaces.png",
+        "fig_16_3_v_versus_r" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268348/physics-ch16-fig-16-3-v-versus-r.png",
+        "fig_16_2_dielectric_slab" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268347/physics-ch16-fig-16-2-dielectric-slab.png",
+        "fig_16_4_series_parallel" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268349/physics-ch16-fig-16-4-series-parallel.png",
+        "fig_17_1_iv_characteristics" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268450/physics-ch17-fig-17-1-iv-characteristics.png",
+        "fig_17_2_cell_internal_resistance" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268451/physics-ch17-fig-17-2-cell-internal-resistance.png",
+        "fig_17_3_wheatstone_bridge" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268452/physics-ch17-fig-17-3-wheatstone-bridge.png",
+        "fig_17_4_potentiometer" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268453/physics-ch17-fig-17-4-potentiometer.png",
+        "fig_18_1_circular_helical" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268415/physics-ch18-fig-18-1-circular-helical.png",
+        "fig_18_2_field_lines_wire_loop" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268417/physics-ch18-fig-18-2-field-lines-wire-loop.png",
+        "fig_18_3_cyclotron" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268418/physics-ch18-fig-18-3-cyclotron.png",
+        "fig_18_4_b_vs_r_wire" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793268420/physics-ch18-fig-18-4-b-versus-r-wire.png"
     )
 
     val images: Map<String, String> = mapOf(
