@@ -112,7 +112,7 @@ object ChapterFigureData {
         "fig_23_3_prism_deviation" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269696/physics-ch23-fig-23-3-prism-deviation-graph.png",
         "fig_23_4_telescope" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793269697/physics-ch23-fig-23-4-astronomical-telescope.png",
         "fig_24_1_huygens_refraction" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270726/physics-ch24-fig-24-1-huygens-refraction.png",
-        "fig_24_2_ydse_pattern" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270727/physics-ch24-fig-24-2-ydse-pattern.png",
+        "fig_24_2_ydse_pattern" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793271101/physics-ch24-fig-24-2-ydse-pattern-v2.png",
         "fig_24_3_single_slit_diffraction" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270728/physics-ch24-fig-24-3-single-slit-diffraction.png",
         "fig_24_4_polarisation_malus" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270729/physics-ch24-fig-24-4-polarisation-malus.png",
         "fig_25_1_setup" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793270869/physics-ch25-fig-25-1-photoelectric-setup.png",
