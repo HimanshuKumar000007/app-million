@@ -1,336 +1,243 @@
-# Physics • Ch 01 — Units and Measurements (Definitive research-based version v5)
-
-**Syllabus:** The international system of units; Significant figures; Dimensions of physical quantities; Dimensional formulae and dimensional equations; Dimensional analysis and its applications.
-
-**Sources:** NCERT Class 11 Physics Ch. 1 (rationalised) + deleted-but-examined §§2.3–2.6 as a labelled supplement; BIPM SI Brochure (9th ed., 2019); NIST CODATA 2022; IAT/JEE/NEET past-paper patterns.
-
-**Figures:** fig-1.1 Vernier · fig-1.2 Screw gauge · fig-1.3 e/m apparatus · fig-1.4 Zero errors · fig-1.5 SI constants (see `READ-TAB-IMAGE-PATCH.md`).
-
-## Units, Measurement and the SI System
-
-• Physics is a quantitative science: every law is stated through measurable physical quantities — length, mass, time, force, energy, charge. A measurement is complete only when written as a number multiplied by a unit: Q = n × u.
-
-• The quantity itself never changes when the unit changes: n₁u₁ = n₂u₂. Choose a smaller unit and the number grows in the same ratio — 1 km = 1000 m and 1 inch = 2.54 cm are the same lengths in different clothes.
-
-• Fundamental (base) quantities are the 7 quantities fixed by international agreement as independent of one another. Every other quantity is a derived quantity, built by multiplying or dividing base quantities: speed is length ÷ time, force is mass × length ÷ time².
-
-• Earlier systems — CGS (cm, g, s), FPS (foot, pound, second) and MKS (m, kg, s) — gave way to the SI (adopted 1960; scheme of 1971), which the 26th CGPM re-founded entirely on constants of nature in November 2018, effective 20 May 2019.
-
-★ HIGHLIGHT — A unit is a standard reference of the same kind as the quantity. A good standard must be well defined, easily reproducible anywhere, stable with time, and of a convenient size.
-
-## ▸ The Seven SI Base Units — the 2019 Definitions
-
-![Fig 1.5 — The Seven SI Base Units & Fundamental Constants](https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175518/physics-ch01-fig-1-5-si-constants.png)
-*Figure 1.5: The 2019 redefinition of the SI system anchored to 7 fundamental constants of nature ($c, h, e, k_B, N_A, \Delta\nu_{Cs}, K_{cd}$).*
-
-• Length — metre (m): defined through the speed of light in vacuum, c = 299,792,458 m/s exactly. One metre is the distance light travels in 1/299,792,458 of a second.
-
-• Mass — kilogram (kg): defined through the Planck constant h = 6.62607015 × 10⁻³⁴ J s exactly, together with the metre and the second. The old platinum-iridium cylinder in Paris is retired.
-
-• Time — second (s): the duration of 9,192,631,770 periods of the caesium-133 atom transition; the caesium frequency Δν_Cs = 9,192,631,770 Hz exactly. This is why atomic clocks err by about a second in millions of years.
-
-• Electric current — ampere (A): defined through the elementary charge e = 1.602176634 × 10⁻¹⁹ C exactly. Temperature — kelvin (K): defined through the Boltzmann constant k_B = 1.380649 × 10⁻²³ J/K exactly.
-
-• Amount of substance — mole (mol): exactly 6.02214076 × 10²³ elementary entities (the Avogadro constant N_A). Luminous intensity — candela (cd): defined through the luminous efficacy K_cd = 683 lm/W at frequency 540 × 10¹² Hz.
-
-★ HIGHLIGHT — All 7 SI units now rest on 7 fixed constants of nature: c, h, e, k_B, N_A, Δν_Cs, K_cd. They can never drift or be destroyed — any laboratory in the universe can reproduce them exactly.
-
-⚠ EXAM TRAP — Since 2019, μ₀ is NO LONGER exactly 4π × 10⁻⁷ H/m: it is now measured experimentally (CODATA 2022: 1.25663706127 × 10⁻⁶ N/A²), and so is ε₀ = 8.8541878188 × 10⁻¹² F/m — though ε₀μ₀ = 1/c² remains exact. Books still printing μ₀ as an exact defined value are pre-2019.
-
-## ▸ Derived Units, Supplementary Units, Prefixes and Writing Rules
-
-• Force — newton (N) = kg m s⁻² • Work and energy — joule (J) = kg m² s⁻² • Power — watt (W) = kg m² s⁻³ • Pressure — pascal (Pa) = kg m⁻¹ s⁻² • Frequency — hertz (Hz) = s⁻¹ • Charge — coulomb (C) = A s • Potential — volt (V) = kg m² s⁻³ A⁻¹ • Resistance — ohm (Ω) = kg m² s⁻³ A⁻² • Capacitance — farad (F) = kg⁻¹ m⁻² s⁴ A².
-
-• Supplementary units: plane angle — radian (rad), the angle subtended by an arc equal to the radius; solid angle — steradian (sr), its 3D counterpart. Both are dimensionless ratios of lengths, yet both carry unit names.
-
-⚠ EXAM TRAP — Dimensionless does NOT mean unitless: the radian and steradian are dimensionless but are genuine units. Conversely, strain and refractive index are dimensionless AND unitless.
-
-• Prefixes scale a unit by powers of ten: pico (p) 10⁻¹² • nano (n) 10⁻⁹ • micro (μ) 10⁻⁶ • milli (m) 10⁻³ • centi (c) 10⁻² • deci (d) 10⁻¹ • kilo (k) 10³ • mega (M) 10⁶ • giga (G) 10⁹ • tera (T) 10¹².
-
-• Practical and astronomical units: 1 fm = 10⁻¹⁵ m (nuclei) • 1 Å = 10⁻¹⁰ m (atoms) • 1 nm = 10⁻⁹ m • 1 μm = 10⁻⁶ m • 1 light year = 9.46 × 10¹⁵ m • 1 AU = 1.496 × 10¹¹ m • 1 parsec = 3.08 × 10¹⁶ m (the largest length unit here) • 1 amu (u) = 1.66 × 10⁻²⁷ kg • 1 eV = 1.602 × 10⁻¹⁹ J.
-
-• Writing rules examiners test: never a full stop after a symbol (5 kg, not 5 kg.); never a plural (10 N, not 10 Ns); a space between number and unit; units named after scientists take capital symbols (N, J, W, Pa) but small letters in full (newton, joule, watt).
-
-## Significant Figures — What They Mean
-
-• The significant figures of a measurement are all the digits known reliably, plus the first uncertain digit. A length written 23.023 cm claims 5 significant figures — knowledge up to the last digit. Writing 23.0230 cm from a millimetre scale would be dishonest: the extra digits are invented.
-
-• Significant figures are therefore a language of honesty: the number of significant figures tells the reader exactly how precise the measurement was, and the last significant digit is always the doubtful one.
-
-• Changing the unit never changes the count: 2.308 cm = 0.02308 m = 23.08 mm — 4 significant figures in every unit (NCERT).
-
-• Order of magnitude (NCERT rule): write N = a × 10^b. If a ≤ 5, the order of magnitude is b; if a > 5, it is b + 1. Earth's diameter 1.28 × 10⁷ m → order 7; hydrogen atom 1.06 × 10⁻¹⁰ m → order −10. Orders of magnitude let you sanity-check any numerical answer in seconds.
-
-## ▸ Counting Significant Figures — the 6 Rules
-
-• Rule 1: All non-zero digits are significant. 237 has 3; 2371 has 4 significant figures.
-
-• Rule 2: Zeros between non-zero digits are significant. 2007 has 4; 4.002 has 4 significant figures.
-
-• Rule 3: Leading zeros are never significant — they only fix the decimal point. 0.0042 has 2; 0.000105 has 3 significant figures.
-
-• Rule 4: Trailing zeros in a number WITH a decimal point are significant. 3.500 has 4; 0.00120 has 4; 12.000 has 5 significant figures.
-
-• Rule 5: In a whole number WITHOUT a decimal point, trailing zeros are doubtful. Use scientific notation to say what you mean: 2500 may be 2.5 × 10³ (2 significant figures) or 2.500 × 10³ (4 significant figures).
-
-• Rule 6: Powers of ten never count, and exact numbers — counted objects and defined constants (12 in a dozen, c = 299,792,458 m/s) — have infinitely many significant figures and never limit a calculation.
-
-## ▸ Rounding Off and Arithmetic with Significant Figures
-
-• Rounding off: the digit to be dropped is less than 5 — leave the last retained digit unchanged (3.24 → 3.2). Greater than 5 — raise it by one (3.27 → 3.3).
-
-• Exactly 5 — the unbiased even-odd rule: leave an even last digit unchanged (3.25 → 3.2) and raise an odd one (3.35 → 3.4). NCERT's own worked pair: 2.745 → 2.74 and 2.735 → 2.74. Over long calculations this stops rounding from biasing results upward — "always round 5 up" is NOT the NCERT rule.
-
-• Subtraction of nearly equal numbers destroys significant figures: 12.9 g − 7.06 g = 5.8 g (not 5.84 g), and 0.307 m − 0.304 m = 0.003 m — only ONE significant figure survives the subtraction.
-
-• Addition and subtraction follow DECIMAL PLACES, not significant figures: 436.32 + 227.2 + 0.301 = 663.821, reported as 663.8, because 227.2 is known only to one decimal place.
-
-• Multiplication and division follow SIGNIFICANT FIGURES: 2.456 × 1.2 = 2.9472, reported as 2.9, because 1.2 carries only 2 significant figures.
-
-⚠ EXAM TRAP — Never round intermediate steps. Carry extra digits through the whole calculation and round once, at the very end.
-
-## Measurement and Least Count
-
-• No instrument measures perfectly. The least count (LC) of an instrument is the smallest change it can detect, and it fixes the precision of every reading: a metre scale (LC 1 mm) can never honestly report 12.34 cm.
-
-✔ KEY FORMULA — Least count = smallest division the instrument can resolve. Finer instrument → smaller LC → more significant figures in every reading.
-
-• Every experiment in this chapter is a fight for a smaller least count: metre scale 10⁻³ m, Vernier calipers 10⁻⁴ m, screw gauge 10⁻⁵ m, and travelling microscopes finer still.
-
-• Precision ranking (NCERT Exercise 1.6): optical instruments, resolving about a wavelength of light, beat the screw gauge (~0.001 cm), which beats Vernier calipers (~0.01 cm), which beat the metre scale (0.1 cm). Adding circular divisions cannot raise a screw gauge's accuracy without limit — mechanical play (backlash) takes over.
-
-## ▸ Vernier Calipers — Least Count, Reading and Zero Error [Fig. 1.1, Fig. 1.4]
-
-![Fig 1.1 — Vernier Calipers Diagram & Measurement Scales](https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175529/physics-ch01-fig-1-1-vernier-calipers.png)
-*Figure 1.1: Schematic diagram of Vernier Calipers showing external jaws, internal jaws, depth probe, main scale, and sliding vernier scale.*
-
-![Fig 1.4 — Positive and Negative Zero Errors](https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175533/physics-ch01-fig-1-4-zero-errors.png)
-*Figure 1.4: Understanding zero error alignment: No Zero Error vs Positive Zero Error (vernier zero to the right) vs Negative Zero Error (vernier zero to the left).*
-
-• The object sits between the lower (external) jaws; the upper jaws measure internal diameters, and the thin depth rod at the back measures the depth of a vessel.
-
-✔ KEY FORMULA — LC = 1 MSD − 1 VSD (one main scale division minus one vernier scale division). If 10 vernier divisions coincide with 9 main scale divisions and 1 MSD = 1 mm, then LC = 1 mm − 0.9 mm = 0.1 mm = 0.01 cm.
-
-✔ KEY FORMULA — Reading = Main scale reading (last full division before the vernier zero) + (Coinciding vernier division × LC) − Zero error.
-
-• Worked example: main scale reading = 12 mm, the 7th vernier division coincides, LC = 0.1 mm. Reading = 12 + 7 × 0.1 = 12.7 mm = 1.27 cm.
-
-• Zero error: close the jaws gently. If the vernier zero sits to the RIGHT of the main-scale zero, the instrument over-reads — positive zero error = +(n × LC), subtracted from every reading.
-
-• If the vernier zero sits to the LEFT, the zero error is negative: ZE = −[(N − n) × LC], where N = total vernier divisions and n = the division coinciding at closure — its magnitude is then ADDED to readings. One rule covers both signs: Corrected value = Observed reading − Zero error (with sign).
-
-• Variant pattern: if (N + 1) vernier divisions coincide with N main divisions, LC = 1 MSD ÷ (N + 1) — read the coincidence statement carefully before reaching for the standard formula.
-
-## ▸ Screw Gauge — Least Count, Reading and Zero Error [Fig. 1.2, Fig. 1.4]
-
-![Fig 1.2 — Micrometer Screw Gauge Anatomy](https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175530/physics-ch01-fig-1-2-screw-gauge.png)
-*Figure 1.2: Micrometer Screw Gauge structure showing U-frame, anvil, spindle, main sleeve (linear scale), circular thimble, and safety ratchet.*
-
-• A screw gauge (micrometer) measures the diameter of a wire or thickness of a sheet to about 10⁻⁵ m. One full rotation of the cap advances the spindle by a fixed distance called the pitch.
-
-✔ KEY FORMULA — LC = Pitch ÷ Number of circular scale divisions. Pitch 0.5 mm with 50 divisions gives LC = 0.01 mm; pitch 1 mm with 100 divisions also gives 0.01 mm.
-
-✔ KEY FORMULA — Reading = Main scale reading + (Coinciding circular division × LC) − Zero error.
-
-• Worked example: main scale reading = 3 mm, the 32nd circular division coincides, LC = 0.01 mm. Reading = 3 + 32 × 0.01 = 3.32 mm.
-
-• Zero error signs (screw gauge): circular-scale zero BELOW the reference line at contact → positive ZE = +(n × LC). Circular zero ABOVE the line → negative ZE = −[(N − n) × LC]; example: N = 100 divisions and the 95th coincides at contact → ZE = −5 × LC = −0.05 mm, so ADD 0.05 mm to every reading.
-
-• Verified exam pattern (NEET style): LC = 0.001 cm, main scale reading 5 mm, 25th division coincides, ZE = −0.004 cm. Observed = 0.500 + 0.025 = 0.525 cm; corrected = 0.525 − (−0.004) = 0.529 cm.
-
-• Backlash error: worn screw play makes the spindle lag when rotation reverses — always approach the final reading turning in ONE direction only, and use the ratchet for the last contact. A spherometer uses the same screw principle (LC = pitch ÷ circular divisions) to measure curvature: R = l²/(6h) + h/2.
-
-⚠ EXAM TRAP — Always use the ratchet for final tightening. Squeezing the cap by hand crushes the wire and falsifies the diameter.
-
-## ▸ Measuring the Very Large and the Very Small — Parallax and Ranges (NCERT Supplement)
-
-• This section restores material deleted from the current NCERT textbook in the 2023 rationalisation. It survives in NCERT's own exercises (1.6, 1.8) and in JEE/NEET papers every year, so it remains essential — treat it as part of the chapter.
-
-• Parallax is the apparent shift of a nearby object against a distant background when the viewpoint changes. The distance between the two viewpoints is the basis b, and the shift angle is the parallax angle θ.
-
-✔ KEY FORMULA — Distance by parallax: D = b/θ (θ in radians, valid when b ≪ D). Angular size: if an object of size d subtends angle α at distance D, then d = αD.
-
-• Worked example (NCERT): the Moon, observed from two ends of Earth's diameter (basis b = 1.276 × 10⁷ m) with parallax θ = 1°54′, lies at D = 3.84 × 10⁸ m. The same method with the Sun's angular diameter 1920″ gives the Sun's diameter ≈ 1.39 × 10⁹ m.
-
-• The length ladder: metre scale 10⁻³–10² m • Vernier 10⁻⁴ m • screw gauge and spherometer 10⁻⁵ m • optical microscope down to about the wavelength of light • electron and tunnelling microscopes below 1 Å. The sizes of things run from ~10⁻¹⁴ m (a nucleus) to ~10²⁶ m (the observable universe).
-
-• Estimating the very small (NCERT classic): an oleic-acid monolayer spread on water has a thickness of molecular size, about 10⁻⁹ m — a molecule measured with a tray of water and a ruler.
-
-• Mass and time ranges: 1 unified atomic mass unit, 1 u = (1/12) the mass of one carbon-12 atom = 1.66 × 10⁻²⁷ kg; atomic masses come from the mass spectrograph and planetary masses from gravitational methods. For time, the caesium atomic clock — the same Cs-133 transition that defines the second — is the standard, accurate to about 1 part in 10¹³.
-
-## Errors in Measurement — Types and Measures
-
-• The difference between a measured value and the true value is its error. Because repeated readings rarely agree exactly, results are reported as a mean with an uncertainty: a = a_mean ± Δa.
-
-• Systematic errors push every reading the same way by roughly the same amount — zero error, a miscalibrated scale, heat lost to the surroundings in every trial. Cure: better instruments and technique, never mere repetition.
-
-• Random errors scatter readings on both sides of the true value with no pattern — small fluctuations in conditions and judgement. Cure: many readings and averaging.
-
-• Gross errors come from carelessness — reading the wrong scale, noting a value wrongly. The cure is attention; such readings are simply rejected.
-
-• Least count error belongs to the instrument itself: no reading can be trusted beyond one least count.
-
-• Absolute error of a reading = |measured value − true value|; the reported Δa is the mean of the absolute errors. Relative (fractional) error = Δa / a_mean. Percentage error = (Δa / a_mean) × 100.
-
-## ▸ Accuracy versus Precision
-
-• Accuracy = how close the mean is to the TRUE value; it is limited by systematic errors. Precision = how closely repeated readings agree WITH EACH OTHER; it is limited by random errors and least count.
-
-• A faulty instrument can give tightly clustered readings that are all wrong together — precise but inaccurate. A coarse instrument can scatter readings around the true value — accurate on average but imprecise.
-
-★ HIGHLIGHT — Every reported result must end at its first uncertain digit. That single sentence is the bridge between errors and significant figures.
-
-## Propagation of Errors — the Rules
-
-• Working principle: in the maximum-error estimate used at this level, errors always ADD — they are never assumed to cancel.
-
-✔ KEY FORMULA — Sum and difference (Z = A ± B): ΔZ = ΔA + ΔB. Even for a difference, absolute errors add — never subtract.
-
-✔ KEY FORMULA — Product and quotient (Z = A × B or Z = A ÷ B): ΔZ/Z = ΔA/A + ΔB/B. Relative errors add.
-
-✔ KEY FORMULA — Power rule (Z = Aⁿ): ΔZ/Z = n × (ΔA/A). A squared quantity doubles its percentage error; a cubed quantity triples it — powers amplify errors.
-
-✔ KEY FORMULA — General rule (Z = Aᵃ Bᵇ / Cᶜ): ΔZ/Z = |a|(ΔA/A) + |b|(ΔB/B) + |c|(ΔC/C), × 100 for percentage error. Denominator errors add too.
-
-## ▸ Propagation — Worked Examples and Laboratory Strategy
-
-• Example 0 (NCERT): temperatures (50 ± 0.5)°C and (20 ± 0.5)°C differ by 30 ± 1 °C — even a DIFFERENCE of two readings carries the SUM of the two errors.
-
-• Example 1 (Density of a cube): mass has 2% error, each side 1.5%. ρ = m/L³, so error in ρ = 2 + 3 × 1.5 = 6.5%.
-
-• Example 2 (Pendulum, g = 4π²L/T²): L measured to 0.1% and T to 0.5%. Error in g = 0.1 + 2 × 0.5 = 1.1%. NCERT's canonical version: L at 2% and T at 1% gives Δg/g = 2 + 2 × 1 = 4%. To improve g, improve T: time 50 oscillations and divide — the timing error divides by 50 as well.
-
-• Example 3 (How to report a result): a sheet 16.2 ± 0.1 cm by 10.1 ± 0.1 cm has area 163.62 cm² with 1.6% uncertainty, quoted as 164 ± 3 cm² — round the ERROR to one significant figure first, then match the value to it.
-
-• Maximum permissible vs most probable error: the rules above give the worst-case (maximum permissible) error asked in exams. Research laboratories combine independent random errors in quadrature: ΔZ/Z = √[(p·ΔA/A)² + (q·ΔB/B)² + (r·ΔC/C)²] — always smaller than the maximum.
-
-★ HIGHLIGHT — Laboratory strategy: find the quantity with the largest power × largest relative error. Improving that ONE measurement improves the whole result the most.
-
-## Dimensions of Physical Quantities
-
-• The dimensions of a quantity state which base quantities compose it, and to what powers: [M] mass, [L] length, [T] time, [A] current, [K] temperature, [mol] amount, [cd] luminous intensity. Velocity is [L T⁻¹] because it is length divided by time.
-
-• The dimensional formula is this bracketed expression. A dimensional equation sets the quantity equal to its formula — [Force] = [M L T⁻²], read off from F = ma: mass × (length ÷ time²).
-
-✔ KEY FORMULA — To find any dimensional formula: write the defining equation, replace each quantity by its dimensions, and simplify. Every entry in the master lists below is derived exactly this way.
-
-• Dimensions depend on the chosen fundamental set — a favourite past-paper pattern: if force (F), velocity (V) and time (T) are taken as fundamental, mass becomes [F V⁻¹ T]; if energy, velocity and time are fundamental, surface tension becomes [E V⁻² T⁻²].
-
-## ▸ Master List — Mechanics and Fluids
-
-• Velocity [L T⁻¹] • Acceleration [L T⁻²] • Momentum [M L T⁻¹] • Impulse [M L T⁻¹] • Force [M L T⁻²] • Work, energy, torque [M L² T⁻²] • Power [M L² T⁻³]
-
-• Pressure, stress, Young's modulus, energy density [M L⁻¹ T⁻²] • Density [M L⁻³] • Frequency [T⁻¹] • Angular velocity [T⁻¹] • Angular acceleration [T⁻²] • Angular momentum [M L² T⁻¹] • Moment of inertia [M L²]
-
-• Surface tension, surface energy per unit area [M T⁻²] • Coefficient of viscosity η [M L⁻¹ T⁻¹] • Gravitational constant G [M⁻¹ L³ T⁻²] (from F = G m₁m₂/r²)
-
-## ▸ Master List — Heat, Electricity, Magnetism and Modern Physics
-
-• Heat: specific heat capacity [L² T⁻² K⁻¹] • Latent heat, gravitational potential [L² T⁻²] • Gas constant R [M L² T⁻² K⁻¹ mol⁻¹] • Boltzmann constant k_B [M L² T⁻² K⁻¹] • Molar heat capacity C_v [M L² T⁻² K⁻¹ mol⁻¹] • Coefficient of thermal expansion [K⁻¹] • Stefan constant σ [M T⁻³ K⁻⁴] (σ = 5.67 × 10⁻⁸ W m⁻² K⁻⁴, now an exact derived value since k, h, c are exact) • Thermal conductivity [M L T⁻³ K⁻¹] • Entropy, heat capacity [M L² T⁻² K⁻¹]
-
-• Electricity and magnetism: charge [A T] • Electric field [M L T⁻³ A⁻¹] • Potential, EMF [M L² T⁻³ A⁻¹] • Resistance [M L² T⁻³ A⁻²] • Capacitance [M⁻¹ L⁻² T⁴ A²] • Inductance [M L² T⁻² A⁻²] • Magnetic field B [M T⁻² A⁻¹] • Magnetic flux Φ_B [M L² T⁻² A⁻¹] • Permittivity ε₀ [M⁻¹ L⁻³ T⁴ A²] • Permeability μ₀ [M L T⁻² A⁻²] • Planck constant h [M L² T⁻¹]
-
-• Modern physics: Rydberg constant R∞ [L⁻¹] = 1.097373 × 10⁷ m⁻¹ (for an infinitely heavy nucleus; for hydrogen R_H = 1.09678 × 10⁷ m⁻¹ — do not mix the two) • Work function Φ [M L² T⁻²] (an energy)
-
-• Research landmark (asked in IAT 2021): the von Klitzing constant R_K = h/e² ≈ 25,812.8 Ω has the dimensions of resistance. Offered e²/h, e/h, h/e and h/e², only h/e² is a resistance — recognising R_K makes it a one-line question.
-
-## ▸ Identical Dimensions, Trap Pairs and Dimensionless Quantities
-
-• Memorise the pairs with identical dimensions: work and torque • momentum and impulse • pressure, stress and Young's modulus • frequency, angular velocity and velocity gradient • Planck constant and angular momentum • surface tension and spring constant.
-
-• Quantities with NO dimensions: plane angle, solid angle, strain, refractive index, relative density, coefficient of restitution, coefficient of friction, Poisson's ratio, efficiency — and the Reynolds number Re = ρvL/η (check: [M L⁻³][L T⁻¹][L] ÷ [M L⁻¹ T⁻¹] = 1).
-
-• Time-dimension group: L/R, RC and √(LC) all have dimensions [T] — a favourite matching-list question in entrance papers.
-
-⚠ EXAM TRAP — Identical dimensions do NOT mean identical nature: torque is a vector, work a scalar; the method cannot tell them apart.
-
-⚠ EXAM TRAP — Tension [M L T⁻²] and surface tension [M T⁻²] do NOT share dimensions, though their names suggest it — the NCERT Exemplar's favourite impostor pair. Likewise strain (dimensionless) is not stress.
-
-## Principle of Homogeneity — Checking Equations
-
-• Principle of homogeneity: a physical equation can be true only if every term on both sides has identical dimensions. Only quantities of the same dimensions may be equated, added or subtracted — adding a length to a time is as meaningless in physics as in arithmetic.
-
-• The arguments of sin, cos, e^x and ln are always dimensionless, and so are the functions themselves. In x = A sin(ωt), [ωt] must be dimensionless, forcing [ω] = [T⁻¹].
-
-• Check 1 (Kinematics): s = ut + ½at². [ut] = [L T⁻¹ × T] = [L]. [at²] = [L T⁻² × T²] = [L]. Both match [s] = [L] — the equation passes.
-
-• Check 2 (Photon energy): E = hν. [hν] = [M L² T⁻¹ × T⁻¹] = [M L² T⁻²] = [E] — and it reveals that h has the dimensions of angular momentum.
-
-• Check 3 (van der Waals equation): in (P + a/V²)(V − b) = RT, the term a/V² must be a pressure, so [a] = [M L⁵ T⁻²]; and b must be a volume, [b] = [L³]. For multi-term equations, audit every added term separately — that IS the method.
-
-• Check 4 (Which formula is impossible?): y = (a/T) sin(t/a) cannot be a displacement, because [t/a] = [T L⁻¹] is not dimensionless. In the healthy form y = A sin(ωt − kx), the same test gives [ω] = [T⁻¹] and [k] = [L⁻¹].
-
-⚠ EXAM TRAP — Homogeneity is necessary, not sufficient: a dimensionally wrong equation is certainly wrong, but s = ut + 2at² passes every dimensional test and is still false — the true constant is ½, and constants are invisible to dimensions.
-
-## Dimensional Analysis — Deriving Relations
-
-• The method: guess that the quantity depends on the relevant parameters raised to unknown powers; write the dimensional equation; equate the powers of M, L and T; solve the three equations.
-
-• Derivation 1 — Pendulum: T = k lᵃ gᵇ mᶜ. Powers of M: c = 0 (period cannot depend on mass). Powers of T: −2b = 1, so b = −½. Powers of L: a + b = 0, so a = ½. Result: T = k√(l/g); experiment fixes k = 2π.
-
-• Derivation 2 — Stokes' viscous force: F = k ηᵃ rᵇ vᶜ. Powers of M: a = 1. Powers of T: −a − c = −2, so c = 1. Powers of L: −a + b + c = 1, so b = 1. Result: F = kηrv; experiment gives k = 6π — Stokes' law F = 6πηrv.
-
-• Derivation 3 — Centripetal force: F = k mᵃ vᵇ rᶜ gives a = 1, b = 2, c = −1. Result: F = k mv²/r, with k = 1 from theory.
-
-• Derivation 4 — Speed of sound in a fluid: v = k Bᵃ ρᵇ with [B] = [M L⁻¹ T⁻²], [ρ] = [M L⁻³] gives a = ½, b = −½. Result: v = k√(B/ρ) — the Newton–Laplace form v = √(γP/ρ), with dimensionless γ hidden in k.
-
-• Derivation 5 — Planck units from c, G and h (the IAT speciality — IAT 2019 asked for energy built from h, c, G): solving the same three equations for each target gives length √(hG/c³), time √(hG/c⁵), mass √(hc/G) and energy √(hc⁵/G).
-
-⚠ EXAM TRAP — True Planck units use ħ = h/2π, school questions use h. The dimensions are identical, so dimensional answers agree — but numerical Planck values (Planck length ≈ 1.616 × 10⁻³⁵ m) belong to ħ. Never mix h and ħ inside a numerical.
-
-## ▸ Dimensional Analysis — Converting Units Between Systems
-
-✔ KEY FORMULA — If a quantity has dimensional formula [Mᵃ Lᵇ Tᶜ], then n₂ = n₁ × (M₁/M₂)ᵃ × (L₁/L₂)ᵇ × (T₁/T₂)ᶜ converts its value from system 1 to system 2.
-
-• Conversion 1: 1 newton into dynes. a = 1, b = 1, c = −2: n₂ = (kg/g) × (m/cm) = 1000 × 100 = 10⁵. So 1 N = 10⁵ dyne.
-
-• Conversion 2: 1 joule into ergs. a = 1, b = 2: n₂ = (kg/g) × (m/cm)² = 1000 × 10⁴ = 10⁷. So 1 J = 10⁷ erg.
-
-• Conversion 3: density of mercury 13.6 g/cm³ into SI. n₂ = 13.6 × (g/kg) × (cm/m)⁻³ = 13.6 × 10⁻³ × 10⁶ = 13,600 kg/m³. Equivalently, 1 g/cm³ = 1000 kg/m³.
-
-## ▸ Limitations of Dimensional Analysis
-
-• Limit 1: dimensionless constants (2π, ½, 6π) are invisible — the method gives the form of a law, never its exact constant.
-
-• Limit 2: it fails for relations built from sums of terms, or from exponential, logarithmic and trigonometric functions — only that [λ] = [T⁻¹] in N = N₀e^(−λt) can be found, not the law itself.
-
-• Limit 3: it cannot distinguish quantities that share dimensions (work vs torque). Limit 4: with only three equations (M, L, T) it fails when a quantity depends on more than three parameters. Limit 5: it says nothing about scalar versus vector nature.
-
-## Apparatus in Focus — Thomson's e/m Experiment [Fig. 1.3]
-
-![Fig 1.3 — J.J. Thomson Cathode Ray Tube e/m Apparatus](https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793175532/physics-ch01-fig-1-3-em-apparatus.png)
-*Figure 1.3: Thomson's Cathode Ray experiment demonstrating crossed electric and magnetic fields acting as a velocity selector to measure $e/m_e \approx 1.76 \times 10^{11}\text{ C/kg}$.*
-
-• Electrons are negatively charged, so an electron's charge is written −e and its mass mₑ. Neither could be measured separately for decades — but their ratio e/m could, and J. J. Thomson measured it in 1897 with the cathode ray tube of the apparatus figure.
-
-• The apparatus consists of a cathode ray tube with cathode and anode connected to a high voltage source, a magnet placed around the tube, and a fluorescent screen on which the electron beam falls.
-
-• Electric field alone: electrons deviate to point A, pulled towards the positive plate. Magnetic field alone: electrons hit point C, bent the opposite way by the Lorentz force. Both fields balanced: electrons travel straight to point B.
-
-✔ KEY FORMULA — Step 1 (acceleration): eV = ½mₑv². Step 2 (balance — the velocity selector): eE = evB gives v = E/B. Step 3 (combine): e/mₑ = E²/(2VB²).
-
-• Every quantity on the right is directly measurable, and the result is e/mₑ ≈ 1.76 × 10¹¹ C/kg — about 1836 times the same ratio for a hydrogen ion, the first evidence that the electron is far lighter than any atom.
-
-## Solved Numericals
-
-• Numerical 1 (NCERT Example 1.1): a cube of side 7.203 m (4 significant figures). Surface area = 6 × (7.203)² = 311.3 m²; volume = (7.203)³ = 373.7 m³ — both reported to 4 significant figures, matching the input.
-
-• Numerical 2 (NCERT Example 1.2): mass 5.74 g (3 SF) in volume 1.2 cm³ (2 SF). Density = 5.74/1.2 = 4.782…, reported as 4.8 g/cm³ — only 2 significant figures, set by the volume.
-
-• Numerical 3 (Error): R = V/I with V = 100 ± 5 V and I = 10 ± 0.2 A. R = 10 Ω; percentage error = 5% + 2% = 7%, so R = 10.0 ± 0.7 Ω.
-
-• Numerical 4 (Dimensions): kinetic energy ½mv²: [M][L T⁻¹]² = [M L² T⁻²]; work = force × displacement: [M L T⁻²][L] = [M L² T⁻²]. Identical — as the work-energy theorem demands.
-
-• Numerical 5 (Checking): v² = u² + 2as. [v²] = [u²] = [L² T⁻²]; [as] = [L T⁻² × L] = [L² T⁻²]. All terms match — dimensionally sound.
-
-## ★ Rapid Revision — the Whole Chapter on One Screen
-
-• Q = n × u, and n₁u₁ = n₂u₂ • 7 SI base units defined by 7 constants of nature • Vernier LC = 1 MSD − 1 VSD • Screw gauge LC = Pitch ÷ circular divisions • Corrected reading = Observed − Zero error (with sign)
-
-• Errors always add • ΔZ/Z = Σ |power| × (Δquantity ÷ quantity) • Significant figures: decimal places for + and −, significant figures for × and ÷ • Even-odd rule for rounding a final 5
-
-• [F] = [MLT⁻²] • [E] = [ML²T⁻²] • [P] = [ML²T⁻³] • [G] = [M⁻¹L³T⁻²] • [h] = [ML²T⁻¹] • Homogeneity: dimensions must match term by term • Arguments of sin, e^x, ln are dimensionless
-
-• Dimensional analysis derives forms and converts units, but never finds 2π • Stokes F = 6πηrv • Pendulum T = 2π√(l/g) • Sound v = √(γP/ρ) • e/mₑ = E²/(2VB²) ≈ 1.76 × 10¹¹ C/kg
-
-• Parallax: D = b/θ and d = αD • Zero error: always subtract ZE with its sign • Since 2019 μ₀ is measured, not exact • R_K = h/e² is a resistance • Planck energy = √(hc⁵/G)
+<!-- BEGIN phys_ch_1 detailedStudyNotes -->
+Introduction to Measurement
+• Every law of physics is a statement about measurable quantities — how long, how heavy, how hot, how much charge. Before any law can be tested, the quantities in it must be measured, and measured in a language every laboratory on Earth shares. That language is built in this chapter.
+• DEFINITION — Physical quantity: anything that can be measured and expressed as a number multiplied by a unit, Q = n × u. Length, mass, force and charge are physical quantities. "Beauty" is not — nobody can build an instrument for it.
+• DEFINITION — Unit: a fixed standard of the same kind as the quantity, chosen by agreement, against which the quantity is compared. The number n tells how many standards fit into the quantity; the unit u tells which standard was used. "5" alone means nothing; "5 metres" means everything.
+• Why measurement is non-negotiable: a claim like "this rod is long" cannot be tested, reproduced or engineered from. "This rod is 1.25 m" can — by anyone, anywhere. Measurement converts opinion into shared fact, and shared fact is the raw material of every theory you will meet.
+• The master identity of the chapter: the quantity itself never changes when the unit changes, because n₁u₁ = n₂u₂. Shrink the unit and the number inflates in exactly the same ratio — 1 km and 1000 m are the same walk in different clothes; 1 inch and 2.54 cm are the same thumb-width.
+• DEFINITION — Fundamental (base) quantities: the small set of quantities fixed by international agreement as independent of one another. Derived quantities: everything else, built by multiplying or dividing base quantities — speed is length ÷ time; force is mass × length ÷ time²; energy is force × length.
+• EXAMPLE — Cooking runs on derived quantities: "200 °C for 25 minutes" combines a base quantity (time) with a derived-feeling one you will soon define precisely (temperature is actually base — the kelvin). Recipes, cricket speeds, phone batteries: civilisation is bookkeeping of quantities.
+• Three words to plant now and harvest later: PRECISION is how finely an instrument can read (its least count), ACCURACY is how close a reading sits to the truth, and UNCERTAINTY is the doubt you honestly attach to every result, written as value ± Δvalue. Sections ahead give each its full treatment.
+
+The International System of Units — the SI
+• Imagine every country — then every planet — measuring with private rulers. Science would drown in conversion chaos. The SI exists to end that: one coherent system, adopted in 1960 with its scheme fixed in 1971, in which every unit is built from seven base units by multiplication and division alone, with no stray conversion factors hiding inside formulas.
+• A short, examinable history: the world tried CGS (centimetre, gram, second), FPS (foot, pound, second) and MKS (metre, kilogram, second) before converging on the SI. Then, in November 2018, the 26th General Conference on Weights and Measures voted the deepest change ever made to measurement: from 20 May 2019, the SI is founded entirely on constants of nature. No unit depends on a manufactured object anymore.
+• DEFINITION — The SI (International System of Units): the internationally agreed system built on seven base units — metre, kilogram, second, ampere, kelvin, mole, candela — each defined since 2019 by fixing the value of a constant of nature.
+★ HIGHLIGHT — What a good standard must be: well defined, reproducible in any laboratory, stable for all time, and of convenient size. The 2019 SI is the first system in history to satisfy all four perfectly — because constants of nature cannot corrode, drift, or be lost in a fire.
+
+▸ The Seven SI Base Units — the Defining-Constant Table
+• Read this table as seven rows of one story: quantity — unit — symbol — the constant that defines it. (Fig. 1.5 gathers these constants visually.)
+• Length — metre — m — speed of light in vacuum, c = 299,792,458 m/s exactly. One metre is the distance light travels in 1/299,792,458 of a second.
+• Mass — kilogram — kg — Planck constant, h = 6.62607015 × 10⁻³⁴ J s exactly (with the metre and second). The platinum-iridium cylinder "Le Grand K" in Paris is retired: the kilogram is now a recipe, not an object.
+• Time — second — s — caesium frequency, Δν_Cs = 9,192,631,770 Hz exactly: the second is the duration of 9,192,631,770 periods of the caesium-133 atom's transition. This is why atomic clocks drift by only about a second in millions of years.
+• Electric current — ampere — A — elementary charge, e = 1.602176634 × 10⁻¹⁹ C exactly: the ampere is the flow of 1/(1.602176634 × 10⁻¹⁹) elementary charges per second.
+• Thermodynamic temperature — kelvin — K — Boltzmann constant, k_B = 1.380649 × 10⁻²³ J/K exactly.
+• Amount of substance — mole — mol — Avogadro constant, N_A = 6.02214076 × 10²³ mol⁻¹ exactly: one mole contains exactly that many elementary entities.
+• Luminous intensity — candela — cd — luminous efficacy, K_cd = 683 lm/W exactly, for light of frequency 540 × 10¹² Hz.
+★ HIGHLIGHT — Seven units, seven constants: c, h, Δν_Cs, e, k_B, N_A, K_cd. Any civilisation anywhere could rebuild our entire measurement system from these seven numbers — that was the design goal, and it is achieved.
+
+▸ Derived Units, Prefixes and Writing Rules
+• DEFINITION — Derived unit: a unit obtained by multiplying or dividing base units, following the defining equation of its quantity. Because the SI is coherent, no extra numerical factors appear: force is mass × acceleration, so 1 N = 1 kg m s⁻², exactly.
+• The derived-units table — read each row as an equation: Force — newton (N) = kg m s⁻² • Work and energy — joule (J) = kg m² s⁻² • Power — watt (W) = kg m² s⁻³ • Pressure — pascal (Pa) = kg m⁻¹ s⁻² • Frequency — hertz (Hz) = s⁻¹.
+• Continuing the table: Electric charge — coulomb (C) = A s • Electric potential — volt (V) = kg m² s⁻³ A⁻¹ • Resistance — ohm (Ω) = kg m² s⁻³ A⁻² • Capacitance — farad (F) = kg⁻¹ m⁻² s⁴ A² • Magnetic flux — weber (Wb) = kg m² s⁻² A⁻¹ • Magnetic field — tesla (T) = kg s⁻² A⁻¹.
+• Base versus derived, made concrete: the second is base because it is defined directly by a constant; the newton is derived because it is DEFINED through other units — nobody fixed a "force constant of nature" to define it. Ask of any unit: "is it on the list of seven, or is it built from them?" That one question sorts the entire table.
+• DEFINITION — Supplementary units: the radian (rad) for plane angle — the angle whose arc length equals the radius — and the steradian (sr) for solid angle, its three-dimensional counterpart. Both are ratios of lengths, hence dimensionless, yet both carry genuine unit names.
+⚠ EXAM TRAP — Dimensionless does NOT mean unitless: rad and sr are dimensionless but are real units. In the opposite corner, strain and refractive index are dimensionless AND unitless. Examiners test exactly this four-way distinction.
+• Prefixes are powers of ten with name tags — learn them as a ladder: pico (p) 10⁻¹² • nano (n) 10⁻⁹ • micro (μ) 10⁻⁶ • milli (m) 10⁻³ • centi (c) 10⁻² • deci (d) 10⁻¹ • kilo (k) 10³ • mega (M) 10⁶ • giga (G) 10⁹ • tera (T) 10¹². Your daily life already speaks it: gigabytes of storage, nanometre chips, millilitres of syrup.
+• Scientific notation is the working language: write N = a × 10ᵇ with 1 ≤ a < 10. It makes significant figures unambiguous (2.500 × 10³ declares 4 figures; bare 2500 cannot) and keeps the length ladder manageable: 1 fm = 10⁻¹⁵ m (nucleus) • 1 Å = 10⁻¹⁰ m (atom) • 1 nm = 10⁻⁹ m • 1 μm = 10⁻⁶ m • 1 light year = 9.46 × 10¹⁵ m • 1 AU = 1.496 × 10¹¹ m • 1 parsec = 3.08 × 10¹⁶ m, the largest length unit in this list. Also 1 u = 1.66 × 10⁻²⁷ kg and 1 eV = 1.602 × 10⁻¹⁹ J.
+• Unit conversion is one disciplined move: multiply by a conversion factor equal to 1 (like 100 cm / 1 m) arranged so the unwanted unit cancels. Chain several and units cancel like algebraic symbols — if the surviving unit is wrong, the chain was wrong. This "factor-label" habit will silently check your work for years.
+• Writing rules that examiners genuinely test: no full stop after a symbol (5 kg, not 5 kg.); no plurals (10 N, not 10 Ns); a space between number and unit (5 kg, not 5kg); symbols for units named after scientists are capitalised (N, J, W, Pa, Hz) while their full names stay lowercase (newton, joule, watt, pascal, hertz); compound units use negative powers or a solidus consistently (m s⁻² or m/s²).
+• YOUR TURN — Which is written correctly: (a) 5 kgs (b) 5 kg. (c) 5 kg (d) 5 Kg? (Answer: only (c). Small marks live in exactly these corners.)
+
+Significant Figures — What They Mean
+• You measure a pencil with a school ruler and write 14.0 cm. A friend writes 14.000 cm from the same ruler. One of you is claiming knowledge the ruler never provided. Significant figures are the honesty system that settles such claims, and every numerical answer you ever submit is judged by it.
+• DEFINITION — Significant figures: all the digits in a measurement that are known reliably, PLUS the first uncertain (estimated) digit. A length reported as 23.023 cm claims 5 significant figures; the final 3 is the doubtful one — and that declared doubt is information, not weakness.
+• What significant figures represent: the precision of the measurement itself. More figures = a finer instrument = a stronger claim. Writing 23.0230 cm from a millimetre scale invents two digits of knowledge — in a research lab that is misconduct; in an exam it is a straightforward lost mark.
+• An unchanging truth worth memorising: switching units never changes the count. 2.308 cm = 0.02308 m = 23.08 mm — 4 significant figures in every outfit (NCERT's own example), because the instrument did not change, only its clothing.
+• DEFINITION — Order of magnitude: the power of ten nearest to a quantity, by the NCERT rule — write N = a × 10ᵇ; if a ≤ 5 the order is b; if a > 5 it is b + 1. Earth's diameter 1.28 × 10⁷ m → order 7; a hydrogen atom 1.06 × 10⁻¹⁰ m → order −10.
+• EXAMPLE — Why orders of magnitude matter beyond this chapter: they are a five-second lie detector. If your mechanics answer gives a car's speed as 10⁸ m/s, the order of magnitude alone convicts it (cars live near 10¹) long before you hunt the algebra slip.
+
+▸ Counting Significant Figures — the 6 Rules
+• Six rules, learned once, used forever. Test each rule against its example as you read — passive reading is how these are lost.
+• Rule 1 — All non-zero digits are significant: 237 → 3; 2371 → 4.
+• Rule 2 — Captive zeros (zeros between non-zero digits) are significant — they were measured, not placed: 2007 → 4; 4.002 → 4.
+• Rule 3 — Leading zeros are never significant — they only park the decimal point: 0.0042 → 2; 0.000105 → 3.
+• Rule 4 — Trailing zeros in a number WITH a decimal point are significant — someone measured them: 3.500 → 4; 0.00120 → 3 (the digits 1, 2 and the final 0); 12.000 → 5.
+• Rule 5 — Trailing zeros in a whole number WITHOUT a decimal point are ambiguous. Scientific notation resolves the honesty: 2500 as 2.5 × 10³ declares 2 figures; as 2.500 × 10³ declares 4.
+• Rule 6 — Powers of ten never count, and EXACT numbers have unlimited significant figures and never limit a calculation: counted objects (24 students), defined constants (c = 299,792,458 m/s exactly), and defined conversion factors (1 inch = 2.54 cm exactly).
+• YOUR TURN — Count the significant figures: (a) 0.00508 (b) 60.0 (c) 4005 (d) 3.00 × 10⁻⁴. (Answers: (a) 3 — leading zeros are scenery; (b) 3 — the trailing zero was measured; (c) 4 — captive zeros count; (d) 3 — the power of ten is invisible to the count.)
+
+▸ Rounding Off and the Two Arithmetic Rulebooks
+• DEFINITION — Rounding off: reducing a number to a stated number of significant figures by dropping the remaining digits under fixed rules, so the reported value stays as honest as the original measurement.
+• The rounding rules: digit to be dropped is LESS than 5 → the last kept digit stays (3.24 → 3.2). MORE than 5 → the last kept digit rises by one (3.27 → 3.3).
+• Exactly 5 is where NCERT parts company with school habit — the EVEN-ODD (banker's) rule: if the last kept digit is even, leave it (3.25 → 3.2); if odd, raise it (3.35 → 3.4). NCERT's own pair: 2.745 → 2.74 and 2.735 → 2.74. WHY: always rounding 5 upward biases long chains of calculations systematically upward; the even-odd rule is unbiased over many roundings. Assumptions matter: this rule applies when the dropped part is exactly 5 followed by nothing.
+• Now the two rulebooks — and WHY they differ, which is what separates understanding from memorising. ADDITION AND SUBTRACTION follow DECIMAL PLACES. Reason: adding numbers aligns their ABSOLUTE uncertainties, and absolute uncertainty lives in a decimal place — a value known to ±0.1 cannot certify hundredths in a sum, whatever its digit count. Example: 436.32 + 227.2 + 0.301 = 663.821, reported as 663.8, because 227.2 is known only to one decimal place.
+• MULTIPLICATION AND DIVISION follow SIGNIFICANT FIGURES. Reason: multiplying scales RELATIVE uncertainty, and relative precision is exactly what significant figures count. Example: 2.456 × 1.2 = 2.9472, reported as 2.9, because 1.2 carries only 2 significant figures — a relative precision of about 1 part in 12, which the answer may not pretend to beat.
+• Subtraction's dark corner: subtracting nearly equal numbers destroys precision. 12.9 g − 7.06 g = 5.8 g (not 5.84), and 0.307 m − 0.304 m = 0.003 m — ONE significant figure survives. The absolute errors stay, the value shrinks, so the relative error explodes. Instrument designers fear this; examiners test it.
+• Precision versus accuracy, settled here once: significant figures report PRECISION (fineness of the reading). They say nothing about ACCURACY — a miscalibrated instrument produces beautifully precise, confidently wrong numbers. The next section separates the two ideas completely.
+⚠ EXAM TRAP — Never round intermediate steps. Carry at least one extra digit through the whole calculation and round ONCE, at the very end. Mid-calculation rounding is a silent leak that compounds across multi-step numericals.
+
+Measurement, Least Count and Errors
+• Every instrument has a smallest whisper it can hear; below that size it is deaf, and pretending otherwise is how fake precision is born. This section equips you with the vocabulary of honest measurement — least count, error families, and the accuracy–precision distinction.
+• DEFINITION — Least count (LC): the smallest change in a quantity that an instrument can detect. It caps the precision of every reading: a metre scale (LC 1 mm) can never honestly report 12.34 cm.
+✔ KEY FORMULA — The precision ladder of this chapter: metre scale ~10⁻³ m → Vernier calipers ~10⁻⁴ m → screw gauge ~10⁻⁵ m → optical instruments ~ a wavelength of light. Finer instrument → smaller LC → more significant figures per reading.
+• Why can't we subdivide scales forever? NCERT's precision ranking (Exercise 1.6): optical instruments resolve about a wavelength of light and beat every mechanical device; then the screw gauge (~0.001 cm), then Vernier calipers (~0.01 cm), then the metre scale (0.1 cm). For mechanical screws the floor is set by play in the thread — backlash — not by engraving.
+• EXAMPLE — Choosing the instrument IS the first experimental decision: a hair's thickness (~10⁻⁴ m) laughs at a metre scale, is routine for a screw gauge, and is coarse work for a microscope. Match the LC to the job before measuring anything.
+• Readings of the same quantity rarely agree exactly, so results are reported as a mean with uncertainty: a = a_mean ± Δa. The rest of this section names the disagreements.
+• DEFINITION — Error: the difference between a measured value and the true value. Absolute error of a reading = |measured − true|; the reported Δa is the mean of the absolute errors over repeated readings. Relative (fractional) error = Δa/a_mean. Percentage error = (Δa/a_mean) × 100.
+• DEFINITION — Systematic errors: errors pushing every reading the same way by roughly the same amount — a zero error, a shrunken scale, heat leaking identically in every trial. Repetition does NOT cure them; better instruments, calibration and technique do.
+• DEFINITION — Random errors: errors scattering readings on both sides of the true value with no pattern — tiny fluctuations in conditions and judgement. Repetition DOES cure these: average many readings and the scatter shrinks.
+• Gross errors are pure carelessness — misreading a scale, transposing digits. No statistics rescues them; the reading is rejected and retaken, carefully. Least count error belongs to the instrument itself: no reading is trustworthy beyond one least count.
+• EXAMPLE — One thermometer, both families: if it reads 0.5° high in melting ice, it reads high everywhere (systematic — calibrate it away). If your stopwatch thumb is early on one trial and late on the next, timings scatter around the truth (random — average them).
+▸ Accuracy versus Precision
+• Picture a dartboard and the two words stop being interchangeable. DEFINITION — Accuracy: how close the mean of the readings is to the TRUE value — the cluster centred on the bullseye; it is limited by systematic errors. DEFINITION — Precision: how closely the readings agree WITH EACH OTHER — a tight cluster anywhere on the board; it is limited by random errors and least count.
+• So a miscalibrated screw gauge is precise but inaccurate (tight cluster, off target), while a coarse scale read many times can be accurate on average but imprecise (scatter centred on truth). The professional diagnoses which enemy is present before reaching for a cure.
+★ HIGHLIGHT — The bridge rule: every reported result ends at its first uncertain digit. Mean ± Δa and significant figures are two dialects of one language — honesty about doubt.
+
+▸ Vernier Calipers — Least Count, Reading and Zero Error
+• The first precision instrument of your life (Fig. 1.1): a sliding vernier scale rides beside the main scale, and the slight mismatch between their divisions lets your eyes read a tenth of a millimetre. Lower jaws grip outside dimensions, upper jaws measure inside diameters, and the tail rod probes depths.
+• DEFINITION — Vernier least count: LC = 1 MSD − 1 VSD, the difference between one main scale division and one vernier scale division.
+✔ KEY FORMULA — If 10 vernier divisions coincide with 9 main scale divisions and 1 MSD = 1 mm, then 1 VSD = 0.9 mm and LC = 0.1 mm = 0.01 cm. Reading = Main scale reading + (Coinciding vernier division × LC) − Zero error.
+• WORKED PATTERN — Main scale reads 12 mm, the 7th vernier division coincides, LC = 0.1 mm: reading = 12 + 7 × 0.1 = 12.7 mm = 1.27 cm. Three moves: read the main scale, find the coinciding line, add its share.
+• DEFINITION — Zero error: the reading shown when the true value is zero (jaws fully closed, Fig. 1.4). It is subtracted — WITH ITS SIGN — from every reading: corrected value = observed reading − zero error.
+• Reading the sign like a professional: jaws closed and the vernier zero sits RIGHT of the main zero → the instrument over-reads → positive zero error = +(n × LC). Vernier zero sits LEFT → negative zero error, ZE = −[(N − n) × LC] with N the total vernier divisions and n the coinciding one; its magnitude is effectively added back to readings.
+• Variant alert: if (N + 1) vernier divisions coincide with N main divisions, then LC = 1 MSD ÷ (N + 1). Read the coincidence sentence in the question word by word before reaching for a formula.
+• YOUR TURN — LC = 0.01 cm; main scale reading 2.3 cm; 6th division coincides; zero error +0.02 cm. Corrected length? (Answer: observed = 2.3 + 6 × 0.01 = 2.36 cm; corrected = 2.36 − 0.02 = 2.34 cm.)
+
+▸ Screw Gauge — Least Count, Reading and Zero Error
+• If the Vernier reads tenths of a millimetre, the screw gauge (Fig. 1.2) reads hundredths: a precision screw converts rotation into tiny forward steps. One full turn of the cap advances the spindle by exactly one pitch; divide that turn into 50 or 100 parts and wire diameters and foil thicknesses yield to 10⁻⁵ m.
+• DEFINITION — Pitch: the distance the spindle advances in one complete rotation of the cap. Least count of a screw gauge: LC = Pitch ÷ Number of circular scale divisions.
+✔ KEY FORMULA — Pitch 0.5 mm over 50 divisions → LC = 0.01 mm; pitch 1 mm over 100 divisions → LC = 0.01 mm. Reading = Main scale reading + (Coinciding circular division × LC) − Zero error.
+• WORKED PATTERN — Main scale 3 mm, 32nd circular division coincides, LC = 0.01 mm: reading = 3 + 32 × 0.01 = 3.32 mm.
+• Zero error, screw-gauge edition (Fig. 1.4): at contact, circular zero BELOW the reference line → positive ZE = +(n × LC). Circular zero ABOVE the line → negative ZE = −[(N − n) × LC]. Concrete case: N = 100 and the 95th division coincides at contact → ZE = −5 × 0.01 = −0.05 mm, so ADD 0.05 mm to every reading.
+• EXAM-GRADE PATTERN (NEET style): LC = 0.001 cm, main scale reading 5 mm, 25th division coincides, ZE = −0.004 cm. Observed = 0.500 + 0.025 = 0.525 cm; corrected = 0.525 − (−0.004) = 0.529 cm. The double negative does real work — this is exactly why zero-error signs are drilled.
+• DEFINITION — Backlash error: the lag in a worn screw thread that makes the spindle hesitate when rotation reverses. Defence: approach every final reading turning in ONE direction only, and let the ratchet — never your grip — make the final contact. The spherometer uses the same screw principle to measure curvature: R = l²/(6h) + h/2.
+⚠ EXAM TRAP — The ratchet is not decoration. Squeezing the cap by hand crushes the wire and falsifies the diameter — a technique error no formula can repair afterwards.
+
+▸ Measuring the Very Large and the Very Small — Parallax and Ranges
+• A kept promise: this section restores material deleted from the NCERT textbook in the 2023 rationalisation — but it survives in NCERT's own exercises (1.6, 1.8) and in JEE/NEET papers every year, so it remains fully in the game.
+• DEFINITION — Parallax: the apparent shift of a nearby object against a distant background when the observer's viewpoint changes. The separation between viewpoints is the basis b; the angular shift is the parallax angle θ. You use it daily: blink alternate eyes at a raised finger and it "jumps" against the wall.
+✔ KEY FORMULA — Distance by parallax: D = b/θ (θ in radians, valid when b ≪ D). Angular size: an object of size d at distance D subtending angle α obeys d = αD.
+• WORKED PATTERN (NCERT): the Moon, viewed from the two ends of Earth's diameter (basis b = 1.276 × 10⁷ m) with parallax angle 1°54′, lies at D = 3.84 × 10⁸ m. The Sun's angular diameter 1920″ in d = αD returns its diameter ≈ 1.39 × 10⁹ m — the size of a star, from an angle and a distance.
+• The scale of everything: instruments resolve from metre scales (10⁻³ m) down through Vernier, screw gauge and optical microscopes to electron microscopes below 1 Å, while nature runs from ~10⁻¹⁴ m (a nucleus) to ~10²⁶ m (the observable universe). Physics measures across forty orders of magnitude; this chapter is the toolbox.
+• Estimating the invisible (NCERT classic): an oleic-acid monolayer spread on water has a thickness of molecular size, about 10⁻⁹ m — a molecule measured with a tray of water and a ruler. And the mass anchor: 1 unified atomic mass unit, u = (1/12) the mass of a carbon-12 atom = 1.66 × 10⁻²⁷ kg; atomic masses come from the mass spectrograph, planetary masses from gravitational methods, and time rests on the caesium clock at about 1 part in 10¹³.
+
+Dimensions of Physical Quantities
+• Now the chapter's second superpower. Strip any quantity down to its recipe — how much mass, how much length, how much time is baked into it — and you gain a machine that audits equations, converts units and even derives laws. That recipe is the quantity's dimensions.
+• DEFINITION — Dimensions of a physical quantity: the powers to which the base quantities must be raised to represent that quantity. Velocity is [L T⁻¹] because it is a length raised to 1 divided by a time raised to 1; the exponents ARE the dimensions.
+• The seven base dimensions, with their symbols: Mass [M] • Length [L] • Time [T] • Electric current [A] • Thermodynamic temperature [K] • Amount of substance [mol] • Luminous intensity [cd]. Every dimensional formula in physics is a product of these seven, each raised to some (often zero) power.
+• What an exponent means, physically: in [Force] = [M¹ L¹ T⁻²], doubling the mass unit's scale affects force linearly (exponent 1 on M), while the time exponent −2 says force varies as the inverse square of the time unit. Exponents are sensitivities — remember this when unit conversion arrives: they become the powers in the conversion formula.
+• Why dimensions earn their keep: two quantities can share a unit yet differ in dimensions (a joule of work versus a joule-per-kelvin of entropy — wait, entropy's unit J/K already betrays different dimensions), and quantities with identical dimensions always respond identically to unit changes. Dimensional thinking sees structure that unit labels hide.
+• Dimensions are relative to the chosen fundamental set — a pattern past papers love: take force (F), velocity (V) and time (T) as fundamental and mass becomes [F V⁻¹ T] (from F = ma → m = F/a = F ÷ (V/T)); take energy (E), velocity and time as fundamental and surface tension becomes [E V⁻² T⁻²]. Same physics, different alphabet — the method adapts.
+• YOUR TURN — Dimensions of pressure, from scratch: pressure = force ÷ area → [M L T⁻²] ÷ [L²] = [M L⁻¹ T⁻²]. Fifteen seconds, no memorisation.
+
+▸ Master Reference Table — Dimensional Formulae, Derived Not Listed
+✔ KEY FORMULA — The universal derivation recipe: (1) write the quantity's defining equation, (2) replace every quantity in it by its dimensions, (3) simplify. Every row below is produced by this recipe — derive, never memorise.
+• AREA AND VOLUME — Area = length × breadth → [L²]. Volume = length³ → [L³]. (No defining subtlety: pure geometry.)
+• VELOCITY AND ACCELERATION — Velocity = displacement ÷ time → [L T⁻¹]. Acceleration = change of velocity ÷ time → [L T⁻²]. Angular velocity = angle ÷ time → [T⁻¹], because the angle itself is dimensionless.
+• MOMENTUM, IMPULSE AND FORCE — Momentum = mass × velocity → [M L T⁻¹]. Impulse = force × time → [M L T⁻¹] (the twin of momentum, as the impulse–momentum theorem demands). Force = mass × acceleration → [M L T⁻²].
+• WORK, ENERGY AND POWER — Work = force × displacement → [M L² T⁻²]; every energy (kinetic, potential, thermal) shares this. Power = work ÷ time → [M L² T⁻³]. Torque = force × lever arm → [M L² T⁻²] — work's dimensional twin, though torque is a vector and work a scalar.
+• PRESSURE, STRESS AND DENSITY — Pressure = force ÷ area → [M L⁻¹ T⁻²]; stress and Young's modulus share it exactly. Density = mass ÷ volume → [M L⁻³].
+• FREQUENCY AND PERIOD — Period is a time → [T]. Frequency = 1 ÷ period → [T⁻¹]. Angular momentum = momentum × radius → [M L² T⁻¹] — the twin of the Planck constant. Moment of inertia = mass × length² → [M L²].
+• GRAVITATIONAL CONSTANT — From F = G m₁m₂/r²: [G] = [F][L²] ÷ [M²] = [M⁻¹ L³ T⁻²]. Derive it this way in the exam if it slips your memory.
+• SPRING CONSTANT AND SURFACE TENSION — Spring constant k = force ÷ extension → [M L T⁻²] ÷ [L] = [M T⁻²]. Surface tension = force ÷ length (or energy ÷ area) → also [M T⁻²]. Twins again — a favourite matching pair.
+• VISCOSITY — From the viscous force law F = ηA(dv/dx): [η] = [F] ÷ ([L²] × [T⁻¹]) = [M L⁻¹ T⁻¹]. The velocity gradient dv/dx carries [T⁻¹].
+• HEAT FAMILY — Specific heat capacity = heat ÷ (mass × temperature rise) → [L² T⁻² K⁻¹]. Latent heat = heat ÷ mass → [L² T⁻²]. Boltzmann constant k_B = energy ÷ temperature → [M L² T⁻² K⁻¹]. Gas constant R (per mole) → [M L² T⁻² K⁻¹ mol⁻¹]. Thermal conductivity → [M L T⁻³ K⁻¹]. Stefan constant σ → [M T⁻³ K⁻⁴] (σ = 5.67 × 10⁻⁸ W m⁻² K⁻⁴).
+• ELECTRICITY AND MAGNETISM — Charge = current × time → [A T]. Electric field = force ÷ charge → [M L T⁻³ A⁻¹]. Electric potential and EMF = work ÷ charge → [M L² T⁻³ A⁻¹]. Resistance = potential ÷ current → [M L² T⁻³ A⁻²]. Capacitance = charge ÷ potential → [M⁻¹ L⁻² T⁴ A²]. Inductance → [M L² T⁻² A⁻²]. Magnetic field B = force ÷ (charge × velocity) → [M T⁻² A⁻¹]. Magnetic flux → [M L² T⁻² A⁻¹]. Permittivity ε₀ → [M⁻¹ L⁻³ T⁴ A²]. Permeability μ₀ → [M L T⁻² A⁻²]. Planck constant h = energy ÷ frequency → [M L² T⁻¹].
+• MODERN PHYSICS — Rydberg constant R∞ → [L⁻¹], value 1.097373 × 10⁷ m⁻¹ for an infinitely heavy nucleus; hydrogen's own R_H = 1.09678 × 10⁷ m⁻¹ is slightly smaller — do not mix them. Work function Φ is an energy → [M L² T⁻²].
+• A landmark IAT actually asked (2021): the von Klitzing constant R_K = h/e² ≈ 25,812.8 Ω. Offered e²/h, e/h, h/e and h/e², only h/e² carries the dimensions of resistance — one line, if you think dimensionally.
+
+Dimensional Formulae and Dimensional Equations
+• DEFINITION — Dimensional formula: the bracketed expression showing how and in what powers the base quantities compose a quantity — [M L T⁻²] for force. DEFINITION — Dimensional equation: the equation obtained by setting a quantity equal to its dimensional formula — [Force] = [M L T⁻²]; [Energy] = [M L² T⁻²]. The general form of any formula is [Mᵃ Lᵇ Tᶜ θᵈ …], where the exponents a, b, c, d are the dimensions with respect to each base quantity.
+• Constructing a formula, once more with feeling: start from the DEFINING equation — the law that introduces the quantity — not from a convenient rearrangement. Power comes from P = W/t, not from W = Pt, if power is what you are defining. Textbooks occasionally rearrange; the dimensions survive either way, but the defining route never confuses cause with effect.
+• DEFINITION — Principle of homogeneity: a physical equation can be correct only if every term on both sides has exactly the same dimensions. Only quantities of identical dimensions may be equated, added or subtracted. Adding a length to a time is as meaningless in physics as adding 3 kilograms to 2 seconds in a shop.
+• Corollary with teeth: the argument of sin, cos, tan, eˣ and ln must be dimensionless, and the functions themselves are dimensionless. In x = A sin(ωt), the product ωt must be dimensionless, forcing [ω] = [T⁻¹]. In N = N₀e^(−λt), the same logic forces [λ] = [T⁻¹]. No exceptions, ever.
+• How to audit an equation, mechanically: (1) pick one term, compute its dimensions; (2) repeat for every term on both sides; (3) all must match the dimensions of the quantity isolated on the left. Audit every added term separately — that IS the whole technique.
+• Dimensionless versus dimensioned, finally sorted: a quantity is DIMENSIONLESS when all seven exponents are zero — strain, refractive index, plane angle, relative density, Poisson's ratio, efficiency, coefficient of friction, and the Reynolds number Re = ρvL/η (verify: [M L⁻³][L T⁻¹][L] ÷ [M L⁻¹ T⁻¹] = 1). Dimensionless quantities may still carry a unit (rad, sr) or none — the two ideas are independent.
+• The identical-dimension families — memorise these groupings as units: {work, energy, torque} • {momentum, impulse} • {pressure, stress, Young's modulus, energy density} • {frequency, angular velocity, velocity gradient} • {Planck constant, angular momentum} • {surface tension, spring constant} • the time trio {L/R, RC, √(LC)} all carrying [T].
+⚠ EXAM TRAP — Identical dimensions do NOT mean identical nature: torque is a vector, work a scalar; angular momentum is a vector, Planck's constant a scalar. Dimensions audit recipes, not meanings.
+⚠ EXAM TRAP — The impostor pair: tension [M L T⁻²] and surface tension [M T⁻²] do NOT share dimensions despite their names (an NCERT Exemplar favourite). Likewise strain (dimensionless) is not stress [M L⁻¹ T⁻²], and angle (dimensionless) is not angular momentum [M L² T⁻¹].
+
+Dimensional Analysis and Its Applications
+• Dimensional analysis is the disciplined use of dimensions to extract information about physical laws. It has exactly five applications — learn them as five separate tools, because exam questions name them separately.
+• APPLICATION 1 — Checking consistency: audit a candidate equation term by term (the homogeneity principle at work). An equation that fails is certainly wrong; one that passes is merely not-yet-convicted.
+• APPLICATION 2 — Deriving relationships: assume the target depends on plausible parameters raised to unknown powers, write the dimensional equation, and solve. APPLICATION 3 — Finding the powers: the same machinery answers the narrower question "to what power does X enter?" Both rest on assumptions you must state: the list of relevant parameters is COMPLETE, the relationship is a product of powers (monomial), and the dimensionless constant stays undetermined.
+• Derivation 1 — Pendulum period: assume T = k lᵃ gᵇ mᶜ. Dimensions: [T] = [L]ᵃ [L T⁻²]ᵇ [M]ᶜ. M: c = 0 — the period cannot involve the bob's mass. T: −2b = 1 → b = −½. L: a + b = 0 → a = ½. Result: T = k√(l/g). Experiment fixes k = 2π — analysis alone cannot.
+• Derivation 2 — Stokes' viscous force: F = k ηᵃ rᵇ vᶜ. M: a = 1. T: −a − c = −2 → c = 1. L: −a + b + c = 1 → b = 1. Result: F = kηrv; experiment crowns it with k = 6π, giving Stokes' law F = 6πηrv.
+• Derivation 3 — Centripetal force: F = k mᵃ vᵇ rᶜ yields a = 1, b = 2, c = −1: F = k mv²/r, with k = 1 from theory — the same v²/r that geometry will prove in the circular-motion chapter.
+• Derivation 4 — Speed of sound: v = k Bᵃ ρᵇ with [B] = [M L⁻¹ T⁻²] and [ρ] = [M L⁻³] gives a = ½, b = −½: v = k√(B/ρ) — the Newton–Laplace v = √(γP/ρ) in disguise, the dimensionless γ hiding inside k.
+• Derivation 5 — Planck units from c, G and h (the IAT speciality; IAT 2019 asked for energy built from h, c, G): the same three-equation machine returns length √(hG/c³), time √(hG/c⁵), mass √(hc/G), energy √(hc⁵/G). Constructing quantities from fundamental constants is IAT's fingerprint — practise it until it is reflex.
+⚠ EXAM TRAP — True Planck units are built with ħ = h/2π; school questions use h. The dimensions agree, so dimensional answers agree — but the numerical Planck length ≈ 1.616 × 10⁻³⁵ m belongs to ħ. Never mix h and ħ inside a numerical.
+• APPLICATION 4 — Converting units between systems. The conversion law follows from the master identity n₁u₁ = n₂u₂ plus the fact that a unit's size scales as the product of base units raised to the dimensional exponents:
+✔ KEY FORMULA — For dimensional formula [Mᵃ Lᵇ Tᶜ]: n₂ = n₁ × (M₁/M₂)ᵃ × (L₁/L₂)ᵇ × (T₁/T₂)ᶜ. Worked: 1 N in dynes — exponents (1, 1, −2) → n₂ = (kg/g)¹ × (m/cm)¹ = 1000 × 100 = 10⁵ dyne. 1 J in ergs — exponents (1, 2, −2) → n₂ = 1000 × 100² = 10⁷ erg. Mercury's density 13.6 g/cm³ in SI: 13.6 × (g/kg) × (cm/m)⁻³ = 13.6 × 10⁻³ × 10⁶ = 13,600 kg/m³; pocket form: 1 g/cm³ = 1000 kg/m³.
+• APPLICATION 5 — Identifying impossible expressions: any candidate formula whose terms mismatch, or whose transcendental argument carries dimensions, is rejected without calculation. This is the fastest question type in the chapter — train it to reflex speed in the practice set below.
+
+▸ Thomson's e/m Experiment — Dimensional Thinking Catches a Particle
+• The chapter's finale is a detective story. By 1897, cathode rays were known to carry negative charge, but the electron's charge e and mass mₑ separately were unmeasurable. Their RATIO could be caught — and J. J. Thomson caught it with the apparatus of Fig. 1.3: a cathode ray tube with cathode and anode on a high-voltage supply, a magnet arranged around the tube, and a fluorescent screen where the beam lands.
+• Three acts: Electric field alone — the spot deflects to point A, dragged towards the positive plate. Magnetic field alone — the spot bends to point C, pushed the other way by the Lorentz force. Both fields balanced — the spot returns to the centre B; the beam flies straight.
+✔ KEY FORMULA — Step 1 (acceleration through voltage V): eV = ½mₑv². Step 2 (balance — a velocity selector): eE = evB, hence v = E/B. Step 3 (combine): e/mₑ = E²/(2VB²).
+• Every quantity on the right is directly measurable, so the ratio emerges: e/mₑ ≈ 1.76 × 10¹¹ C/kg — about 1836 times the same ratio for a hydrogen ion. That single comparison announced the electron as vastly lighter than any atom: the first subatomic particle had a measured fingerprint.
+• EXAMPLE — The transferable strategy: when two quantities cannot be measured separately, measure a well-chosen COMBINATION of them. e/m here; ε₀μ₀ yielding 1/c² elsewhere; R_K = h/e² in the quantum Hall effect. Same trick, different costumes — recognising it is research-level thinking.
+
+▸ Limitations of Dimensional Analysis
+• Every superpower has kryptonite, and examiners test the limits as happily as the method. Five walls, each with its reason:
+• Limit 1 — Dimensionless constants are invisible. The method yields the FORM of a law, never its 2π, ½ or 6π, because pure numbers have no dimensions to track. Any derivation you present is incomplete until experiment or theory supplies the constant — say so, every time.
+• Limit 2 — Sums defeat it. If a law is a sum of terms with different parameter combinations (s = ut + ½at² involves two different monomials), a single product-of-powers assumption cannot represent it. The method can audit such equations but cannot derive them.
+• Limit 3 — Transcendental functions defeat derivation. Laws containing eˣ, sin x or ln x cannot be derived, because their arguments must be dimensionless constants-combinations the power-product ansatz cannot generate; only the argument's dimensionlessness itself can be extracted.
+• Limit 4 — Too many parameters. With three base dimensions in mechanics (M, L, T) you get three equations; a quantity depending on more than three independent parameters leaves the system underdetermined — infinitely many dimensionally acceptable forms.
+• Limit 5 — It cannot separate twins, nor identify mechanism. Work and torque pass identical audits; the method certifies consistency, never causation. It will never tell you WHY the pendulum's period ignores mass — only that any correct law must.
+• The common student mistakes that grow from these limits: presenting T = k√(l/g) as the finished law (k missing); claiming a dimensionally consistent formula is "proved"; applying the power-product method to exponential decay; and forgetting that the parameter list itself is a physical assumption that can simply be wrong (omit air resistance from the pendulum and the method never complains).
+
+High-Yield Formula Sheet
+• SI anchors: c = 299,792,458 m/s • h = 6.62607015 × 10⁻³⁴ J s • e = 1.602176634 × 10⁻¹⁹ C • k_B = 1.380649 × 10⁻²³ J/K • N_A = 6.02214076 × 10²³ mol⁻¹ • Δν_Cs = 9,192,631,770 Hz • K_cd = 683 lm/W.
+✔ KEY FORMULA — Q = n × u with n₁u₁ = n₂u₂ • Vernier LC = 1 MSD − 1 VSD • Screw gauge LC = Pitch ÷ Circular divisions • Corrected reading = Observed − Zero error (with sign) • Parallax D = b/θ, size d = αD.
+✔ KEY FORMULA — Error flow: sum/difference ΔZ = ΔA + ΔB • product/quotient ΔZ/Z = ΔA/A + ΔB/B • power ΔZ/Z = n(ΔA/A) • master rule ΔZ/Z = Σ |exponent| × (Δquantity/quantity).
+• Significant figures in one breath: non-zero always • captive zeros yes • leading zeros never • trailing zeros count only with a decimal point • +/− follow decimal places • ×/÷ follow significant figures • exact-5 rounding goes to the even digit.
+✔ KEY FORMULA — Core dimensions: [F] = [M L T⁻²] • [E] = [M L² T⁻²] • [P] = [M L² T⁻³] • [pressure] = [M L⁻¹ T⁻²] • [G] = [M⁻¹ L³ T⁻²] • [h] = [M L² T⁻¹] • [η] = [M L⁻¹ T⁻¹] • [surface tension] = [M T⁻²] • [R] = [M L² T⁻³ A⁻²].
+✔ KEY FORMULA — Unit conversion: n₂ = n₁ (M₁/M₂)ᵃ (L₁/L₂)ᵇ (T₁/T₂)ᶜ • 1 N = 10⁵ dyne • 1 J = 10⁷ erg • 1 g/cm³ = 1000 kg/m³ • 1 eV = 1.602 × 10⁻¹⁹ J • 1 light year = 9.46 × 10¹⁵ m.
+• Derived-by-analysis results: pendulum T = 2π√(l/g) • Stokes F = 6πηrv • centripetal F = mv²/r • sound v = √(γP/ρ) • Planck energy √(hc⁵/G) • e/mₑ = E²/(2VB²) ≈ 1.76 × 10¹¹ C/kg.
+
+Common Mistakes and Exam Traps
+• Mistake 1 — Confusing units with dimensions. Why wrong: a unit is a chosen standard (metre, foot); a dimension is the abstract recipe [L]. The same dimension wears many units; the same unit name can even serve different quantities in sloppy speech. Correct principle: convert with units, audit with dimensions — never interchange the two jobs.
+• Mistake 2 — "Dimensionally correct, therefore true." Why wrong: homogeneity is necessary, not sufficient; s = ut + 2at² passes every dimensional test and is still false, because dimensionless constants (here ½ versus 2) are invisible to dimensions. Correct principle: a failed audit convicts; a passed audit merely acquits for lack of evidence.
+• Mistake 3 — Applying significant-figure rules to addition. Why wrong: addition aligns absolute uncertainties, which live in decimal places — 227.2 limits a sum to one decimal place regardless of its 4 significant figures. Correct principle: +/− → decimal places; ×/÷ → significant figures.
+• Mistake 4 — Equating precision with accuracy. Why wrong: a miscalibrated instrument gives tightly clustered, systematically wrong readings — precise, inaccurate. Correct principle: precision = scatter (random errors, least count); accuracy = distance from truth (systematic errors).
+• Mistake 5 — Forgetting conversion factors mid-calculation. Why wrong: mixing km/h with metres and seconds silently corrupts every downstream number; 72 km/h is 20 m/s, and the 3.6 factor is the single most dropped factor in Indian entrance exams. Correct principle: convert everything to SI before substituting, and let units cancel visibly.
+• Mistake 6 — "Dimensionless means unitless." Why wrong: the radian and steradian are dimensionless yet are genuine named units; strain is dimensionless and unitless. Correct principle: dimensions and units are separate ledgers — check both.
+• Mistake 7 — Botching exponent algebra. Why wrong: when quantities multiply, exponents ADD; when a quantity is raised to power n, exponents MULTIPLY by n. Writing [v²] = [L² T⁻²] correctly but then [√v] with doubled exponents inverts the rule. Correct principle: dimensions follow the same algebra as the quantities themselves.
+• Mistake 8 — Subtracting errors in a difference. Why wrong: for Z = A − B the maximum error is ΔZ = ΔA + ΔB, because each reading can err in the direction that widens the gap. Correct principle: in maximum-error accounting, errors always add — for sums, differences, products and quotients alike.
+⚠ EXAM TRAP — The three named traps of the chapter, collected: post-2019 μ₀ is measured, not exactly 4π × 10⁻⁷ • tension ≠ surface tension • R∞ ≠ R_H. If an option leans on any of these, it is the trap.
+
+Worked Examples — Basic to Challenging
+• EXAMPLE 1 (Unit conversion). Problem: express 72 km/h in SI units. Given: 72 km/h; 1 km = 1000 m, 1 h = 3600 s. Principle: multiply by conversion factors equal to 1 so units cancel. Steps: 72 × (1000 m)/(3600 s) = 72 × 5/18 = 20 m/s. Answer: 20 m/s. Reasoning: the factor 5/18 is this conversion pre-computed — derive it once, use it forever. Mistake to avoid: multiplying by 3.6 instead of dividing (that converts m/s INTO km/h).
+• EXAMPLE 2 (Counting and rounding). Problem: (a) significant figures in 0.000405060; (b) round 34.750 to 3 significant figures. Given: the 6 counting rules; the even-odd rule. Steps: (a) leading zeros never count; digits 4, 0, 5, 0, 6, 0 all count (captive and trailing-with-point) → 6 significant figures. (b) 34.750 → keep 34.7, dropped part is exactly 5 after an odd digit 7 → raise → 34.8. Answers: (a) 6 (b) 34.8. Mistake to avoid: rounding 34.750 "up because 5" without checking the even-odd rule's condition — here it agrees, but against an even kept digit it would not.
+• EXAMPLE 3 (The two rulebooks). Problem: compute (a) 436.32 + 227.2 + 0.301 (b) 12.9 − 7.06, reporting honestly. Principle: +/− follow decimal places. Steps: (a) raw sum 663.821; 227.2 limits to 1 decimal place → 663.8. (b) raw difference 5.84; 12.9 limits to 1 decimal place → 5.8. Answers: 663.8 and 5.8. Reasoning: the least-precise decimal place is a wall no sum may cross. Mistake to avoid: reporting 663.821 "because the calculator said so" — calculators do not know your instruments.
+• EXAMPLE 4 (Dimensional formula, two routes). Problem: derive the dimensions of surface tension twice. Given: surface tension = force ÷ length, and = surface energy ÷ area. Steps: route 1: [M L T⁻²] ÷ [L] = [M T⁻²]. Route 2: [M L² T⁻²] ÷ [L²] = [M T⁻²]. Answer: [M T⁻²] both ways. Reasoning: two independent defining equations agreeing is the strongest self-check this chapter offers — use it whenever a quantity has two definitions. Mistake to avoid: confusing surface tension with tension [M L T⁻²] — the impostor pair again.
+• EXAMPLE 5 (Homogeneity audit). Problem: in the van der Waals equation (P + a/V²)(V − b) = RT, find [a] and [b]. Principle: any term added to P must be a pressure; any term subtracted from V must be a volume. Steps: [a/V²] = [P] = [M L⁻¹ T⁻²] → [a] = [M L⁻¹ T⁻²] × [L⁶] = [M L⁵ T⁻²]. [b] = [V] = [L³]. Answers: [a] = [M L⁵ T⁻²], [b] = [L³]. Mistake to avoid: auditing only the whole equation's two sides — multi-term equations must be audited term by term.
+• EXAMPLE 6 (Deriving a law). Problem: a sphere of radius r moves at speed v through a fluid of viscosity η; derive the viscous force. Given: assume F = k ηᵃ rᵇ vᶜ, with [η] = [M L⁻¹ T⁻¹]. Steps: [M L T⁻²] = [M L⁻¹ T⁻¹]ᵃ [L]ᵇ [L T⁻¹]ᶜ. M: a = 1. T: −a − c = −2 → c = 1. L: −a + b + c = 1 → b = 1. Answer: F = kηrv — experiment sets k = 6π (Stokes' law). Reasoning: three unknowns, three base dimensions, three equations — the machine works precisely when the counts match. Mistake to avoid: presenting F = ηrv without k — the constant is part of the law.
+• EXAMPLE 7 (Converting a derived unit). Problem: express 1 atmosphere = 1.013 × 10⁵ Pa in CGS (dyne/cm²). Given: [pressure] = [M L⁻¹ T⁻²], exponents (1, −1, −2). Steps: n₂ = 1.013 × 10⁵ × (kg/g)¹ × (m/cm)⁻¹ = 1.013 × 10⁵ × 1000 ÷ 100 = 1.013 × 10⁶. Answer: 1.013 × 10⁶ dyne/cm². Reasoning: a negative length exponent FLIPS its ratio — the (m/cm)⁻¹ is the step everyone rushes. Mistake to avoid: using (cm/m) instead and landing a factor of 10⁴ away.
+• EXAMPLE 8 (Challenge — IAT style). Problem: construct an energy from h, c and G alone. Given: [h] = [M L² T⁻¹], [c] = [L T⁻¹], [G] = [M⁻¹ L³ T⁻²]; assume E = k hᵃ cᵇ Gᶜ'. Steps: [M L² T⁻²] = [M L² T⁻¹]ᵃ [L T⁻¹]ᵇ [M⁻¹ L³ T⁻²]ᶜ'. M: a − c' = 1. L: 2a + b + 3c' = 2. T: −a − b − 2c' = −2. Solving: a = ½, b = 5/2, c' = −½. Answer: E = k√(hc⁵/G) — the Planck energy (k = 1 in ħ-based units). Reasoning: this is the examiners' favourite construction game; fluency here is a genuine IAT edge. Mistake to avoid: sign-slipping the G exponent — G carries M⁻¹, so its exponent enters the M-equation negatively.
+
+Practice Questions — Self-Test Set
+• Instructions: attempt all ten before opening the answer key. Types are mixed as in real papers: single-correct (Q1–Q4), multiple-correct (Q5–Q6), numerical-response (Q7–Q8) and statement-based (Q9–Q10). Difficulty, the concept tested and the trap are declared for every question — after you attempt it.
+• Q1 [Easy • SI base units] Which of the following is an SI BASE unit? (a) newton (b) joule (c) candela (d) pascal
+• Q2 [Easy • Addition rule] The sum 12.9 + 7.06 must be reported as: (a) 19.96 (b) 20.0 (c) 19.9 (d) 19.960
+• Q3 [Medium • Deriving dimensions] Using F = ηA(dv/dx), the dimensions of the coefficient of viscosity η are: (a) [M L⁻¹ T⁻¹] (b) [M L T⁻¹] (c) [M L⁻¹ T] (d) [M⁻¹ L T⁻¹]
+• Q4 [Medium • Homogeneity] In v² = u² + 2as, if s is in metres and a in m/s², then u must be measured in: (a) m/s (b) m²/s (c) m/s² (d) any unit, since constants absorb it
+• Q5 [Medium • Multiple correct — dimensionless quantities] Which of the following have NO dimensions? (a) strain (b) solid angle (c) stress (d) Poisson's ratio
+• Q6 [Medium • Multiple correct — dimensional twins] Which pairs share identical dimensions? (a) work and torque (b) tension and surface tension (c) Planck constant and angular momentum (d) frequency and angular velocity
+• Q7 [Numerical • Significant figures in a result] A cube of side 4.20 cm has mass 74.5 g. Its density, correctly reported, is ___ g/cm³.
+• Q8 [Numerical • Screw gauge] A screw gauge has pitch 0.5 mm and 50 circular divisions. Main scale reading 2.5 mm, 38th division coincides, zero error −0.02 mm. The corrected thickness is ___ mm.
+• Q9 [Statement-based • Limits of homogeneity] Statement I: A dimensionally correct equation is always physically correct. Statement II: s = ut + 2at² is dimensionally homogeneous. Choose: (a) both true (b) I true, II false (c) I false, II true (d) both false
+• Q10 [Assertion–Reason • Transcendental arguments] Assertion: the argument of eˣ in a physical law must be dimensionless. Reason: eˣ = 1 + x + x²/2! + …, and quantities of different dimensions cannot be added. Choose: (a) both true, and the reason explains the assertion (b) both true, reason does not explain (c) assertion true, reason false (d) assertion false, reason true
+▸ Answer Key with Explanations
+• A1 — (c) candela. The newton, joule and pascal are all derived (kg m s⁻², kg m² s⁻², kg m⁻¹ s⁻²). Concept: base versus derived. Misconception targeted: "named units are base units" — most named units honour scientists precisely because they are derived combinations.
+• A2 — (b) 20.0. The raw sum is 19.96; 12.9 limits the result to one decimal place, and 19.96 rounds to 20.0 at one decimal place. (a) ignores the rule; (c) truncates wrongly; (d) invents precision. Concept: addition follows decimal places.
+• A3 — (a) [M L⁻¹ T⁻¹]. η = F ÷ (A × dv/dx): [M L T⁻²] ÷ ([L²][T⁻¹]) = [M L⁻¹ T⁻¹]. Options (b)–(d) each drop or flip one factor — the velocity gradient's [T⁻¹] is the usual casualty. Concept: deriving dimensions from a defining law.
+• A4 — (a) m/s. [u²] must equal [v²] = [L² T⁻²], so [u] = [L T⁻¹]. Option (d) is the classic error — the 2 in 2as is dimensionless and absorbs nothing. Concept: homogeneity constrains every symbol, not just the answer's unit.
+• A5 — (a), (b) and (d). Strain (ΔL/L), solid angle (area/r²) and Poisson's ratio (strain/strain) are pure ratios. Stress is force/area, [M L⁻¹ T⁻²] — dimensioned. Concept: dimensionless quantities. Misconception: "solid angle has a unit, so it has dimensions" — rad/sr are dimensionless units.
+• A6 — (a), (c) and (d). Work and torque both [M L² T⁻²]; h and angular momentum both [M L² T⁻¹]; frequency and angular velocity both [T⁻¹]. Pair (b) is the impostor: tension [M L T⁻²] versus surface tension [M T⁻²]. Concept: identical-dimension families.
+• A7 — 1.01 g/cm³. Volume = (4.20)³ = 74.088 cm³; density = 74.5 ÷ 74.088 = 1.0056 g/cm³, reported to 3 significant figures (both inputs carry 3) → 1.01 g/cm³. Misconception: reporting 1.0056 — the calculator's digits are not the measurement's digits.
+• A8 — 2.90 mm. LC = 0.5 ÷ 50 = 0.01 mm. Observed = 2.5 + 38 × 0.01 = 2.88 mm. Corrected = observed − ZE = 2.88 − (−0.02) = 2.90 mm. Misconception: adding the zero error with the wrong sign — always subtract ZE as a signed quantity.
+• A9 — (c). Statement I is false (homogeneity is necessary, not sufficient — the very counterexample in Statement II passes the dimensional audit with a wrong constant 2 instead of ½, so II is true and simultaneously disproves I). Concept: limits of dimensional analysis.
+• A10 — (a). The series for eˣ adds 1, x, x²/2!, … — terms that would carry different dimensions unless x is dimensionless; addition of unlike dimensions is meaningless, which is exactly why the assertion holds. The reason is the correct explanation. Concept: why transcendental arguments are dimensionless.
+• Scoring guide: 9–10 = exam-ready for this chapter; 6–8 = strong, revisit the sections named by the questions you missed; below 6 = re-read the chapter with the practice set open beside you, then re-attempt after a day.
+
+Chapter Summary and Revision Checklist
+• Summary in one paragraph: Measurement expresses quantities as number × unit in the SI, a coherent system now founded on seven constants of nature. Significant figures report a measurement's precision honestly, with decimal-place rules for addition and significant-figure rules for multiplication. Errors classify into systematic, random and gross, and propagate by addition through every calculation. Dimensions — the powers of the base quantities in a quantity's recipe — power dimensional analysis: auditing equations, deriving laws, and converting units, within firm limits (no constants, no sums, no transcendental laws, no twin-separation).
+• Essential definitions to be able to reproduce verbatim: physical quantity and unit (Q = n × u) • significant figures • least count • zero error • accuracy versus precision • dimensions and dimensional equation • principle of homogeneity.
+• Must-remember formulae: LC rules for Vernier and screw gauge • ΔZ/Z = Σ|exponent| × relative error • [F], [E], [G], [h] and the twin families • conversion law n₂ = n₁(M₁/M₂)ᵃ(L₁/L₂)ᵇ(T₁/T₂)ᶜ • T = 2π√(l/g), F = 6πηrv, E_Planck = √(hc⁵/G) • e/mₑ = E²/(2VB²).
+• Frequently confused pairs — say the difference aloud for each: unit versus dimension • precision versus accuracy • systematic versus random error • tension versus surface tension • dimensionless versus unitless • R∞ versus R_H • dimensionally correct versus physically correct.
+• Revision checklist: □ I can write the seven base units with their defining constants □ I can count significant figures in any form, including scientific notation □ I can round with the even-odd rule and justify it □ I can read a Vernier and a screw gauge, with signed zero error □ I can classify an error and state its cure □ I can derive any common dimensional formula from its defining equation □ I can audit an equation term by term □ I can derive the pendulum and Stokes results unaided □ I can convert force, energy and density between SI and CGS □ I can state all five limitations without notes.
+• Self-assessment — answer honestly: (1) Why does addition follow decimal places while multiplication follows significant figures? (2) Why can't dimensional analysis find the 2π in the pendulum law? (3) A screw gauge's zero error is −0.03 mm and a reading is 4.12 mm — what is the corrected value, and why? (4) Which has more significant figures, 0.00120 or 1200, and what extra information would settle the second? (5) Construct a pressure from h, c and G-style constants is impossible — which limitation explains why some constructions fail? If any answer stalls, revisit: (1) the arithmetic section, (2) and (5) limitations, (3) the screw gauge section, (4) the counting rules. (Answers: (3) 4.15 mm — subtract the signed error: 4.12 − (−0.03); (4) 0.00120 has exactly 3 significant figures (1, 2 and the trailing 0), while 1200 is ambiguous — it could carry 2, 3 or 4, and only scientific notation can declare which.)
+<!-- END phys_ch_1 detailedStudyNotes -->

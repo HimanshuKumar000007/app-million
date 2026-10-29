@@ -31,8 +31,20 @@ class SmartPrepRepository(private val dao: SmartPrepDao) {
             dao.insertMockTests(SmartPrepSeedData.initialMockTests)
             dao.insertStudyPlanTasks(SmartPrepSeedData.initialStudyPlanTasks)
         } else {
-            // Fast upsert for updated chapters so new notes are always reflected immediately
-            dao.insertChapters(SmartPrepSeedData.initialChapters)
+            // Refresh seed CONTENT on every launch so updated notes and questions
+            // reach existing installs. Content-only updates: learner progress
+            // (completedLessons, attempts, bookmarks) is never touched.
+            SmartPrepSeedData.initialChapters.forEach { ch ->
+                dao.updateChapterContent(ch.id, ch.subtitle, ch.studyNotesCount, ch.practiceQuestionCount, ch.durationMinutes, ch.formulaHighlight, ch.keyConceptsSummary, ch.detailedStudyNotes)
+            }
+            SmartPrepSeedData.initialQuestions.forEach { q ->
+                dao.updateQuestionContent(q.id, q.topic, q.difficulty, q.estimatedSeconds, q.prompt, q.optionA, q.optionB, q.optionC, q.optionD, q.correctOptionIndex, q.stepByStepExplanation)
+            }
+            val existingQuestionIds = dao.getAllQuestionIds().toSet()
+            val newQuestions = SmartPrepSeedData.initialQuestions.filter { it.id !in existingQuestionIds }
+            if (newQuestions.isNotEmpty()) {
+                dao.insertQuestions(newQuestions)
+            }
             if (dao.getMockTestCount() < SmartPrepSeedData.initialMockTests.size) {
                 dao.insertMockTests(SmartPrepSeedData.initialMockTests)
             }

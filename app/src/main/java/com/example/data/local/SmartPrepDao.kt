@@ -50,6 +50,15 @@ interface SmartPrepDao {
     @Update
     suspend fun updateChapter(chapter: ChapterEntity)
 
+    @Query("UPDATE chapters SET subtitle = :subtitle, studyNotesCount = :studyNotesCount, practiceQuestionCount = :practiceQuestionCount, durationMinutes = :durationMinutes, formulaHighlight = :formulaHighlight, keyConceptsSummary = :keyConceptsSummary, detailedStudyNotes = :detailedStudyNotes WHERE id = :id")
+    suspend fun updateChapterContent(id: String, subtitle: String, studyNotesCount: Int, practiceQuestionCount: Int, durationMinutes: Int, formulaHighlight: String, keyConceptsSummary: String, detailedStudyNotes: String)
+
+    @Query("UPDATE questions SET topic = :topic, difficulty = :difficulty, estimatedSeconds = :estimatedSeconds, prompt = :prompt, optionA = :optionA, optionB = :optionB, optionC = :optionC, optionD = :optionD, correctOptionIndex = :correctOptionIndex, stepByStepExplanation = :stepByStepExplanation WHERE id = :id")
+    suspend fun updateQuestionContent(id: String, topic: String, difficulty: String, estimatedSeconds: Int, prompt: String, optionA: String, optionB: String, optionC: String, optionD: String, correctOptionIndex: Int, stepByStepExplanation: String)
+
+    @Query("SELECT id FROM questions")
+    suspend fun getAllQuestionIds(): List<String>
+
     @Query("UPDATE chapters SET completedLessons = :completedLessons, isVideoCompleted = :videoCompleted, lastAccessedTimestamp = :timestamp WHERE id = :chapterId")
     suspend fun updateChapterProgress(
         chapterId: String,
