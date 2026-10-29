@@ -1008,6 +1008,68 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "math_ch_6" -> when (sectionIndex) {
+
+            3 -> listOf("fig_math_6_1_multiplication")
+
+            6 -> listOf("fig_math_6_2_det_properties")
+
+            11 -> listOf("fig_math_6_3_system_cases")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_7" -> when (sectionIndex) {
+
+            4 -> listOf("fig_math_7_1_line_forms")
+
+            8 -> listOf("fig_math_7_2_circle")
+
+            10 -> listOf("fig_math_7_3_parabola")
+
+            12 -> listOf("fig_math_7_4_ellipse_hyperbola")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_8" -> when (sectionIndex) {
+
+            2 -> listOf("fig_math_8_1_direction_cosines")
+
+            6 -> listOf("fig_math_8_2_skew_lines")
+
+            8 -> listOf("fig_math_8_3_plane_forms")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_9" -> when (sectionIndex) {
+
+            5 -> listOf("fig_math_9_1_ap_gp_growth")
+
+            7 -> listOf("fig_math_9_2_am_gm")
+
+            11 -> listOf("fig_math_9_3_telescoping")
+
+            else -> emptyList()
+
+        }
+
+        "math_ch_10" -> when (sectionIndex) {
+
+            3 -> listOf("fig_math_10_1_sinx_x")
+
+            8 -> listOf("fig_math_10_3_one_sided")
+
+            11 -> listOf("fig_math_10_2_discontinuity_types")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -2409,6 +2471,135 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "Three edge vectors, one number: the volume of the parallelepiped they span — zero exactly when the vectors are coplanar."
 
         )
+
+        "fig_math_6_1_multiplication" -> Pair(
+
+            "Fig. 6.1 — Matrix Multiplication",
+
+            "Rows meet columns: the (2x3) by (3x2) product is 2x2, and every entry is one row dotted with one column."
+
+        )
+
+        "fig_math_6_2_det_properties" -> Pair(
+
+            "Fig. 6.2 — Determinant Properties",
+
+            "Swapping rows flips the sign and identical rows give zero — and a factor pulled from the whole matrix comes out once per row: k^n, not k."
+
+        )
+
+        "fig_math_6_3_system_cases" -> Pair(
+
+            "Fig. 6.3 — Three Fates of a System",
+
+            "Intersecting lines: one solution. Parallel: none. Coincident: infinitely many — the determinant tests tell you which before you solve."
+
+        )
+
+        "fig_math_7_1_line_forms" -> Pair(
+
+            "Fig. 7.1 — The Forms of a Straight Line",
+
+            "One line, many equations: slope-intercept, the intercept form with a and b on the axes, and the normal form with p and its angle."
+
+        )
+
+        "fig_math_7_2_circle" -> Pair(
+
+            "Fig. 7.2 — Anatomy of a Circle",
+
+            "Centre (-g, -f) and radius sqrt(g^2 + f^2 - c) hide inside the general equation; the tangent length from an outside point is sqrt(S1)."
+
+        )
+
+        "fig_math_7_3_parabola" -> Pair(
+
+            "Fig. 7.3 — Anatomy of the Parabola y^2 = 4ax",
+
+            "Focus (a, 0), directrix x = -a, and the latus rectum of length 4a through the focus — every parabola question starts here."
+
+        )
+
+        "fig_math_7_4_ellipse_hyperbola" -> Pair(
+
+            "Fig. 7.4 — Ellipse and Hyperbola Side by Side",
+
+            "Same a, b, c skeleton, opposite signs: the ellipse keeps its foci inside with e < 1; the hyperbola pushes them out with e > 1 and asymptotes as guides."
+
+        )
+
+        "fig_math_8_1_direction_cosines" -> Pair(
+
+            "Fig. 8.1 — Direction Cosines",
+
+            "A line in space makes angles alpha, beta, gamma with the three axes — and cos^2 alpha + cos^2 beta + cos^2 gamma = 1, always."
+
+        )
+
+        "fig_math_8_2_skew_lines" -> Pair(
+
+            "Fig. 8.2 — Skew Lines and Their Shortest Distance",
+
+            "Lines that neither meet nor run parallel: the common perpendicular segment is the shortest bridge between them."
+
+        )
+
+        "fig_math_8_3_plane_forms" -> Pair(
+
+            "Fig. 8.3 — Anatomy of a Plane",
+
+            "Intercepts on the three axes, the normal direction, and the perpendicular distance from the origin — one plane, three descriptions."
+
+        )
+
+        "fig_math_9_1_ap_gp_growth" -> Pair(
+
+            "Fig. 9.1 — AP versus GP Growth",
+
+            "Arithmetic growth walks in equal steps, geometric growth runs — and a GP with ratio below 1 settles down to a finite infinite sum."
+
+        )
+
+        "fig_math_9_2_am_gm" -> Pair(
+
+            "Fig. 9.2 — AM, GM and the Semicircle",
+
+            "For two positive numbers the semicircle's radius is the AM and the perpendicular is the GM — AM >= GM made visible, with HM below both."
+
+        )
+
+        "fig_math_9_3_telescoping" -> Pair(
+
+            "Fig. 9.3 — Telescoping: The Cancellation Cascade",
+
+            "Split each term into a difference and the middle terms annihilate each other — only the first and the last survive."
+
+        )
+
+        "fig_math_10_1_sinx_x" -> Pair(
+
+            "Fig. 10.1 — The Limit of sin x / x",
+
+            "Squeezed between cos x and 1, sin x / x has nowhere to go but 1 — the most useful limit in the chapter."
+
+        )
+
+        "fig_math_10_2_discontinuity_types" -> Pair(
+
+            "Fig. 10.2 — Three Ways to Break a Function",
+
+            "Removable (a hole), jump (two levels) and infinite (an asymptote) discontinuities — read the left limit, right limit and f(a) to name each one."
+
+        )
+
+        "fig_math_10_3_one_sided" -> Pair(
+
+            "Fig. 10.3 — One-Sided Limits: e^(1/x) at Zero",
+
+            "From the left it dies away to 0, from the right it explodes — different one-sided limits mean the limit does not exist."
+
+        )
+
 
 
 

@@ -204,7 +204,23 @@ object ChapterFigureData {
         "fig_math_4_3_tan_addition" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275536/mathematics-ch04-fig-4-3-tan-addition-v2.png",
         "fig_math_5_1_addition" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275384/mathematics-ch05-fig-5-1-addition.png",
         "fig_math_5_2_products" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275374/mathematics-ch05-fig-5-2-products.png",
-        "fig_math_5_3_triple_product" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275376/mathematics-ch05-fig-5-3-triple-product.png"
+        "fig_math_5_3_triple_product" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793275376/mathematics-ch05-fig-5-3-triple-product.png",
+        "fig_math_6_1_multiplication" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277160/mathematics-ch06-fig-6-1-multiplication.png",
+        "fig_math_6_2_det_properties" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277161/mathematics-ch06-fig-6-2-det-properties.png",
+        "fig_math_6_3_system_cases" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277163/mathematics-ch06-fig-6-3-system-cases.png",
+        "fig_math_7_1_line_forms" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/mathematics-ch07-fig-7-1-line-forms.png",
+        "fig_math_7_2_circle" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/mathematics-ch07-fig-7-2-circle.png",
+        "fig_math_7_3_parabola" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/mathematics-ch07-fig-7-3-parabola.png",
+        "fig_math_7_4_ellipse_hyperbola" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/mathematics-ch07-fig-7-4-ellipse-hyperbola.png",
+        "fig_math_8_1_direction_cosines" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277343/mathematics-ch08-fig-8-1-direction-cosines.png",
+        "fig_math_8_2_skew_lines" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277344/mathematics-ch08-fig-8-2-skew-lines.png",
+        "fig_math_8_3_plane_forms" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277345/mathematics-ch08-fig-8-3-plane-forms.png",
+        "fig_math_9_1_ap_gp_growth" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/mathematics-ch09-fig-9-1-ap-gp-growth.png",
+        "fig_math_9_2_am_gm" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/mathematics-ch09-fig-9-2-am-gm.png",
+        "fig_math_9_3_telescoping" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/mathematics-ch09-fig-9-3-telescoping.png",
+        "fig_math_10_1_sinx_x" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277056/mathematics-ch10-fig-10-1-sinx-x.png",
+        "fig_math_10_2_discontinuity_types" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277058/mathematics-ch10-fig-10-2-discontinuity-types.png",
+        "fig_math_10_3_one_sided" to "https://res.cloudinary.com/dhb8qmnxt/image/upload/v1793277059/mathematics-ch10-fig-10-3-one-sided.png"
     )
 
     val images: Map<String, String> = mapOf(
