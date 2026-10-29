@@ -1414,6 +1414,118 @@ private fun chapterSectionFigures(chapterId: String, sectionIndex: Int): List<St
 
         }
 
+        "bio_ch_17" -> when (sectionIndex) {
+
+            4 -> listOf("fig_bio_17_1_living_traits")
+
+            8 -> listOf("fig_bio_17_2_nomenclature")
+
+            14 -> listOf("fig_bio_17_3_hierarchy")
+
+            15 -> listOf("fig_bio_17_4_hierarchy_examples")
+
+            16 -> listOf("fig_bio_17_6_taxonomic_aids")
+
+            17 -> listOf("fig_bio_17_5_herbarium")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_18" -> when (sectionIndex) {
+
+            3 -> listOf("fig_bio_18_3_muscle_structure")
+
+            4 -> listOf("fig_bio_18_1_sarcomere")
+
+            9 -> listOf("fig_bio_18_2_sliding_filament")
+
+            11 -> listOf("fig_bio_18_6_red_white")
+
+            12 -> listOf("fig_bio_18_4_skeleton")
+
+            16 -> listOf("fig_bio_18_5_joints")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_19" -> when (sectionIndex) {
+
+            2 -> listOf("fig_bio_19_1_neuron")
+
+            5 -> listOf("fig_bio_19_2_action_potential")
+
+            7 -> listOf("fig_bio_19_3_synapse")
+
+            10 -> listOf("fig_bio_19_4_brain")
+
+            13 -> listOf("fig_bio_19_5_reflex_arc")
+
+            14 -> listOf("fig_bio_19_6_eye_ear")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_20" -> when (sectionIndex) {
+
+            1 -> listOf("fig_bio_20_1_endocrine_map")
+
+            3 -> listOf("fig_bio_20_2_pituitary")
+
+            11 -> listOf("fig_bio_20_4_adrenal")
+
+            12 -> listOf("fig_bio_20_6_glucose_control")
+
+            15 -> listOf("fig_bio_20_5_mechanism")
+
+            16 -> listOf("fig_bio_20_3_thyroid_feedback")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_21" -> when (sectionIndex) {
+
+            1 -> listOf("fig_bio_21_1_male_system")
+
+            2 -> listOf("fig_bio_21_2_seminiferous")
+
+            3 -> listOf("fig_bio_21_3_female_system")
+
+            4 -> listOf("fig_bio_21_4_ovary")
+
+            6 -> listOf("fig_bio_21_5_gametogenesis")
+
+            7 -> listOf("fig_bio_21_6_menstrual_cycle")
+
+            10 -> listOf("fig_bio_21_7_fertilisation")
+
+            11 -> listOf("fig_bio_21_8_placenta")
+
+            else -> emptyList()
+
+        }
+
+        "bio_ch_22" -> when (sectionIndex) {
+
+            3 -> listOf("fig_bio_22_1_contraception_map")
+
+            4 -> listOf("fig_bio_22_4_natural_barrier")
+
+            6 -> listOf("fig_bio_22_2_iud_pills")
+
+            9 -> listOf("fig_bio_22_3_surgical")
+
+            11 -> listOf("fig_bio_22_5_sti_panel")
+
+            14 -> listOf("fig_bio_22_6_art")
+
+            else -> emptyList()
+
+        }
+
         else -> emptyList()
 
     }
@@ -3839,6 +3951,311 @@ private fun figureMetadata(figKey: String): Pair<String, String> =
             "PCT recovers the bulk, the loop builds the gradient, DCT and collecting duct fine-tune under hormonal orders — filtration, reabsorption and secretion by segment."
 
         )
+
+        "fig_bio_17_1_living_traits" -> Pair(
+
+            "Fig. 17.1 — What Makes Something Alive",
+
+            "Growth and reproduction both fail as definitions — mountains grow, mules cannot reproduce. Metabolism is the one trait no living thing lacks."
+
+        )
+
+        "fig_bio_17_2_nomenclature" -> Pair(
+
+            "Fig. 17.2 — Anatomy of a Scientific Name",
+
+            "Mangifera indica Linn.: genus first with a capital, species epithet in small letters, the author cited at the end — both words italic in print, underlined separately by hand."
+
+        )
+
+        "fig_bio_17_3_hierarchy" -> Pair(
+
+            "Fig. 17.3 — The Taxonomic Hierarchy",
+
+            "Seven obligate rungs from kingdom to species: as you climb down, members decrease but similarities increase."
+
+        )
+
+        "fig_bio_17_4_hierarchy_examples" -> Pair(
+
+            "Fig. 17.4 — Four Portraits Across the Ranks",
+
+            "Man, housefly, mango and wheat traced through every category — the standard table examiners ask from."
+
+        )
+
+        "fig_bio_17_5_herbarium" -> Pair(
+
+            "Fig. 17.5 — The Herbarium",
+
+            "Pressed, dried and mounted specimens on labelled sheets — the botanical record office where plants are filed like documents."
+
+        )
+
+        "fig_bio_17_6_taxonomic_aids" -> Pair(
+
+            "Fig. 17.6 — Taxonomic Aids",
+
+            "Gardens, museums, zoological parks and keys: the toolkit that lets biologists store, display and identify the diversity they name."
+
+        )
+
+        "fig_bio_18_1_sarcomere" -> Pair(
+
+            "Fig. 18.1 — The Sarcomere",
+
+            "Between two Z lines: A band, I band, H zone and M line — the repeating unit whose shortening contracts the whole muscle."
+
+        )
+
+        "fig_bio_18_2_sliding_filament" -> Pair(
+
+            "Fig. 18.2 — Sliding Filaments",
+
+            "In contraction the I bands and H zone shrink while the A band stays constant — filaments slide, they do not shorten."
+
+        )
+
+        "fig_bio_18_3_muscle_structure" -> Pair(
+
+            "Fig. 18.3 — Inside a Skeletal Muscle",
+
+            "Muscle to fascicle to fibre to myofibril to filament: bundles within bundles, wrapped in connective tissue at every level."
+
+        )
+
+        "fig_bio_18_4_skeleton" -> Pair(
+
+            "Fig. 18.4 — The Skeleton at a Glance",
+
+            "206 bones: 80 axial (skull, spine, ribs, sternum) and 126 appendicular (limbs and girdles)."
+
+        )
+
+        "fig_bio_18_5_joints" -> Pair(
+
+            "Fig. 18.5 — Synovial Joint Types",
+
+            "Ball and socket, hinge, pivot, gliding and saddle — five designs matched to five movement jobs."
+
+        )
+
+        "fig_bio_18_6_red_white" -> Pair(
+
+            "Fig. 18.6 — Red versus White Fibres",
+
+            "Red fibres: myoglobin-rich, aerobic, tireless. White fibres: fast, powerful, quick to fatigue."
+
+        )
+
+        "fig_bio_19_1_neuron" -> Pair(
+
+            "Fig. 19.1 — The Neuron",
+
+            "Dendrites receive, the axon conducts, terminals transmit — with myelin sheaths and nodes of Ranvier speeding the signal."
+
+        )
+
+        "fig_bio_19_2_action_potential" -> Pair(
+
+            "Fig. 19.2 — The Action Potential",
+
+            "Resting at about -70 mV, firing to a positive peak: sodium rushes in, potassium flows out, the pump resets the battery."
+
+        )
+
+        "fig_bio_19_3_synapse" -> Pair(
+
+            "Fig. 19.3 — The Chemical Synapse",
+
+            "The impulse arrives, vesicles fuse, transmitter crosses the cleft and opens channels in the next cell — one-way traffic only."
+
+        )
+
+        "fig_bio_19_4_brain" -> Pair(
+
+            "Fig. 19.4 — The Brain",
+
+            "Cerebrum for thought, thalamus the relay, hypothalamus the homeostat, cerebellum the coordinator, medulla the survival centre."
+
+        )
+
+        "fig_bio_19_5_reflex_arc" -> Pair(
+
+            "Fig. 19.5 — The Reflex Arc",
+
+            "Receptor, sensory neuron, spinal cord, motor neuron, effector — the five-link shortcut that acts before the brain is consulted."
+
+        )
+
+        "fig_bio_19_6_eye_ear" -> Pair(
+
+            "Fig. 19.6 — Eye and Ear",
+
+            "The retina's rods and cones turn light into signals; the cochlea's organ of Corti turns sound vibrations into signals."
+
+        )
+
+        "fig_bio_20_1_endocrine_map" -> Pair(
+
+            "Fig. 20.1 — The Endocrine System",
+
+            "Ductless glands pouring hormones into blood: pituitary, thyroid, parathyroid, adrenal, pancreas, pineal, thymus and gonads."
+
+        )
+
+        "fig_bio_20_2_pituitary" -> Pair(
+
+            "Fig. 20.2 — The Pituitary and Hypothalamus",
+
+            "The anterior lobe makes six hormones of its own; the posterior lobe only stores and releases two made in the hypothalamus."
+
+        )
+
+        "fig_bio_20_3_thyroid_feedback" -> Pair(
+
+            "Fig. 20.3 — Thyroid Feedback Control",
+
+            "TRH drives TSH drives T3/T4 — and T3/T4 switch the axis off. Negative feedback keeps metabolism on its thermostat setting."
+
+        )
+
+        "fig_bio_20_4_adrenal" -> Pair(
+
+            "Fig. 20.4 — The Adrenal Gland",
+
+            "Cortex in three layers — salt, sugar, sex hormones from outside in; medulla inside firing the emergency pair, adrenaline and noradrenaline."
+
+        )
+
+        "fig_bio_20_5_mechanism" -> Pair(
+
+            "Fig. 20.5 — How Hormones Act",
+
+            "Peptides knock at membrane receptors and use second messengers; steroids walk through the membrane and switch genes on or off."
+
+        )
+
+        "fig_bio_20_6_glucose_control" -> Pair(
+
+            "Fig. 20.6 — The Glucose Seesaw",
+
+            "Insulin lowers blood glucose, glucagon raises it — the islet alpha and beta cells balancing the seesaw every hour."
+
+        )
+
+        "fig_bio_21_1_male_system" -> Pair(
+
+            "Fig. 21.1 — The Male Reproductive System",
+
+            "Testes outside the body for coolness, then one long duct road — epididymis, vas deferens, ejaculatory duct, urethra — with glands adding fluid along the way."
+
+        )
+
+        "fig_bio_21_2_seminiferous" -> Pair(
+
+            "Fig. 21.2 — Inside the Seminiferous Tubule",
+
+            "Spermatogonia at the wall mature toward the lumen; Sertoli cells nurse them, Leydig cells outside supply testosterone."
+
+        )
+
+        "fig_bio_21_3_female_system" -> Pair(
+
+            "Fig. 21.3 — The Female Reproductive System",
+
+            "Ovary releases, fimbriae catch, the ampulla hosts fertilisation, the uterus hosts everything after."
+
+        )
+
+        "fig_bio_21_4_ovary" -> Pair(
+
+            "Fig. 21.4 — Follicles in the Ovary",
+
+            "Primordial to Graafian: one follicle wins each month; after ovulation its remains become the corpus luteum, then the albicans scar."
+
+        )
+
+        "fig_bio_21_5_gametogenesis" -> Pair(
+
+            "Fig. 21.5 — Two Gamete Factories",
+
+            "Spermatogenesis: one cell in, four sperms out. Oogenesis: one cell in, one ovum out — the rest is polar-body sacrifice."
+
+        )
+
+        "fig_bio_21_6_menstrual_cycle" -> Pair(
+
+            "Fig. 21.6 — The Menstrual Cycle",
+
+            "Twenty-eight days in four acts: FSH grows the follicle, the LH surge fires ovulation near day 14, progesterone prepares the lining."
+
+        )
+
+        "fig_bio_21_7_fertilisation" -> Pair(
+
+            "Fig. 21.7 — Fertilisation to Implantation",
+
+            "Fusion at the ampulla, cleavage without growth, morula, blastocyst — then the blastocyst sinks into the endometrium."
+
+        )
+
+        "fig_bio_21_8_placenta" -> Pair(
+
+            "Fig. 21.8 — The Placenta",
+
+            "Chorionic villi in a pool of maternal blood: food and oxygen across, wastes back — plus hCG, hPL and the pregnancy hormones."
+
+        )
+
+        "fig_bio_22_1_contraception_map" -> Pair(
+
+            "Fig. 22.1 — The Contraception Map",
+
+            "Five families of methods — natural, barrier, IUD, hormonal, surgical — trading off effectiveness, convenience and reversibility."
+
+        )
+
+        "fig_bio_22_2_iud_pills" -> Pair(
+
+            "Fig. 22.2 — IUDs and Pills",
+
+            "Copper IUDs cripple sperms inside the uterus; pills stop ovulation — and Saheli does it once a week without steroids."
+
+        )
+
+        "fig_bio_22_3_surgical" -> Pair(
+
+            "Fig. 22.3 — Vasectomy and Tubectomy",
+
+            "Cut and tie the sperm duct or the fallopian tube: near-perfect effectiveness, near-zero reversibility."
+
+        )
+
+        "fig_bio_22_4_natural_barrier" -> Pair(
+
+            "Fig. 22.4 — Natural and Barrier Methods",
+
+            "Avoid days 10 to 17, or block the gametes from meeting — condoms also block infections, no other method does both."
+
+        )
+
+        "fig_bio_22_5_sti_panel" -> Pair(
+
+            "Fig. 22.5 — Sexually Transmitted Infections",
+
+            "Bacterial STIs are curable; genital herpes, hepatitis B and HIV are not — prevention is the only cure for the viral trio."
+
+        )
+
+        "fig_bio_22_6_art" -> Pair(
+
+            "Fig. 22.6 — Assisted Reproductive Technologies",
+
+            "IVF with ZIFT up to 8 blastomeres, IUT beyond 8, GIFT for gametes, ICSI for one sperm — the decision paths when nature needs help."
+
+        )
+
 
 
 
