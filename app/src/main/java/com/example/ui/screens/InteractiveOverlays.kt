@@ -108,10 +108,14 @@ import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Forward10
+import androidx.compose.material.icons.filled.Fullscreen
+import androidx.compose.material.icons.filled.FullscreenExit
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Replay10
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material.icons.filled.Tune
@@ -8756,6 +8760,7 @@ fun ChapterReaderOverlay(
     // Interactive Talk to AI Concept Sheet State
     var showInteractiveToolsSheet by remember { mutableStateOf(false) }
     var showTalkToAiSheet by remember { mutableStateOf(false) }
+    var isFullscreenVideo by remember { mutableStateOf(false) }
     var aiPromptMode by remember { mutableStateOf("explain") }
     var customAiQuestion by remember { mutableStateOf("") }
     var activeAiExplanation by remember(chapter.id) {
@@ -9502,13 +9507,52 @@ fun ChapterReaderOverlay(
                                         }
                                     }
 
-                                    // Progress Slider
-                                    Column(modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp)) {
+                                    // Progress Slider & YouTube Control Bar
+                                    Column(modifier = Modifier.padding(horizontal = 14.dp, vertical = 6.dp)) {
                                         Slider(
                                             value = playbackProgress,
                                             onValueChange = { playbackProgress = it },
                                             modifier = Modifier.fillMaxWidth()
                                         )
+
+                                        Row(
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .padding(horizontal = 4.dp, vertical = 2.dp),
+                                            horizontalArrangement = Arrangement.SpaceBetween,
+                                            verticalAlignment = Alignment.CenterVertically
+                                        ) {
+                                            val totalSecs = (chapter.durationMinutes * 60).coerceAtLeast(600)
+                                            val currentSecs = (playbackProgress * totalSecs).toInt()
+                                            val formattedCurrent = String.format("%02d:%02d", currentSecs / 60, currentSecs % 60)
+                                            val formattedTotal = String.format("%02d:%02d", totalSecs / 60, totalSecs % 60)
+
+                                            Text(
+                                                text = "$formattedCurrent / $formattedTotal",
+                                                fontFamily = JetBrainsMonoFamily,
+                                                fontSize = 11.5.sp,
+                                                fontWeight = FontWeight.Medium,
+                                                color = Color.White.copy(alpha = 0.85f)
+                                            )
+
+                                            Row(
+                                                verticalAlignment = Alignment.CenterVertically,
+                                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                            ) {
+                                                // Fullscreen Button (Exact YouTube style)
+                                                IconButton(
+                                                    onClick = { isFullscreenVideo = true },
+                                                    modifier = Modifier.size(32.dp)
+                                                ) {
+                                                    Icon(
+                                                        imageVector = Icons.Default.Fullscreen,
+                                                        contentDescription = "Fullscreen",
+                                                        tint = Color.White,
+                                                        modifier = Modifier.size(22.dp)
+                                                    )
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -10436,6 +10480,230 @@ fun ChapterReaderOverlay(
 
                             // Interactive Dimensions & Unit Converter
                             InteractiveUnitAndDimensionConverter()
+                        }
+                    }
+                }
+            }
+        }
+
+        // Fullscreen YouTube Video Player Modal
+        if (isFullscreenVideo) {
+            BackHandler { isFullscreenVideo = false }
+
+            Surface(
+                color = Color.Black,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .zIndex(300f)
+                    .testTag("fullscreen_video_modal")
+            ) {
+                Box(modifier = Modifier.fillMaxSize()) {
+                    // Main Fullscreen Waveform / Stream Canvas
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(
+                                Brush.verticalGradient(
+                                    colors = listOf(Color(0xFF020617), Color(0xFF0F172A), Color(0xFF020617))
+                                )
+                            )
+                    ) {
+                        Canvas(modifier = Modifier.fillMaxSize()) {
+                            val path = Path()
+                            val midY = size.height * 0.5f
+                            val amp = size.height * 0.25f
+                            val phase = playbackProgress * 25f
+                            path.moveTo(0f, midY)
+                            var x = 0f
+                            while (x <= size.width) {
+                                val y = midY + amp * sin((x / size.width) * 12f + phase)
+                                path.lineTo(x, y)
+                                x += 8f
+                            }
+                            drawPath(
+                                path = path,
+                                color = Color(0xFF818CF8).copy(alpha = 0.85f),
+                                style = Stroke(width = 5f)
+                            )
+                        }
+
+                        // Center YouTube Controls (10s Rewind | Large Play/Pause | 10s Forward)
+                        Row(
+                            modifier = Modifier
+                                .align(Alignment.Center)
+                                .padding(horizontal = 24.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(32.dp)
+                        ) {
+                            IconButton(
+                                onClick = { playbackProgress = (playbackProgress - 0.05f).coerceAtLeast(0f) },
+                                modifier = Modifier.size(48.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Replay10,
+                                    contentDescription = "Rewind 10s",
+                                    tint = Color.White,
+                                    modifier = Modifier.size(36.dp)
+                                )
+                            }
+
+                            Surface(
+                                onClick = { isPlaying = !isPlaying },
+                                shape = CircleShape,
+                                color = Color(0xFF4269E8),
+                                shadowElevation = 8.dp,
+                                modifier = Modifier.size(72.dp)
+                            ) {
+                                Box(contentAlignment = Alignment.Center) {
+                                    Icon(
+                                        imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                                        contentDescription = if (isPlaying) "Pause" else "Play",
+                                        tint = Color.White,
+                                        modifier = Modifier.size(42.dp)
+                                    )
+                                }
+                            }
+
+                            IconButton(
+                                onClick = { playbackProgress = (playbackProgress + 0.05f).coerceAtMost(1f) },
+                                modifier = Modifier.size(48.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Forward10,
+                                    contentDescription = "Forward 10s",
+                                    tint = Color.White,
+                                    modifier = Modifier.size(36.dp)
+                                )
+                            }
+                        }
+
+                        // Top Bar: Back Arrow + Chapter & Video Title
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .align(Alignment.TopStart)
+                                .background(
+                                    Brush.verticalGradient(
+                                        colors = listOf(Color.Black.copy(alpha = 0.85f), Color.Transparent)
+                                    )
+                                )
+                                .windowInsetsPadding(WindowInsets.statusBars)
+                                .padding(horizontal = 16.dp, vertical = 12.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            IconButton(
+                                onClick = { isFullscreenVideo = false },
+                                modifier = Modifier.size(36.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                    contentDescription = "Exit Fullscreen",
+                                    tint = Color.White,
+                                    modifier = Modifier.size(24.dp)
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.width(12.dp))
+
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = chapter.videoTitle,
+                                    fontFamily = OutfitDisplayFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 16.sp,
+                                    color = Color.White,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                                Text(
+                                    text = "CHAPTER ${chapter.chapterNumber} • ${chapter.videoInstructor}",
+                                    fontFamily = InterFontFamily,
+                                    fontSize = 11.5.sp,
+                                    color = Color.White.copy(alpha = 0.75f),
+                                    maxLines = 1
+                                )
+                            }
+                        }
+
+                        // Bottom Control Bar: Progress Bar + Time + Fullscreen Exit Button
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .align(Alignment.BottomCenter)
+                                .background(
+                                    Brush.verticalGradient(
+                                        colors = listOf(Color.Transparent, Color.Black.copy(alpha = 0.9f))
+                                    )
+                                )
+                                .windowInsetsPadding(WindowInsets.navigationBars)
+                                .padding(horizontal = 16.dp, vertical = 10.dp)
+                        ) {
+                            Slider(
+                                value = playbackProgress,
+                                onValueChange = { playbackProgress = it },
+                                modifier = Modifier.fillMaxWidth()
+                            )
+
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 4.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                val totalSecs = (chapter.durationMinutes * 60).coerceAtLeast(600)
+                                val currentSecs = (playbackProgress * totalSecs).toInt()
+                                val formattedCurrent = String.format("%02d:%02d", currentSecs / 60, currentSecs % 60)
+                                val formattedTotal = String.format("%02d:%02d", totalSecs / 60, totalSecs % 60)
+
+                                Text(
+                                    text = "$formattedCurrent / $formattedTotal",
+                                    fontFamily = JetBrainsMonoFamily,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Medium,
+                                    color = Color.White
+                                )
+
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    Surface(
+                                        onClick = {
+                                            playbackSpeed = when (playbackSpeed) {
+                                                "1.0x" -> "1.25x"
+                                                "1.25x" -> "1.5x"
+                                                "1.5x" -> "2.0x"
+                                                else -> "1.0x"
+                                            }
+                                        },
+                                        color = Color.White.copy(alpha = 0.2f),
+                                        shape = RoundedCornerShape(6.dp)
+                                    ) {
+                                        Text(
+                                            text = playbackSpeed,
+                                            fontFamily = InterFontFamily,
+                                            fontWeight = FontWeight.Bold,
+                                            fontSize = 11.sp,
+                                            color = Color.White,
+                                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                        )
+                                    }
+
+                                    // Fullscreen Exit Button (Exact YouTube style)
+                                    IconButton(
+                                        onClick = { isFullscreenVideo = false },
+                                        modifier = Modifier.size(36.dp)
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.FullscreenExit,
+                                            contentDescription = "Exit Fullscreen",
+                                            tint = Color.White,
+                                            modifier = Modifier.size(26.dp)
+                                        )
+                                    }
+                                }
+                            }
                         }
                     }
                 }
