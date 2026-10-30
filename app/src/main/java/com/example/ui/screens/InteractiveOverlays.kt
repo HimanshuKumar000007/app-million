@@ -6434,30 +6434,35 @@ fun InteractiveUnitAndDimensionConverter() {
             ) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    modifier = Modifier.weight(1f, fill = false)
                 ) {
                     Surface(
                         shape = RoundedCornerShape(6.dp),
                         color = Color(0xFF2563EB)
                     ) {
                         Text(
-                            text = "INTERACTIVE TOOL",
+                            text = "TOOL",
                             fontFamily = InterFontFamily,
                             fontWeight = FontWeight.Bold,
                             fontSize = 9.5.sp,
                             letterSpacing = 0.6.sp,
                             color = Color.White,
-                            modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp)
                         )
                     }
                     Text(
-                        text = "Dimensions & Unit Converter",
+                        text = "Dimensions & Converter",
                         fontFamily = InterFontFamily,
                         fontWeight = FontWeight.SemiBold,
-                        fontSize = 13.sp,
-                        color = Color(0xFF1E293B)
+                        fontSize = 12.sp,
+                        color = Color(0xFF1E293B),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
+
+                Spacer(modifier = Modifier.width(6.dp))
 
                 // Sub-tabs
                 Surface(
@@ -6480,7 +6485,9 @@ fun InteractiveUnitAndDimensionConverter() {
                                     fontWeight = if (isSel) FontWeight.Bold else FontWeight.Medium,
                                     fontSize = 10.5.sp,
                                     color = if (isSel) Color(0xFF1E293B) else Color(0xFF64748B),
-                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp)
+                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                                    maxLines = 1,
+                                    softWrap = false
                                 )
                             }
                         }
@@ -9380,167 +9387,279 @@ fun ChapterReaderOverlay(
                     }
                 }
 
-                // ==================== TAB 2: "Video" — INTERACTIVE LECTURE PLAYER ====================
+                // ==================== TAB 2: "Video" — MATCHING HAND-DRAWN MOCKUP ====================
                 if (selectedTab == "Video") {
                     item {
-                        Card(
-                            shape = RoundedCornerShape(22.dp),
-                            colors = CardDefaults.cardColors(containerColor = DeepIndigo),
+                        Column(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 18.dp)
+                                .padding(horizontal = 18.dp, vertical = 6.dp)
                         ) {
-                            Column(modifier = Modifier.padding(16.dp)) {
-                                Box(
-                                    modifier = Modifier
-                                        .fillMaxWidth()
-                                        .height(196.dp)
-                                        .clip(RoundedCornerShape(16.dp))
-                                        .background(
-                                            Brush.linearGradient(
-                                                colors = listOf(Color(0xFF0F172A), DeepIndigo, accent)
+                            // Video Container Card
+                            Surface(
+                                shape = RoundedCornerShape(20.dp),
+                                color = Color(0xFF0F172A),
+                                shadowElevation = 4.dp,
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Column {
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(210.dp)
+                                            .background(
+                                                Brush.linearGradient(
+                                                    colors = listOf(Color(0xFF0F172A), Color(0xFF1E1B4B), Color(0xFF312E81))
+                                                )
                                             )
-                                        )
-                                ) {
-                                    Canvas(modifier = Modifier.fillMaxSize()) {
-                                        val path = Path()
-                                        val midY = size.height * 0.55f
-                                        val amp = size.height * 0.22f
-                                        val phase = playbackProgress * 18f
-                                        path.moveTo(0f, midY)
-                                        var x = 0f
-                                        while (x <= size.width) {
-                                            val y = midY + amp * sin((x / size.width) * 10f + phase)
-                                            path.lineTo(x, y)
-                                            x += 8f
+                                    ) {
+                                        // Animated Waveform
+                                        Canvas(modifier = Modifier.fillMaxSize()) {
+                                            val path = Path()
+                                            val midY = size.height * 0.55f
+                                            val amp = size.height * 0.20f
+                                            val phase = playbackProgress * 20f
+                                            path.moveTo(0f, midY)
+                                            var x = 0f
+                                            while (x <= size.width) {
+                                                val y = midY + amp * sin((x / size.width) * 10f + phase)
+                                                path.lineTo(x, y)
+                                                x += 8f
+                                            }
+                                            drawPath(
+                                                path = path,
+                                                color = Color(0xFF818CF8).copy(alpha = 0.7f),
+                                                style = Stroke(width = 4f)
+                                            )
                                         }
-                                        drawPath(
-                                            path = path,
-                                            color = AccentYellow.copy(alpha = 0.75f),
-                                            style = Stroke(width = 4f)
-                                        )
+
+                                        Column(
+                                            modifier = Modifier
+                                                .fillMaxSize()
+                                                .padding(16.dp),
+                                            verticalArrangement = Arrangement.SpaceBetween
+                                        ) {
+                                            Row(
+                                                modifier = Modifier.fillMaxWidth(),
+                                                horizontalArrangement = Arrangement.SpaceBetween,
+                                                verticalAlignment = Alignment.CenterVertically
+                                            ) {
+                                                Surface(
+                                                    color = Color.White.copy(alpha = 0.2f),
+                                                    shape = RoundedCornerShape(6.dp)
+                                                ) {
+                                                    Text(
+                                                        text = "HD LECTURE • ${chapter.videoInstructor}",
+                                                        fontFamily = InterFontFamily,
+                                                        fontWeight = FontWeight.Medium,
+                                                        fontSize = 11.sp,
+                                                        color = Color.White,
+                                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                                    )
+                                                }
+
+                                                Surface(
+                                                    onClick = {
+                                                        playbackSpeed = when (playbackSpeed) {
+                                                            "1.0x" -> "1.25x"
+                                                            "1.25x" -> "1.5x"
+                                                            "1.5x" -> "2.0x"
+                                                            else -> "1.0x"
+                                                        }
+                                                    },
+                                                    color = Color(0xFF818CF8),
+                                                    shape = RoundedCornerShape(6.dp)
+                                                ) {
+                                                    Text(
+                                                        text = playbackSpeed,
+                                                        fontFamily = InterFontFamily,
+                                                        fontWeight = FontWeight.Bold,
+                                                        fontSize = 11.sp,
+                                                        color = Color.White,
+                                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                                    )
+                                                }
+                                            }
+
+                                            Column {
+                                                Text(
+                                                    text = chapter.videoTitle,
+                                                    fontFamily = OutfitDisplayFamily,
+                                                    fontWeight = FontWeight.Bold,
+                                                    fontSize = 17.sp,
+                                                    color = Color.White
+                                                )
+                                                Spacer(modifier = Modifier.height(4.dp))
+                                                Text(
+                                                    text = chapter.videoKeyTakeaways,
+                                                    fontFamily = InterFontFamily,
+                                                    fontSize = 12.sp,
+                                                    color = Color.White.copy(alpha = 0.8f),
+                                                    maxLines = 2,
+                                                    overflow = TextOverflow.Ellipsis
+                                                )
+                                            }
+                                        }
                                     }
 
-                                    Column(
-                                        modifier = Modifier
-                                            .fillMaxSize()
-                                            .padding(16.dp),
-                                        verticalArrangement = Arrangement.SpaceBetween
-                                    ) {
-                                        Row(
-                                            modifier = Modifier.fillMaxWidth(),
-                                            horizontalArrangement = Arrangement.SpaceBetween
-                                        ) {
-                                            Surface(
-                                                color = Color.White.copy(alpha = 0.2f),
-                                                shape = RoundedCornerShape(6.dp)
-                                            ) {
-                                                Text(
-                                                    text = "HD LECTURE • ${chapter.videoInstructor}",
-                                                    fontFamily = InterFontFamily,
-                                                    fontWeight = FontWeight.Normal,
-                                                    fontSize = 10.sp,
-                                                    color = Color.White,
-                                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                                                )
-                                            }
-                                            Surface(
-                                                onClick = {
-                                                    playbackSpeed = when (playbackSpeed) {
-                                                        "1.0x" -> "1.25x"
-                                                        "1.25x" -> "1.5x"
-                                                        "1.5x" -> "2.0x"
-                                                        else -> "1.0x"
-                                                    }
-                                                },
-                                                color = AccentYellow,
-                                                shape = RoundedCornerShape(6.dp)
-                                            ) {
-                                                Text(
-                                                    text = playbackSpeed,
-                                                    fontFamily = InterFontFamily,
-                                                    fontWeight = FontWeight.Normal,
-                                                    fontSize = 10.5.sp,
-                                                    color = PrimaryText,
-                                                    modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                                                )
-                                            }
-                                        }
-
-                                        Text(
-                                            text = chapter.formulaHighlight,
-                                            fontFamily = AcademicSerifFamily,
-                                            fontWeight = FontWeight.Normal,
-                                            fontSize = 15.sp,
-                                            color = Color.White
+                                    // Progress Slider
+                                    Column(modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp)) {
+                                        Slider(
+                                            value = playbackProgress,
+                                            onValueChange = { playbackProgress = it },
+                                            modifier = Modifier.fillMaxWidth()
                                         )
                                     }
                                 }
+                            }
 
-                                Spacer(modifier = Modifier.height(12.dp))
+                            Spacer(modifier = Modifier.height(16.dp))
 
-                                Text(
-                                    text = chapter.videoTitle,
-                                    fontFamily = OutfitDisplayFamily,
-                                    fontWeight = FontWeight.Medium,
-                                    fontSize = 15.5.sp,
-                                    color = Color.White
-                                )
-                                Spacer(modifier = Modifier.height(4.dp))
-                                Text(
-                                    text = chapter.videoKeyTakeaways,
-                                    fontFamily = InterFontFamily,
-                                    fontWeight = FontWeight.Normal,
-                                    fontSize = 12.sp,
-                                    color = Color.White.copy(alpha = 0.82f)
-                                )
-
-                                Spacer(modifier = Modifier.height(8.dp))
-
-                                Slider(
-                                    value = playbackProgress,
-                                    onValueChange = { playbackProgress = it },
-                                    modifier = Modifier.fillMaxWidth()
-                                )
-
-                                Row(
-                                    modifier = Modifier.fillMaxWidth(),
-                                    horizontalArrangement = Arrangement.SpaceBetween,
-                                    verticalAlignment = Alignment.CenterVertically
+                            // Centered Large Play / Pause Button matching drawing circle (▶)
+                            Box(
+                                modifier = Modifier.fillMaxWidth(),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Surface(
+                                    onClick = { isPlaying = !isPlaying },
+                                    shape = CircleShape,
+                                    color = Color(0xFF4269E8),
+                                    shadowElevation = 6.dp,
+                                    modifier = Modifier.size(58.dp)
                                 ) {
-                                    Button(
-                                        onClick = { isPlaying = !isPlaying },
-                                        shape = RoundedCornerShape(50),
-                                        colors = ButtonDefaults.buttonColors(
-                                            containerColor = Color.White,
-                                            contentColor = DeepIndigo
-                                        )
-                                    ) {
+                                    Box(contentAlignment = Alignment.Center) {
                                         Icon(
                                             imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
-                                            contentDescription = null
+                                            contentDescription = if (isPlaying) "Pause" else "Play",
+                                            tint = Color.White,
+                                            modifier = Modifier.size(32.dp)
                                         )
-                                        Spacer(modifier = Modifier.width(6.dp))
-                                        Text(if (isPlaying) "Pause Lecture" else "Play Lecture")
                                     }
+                                }
+                            }
 
-                                    OutlinedButton(
-                                        onClick = {
-                                            playbackProgress = 1f
-                                            isPlaying = false
-                                            onMarkCompleted(true)
-                                            completionBannerShown = true
-                                        },
-                                        shape = RoundedCornerShape(50),
-                                        border = BorderStroke(1.dp, AccentYellow),
-                                        colors = ButtonDefaults.outlinedButtonColors(contentColor = AccentYellow)
+                            Spacer(modifier = Modifier.height(20.dp))
+
+                            // Section Title Header for Topics Stack
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                Text(
+                                    text = "LECTURE TOPICS",
+                                    fontFamily = InterFontFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 11.sp,
+                                    letterSpacing = 0.8.sp,
+                                    color = Color(0xFF64748B)
+                                )
+
+                                Surface(
+                                    onClick = {
+                                        playbackProgress = 1f
+                                        isPlaying = false
+                                        onMarkCompleted(true)
+                                        completionBannerShown = true
+                                    },
+                                    shape = RoundedCornerShape(50),
+                                    color = Color(0xFFDCFCE7),
+                                    border = BorderStroke(1.dp, Color(0xFF86EFAC))
+                                ) {
+                                    Text(
+                                        text = "Mark Watched ✓",
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 10.5.sp,
+                                        color = Color(0xFF15803D),
+                                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                                    )
+                                }
+                            }
+
+                            Spacer(modifier = Modifier.height(10.dp))
+
+                            // Vertically Stacked Topic Cards matching drawing ("Topics", "Topics", ...)
+                            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                                if (parsedNoteSections.isNotEmpty()) {
+                                    parsedNoteSections.forEachIndexed { topicIdx, (rawHeading, _) ->
+                                        val isSelected = topicIdx == currentSectionIndex
+                                        val topicTitle = cleanSectionTitle(rawHeading)
+                                        val badge = formatSectionBadge(chapter.chapterNumber, topicIdx, rawHeading)
+                                        val fullTitle = if (badge != null) "$badge $topicTitle" else topicTitle
+
+                                        Surface(
+                                            onClick = {
+                                                currentSectionIndex = topicIdx
+                                                playbackProgress = (topicIdx.toFloat() / parsedNoteSections.size.toFloat()).coerceAtLeast(0.05f)
+                                                isPlaying = true
+                                            },
+                                            shape = RoundedCornerShape(16.dp),
+                                            color = if (isSelected) Color(0xFFEEF5FF) else Color.White,
+                                            border = BorderStroke(1.dp, if (isSelected) Color(0xFF3569F6) else Color(0xFFE2E8F0)),
+                                            shadowElevation = if (isSelected) 2.dp else 0.5.dp,
+                                            modifier = Modifier.fillMaxWidth()
+                                        ) {
+                                            Row(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .padding(horizontal = 16.dp, vertical = 14.dp),
+                                                verticalAlignment = Alignment.CenterVertically,
+                                                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                                            ) {
+                                                Surface(
+                                                    shape = CircleShape,
+                                                    color = if (isSelected) Color(0xFF3569F6) else Color(0xFFF1F5F9),
+                                                    modifier = Modifier.size(32.dp)
+                                                ) {
+                                                    Box(contentAlignment = Alignment.Center) {
+                                                        Icon(
+                                                            imageVector = if (isSelected && isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                                                            contentDescription = null,
+                                                            tint = if (isSelected) Color.White else Color(0xFF64748B),
+                                                            modifier = Modifier.size(18.dp)
+                                                        )
+                                                    }
+                                                }
+
+                                                Text(
+                                                    text = fullTitle,
+                                                    fontFamily = InterFontFamily,
+                                                    fontWeight = if (isSelected) FontWeight.Bold else FontWeight.SemiBold,
+                                                    fontSize = 13.5.sp,
+                                                    color = if (isSelected) Color(0xFF1E3A8A) else Color(0xFF1E293B),
+                                                    modifier = Modifier.weight(1f),
+                                                    maxLines = 2,
+                                                    overflow = TextOverflow.Ellipsis
+                                                )
+                                            }
+                                        }
+                                    }
+                                } else {
+                                    Surface(
+                                        shape = RoundedCornerShape(16.dp),
+                                        color = Color.White,
+                                        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                                        modifier = Modifier.fillMaxWidth()
                                     ) {
-                                        Text("Mark Watched ✓")
+                                        Row(
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .padding(16.dp),
+                                            verticalAlignment = Alignment.CenterVertically
+                                        ) {
+                                            Text(
+                                                text = chapter.title,
+                                                fontFamily = InterFontFamily,
+                                                fontWeight = FontWeight.SemiBold,
+                                                fontSize = 14.sp,
+                                                color = Color(0xFF171A23)
+                                            )
+                                        }
                                     }
                                 }
                             }
                         }
-                        Spacer(modifier = Modifier.height(18.dp))
                     }
                 }
 
@@ -10130,9 +10249,6 @@ fun ChapterReaderOverlay(
                                     }
                                 }
                             }
-
-                            // Interactive Dimensions & Converter Tool Embedded in Notes
-                            InteractiveUnitAndDimensionConverter()
                         }
                     }
                 }
