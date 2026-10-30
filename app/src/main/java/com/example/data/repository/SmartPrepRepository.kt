@@ -55,6 +55,10 @@ class SmartPrepRepository(private val dao: SmartPrepDao) {
         dao.updateSelectedSubject(subject)
     }
 
+    suspend fun updateChapterVideo(id: String, videoTitle: String, videoDurationLabel: String, videoInstructor: String, videoKeyTakeaways: String, videoUrl: String) = withContext(Dispatchers.IO) {
+        dao.updateChapterVideo(id, videoTitle, videoDurationLabel, videoInstructor, videoKeyTakeaways, videoUrl)
+    }
+
     suspend fun selectExamFilter(examFilter: String) {
         dao.updateSelectedExamFilter(examFilter)
     }

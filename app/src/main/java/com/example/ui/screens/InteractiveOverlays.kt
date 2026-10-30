@@ -18,6 +18,13 @@ import androidx.activity.result.PickVisualMediaRequest
 
 import androidx.activity.result.contract.ActivityResultContracts
 
+import android.app.Activity
+import android.content.ContextWrapper
+import android.content.pm.ActivityInfo
+import android.net.Uri
+import android.widget.VideoView
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.animation.core.FastOutSlowInEasing
 
 import androidx.compose.animation.core.RepeatMode
@@ -8761,6 +8768,27 @@ fun ChapterReaderOverlay(
     var showInteractiveToolsSheet by remember { mutableStateOf(false) }
     var showTalkToAiSheet by remember { mutableStateOf(false) }
     var isFullscreenVideo by remember { mutableStateOf(false) }
+
+    val activity = remember(context) {
+        var ctx = context
+        while (ctx is ContextWrapper) {
+            if (ctx is Activity) return@remember ctx
+            ctx = ctx.baseContext
+        }
+        null
+    }
+
+    // Auto rotate screen to landscape in Fullscreen Video Mode
+    DisposableEffect(isFullscreenVideo) {
+        if (isFullscreenVideo) {
+            activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+        } else {
+            activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+        }
+        onDispose {
+            activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+        }
+    }
     var aiPromptMode by remember { mutableStateOf("explain") }
     var customAiQuestion by remember { mutableStateOf("") }
     var activeAiExplanation by remember(chapter.id) {
@@ -9418,24 +9446,47 @@ fun ChapterReaderOverlay(
                                                 )
                                             )
                                     ) {
-                                        // Animated Waveform
-                                        Canvas(modifier = Modifier.fillMaxSize()) {
-                                            val path = Path()
-                                            val midY = size.height * 0.55f
-                                            val amp = size.height * 0.20f
-                                            val phase = playbackProgress * 20f
-                                            path.moveTo(0f, midY)
-                                            var x = 0f
-                                            while (x <= size.width) {
-                                                val y = midY + amp * sin((x / size.width) * 10f + phase)
-                                                path.lineTo(x, y)
-                                                x += 8f
-                                            }
-                                            drawPath(
-                                                path = path,
-                                                color = Color(0xFF818CF8).copy(alpha = 0.7f),
-                                                style = Stroke(width = 4f)
+                                        if (chapter.videoUrl.isNotBlank()) {
+                                            AndroidView(
+                                                factory = { ctx ->
+                                                    VideoView(ctx).apply {
+                                                        setVideoURI(Uri.parse(chapter.videoUrl))
+                                                        setOnCompletionListener {
+                                                            isPlaying = false
+                                                            playbackProgress = 1f
+                                                            onMarkCompleted(true)
+                                                        }
+                                                    }
+                                                },
+                                                update = { vView ->
+                                                    if (isPlaying) {
+                                                        if (!vView.isPlaying) vView.start()
+                                                    } else {
+                                                        if (vView.isPlaying) vView.pause()
+                                                    }
+                                                },
+                                                modifier = Modifier.fillMaxSize()
                                             )
+                                        } else {
+                                            // Animated Waveform
+                                            Canvas(modifier = Modifier.fillMaxSize()) {
+                                                val path = Path()
+                                                val midY = size.height * 0.55f
+                                                val amp = size.height * 0.20f
+                                                val phase = playbackProgress * 20f
+                                                path.moveTo(0f, midY)
+                                                var x = 0f
+                                                while (x <= size.width) {
+                                                    val y = midY + amp * sin((x / size.width) * 10f + phase)
+                                                    path.lineTo(x, y)
+                                                    x += 8f
+                                                }
+                                                drawPath(
+                                                    path = path,
+                                                    color = Color(0xFF818CF8).copy(alpha = 0.7f),
+                                                    style = Stroke(width = 4f)
+                                                )
+                                            }
                                         }
 
                                         Column(
@@ -10508,23 +10559,46 @@ fun ChapterReaderOverlay(
                                 )
                             )
                     ) {
-                        Canvas(modifier = Modifier.fillMaxSize()) {
-                            val path = Path()
-                            val midY = size.height * 0.5f
-                            val amp = size.height * 0.25f
-                            val phase = playbackProgress * 25f
-                            path.moveTo(0f, midY)
-                            var x = 0f
-                            while (x <= size.width) {
-                                val y = midY + amp * sin((x / size.width) * 12f + phase)
-                                path.lineTo(x, y)
-                                x += 8f
-                            }
-                            drawPath(
-                                path = path,
-                                color = Color(0xFF818CF8).copy(alpha = 0.85f),
-                                style = Stroke(width = 5f)
+                        if (chapter.videoUrl.isNotBlank()) {
+                            AndroidView(
+                                factory = { ctx ->
+                                    VideoView(ctx).apply {
+                                        setVideoURI(Uri.parse(chapter.videoUrl))
+                                        setOnCompletionListener {
+                                            isPlaying = false
+                                            playbackProgress = 1f
+                                            onMarkCompleted(true)
+                                        }
+                                    }
+                                },
+                                update = { vView ->
+                                    if (isPlaying) {
+                                        if (!vView.isPlaying) vView.start()
+                                    } else {
+                                        if (vView.isPlaying) vView.pause()
+                                    }
+                                },
+                                modifier = Modifier.fillMaxSize()
                             )
+                        } else {
+                            Canvas(modifier = Modifier.fillMaxSize()) {
+                                val path = Path()
+                                val midY = size.height * 0.5f
+                                val amp = size.height * 0.25f
+                                val phase = playbackProgress * 25f
+                                path.moveTo(0f, midY)
+                                var x = 0f
+                                while (x <= size.width) {
+                                    val y = midY + amp * sin((x / size.width) * 12f + phase)
+                                    path.lineTo(x, y)
+                                    x += 8f
+                                }
+                                drawPath(
+                                    path = path,
+                                    color = Color(0xFF818CF8).copy(alpha = 0.85f),
+                                    style = Stroke(width = 5f)
+                                )
+                            }
                         }
 
                         // Center YouTube Controls (10s Rewind | Large Play/Pause | 10s Forward)

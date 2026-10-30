@@ -13,7 +13,7 @@ import androidx.room.RoomDatabase
         MockTestEntity::class,
         StudyPlanTaskEntity::class
     ],
-    version = 6,
+    version = 7,
     exportSchema = false
 )
 abstract class SmartPrepDatabase : RoomDatabase() {

@@ -42,6 +42,7 @@ data class ChapterEntity(
     val videoDurationLabel: String,
     val videoInstructor: String,
     val videoKeyTakeaways: String,
+    val videoUrl: String = "",
     val isVideoCompleted: Boolean = false,
     val lastAccessedTimestamp: Long = 0L
 ) {
