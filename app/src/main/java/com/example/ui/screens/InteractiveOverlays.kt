@@ -8781,7 +8781,7 @@ fun ChapterReaderOverlay(
     // Auto rotate screen to landscape in Fullscreen Video Mode
     DisposableEffect(isFullscreenVideo) {
         if (isFullscreenVideo) {
-            activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+            activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         } else {
             activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
         }
