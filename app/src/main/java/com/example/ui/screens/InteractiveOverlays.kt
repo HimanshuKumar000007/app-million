@@ -23,6 +23,10 @@ import android.content.ContextWrapper
 import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.widget.VideoView
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -8768,6 +8772,14 @@ fun ChapterReaderOverlay(
     var showInteractiveToolsSheet by remember { mutableStateOf(false) }
     var showTalkToAiSheet by remember { mutableStateOf(false) }
     var isFullscreenVideo by remember { mutableStateOf(false) }
+    var showControlsOverlay by remember { mutableStateOf(true) }
+
+    LaunchedEffect(showControlsOverlay, isPlaying) {
+        if (showControlsOverlay && isPlaying) {
+            delay(3500L)
+            showControlsOverlay = false
+        }
+    }
 
     val activity = remember(context) {
         var ctx = context
@@ -9420,7 +9432,7 @@ fun ChapterReaderOverlay(
                     }
                 }
 
-                // ==================== TAB 2: "Video" — MATCHING HAND-DRAWN MOCKUP ====================
+                // ==================== TAB 2: "Video" — PREMIUM YOUTUBE-GRADE LECTURE PLAYER ====================
                 if (selectedTab == "Video") {
                     item {
                         Column(
@@ -9428,75 +9440,78 @@ fun ChapterReaderOverlay(
                                 .fillMaxWidth()
                                 .padding(horizontal = 18.dp, vertical = 6.dp)
                         ) {
-                            // Video Container Card
+                            // 1. 16:9 Responsive Premium Video Player Surface
                             Surface(
-                                shape = RoundedCornerShape(20.dp),
-                                color = Color(0xFF0F172A),
-                                shadowElevation = 4.dp,
-                                modifier = Modifier.fillMaxWidth()
+                                shape = RoundedCornerShape(18.dp),
+                                color = Color(0xFF111827),
+                                shadowElevation = 6.dp,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .aspectRatio(16f / 9f)
+                                    .clickable { showControlsOverlay = !showControlsOverlay }
                             ) {
-                                Column {
-                                    Box(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .height(210.dp)
-                                            .background(
-                                                Brush.linearGradient(
-                                                    colors = listOf(Color(0xFF0F172A), Color(0xFF1E1B4B), Color(0xFF312E81))
-                                                )
-                                            )
-                                    ) {
-                                        if (chapter.videoUrl.isNotBlank()) {
-                                            AndroidView(
-                                                factory = { ctx ->
-                                                    VideoView(ctx).apply {
-                                                        setVideoURI(Uri.parse(chapter.videoUrl))
-                                                        setOnCompletionListener {
-                                                            isPlaying = false
-                                                            playbackProgress = 1f
-                                                            onMarkCompleted(true)
-                                                        }
+                                Box(modifier = Modifier.fillMaxSize()) {
+                                    if (chapter.videoUrl.isNotBlank()) {
+                                        AndroidView(
+                                            factory = { ctx ->
+                                                VideoView(ctx).apply {
+                                                    setVideoURI(Uri.parse(chapter.videoUrl))
+                                                    setOnCompletionListener {
+                                                        isPlaying = false
+                                                        playbackProgress = 1f
+                                                        onMarkCompleted(true)
                                                     }
-                                                },
-                                                update = { vView ->
-                                                    if (isPlaying) {
-                                                        if (!vView.isPlaying) vView.start()
-                                                    } else {
-                                                        if (vView.isPlaying) vView.pause()
-                                                    }
-                                                },
-                                                modifier = Modifier.fillMaxSize()
-                                            )
-                                        } else {
-                                            // Animated Waveform
-                                            Canvas(modifier = Modifier.fillMaxSize()) {
-                                                val path = Path()
-                                                val midY = size.height * 0.55f
-                                                val amp = size.height * 0.20f
-                                                val phase = playbackProgress * 20f
-                                                path.moveTo(0f, midY)
-                                                var x = 0f
-                                                while (x <= size.width) {
-                                                    val y = midY + amp * sin((x / size.width) * 10f + phase)
-                                                    path.lineTo(x, y)
-                                                    x += 8f
                                                 }
-                                                drawPath(
-                                                    path = path,
-                                                    color = Color(0xFF818CF8).copy(alpha = 0.7f),
-                                                    style = Stroke(width = 4f)
-                                                )
+                                            },
+                                            update = { vView ->
+                                                if (isPlaying) {
+                                                    if (!vView.isPlaying) vView.start()
+                                                } else {
+                                                    if (vView.isPlaying) vView.pause()
+                                                }
+                                            },
+                                            modifier = Modifier.fillMaxSize()
+                                        )
+                                    } else {
+                                        // Animated Waveform Stream Canvas
+                                        Canvas(modifier = Modifier.fillMaxSize()) {
+                                            val path = Path()
+                                            val midY = size.height * 0.55f
+                                            val amp = size.height * 0.20f
+                                            val phase = playbackProgress * 20f
+                                            path.moveTo(0f, midY)
+                                            var x = 0f
+                                            while (x <= size.width) {
+                                                val y = midY + amp * sin((x / size.width) * 10f + phase)
+                                                path.lineTo(x, y)
+                                                x += 8f
                                             }
+                                            drawPath(
+                                                path = path,
+                                                color = Color(0xFF818CF8).copy(alpha = 0.75f),
+                                                style = Stroke(width = 4f)
+                                            )
                                         }
+                                    }
 
-                                        Column(
+                                    // Auto-Hiding Controls Overlay
+                                    androidx.compose.animation.AnimatedVisibility(
+                                        visible = showControlsOverlay || !isPlaying,
+                                        enter = fadeIn(),
+                                        exit = fadeOut(),
+                                        modifier = Modifier.fillMaxSize()
+                                    ) {
+                                        Box(
                                             modifier = Modifier
                                                 .fillMaxSize()
-                                                .padding(16.dp),
-                                            verticalArrangement = Arrangement.SpaceBetween
+                                                .background(Color.Black.copy(alpha = 0.5f))
+                                                .padding(12.dp)
                                         ) {
+                                            // Top Bar Overlay: HD Quality Badge | Speed Selector | Fullscreen
                                             Row(
-                                                modifier = Modifier.fillMaxWidth(),
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .align(Alignment.TopCenter),
                                                 horizontalArrangement = Arrangement.SpaceBetween,
                                                 verticalAlignment = Alignment.CenterVertically
                                             ) {
@@ -9505,101 +9520,134 @@ fun ChapterReaderOverlay(
                                                     shape = RoundedCornerShape(6.dp)
                                                 ) {
                                                     Text(
-                                                        text = "HD LECTURE • ${chapter.videoInstructor}",
+                                                        text = "HD 1080p • ${chapter.videoInstructor.ifBlank { "Prof. R. Subramanian" }}",
                                                         fontFamily = InterFontFamily,
                                                         fontWeight = FontWeight.Medium,
-                                                        fontSize = 11.sp,
+                                                        fontSize = 10.5.sp,
                                                         color = Color.White,
                                                         modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                                    )
+                                                }
+
+                                                Row(
+                                                    verticalAlignment = Alignment.CenterVertically,
+                                                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                                                ) {
+                                                    Surface(
+                                                        onClick = {
+                                                            playbackSpeed = when (playbackSpeed) {
+                                                                "0.5x" -> "0.75x"
+                                                                "0.75x" -> "1.0x"
+                                                                "1.0x" -> "1.25x"
+                                                                "1.25x" -> "1.5x"
+                                                                "1.5x" -> "1.75x"
+                                                                "1.75x" -> "2.0x"
+                                                                else -> "0.5x"
+                                                            }
+                                                        },
+                                                        color = Color(0xFF4169E8),
+                                                        shape = RoundedCornerShape(6.dp)
+                                                    ) {
+                                                        Text(
+                                                            text = playbackSpeed,
+                                                            fontFamily = InterFontFamily,
+                                                            fontWeight = FontWeight.Bold,
+                                                            fontSize = 10.5.sp,
+                                                            color = Color.White,
+                                                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.5.dp)
+                                                        )
+                                                    }
+
+                                                    IconButton(
+                                                        onClick = { isFullscreenVideo = true },
+                                                        modifier = Modifier.size(32.dp)
+                                                    ) {
+                                                        Icon(
+                                                            imageVector = Icons.Default.Fullscreen,
+                                                            contentDescription = "Fullscreen",
+                                                            tint = Color.White,
+                                                            modifier = Modifier.size(20.dp)
+                                                        )
+                                                    }
+                                                }
+                                            }
+
+                                            // Center Playback Controls: 10s Rewind | Large Play/Pause | 10s Forward
+                                            Row(
+                                                modifier = Modifier.align(Alignment.Center),
+                                                verticalAlignment = Alignment.CenterVertically,
+                                                horizontalArrangement = Arrangement.spacedBy(28.dp)
+                                            ) {
+                                                IconButton(
+                                                    onClick = { playbackProgress = (playbackProgress - 0.05f).coerceAtLeast(0f) },
+                                                    modifier = Modifier.size(40.dp)
+                                                ) {
+                                                    Icon(
+                                                        imageVector = Icons.Default.Replay10,
+                                                        contentDescription = "Rewind 10s",
+                                                        tint = Color.White,
+                                                        modifier = Modifier.size(28.dp)
                                                     )
                                                 }
 
                                                 Surface(
-                                                    onClick = {
-                                                        playbackSpeed = when (playbackSpeed) {
-                                                            "1.0x" -> "1.25x"
-                                                            "1.25x" -> "1.5x"
-                                                            "1.5x" -> "2.0x"
-                                                            else -> "1.0x"
-                                                        }
-                                                    },
-                                                    color = Color(0xFF818CF8),
-                                                    shape = RoundedCornerShape(6.dp)
+                                                    onClick = { isPlaying = !isPlaying },
+                                                    shape = CircleShape,
+                                                    color = Color(0xFF4169E8),
+                                                    shadowElevation = 6.dp,
+                                                    modifier = Modifier.size(54.dp)
                                                 ) {
-                                                    Text(
-                                                        text = playbackSpeed,
-                                                        fontFamily = InterFontFamily,
-                                                        fontWeight = FontWeight.Bold,
-                                                        fontSize = 11.sp,
-                                                        color = Color.White,
-                                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                                                    )
+                                                    Box(contentAlignment = Alignment.Center) {
+                                                        Icon(
+                                                            imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                                                            contentDescription = if (isPlaying) "Pause" else "Play",
+                                                            tint = Color.White,
+                                                            modifier = Modifier.size(30.dp)
+                                                        )
+                                                    }
                                                 }
-                                            }
 
-                                            Column {
-                                                Text(
-                                                    text = chapter.videoTitle,
-                                                    fontFamily = OutfitDisplayFamily,
-                                                    fontWeight = FontWeight.Bold,
-                                                    fontSize = 17.sp,
-                                                    color = Color.White
-                                                )
-                                                Spacer(modifier = Modifier.height(4.dp))
-                                                Text(
-                                                    text = chapter.videoKeyTakeaways,
-                                                    fontFamily = InterFontFamily,
-                                                    fontSize = 12.sp,
-                                                    color = Color.White.copy(alpha = 0.8f),
-                                                    maxLines = 2,
-                                                    overflow = TextOverflow.Ellipsis
-                                                )
-                                            }
-                                        }
-                                    }
-
-                                    // Progress Slider & YouTube Control Bar
-                                    Column(modifier = Modifier.padding(horizontal = 14.dp, vertical = 6.dp)) {
-                                        Slider(
-                                            value = playbackProgress,
-                                            onValueChange = { playbackProgress = it },
-                                            modifier = Modifier.fillMaxWidth()
-                                        )
-
-                                        Row(
-                                            modifier = Modifier
-                                                .fillMaxWidth()
-                                                .padding(horizontal = 4.dp, vertical = 2.dp),
-                                            horizontalArrangement = Arrangement.SpaceBetween,
-                                            verticalAlignment = Alignment.CenterVertically
-                                        ) {
-                                            val totalSecs = (chapter.durationMinutes * 60).coerceAtLeast(600)
-                                            val currentSecs = (playbackProgress * totalSecs).toInt()
-                                            val formattedCurrent = String.format("%02d:%02d", currentSecs / 60, currentSecs % 60)
-                                            val formattedTotal = String.format("%02d:%02d", totalSecs / 60, totalSecs % 60)
-
-                                            Text(
-                                                text = "$formattedCurrent / $formattedTotal",
-                                                fontFamily = JetBrainsMonoFamily,
-                                                fontSize = 11.5.sp,
-                                                fontWeight = FontWeight.Medium,
-                                                color = Color.White.copy(alpha = 0.85f)
-                                            )
-
-                                            Row(
-                                                verticalAlignment = Alignment.CenterVertically,
-                                                horizontalArrangement = Arrangement.spacedBy(8.dp)
-                                            ) {
-                                                // Fullscreen Button (Exact YouTube style)
                                                 IconButton(
-                                                    onClick = { isFullscreenVideo = true },
-                                                    modifier = Modifier.size(32.dp)
+                                                    onClick = { playbackProgress = (playbackProgress + 0.05f).coerceAtMost(1f) },
+                                                    modifier = Modifier.size(40.dp)
                                                 ) {
                                                     Icon(
-                                                        imageVector = Icons.Default.Fullscreen,
-                                                        contentDescription = "Fullscreen",
+                                                        imageVector = Icons.Default.Forward10,
+                                                        contentDescription = "Forward 10s",
                                                         tint = Color.White,
-                                                        modifier = Modifier.size(22.dp)
+                                                        modifier = Modifier.size(28.dp)
+                                                    )
+                                                }
+                                            }
+
+                                            // Bottom Bar: Current Position / Total Duration & Seekbar
+                                            Column(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .align(Alignment.BottomCenter)
+                                            ) {
+                                                Slider(
+                                                    value = playbackProgress,
+                                                    onValueChange = { playbackProgress = it },
+                                                    modifier = Modifier.fillMaxWidth()
+                                                )
+
+                                                Row(
+                                                    modifier = Modifier.fillMaxWidth(),
+                                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                                    verticalAlignment = Alignment.CenterVertically
+                                                ) {
+                                                    val totalSecs = (chapter.durationMinutes * 60).coerceAtLeast(600)
+                                                    val currentSecs = (playbackProgress * totalSecs).toInt()
+                                                    val formattedCurrent = String.format("%02d:%02d", currentSecs / 60, currentSecs % 60)
+                                                    val formattedTotal = String.format("%02d:%02d", totalSecs / 60, totalSecs % 60)
+
+                                                    Text(
+                                                        text = "$formattedCurrent / $formattedTotal",
+                                                        fontFamily = JetBrainsMonoFamily,
+                                                        fontSize = 11.sp,
+                                                        fontWeight = FontWeight.Medium,
+                                                        color = Color.White.copy(alpha = 0.9f)
                                                     )
                                                 }
                                             }
@@ -9608,47 +9656,82 @@ fun ChapterReaderOverlay(
                                 }
                             }
 
-                            Spacer(modifier = Modifier.height(16.dp))
+                            // 2. Compact Lecture Information Section Immediately Below Player
+                            Column(modifier = Modifier.padding(top = 12.dp, bottom = 14.dp)) {
+                                val activeTopicTitle = if (parsedNoteSections.isNotEmpty() && currentSectionIndex in parsedNoteSections.indices) {
+                                    cleanSectionTitle(parsedNoteSections[currentSectionIndex].first)
+                                } else {
+                                    chapter.videoTitle.ifBlank { chapter.title }
+                                }
 
-                            // Centered Large Play / Pause Button matching drawing circle (▶)
-                            Box(
-                                modifier = Modifier.fillMaxWidth(),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Surface(
-                                    onClick = { isPlaying = !isPlaying },
-                                    shape = CircleShape,
-                                    color = Color(0xFF4269E8),
-                                    shadowElevation = 6.dp,
-                                    modifier = Modifier.size(58.dp)
+                                Text(
+                                    text = activeTopicTitle,
+                                    fontFamily = OutfitDisplayFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 18.sp,
+                                    color = Color(0xFF171A23)
+                                )
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                                 ) {
-                                    Box(contentAlignment = Alignment.Center) {
-                                        Icon(
-                                            imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
-                                            contentDescription = if (isPlaying) "Pause" else "Play",
-                                            tint = Color.White,
-                                            modifier = Modifier.size(32.dp)
-                                        )
-                                    }
+                                    Text(
+                                        text = "HD Lecture • ${chapter.videoInstructor.ifBlank { "Prof. R. Subramanian" }}",
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.Medium,
+                                        fontSize = 12.sp,
+                                        color = Color(0xFF727987)
+                                    )
+                                    Text(
+                                        text = "• ${chapter.videoDurationLabel.ifBlank { "${chapter.durationMinutes} mins" }}",
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.Medium,
+                                        fontSize = 12.sp,
+                                        color = Color(0xFF727987)
+                                    )
+                                }
+
+                                if (chapter.videoKeyTakeaways.isNotBlank()) {
+                                    Spacer(modifier = Modifier.height(6.dp))
+                                    Text(
+                                        text = chapter.videoKeyTakeaways,
+                                        fontFamily = InterFontFamily,
+                                        fontSize = 12.sp,
+                                        lineHeight = 18.sp,
+                                        color = Color(0xFF4B5563),
+                                        maxLines = 3,
+                                        overflow = TextOverflow.Ellipsis
+                                    )
                                 }
                             }
 
-                            Spacer(modifier = Modifier.height(20.dp))
+                            // 3. Lecture Topics Playlist Section
+                            val totalTopicCount = parsedNoteSections.size.coerceAtLeast(1)
+                            val completedTopicCount = if (completionBannerShown || chapter.isVideoCompleted) totalTopicCount else (currentSectionIndex).coerceAtMost(totalTopicCount)
 
-                            // Section Title Header for Topics Stack
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 verticalAlignment = Alignment.CenterVertically,
                                 horizontalArrangement = Arrangement.SpaceBetween
                             ) {
-                                Text(
-                                    text = "LECTURE TOPICS",
-                                    fontFamily = InterFontFamily,
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 11.sp,
-                                    letterSpacing = 0.8.sp,
-                                    color = Color(0xFF64748B)
-                                )
+                                Column {
+                                    Text(
+                                        text = "LECTURE TOPICS",
+                                        fontFamily = InterFontFamily,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 11.sp,
+                                        letterSpacing = 0.8.sp,
+                                        color = Color(0xFF727987)
+                                    )
+                                    Spacer(modifier = Modifier.height(2.dp))
+                                    Text(
+                                        text = "$completedTopicCount of $totalTopicCount topics completed",
+                                        fontFamily = InterFontFamily,
+                                        fontSize = 11.5.sp,
+                                        color = Color(0xFF4169E8)
+                                    )
+                                }
 
                                 Surface(
                                     onClick = {
@@ -9659,26 +9742,27 @@ fun ChapterReaderOverlay(
                                     },
                                     shape = RoundedCornerShape(50),
                                     color = Color(0xFFDCFCE7),
-                                    border = BorderStroke(1.dp, Color(0xFF86EFAC))
+                                    border = BorderStroke(1.dp, Color(0xFF16A36A).copy(alpha = 0.4f))
                                 ) {
                                     Text(
                                         text = "Mark Watched ✓",
                                         fontFamily = InterFontFamily,
                                         fontWeight = FontWeight.Bold,
                                         fontSize = 10.5.sp,
-                                        color = Color(0xFF15803D),
-                                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp)
+                                        color = Color(0xFF16A36A),
+                                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp)
                                     )
                                 }
                             }
 
                             Spacer(modifier = Modifier.height(10.dp))
 
-                            // Vertically Stacked Topic Cards matching drawing ("Topics", "Topics", ...)
+                            // Vertically Stacked Topic Cards Playlist
                             Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                                 if (parsedNoteSections.isNotEmpty()) {
                                     parsedNoteSections.forEachIndexed { topicIdx, (rawHeading, _) ->
                                         val isSelected = topicIdx == currentSectionIndex
+                                        val isTopicCompleted = topicIdx < currentSectionIndex || completionBannerShown || chapter.isVideoCompleted
                                         val topicTitle = cleanSectionTitle(rawHeading)
                                         val badge = formatSectionBadge(chapter.chapterNumber, topicIdx, rawHeading)
                                         val fullTitle = if (badge != null) "$badge $topicTitle" else topicTitle
@@ -9690,28 +9774,47 @@ fun ChapterReaderOverlay(
                                                 isPlaying = true
                                             },
                                             shape = RoundedCornerShape(16.dp),
-                                            color = if (isSelected) Color(0xFFEEF5FF) else Color.White,
-                                            border = BorderStroke(1.dp, if (isSelected) Color(0xFF3569F6) else Color(0xFFE2E8F0)),
-                                            shadowElevation = if (isSelected) 2.dp else 0.5.dp,
+                                            color = when {
+                                                isSelected -> Color(0xFFEEF5FF)
+                                                isTopicCompleted -> Color(0xFFF0FDF4)
+                                                else -> Color.White
+                                            },
+                                            border = BorderStroke(
+                                                1.dp,
+                                                when {
+                                                    isSelected -> Color(0xFF4169E8)
+                                                    isTopicCompleted -> Color(0xFF86EFAC)
+                                                    else -> Color(0xFFE7E9EF)
+                                                }
+                                            ),
+                                            shadowElevation = if (isSelected) 1.5.dp else 0.5.dp,
                                             modifier = Modifier.fillMaxWidth()
                                         ) {
                                             Row(
                                                 modifier = Modifier
                                                     .fillMaxWidth()
-                                                    .padding(horizontal = 16.dp, vertical = 14.dp),
+                                                    .padding(horizontal = 16.dp, vertical = 13.dp),
                                                 verticalAlignment = Alignment.CenterVertically,
                                                 horizontalArrangement = Arrangement.spacedBy(12.dp)
                                             ) {
                                                 Surface(
                                                     shape = CircleShape,
-                                                    color = if (isSelected) Color(0xFF3569F6) else Color(0xFFF1F5F9),
+                                                    color = when {
+                                                        isSelected -> Color(0xFF4169E8)
+                                                        isTopicCompleted -> Color(0xFF16A36A)
+                                                        else -> Color(0xFFF1F5F9)
+                                                    },
                                                     modifier = Modifier.size(32.dp)
                                                 ) {
                                                     Box(contentAlignment = Alignment.Center) {
                                                         Icon(
-                                                            imageVector = if (isSelected && isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                                                            imageVector = when {
+                                                                isTopicCompleted && !isSelected -> Icons.Default.CheckCircle
+                                                                isSelected && isPlaying -> Icons.Default.Pause
+                                                                else -> Icons.Default.PlayArrow
+                                                            },
                                                             contentDescription = null,
-                                                            tint = if (isSelected) Color.White else Color(0xFF64748B),
+                                                            tint = if (isSelected || isTopicCompleted) Color.White else Color(0xFF727987),
                                                             modifier = Modifier.size(18.dp)
                                                         )
                                                     }
@@ -9722,7 +9825,11 @@ fun ChapterReaderOverlay(
                                                     fontFamily = InterFontFamily,
                                                     fontWeight = if (isSelected) FontWeight.Bold else FontWeight.SemiBold,
                                                     fontSize = 13.5.sp,
-                                                    color = if (isSelected) Color(0xFF1E3A8A) else Color(0xFF1E293B),
+                                                    color = when {
+                                                        isSelected -> Color(0xFF1E3A8A)
+                                                        isTopicCompleted -> Color(0xFF166534)
+                                                        else -> Color(0xFF171A23)
+                                                    },
                                                     modifier = Modifier.weight(1f),
                                                     maxLines = 2,
                                                     overflow = TextOverflow.Ellipsis
@@ -9734,7 +9841,7 @@ fun ChapterReaderOverlay(
                                     Surface(
                                         shape = RoundedCornerShape(16.dp),
                                         color = Color.White,
-                                        border = BorderStroke(1.dp, Color(0xFFE2E8F0)),
+                                        border = BorderStroke(1.dp, Color(0xFFE7E9EF)),
                                         modifier = Modifier.fillMaxWidth()
                                     ) {
                                         Row(
