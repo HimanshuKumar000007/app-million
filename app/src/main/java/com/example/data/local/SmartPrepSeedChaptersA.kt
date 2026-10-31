@@ -4594,13 +4594,15 @@ Chapter Summary and Revision Checklist
 • Self-assessment — answer honestly: (1) Why does addition follow decimal places while multiplication follows significant figures? (2) Why can't dimensional analysis find the 2π in the pendulum law? (3) A screw gauge's zero error is −0.03 mm and a reading is 4.12 mm — what is the corrected value, and why? (4) Which has more significant figures, 0.00120 or 1200, and what extra information would settle the second? (5) Construct a pressure from h, c and G-style constants is impossible — which limitation explains why some constructions fail? If any answer stalls, revisit: (1) the arithmetic section, (2) and (5) limitations, (3) the screw gauge section, (4) the counting rules. (Answers: (3) 4.15 mm — subtract the signed error: 4.12 − (−0.03); (4) 0.00120 has exactly 3 significant figures (1, 2 and the trailing 0), while 1200 is ambiguous — it could carry 2, 3 or 4, and only scientific notation can declare which.)
 """.trimIndent(),
 
-            videoTitle = "SI Constants, Precision Instruments & Dimensional Analysis Masterclass",
+            videoTitle = "Units & Measurements in Hinglish \u2014 All 24 Topics + Quick Checks",
 
-            videoDurationLabel = "26:40",
+            videoDurationLabel = "4:39",
 
-            videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
+            videoInstructor = "IISER Smart Prep (Hinglish)",
 
-            videoKeyTakeaways = "Zero-error corrected Vernier & screw-gauge readings • Maximum vs most probable error • Planck-scale dimensions from c, G, h • Homogeneity tests for exponential and trigonometric arguments",
+            videoKeyTakeaways = "SI units & significant figures \u2022 Vernier calipers & screw gauge \u2022 Errors, least count & dimensions \u2022 Dimensional analysis & its limits \u2022 4 pause-and-answer quick checks",
+
+            videoUrl = "https://res.cloudinary.com/dhb8qmnxt/video/upload/v1793451746/physics-ch01-lecture-hinglish.mp4",
 
             isVideoCompleted = true,
 
