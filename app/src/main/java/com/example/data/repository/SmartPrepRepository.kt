@@ -36,6 +36,9 @@ class SmartPrepRepository(private val dao: SmartPrepDao) {
             // (completedLessons, attempts, bookmarks) is never touched.
             SmartPrepSeedData.initialChapters.forEach { ch ->
                 dao.updateChapterContent(ch.id, ch.subtitle, ch.studyNotesCount, ch.practiceQuestionCount, ch.durationMinutes, ch.formulaHighlight, ch.keyConceptsSummary, ch.detailedStudyNotes)
+                if (ch.videoUrl.isNotBlank()) {
+                    dao.updateChapterVideo(ch.id, ch.videoTitle, ch.videoDurationLabel, ch.videoInstructor, ch.videoKeyTakeaways, ch.videoUrl)
+                }
             }
             SmartPrepSeedData.initialQuestions.forEach { q ->
                 dao.updateQuestionContent(q.id, q.topic, q.difficulty, q.estimatedSeconds, q.prompt, q.optionA, q.optionB, q.optionC, q.optionD, q.correctOptionIndex, q.stepByStepExplanation)

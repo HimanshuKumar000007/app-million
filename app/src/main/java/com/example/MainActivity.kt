@@ -126,6 +126,9 @@ fun IISERSmartPrepApp() {
                                     onOpenAiTutor = {
                                         viewModel.openSnapSolve(chapter.subject)
                                     },
+                                    onUpdateVideoUrl = { newUrl ->
+                                        viewModel.updateChapterVideoUrl(chapter.id, newUrl)
+                                    },
                                 )
                             }
                         }

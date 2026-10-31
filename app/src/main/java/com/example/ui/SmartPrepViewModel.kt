@@ -281,6 +281,20 @@ class SmartPrepViewModel(
         }
     }
 
+    fun updateChapterVideoUrl(chapterId: String, newUrl: String) {
+        viewModelScope.launch {
+            val chapter = uiState.value.allChapters.find { it.id == chapterId } ?: return@launch
+            repository.updateChapterVideo(
+                id = chapterId,
+                videoTitle = chapter.videoTitle,
+                videoDurationLabel = chapter.videoDurationLabel,
+                videoInstructor = chapter.videoInstructor,
+                videoKeyTakeaways = chapter.videoKeyTakeaways,
+                videoUrl = newUrl.trim()
+            )
+        }
+    }
+
     fun submitQuestionAnswer(question: QuestionEntity, optionIndex: Int) {
         viewModelScope.launch {
             repository.submitQuestionAttempt(question, optionIndex)
