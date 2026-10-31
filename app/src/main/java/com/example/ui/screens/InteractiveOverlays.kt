@@ -298,6 +298,7 @@ import androidx.compose.foundation.clickable
 
 import androidx.compose.foundation.lazy.rememberLazyListState
 
+import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
 
 import androidx.compose.material.icons.filled.Close
@@ -9441,43 +9442,49 @@ fun ChapterReaderOverlay(
                 // ==================== TAB 2: "Video" — PREMIUM YOUTUBE-GRADE LECTURE PLAYER ====================
                 if (selectedTab == "Video") {
                     item {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 18.dp, vertical = 6.dp)
-                        ) {
-                            // 1. 16:9 Responsive Premium Video Player Surface
-                            Surface(
-                                shape = RoundedCornerShape(18.dp),
-                                color = Color(0xFF111827),
-                                shadowElevation = 6.dp,
+                        DisableSelection {
+                            Column(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .aspectRatio(16f / 9f)
-                                    .clickable { showControlsOverlay = !showControlsOverlay }
+                                    .padding(horizontal = 18.dp, vertical = 6.dp)
                             ) {
-                                Box(modifier = Modifier.fillMaxSize()) {
-                                    if (chapter.videoUrl.isNotBlank()) {
-                                        AndroidView(
-                                            factory = { ctx ->
-                                                VideoView(ctx).apply {
-                                                    setVideoURI(Uri.parse(chapter.videoUrl))
-                                                    setOnCompletionListener {
-                                                        isPlaying = false
-                                                        playbackProgress = 1f
-                                                        onMarkCompleted(true)
+                                // 1. 16:9 Responsive Premium Video Player Surface
+                                Surface(
+                                    shape = RoundedCornerShape(18.dp),
+                                    color = Color(0xFF111827),
+                                    shadowElevation = 6.dp,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .aspectRatio(16f / 9f)
+                                        .clickable { showControlsOverlay = !showControlsOverlay }
+                                ) {
+                                    Box(modifier = Modifier.fillMaxSize()) {
+                                        if (chapter.videoUrl.isNotBlank() && (chapter.videoUrl.endsWith(".mp4") || chapter.videoUrl.endsWith(".m3u8") || chapter.videoUrl.contains("stream"))) {
+                                            AndroidView(
+                                                factory = { ctx ->
+                                                    VideoView(ctx).apply {
+                                                        setOnErrorListener { _, _, _ -> true }
+                                                        try {
+                                                            setVideoURI(Uri.parse(chapter.videoUrl))
+                                                        } catch (_: Exception) {}
+                                                        setOnCompletionListener {
+                                                            isPlaying = false
+                                                            playbackProgress = 1f
+                                                            onMarkCompleted(true)
+                                                        }
                                                     }
-                                                }
-                                            },
-                                            update = { vView ->
-                                                if (isPlaying) {
-                                                    if (!vView.isPlaying) vView.start()
-                                                } else {
-                                                    if (vView.isPlaying) vView.pause()
-                                                }
-                                            },
-                                            modifier = Modifier.fillMaxSize()
-                                        )
+                                                },
+                                                update = { vView ->
+                                                    try {
+                                                        if (isPlaying) {
+                                                            if (!vView.isPlaying) vView.start()
+                                                        } else {
+                                                            if (vView.isPlaying) vView.pause()
+                                                        }
+                                                    } catch (_: Exception) {}
+                                                },
+                                                modifier = Modifier.fillMaxSize()
+                                            )
                                     } else {
                                         // Animated Waveform Stream Canvas
                                         Canvas(modifier = Modifier.fillMaxSize()) {
@@ -9945,6 +9952,7 @@ fun ChapterReaderOverlay(
                         }
                     }
                 }
+            }
 
                 // ==================== TAB 3: "Notes" — MASTER FORMULA & REVISION SHEET ====================
                 if (selectedTab == "Notes") {
