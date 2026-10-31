@@ -8852,6 +8852,27 @@ object CloudinaryVideoRegistry {
     }
 }
 
+private fun parseVideoDurationLabelToSeconds(label: String, fallbackMinutes: Int): Int {
+    val clean = label.trim()
+    val parts = clean.split(":")
+    return when (parts.size) {
+        2 -> {
+            val m = parts[0].trim().toIntOrNull() ?: 0
+            val s = parts[1].trim().toIntOrNull() ?: 0
+            val total = m * 60 + s
+            if (total > 0) total else (fallbackMinutes * 60).coerceAtLeast(60)
+        }
+        3 -> {
+            val h = parts[0].trim().toIntOrNull() ?: 0
+            val m = parts[1].trim().toIntOrNull() ?: 0
+            val s = parts[2].trim().toIntOrNull() ?: 0
+            val total = h * 3600 + m * 60 + s
+            if (total > 0) total else (fallbackMinutes * 60).coerceAtLeast(60)
+        }
+        else -> (fallbackMinutes * 60).coerceAtLeast(60)
+    }
+}
+
 @Composable
 fun ModernDarkVideoPlayerCard(
     chapter: ChapterEntity,
@@ -8877,7 +8898,9 @@ fun ModernDarkVideoPlayerCard(
     var mediaPlayerInstance by remember { mutableStateOf<MediaPlayer?>(null) }
     var isBuffering by remember { mutableStateOf(false) }
 
-    val defaultTotalSecs = remember(chapter.durationMinutes) { (chapter.durationMinutes * 60).coerceAtLeast(600) }
+    val defaultTotalSecs = remember(chapter.id, chapter.videoDurationLabel, chapter.durationMinutes) {
+        parseVideoDurationLabelToSeconds(chapter.videoDurationLabel, chapter.durationMinutes)
+    }
     var actualDurationMs by remember(chapter.id) { mutableIntStateOf(defaultTotalSecs * 1000) }
     var currentPositionMs by remember(chapter.id) { mutableIntStateOf((playbackProgress * actualDurationMs).toInt()) }
 
@@ -8906,7 +8929,7 @@ fun ModernDarkVideoPlayerCard(
     }
 
     val curSeconds = (currentPositionMs / 1000).coerceAtLeast(0)
-    val totalSeconds = (actualDurationMs / 1000).coerceAtLeast(600)
+    val totalSeconds = (actualDurationMs / 1000).coerceAtLeast(1)
     val formattedCurrent = String.format("%02d:%02d", curSeconds / 60, curSeconds % 60)
     val formattedTotal = String.format("%02d:%02d", totalSeconds / 60, totalSeconds % 60)
 
@@ -8960,17 +8983,23 @@ fun ModernDarkVideoPlayerCard(
                                 setOnPreparedListener { mp ->
                                     mediaPlayerInstance = mp
                                     isBuffering = false
-                                    mp.isLooping = true
+                                    mp.isLooping = false
                                     if (mp.duration > 0) {
                                         actualDurationMs = mp.duration
                                     }
                                     mp.setVolume(if (isMuted) 0f else 1f, if (isMuted) 0f else 1f)
                                     if (currentPositionMs > 0) {
                                         mp.seekTo(currentPositionMs)
+                                    } else {
+                                        mp.seekTo(0)
                                     }
                                     if (isPlaying) {
                                         start()
                                     }
+                                }
+                                setOnCompletionListener {
+                                    onSeek(1f)
+                                    if (isPlaying) onTogglePlay()
                                 }
                                 setOnInfoListener { _, what, _ ->
                                     if (what == MediaPlayer.MEDIA_INFO_BUFFERING_START) isBuffering = true
@@ -9327,7 +9356,7 @@ fun ChapterReaderOverlay(
 
 
     var isPlaying by remember(chapter.id, startWithVideo) { mutableStateOf(startWithVideo) }
-    var playbackProgress by remember(chapter.id) { mutableFloatStateOf(0.25f) }
+    var playbackProgress by remember(chapter.id) { mutableFloatStateOf(0f) }
     var playbackSpeed by remember { mutableStateOf("1.0x") }
     var isMuted by remember { mutableStateOf(false) }
     var completionBannerShown by remember(chapter.id) { mutableStateOf(false) }
@@ -9395,14 +9424,17 @@ fun ChapterReaderOverlay(
     }
 
     LaunchedEffect(isPlaying, selectedTab, speedMultiplier, chapter.id) {
-        while (isPlaying && selectedTab == "Video" && playbackProgress < 1f) {
-            val stepDelay = (300L / speedMultiplier).toLong().coerceAtLeast(50L)
-            delay(stepDelay)
-            playbackProgress = (playbackProgress + 0.005f).coerceAtMost(1f)
-            if (playbackProgress >= 1f) {
-                isPlaying = false
-                onMarkCompleted(true)
-                completionBannerShown = true
+        val hasRealVideo = CloudinaryVideoRegistry.resolveVideoUrl(chapter.id, chapter.videoUrl).isNotBlank()
+        if (!hasRealVideo) {
+            while (isPlaying && selectedTab == "Video" && playbackProgress < 1f) {
+                val stepDelay = (300L / speedMultiplier).toLong().coerceAtLeast(50L)
+                delay(stepDelay)
+                playbackProgress = (playbackProgress + 0.005f).coerceAtMost(1f)
+                if (playbackProgress >= 1f) {
+                    isPlaying = false
+                    onMarkCompleted(true)
+                    completionBannerShown = true
+                }
             }
         }
     }
@@ -9582,7 +9614,15 @@ fun ChapterReaderOverlay(
                     readerTabs.forEach { tabLabel ->
                         val isSelected = selectedTab == tabLabel
                         Surface(
-                            onClick = { selectedTab = tabLabel },
+                            onClick = {
+                                if (tabLabel == "Video" && selectedTab != "Video") {
+                                    if (playbackProgress >= 1f) {
+                                        playbackProgress = 0f
+                                    }
+                                    isPlaying = true
+                                }
+                                selectedTab = tabLabel
+                            },
                             shape = RoundedCornerShape(50),
                             color = if (isSelected) Color.White else Color.Transparent,
                             shadowElevation = if (isSelected) 1.dp else 0.dp,
