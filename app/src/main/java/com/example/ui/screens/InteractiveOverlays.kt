@@ -115,10 +115,13 @@ import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.Cancel
+import androidx.compose.material.icons.filled.Cast
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.ClosedCaption
 import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.Forward10
 import androidx.compose.material.icons.filled.Fullscreen
 import androidx.compose.material.icons.filled.FullscreenExit
@@ -128,7 +131,11 @@ import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Replay10
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.SkipNext
+import androidx.compose.material.icons.filled.SkipPrevious
 import androidx.compose.material.icons.filled.Timer
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material.icons.filled.Tune
 
 import androidx.compose.material3.Button
@@ -9427,7 +9434,6 @@ fun ChapterReaderOverlay(
                                     )
                                 }
                             }
-                            }
                         }
                     }
                 }
@@ -9494,7 +9500,7 @@ fun ChapterReaderOverlay(
                                         }
                                     }
 
-                                    // Auto-Hiding Controls Overlay
+                                    // Auto-Hiding YouTube-Inspired Controls Overlay
                                     androidx.compose.animation.AnimatedVisibility(
                                         visible = showControlsOverlay || !isPlaying,
                                         enter = fadeIn(),
@@ -9505,9 +9511,9 @@ fun ChapterReaderOverlay(
                                             modifier = Modifier
                                                 .fillMaxSize()
                                                 .background(Color.Black.copy(alpha = 0.5f))
-                                                .padding(12.dp)
+                                                .padding(horizontal = 10.dp, vertical = 8.dp)
                                         ) {
-                                            // Top Bar Overlay: HD Quality Badge | Speed Selector | Fullscreen
+                                            // Top Bar Overlay: Chevron Down | Autoplay Switch | Cast | CC | Settings
                                             Row(
                                                 modifier = Modifier
                                                     .fillMaxWidth()
@@ -9515,23 +9521,49 @@ fun ChapterReaderOverlay(
                                                 horizontalArrangement = Arrangement.SpaceBetween,
                                                 verticalAlignment = Alignment.CenterVertically
                                             ) {
-                                                Surface(
-                                                    color = Color.White.copy(alpha = 0.2f),
-                                                    shape = RoundedCornerShape(6.dp)
+                                                IconButton(
+                                                    onClick = { showControlsOverlay = false },
+                                                    modifier = Modifier.size(32.dp)
                                                 ) {
-                                                    Text(
-                                                        text = "HD 1080p • ${chapter.videoInstructor.ifBlank { "Prof. R. Subramanian" }}",
-                                                        fontFamily = InterFontFamily,
-                                                        fontWeight = FontWeight.Medium,
-                                                        fontSize = 10.5.sp,
-                                                        color = Color.White,
-                                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                                                    Icon(
+                                                        imageVector = Icons.Default.ExpandMore,
+                                                        contentDescription = "Minimize",
+                                                        tint = Color.White,
+                                                        modifier = Modifier.size(24.dp)
                                                     )
                                                 }
 
+                                                // YouTube Autoplay Pill Switch
+                                                Surface(
+                                                    onClick = { isPlaying = !isPlaying },
+                                                    shape = RoundedCornerShape(50),
+                                                    color = Color.White.copy(alpha = 0.25f)
+                                                ) {
+                                                    Row(
+                                                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
+                                                        verticalAlignment = Alignment.CenterVertically,
+                                                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                                                    ) {
+                                                        Icon(
+                                                            imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                                                            contentDescription = "Autoplay",
+                                                            tint = Color.White,
+                                                            modifier = Modifier.size(13.dp)
+                                                        )
+                                                        Text(
+                                                            text = if (isPlaying) "AUTOPLAY ON" else "AUTOPLAY OFF",
+                                                            fontFamily = InterFontFamily,
+                                                            fontWeight = FontWeight.Bold,
+                                                            fontSize = 9.5.sp,
+                                                            color = Color.White
+                                                        )
+                                                    }
+                                                }
+
+                                                // Top Right Icons: Speed Pill | Cast | CC | Gear Settings
                                                 Row(
                                                     verticalAlignment = Alignment.CenterVertically,
-                                                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                                                    horizontalArrangement = Arrangement.spacedBy(3.dp)
                                                 ) {
                                                     Surface(
                                                         onClick = {
@@ -9545,114 +9577,143 @@ fun ChapterReaderOverlay(
                                                                 else -> "0.5x"
                                                             }
                                                         },
-                                                        color = Color(0xFF4169E8),
+                                                        color = Color.White.copy(alpha = 0.25f),
                                                         shape = RoundedCornerShape(6.dp)
                                                     ) {
                                                         Text(
                                                             text = playbackSpeed,
                                                             fontFamily = InterFontFamily,
                                                             fontWeight = FontWeight.Bold,
-                                                            fontSize = 10.5.sp,
+                                                            fontSize = 10.sp,
                                                             color = Color.White,
-                                                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.5.dp)
+                                                            modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp)
                                                         )
                                                     }
 
+                                                    IconButton(onClick = {}, modifier = Modifier.size(30.dp)) {
+                                                        Icon(imageVector = Icons.Default.Cast, contentDescription = "Cast", tint = Color.White, modifier = Modifier.size(18.dp))
+                                                    }
+                                                    IconButton(onClick = {}, modifier = Modifier.size(30.dp)) {
+                                                        Icon(imageVector = Icons.Default.ClosedCaption, contentDescription = "Subtitles", tint = Color.White, modifier = Modifier.size(18.dp))
+                                                    }
                                                     IconButton(
-                                                        onClick = { isFullscreenVideo = true },
-                                                        modifier = Modifier.size(32.dp)
+                                                        onClick = {
+                                                            playbackSpeed = when (playbackSpeed) {
+                                                                "0.5x" -> "0.75x"
+                                                                "0.75x" -> "1.0x"
+                                                                "1.0x" -> "1.25x"
+                                                                "1.25x" -> "1.5x"
+                                                                "1.5x" -> "1.75x"
+                                                                "1.75x" -> "2.0x"
+                                                                else -> "0.5x"
+                                                            }
+                                                        },
+                                                        modifier = Modifier.size(30.dp)
                                                     ) {
-                                                        Icon(
-                                                            imageVector = Icons.Default.Fullscreen,
-                                                            contentDescription = "Fullscreen",
-                                                            tint = Color.White,
-                                                            modifier = Modifier.size(20.dp)
-                                                        )
+                                                        Icon(imageVector = Icons.Default.Settings, contentDescription = "Settings", tint = Color.White, modifier = Modifier.size(18.dp))
                                                     }
                                                 }
                                             }
 
-                                            // Center Playback Controls: 10s Rewind | Large Play/Pause | 10s Forward
+                                            // Center Playback Controls: (│◀) | (❚❚ / ▶) Large Circle | (▶│)
                                             Row(
                                                 modifier = Modifier.align(Alignment.Center),
                                                 verticalAlignment = Alignment.CenterVertically,
-                                                horizontalArrangement = Arrangement.spacedBy(28.dp)
+                                                horizontalArrangement = Arrangement.spacedBy(32.dp)
                                             ) {
                                                 IconButton(
                                                     onClick = { playbackProgress = (playbackProgress - 0.05f).coerceAtLeast(0f) },
-                                                    modifier = Modifier.size(40.dp)
+                                                    modifier = Modifier.size(42.dp)
                                                 ) {
                                                     Icon(
-                                                        imageVector = Icons.Default.Replay10,
-                                                        contentDescription = "Rewind 10s",
+                                                        imageVector = Icons.Default.SkipPrevious,
+                                                        contentDescription = "Previous / Rewind",
                                                         tint = Color.White,
                                                         modifier = Modifier.size(28.dp)
                                                     )
                                                 }
 
+                                                // Semi-Transparent Large Center Circle Play/Pause Button
                                                 Surface(
                                                     onClick = { isPlaying = !isPlaying },
                                                     shape = CircleShape,
-                                                    color = Color(0xFF4169E8),
-                                                    shadowElevation = 6.dp,
-                                                    modifier = Modifier.size(54.dp)
+                                                    color = Color.Black.copy(alpha = 0.5f),
+                                                    modifier = Modifier.size(56.dp)
                                                 ) {
                                                     Box(contentAlignment = Alignment.Center) {
                                                         Icon(
                                                             imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
                                                             contentDescription = if (isPlaying) "Pause" else "Play",
                                                             tint = Color.White,
-                                                            modifier = Modifier.size(30.dp)
+                                                            modifier = Modifier.size(34.dp)
                                                         )
                                                     }
                                                 }
 
                                                 IconButton(
                                                     onClick = { playbackProgress = (playbackProgress + 0.05f).coerceAtMost(1f) },
-                                                    modifier = Modifier.size(40.dp)
+                                                    modifier = Modifier.size(42.dp)
                                                 ) {
                                                     Icon(
-                                                        imageVector = Icons.Default.Forward10,
-                                                        contentDescription = "Forward 10s",
+                                                        imageVector = Icons.Default.SkipNext,
+                                                        contentDescription = "Next / Forward",
                                                         tint = Color.White,
                                                         modifier = Modifier.size(28.dp)
                                                     )
                                                 }
                                             }
 
-                                            // Bottom Bar: Current Position / Total Duration & Seekbar
-                                            Column(
+                                            // Bottom Bar: Timestamp (0:05 / 6:46) + Fullscreen Button
+                                            Row(
                                                 modifier = Modifier
                                                     .fillMaxWidth()
                                                     .align(Alignment.BottomCenter)
+                                                    .padding(start = 6.dp, end = 6.dp, bottom = 4.dp),
+                                                horizontalArrangement = Arrangement.SpaceBetween,
+                                                verticalAlignment = Alignment.CenterVertically
                                             ) {
-                                                Slider(
-                                                    value = playbackProgress,
-                                                    onValueChange = { playbackProgress = it },
-                                                    modifier = Modifier.fillMaxWidth()
+                                                val totalSecs = (chapter.durationMinutes * 60).coerceAtLeast(400)
+                                                val currentSecs = (playbackProgress * totalSecs).toInt()
+                                                val formattedCurrent = String.format("%d:%02d", currentSecs / 60, currentSecs % 60)
+                                                val formattedTotal = String.format("%d:%02d", totalSecs / 60, totalSecs % 60)
+
+                                                Text(
+                                                    text = "$formattedCurrent / $formattedTotal",
+                                                    fontFamily = InterFontFamily,
+                                                    fontSize = 12.sp,
+                                                    fontWeight = FontWeight.Bold,
+                                                    color = Color.White
                                                 )
 
-                                                Row(
-                                                    modifier = Modifier.fillMaxWidth(),
-                                                    horizontalArrangement = Arrangement.SpaceBetween,
-                                                    verticalAlignment = Alignment.CenterVertically
+                                                IconButton(
+                                                    onClick = { isFullscreenVideo = true },
+                                                    modifier = Modifier.size(30.dp)
                                                 ) {
-                                                    val totalSecs = (chapter.durationMinutes * 60).coerceAtLeast(600)
-                                                    val currentSecs = (playbackProgress * totalSecs).toInt()
-                                                    val formattedCurrent = String.format("%02d:%02d", currentSecs / 60, currentSecs % 60)
-                                                    val formattedTotal = String.format("%02d:%02d", totalSecs / 60, totalSecs % 60)
-
-                                                    Text(
-                                                        text = "$formattedCurrent / $formattedTotal",
-                                                        fontFamily = JetBrainsMonoFamily,
-                                                        fontSize = 11.sp,
-                                                        fontWeight = FontWeight.Medium,
-                                                        color = Color.White.copy(alpha = 0.9f)
+                                                    Icon(
+                                                        imageVector = Icons.Default.Fullscreen,
+                                                        contentDescription = "Fullscreen",
+                                                        tint = Color.White,
+                                                        modifier = Modifier.size(22.dp)
                                                     )
                                                 }
                                             }
                                         }
                                     }
+
+                                    // YouTube Red Progress Bar
+                                    Slider(
+                                        value = playbackProgress,
+                                        onValueChange = { playbackProgress = it },
+                                        colors = SliderDefaults.colors(
+                                            thumbColor = Color(0xFFFF0000),
+                                            activeTrackColor = Color(0xFFFF0000),
+                                            inactiveTrackColor = Color.White.copy(alpha = 0.35f)
+                                        ),
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .align(Alignment.BottomCenter)
+                                            .offset(y = 8.dp)
+                                    )
                                 }
                             }
 
@@ -9767,10 +9828,15 @@ fun ChapterReaderOverlay(
                                         val badge = formatSectionBadge(chapter.chapterNumber, topicIdx, rawHeading)
                                         val fullTitle = if (badge != null) "$badge $topicTitle" else topicTitle
 
+                                        val topicSecs = if (parsedNoteSections.isNotEmpty()) {
+                                            ((topicIdx.toFloat() / parsedNoteSections.size.toFloat()) * (chapter.durationMinutes * 60)).toInt()
+                                        } else 0
+                                        val topicTimestamp = String.format("%d:%02d", topicSecs / 60, topicSecs % 60)
+
                                         Surface(
                                             onClick = {
                                                 currentSectionIndex = topicIdx
-                                                playbackProgress = (topicIdx.toFloat() / parsedNoteSections.size.toFloat()).coerceAtLeast(0.05f)
+                                                playbackProgress = (topicIdx.toFloat() / parsedNoteSections.size.coerceAtLeast(1).toFloat()).coerceAtLeast(0.01f)
                                                 isPlaying = true
                                             },
                                             shape = RoundedCornerShape(16.dp),
@@ -9834,6 +9900,21 @@ fun ChapterReaderOverlay(
                                                     maxLines = 2,
                                                     overflow = TextOverflow.Ellipsis
                                                 )
+
+                                                // Topic Timestamp Badge
+                                                Surface(
+                                                    shape = RoundedCornerShape(6.dp),
+                                                    color = if (isSelected) Color(0xFFDCE7FE) else Color(0xFFF1F5F9)
+                                                ) {
+                                                    Text(
+                                                        text = topicTimestamp,
+                                                        fontFamily = JetBrainsMonoFamily,
+                                                        fontWeight = FontWeight.Medium,
+                                                        fontSize = 11.sp,
+                                                        color = if (isSelected) Color(0xFF2563EB) else Color(0xFF64748B),
+                                                        modifier = Modifier.padding(horizontal = 7.dp, vertical = 3.dp)
+                                                    )
+                                                }
                                             }
                                         }
                                     }
@@ -10708,31 +10789,31 @@ fun ChapterReaderOverlay(
                             }
                         }
 
-                        // Center YouTube Controls (10s Rewind | Large Play/Pause | 10s Forward)
+                        // Center YouTube Controls (│◀ | ❚❚ / ▶ | ▶│)
                         Row(
                             modifier = Modifier
                                 .align(Alignment.Center)
                                 .padding(horizontal = 24.dp),
                             verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(32.dp)
+                            horizontalArrangement = Arrangement.spacedBy(36.dp)
                         ) {
                             IconButton(
                                 onClick = { playbackProgress = (playbackProgress - 0.05f).coerceAtLeast(0f) },
-                                modifier = Modifier.size(48.dp)
+                                modifier = Modifier.size(52.dp)
                             ) {
                                 Icon(
-                                    imageVector = Icons.Default.Replay10,
-                                    contentDescription = "Rewind 10s",
+                                    imageVector = Icons.Default.SkipPrevious,
+                                    contentDescription = "Previous / Rewind",
                                     tint = Color.White,
                                     modifier = Modifier.size(36.dp)
                                 )
                             }
 
+                            // Large Center Play/Pause Circle Button
                             Surface(
                                 onClick = { isPlaying = !isPlaying },
                                 shape = CircleShape,
-                                color = Color(0xFF4269E8),
-                                shadowElevation = 8.dp,
+                                color = Color.Black.copy(alpha = 0.5f),
                                 modifier = Modifier.size(72.dp)
                             ) {
                                 Box(contentAlignment = Alignment.Center) {
@@ -10740,25 +10821,25 @@ fun ChapterReaderOverlay(
                                         imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
                                         contentDescription = if (isPlaying) "Pause" else "Play",
                                         tint = Color.White,
-                                        modifier = Modifier.size(42.dp)
+                                        modifier = Modifier.size(44.dp)
                                     )
                                 }
                             }
 
                             IconButton(
                                 onClick = { playbackProgress = (playbackProgress + 0.05f).coerceAtMost(1f) },
-                                modifier = Modifier.size(48.dp)
+                                modifier = Modifier.size(52.dp)
                             ) {
                                 Icon(
-                                    imageVector = Icons.Default.Forward10,
-                                    contentDescription = "Forward 10s",
+                                    imageVector = Icons.Default.SkipNext,
+                                    contentDescription = "Next / Forward",
                                     tint = Color.White,
                                     modifier = Modifier.size(36.dp)
                                 )
                             }
                         }
 
-                        // Top Bar: Back Arrow + Chapter & Video Title
+                        // Top Bar: Back Arrow + Video Title + Cast/CC/Settings
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -10769,7 +10850,7 @@ fun ChapterReaderOverlay(
                                     )
                                 )
                                 .windowInsetsPadding(WindowInsets.statusBars)
-                                .padding(horizontal = 16.dp, vertical = 12.dp),
+                                .padding(horizontal = 16.dp, vertical = 10.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             IconButton(
@@ -10777,21 +10858,21 @@ fun ChapterReaderOverlay(
                                 modifier = Modifier.size(36.dp)
                             ) {
                                 Icon(
-                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                    imageVector = Icons.Default.ExpandMore,
                                     contentDescription = "Exit Fullscreen",
                                     tint = Color.White,
-                                    modifier = Modifier.size(24.dp)
+                                    modifier = Modifier.size(28.dp)
                                 )
                             }
 
-                            Spacer(modifier = Modifier.width(12.dp))
+                            Spacer(modifier = Modifier.width(10.dp))
 
                             Column(modifier = Modifier.weight(1f)) {
                                 Text(
                                     text = chapter.videoTitle,
                                     fontFamily = OutfitDisplayFamily,
                                     fontWeight = FontWeight.Bold,
-                                    fontSize = 16.sp,
+                                    fontSize = 15.sp,
                                     color = Color.White,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis
@@ -10799,14 +10880,42 @@ fun ChapterReaderOverlay(
                                 Text(
                                     text = "CHAPTER ${chapter.chapterNumber} • ${chapter.videoInstructor}",
                                     fontFamily = InterFontFamily,
-                                    fontSize = 11.5.sp,
+                                    fontSize = 11.sp,
                                     color = Color.White.copy(alpha = 0.75f),
                                     maxLines = 1
                                 )
                             }
+
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(2.dp)
+                            ) {
+                                IconButton(onClick = {}, modifier = Modifier.size(32.dp)) {
+                                    Icon(imageVector = Icons.Default.Cast, contentDescription = "Cast", tint = Color.White, modifier = Modifier.size(20.dp))
+                                }
+                                IconButton(onClick = {}, modifier = Modifier.size(32.dp)) {
+                                    Icon(imageVector = Icons.Default.ClosedCaption, contentDescription = "Subtitles", tint = Color.White, modifier = Modifier.size(20.dp))
+                                }
+                                IconButton(
+                                    onClick = {
+                                        playbackSpeed = when (playbackSpeed) {
+                                            "0.5x" -> "0.75x"
+                                            "0.75x" -> "1.0x"
+                                            "1.0x" -> "1.25x"
+                                            "1.25x" -> "1.5x"
+                                            "1.5x" -> "1.75x"
+                                            "1.75x" -> "2.0x"
+                                            else -> "0.5x"
+                                        }
+                                    },
+                                    modifier = Modifier.size(32.dp)
+                                ) {
+                                    Icon(imageVector = Icons.Default.Settings, contentDescription = "Settings", tint = Color.White, modifier = Modifier.size(20.dp))
+                                }
+                            }
                         }
 
-                        // Bottom Control Bar: Progress Bar + Time + Fullscreen Exit Button
+                        // Bottom Control Bar: Red Progress Bar + Timestamp + Fullscreen Exit
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -10817,11 +10926,16 @@ fun ChapterReaderOverlay(
                                     )
                                 )
                                 .windowInsetsPadding(WindowInsets.navigationBars)
-                                .padding(horizontal = 16.dp, vertical = 10.dp)
+                                .padding(horizontal = 16.dp, vertical = 6.dp)
                         ) {
                             Slider(
                                 value = playbackProgress,
                                 onValueChange = { playbackProgress = it },
+                                colors = SliderDefaults.colors(
+                                    thumbColor = Color(0xFFFF0000),
+                                    activeTrackColor = Color(0xFFFF0000),
+                                    inactiveTrackColor = Color.White.copy(alpha = 0.35f)
+                                ),
                                 modifier = Modifier.fillMaxWidth()
                             )
 
@@ -10832,16 +10946,16 @@ fun ChapterReaderOverlay(
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
-                                val totalSecs = (chapter.durationMinutes * 60).coerceAtLeast(600)
+                                val totalSecs = (chapter.durationMinutes * 60).coerceAtLeast(400)
                                 val currentSecs = (playbackProgress * totalSecs).toInt()
-                                val formattedCurrent = String.format("%02d:%02d", currentSecs / 60, currentSecs % 60)
-                                val formattedTotal = String.format("%02d:%02d", totalSecs / 60, totalSecs % 60)
+                                val formattedCurrent = String.format("%d:%02d", currentSecs / 60, currentSecs % 60)
+                                val formattedTotal = String.format("%d:%02d", totalSecs / 60, totalSecs % 60)
 
                                 Text(
                                     text = "$formattedCurrent / $formattedTotal",
-                                    fontFamily = JetBrainsMonoFamily,
+                                    fontFamily = InterFontFamily,
                                     fontSize = 12.sp,
-                                    fontWeight = FontWeight.Medium,
+                                    fontWeight = FontWeight.Bold,
                                     color = Color.White
                                 )
 
@@ -10852,10 +10966,13 @@ fun ChapterReaderOverlay(
                                     Surface(
                                         onClick = {
                                             playbackSpeed = when (playbackSpeed) {
+                                                "0.5x" -> "0.75x"
+                                                "0.75x" -> "1.0x"
                                                 "1.0x" -> "1.25x"
                                                 "1.25x" -> "1.5x"
-                                                "1.5x" -> "2.0x"
-                                                else -> "1.0x"
+                                                "1.5x" -> "1.75x"
+                                                "1.75x" -> "2.0x"
+                                                else -> "0.5x"
                                             }
                                         },
                                         color = Color.White.copy(alpha = 0.2f),
@@ -10889,7 +11006,6 @@ fun ChapterReaderOverlay(
                     }
                 }
             }
-        }
 
         // Interactive "Talk to AI" Concept Tutor Sheet
         if (showTalkToAiSheet) {
@@ -11093,6 +11209,8 @@ fun ChapterReaderOverlay(
             }
         }
     }
+}
+}
 }
 
 
@@ -14455,9 +14573,7 @@ fun SnapSolveOverlay(
         }
 
     }
-
 }
-
 
 
 @Composable
