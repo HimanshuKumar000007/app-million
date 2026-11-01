@@ -4797,13 +4797,15 @@ Final Rapid Check — the Traps That Cost Marks
 ★ HIGHLIGHT — You now own the full straight-line toolkit: describe it (graphs), average it, differentiate it, integrate it, and pick the right equation in ten seconds. Chapter 3 takes every one of these ideas off the line and into the plane — vectors are next, and they are friendlier than they look.
 """.trimIndent(),
 
-            videoTitle = "Variable Acceleration & v(dv/dx) Problems for IISER IAT",
+            videoTitle = "Motion in a Straight Line \u2014 Master Lesson",
 
-            videoDurationLabel = "29:15",
+            videoDurationLabel = "8:33",
 
-            videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
+            videoInstructor = "IISER Smart Prep",
 
-            videoKeyTakeaways = "Converting x-t, v-t, and v-x graphs • Retarding motion • Free fall symmetries",
+            videoKeyTakeaways = "Displacement vs distance \u2022 v = dx/dt and a = dv/dt \u2022 x-t and v-t graphs: slopes and areas \u2022 Kinematic equations for constant acceleration \u2022 Free fall and relative velocity",
+
+            videoUrl = "https://res.cloudinary.com/dhb8qmnxt/video/upload/v1793497275/physics-ch02-motion-in-a-straight-line-master-lesson.mp4",
 
             isVideoCompleted = true
 
@@ -5001,13 +5003,15 @@ Final Rapid Check — the Traps That Cost Marks
 ★ HIGHLIGHT — Final habit, worth more than any single formula: a vector answer is a magnitude AND a direction. If your pen stops after just a number, you have answered half the question. You now think in components — and from here, forces (Chapter 4) are just vectors with a job to do.
 """.trimIndent(),
 
-            videoTitle = "2D Projectile Trajectories & Closest Approach Vectors",
+            videoTitle = "Motion in a Plane \u2014 Master Lesson",
 
-            videoDurationLabel = "34:20",
+            videoDurationLabel = "9:27",
 
-            videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
+            videoInstructor = "IISER Smart Prep",
 
-            videoKeyTakeaways = "Velocity perpendicularity time t = u/(g sin θ) • River crossing drift minimization • Radius of curvature",
+            videoKeyTakeaways = "Vector addition and resolution \u2022 Resultant of two vectors \u2022 Projectile motion: time of flight, height and range \u2022 Circular motion \u2022 Relative velocity",
+
+            videoUrl = "https://res.cloudinary.com/dhb8qmnxt/video/upload/v1793499168/physics-ch03-motion-in-a-plane-master-lesson.mp4",
 
             isVideoCompleted = false
 
@@ -5259,13 +5263,15 @@ Chapter Summary and Revision Checklist
 • Self-assessment — answer honestly: (1) A frame accelerates rightward. Which way does the pseudo force act on a body inside it? (2) A block rests on a 20° incline with μ_s = 0.5. Does it slide, and what is the friction? (3) For a string-swing vertical circle, what physical event sets the minimum top speed? (4) Why can't action and reaction cancel? (5) On which body does the friction that walks you forward act, and which way does it point? (Answers: (1) leftward — opposite the frame's acceleration. (2) tan 20° ≈ 0.36 < 0.5, so no slide; friction self-adjusts to mg sin 20° up-slope, NOT μ_s N. (3) Tension falling to zero — the string going slack. (4) They act on different bodies; cancellation needs one body. (5) On YOU (from the ground), pointing forward.)
 """.trimIndent(),
 
-            videoTitle = "Wedge-Pulley Constraints, Two-Block Friction & Banking Dynamics",
+            videoTitle = "Laws of Motion \u2014 Master Lesson",
 
-            videoDurationLabel = "38:10",
+            videoDurationLabel = "10:33",
 
-            videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
+            videoInstructor = "IISER Smart Prep",
 
-            videoKeyTakeaways = "Virtual work string constraints • Two-block slipping threshold • Conical pendulum dynamics",
+            videoKeyTakeaways = "Newton's laws and F = ma \u2022 Free-body diagrams \u2022 Connected bodies and the Atwood machine \u2022 Friction and the angle of repose \u2022 Impulse and momentum",
+
+            videoUrl = "https://res.cloudinary.com/dhb8qmnxt/video/upload/v1793501080/physics-ch04-laws-of-motion-master-lesson.mp4",
 
             isVideoCompleted = true
 
@@ -5522,13 +5528,15 @@ Summary and Revision Checklist
 ★ HIGHLIGHT — The chapter in one sentence: energy is the ledger, work is the transfer, power is the rate — and every problem in this chapter is bookkeeping with the correct account, the correct sign, and the correct conservation condition.
 """.trimIndent(),
 
-            videoTitle = "Potential Energy Landscapes, Vertical Loops & Oblique Collisions",
+            videoTitle = "Work, Energy and Power \u2014 Master Lesson",
 
-            videoDurationLabel = "36:45",
+            videoDurationLabel = "10:33",
 
-            videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
+            videoInstructor = "IISER Smart Prep",
 
-            videoKeyTakeaways = "Finding oscillation frequency near potential minima • Center-of-mass frame collisions • Power P = F · v",
+            videoKeyTakeaways = "Work and the work-energy theorem \u2022 Kinetic energy and potential energy \u2022 Variable-force work as the F-x graph area \u2022 Conservation of mechanical energy \u2022 Power and collisions",
+
+            videoUrl = "https://res.cloudinary.com/dhb8qmnxt/video/upload/v1793503057/physics-ch05-work-energy-and-power-master-lesson.mp4",
 
             isVideoCompleted = false
 
@@ -5792,13 +5800,15 @@ Chapter Summary and Revision Checklist
 • Self-assessment — answer honestly: (1) A ring's COM is at its centre — but there is no mass there. What exactly is "at" the centre, then? (2) A skater pulls her arms in and her KE rises. Which conservation law survived, and who paid for the energy? (3) Starting from ML²/12, produce the rod's ML²/3 about its end in one line. (4) Two identical discs roll and slide — one rolls without slipping, one slides frictionlessly — down the same incline. Which arrives first, and why does the rolling one "waste" time if friction does no work? (5) A particle flies in a straight line past a point O. Is its angular momentum about O zero, constant, or changing? (Answers: (1) the mass-weighted average position — a property of the distribution, not a piece of matter. (2) Angular momentum; the skater's muscles, doing work against the outward pull as she draws mass inward. (3) ML²/12 + M(L/2)² = ML²/3 by the parallel axis theorem. (4) The sliding disc — all of mgh becomes translation; the rolling disc must share with rotation, and the sharing is enforced by static friction's torque, which transfers energy between the two forms without dissipating any. (5) Constant — L = p × perpendicular distance to the line, and that distance never changes.)
 """.trimIndent(),
 
-            videoTitle = "Angular Momentum Conservation & Rolling Dynamics in IAT",
+            videoTitle = "System of Particles and Rotational Motion \u2014 Master Lesson",
 
-            videoDurationLabel = "43:50",
+            videoDurationLabel = "12:25",
 
-            videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
+            videoInstructor = "IISER Smart Prep",
 
-            videoKeyTakeaways = "Choosing the right pivot to eliminate impulsive friction • IAOR energy shortcuts • Cavity moment of inertia",
+            videoKeyTakeaways = "Centre of mass \u2022 Conservation of momentum \u2022 Torque and angular momentum \u2022 Moment of inertia and the parallel axis theorem \u2022 Rolling without slipping",
+
+            videoUrl = "https://res.cloudinary.com/dhb8qmnxt/video/upload/v1793505251/physics-ch06-rotational-motion-master-lesson.mp4",
 
             isVideoCompleted = true,
 
@@ -6032,13 +6042,15 @@ Chapter Summary and Revision Checklist
 • Where to revisit if an answer stalled: (1) satellite energy section (2) field-versus-potential and the depth rule (3) binding energy (4) the g-variation section (5) g = GM/R² and v_e = √(2GM/R). Then send the Chapter 8 syllabus when you are ready — gravity's story continues into solids and fluids.
 """.trimIndent(),
 
-            videoTitle = "Spherical Cavities, Elliptical Orbits & Kepler's Laws",
+            videoTitle = "Gravitation \u2014 Master Lesson",
 
-            videoDurationLabel = "33:15",
+            videoDurationLabel = "10:45",
 
-            videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
+            videoInstructor = "IISER Smart Prep",
 
-            videoKeyTakeaways = "Uniform field inside off-center spherical cavity • Perigee-apogee conservation equations • Binary star orbits",
+            videoKeyTakeaways = "Kepler's laws \u2022 Newton's law of gravitation \u2022 Field, potential and potential energy \u2022 How g varies with height and depth \u2022 Orbital and escape speeds",
+
+            videoUrl = "https://res.cloudinary.com/dhb8qmnxt/video/upload/v1793513150/physics-ch07-gravitation-master-lesson.mp4",
 
             isVideoCompleted = false
 
@@ -6274,13 +6286,15 @@ Chapter Summary and Revision Checklist
 • Self-assessment — answer honestly: (1) A wire's diameter is doubled at the same load — by what factor do its stress and its extension change, and why are the two factors equal? (2) A material fractures just after its elastic limit with no yield point — sketch its curve and name its personality. (3) Why do liquids have exactly one modulus? (4) A computed Poisson's ratio comes out 0.9 — what do you conclude before anything else? (5) Where does the ½ in U = ½ F ΔL come from? If any answer stalls, revisit: (1) stress and Young's modulus sections, (2) the curve section, (3) the bulk modulus section, (4) the mistakes section, (5) the energy section. (Answers: (1) both fall to one-fourth — stress drops because area quadruples, and extension follows strain, which follows stress; (2) brittle; (3) they cannot sustain length or shear, only volume change; (4) an arithmetic slip — σ above 0.5 is impossible for ordinary isotropic solids; (5) the force grows linearly from zero, so the average force during stretching is F/2.)
 """.trimIndent(),
 
-            videoTitle = "Elasticity, Thermal Stress & Composite Rod Systems",
+            videoTitle = "Mechanical Properties of Solids \u2014 Master Lesson",
 
-            videoDurationLabel = "25:30",
+            videoDurationLabel = "13:34",
 
-            videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
+            videoInstructor = "IISER Smart Prep",
 
-            videoKeyTakeaways = "Spring analogy for series/parallel rods • Self-weight integration • Bulk modulus in acoustics",
+            videoKeyTakeaways = "Stress and strain \u2022 Hooke's law and the stress-strain curve \u2022 Young's, shear and bulk moduli \u2022 Poisson's ratio \u2022 Elastic potential energy",
+
+            videoUrl = "https://res.cloudinary.com/dhb8qmnxt/video/upload/v1793508250/physics-ch08-mechanical-properties-of-solids-master-lesson.mp4",
 
             isVideoCompleted = false
 
@@ -6544,13 +6558,15 @@ Chapter Summary and Revision Checklist
 • Self-assessment — answer honestly: (1) Why does pressure at a point in a static fluid act equally in all directions? (2) A hydraulic press multiplies force 50 times — what happens to the distance the load moves, and why must it? (3) Why exactly does pressure fall in a Venturi throat — answer with energy, not intuition. (4) A sphere of double radius falls through the same liquid: how do drag at a given speed and terminal velocity each change? (5) Two connected soap bubbles, one small, one large: which empties into which, and what formula decides? If any answer stalls, revisit: (1) the Pressure section, (2) Hydraulic Machines, (3) Bernoulli's Principle, (4) Stokes' Law, (5) Excess Pressure.
 """.trimIndent(),
 
-            videoTitle = "Bernoulli's Theorem, Coalescing Bubbles & Capillary Physics",
+            videoTitle = "Mechanical Properties of Fluids \u2014 Master Lesson",
 
-            videoDurationLabel = "37:20",
+            videoDurationLabel = "11:30",
 
-            videoInstructor = "Prof. R. Subramanian (IISER Mohali)",
+            videoInstructor = "IISER Smart Prep",
 
-            videoKeyTakeaways = "Free surface slope tan θ = a/g • Radius of interface of two soap bubbles • Viscous energy dissipation",
+            videoKeyTakeaways = "Pressure and hydrostatic pressure \u2022 Pascal's law and hydraulic machines \u2022 Continuity and Bernoulli's equation \u2022 Viscosity and Stokes' law \u2022 Terminal velocity",
+
+            videoUrl = "https://res.cloudinary.com/dhb8qmnxt/video/upload/v1793510713/physics-ch09-mechanical-properties-of-fluids-master-lesson.mp4",
 
             isVideoCompleted = false
 
